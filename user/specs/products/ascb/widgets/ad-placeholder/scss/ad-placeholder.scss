@@ -1,0 +1,47 @@
+.adplaceholder {
+  position: relative;
+  width: 100%;
+
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  border: none;
+
+
+  &:before{
+    content: "";
+    display: block;
+    padding-top: 100%;  /* ratio of 1:1*/
+  }
+
+  &.exists, &.exists {
+    border: none;
+  }
+
+  &__text {
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--sm {
+    &:before{
+      content: "";
+      display: block;
+      padding-top: 50%;  /* ratio of 1:2*/
+    }
+    .adplaceholder__text{
+      line-height: normal;
+      font-size: 18px;
+    }
+  }
+}

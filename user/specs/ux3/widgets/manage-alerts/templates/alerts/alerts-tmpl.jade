@@ -1,0 +1,32 @@
+form.alert__content(method="post" action="/action/doUpdateAlertSettings")
+    input(type="hidden" name="action" value="removeAlert")
+
+
+    h5.profile__heading.border-bottom Title A-Z
+    table.alert__list
+        tbody
+            tr
+                td.table__mark
+                    label.checkbox--primary
+                        input.jcf(type="checkbox" name="markall" )
+                td
+                    label Select All
+            each item, l in data
+                tr
+                   if(item.content && item.content.code)
+                     td.table__mark
+                         label.checkbox--primary
+                             input(type="checkbox" id="check-"+item.content.code name="bookSeriesCode" value=item.content.code)
+                             span.label-txt
+                                 a(href=item.content.journalUrl) !{item.content.title}
+                     td
+                         label(for="check-"+item.content.code)
+                             if(item.content.bookSeriesUrl && item.content.title)
+                               a(href=item.content.bookSeriesUrl) !{item.content.title}
+
+    button.btn.btn__transparent.btn-alert__transparent(type="submit") Delete
+
+
+
+
+

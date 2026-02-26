@@ -1,0 +1,147 @@
+.pbArticleView(data-widget-def='articleView', data-widget-id=thisWidget.id)
+    article.dashboard-article
+        form(action="#", method="post")
+
+            // Submission Info Accordion
+            div.accordion
+                a.accordion__control(href="#" title="Submission Info" aria-expanded="false" aria-controls="submissionInfoContent")
+                    span Submission Info
+                    i.icon-section_arrow_d(aria-hidden="true")
+
+                .accordion__content(id="submissionInfoContent")
+                    .accordion__section
+                        h4.border-bottom Submission Metadata
+                        .row
+                            .col-md-6
+                                .row
+                                    .col-md-5
+                                        h5.dashboard-article__label Content Type
+                                    .col-md-7
+                                        | Article
+                                .row
+                                    .col-md-5
+                                        h5.dashboard-article__label Licence
+                                    .col-md-7
+                                        | Example License
+                                .row
+                                    .col-md-5
+                                        h5.dashboard-article__label Submitted to
+                                    .col-md-7
+                                        | AGU Journal
+
+                            .col-md-6
+                                .row
+                                    .col-md-5
+                                        h5.dashboard-article__label Primary Subject Category
+                                    .col-md-7
+                                        | Geophysics
+                                .row
+                                    .col-md-5
+                                        h5.dashboard-article__label Additional Keywords
+                                    .col-md-7
+                                        | Geoscience, Geophysics, soil
+
+                    .accordion__section
+                        .funders
+                            h4.border-bottom Funders
+
+                            .table-responsive.funders__table.table-actions
+                                table(class='expandable separator')
+                                    thead
+                                        tr
+                                            th Funders
+                                            th Grant number
+                                            th Recipient
+
+                                    tbody
+                                        tr.expanded
+                                            td.funder-td(data-thead="Funders")
+                                                div.td-text Department of Energy
+                                            td.grant-number-td.to_hide(data-thead="Grant number")
+                                                div.td-text DE-6734-48855
+                                            td.recipient-funder-td.to_hide(data-thead="Recipient")
+                                                div.td-text Jet Propulsion
+                                        tr.expanded
+                                            td.funder-td(data-thead="Funders")
+                                                div.td-text Department of Energy
+                                            td.grant-number-td.to_hide(data-thead="Grant number")
+                                                div.td-text DE-6734-48855
+                                            td.recipient-funder-td.to_hide(data-thead="Recipient")
+                                                div.td-text Jet Propulsion
+
+
+            .row
+                .col-xs-12.col-md-6
+                    h5.dashboard-article__label
+                        | !{data.type} Title
+                    .dashboard-article__title
+                        if (data && data.title)
+                            | !{data.title}
+
+                .col-xs-12.col-md-6
+                    h5.dashboard-article__label
+                        | Received
+                    .dashboard-article__value
+                        if (data && data.submissionDate)
+                            | !{data.submissionDate}
+            .row
+                .col-xs-12
+                    h5.dashboard-article__label
+                        | Authors
+                    .dashboard-article__value
+                        if (data && data.authors)
+                            each author , i in data.authors
+                                if i>0
+                                    | #{", "}
+                                | !{author.firstName} !{author.lastName}
+
+            .row
+                .col-xs-12
+                    h5.dashboard-article__label
+                        | Abstract
+                    .dashboard-article__value
+                        if (data && data.abstract)
+                            | !{data.abstract}
+
+            if (data && ((data.files && data.files.length) || (data.links && data.links.length)))
+                .row
+                    .col-xs-12
+                        h5.dashboard-article__label
+                            | Supplementary Files and Links
+                        .dashboard-article__value
+                            table.supplemental-files
+                                thead
+                                    tr
+                                        th Description
+                                        th File Name
+                                tbody
+                                    if (data.files)
+                                        each file , i in data.files
+                                            tr
+                                                td #{file.label}
+                                                td
+                                                    if (file.link)
+                                                        a(href=file.link, title=file.label) #{file.name}
+                                                    else
+                                                        | #{file.name}
+                                    if (data.links)
+                                        each link , i in data.links
+                                            tr
+                                                td #{link.label}
+                                                td
+                                                    if (link.link)
+                                                        a(href=link.link, title=link.label) #{link.name}
+                                                    else
+                                                        | #{link.name}
+
+            .row
+                .col-xs-12
+                    if (data && data.pdfLink && data.pdfLink!="")
+                        a.link.pull-right(href=data.pdfLink) Download PDF
+                        h5.dashboard-article__label
+                            | Article PDF
+                    if (data && data.inlinePdfLink && data.inlinePdfLink!="")
+                        .pdf-viewer
+                            object(data=data.inlinePdfLink, type="application/pdf", width="100%", height="740px")
+                                if (data && data.pdfLink)
+                                    a.link.pull-right(href=data.pdfLink) Download PDF

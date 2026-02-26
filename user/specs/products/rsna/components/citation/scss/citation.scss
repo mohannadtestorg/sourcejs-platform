@@ -1,0 +1,40 @@
+.citation {
+    &__top {
+        padding: 10px 0px 0px 0px;
+        margin-top: 0px;
+
+        i {
+            font-size: $h6-font-size;
+            margin-right: 0px;
+            vertical-align: text-bottom;
+        }
+    }
+
+    &__title {
+        color: $primary-link-color;
+        margin-bottom: 10px;
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    &__subtitle {
+        font-size: $h6-font-size;
+    }
+
+    &__access {
+        &__type {
+            margin-left: 5px;
+
+            &:empty {
+                display: none;
+            }
+
+            .article--res & {
+                display: inline-block;
+            }
+        }
+
+    }
+}

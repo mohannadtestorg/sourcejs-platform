@@ -1,0 +1,221 @@
+.CustomeHeader,.returningUser {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.checkoutMethod {
+  font-weight: bold;
+}
+
+.checkoutList .actions {
+  margin-top: 0;
+}
+
+.return-user-container {
+  width: 40%;
+  float: left;
+  .checkout-expand {
+    clear: both;
+    margin-top: 35px;
+  }
+}
+
+.createAccountContainer {
+  span {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  input {
+    display: block;
+    margin-top: 16px;
+    width: 100%;
+    height: 38px;
+  }
+}
+
+.checkoutMethod {
+  .button {
+    height: 38px;
+    margin-bottom: 38px;
+    float: right;
+  }
+}
+
+.Identity-divider {
+  width: 2px;
+  background-color: #666;
+  height: 362px;
+  position: relative;
+  left: 10%;
+  margin-top: 53px;
+  float: left;
+}
+
+.register-guest {
+  width: 44%;
+  float: right;
+}
+
+.billingAddress {
+  width: 80%;
+}
+
+.helpers {
+  font-size: 10px;
+  span {
+    color: $red;
+  }
+}
+
+.actions{
+  .button {
+    height: 38px;
+    margin-bottom: 38px;
+    width: 100%;
+  }
+}
+
+.PO-box {
+  font-size: 20px;
+  margin-top: 15px;
+  .PO {
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: text-top;
+  }
+}
+
+.billing-labels {
+  display: inline-block;
+  span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+}
+
+.billing-data {
+  display: inline-block;
+  margin-left: 40px;
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+}
+
+div {
+  &.input-group {
+    .label {
+      display: block;
+    }
+    &.credit-card-date-field {
+      select, .jcf-select {
+        display: inline;
+        margin-right: 10px;
+      }
+    }
+    &.sec-num-field {
+      clear: both;
+      margin-top: 40px;
+      input {
+        width: 62.6%;
+        float: right;
+      }
+    }
+  }
+}
+
+.place-order {
+  width: 100%;
+}
+
+.confirmationMessage {
+  border: 1px solid $black;
+  padding: 15px;
+  margin: 5px 0;
+}
+
+.newUser{
+  &.btn{
+    padding: 0;
+    margin-top: 15px;
+    width: 100%;
+    input {
+      width: 100%;
+      margin: 0;
+      padding: 0 26px;
+      font-weight: 500
+    }
+  }
+}
+.register-guest {
+  .checkoutMethod {
+    float: right;
+    margin: 0 !important;
+    .button {
+      &.primary {
+        padding: 0 26px;
+        color: $white;
+        background: $primary-bg-color;
+      }
+    }
+  }
+}
+
+.show-request-reset-password {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.billingPayment {
+  label {
+    display: inline;
+  }
+}
+
+.reenter-email,.state-field {
+  margin-bottom: 0;
+}
+
+div[data-notification="realNumber"],.sec-num-field {
+  #realNumber,#secNumber {
+    &.invalid-card {
+      border-color: #EF4623;
+    }
+  }
+}
+
+.invalid-cc {
+  font-size: 12px;
+  display: inline;
+  color: #ef4623;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.creditCarPayment{
+  .actions {
+    .place-order:disabled {
+      background-color: #DDDDDD;
+    }
+  }
+}
+
+.emails-wrappers {
+  .email {
+    .add {
+      display: inline-block;
+    }
+  }
+}
+
+@include media('<tablet'){
+  .checkoutMethod {
+    width: 100%;
+    .CustomeHeader,.returningUser {
+      width: 100%;
+    }
+  }
+}

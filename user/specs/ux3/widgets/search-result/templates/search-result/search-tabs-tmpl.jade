@@ -1,0 +1,55 @@
+- var groupTabsPath = data.widgetData.groupTabs
+
+
+div.search-result__nav
+    if (data) && (data.widgetData) && (groupTabsPath)
+
+        if (groupTabsPath.articlesChapters)
+            if (groupTabsPath.articlesChapters.enabled == "true") || (groupTabsPath.articlesChapters.enabled == "active")
+                - var classes = "search-result__nav__item"
+                if groupTabsPath.articlesChapters.active == "true"
+                    - classes = "search-result__nav__item active"
+                block articleTabLabel
+                    a(class= classes href= groupTabsPath.articlesChapters.link) !{groupTabsPath.articlesChapters.label}
+
+        if (groupTabsPath.titleSearch)
+            if (groupTabsPath.titleSearch.enabled == "true") || (groupTabsPath.titleSearch.enabled == "active")
+                - var classes = "search-result__nav__item"
+                if groupTabsPath.titleSearch.active == "true"
+                    - classes = "search-result__nav__item active"
+                a(class= classes href= groupTabsPath.titleSearch.link) !{groupTabsPath.titleSearch.label}
+
+        if (groupTabsPath.story)
+            if (groupTabsPath.story.enabled == "true") || (groupTabsPath.story.enabled == "active")
+                - var classes = "search-result__nav__item"
+                if groupTabsPath.story.active == "active"
+                    - classes = "search-result__nav__item active"
+                a(class= classes href= groupTabsPath.story.link) !{groupTabsPath.story.label}
+
+        if (groupTabsPath.digitalObjectSearch)
+            if (groupTabsPath.digitalObjectSearch.enabled == "true") || (groupTabsPath.digitalObjectSearch.enabled == "active")
+                - var classes = "search-result__nav__item"
+                if groupTabsPath.digitalObjectSearch.active == "true"
+                    - classes = "search-result__nav__item active"
+                a(class= classes href=groupTabsPath.digitalObjectSearch.link) !{groupTabsPath.digitalObjectSearch.label}
+
+        if (groupTabsPath.journalTitle)
+            if (groupTabsPath.journalTitle.enabled == "true") || (groupTabsPath.journalTitle.enabled == "active")
+                - var classes = "search-result__nav__item"
+                if groupTabsPath.journalTitle.active == "true"
+                    - classes = "search-result__nav__item active"
+                block publicationTabLabel
+                    a(class= classes href= groupTabsPath.journalTitle.link) !{groupTabsPath.journalTitle.label}
+
+        if (groupTabsPath.bookTitle)
+            if (groupTabsPath.bookTitle.enabled == "true") || (groupTabsPath.bookTitle.enabled == "active")
+                - var classes = "search-result__nav__item"
+                if groupTabsPath.bookTitle.active == "true"
+                    - classes = "search-result__nav__item active"
+                block publicationTabLabel
+                    a(class= classes href= groupTabsPath.bookTitle.link)  !{groupTabsPath.bookTitle.label}
+
+
+        block extraTabs
+
+

@@ -1,0 +1,121 @@
+.subject__page {
+  .related__collections {
+    &__body {
+      a:not(.btn) {
+        color: $aha_red;
+      }
+    }
+  }
+
+
+  .search {
+    &-result {
+      &__meta {
+        .advancedSearch__tabs {
+          &__nav {
+            .active a {
+              color: $aha_red;
+              border-color: $aha_red;
+            }
+          }
+        }
+      }
+      &__refine {
+        &.js--open {
+          border-color: $aha_red;
+          color: $aha_red;
+        }
+      }
+      [data-db-target-of] {
+        li {
+          &:hover {
+            color: $aha_red;
+          }
+        }
+      }
+
+      @include media('<tablet') {
+        &__meta {
+          padding-right: 0;
+          background: transparent;
+          &__top {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+            >div {
+              line-height: 18px;
+              background: #F1F1F1;
+              float: left;
+              font-size: 18px;
+              color: #000000;
+              width: 50%;
+              padding:15px 0;
+              >a {
+                line-height: normal;
+                font-size: 18px;
+                text-transform: capitalize;
+                padding: 0px 15px;
+                font-weight: 400;
+                font-family: HelveticaNeueCondensedBold;
+              }
+            }
+            .search {
+              &__result {
+                i {
+                  color: $aha_black;
+                }
+              }
+              &__bottom {
+                .result__ctrl__filters {
+                  width:initial;
+                  border-color: $aha_grey;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__item {
+      .meta {
+        &__title {
+          color: $aha_red;
+        }
+      }
+    }
+
+
+  }
+
+
+
+  .search__sort {
+    >a {
+      span {
+        color: $aha_red;
+      }
+      &.js--open {
+        border-color: $aha_red;
+        color: $aha_red;
+      }
+    }
+  }
+
+  .facet {
+
+    &__label {
+      color: $aha_red;
+    }
+
+    .show-more {
+      color: $aha_red;
+    }
+
+  }
+
+
+
+
+}

@@ -1,0 +1,38 @@
+block labels
+    - creditsLabel = "Credits Earned: "
+    - examActivityLabel = "Your Exam Activity"
+    - availableExamsLabel = "Browse Available Exams"
+    - linkIcon = "icon-arrow_r"
+    - loginLabel = "Please <strong>sign in</strong> to view your exam activity"
+
+if (data && data.session)
+    div.my-exams
+        block loggedIn
+            if (data.session.person)
+                //- As long as the user is logged in, display their credits.
+                block examCredits
+                    if (data.creditSum)
+                        - creditSum = data.creditSum
+                    else
+                        - creditSum = 0
+                    div.my-exams__credit !{creditsLabel} !{creditSum}
+
+                //- Only display a link to exam activity if the user has some. This will include exams that were attempted but not passed.
+                block examActivity
+                    if (data.session.person.examActivity.length > 0 && data.showExamsActivity)
+                        div.my-exams__activity
+                            a(href=data.showExamsActivity)
+                                span !{examActivityLabel}
+                                i(class=linkIcon)
+
+        block loggedOut
+            if (!data.session.person)
+                div.my-exams__sign-in
+                    a(href="/action/showLogin" class="show-login") !{loginLabel}
+
+        block availableExams
+            if(data.showExams)
+                div.my-exams__available
+                    a(href=data.showExams)
+                        span !{availableExamsLabel}
+                        i(class=linkIcon)

@@ -1,0 +1,95 @@
+.slideShow {
+
+  .owl-next, .owl-prev {
+    span {
+      display: none;
+    }
+    i {
+      display: inline-block;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+  }
+  .owl-carousel {
+    .owl-dots {
+      @include media('>=desktop'){
+        display: none;
+      }
+
+      .owl-dot {
+        span {
+          border: 1px solid $tertiary-darken-color;
+          background-color: transparent;
+
+        }
+        &.active, &:hover, &:focus {
+          span {
+            background-color: $tertiary-darken-color;
+          }
+        }
+      }
+
+    }
+
+    .owl-nav {
+      [class*=owl-] {
+        background-color: transparent;
+        &:hover, &:focus {
+          background-color: transparent !important;
+        }
+      }
+
+      .owl-nav-active {
+        i {
+          color: $white;
+        }
+      }
+    }
+  }
+
+}
+
+.circular-arrows {
+  .owl-carousel {
+    .owl-nav {
+      [class*=owl-] {
+        border-radius: 50%;
+        color: $black;
+        padding: 15px 20px;
+        box-shadow: 2px 2px 2px 2px rgba($black, .2);
+        background: $white;
+
+        &:hover, &:focus {
+          background-color: $white !important;
+        }
+
+        @include media('<desktop'){
+          display: none;
+        }
+      }
+
+      .owl-nav-active {
+        i {
+          color: $black;
+        }
+      }
+
+      .owl-prev {
+        margin-left: -15px;
+      }
+      .owl-next {
+        margin-right: -15px;
+      }
+    }
+  }
+
+
+  .owl-next, .owl-prev {
+    i {
+      color: $black;
+      font-size: .75rem;
+    }
+  }
+}
+
+

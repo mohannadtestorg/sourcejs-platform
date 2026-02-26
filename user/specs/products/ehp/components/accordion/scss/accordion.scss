@@ -1,0 +1,41 @@
+.accordion {
+    &__control {
+        i[class*=icon-]:first-child {
+            margin-left: 0;
+            margin-right: 5px;
+        }
+    }
+    &-tabbed {
+        &__tab {
+
+            &:not(:first-child) {
+                border-top-color: $separators-color;
+            }
+        }
+
+        &__control {
+            @include make-link(
+                    $link-color: $primary-text-color,
+                    $link-hover-color: $secondary-text-color,
+                    $link-decoration: none,
+                    $link-hover-decoration: none,
+                    $link-focus-outline: none
+            );
+        }
+
+        &__content {
+            border-width: 0;
+        }
+    }
+}
+
+.loa-accordion {
+    .accordion-tabbed__tab {
+
+        border-top: 1px solid $separators-color;
+
+        &:last-child {
+            border-bottom: 1px solid $separators-color;
+        }
+    }
+}

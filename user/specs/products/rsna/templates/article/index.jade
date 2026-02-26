@@ -1,0 +1,23 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+mixin getPage()
+    | !{data.header}
+    | !{pb.render("publication-content", "demo/article", data.content)}
+    | !{data.footer}
+
+block content
+
+    h1 Article page
+
+    section.source_section
+        h2 Article page (Radiology)
+        .source_example
+            .jrnl-radiology
+                +getPage()
+
+    section.source_section
+        h2 Article page (RadioGraphics)
+        .source_example
+            .jrnl-radiographics
+                +getPage()
+    | #{''}

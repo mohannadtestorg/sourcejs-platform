@@ -1,0 +1,103 @@
+.creative-work {
+    @include default-box-shadow();
+    padding: $default-inner-padding-y $default-inner-padding-x 0 $default-inner-padding-x;
+    overflow: hidden;
+
+    &__title {
+        &.min-height {
+            @include media('<tablet') {
+                height: auto;
+            }
+        }
+    }
+
+    & a:hover &__title {
+        color: $creative-title-color;
+    }
+
+    .section__header.border-bottom + & {
+        margin-top: -20px;
+    }
+
+    a {
+        @include make-default-link();
+    }
+    p a {
+        @include make-primary-link();
+    }
+
+    &__img {
+        margin: (-$default-inner-padding-y) (-$default-inner-padding-x) (10px) (-$default-inner-padding-x);
+        max-width: calc(100% + #{$default-inner-padding-x}*2);
+        height: auto;
+    }
+}
+
+// list of teasers
+.lot {
+
+    // in grid
+    #{$grid-block} & {
+        @include default-box-shadow();
+        @include clearfix();
+        @include make-column-padding();
+        @include make-column-padding($property: margin);
+        margin-bottom: 30px;
+    }
+
+    .creative-work {
+        box-shadow: none;
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom-width: 2px;
+        border-bottom-color: $separators-color;
+        overflow: visible;
+
+        a {
+            @include make-primary-link();
+        }
+        .loa {
+            a {
+                @include make-default-link();
+            }
+        }
+        .parent-item, time {
+            display: inline-block;
+            font-size: 1rem;
+        }
+        &__img {
+            margin: 0;
+            max-width: 100%;
+        }
+    }
+
+    // no space after nice heading
+    .section__header.border-bottom + & {
+        margin-top: -20px;
+    }
+
+    // featured
+    .featured & {
+        .grid-item {
+            &:first-child {
+                .creative-work {
+                    &__title {
+                        &.min-height {
+                            height: auto;
+                        }
+                    }
+                    &__img {
+                        margin: (-$default-inner-padding-y) (-$grid-gutter-width) 0;
+                        max-width: calc(100% + #{$grid-gutter-width}*2);
+                    }
+                }
+            }
+        }
+    }
+
+    // this component in tab
+    .journal-home__tab & {
+
+    }
+}

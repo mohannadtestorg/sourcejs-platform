@@ -1,0 +1,23 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../../../variables/aliases/colors.yaml
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:

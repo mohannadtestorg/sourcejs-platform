@@ -1,0 +1,69 @@
+.o-colset-1-2-3.o-colset-1-2-3--gridlines.o-colset-1-2-3--gridlines-cols
+    form.o-col.m-filter-form
+        .m-filter-form__fieldset(role='group')
+            legend.m-filter-form__legend Find by Volume and Issue
+
+            ol.m-filter-form__list
+                li.m-filter-form__item
+                    label.m-filter-form__label(for='issue_filter_volume') Volume
+
+                    input#issue_filter_volume.m-filter-form__input(type='text', name='issue_filter_volume', placeholder='Vol.')
+
+                li.m-filter-form__item
+                    label.m-filter-form__label(for='issue_filter_number') Number
+
+                    input#issue_filter_number.m-filter-form__input(type='text', name='issue_filter_number', placeholder='No.')
+
+            p.m-filter-form__btns
+                button.a-btn.a-btn--icon-only(aria-label='Search')
+                    svg.icon--arrow
+                        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+    form.o-col.m-filter-form
+        .m-filter-form__fieldset(role='group')
+            legend.m-filter-form__legend Find by Date
+
+            ol.m-filter-form__list
+                li.m-filter-form__item
+                    span.a-form-select
+                        select#search_type
+                            option Month
+
+                            option Jan
+
+                            option Feb
+
+                            option Mar
+
+                            option Apr
+
+                            option May
+
+                            option Jun
+
+                            option Jul
+
+                            option Aug
+
+                            option Sep
+
+                            option Oct
+
+                            option Nov
+
+                            option Dec
+
+                li.m-filter-form__item
+                    label.m-filter-form__label(for='issue_filter_day') Day
+
+                    input#issue_filter_day.m-filter-form__input(type='number', name='issue_filter_day', placeholder='Day', maxlength='2', min='0', max='31')
+
+                li.m-filter-form__item
+                    label.m-filter-form__label(for='issue_filter_year') Year
+
+                    input#issue_filter_year.m-filter-form__input(type='number', name='issue_filter_year', placeholder='Year', maxlength='4', min='0', max='9999')
+
+            p.m-filter-form__btns
+                button.a-btn.a-btn--icon-only(aria-label='Search')
+                    svg.icon--arrow
+                        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')

@@ -1,0 +1,164 @@
+/***
+
+```
+<nav class="m-quick-links">
+  <ul class="m-quick-links__list f-ui">
+    <li class="m-quick-links__item"><a href="#"><em>12</em> References</a></li>
+    <li class="m-quick-links__item"><a href="#"><em>9</em> Citing articles</a></li>
+    <li class="m-quick-links__item"><a href="#"><em>3</em> Comments</a></li>
+    <li class="m-quick-links__item"><a href="#"><svg class="icon--poll" aria-hidden="true"><use xlink:href="#icon--poll" /></svg>Poll</a></li>
+  </ul>
+  <p class="m-quick-links__note f-ui"><a href="#section_key_clinical_points">Key Clinical Points</a></p>
+</nav>
+```
+
+***/
+/***
+
+```
+<nav class="m-quick-links">
+  <ul class="m-quick-links__list f-ui">
+    <li class="m-quick-links__item"><a href="#"><em>12</em> References</a></li>
+    <li class="m-quick-links__item"><a href="#"><em>9</em> Citing articles</a></li>
+    <li class="m-quick-links__item"><a href="#"><em>3</em> Comments</a></li>
+  </ul>
+  <div class="m-quick-links__note f-ui">
+    <span aria-title="Audio Summary" class="a-dropdown a-dropdown--top-arrow" data-behavior="Dropdown">
+      <strong><svg class="icon--audio" aria-hidden="true"><use xlink:href="#icon--audio" /></svg>Audio Summary</strong>
+      <ul>
+        <li><a href="#">Listen</a></li>
+        <li><a href="#">Download</a></li>
+      </ul>
+    </span>
+  </div>
+</nav>
+```
+
+***/
+
+.m-quick-links {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  padding-top: 12px;
+
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row nowrap;
+    padding-top: 20px;
+  }
+}
+
+.m-quick-links::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-quick-links:empty{
+  display: none;
+}
+
+.m-quick-links__list {
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    display: flex;
+    flex: 1 0 auto;
+    flex-flow: row nowrap;
+  }
+}
+
+.m-quick-links__item {
+
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+    margin-left: 20px;
+  }
+}
+
+.m-quick-links__item:first-child {
+  @include breakpoint('medium+') {
+    margin-left: 0;
+  }
+}
+
+.m-quick-links__item > a {
+  color: $color__link-primary;
+}
+
+.m-quick-links__item > a:hover {
+  text-decoration: underline;
+}
+
+.m-quick-links__item > a svg {
+  position: relative;
+  top: -2px;
+  margin-right: 4px;
+  color: $color__text--quaternary;
+  vertical-align: middle;
+}
+
+.m-quick-links__list em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.m-quick-links__note {
+  display: block;
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+  }
+}
+
+.m-quick-links__note .a-dropdown {
+  display: inline-block;
+  border: 0 none;
+}
+
+.m-quick-links__note .a-dropdown > em,
+.m-quick-links__note .a-dropdown > strong {
+  height: 24px;
+  padding-right: 13px;
+  padding-left: 0;
+  color: $color__link-primary;
+  line-height: 24px;
+}
+
+.m-quick-links__note .a-dropdown:hover > em,
+.m-quick-links__note .a-dropdown:hover > strong {
+  text-decoration: underline;
+}
+
+.m-quick-links__note .a-dropdown > em::after,
+.m-quick-links__note .a-dropdown > strong::after {
+  right: 0;
+}
+
+.m-quick-links__note .a-dropdown > ul {
+  top: calc(100% + 4px);
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar that follows .m-quick-links
+//
+
+.m-quick-links + .a-alert-bar {
+  margin-top: 20px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .m-quick-links that follows .m-simple-tabs
+//
+
+.m-simple-tabs + .m-quick-links::before {
+  content: none;
+  display: none;
+}

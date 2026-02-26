@@ -1,0 +1,40 @@
+mixin prev(link, type, title)
+    a.content-navigation__btn--pre.default(href=link, title='Previous')
+        span.content-navigation__body.pre
+            span.content-navigation__body__top Previous !{type}
+            span.content-navigation__body__title !{title}
+        i.icon-arrow_l
+
+mixin next(link, type, title)
+    a.content-navigation__btn--next.default(href=link, title='Next')
+        span.content-navigation__body.next
+            span.content-navigation__body__top Next !{type}
+            span.content-navigation__body__title !{title}
+        i.icon-arrow_r
+
+div.content-navigation.clearfix
+    if (data.content.previous)
+        case data.content.type
+            when "Article"
+            when "Chapter"
+            when "Digital Object Pub"
+                +prev(data.content.previous.itemUrl, data.content.type, data.content.previous.title)
+            when "Issue"
+                +prev(data.content.previous.tocUrl, data.content.type, data.content.previous.title)
+            when "Book"
+                +prev(data.content.previous.bookUrl, data.content.type, data.content.previous.title)
+
+    block contentNavigationDropZone
+        div.content-navigation__extra
+            | !{pb.renderDropzone(thisWidget, "navigation-dropzone")}
+
+    if (data.content.next)
+        case data.content.type
+            when "Article"
+            when "Chapter"
+            when "Digital Object Pub"
+                +next(data.content.next.itemUrl, data.content.type, data.content.next.title)
+            when "Issue"
+                +next(data.content.next.tocUrl, data.content.type, data.content.next.title)
+            when "Book"
+                +next(data.content.next.bookUrl, data.content.type, data.content.next.title)

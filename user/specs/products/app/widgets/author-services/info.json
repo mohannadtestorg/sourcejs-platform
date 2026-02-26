@@ -1,0 +1,36 @@
+{
+    "title": "Author Services",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Author Services",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/author-services/templates/author-services/author-services-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/author-services/templates/data/content.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

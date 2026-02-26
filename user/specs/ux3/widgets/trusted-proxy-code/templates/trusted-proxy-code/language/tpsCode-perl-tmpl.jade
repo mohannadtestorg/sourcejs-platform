@@ -1,0 +1,33 @@
+textarea.proxy_code(readonly=true)
+    | use CGI;
+    | #use CGI::Carp 'fatalsToBrowser';
+    | use HTTP::Request;
+    | use LWP::UserAgent;
+    | #use strict;
+    | my $HOST = "http://#{data.wwwhost}";
+    | my $RETURN_URL="#{data.formFields.journalUrl}";
+    |     #bug 21909: encode the '%2B' sign into the url encoded version of %2B (namely %252B)
+    |     $RETURN_URL =~ s/%2b|%2B|\+/%252B/g;
+    | my $TICKET_REQUEST = "$HOST/tps/requestticket?domain=#{data.formFields.domain}";
+    | ######################################################################
+    | # Set the following to 1 if you are setting it up or debugging a problem
+    | my $DEBUG = 0;
+    | ######################################################################
+    | my $query = new CGI;
+    | my $redirURL;
+    | my $ua = new LWP::UserAgent;
+    |    $ua-&gt;agent("TPS/1.0", $ua-&gt;agent);
+    |  $TICKET_REQUEST .= "&amp;debug=true" if ($DEBUG == 1);
+    |  $TICKET_REQUEST .= "&amp;ru=" . CGI::escape($RETURN_URL);
+    |  my $request = HTTP::Request-&gt;new(GET =&gt;$TICKET_REQUEST);
+    |  my $response = $ua-&gt;request($request);
+    |  print "Content-Type: text/html\n\n";
+    | if ($response-&gt;is_success) {
+    |  $redirURL = $response-&gt;content;
+    |  $redirURL =~ s/\n//g;
+    |  $redirURL =~ s/\r//g;
+    |  print "&lt;META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=$redirURL\"&gt;";
+    |  print "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;You are being redirected to &lt;a href=\"$redirURL\"&gt;#{data.product}&lt;/a&gt;&lt;!--Revision from 10/29/2008--&gt;&lt;/body&gt;&lt;/html&gt;";
+    | }else {
+    |  print "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;The Trusted Proxy Server failed to establish connection.&lt;/body&gt;&lt;/html&gt;";
+    | }

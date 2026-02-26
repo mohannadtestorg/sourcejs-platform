@@ -1,0 +1,4 @@
+extends ./top-content-tmpl
+
+block teaserBlock
+    | !{pb.render('teaser', 'teaser/extended/ext-teaser', {data: data, editorialLabel: thisWidget ? thisWidget.properties.editorialLabel: ''})}

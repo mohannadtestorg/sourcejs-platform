@@ -1,0 +1,51 @@
+
+each item, l in data.publications
+    li.issue-item.card.clearfix
+        a.issue-item__title(href=(item.showFullText) ? item.showFullText : item.showAbstract)
+            h5 !{item.title}
+
+        if (item.authors)
+            | !{item.authors}
+
+        if (item.firstPublishedDate) || (item.pageRange)
+            ul.rlist--inline.separator.issue-item__details
+                if (item.pageRange)
+                    li
+                        label !{'Pages:&nbsp;'}
+                        span !{item.pageRange}
+
+                if (item.firstPublishedDate)
+                    li
+                        label !{'First published:&nbsp;'}
+                        span !{item.firstPublishedDate}
+
+        .content-item-format-links
+            ul.rlist--inline.separator
+                if(item.showAbstract)
+                    li
+                        a(href=item.showAbstract, title='Abstract') Abstract
+                if(item.showFullText)
+                    li
+                        a(href=item.showFullText, title='Full text') Full text
+
+                if(item.showPdf)
+                    li
+                        a(href=item.showPdf, title='PDF') PDF
+
+                if(item.showReferences)
+                    li
+                        a(href=item.showReferences, title='References') References
+
+        if (item.abstract)
+            | !{item.abstract}
+
+
+        if (item.expireDate)
+            .item-access
+                label !{'Access expires:&nbsp;'}
+                span !{item.expireDate}
+
+
+block pager
+    include ./ext-pager-tmpl
+

@@ -1,0 +1,70 @@
+
+.radio--primary{
+  &input:checked ~ span {
+    &:before {
+      @extend .input-standard-color;
+    }
+  }
+  input:checked ~ span {
+    &:before {
+      @extend .input-standard-color;
+    }
+  }
+
+  span:before{
+    border-color: $standard-color;
+  }
+}
+
+
+
+.checkbox--primary,
+.radio--secondary {
+  span {
+    &:before {
+      border-color: $standard-color;
+    }
+  }
+
+  input:not(.jcf) {
+    &:checked ~ span {
+      &:before {
+        @extend .input-standard-color;
+
+      }
+
+    }
+  }
+}
+
+.checkbox--primary{
+  span {
+    &:before {
+      border-radius: 30%;
+    }
+  }
+}
+
+.label-txt,label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: $secondary-text-color;
+  font-family: $extra-font-family;
+}
+
+
+.input-standard-color{
+  background: $standard-color;
+  border-color: $standard-color;
+}
+
+.reproducible{
+  input{
+    width: 80%;
+  }
+
+}
+
+.input-group span {
+  line-height: 22px;
+}

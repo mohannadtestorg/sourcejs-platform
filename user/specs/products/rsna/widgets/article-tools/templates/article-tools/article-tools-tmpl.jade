@@ -1,0 +1,30 @@
+extends ../../../../../../ux3/widgets/article-tools/templates/article-tools/article-tools-tmpl
+
+block articletoolsList
+    li.article-tool(role="presentation")
+        if tool == 'permissions'
+            a(href=url role="menuitem" target="_blank")
+                i.icon-copyright(aria-hidden="true")
+                span !{label}
+        else if tool == 'reprints'
+            a(href=url role="menuitem" target="_blank")
+                i.icon-reprints(aria-hidden="true")
+                span !{label}
+        else
+            a(href=url role="menuitem")
+                if tool == 'addFavorite'
+                    i.icon-Icon_Star-26(aria-hidden="true")
+                if tool == 'downloadCitation'
+                    i.icon-Icon_Download(aria-hidden="true")
+                if tool == 'trackCitation'
+                    i.icon-Icon_Track-citations(aria-hidden="true")
+                span !{label}
+
+block afterLastTool
+    if(data.registry && data.registry.imageViewer)
+        li.article-tool(role="presentation")
+            if(data.article && data.article.doi)
+                a(href=data.registry.imageViewer+"?doi="+data.article.doi role="menuitem" target="_blank")
+                    i.icon-eye(aria-hidden="true")
+                    if(data.labels && data.labels.imageViewer)
+                        span !{data.labels.imageViewer}

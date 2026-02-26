@@ -1,0 +1,21 @@
+﻿extends /specs/products/nejm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Question
+
+        h3 Normal
+        .source_example.source_visible
+            | !{data.question}
+
+        h3 Results
+        .source_example.source_visible
+            | !{data.results}
+
+
+        h3 Wrong Answer
+        .source_example.source_visible
+            | !{data.wrong}
+        h3 Correct Answer
+        .source_example.source_visible
+            | !{data.correct}

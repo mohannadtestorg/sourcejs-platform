@@ -1,0 +1,73 @@
+extends ../../../../../../ux3/templates/my-account/templates/my-account/alert-tmpl
+
+block tableTopBar
+    .border-bottom-light
+        .grid-item
+            ul.pull-left.select-all__action
+                li
+                    label.checkbox--primary.select-all__checkbox
+                        input(type="checkbox" id="check-all" name="table" value="" class="jcf")
+                        | Select All
+                li
+                    div.select-all__sort.dropBlock
+                        a.inline-icon(href="#" data-db-target-for="sort-3" data-db-parent-of="sort-3" data-db-switch="rotate")
+                            span.sort-by Select Action
+                            i.icon-section_arrow_d(aria-hidden="true")
+                        div.dropBlock__holder(data-db-target-of="sort-3")
+                            ul.rlist
+                                li
+                                    a(href="#")
+                                        i.icon-share(aria-hidden="true")
+                                        | Email to a friend
+                                li
+                                    a(href="#")
+                                        i.icon-download-sitation(aria-hidden="true")
+                                        | Download citation
+                                li
+                                    a(href="#")
+                                        i.icon-truck-sitation(aria-hidden="true")
+                                        | Track citations
+                                li
+                                    a(href="#")
+                                        i.icon-delete(aria-hidden="true")
+                                        | Delete
+        .grid-item.clearfix
+            .pull-right
+                div.account__sort.dropBlock
+                    a.inline-icon(href="#" data-db-target-for="sort-4" data-db-parent-of="sort-4" data-db-switch="rotate") Sort by:
+                        span.sort-by Publication Date
+                        i.icon-section_arrow_d(aria-hidden="true")
+                    div.dropBlock__holder(data-db-target-of="sort-4")
+                        ul.rlist
+                            li
+                                a(href="#") Lorem
+                            li
+                                a(href="#") Ipsum
+                            li
+                                a(href="#") Dolor
+
+block frequency
+    .grid-lg-4.grid-md-1.row.frequency-block
+        .grid-item
+            label Frequency of alerts for latest articles
+        .grid-item
+            select.jcf
+                option Monthly
+                option Lorem
+                option Ipsum
+                option Dolor
+
+block emailFormat
+    .grid-lg-4.grid-md-1.row
+        .grid-item
+            label Choose an Email Format:
+        .grid-item
+            label.checkbox--primary
+                input(type="checkbox" id="check-plain-text" name="table" value="" class="jcf")
+                | Plan Text
+
+        .grid-item
+            label.checkbox--primary
+                input(type="checkbox" id="check-html" name="table" value="" class="jcf")
+                | HTML
+        .grid-item

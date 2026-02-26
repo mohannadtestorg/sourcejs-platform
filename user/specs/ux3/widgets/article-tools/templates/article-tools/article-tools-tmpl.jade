@@ -1,0 +1,55 @@
+mixin tool(tool, label, url)
+    if url
+        block articletoolsList
+            li.article-tool(role="presentation")
+                if tool == 'permissions'
+                    block articletoolsPermissions
+                        a(href=url role="menuitem" target="popup" onclick="window.open('" + url + "','popup','width=750,height=650'); return false;")
+                            i.icon-lock_open(aria-hidden="true")
+                            span !{label}
+                else
+                    a(href=url role="menuitem")
+                        if tool == 'addFavorite'
+                            i.icon-Icon_Star-26(aria-hidden="true")
+                        if tool == 'downloadCitation'
+                            i.icon-Icon_Download(aria-hidden="true")
+                        if tool == 'trackCitation'
+                            i.icon-Icon_Track-citations(aria-hidden="true")
+                        if tool == 'reprints'
+                            i.icon-reprints(aria-hidden="true")
+                        span !{label}
+
+
+
+
+mixin tools()
+    block tool
+        if(data && data.order && data.order.labelsOrder)
+            div.article-tools__block.fixed.dropBlock__holder(data-db-target-of=thisWidget.id aria-labelledby=thisWidget.id + "_Ctrl" role="menu"  id=thisWidget.id + "_Pop")
+                ul.rlist.w-slide--list
+                    - var itemNo = data.order.labelsOrder.length
+
+                    if itemNo > 0
+                        - var tools = data.order.labelsOrder
+                        each tool, l in tools
+                            if data.labels[tool]
+                                - var label = data.labels[tool]
+                                - var url = data.urls[tool]
+                                +tool(tool, label, url)
+                    else
+                        - var tools = data.labels
+                        each tool, l in tools
+                            - var label = tool
+                            - var url = data.urls[l]
+                            +tool(l, label, url)
+
+                    block afterLastTool
+
+if (data.urls)
+    block articletoolsMain
+        block articletoolsController
+            a.article-tools__ctrl.w-slide__btn(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls=thisWidget.id + "_Pop" role="button" id=thisWidget.id + "_Ctrl" data-slide-target= "#" + thisWidget.id + "_Pop")
+                i.icon-Icon_Tools(aria-hidden="true")
+                span Tools
+
+        +tools()

@@ -1,0 +1,108 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    # Primary Colors
+    burgundy:
+      value: "{!BURGUNDY}"
+    almost-black:
+      value: "{!ALMOST_BLACK}"
+    dark-gray:
+      value: "{!DARK_GRAY}"
+    profile-primary-color:
+      value: "{!BURGUNDY}"
+    primary-icon-color:
+      value: "{!BEIGE}"
+    # Secondary Colors
+    blue-green-dark:
+      value: "{!BLUE_GREEN_DARK}"
+    teal-dark:
+      value: "{!TEAL_DARK}"
+    purple-dark:
+      value: "{!PURPLE_DARK}"
+    gray-dark:
+      value: "{!GRAY_DARK}"
+    blue-green-light:
+      value: "{!BLUE_GREEN_LIGHT}"
+    teal-light:
+      value: "{!TEAL_LIGHT}"
+    purple-light:
+      value: "{!PURPLE_LIGHT}"
+    gray-light:
+      value: "{!GRAY_LIGHT}"
+    burgundy-light:
+      value: "{!BURGUNDY_LIGHT}"
+    # Backgrounds
+    primary-bg-color:
+      value: "{!ALMOST_BLACK}"
+    primary-lighten-bg-color:
+      value: "{!GRAY_DARK}"
+    secondary-bg-color:
+      value: "{!BURGUNDY}"
+    secondary-lighten-bg-color:
+      value: "{!GRAY_VLIGHT_01}"
+    tertiary-bg-color:
+      value: "{!GRAY_VLIGHT_01}"
+    footer-bg-color:
+      value: "{!BURGUNDY}"
+    # Borders
+    primary-border-color:
+      value: "{!GRAY_VLIGHT_02}"
+    # Text
+    primary-text-color:
+      value: "{!BLACK_02}"
+    primary-light-text-color:
+      value: "{!GRAY_02}"
+    primary-title-color:
+      value: "{!BURGUNDY}"
+    secondary-title-color:
+      value: "{!BEIGE}"
+    footer-color:
+      value: "{!GRAY_03}"
+    secondary-text-color:
+      value: "{!GRAY_DARK}"
+    tertiary-text-color:
+      value: "{!ORANGE}"
+    primary-link-color:
+      value: "{!BURGUNDY}"
+    primary-link-hover-color:
+      value: "{!BURGUNDY_02}"
+    primary-link-visited-color:
+      value: "{!BURGUNDY_01}"
+    primary-link-active-color:
+      value: "{!BURGUNDY}"
+    primary-link-focus-color:
+      value: "{!BURGUNDY}"
+    facets-text:
+      value: "{!BURGUNDY}"
+    facets-applied:
+      value: "{!BURGUNDY}"
+    input-placeholder-color:
+      value: "{!BURGUNDY}"
+    # Badges
+    badge-primary-bg-color:
+      value: "{!GRAY_LIGHT}"
+    badge-oa-bg-color:
+      value: "{!BURGUNDY}"
+    badge-fa-bg-color:
+      value: "{!ORANGE}"
+    badge-type-bg-color:
+      value: "{!WHITE}"

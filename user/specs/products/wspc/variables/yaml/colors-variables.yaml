@@ -1,0 +1,58 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    # background
+    primary-bg-color:
+      value: "{!BLUE_1}"
+    badge-bg-color:
+      value: "{!DARK_1}"
+    secondary-bg-color:
+      value: "{!LIGHT_2}"
+    # text colors
+    primary-text-color:
+      value: "{!BLUE_1}"
+    secondary-text-color:
+      value: "{!DARK_2}"
+    primary-dark-text-color:
+      value: "{!DARK_1}"
+    # dividers
+    divider-color:
+      value: "{!LIGHT_1}"
+    separator-color:
+      value: "{!DARK_1}"
+    # footer
+    footer-bg-color:
+      value: "$primary-bg-color"
+
+    # other
+    creative-loa-color:
+      value: "$secondary-text-color"
+    teaser-border-color:
+      value: "$divider-color"
+    secondary-color:
+      value: "{!BLUE_2}"
+    item-added:
+      value: "{!SUCCESS}"
+    primary-green:
+      value: "{!GREEN_1}"
+    primary-grey:
+      value: "{!GREY_1}"

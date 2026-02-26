@@ -1,0 +1,45 @@
+.confirmation-widget
+    .container
+        .logo
+            img(alt='Logo', src='/specs/ux3/images/logo.png')
+        .purchase-text
+            | You have made a purchase with us. Here is your Order Number
+            span.order-no UX3-20170606-10000051
+            |  and below is a list with all the items purchased
+            br
+            | A confirmation email has been sent to
+            span hnofal@atypon.com
+        table.purchase-table
+            tbody
+                tr.header-border
+                    th
+                        | Item
+                    th.type
+                        | Type
+                    th.price
+                        | Price
+                tr.row-border
+                    td.item
+                        | QA Test Offer
+                        br
+                        a(href='http://ux3-prod.literatumonline.com/doi/10.1061/%28ASCE%29EY.1943-7897.0000277') Energy Efficiency in Buildings: Study of Single-Leaf Walls Made with Clay Bricks
+                    td.type
+                        | Online
+                    td.price
+                        | $12.34
+        .order-summary
+            .row
+                .type
+                    | Subtotal
+                .cost
+                    | $12.34
+            .row
+                .type
+                    | Taxes
+                .cost
+                    | $0.00
+            .row.total
+                .type
+                    | Order total
+                .cost
+                    | $12.34

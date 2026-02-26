@@ -1,0 +1,199 @@
+{
+    "title": "Home page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/demo/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "announcements":{
+            "$pug": {
+                "template": "../../widgets/announcements/templates/announcements/announcements-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/announcements/templates/data/data.json"
+                }
+            }
+        },
+        "slider": {
+            "$pug": {
+                "template": "../../widgets/slideshow/templates/demo/slideshow-images-thumbnails-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/slideshow/templates/data/slideshow-images-thumbnails.json"
+                }
+            }
+        },
+        "featured_articles": {
+          "$pug": {
+            "template": "../../components/teaser/templates/teaser/teaser-tmpl.jade",
+            "data": {
+              "$ref": "../../components/teaser/templates/data/creative-work-list.json"
+            }
+          }
+        },
+        "call_for_papers": {
+          "$pug": {
+            "template": "../../components/homepage-items/templates/calls-for-papers-tmpl.jade",
+            "data": {}
+          }
+        },
+        "joining_box": {
+          "$pug": {
+            "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+            "data": {
+              "thisWidget": {
+                "id":"joining_box",
+                "properties": {
+                  "render": "html",
+                  "html": "<div class=\"row flex--desktop flex--tablet flex--align--middle\"><div class=\"col-xs-12 col-sm-8\"><h2 class=\"m-0\">Not a Member?</h2>Learn the benefits of becoming an AHA/ASA Professional Member and join</div><div class=\"col-xs-12 col-sm-4\"><a href=\"#\" class=\"btn btn-sm btn--inverse\">JOIN</a></div></div>"
+                }
+              }
+            }
+          }
+        },
+        "advertisements" : [
+          {
+            "$pug": {
+              "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+              "data": {
+                "thisWidget": {
+                  "id":"advertisement1",
+                  "properties": {
+                    "render": "html",
+                    "html": "<small classs=\"advertisement--title\">ADVERTISEMENT</small><a href=\"#\" class=\"advertisment--block\" title=\"Title\"><img src=\"/specs/products/aha/images/home_ads_1.png\" alt=\"\" title=\"\"/></a>"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "$pug": {
+              "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+              "data": {
+                "thisWidget": {
+                  "id":"advertisement2",
+                  "properties": {
+                    "render": "html",
+                    "html": "<small classs=\"advertisement--title\">ADVERTISEMENT</small><a href=\"#\" class=\"advertisment--block\" title=\"Title\"><img src=\"/specs/products/aha/images/home_ads_2.png\" alt=\"\" title=\"\"/></a>"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "science_news": {
+          "$pug": {
+            "template": "../../components/teaser/templates/teaser/teaser-news-tmpl.jade",
+            "data": {
+              "$ref": "../../components/teaser/templates/data/creative-work-with-image-list.json"
+            }
+          }
+        },
+        "covers_gallery": {
+          "$pug": {
+            "template": "../../widgets/slideshow/templates/demo/slideshow-covers-tmpl.jade",
+            "data": {
+              "$ref": "../../widgets/slideshow/templates/data/slideshow-covers.json"
+            }
+          }
+        },
+        "multimedia" : {
+          "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+              "model": {
+                "config": {
+                  "wrapper": "true",
+                  "className": ["grid-md-2 grid-lg-1 grid-xlg-3 gutterless"]
+                },
+                "data": {
+                  "content": {
+                    "$pug": {
+                      "template": "../../components/homepage-items/templates/multimedia-tmpl.jade",
+                      "data": {
+                        "$ref": "../../components/homepage-items/templates/data/multimedia.json"
+                      }
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+        },
+        "events": {
+          "October, 2017": {
+            "$pug": {
+              "template": "../../components/teaser/templates/teaser/teaser-tmpl.jade",
+              "data": {
+                "$ref": "../../components/teaser/templates/data/creative-work-no-meta-list.json"
+              }
+            }
+          },
+          "November, 2017": {
+            "$pug": {
+              "template": "../../components/teaser/templates/teaser/teaser-tmpl.jade",
+              "data": {
+                "$ref": "../../components/teaser/templates/data/creative-work-no-meta.json"
+              }
+            }
+          }
+        },
+        "tweets":{
+            "$pug": {
+                "template": "../../components/tweets/templates/tweets/tweets-tmpl.jade",
+                "data": {
+                    "body": [
+                        {
+                            "screenName": "TwitterDev",
+                            "height": "510"
+                        }
+                    ]
+                }
+            }
+        },
+        "connect_via_social_network": {
+          "$pug": {
+            "template": "../../components/homepage-items/templates/connect-via-social-tmpl.jade",
+            "data": {
+              "data": {
+                "social_networks": [
+                  {
+                      "title": "Facebook",
+                      "link": "#",
+                      "icon": "icon-facebook-square"
+                  },
+                  {
+                      "title": "Twitter",
+                      "link": "#",
+                      "icon": "icon-twitter-square"
+                  },
+                  {
+                      "title": "Youtube",
+                      "link": "#",
+                      "icon": "at-icon-wrapper icon-youtube"
+                  },
+                  {
+                      "title": "RSS",
+                      "link": "#",
+                      "icon": "icon-Rss"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}
+

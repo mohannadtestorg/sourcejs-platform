@@ -1,0 +1,66 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Access variations
+
+        h3 Full Access
+        markdown
+            p In the example below we have added `full-access` to the link item.
+        .source_example
+            .doi-access-wrapper
+                .access-type.full-access
+                    i(aria-hidden='true' class='icon-icon-lock_open')
+                    div.doi-access
+                        | Full access
+
+        h3 Open Access
+        markdown
+            p In the example below we have added `open-access` to the link item.
+        .source_example
+            .doi-access-wrapper
+                .access-type.open-access
+                    i(aria-hidden='true' class='icon-icon-lock_open')
+                    div.doi-access
+                        | Open access
+
+        h3 Free Access
+        markdown
+            p In the example below we have added `free-access` to the link item.
+        .source_example
+            .doi-access-wrapper
+                .access-type.free-access
+                    i(aria-hidden='true' class='icon-icon-lock_open')
+                    div.doi-access
+                        | Free access
+        h3 Free Access
+        markdown
+            p In the example below we have added `no-access` to the link item.
+            small note: we are no longer show the no access based on `LIT-193525`
+        .source_example
+            .doi-access-wrapper
+                .access-type.no-access
+                    i(aria-hidden='true' class='icon-icon-lock_outline')
+                    div.doi-access
+                        | No access
+
+        h3 Free Access
+        markdown
+            p In the example below we have added `limited-access` to the link item.
+        .source_example
+            .doi-access-wrapper
+                .access-type.limited-access
+                    i(aria-hidden='true' class='icon-icon-lock_outline')
+                    div.doi-access
+                        | limited access
+
+        h3 Highlight
+        markdown
+            p In the example below we have added `badge-oa` to the link item.
+        .source_example
+            .highlight-wrapper
+                i(aria-hidden='true' class='icon-icon-bookmark')
+                div.highlight
+                    | Highlight
+    | #{''}

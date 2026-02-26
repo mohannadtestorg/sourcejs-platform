@@ -1,0 +1,82 @@
+{
+    "title": "Browse page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../../../../ux3/templates/header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "searchHeader": {
+            "result": {
+                "count": "68,862",
+                "start": 1,
+                "end": 20
+            },
+            "itemsPerPage": {
+                "selected": 20,
+                "options": [
+                    {
+                        "title": 20,
+                        "optionUrl": "#20"
+                    },
+                    {
+                        "title": 50,
+                        "optionUrl": "#50"
+                    },
+                    {
+                        "title": 100,
+                        "optionUrl": "#100"
+                    }
+                ]
+            },
+            "sort": {
+                "selected": {
+                    "title": "Relevance",
+                    "optionUrl": "#rel"
+                },
+                "options": [
+                    {
+                        "title": "Relevance",
+                        "optionUrl": "#rel"
+                    },
+                    {
+                        "title": "Date",
+                        "optionUrl": "#dat"
+                    },
+                    {
+                        "title": "Author",
+                        "optionUrl": "#aut"
+                    }
+                ]
+            }
+        },
+        "facet": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/search-facets/templates/search-facets/search-facets-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/templates/browse/templates/data/facet.json"
+                }
+            }
+        },
+        "browseItems": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/templates/browse/templates/data/search.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../../../../ux3/templates/footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+/***
+
+```
+<nav class="m-nav-alphabet">
+  <ul class="m-nav-alphabet__list f-related">
+    <li><a href="#A">A</a></li>
+    <li><a href="#B">B</a></li>
+  </ul>
+</nav>
+```
+
+***/
+
+.m-nav-alphabet {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  margin: 0;
+}
+
+.m-nav-alphabet__list {
+  @include sans-serif(12, 16);
+  display: flex;
+  position: fixed;
+  right: -30px;
+  top: 0;
+  bottom: 0;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  transition: right .25s linear;
+
+  @include breakpoint('medium+') {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  @include breakpoint('large+') {
+    display: none;
+  }
+
+  .s-alphabet-nav-visible & {
+    right: 0;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .m-nav-alphabet__list {
+    display: none !important;
+  }
+}
+
+.m-nav-alphabet__list li {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.m-nav-alphabet__list a {
+  display: block;
+  padding-right: 6px;
+  padding-left: 6px;
+  color: $color__text--headlines;
+
+  @include breakpoint('medium+') {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+.m-nav-alphabet__list a:hover {
+  color: $color__text--headlines;
+  font-weight: 700;
+}
+
+// for the toolkit:
+div > #a17 .m-nav-alphabet,
+div > #a17 .m-nav-alphabet__list {
+  position: static;
+}

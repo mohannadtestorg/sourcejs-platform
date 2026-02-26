@@ -1,0 +1,67 @@
+{
+    "title": "Modal",
+    "template": "doc",
+    "tag": ["components"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Modal default",
+                "btn": "#myModal",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "fasle"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/modal/templates/modal/modal-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/modal/templates/data/content.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Modal full width",
+                "btn": "#myModal1",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["modal--full-width"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/modal/templates/modal/modal-tmpl.jade",
+                                            "data": {
+                                                "data": {
+                                                    "id":"myModal1",
+                                                    "title": "Modal First",
+                                                    "content": "denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

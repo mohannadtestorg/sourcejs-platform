@@ -1,0 +1,23 @@
+extends ../../../../../../ux3/components/access-icon/templates/access-icon/access-icon-tmpl
+
+block citationLicense
+    if(currentAccess)
+        strong.article__access__type(title=currentAccess.title)
+            if(data.license && data.license.type)
+                if (data.license.type === "full-access" || data.license.type === "open-access" || data.license.type === "free-access")
+                    i.citation__acess__icon.icon-lock_open
+                else if (data.license.type === "no-access")
+                    i.citation__acess__icon.icon-Icon_Permissions-Locked
+
+            span.citation__access__type !{currentAccess.text}
+
+    block citationArticleType
+        span.citation__article__type
+            strong !{data.type}
+
+    block accessActions
+        if (data.license.type === "no-access")
+            p.citation__access__actions
+                a(href="#" class="btn btn--danger")
+                    i.citation__access__icon.icon-permission
+                    span Request Access

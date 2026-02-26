@@ -1,0 +1,104 @@
+﻿header.header
+    div.header_topbar.hidden-sm.hidden-xs
+        div.container
+            div.row
+                div.col-lg-3.col-md-4.col-sm-5.header_topbar_left
+                    div.header_mainmenu
+                        ul
+                            li
+                                a(href="#") ACS
+                            li.header_mainmenu_current
+                                a(href="#") ACS Publications
+                            li
+                                a(href="#") C&EN
+                            li
+                                a(href="#") CAS
+                div.col-lg-9.col-md-8.col-sm-7.header_topbar_right
+                    | !{institution}
+                    | !{pb.render("user-login-bar", "user-login-bar-logged-in.json")}
+
+    div.header_content
+        div.container
+            div.row
+                div.header_content_left.pull-left
+                    | !{logo}
+                div.header_content_right.pull-right
+                    | !{pb.render("quick-search", "quick-search.json")}
+                    div.header_my-activity
+                        a(href="#")
+                            i.icon-id-badge
+                            span My Activity
+                        div.header_my-activity-content
+                            div.header_my-activity-left.pull-left
+                                block recentlyViewedDropzone
+                                    | !{pb.renderDropzone(thisWidget, "recentlyViewedDropzone")}
+                            div.header_my-activity-right.pull-left
+                                block recommendedDropzone
+                                    | !{pb.renderDropzone(thisWidget, "recommendedDropzone")}
+                    div.header_publications
+                        a.pubModal_button(href="#")
+                            i.icon-book
+                            span Publications
+                    div.header_burger-menu
+                        a.header_burger-menu_button(href="#")
+                            i.icon-navicon
+                            i.icon-close
+                        div.header_burger-menu_content
+                            ul.hidden-lg
+                                li
+                                    a.pubModal_button(href="#")
+                                        i.icon-book
+                                        span publications
+                                li.hidden
+                                    a(href="#")
+                                        i.icon-id-badge
+                                        span my Activity
+                            ul
+                                li
+                                    a(href="#") multimedia
+                                    ul
+                                        li
+                                            a(href="#") Video
+                                        li
+                                            a(href="#") Podcasts
+                                        li
+                                            a(href="#") Apps & Mobile
+                                li
+                                    a(href="#") user resources
+                                    ul
+                                        li
+                                            a(href="") Authors & Reviewers
+                                        li
+                                            a(href="") Librarians & Account Managers
+                                        li
+                                            a(href="") ACS Members
+                                li
+                                    a(href="#") support
+                                    ul
+                                        li
+                                            a(href="") Website Demos
+                                        li
+                                            a(href="") Live Chat
+                                        li
+                                            a(href="") Get Help
+                                        li
+                                            a(href="") For Advertisers
+                                        li
+                                            a(href="") Institutional Sales
+                                li
+                                    a(href="#") about us
+                                    ul
+                                        li
+                                            a(href="") Overview
+                                        li
+                                            a(href="") ACS & Open Access
+                                        li
+                                            a(href="") Partners
+                                li.hidden-lg.hidden-md
+                                    a(href="#") user
+                                    ul
+                                        li
+                                            a(href="#") Login
+
+| !{pb.render("publications", "publications.json")}
+

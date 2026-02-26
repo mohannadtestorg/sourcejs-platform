@@ -1,0 +1,38 @@
+.accordion {
+    &__control {
+        font-size: $small-font-size;
+        font-family: $secondary-font-family;
+
+        span {
+            color: $primary-text-color;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+        i {
+            color: $tertiary-seventh-text-color;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        &.js--open {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__content {
+        background-color: $light-sixth-bg-color;
+        padding: 20px;
+        margin-top: 8px;
+        font-size: $medium-font-size;
+        font-family: $tertiary-font-family;
+
+        p {
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}

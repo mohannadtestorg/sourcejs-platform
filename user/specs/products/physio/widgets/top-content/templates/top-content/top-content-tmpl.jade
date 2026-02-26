@@ -1,0 +1,22 @@
+if (data && data.items && data.items.length >0)
+    each item, l in data.items
+        div.top-list__container(class= item.group.serial.code)
+            block cover
+                if (item.coverImage)
+                    div.top-list__cover
+                        div.top-list__cover
+                            img(src=item.coverImage.src)
+
+                    
+            
+            div.meta-container
+                div.top-list__date
+                    i.icon-date
+                    | !{item.epubDate}
+                div.top-list__title
+                    a(href=item.best)
+                        | !{item.title}
+                a.top-list__journal-name(href=item.group.serial.journalLink)
+                    | !{item.group.serial.title}
+else
+    p There are no items to display at this time.

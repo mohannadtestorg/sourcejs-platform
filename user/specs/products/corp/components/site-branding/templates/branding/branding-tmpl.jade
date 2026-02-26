@@ -1,0 +1,11 @@
+- var className="";
+- if (data) className = " site-branding--" + data.type;
+
+div(class="site-branding#{className}")
+    h1.site-title
+        a(href="#", rel="home")
+            .hidden-lg
+                include ../svg/atypon_logo_small.svg
+            .visible-lg
+                include ../svg/atypon_logo.svg
+

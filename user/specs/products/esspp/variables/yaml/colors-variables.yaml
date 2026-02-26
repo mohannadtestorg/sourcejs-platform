@@ -1,0 +1,96 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    white-color:
+      value: '{!WHITE}'
+    black-color:
+      value: '{!BLACK}'
+    standard-bg-color:
+      value: "{!BLUE_01}"
+    standard-secondary-bg-color:
+      value: "{!BLUE_02}"
+    basic-bg-color:
+      value: "{!GRAY_4}"
+    blue-text-color:
+      value: "{!BLUE_02}"
+    note-bg-color:
+      value: "{!YELLOW_01}"
+    note-bg-secondary-color:
+      value: "{!YELLOW_02}"
+    warrning-bg-color:
+      value: "{!RED}"
+    approval-bg-color:
+      value: "{!GREEN}"
+    warning-text-color:
+      value: "{!RED}"
+    approval-text-color:
+      value: "{!GREEN}"
+    ess-primary-text-color:
+      value: "{!GRAY}"
+    ess-secondary-text-color:
+      value: "{!GRAY_2}"
+    primary-border-color:
+      value: "{!GRAY_3}"
+    secondary-border-color:
+      value: "{!GRAY}"
+    facet-bg-color:
+      value: "{!GRAY_5}"
+    arrow-bg-color:
+      value: "{!GRAY_6}"
+    form-label-color:
+      value: "{!GRAY_7}"
+    accordion-content-bg-color:
+      value: "{!GRAY_3}"
+    thead-color:
+      value: "#757575"
+    table-border-color:
+      value: "{!VERY_LIGHT_GRAY}"
+    review-bg-color:
+      value: "{!VIOLET}"
+    draft-bg-color:
+      value: "{!GRAY_1}"
+    cancelled-bg-color:
+      value: "{!YELLOW_03}"
+    submitted-bg-color:
+      value: "{!BLUE_02}"
+    rejected-bg-color:
+      value: "{!RED}"
+    submenu-bg-color:
+      value: "{!GRAY_5}"
+    # modal
+    modal-backdrop-color:
+      value: "{!WHITE_OPACITY}"
+    modal-content-bg:
+      value: "{!GRAY_5}"
+    shadow-color:
+      value: "{!SHADOW}"
+    shadow-light-color:
+      value: "{!SHADOW_LIGHT}"
+    orcid-bg-color:
+      value: "{!LIGHT_GREEN}"
+    #special colors
+    separators-color:
+      value: "{!VERY_LIGHT_GRAY}"
+    success-bg:
+      value: "{!LIGHT_GREEN_2}"
+    success-color:
+      value: "{!GREEN_2}"

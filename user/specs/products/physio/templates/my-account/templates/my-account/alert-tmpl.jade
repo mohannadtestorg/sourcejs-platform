@@ -1,0 +1,127 @@
+.tab.tab--flex.account-tab.alerts
+    ul.rlist.tab__nav.account-tab__nav
+        li.active
+            a(href="#pane-content" aria-controls="#pane-content" role="tab" data-toggle="tab" title="new content alerts" id="pane-content-con" )
+                | New Content Alerts
+        li
+            a(href="#pane-citation" aria-controls="#pane-citation" role="tab" data-toggle="tab" title="citation alerts" id="pane-citation-con")
+                | Citation Alerts
+
+    ul.rlist.tab__content
+        li(id="pane-content" aria-labelledby="pane-content-con" role="tabpanel" class="tab__pane active")
+            form.content-alert-form
+                p To receive alerts when new content is published in the journals or book series listed below, check the box next to each publication you select. Then indicate the alert frequency you would like and the e-mail format and click “Submit.” Note that if you subscribe to more than one alert, your frequency and format settings will apply to all of your alerts.
+                .alert__freq
+                    .input-group.left-side-label
+                        label Frequency of alerts for latest articles
+                        select.jcf(name='period', title='')
+                            option(value='N') NEVER
+                            option(value='D', selected='selected') DAILY
+                            option(value='W') WEEKLY
+                            option(value='M') MONTHLY
+
+                .alert__format
+                    .input-group
+                        label Choose an Email Format:
+                        .input-group
+                            label.radio--primary
+                                input#alertFormat_text(type='radio', name='format', value='T', checked='')
+                                span.label-txt Plain Text
+                            label.radio--primary
+                                input#alertFormat_html(type='radio', name='format', value='H')
+                                span.label-txt HTML
+
+                h5.border-bottom Journal alerts
+                ul.rlist.alert__list
+                    li
+                        label.checkbox--primary
+                            input(type="checkbox" id="check-all-journals" name="markall" value="" class="jcf")
+                            | Select All
+                    li
+                        label.checkbox--primary
+                            input(type="checkbox" id="check-ajpcell" name="table" value="" class="jcf")
+                            | AJP-Cell
+                    li
+                        label.checkbox--primary
+                            input(type="checkbox" id="check-ajpendo" name="table" value="" class="jcf")
+                            | AJP-Endo
+                    li
+                        label.checkbox--primary
+                            input(type="checkbox" id="check-ajpregu" name="table" value="" class="jcf")
+                            | AJP-Regu
+                .form-btn
+                    button.btn  SUBMIT
+                    a(href="#").my-account__cancle RESET
+
+        li(id="pane-citation" aria-labelledby="pane-citation-con" role="tabpanel" class="tab__pane alert__list")
+            p To receive citation alerts for an article, go to the article page and click "Track Citation" in the Tools article menu. To disable an alert, check the box next to the alert and click "Delete."
+            .section__separator
+                .grid-item
+                    ul.pull-left.select-all__action
+                        li
+                            label.checkbox--primary.select-all__checkbox
+                                input(type="checkbox" id="check-all" name="markall" value="" class="jcf")
+                                | Select All
+                        li
+                            a(href="#")
+                                i.icon-delete_filled(aria-hidden="true")
+                                | Delete
+                .grid-item.clearfix
+                    .pull-right
+                        div.account__sort.dropBlock
+                            a.inline-icon(href="#" data-db-target-for="sort-4" data-db-parent-of="sort-4" data-db-switch="rotate") Sort by:
+                                span.sort-by Publication Date
+                                i.icon-section_arrow_d(aria-hidden="true")
+                            div.dropBlock__holder(data-db-target-of="sort-4")
+                                ul.rlist
+                                    li
+                                        a(href="#") Article Title
+                                    li
+                                        a(href="#") Publication
+                                    li
+                                        a(href="#") Publication Date
+            .table-responsive.account-table.separator
+                table.expandable
+                    thead
+                        tr
+                            th
+                            th Article Title
+                            th Publication
+                            th Publication Date
+                    tbody
+                        tr.expanded
+                            td.table__mark
+                                label.checkbox--primary
+                                    input(type="checkbox" id="check-1" name="table" value="" class="jcf")
+                            td(data-thead="Article Title") Lorem ipsum dolor sit amet, vis fierent assentior te.
+                            td(data-thead="Publication") Lorem ipsum dolor sit amet
+                                div Volume 5, Issue10. pp,419-423
+                            td(data-thead="Publication Date") 25 Feb 2016
+                        tr.expanded
+                            td.table__mark
+                                label.checkbox--primary
+                                    input(type="checkbox" id="check-2" name="table" value="" class="jcf")
+                            td(data-thead="Article Title") Lorem ipsum dolor sit amet, vis fierent assentior te.
+                            td(data-thead="Publication") Lorem ipsum dolor sit amet
+                                div Volume 5, Issue10. pp,419-423
+                            td(data-thead="Publication Date") 25 Feb 2016
+                        tr.expanded
+                            td.table__mark
+                                label.checkbox--primary
+                                    input(type="checkbox" id="check-3" name="table" value="" class="jcf")
+                            td(data-thead="Article Title") Lorem ipsum dolor sit amet, vis fierent assentior te.
+                            td(data-thead="Publication") Lorem ipsum dolor sit amet
+                                div Volume 5, Issue10. pp,419-423
+                            td(data-thead="Publication Date") 25 Feb 2016
+                        tr.expanded
+                            td.table__mark
+                                label.checkbox--primary
+                                    input(type="checkbox" id="check-4" name="table" value="" class="jcf")
+                            td(data-thead="Article Title") Lorem ipsum dolor sit amet, vis fierent assentior te.
+                            td(data-thead="Publication") Lorem ipsum dolor sit amet
+                                div Volume 5, Issue10. pp,419-423
+                            td(data-thead="Publication Date") 25 Feb 2016
+
+            .form-btn
+                button.btn.btn-alert__transparent SUBMIT
+                a(href="#").my-account__cancle RESET

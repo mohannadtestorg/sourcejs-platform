@@ -1,0 +1,110 @@
+- data.loi.thisWidget = thisWidget;
+
+mixin tablinkloi(item)
+    a(href=item.url  title=item.label)
+        if (item.label)
+            span.loi-tab-item !{item.label}
+
+mixin loiNavLis(item, k)
+    if (item.sub)
+        div.expandable-list(class=item.active ? "js--open" : "")
+            a.expandable-list__toggle(href='#' data-toggle='dropdown' data-expand=k aria-expanded=item.active ? "true" : "false" aria-controls=k title=item.label)
+                i(aria-hidden='true' class=item.active ? "icon-squared-minus" : "icon-add_box")
+                if (item.label)
+                    span.loi-tab-item !{item.label}
+
+            ul.rlist.expandable-list__body(id=k aria-hidden=item.active ? "false" : "true")
+                each childItem, m in item.sub
+                    li(class=childItem.active ? "active" : "")
+                        +tablinkloi(childItem)
+    else
+        +tablinkloi(item)
+
+mixin loi(vol, items)
+    block loIssues
+        ul.rlist.loi__issues
+            if (items)
+                each item, l in items
+                    li.card.clearfix
+                        div.item__image
+                            a(href=item.url title="go to " + item.title)
+                                if item.coverImage
+                                    img(src=item.coverImage title="cover Image of " + item.title  alt="")
+                                else
+                                    div.item__default__image
+                                        i.item__default__icon.icon-sort(aria-hidden="true")
+                        div.loi__issue
+                            if (item.access)
+                                if item.access == 'FULL_ACCESS'
+                                    .doi-access-wrapper
+                                        .access-type.full-access
+                                            i.icon-icon-lock_open(aria-hidden='true')
+                                            .doi-access Full access
+                                else if item.access == 'OPEN_ACCESS'
+                                    .doi-access-wrapper
+                                        .access-type.open-access
+                                            i.icon-icon-lock_open(aria-hidden='true')
+                                            .doi-access Open access
+                                else if item.access == 'FREE_ACCESS'
+                                    .doi-access-wrapper
+                                        .access-type.free-access
+                                            i.icon-icon-lock_open(aria-hidden='true')
+                                            .doi-access free access
+
+
+                            if (vol.VolNo) && (item.issue)
+                                h4.parent-item
+                                    a(href=item.url title="go to " + item.title) Volume !{vol.VolNo}, Issue !{item.issue}
+
+                            if (item.title)
+                                h4.issue-title !{item.title}
+                            if (item.pageRange)
+                                .iPageRange
+                                    label Pages:&nbsp;
+                                    | !{item.pageRange}
+                            if (item.coverDate)
+                                .coverDate
+                                    label
+                                        span.cover-date-value !{item.coverDate}
+
+block loi
+    if (data.loi)
+        div(id=thisWidget.id data-grouptype=data.loi.groupType)
+            .loi.loi--aside
+                ul.rlist.loi__list
+                    h2.side-section-header
+                        span.is-accessible Filter issues by&nbsp;
+                        | Issue archive
+
+                    if (data) && (data.navMenu)
+                        each item, k in data.navMenu
+                            - var liClass = ''
+                            - liClass = item.sub ? ' nested ' : liClass
+                            - liClass = item.active ? liClass + ' active ' : liClass
+
+                            li(class=liClass)
+                                +loiNavLis(item, k)
+
+
+
+                .loi__content
+                    a(href='#').back-btn
+                        i.icon-arrow_l
+                        | Back to dates
+                    h2.is-accessible Issues
+                    each item, I in data.loi.content
+                        if (item.content)
+                            each childItem, m in item.content
+                                if (childItem.volumes)
+                                    each vol, l in childItem.volumes
+                                        each journalGroup, l in vol
+                                            h3.intro !{childItem.year} - Volume !{journalGroup.VolNo}
+                                                span.journalTitle , !{journalGroup.journalTitle}
+                                            +loi(journalGroup, journalGroup.issues)
+                        else
+                            if (item.volumes)
+                                each vol, l in item.volumes
+                                    each journalGroup, l in vol
+                                        h3.intro !{item.label} - Volume !{journalGroup.VolNo}
+                                            span.journalTitle , !{journalGroup.journalTitle}
+                                        +loi(journalGroup, journalGroup.issues)

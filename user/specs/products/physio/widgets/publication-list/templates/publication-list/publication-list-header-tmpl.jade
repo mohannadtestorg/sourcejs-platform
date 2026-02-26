@@ -1,0 +1,11 @@
+each item, l in data.items
+    div.featured__container
+        div.info-container
+            div.featured__tocHeading
+                span !{item.tocHeading}
+                a(href=item.best)
+                    | read more
+                    i.icon-arrow_r
+            div.featured__title
+                a(href=item.best)
+                    | !{item.title}

@@ -1,0 +1,80 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 News Page
+    section.source_section
+        h2 News Page
+        markdown
+        .source_example
+            | !{pb.render('header',"header/demo/header")}
+            main.content
+                .container.static-page.news-page
+                    h2.news-page__title News
+                    .row.static-page__content
+                        .col-lg-9.col-md-12.col-sm-12
+                            div.tabs__nav
+                                a.tabs__nav__item.active(href='#') Most Recent
+                                a.tabs__nav__item(href='#') All News
+
+                            div.news-list
+                                h3.section__header December 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") Kiasu-nomics — the Singaporean approach in managing finances and life
+                                    span.news-list__item__date 19 Dec 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") World Scientific author Professor Jackie Y. Ying named a Fellow of the United States National Academy of Inventors (NAI)
+                                    span.news-list__item__date 14 Dec 2017
+
+                                h3.section__header November 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") Celebrating Professor Tommy Koh
+                                    span.news-list__item__date 11 Nov 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") Upcoming: Book Launch of "Tommy Koh. Serving Singapore and the World"
+                                    span.news-list__item__date 9 Nov 2017
+
+                                h3.section__header October 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") What's in the Name? Launch of World Scientific book on rich historical and cultural accounts of Singapore street names
+                                    span.news-list__item__date 13 Oct 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") World Scientific authors Joachim Frank and Jacques Dubochet win 2017 Nobel Prize in Chemistry
+                                    span.news-list__item__date 5 Oct 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") World Scientific Contributor Richard H. Thaler wins 2017 Nobel Prize in Economic Sciences
+                                    span.news-list__item__date 5 Oct 2017
+                                div.news-list__item
+                                    a.news-list__item__title(href="#") Congratulations to our authors' Rainer Weiss, Barry C. Barish and Kip S. Thorne, who have been awarded 2017 Nobel Prize in Physics
+                                    span.news-list__item__date 5 Oct 2017
+
+                            .clearfix
+                            .pagination
+                                span
+                                    a.pagination__btn--prev.disabled(href='#', title='Previous Page')
+                                ul.rlist--inline.pagination__list
+                                    li
+                                        a.active(href='#', title='1') 1
+                                    li
+                                        a(href='#', title='2') 2
+                                    li
+                                        a(href='#', title='3') 3
+                                    li
+                                        a(href='#', title='4') 4
+                                    li
+                                        a(href='#', title='5') 5
+                                span
+                                    a.pagination__btn--next(href='#', title='Next page')
+
+                        .col-sm-3.static-page__aside
+                            .row
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    h3.section__header.border-bottom newsletter
+                                    | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+                                    //mpu a
+                                    .mpu
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

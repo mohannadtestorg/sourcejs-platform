@@ -1,0 +1,38 @@
+﻿h1 Theo
+block content
+    section.source_section
+        include ../../page-structure/helpers/print-json-mixin.jade
+        include ../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 File Structure
+
+        p In UX3 we have file structure pattern, it must be followed always.
+
+        h3 Components / Widgets / Templates file structures
+        h4 Must have:
+        p Each (Components / Widgets / Templates) must have the following files / folders
+        code.src-html.source_visible.source_example
+            | component-name // Folder contains  everything related to this component
+            |   |____ index // This file is related to SourceJs and contains documentation and shows examples
+            |   |____ Info // Contains Json data related to SourceJs such as Tags / type of components / maps between json file and template file to be used for examples
+            |   |____ Templates
+            |   |   |____ components-name
+            |   |   |   |____ component-name-tmpl.jade // Jade template file contains jade code must follow a certain patern in its name as teh following: (component-name) + "-tmpl.jade"
+            |   |   |____ Data
+            |   |       |____ Content.json // Contains a sample json structure / data to be followed and to be used by component-name-tmpl.jade
+        h4 Might have
+        code.src-html.source_visible.source_example
+            | component-name // Folder contains  everything related to this component
+            |   |____ map // Contains jade files holds mixins and javascript objects
+            |   |   |____ map-component-name-tmpl.jade // Contains code to map between json structure provided by frontend team and our json structure provided in our "content.json" file through javascript objects
+            |   |____ scss // contains scss files
+            |   |   |____ component-name.scss // contains scss to be converted to css to style this component
+            |   |____ JS // contains Javascript files
+            |   |   |____ component-name.js //contains javascript code to cover functionality needed for this component
+            |   |____extended // Conatins Jade files
+            |   |   |____ ext-(component-name)-tmpl.jade // the jade code in this template extends another jade template and overrides some block and holds customizations relate to this components
+            |   |____ images // continas images used in sourceJs examples
+            |   |____ ajax
+            |       |____ file.html // contains HTML code used to mimic ajax services related to this components
+        //

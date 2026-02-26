@@ -1,0 +1,34 @@
+{
+    "title": "Pairing Management",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Pairing Management",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/pairing-management/templates/pairing-management/demo/demo-pairing-management-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/pairing-management/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

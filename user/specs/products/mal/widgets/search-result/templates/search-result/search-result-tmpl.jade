@@ -1,0 +1,84 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl.jade
+
+
+
+block searchResultDropZone
+
+block access
+
+block searchItemDescLabel
+    a(href="#" class="accordion__control meta__show-abstract" title="Preview abstract")
+        i.icon-section_arrow_d(aria-hidden="true")
+        span Preview abstract
+
+block searchItemDefaultCoverImage
+
+block SearchItemMetaType
+
+block searchItemFullInfo
+    div.article-meta
+        block searchItemTitle
+            h5.meta__title.meta__title__margin
+                if(item.content)
+                    if (item.type == "102")
+                        a(href= item.content.journalUrl) !{item.content.title}
+                    if (item.type == "103")
+                        a(href= item.content.bestUrl) !{item.content.title}
+                    if (item.type == "105")
+                        a(href= item.content.bookUrl) !{item.content.title}
+                    if (item.type == "106")
+                        a(href= item.content.bookSeriesUrl) !{item.content.title}
+                    if (item.type == "109")
+                        a(href= item.content.bestUrl) !{item.content.title}
+        block searchItemInfo
+            if(item.content)
+                div.meta__info
+                    | !{item.content.contribs}
+                    block searchMeta
+                        div.meta__details
+                            if (item.content.latestIssue && item.content.latestIssue.coverDate && item.content.latestIssue.tocUrl)
+                                div.meta__date
+                                    span Published Online:
+                                    a.meta__date(href= item.content.latestIssue.tocUrl) !{item.content.latestIssue.coverDate}
+                            if item.content.doi
+                                div.meta__doi
+                                    a(href=item.content.doi) !{item.content.doi}
+    block searchItemViews
+        if item.content.views
+            div.meta__views
+                ul.rlist--inline.separator
+                    li
+                        if item.content.views.abst
+                            a(href=item.content.views.abst)
+                                span Abstarct PDF
+                                i.icon.icon-abstract
+                    li
+                        if item.content.views.full
+                            a(href=item.content.views.full)
+                                span full text
+                                i.icon.icon-Abstract-PDF
+                    li
+                        if item.content.views.pdf
+                            a(href=item.content.views.pdf)
+                                span pdf
+                                i.icon.icon-Icon_Links-pdf
+                    li
+                        if item.content.views.References
+                            a(href=item.content.views.References)
+                                span References
+                                i.icon.icon-Icon_Links-References
+        if (item.content.abstract)
+            div.accordion
+                block searchItemAbstractLabel
+                    a(href="#" class="accordion__control" title="show Abstract")
+                        span Abstract
+                        i.icon-section_arrow_d(aria-hidden="true")
+                div.accordion__content !{item.content.abstract}
+        if (item.content.description)
+            div.accordion
+                block searchItemDescLabel
+                    a(href="#" class="accordion__control" title="show Aim & scope")
+                        span Aim & scope
+                        i.icon-section_arrow_d(aria-hidden="true")
+                div.accordion__content !{item.content.description}
+

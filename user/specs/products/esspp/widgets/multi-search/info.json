@@ -1,0 +1,100 @@
+{
+    "title": "Multi Search",
+    "tag": ["ready"],
+    "templates": {
+        "default": "multi-search",
+        "alternative": {
+            "multi-search-single": {
+                "name": "Single Multi Search",
+                "path": "multi-search-single",
+                "deprecated": false
+            },
+            "multi-search-slider": {
+                "name": "Multi Search Slider",
+                "path": "multi-search-slider",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Multi Search One Item",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/demo-multi-search-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/ms-one.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            {
+                "title": "Multi Search Slider",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/multi-search/multi-search-slider-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/multi-search-slider.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            {
+                "title": "Multi Search",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/demo-multi-search-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/multi-search-slider.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

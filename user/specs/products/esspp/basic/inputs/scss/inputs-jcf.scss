@@ -1,0 +1,72 @@
+.checkbox {
+
+    &--primary {
+        .jcf-checkbox {
+            border-color: $standard-secondary-bg-color;
+            border-radius: 30%;
+            span {
+                background: $standard-secondary-bg-color;
+                border-color: $standard-secondary-bg-color;
+            }
+
+        }
+    }
+
+    &--secondary {
+        span {
+            &::before {
+                background-color: $standard-secondary-bg-color;
+            }
+        }
+    }
+}
+
+.jcf-drop-active {
+    .jcf-select-text:after {
+        -webkit-transform: rotateX(150deg);
+        transform: rotateX(150deg);
+    }
+}
+
+.jcf-selected .jcf-hover, .jcf-list-box .jcf-selected {
+    color: $standard-secondary-bg-color;
+}
+
+.jcf-select {
+    background-image: none;
+    &:before,
+    &:after {
+        content: "\e60b";
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        height: 100%;
+        padding: 0 10px;
+        font-family: 'icomoon' !important;
+        font-size: 7px;
+        transform: translateY(-50%);
+    }
+
+    &:before {
+        color: transparent;
+        border-left: 1px solid $arrow-bg-color;
+    }
+    &:after {
+        color: #999999;
+        transition: transform .3s ease;
+    }
+}
+.jcf-drop-active {
+    &:after {
+        transform: rotate(-180deg) translateY(50%);
+    }
+}
+.jcf-list li ~ li {
+    border-top: none;
+}
+
+
+.advanced-search input, .advanced-search .jcf-select {border: 1px solid transparentize($black, 0.88);}
+

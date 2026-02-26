@@ -1,0 +1,16 @@
+.theme-note{
+    padding: 10px 15px;
+    color: $black;
+    @include themify($themes) {
+        background-color: themed('color2');
+        border-left: 5px solid themed('color') ;
+    }
+}
+
+.yellow-note{
+    padding: 10px 15px;
+    color: $black;
+    background-color: $yellow-bg-secondary-color;
+    border-left: 5px solid $yellow-bg-dark-color ;
+}
+

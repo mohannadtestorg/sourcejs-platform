@@ -1,0 +1,49 @@
+/***
+
+```
+<div class="a-product-lockup">
+  <picture>
+    <source srcset="/pb-assets/images/g-cta-subscribe--large.jpg 1x, /pb-assets/images/g-cta-subscribe--large@2x.jpg 2x" media="(min-width: 768px)">
+    <source srcset="/pb-assets/images/g-cta-subscribe--small.jpg 1x, /pb-assets/images/g-cta-subscribe--small@2x.jpg 2x" media="(max-width: 767px)">
+    <img>
+  </picture>
+</div>
+```
+
+***/
+
+.a-product-lockup {
+  display: block;
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color: $color__background;
+}
+
+.a-product-lockup picture {
+  display: block;
+  width: 250px;
+  height: 160px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include breakpoint('medium+') {
+    width: 500px;
+    height: 290px;
+  }
+}
+
+// -------------------------------------
+// inside .o-col--primary
+//
+
+
+.o-col--primary > .a-product-lockup {
+  @include breakpoint('large+') {
+    position: relative;
+    z-index: 2;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

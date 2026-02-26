@@ -1,0 +1,80 @@
+{
+    "title": "Books Homepage",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/pol-header-book.json"
+                }
+            }
+        },
+        "Slides":{
+            "$pug": {
+                "template": "../../widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                "data": {
+                    "$ref": "./templates/data/books-slider.json"
+                }
+            }
+
+        },
+        "MainSlides":{
+            "$pug": {
+                "template": "../../widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                "data": {
+                    "$ref": "./templates/data/main-slider.json"
+                }
+            }
+
+        },
+        "BookofMonth":{
+
+                "$pug": {
+                    "template": "../../widgets/book-info/templates/book-info/book-info-tmpl.jade",
+                    "data": {
+                        "$ref": "./templates/data/book-of-month.json"
+                    }
+                }
+
+
+        },
+
+        "nl": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "card--dark",
+                                "card--gutter"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/components/newsletter/templates/data/newsletter.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pol-footer.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+extends ../../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade
+
+block coverDetails
+    if details
+        .cover-image__details
+            | !{pb.render("publication-content" , "article/extended/ext-parent-item" , {data: cover} , "physio" )}

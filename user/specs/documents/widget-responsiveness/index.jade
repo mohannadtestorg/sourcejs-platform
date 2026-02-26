@@ -1,0 +1,67 @@
+﻿h1 Widget Dynamic Responsiveness
+section.source_section
+    h2 What is it?
+    p Some widgets have property to control their responsive behavior, such as how it should look like in responsive state? and the most important part
+        strong when it should look like that?
+        | To be able to cover such feature we had to make it dynamic, instead of duplicating the code to cover all viewports or using JS ( resize ) listeners in each one of our components we decided to use enquire.js to trigger custom event based current view port
+
+section.source_section
+    h2 how does it work?
+    p Our dynamic responsive logic consists of:
+        ul
+            li
+                a.source_a_hl(href='/docs/spec') Controller ( trigger custom events )
+            li
+                a.source_a_hl(href='/docs/spec') Event handlers ( listen to custom events )
+    h3  controller
+    p the controller is the brain in our implementation, it uses enquire.js to keep watching browser screen size changes and fire custom events based on those changes.
+
+    h4 Our custom events
+    markdown
+        div
+            div `screen-xs-on` : when this event is triggered, it means the current browser screen size < = XSmall break point.
+            div `screen-xs-off` : when this event is triggered, it means the current browser screen size > XSmall break point.
+            div `screen-sm-on` : when this event is triggered, it means the current browser screen size < = Small break point.
+            div `screen-sm-off` : when this event is triggered, it means the current browser screen size > Small break point.
+            div `screen-sm-md` : when this event is triggered, it means the current browser screen size < = Medium break point.
+            div `screen-sm-off` : when this event is triggered, it means the current browser screen size > Medium break point.
+            div `screen-sm-lg` : when this event is triggered, it means the current browser screen size < = Large break point.
+            div `screen-sm-lg` : when this event is triggered, it means the current browser screen size > Large break point.
+    p Note: the controller uses our break point defined in our yaml variables, and those custom events are defined in our controller.js plugin.
+
+    h3 Event handlers
+    p Bind events handlers to one of our custom JavaScript events that we defined earlier in our controller.
+    code.src-js.source_visible.source_example
+        | $(document).on('screen-xs-on',function(){ // Waiting for custom event that will be triggered by controller.js to activate responsive effects
+        |     // do something
+        | });
+        | $(document).on('screen-xs-off',function(){ // Waiting for custom event that will be triggered by controller.js to deactivate responsive effects
+        |     // Undo something
+        | });
+
+    p To make it more dynamic we have added data attribute that hold the our prefered break point. So, instead of writing handlers for all our break points to cover all cases we modify our handlers based on our data attribute value
+
+section.source_section
+    h2 Example
+    markdown
+        p 1- We add `data-ctrl-res="screen-md"` attribute to our component.
+        code.src-html.source_visible.source_example
+            | <div data-ctrl-res="screen-md" class="component-classes">......</div>
+        p 2- In our component's javascript code we get the value of that attribute and we hold it in a variable
+        code.src-js.source_visible.source_example
+            | component.vPort = $('component-classes').attr('data-ctrl-res');
+        p 3- we define our dynamic handlers In our component's javascript code
+        code.src-js.source_visible.source_example
+            | $(document).on(component.vPort + '-on',function(){ // Waiting for custom event that will be triggered by controller.js to activate responsive effects
+            |     // Do something
+            | });
+            | $(document).on(component.vPort + '-off',function(){ // Waiting for custom event that will be triggered by controller.js to deactivate responsive effects
+            |     // Undo something
+            | });
+        p 4- Now when ever we change the value of `data-ctrl-res` attribute our handler would take that change as well, cheers!
+
+
+        .source_info
+            p
+                strong note:
+                | this approach cause flash of un-styled content (FOUC), the styles are applied once the js is loaded. for some elements we are gonna add `hidden-{viewport}`, and then remove it, or overwrite it by js, ex: "drawer"

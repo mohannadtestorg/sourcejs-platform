@@ -1,0 +1,125 @@
+-
+    if (!thisWidget){
+        thisWidget = JSON.parse('{"properties": {"vPort": "medium"}}');
+    };
+    if (!data){
+        data = JSON.parse('{"id": "mainNavigation","list": [' +
+        '{"text": "Products", "link": "#", "current": "true","list": [' +
+            '{"text": "Literatum","link": "#"},' +
+            '{"text": "RightSuit","link": "#"},' +
+            '{"text": "Lorem Ipsum","link": "#"}]},' +
+        '{"text": "Services", "link": "#","list": [' +
+            '{"text": "Service no 1","link": "#","list": [' +
+                '{"text": "Service no 1.1","link": "#"},' +
+                '{"text": "Service no 1.2","link": "#"},' +
+                '{"text": "Service no 1.3","link": "#"}]},' +
+            '{"text": "Service no 2","link": "#"},' +
+            '{"text": "Service no 3","link": "#"}]},' +
+        '{"text": "Technologies", "link": "#","list": [' +
+            '{"text": "Technology 1","link": "#"},' +
+            '{"text": "Technology 2","link": "#"},' +
+            '{"text": "Technology 3","link": "#"}]},' +
+        '{"text": "Customers", "link": "#"},' +
+        '{"text": "Community", "link": "#"},' +
+        '{"text": "More", "link": "#", "list": [' +
+            '{"text": "More 1","link": "#"},' +
+            '{"text": "More 2","link": "#"},' +
+            '{"text": "More 3","link": "#"}]}' +
+        ']}');
+    };
+
+- var dropDownId = 0;
+
+- var viewPort = "";
+- var viewPortClass = "";
+-
+    if (thisWidget.properties && thisWidget.properties.vPort){
+        if (thisWidget.properties.vPort == "xsmall") {
+            viewPort = "screen-xs";
+            viewPortClass = 'hidden-xs';
+            viewPortInvertClass = 'hidden-md hidden-sm hidden-lg';
+        } else if (thisWidget.properties.vPort == "small") {
+            viewPort = "screen-sm";
+            viewPortClass = 'hidden-sm hidden-xs';
+        viewPortInvertClass = 'hidden-md hidden-lg';
+        } else if (thisWidget.properties.vPort == "medium") {
+            viewPort = "screen-md";
+            viewPortClass = 'hidden-md hidden-sm hidden-xs';
+            viewPortInvertClass = 'hidden-lg';
+        } else {
+            viewPort = "never";
+            viewPortClass = '';
+            viewPortInvertClass = 'hidden-md hidden-sm hidden-xs hidden-lg';
+        }
+    };
+
+mixin link(item)
+    if (item.list)
+        - dropDownId = dropDownId + 1;
+
+    block menuDropdown
+       if (item.link) && (item.list)
+           a.dropdown__toggle(href=item.link title=item.text id=data.id + "-" + dropDownId data-toggle="dropdown")
+               if (item.text)
+                   span !{item.text}
+           +menu(item.list, true)
+       else if (item.link)
+           a(href=item.link title=item.text)
+               if (item.text)
+                   span !{item.text}
+       else if (item.list)
+           a.dropdown__toggle(href="#" title=item.text id=data.id + "-" + dropDownId data-toggle="dropdown")
+               if (item.text)
+                   span !{item.text}
+           +menu(item.list, true)
+       else
+           if (item.text)
+               span !{item.text}
+
+
+mixin menuItem(list, nested)
+    each item, i in list
+
+        -var liClass = "menu-item";
+        if ( item.list)
+            - liClass = "dropdown menu-parent";
+        if item.current == "true"
+            - liClass = liClass + " is--current";
+
+        if (item.list)
+            li(class=liClass role="menuitem" aria-haspopup="true" tabindex="-1" aria-label=item.text id= nested ? '' : 'menu-item-'+i)
+                +link(item)
+        else
+            li(class=liClass role="menuitem" tabindex="-1" aria-label=item.text id= nested ? '' : 'menu-item-'+i)
+                +link(item)
+
+
+
+
+mixin menu(list, nested)
+    if nested == true
+        if dropDownId > 1
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId aria-hidden="true" role="menu")
+                +menuItem(list, nested)
+        else
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId aria-hidden="true" role="menu")
+                +menuItem(list, nested)
+    else
+        ul#menubar.rlist--inline(role="menubar")
+            +menuItem(list, nested)
+
+
+block mainNavBlock
+    div.main-nav
+        a(href="#" + data.id data-target=data.id data-toggle="nav" title="menu drawer")
+            block navIcons
+                div.nav-button(aria-hidden='true')
+                    span
+                    span
+                    span
+        nav.drawer__nav.container.gutterless(role="navigation" id=data.id class=viewPortClass data-ctrl-res=viewPort)
+            a.menu-header(href='/' class=viewPortInvertClass) Home
+            +menu(data.list, false)
+
+
+

@@ -1,0 +1,155 @@
+if(data.search)
+    - var pages = data.search.hitsLength / data.search.pageSize
+    - var rest = data.search.hitsLength % data.search.pageSize
+    if rest > 0
+        - pages++
+    - var resultFrom = 1 + (data.search.startPage) * (data.search.pageSize)
+    - var resultTo = data.search.hitsLength < data.search.pageSize ? data.search.hitsLength : resultFrom + data.search.pageSize -1
+    - resultTo = resultTo > data.search.hitsLength ? data.search.hitsLength : resultTo
+    - var classes = "search-result doSearch"
+    - var alertTimes = {alerts: ['Never', 'Daily', 'Weekly', 'Monthly']};
+
+mixin saveSearchDialog()
+    block saveSearchDialog
+        .ux-modal-container.search__modal
+            #saveSearchDialog.modal(role="dialog")
+                .modal__dialog
+                    .modal__header
+                        button.close(type='button', data-dismiss='modal')
+                            i.icon-close_thin(aria-hidden='true')
+                        h2 Save this search
+                    .modal__body
+                        if true
+                            form(action='/action/doSaveSearch', name='frmSaveSearch', method='post')
+                                if(data.saveSearchParams)
+                                  each item,i  in data.saveSearchParams
+                                      each value,i  in item.value
+                                          input(type='hidden', name=item.name, value= value)
+                                input(type='hidden', name='perform', value='save')
+                                input(type='hidden', name='ajax', value='true')
+                                input(type='hidden', name='dispSavedSearches', value='true')
+                                .input-group
+                                    label.hidden(for='SSName') Name:
+                                    input.search-term(autofocus='true', type='text', name='saveSearchName', value='', size='15', placeholder=' Enter search name')
+
+                                h4 Alert me to new results:
+                                .input-group
+                                    if(alertTimes && alertTimes.alerts)
+                                        each alertTime, l in alertTimes.alerts
+                                            label
+                                                input(type='radio', name='alertme', value=alertTime, checked= alertTime == 'Never' ? true : false)
+                                                span.label-txt !{alertTime}
+
+                                .saveSearchProgress
+                                input#newSearchSaveButton.button.primary(type='submit', name='submit', value='Save search')
+
+                        else
+                            p  Please
+                                a(href="/action/showLogin?uri=" + data.searchParams)  login
+                                |  to be able to save your searches and receive alerts for new content matching your search criteria.
+
+
+
+div(class= classes)
+
+
+    if (data.widgetData && data.widgetData.groupTabs && data.serviceName == "doSearch")
+        | !{pb.render("search-result", "search-result/search-tabs", {data: data, thisWidget: thisWidget})}
+
+    div.search-result__follow.clearfix
+        if(data.serviceName == "doSearch" || data.doType == "author")
+            div.pull-left.search__result.search__result--space
+                if data.search.hitsLength > 0
+                    span.result__current Results: !{resultFrom} - !{resultTo}
+                    span.result__sep of
+                    if(data.search)
+                        span.result__count !{data.search.hitsLength}
+                    if(data.widgetData && data.widgetData.refineSearch && data.widgetData.refineSearch.searchIn)
+                        span.result__suffix !{data.widgetData.refineSearch.searchIn.searchTerm}
+                else
+                    span.result__current Results: 0 - 0
+                    span.result__sep of
+                    span.result__count 0
+
+        if(data.doType == "podcast" && data.tag=="category")
+            div.podcast-category__subscribe
+                span.label Subscribe
+                ul.rlist.rlist--inline
+                    li
+                        a.social-links__item(href=data.search.searchFeed.linkHref title=data.search.searchFeed.linkTitle)
+                            i.icon-Rss
+                    li
+                        a.social-links__item(href='#', title='iTunes')
+                            i.icon-apple
+                            span.itunes-label
+                                | iTunes
+                                span
+        else
+           div.search__follow__item.pull-right
+               span.search__follow__label Follow results:
+               .search__follow__item
+                   a#saveSearchTriggerButton.search__follow__icon(href='#saveSearchDialog', role='button', data-toggle='modal', data-target='#saveSearchDialog', aria-label='Click here to save your search', title='Save Search')
+                       i.icon-save-search(aria-hidden="true")
+
+                   span.hidden.error.saveSearchMsg
+                       | Failed to save your search, try again later
+                   span.hidden.success.saveSearchMsg
+                       | Search has been saved
+                       a(href='/search/saved')  (Edit)
+               a.search__follow__icon(href=data.search.searchFeed.linkHref title=data.search.searchFeed.linkTitle name="RSSFeed" class="RSS controlLinks" role="button")
+                   i.icon-Rss(aria-hidden="true").pull-right.search__follow
+
+           +saveSearchDialog()
+
+
+
+    if(data.serviceName == "doSearch" || data.doType  == "author")
+
+        div.search-result__meta
+          div.search-result__meta__top.clearfix
+            if(data.serviceName == "doSearch")
+              div.pull-left.search__result
+                  a.search-result__refine.advanced-search__ctrl.w-slide__btn(href="#" data-slide-target="#advancedSearch" )
+                      span refine search
+                      i(class="icon-section_arrow_d" aria-hidden="true")
+
+            div.pull-right.search__bottom.clearfix
+                  if(data.serviceName == "doSearch")
+                    a(href = "#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                      i(class="icon-filter_list inline-icon" aria-hidden="true")
+                      span Filters
+
+                  if data.search && data.search.hitsLength > 0
+                      | !{pb.render("search-result", "search-result/per-page", {data: data, thisWidget: thisWidget})}
+                  if (data.widgetData && data.widgetData.sortLinks)
+                      | !{pb.render("search-result", "search-result/sort-options", {data: data, thisWidget: thisWidget})}
+
+          if (data.serviceName == "doSearch")
+                block advancedSearch
+                    div.advanced-search__tabs.clearfix#advancedSearch
+                        | !{pb.render("search-result", "search-result/extended/ext-tabs", { data: data,thisWidget: thisWidget})}
+
+
+
+    if(data.search)
+        - var itemNo = data.search.dataLength
+    if itemNo > 0
+        if data.widgetData && data.widgetData.useXSLT
+            ul.rlist.search-result__body.items-results
+               | !{data.search.xslt}
+        else
+           ul.rlist.search-result__body.items-results
+             block searchResults
+               if(data.search && data.search.results)
+                   each item, i in data.search.results
+                       if(item.content)
+                           li.clearfix.item   !{item.content.render}
+    else
+        div.search-result__no-result
+            if(data.widgetData)
+                | !{data.widgetData.textForNoResults}
+
+
+
+
+    include ../pager-tmpl

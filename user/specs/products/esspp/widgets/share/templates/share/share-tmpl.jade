@@ -1,0 +1,15 @@
+extends  ../../../../../../ux3/widgets/share/templates/share/share-tmpl
+
+block shareMain
+    .article__share-control
+        block shareController
+            a.btn.btn--gray.share__ctrl.w-slide__btn(href="#" data-db-target-for=thisWidget.id data-db-switch='rotate' data-slide-target= "#" + thisWidget.id + "_Pop")
+                i.icon-Icon_Share(aria-hidden="true").hidden-md.hidden-lg
+                span Share
+                i.icon-section_arrow_d(aria-hidden='true').hidden-sm.hidden-xs
+
+        block shareBlock
+            div.share__block.dropBlock__holder.fixed(data-db-target-of=thisWidget.id id=thisWidget.id + "_Pop")
+                | !{pb.renderDropzone(thisWidget, "shareBlock")}
+                +addThis()
+

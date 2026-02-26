@@ -1,0 +1,14 @@
+each item, l in data.items
+    div.featured__container
+        block cover
+            if(item == data.items[0])
+                if (item.group.coverImage)
+                    div.featured__cover
+                        img(src=item.group.coverImage.src)
+        div.info-container
+            div.featured__date
+                i.icon-date
+                | !{item.epubDate}
+            div.featured__title
+                a(href=item.best)
+                    | !{item.title}

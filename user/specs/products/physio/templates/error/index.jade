@@ -1,0 +1,37 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Error page
+
+    p.source_info
+        |The Error page template contains the following components: Header, Footer, Content
+
+    section.source_section
+        h2 Error
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.pageBody
+                .container.error-page
+                    .row
+                        .col-xs-12.col-md-8.error-text
+                          h1.page__header 404
+                          h2.subtitle Page not found
+                          p We are sorry but the page you are looking for cannot be found. It may have been removed, changed or is temporarily unavailable.
+                          ul.reset-padding
+                            li
+                              | If you typed in the URL, please double-check to make sure that it has been typed correctly.
+                            li
+                              | Enter a search term in the search form on this page to find the page you were looking for.
+                            li
+                              | #[a.primary-link-color(href="/contact") Contact us] for help.
+                          p
+                            button.primary-blue-background-color
+                              #[a(href="/") Go to homepage]
+                        .col-xs-12.col-md-4.error-image.center
+                          img(src="/specs/ux3/images/error-sign.svg")
+                          
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,216 @@
+/*
+
+  Journal Watch
+
+  Products Right Rail Widgets
+  Using the HTML code of the existing module. HTML can't be changed ¯\_(ツ)_/¯
+  therefore !important is used a lot below, sorry
+*/
+
+.jwBox {
+  position: relative !important;
+  width:100% !important;
+  background-color: $color__aside-bg--career-center !important;
+  background-image:none !important;
+  margin-top: 32px !important;
+  padding: 20px 16px 16px 16px !important;
+  border:0 none !important;
+  width:100% !important;
+  overflow: hidden !important;
+  background-image:url('/templates/jsp/_mms/pb2/images/nejm_journal-watch.svg') !important;
+  background-repeat:no-repeat !important;
+  background-position: 20px 18px !important;
+  padding-top:64px !important;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  .o-col--secondary .o-cols-2\@medium & {
+    @include breakpoint('medium') {
+      margin-top: 0 !important;
+    }
+  }
+
+  > h3 {
+    margin-bottom: -2px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid $color__rules !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    font-family: $sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal;
+    color: #114980 !important;
+
+    @include breakpoint('medium') {
+      position: absolute !important;
+      right: 16px !important;
+      top: 37px !important;
+      padding-top: 0 !important;
+      border-top: 0 !important;
+      .o-col--primary &{
+        position: static !important;
+        padding-top: 16px !important;
+        border-top: 1px solid $color__rules !important;
+      }
+    }
+
+    .wf-active & {
+      font-family: $sans-serif--loaded !important;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  .jwBoxArticleType {
+    display: none !important;
+  }
+
+  .secondaryArticle {
+    position:relative !important;
+    margin-top: 12px !important;
+    padding-top: 11px !important;
+    border-top: 1px solid $color__rules;
+
+    @include breakpoint('medium') {
+      width:50%;
+      float:left;
+      margin-top: 4px !important;
+      padding-top: 15px !important;
+      padding-bottom: 5px !important;
+      padding-right: map-get($inner-gutters, medium) / 2;
+
+      + .secondaryArticle {
+        padding-left: map-get($inner-gutters, medium) / 2;
+        padding-right: 0;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 16px;
+          bottom: 0;
+          width: 1px;
+          background-color: $color__rules;
+        }
+      }
+      .o-col--primary &{
+        float: none;
+        width: auto;
+        margin-top: 12px !important;
+        padding-top: 11px !important;
+        border-top: 1px solid $color__rules;
+        + .secondaryArticle {
+          padding-left: 0;
+          padding-right: 0;
+          &::before {
+            content: none;
+          }
+        }
+      }
+    }
+
+    p {
+      margin-top: 0;
+      font-family: $sans-serif !important;
+      font-size: 15px;
+      line-height: 20px;
+      font-weight: normal;
+      color: $color__text !important;
+
+      .wf-active & {
+        font-family: $sans-serif--loaded !important;
+      }
+    }
+  }
+
+  .articleLink {
+    display: block !important;
+    font-family: $serif !important;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 24px;
+    color:$color__text--headlines !important;
+
+    .wf-active & {
+      font-family: $serif--loaded !important;
+    }
+  }
+
+  .articleLink a {
+    color: $color__text--headlines !important;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .articleAuthors {
+    margin-top: 8px;
+    font-family: $sans-serif !important;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: normal;
+    color: $color__text--quaternary !important;
+
+    .wf-active & {
+      font-family: $sans-serif--loaded !important;
+    }
+
+    em,
+    strong,
+    i,
+    b {
+      font-weight: normal;
+      color: $color__text--quaternary !important;
+    }
+  }
+
+  .articleContentIcons {
+    display: none !important;
+  }
+
+  .jwBoxFoot {
+    display: none !important;
+  }
+
+  .jwBoxMore {
+    margin-top: 16px;
+    padding-top: 11px;
+    border-top: 1px solid $color__rules;
+
+    @include breakpoint('medium') {
+      clear:both;
+      float: left;
+      overflow: hidden;
+      width:100%;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: -3px;
+      color: $color__text--secondary !important;
+    }
+
+    p, a {
+      font-family: $sans-serif;
+      font-size: 15px !important;
+      line-height: 20px !important;
+
+      .wf-active & {
+        font-family: $sans-serif--loaded !important;
+      }
+    }
+
+    a {
+      color: $color__link-primary !important;
+    }
+
+    a:hover {
+      text-decoration: underline !important;
+    }
+  }
+}

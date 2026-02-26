@@ -1,0 +1,23 @@
+.header {
+    position: relative;
+    z-index: 99;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 0;
+    height: 72px;
+}
+.main-nav nav {
+    width: auto;
+}
+.lock-screen {
+    &[data-active="menu"] {
+        @include media('>=phone') {
+            .site-branding svg {
+                fill: #fff !important;
+            }
+        }
+    }
+}

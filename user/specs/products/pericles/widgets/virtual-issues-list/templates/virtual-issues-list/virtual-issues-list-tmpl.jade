@@ -1,0 +1,13 @@
+
+
+if (data) && (data.virtualIssues)
+    - var itemNo = data.virtualIssues.length
+    if itemNo > 0
+        div.publication-cover-extra
+            if (thisWidget.properties) && (thisWidget.properties.appearsLabel)
+                label
+                    | This article also appears in:
+            ul.rlist
+                each issue, l in data.virtualIssues
+                    li
+                        a(href=issue.link) !{issue.title}

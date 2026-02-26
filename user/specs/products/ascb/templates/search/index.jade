@@ -1,0 +1,33 @@
+extends /specs/products/ascb/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.mboc-theme
+                .quickSearchRegion.dark
+                    .container
+                        .row
+                            div.col-lg-12.clearfix
+                                | !{data.quickSearch}
+
+                .container
+                    .row
+                        .col-sm-4
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                        .col-sm-8
+                            | !{data.searchresult}
+
+
+            .mboc-theme
+                | !{data.footer}
+    | #{''}

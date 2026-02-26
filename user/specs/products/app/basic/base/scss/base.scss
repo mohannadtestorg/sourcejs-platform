@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans|Roboto+Condensed|Lora');
+
+body{
+  font-size: 0.875rem;
+}
+
+@mixin content-padding($extraPadding,$extraPaddingTablet:0,$extraPaddingDesktop:$extraPadding) {
+  ~.content{
+    padding-top: $content-top-padding + $extraPadding;
+
+    @include media('<desktop'){
+      padding-top: $content-top-padding + $extraPaddingDesktop;
+    }
+    @include media('<tablet'){
+      padding-top: $content-top-padding + $extraPaddingTablet;
+    }
+  }
+}
+
+
+
+.advertisement {
+  margin-top: 15px;
+}
+.margin-top-0{
+  margin-top:0!important;
+}
+.margin-bottom-50{
+  margin-bottom: 50px;
+}
+.margin-bottom-15{
+  margin-bottom: 15px;
+}
+.margin-top-15{
+  margin-top: 15px;
+}
+.margin-left-11-large{
+  @include media('>=large') {
+    margin-left: 11px;
+  }
+}
+.blue-heading{
+  color: $link-text-color;
+}
+.content{
+  padding-top: $content-top-padding;
+  &--extra{
+    padding-top: $content-top-padding + 50px;
+    @include media('<tablet') {
+      padding-top: $content-top-padding + 40px;
+    }
+  }
+}
+
+.hidden{
+  display: none;
+}
+
+.header-adv-exists{
+   @include content-padding(115);
+}
+
+.header-adv-loi-exists{
+  @include content-padding(175,10,10);
+
+}
+.header-loi-exists{
+}
+
+.header.header-small{
+  border-bottom: 1px solid $primary-border-color;
+  ~.content {
+    padding-top: $content-top-padding - 74px;
+  }
+}
+
+
+.font-weight-light{
+  font-weight: 400;
+}
+
+.bold{
+  font-weight: 700;
+}
+.gray-color{
+  color:$secondary-text-color;
+}
+.page-top-margin{
+  margin-top: 30px;
+}
+
+.border-top{
+  @include border-style(2px, 0, $separators-color);
+}
+
+.text-between-arc{
+  &:before{
+    content: " (";
+  }
+
+  &:after{
+    content: ")";
+  }
+}
+
+.dark-gradient{
+  color: $white;
+  .title{
+    color: $white;
+  }
+  &--container{
+    padding:10px;
+  }
+  @include themify($themes) {
+    background-color: themed('color');
+    background: linear-gradient(themed('color'), themed('color2'));
+  }
+
+}
+
+.gray{
+  color: $default-theme-color;
+}
+
+.font14{
+  font-size: .875rem;
+}
+
+font12{
+  font-size: .75rem;
+}
+
+
+.dark-transparent-bg{
+  background-color: rgba(0, 0, 0, 0.35);
+  color:$white;
+}
+.absolute{
+  position: absolute;
+}
+.hidden-md-landscape{
+  @include media('<large') {
+    display: none;
+  }
+}
+.pb-ad {
+  display: table;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.guide-line-item {
+  margin-bottom: 20px;
+  &__title{
+    min-height: 40px;
+    color: $black!important;
+    margin-bottom: 0;
+  }
+  &__list{
+    min-height: 62px;
+  }
+}
+.init-color{
+  color: $black!important;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');

@@ -1,0 +1,25 @@
+﻿header.header.fixed.base.header--homePage(data-db-parent-of="sb1")
+    .container
+        .header--first-row
+            .pull-left
+                | !{logo}
+                .drawer__nav
+                    | !{mainmenu}
+
+            .pull-right
+                .header__quick-menu
+                    .loginBar.login-open
+                        ul.rlist--inline
+                            li
+                                a(href="#" title="Login")
+                                    span.icon-userprofile.hidden-lg
+                            li
+                                a.btn.sign-up.hidden-md.hidden-sm.hidden-xs Log in / Sign up
+
+.header--homePage__search
+    .container
+        img.header__essoar-img(src="/specs/products/esspp/images/essoar.png", alt="ESSOAr Logo", title="Earth and Space Science Open Archive")
+        .header__image-text Earth and Space Science Open Archive
+        | !{search}
+
+

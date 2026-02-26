@@ -1,0 +1,9 @@
+block topContentBody
+    if (data && data.items)
+        | !{pb.render('top-content', 'top-content/extended/ext-teaser' ,  {data: data} , 'aom')}
+    if (data && data.widget && data.widget.moreUrl)
+        a.more-link(href=data.widget.moreUrl)
+            if (data.widget) && (data.widget.moreText)
+                | !{data.widget.moreText}
+            else
+                | Show More

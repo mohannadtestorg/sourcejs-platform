@@ -1,0 +1,21 @@
+extends /specs/products/mal/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+
+    | #{''}
+
+    section.source_section
+        h2 Publication header
+
+        h3 Publication header
+        .source_example
+            | !{data.items[0].body}
+    | #{''}

@@ -1,0 +1,84 @@
+//extends ../../../../../../../ux3/components/facet/templates/facet/facet-tmpl
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-facet-tmpl.jade
+
+block facetItemLabel
+    if thisWidget && thisWidget.properties && thisWidget.properties.hideSiblingTaxonomyNodes && item.selected
+        if (item.label)
+            span.facet__label !{item.label}
+    else
+        if (item.label)
+            span.facet__label !{item.label}
+        if (item.formattedCount)
+            span.facet__counter  !{item.formattedCount}
+        else if (item.count)
+            span.facet__counter  !{item.count}
+
+block facetInnerItemNotNested
+    if thisWidget && thisWidget.properties && thisWidget.properties.hideSiblingTaxonomyNodes && item.selected
+        i.icon-add_box.facet__toggle(aria-hidden="true")
+
+    if (item.link)
+        a(href=item.link title=linkTitle class=(thisWidget) && (thisWidget.properties) && thisWidget.properties.hideSiblingTaxonomyNodes && item.selected ?  'dropdown__toggled' : '')
+            +item(item, false)
+
+
+block facetItem
+    - nestedList = true
+    i.icon-add_box.facet__toggle(aria-hidden="true")
+    a(href=item.link title=linkTitle
+    data-toggle=(thisWidget) && (thisWidget.properties) && thisWidget.properties.hideSiblingTaxonomyNodes ? '' : 'dropdownList'
+    class=(thisWidget) && (thisWidget.properties) && thisWidget.properties.hideSiblingTaxonomyNodes ?  'dropdown__toggled' : 'dropdown__toggle' id='facetList-' + nestedListID)
+        +item(item, true)
+    +facetUl(item, true)
+
+
+block facetTaxMain
+    if (data && data.section)
+        - var type = 'Taxonomy'
+        - var showFacet = false;
+        each item, i in data.section
+            if (item.values)
+                - var itemNo = item.values.length
+                if !itemNo
+                    - itemNo = item.values.size()
+                if itemNo > 0
+                    div.facet.accordion(class= (thisWidget) && (thisWidget.properties) && thisWidget.properties.displayAll ? 'displayAll' : '')
+                        if (item) && (item.title)
+                            a(href="#" title=item.title aria-controls="titleFacet" class="facet__ctrl accordion__control js--open")
+                                h4.facet__title !{item.title}
+                                i(aria-hidden="true" class="icon-section_arrow_d")
+
+                        if (item) && (item.values)
+                            div.facet__content.accordion__content.js--open(class=(thisWidget) && (thisWidget.properties) && thisWidget.properties.hideSiblingTaxonomyNodes ? 'facet--taxonomy' : '')
+                                +facetUl(item)
+
+
+
+block facetsListItemsNum
+    each item, l in data.values
+        if type == 'Taxonomy' && thisWidget.properties.displayAll
+            li
+                +facetInnerItem(item)
+        else
+            if (l <= 4)
+                - liClass = '';
+            if (l <= 9 && l > 4)
+                - liClass = 'js--toggle';
+            if (l <= 9)
+                li(class=liClass)
+                    +facetInnerItem(item)
+
+block facetsMoreThenTen
+    if !(type == 'Taxonomy' && thisWidget.properties.displayAll)
+        if (itemNo > 10)
+            .facet__select--hidden
+                select(name="facet" class="facet__select" data-placeholder="Search (" + (itemNo - 10) + ") more")
+                    each item, l in data.values
+                        if (l > 9)
+                            option(value=item.link)
+                                if (item.label)
+                                    span.facet__label !{item.label}
+                                if (item.formattedCount)
+                                    span.facet__counter  (!{item.formattedCount})
+                                else if (item.count)
+                                    span.facet__counter  (!{item.count})

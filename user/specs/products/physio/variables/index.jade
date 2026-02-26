@@ -1,0 +1,71 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    include ../../../page-structure/helpers/print-json-mixin.jade
+    include ../../../page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Aliases
+        p Aliases are alternative or more significant names for a defined data objects. We use Aliases to hold global defined values to be used within different variables such as colors Hex values.
+        h3 Aliases file structure
+        p The following example demonstrate the structure of aliases file
+        code.src-yaml.source_visible.source_example
+            | aliases:
+            |   # Basic Colors
+            |   ALIAS_NAME: "Alias value"
+            |   TRANSPARENT: "transparent"
+            |   BLACK: "#000000"
+            |   WHITE: "#FFFFFF"
+            |   GRAY: "#333333"
+        markdown
+            p `aliases:` defines that the type of those values are aliases. Comments line must start with `#`. Each alias has a name and a value. To use aliases within your variables / yaml file you must include your aliases file at the top of your file.
+        code.src-yaml.source_visible.source_example
+            | imports:
+            |     - ../aliases/colors.yam
+    section.source_section
+        h2 Variables
+        p We use variables to hold shared values across products.
+        h3 Variables file structure
+        p The following example demonstrate the structure of variables file
+        code.src-yaml.source_visible.source_example
+            | ---
+            | # colors-variables.yaml
+            |   global:
+            |     type: "color/hex"
+            |     category: "colors"
+            |     cssProperties:
+            |     - '*color'
+            |     - 'background*'
+            |     - 'border*'
+            |   imports:
+            |     - ../aliases/[aliases-file].yaml
+            |   props:
+            |     variable-name:
+            |       value: "variable-value"
+            |       Comment: "comment to be added above the variable"
+            |       suffix: "comment to be added right after the variable"
+            |       extension: "!default"
+            |     variable-holds-alias:
+            |       value: "{!WHITE}"
+            |       comment" "WHITE is an alias that holds '#fff' as a value"
+        markdown
+            p `global:` is a list of objects that will be merged into each property, any values defined on a property level will take precedence. `props:` a map of property names and value objects. To use aliases with in your variables/yaml file you must include your alias file at the top of your variables/yaml file as provided in the example.
+
+        h4 Pre-defined types
+            markdown
+                ul
+                    li   `color/rgb`
+                        |   Parse the value as a color and return an rgb(a) string
+                    li   `color/hex`
+                        |   Parse the value as a color and return an 6 digit hex string
+                    li   `color/hex8rgba`
+                        |   Parse the value as a color and return an 8 digit hex string in the form RRGGBBAA (as defined by the CSS Color specification).
+                    li   `color/hex8argb`
+                        |   Parse the value as a color and return an 8 digit hex string in the form AARRGGBB (as used for colors in Android).
+                    li   `percentage/float`
+                        |   Parse a string percentage value and return a float representation
+                    li   `relative/pixel`
+                        |   Parse a relative size value (em/rem) and return a pixel representation. By default, the baseFontSize is set to 16 and the baseFontPercentage is set to 1. These values can be overwritten in a property's .meta object.
+                    li   `relative/pixelValue`
+                        |   Same as relative/pixel, but removes the px extension

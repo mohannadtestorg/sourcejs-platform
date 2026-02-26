@@ -1,0 +1,19 @@
+.rlist {
+  &--inline {
+    &.separator {
+      > li:not(:last-of-type) {
+        border-right: 1px solid $primary-bg-color;
+        @include themify($themes) {
+          border-right-color: themed('color2');
+        }
+      }
+    }
+    //.contact {
+    //  &__nav & {
+    //    padding-top: 25px;
+    //    padding-left: 25px;
+    //
+    //  }
+    //}
+  }
+}

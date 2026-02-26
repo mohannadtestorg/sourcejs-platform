@@ -1,0 +1,51 @@
+%badge {
+    font-size: 0.875rem;// 14px;
+    color: $text-onDark;
+    text-align: center;
+    padding: 3px 6px;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+}
+
+%small {
+    font-size: 0.625rem; //  10px
+    font-weight: bold;
+}
+
+.badge {
+    &-type {
+        @extend %badge;
+        background-color: $badge-type-bg-color;
+
+        ~ .badge-type,  ~ .badge-type--icon{
+            margin-left: 12px;
+        }
+
+        &--icon {
+            @extend %badge;
+            background: transparent;
+            i {
+                color: $primary-text-color;
+            }
+
+        }
+
+    }
+
+    &-primary {
+        @extend %badge;
+        @extend %small;
+        background-color: $badge-primary-bg-color;
+    }
+
+    &-oa {
+        @extend %badge;
+        background-color: $badge-oa-bg-color;
+    }
+
+    &-fa {
+        @extend %badge;
+        background-color: $badge-fa-bg-color;
+    }
+}

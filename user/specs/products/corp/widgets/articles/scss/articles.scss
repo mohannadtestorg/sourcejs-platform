@@ -1,0 +1,171 @@
+.article {
+    p {
+        margin-top: 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        &--full-width {
+            margin: 22px 0;
+            @include media('>phone') {
+                margin: 32px 0;
+            }
+            @include media('>desktop') {
+                margin: 42px 0;
+            }
+        }
+    }
+
+    &__feature {
+        margin-bottom: 1.78rem;
+        @include media('>desktop') {
+            margin-bottom: 0;
+
+            h3 { font-size: 1.2em; }
+            h4{ font-size: 1.5em; }
+        }
+
+        & + & {
+            margin-top: 30px;
+            @include media('>=desktop') {
+                margin-top: 50px;
+            }
+        }
+    }
+
+    &-preview {
+        position: relative;
+
+        &__image {
+            width: 100%;
+            margin-bottom: 18px;
+            @include media('>phone') {
+                margin-bottom: 0;
+            }
+        }
+
+        &__title {
+            margin: .8em 0;
+        }
+
+        .text-link {
+            font-size: 1rem;
+        }
+
+        .btn {
+            margin-top: 1em;
+        }
+
+        & + & {
+            margin-top: 37px;
+
+            @include media('>phone') {
+                margin-top: 50px;
+            }
+            @include media('>=desktop') {
+                margin-top: 100px;
+            }
+        }
+    }
+}
+aside .article__feature {
+    @include media('>desktop') {
+        p {
+            font-size: .89rem;
+            line-height: 1.6rem;
+        }
+    }
+}
+.short-info {
+    margin-bottom: 24px;
+
+    @include media('>phone') {
+        margin-bottom: 12px;
+    }
+    @include media('>desktop') {
+        margin-bottom: 30px;
+    }
+
+    &-holder {
+        overflow: hidden;
+        margin-bottom: -24px;
+        @include media('>phone') {
+            margin-bottom: -12px;
+        }
+        @include media('>desktop') {
+            margin-bottom: -30px;
+        }
+    }
+
+    &__image {
+        margin: 0;
+        width: 48px;
+        height: 48px;
+
+        @include media('>phone') {
+            width: 64px;
+            height: 64px;
+        }
+        @include media('>desktop') {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    &__title {
+        margin: .61rem 0;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: $small-font-size;
+        line-height: $small-line-height;
+        color: $hero-text-color;
+    }
+
+    &-big {
+        margin-bottom: 42px;
+        @include media('>phone') {
+            margin-bottom: 48px;
+        }
+        @include media('>desktop') {
+            margin-bottom: 68px;
+        }
+
+        &-holder {
+            margin-bottom: -42px;
+            @include media('>phone') {
+                margin-bottom: -48px;
+            }
+            @include media('>desktop') {
+                margin-bottom: -68px;
+            }
+        }
+
+        &__image {
+            display: block;
+            margin: 0 0 1rem;
+            width: 64px;
+            height: 64px;
+
+            @include media('>phone') {
+                width: 88px;
+                height: 88px;
+            }
+            @include media('>desktop') {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        &__title {
+
+        }
+
+        &__text {
+            margin: 0 0 1.2rem 0;
+        }
+    }
+}

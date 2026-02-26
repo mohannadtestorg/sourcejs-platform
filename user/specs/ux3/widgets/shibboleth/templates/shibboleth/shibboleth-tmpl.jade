@@ -1,0 +1,20 @@
+.shibboleth
+    form(method='post' action="/action/institutionConfigShibboleth" name="InstitutionAdmin_ConfigShibboleth")
+        input(type="hidden" name="anti-forgery-token" value=data.antiForgeryToken )
+
+        .input-group.shibboleth__entityID
+                label Shibboleth Entity ID
+                input(name='entityID', type='text', value=data.entityID, size='70')
+                if(data.errors && data.errors.entityID)
+                    span.error
+                        | !{data.errors.entityID}
+
+        .input-group.shibboleth__orgUnitID
+                label Organization/Unit ID (optional)
+                input(name='orgUnitID', type='text', value=data.orgUnitID, size='32')
+                if(data.errors && data.errors.orgUnitID)
+                    span.error
+                        | !{data.errors.orgUnitID}
+
+        .shibboleth__buttons
+            button.pull-right(type='submit') Update

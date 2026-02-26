@@ -1,0 +1,168 @@
+extends ../search-result-tmpl
+
+block searchResultMain
+    block resultsListClassesXSLT
+        - var ulClasses = "search-result__xsl-body items-results rlist--inline "
+    ul(class=ulClasses)
+        -var n=0
+        while n < 6
+            -n=n+1;
+            li.search__item
+                .search__item-checkbox
+                    label.checkbox--primary
+                        input.issue-Item__checkbox(type="checkbox" name="item" +n)
+                        span
+                .issue-item.clearfix
+                    .issue-item__citation
+                        .issue-heading Article
+                        .open-access Open Access
+                        .badges
+                            .img-badget
+                               img(src="/specs/products/acm/widgets/search-result/Images/badge2.png")
+                            .img-badget
+                               img(src="/specs/products/acm/widgets/search-result/Images/badge1.png")
+                    .issue-item__content
+                        h5.issue-item__title
+                            a(href='#')
+                                | E-commerce marketplaces—whether business-to-consumer (B2C) or business-to-business (B2B)—are examples of a two-sided market.6,19 Each side involves network-stimulous exploitation of participants.
+
+                        ul.rlist--inline.loa.comma(style='float: none; position: static;', aria-label='authors')
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    img.author-picture(src="/specs/products/acm/templates/toc/Images/auth2.png")
+                                    span R. L. Rivest
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    img.author-picture(src="/specs/products/acm/templates/toc/Images/auth1.png")
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=Tim Beechie', title='Tim Beechie')
+                                    span Rebecaa Rosengratz
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    span Nick Gayeski
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=Tim Beechie', title='Tim Beechie')
+                                    span Tim Beechie
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    span Nick Gayeski
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=Tim Beechie', title='Tim Beechie')
+                                    img.author-picture(src="/specs/products/acm/templates/toc/Images/auth2.png")
+                                    span Tim Beechie
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    span Nick Gayeski
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=Tim Beechie', title='Tim Beechie')
+                                    span Tim Beechie
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    span Nick Gayeski
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=Tim Beechie', title='Tim Beechie')
+                                    span Tim Beechie
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    span Nick Gayeski
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+                            li
+                                a(href='/author/search/url?q=Tim Beechie', title='Tim Beechie')
+                                    span Tim Beechie
+                            li
+                                a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                    span Nick Gayeski
+                            li
+                                a(href='/author/search/url?q=George Pess', title='George Pess')
+                                    span George Pess
+
+                        .issue-item__detail
+                            span.comma December 2013
+                            span.comma  Article No: 37
+                            span  pp 23
+                            span
+                                a(class='issue-item__doi' href='https://doi.org/10.1017/aer.2017.4') https://doi.org/10.1017/aer.2017.4
+
+                        .issue-item__abstract
+                            p In this study, we investigate the influence of a robot's behavior that motivates human tidying up. Using this scenario, robot can accomplish tidying up tasks effectively through human-robot cooperation (HRC). We developed a system that can tidy up a table through HRC. To validate what behavior effectively encourage human engagement, system that can tidy up a table through HRC. To validate what behavior effectively encourage human engagement
+
+                        .issue-item__footer
+                            .issue-item__footer-info
+                                .tooltip
+                                    ul.rlist--inline
+                                        li
+                                            span.citation
+                                                    i.icon-quote
+                                                    span 34
+                                        li
+                                            span.metric
+                                                    i.icon-metric
+                                                    span 544
+                                    .tooltip__body
+                                        span.arrow
+                                        .left-bordered-title Metrics
+                                        .citation Total Citations
+                                            span.bold 34
+                                        .metric   Total Downloads
+                                            span.bold 544
+                                        .info Last 12 Months
+                                            span.bold 88
+                                        .info Last 6 weeks
+                                            span.bold 9
+                            .accordion
+                                  a.accordion__control(href='#', title='Highlights', aria-expanded='false')
+                                      i.icon-format_color_text
+                                      |  Highlights
+                                      i.icon-section_arrow_d
+                                  .accordion__content(style='display: none;')
+                                          h6 Abstract
+                                          p In this study, we investigate the influence of a robot's behavior that motivates human tidying up. Using this scenario, robot can accomplish tidying up tasks effectively through human-robot cooperation (HRC). We developed a system that can tidy up a table through HRC. To <span class="highlight-text">algorithm</span> what behavior effectively encourage human to engage customer support.
+
+
+
+                            .issue-item__footer-links
+                                ul.rlist--inline
+                                    li
+                                        a(href='#', title='Export Citation')
+                                            i.icon-quote
+                                            span Export Citation
+                                    li
+                                        a(href='#', title='Add to Binder')
+                                            i.icon-add-folder
+                                            span Add to Binder
+                                    li
+                                        a(href='#', title='Digital Magazine').digital-edition
+                                            i.icon-open-book
+                                            span Digital Magazine
+                                    li
+                                        a(href='#', title='Full text').full-text
+                                            i.icon-full-text
+                                            span Full text
+                                    li
+                                        a(href='#', title='PDF').pdf
+                                            i.icon-pdf-file
+                                            span PDF

@@ -1,0 +1,54 @@
+extends /specs/products/acm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Search Page -Articles
+        .source_example.container
+            | !{pb.render("header", "header/demo/header2", 'acm')}
+            main.content.search-page.no-margin
+                .search-page__search
+                    .container.no-padding
+                        .wrapper
+                            | !{pb.render('quick-search', 'demo/demo-quick-search-alt2', 'quick-search.json', 'acm')}
+
+
+                .container
+                    .col-lg-3.col-sm-4
+                        #filter.hidden-xs.hidden-sm.search__filters
+                            | !{pb.render('search-facets', 'search-facets', 'facet.json')}
+
+                    .col-lg-9.col-sm-8
+                       | !{pb.render('search-result', 'search-result/demo/demo-search-result', 'search.json')}
+
+                       .search-page__slider
+                            h5.left-bordered-title  Upcoming Conferences
+                            .responsive-slider.circular-arrows(data-responsive='{"xsMin":{"items":1},"smMin":{"items":1},"mdMin":{"items":1},"lgMin":{"items":3}}')
+                              | !{data.Slides}
+
+    section.source_section
+        h2 Search Page - Videos
+        .source_example.container
+            | !{pb.render("header", "header/demo/header2", 'acm')}
+            main.content.search-page.no-margin
+                .search-page__search
+                    .container.no-padding
+                        .wrapper
+                            | !{pb.render('quick-search', 'demo/demo-quick-search-alt2', 'quick-search.json', 'acm')}
+
+
+                .container
+                    .col-lg-3.col-sm-4
+                        #filter.hidden-xs.hidden-sm.search__filters
+                            | !{pb.render('search-facets', 'search-facets', 'facet.json')}
+
+                    .col-lg-9.col-sm-8
+                        | !{pb.render('search-result', 'search-result/demo/demo-search-result-videos', 'search-videos.json')}
+
+                        .search-page__slider
+                            h5.left-bordered-title  Upcoming Conferences
+                            .responsive-slider.circular-arrows(data-responsive='{"xsMin":{"items":1},"smMin":{"items":1},"mdMin":{"items":1},"lgMin":{"items":3}}')
+                                | !{data.Slides}
+
+            | !{data.footer}
+    | #{''}

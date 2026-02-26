@@ -1,0 +1,56 @@
+.s-menu-active {
+
+  .g-nejm-group {
+    z-index: 2;
+  }
+
+  @include breakpoint('medium-') {
+    position: fixed;
+    overflow: hidden;
+
+    body {
+      position: fixed;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .g-nav {
+      pointer-events: auto;
+      transform: translateX(0);
+      transition-timing-function: $bezier--ease-out-circ;
+    }
+
+    .g-mask {
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $color__black;
+      opacity: .5;
+    }
+  }
+
+}
+
+.s-compact-menu.s-menu-active {
+  @include breakpoint('large+') {
+    overflow: hidden;
+
+    body {
+      overflow: hidden;
+    }
+
+    .g-nav {
+      pointer-events: auto;
+      transform: translateX(0);
+      transition-timing-function: $bezier--ease-out-circ;
+    }
+
+    .g-mask {
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: $color__black;
+      opacity: .5;
+    }
+  }
+}

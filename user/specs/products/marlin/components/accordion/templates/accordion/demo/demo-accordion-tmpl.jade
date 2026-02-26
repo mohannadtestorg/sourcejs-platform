@@ -1,0 +1,19 @@
+extends ../accordion-tmpl.jade
+// please don't use this template file, this file is for sourceJs usage only.
+
+block accordionPrefix
+    - type = 'single'
+
+block accordionDropZone
+    ul.rlist--bullets
+        li Bayes’ rule: in a neuroscience context, it relates the predicted probability of a spike given a stimulus to the measured probability of a stimulus eliciting a spike. More generally, Bayes’ rule relates the probability Math Eq of event A occurring given that event B has occurred to Math Eq, the probability of event B occurring given that event A occurred, through Math Eq.
+        li Coherence: a measure of how two scalar quantities track each other over time, expressed as a function of frequency. Here we use it to assess the relation between predicted and observed spike trains.
+        li Correlation: a measure of how related two variables are to each other.
+        li Correlation function: the correlation measured as a function of the lag, e.g., time lag, between two variables. The correlation of a signal with itself is called the autocorrelation; it provides an estimate of how similar a future value is to the current value of a variable.
+        li Covariance: a measure of how related multiple components of two vector-valued variables are.
+
+block accordionControl
+    a.accordion__control(href="#" title=item.label aria-expanded="true" aria-controls=thisWidget.id + i)
+        span BOX 2
+        i.icon-section_arrow_d(aria-hidden="true")
+

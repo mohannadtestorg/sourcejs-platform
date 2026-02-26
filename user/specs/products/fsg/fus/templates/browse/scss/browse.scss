@@ -1,0 +1,66 @@
+.facets {
+    &__title {
+        color: $tertiary-text-color;
+        margin-top: 20px;
+
+    }
+    &__list--applied li {
+        background-color: $primary-bg-color;
+    }
+}
+
+
+
+.search {
+    &-result {
+        &__meta {
+            background: transparent;
+            &__top {
+
+            }
+        }
+        h4.meta__title {
+            color: $primary-text-color;
+            &:hover,
+            &:focus {
+                color: $primary-link-color;
+            }
+        }
+        ,meta__details,
+        .meta__authors {
+            color: $tertiary-text-color;
+        }
+
+        .meta__details {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+    }
+    &__result {
+        color: inherit;
+    }
+    &__item {
+        .item__body {
+            border-bottom: 1px solid $borders;
+        }
+    }
+    &__filters {
+        background: transparent;
+    }
+}
+
+@include media('<desktop') {
+    .showPublications {
+        .search__result {
+            background: $primary-text-color;
+            color: $text-onDark;
+            i {
+                color: $text-onDark
+            }
+        }
+    }
+
+    .per-page {
+        padding: 0;
+    }
+}

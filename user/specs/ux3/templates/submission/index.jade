@@ -1,0 +1,74 @@
+extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Submission Tool Page
+
+    p.source_info
+        |The Institutional login page template contains the following components: Header, Footer...
+
+    section.source_section
+        h2 Submission page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+
+            main.content.content__submission
+                .container
+                    h1 Start Your Submission
+                    .draft-form
+                        h4.border-bottom Submission Info
+                        form#draftForm.uploader-form(method="post", enctype="multipart/form-data")
+                            input(type="hidden", name="doi", value=data.doi)
+                            input(type="hidden", name="index", value=data.index)
+                            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+                            input(type="hidden", name="signature", value=data.signature)
+
+                            .row
+                                .col-md-8.gutterless
+                                    .col-md-12
+                                        .note.note--yellow.border All question must be answered, unless marked (optional)
+                                        | !{data.basicMetadata}
+                                        | !{data.category}
+                                        | !{data.categories}
+
+
+                            .row
+                                .col-md-12
+                                    | !{data.tableAuthors}
+
+
+                            .row
+                                .col-md-12
+                                    | !{data.tableFunders}
+
+
+                            .row
+                                .col-md-12
+                                    | !{data.pdfUploader}
+
+                            .row
+                                .col-md-12
+                                    | !{data.tableFiles}
+
+                            .row
+                                .col-md-12
+
+                                    | !{data.tableLinks}
+
+                            .row
+                                .col-md-12
+                                    hr.separator.clearfix
+                                    .actions.pull-right
+                                        a(href=data.cancelLink).btn--cancel Cancel
+                                        a(href=data.saveLink).btn--submit.button Save as Draft
+                                        a(href=data.submitLink).btn--submit.button Review and Submit
+
+
+
+
+
+            | !{data.footer}
+    | #{''}
+

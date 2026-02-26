@@ -1,0 +1,340 @@
+/***
+
+.o-colset-2-4-6
+===============
+
+Creates a responsive column set:
+
+* xsmall, small: 2 columns
+* medium: 4 columns
+* large, xlarge, xxlarge: 6 columns
+
+```
+<div class="o-colset-2-4-6">
+  <div class="o-col">Col 1</div>
+  <div class="o-col">Col 2</div>
+  <div class="o-col">Col 3</div>
+  <div class="o-col">Col 4</div>
+  <div class="o-col">Col 5</div>
+  <div class="o-col">Col 6</div>
+</div>
+<div class="o-colset-2-4-6 o-colset-2-4-6--gridlines">
+  <div class="o-col">Col 1</div>
+  <div class="o-col">Col 2</div>
+  <div class="o-col">Col 3</div>
+  <div class="o-col">Col 4</div>
+  <div class="o-col">Col 5</div>
+  <div class="o-col">Col 6</div>
+  <div class="o-col">Col 1</div>
+  <div class="o-col">Col 2</div>
+  <div class="o-col">Col 3</div>
+  <div class="o-col">Col 4</div>
+  <div class="o-col">Col 5</div>
+  <div class="o-col">Col 6</div>
+</div>
+```
+
+***/
+
+$column__listing-2-4-6-col: (
+  xsmall: 3,
+  small: 3,
+  medium: 2,
+  large: 2,
+  xlarge: 2,
+  xxlarge: 2
+);
+
+.o-colset-2-4-6 {
+  @include columns-container-flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+  margin-right: -6px; // for rounding errors
+}
+
+.o-colset-2-4-6 > .o-col {
+  @include column-flex($column__listing-2-4-6-col);
+}
+
+.o-colset-2-4-6--nowrap {
+  flex-wrap: nowrap;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: top
+//
+
+.o-colset-2-4-6--gridlines > .o-col {
+  position: relative;
+  margin-top: 20px;
+}
+
+.o-colset-2-4-6--gridlines > .o-col::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-right: - map-get($inner-gutters, xsmall);
+  margin-bottom: 15px;
+  background-color: $color__rules;
+
+  @include breakpoint('small+') {
+    margin-right: - map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    margin-right: - map-get($inner-gutters, medium);
+    margin-bottom: 19px;
+  }
+
+  @include breakpoint('large+') {
+    margin-right: - map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: - map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: - map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(1)::before,
+.o-colset-2-4-6--gridlines > .o-col:nth-child(2)::before {
+  display: none;
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(3)::before,
+.o-colset-2-4-6--gridlines > .o-col:nth-child(4)::before {
+  @include breakpoint('medium+') {
+    display: none;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(5)::before,
+.o-colset-2-4-6--gridlines > .o-col:nth-child(6)::before {
+  @include breakpoint('large+') {
+    display: none;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(2n)::before {
+  @include breakpoint('small-') {
+    margin-right: 0;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(2n+1)::before {
+  @include breakpoint('xsmall') {
+    width: colspan(6, xsmall);
+  }
+
+  @include breakpoint('small') {
+    width: colspan(6, small);
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(4n)::before {
+  @include breakpoint('medium') {
+    margin-right: 0;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(4n+1)::before {
+  @include breakpoint('medium') {
+    width: colspan(8, medium);
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(6n)::before {
+  @include breakpoint('large+') {
+    margin-right: 0;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(6n+1)::before {
+  @include breakpoint('large+') {
+    width: colspan(12, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(12, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(12, xxlarge);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: top, inside .o-col--primary
+//
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(5)::before,
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(6)::before {
+  @include breakpoint('large+') {
+    display: block;
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(6n)::before {
+  @include breakpoint('large+') {
+    margin-right: - map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: - map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: - map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(6n+1)::before {
+  @include breakpoint('large+') {
+    width: auto;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: auto;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: auto;
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(4n)::before {
+  @include breakpoint('large+') {
+    margin-right: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: 0;
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(4n+1)::before {
+  @include breakpoint('large+') {
+    width: colspan(8, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(8, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(8, xxlarge);
+  }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: right side
+//
+
+.o-colset-2-4-6--gridlines > .o-col::after {
+  content: '';
+  position: absolute;
+  right: map-get($inner-gutters, xsmall) / -2;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: $color__rules;
+
+  @include breakpoint('small+') {
+    right: map-get($inner-gutters, small) / -2;
+  }
+
+  @include breakpoint('medium+') {
+    right: map-get($inner-gutters, medium) / -2;
+  }
+
+  @include breakpoint('large+') {
+    right: map-get($inner-gutters, large) / -2;
+  }
+
+  @include breakpoint('xlarge+') {
+    right: map-get($inner-gutters, xlarge) / -2;
+  }
+
+  @include breakpoint('xxlarge') {
+    right: map-get($inner-gutters, xxlarge) / -2;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(2n)::after {
+  @include breakpoint('small-') {
+    display: none;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(2n) ~ .o-col::after {
+  @include breakpoint('small-') {
+    top: 16px;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(4n)::after {
+  @include breakpoint('medium') {
+    display: none;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(4n) ~ .o-col::after {
+  @include breakpoint('medium') {
+    top: 20px;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(6n)::after {
+  @include breakpoint('large+') {
+    display: none;
+  }
+}
+
+.o-colset-2-4-6--gridlines > .o-col:nth-child(6n) ~ .o-col::after {
+  @include breakpoint('large+') {
+    top: 20px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: right side, inside .o-col--primary
+//
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(6n)::after {
+  @include breakpoint('large+') {
+    display: block;
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(6n) ~ .o-col::after {
+  @include breakpoint('large+') {
+    top: 0;
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(4n)::after {
+  @include breakpoint('large+') {
+    display: none;
+  }
+}
+
+.o-col--primary .o-colset-2-4-6--gridlines > .o-col:nth-child(4n) ~ .o-col::after {
+  @include breakpoint('large+') {
+    top: 20px;
+  }
+}
+
+// for the toolkit:
+div > #a17 .o-colset-2-4-6 > .o-col {
+  margin-top: 5px;
+  background-color: #eee;
+}

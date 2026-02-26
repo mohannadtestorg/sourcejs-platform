@@ -1,0 +1,49 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl.jade
+
+block tabsPrefix
+    - var dataOld = originaldata.loi;
+    - var thisWidget = originaldata.loi.thisWidget;
+    - var data = originaldata.loi;
+    - var tabNumber = 0;
+
+block tabsMain
+    if (originaldata && originaldata.ajaxRequest && originaldata.ajaxRequest == true)
+        each item, i in data.content[0].content
+            if (item.volumes)
+                +loi(item.volumes, true, 0)
+            else
+                +loi(item.issues, false,I)
+
+    else
+        div.loi.tab
+            if tabNumber == 0
+                div.loi__header
+                    div.loi__header__title Archive of all online content
+                    div.loi__header__date
+                        span.first-date !{data.oldestIssue}
+                        span.last-date !{data.latestIssue}
+            div
+            - tabNumber++;
+            ul.rlist.loi__list.tab__nav.swipe__list
+                +nav()
+            +pane()
+
+block pageRange
+    if (item.pageRange)
+        div.iPageRange Pages !{item.pageRange}
+
+block tabsparent
+    | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item}, "physio")}
+
+
+block currentProgressIssue
+
+block issueTitle
+
+block IssueState
+
+block firstLoiIssue
+    if issueIndex==0 && tabNumber <= 1
+        if(originaldata.nav && originaldata.nav.aop)
+            .article-in-press
+                | !{pb.renderDropzone(thisWidget, "firstLoiIssueDropzone")}

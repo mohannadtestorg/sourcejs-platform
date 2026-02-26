@@ -1,0 +1,51 @@
+.administratorsWidget {
+    button[type="submit"], .btn {
+        font-size: $h6-font-size;
+        background: $wiley-blue-color;
+        color: $text-onDark;
+        &:hover,&:focus,&:active {
+            color: $text-onDark;
+            background: $wiley-blue-color;
+        }
+    }
+
+    .reproducible {
+        margin-bottom: 10px;
+
+        &:first-of-type .remove-ctrl-field {display: none;}
+        &:not(:first-of-type) .add-ctrl-field {display: none;}
+
+        [class^="col-"] {padding: 0;}
+
+        input {width: calc(100% - 40px);}
+
+        [class*=ctrl-field] {
+            width: 40px;
+            margin: 0;
+            background: transparent;
+        }
+    }
+
+    .success {
+        color: $info-text-color;
+    }
+    .infoBox{
+        margin-top: 16px;
+    }
+
+    .note {
+        margin: 0.5rem 0 1rem;
+    }
+}
+
+[name="InstitutionAdmin_AdminManager"] {
+    .section__header {
+        margin-bottom: 27px;
+    }
+}
+
+.currentContact {
+    @include media('<desktop') {
+        margin-bottom: 22px;
+    }
+}

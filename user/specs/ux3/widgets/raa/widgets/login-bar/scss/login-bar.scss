@@ -1,0 +1,33 @@
+.loginBar {
+    display: inline-block;
+    color: $primary-text-color;
+    .show-login,
+    .indivLogin {
+        //padding: 0 15px;
+        text-align: center;
+    }
+    .icon-profile_empty,
+    .icon-userprofile {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 1.25rem;
+    }
+    .icon-profile_empty {
+        &:before {
+            content: "\e95c";
+        }
+    }
+    .icon-userprofile {
+        &:before {
+            content: "\e95b";
+        }
+    }
+    .sign-in-label,
+    .profile-text {
+        display: block;
+        font-size: .75rem;
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.card(data-widget-def='shibbolethLoginWidget', data-widget-id='9c7b31dd-37f3-4e8f-9ec6-f9b5d6a28a37')
+    section.shibboleth
+        .institutions
+            .widget__header
+                h2
+                    | Login with Shibboleth
+            label(for='federation') Federation
+            .tab(data-ctrl-res='screen-lg')
+                ul#federation.rlist.tab__nav.dropblock--tab(role='tablist', data-mobile-toggle='dropdown')
+                    li(role='presentation')
+                        a#pane-select-con(href='#pane-select', aria-controls='#pane--select', role='tab', data-toggle='tab',  aria-selected='true')
+                            span Select your region or federation
+                    li(role='presentation')
+                        a#pane-federation-con-0(href='#pane-federation-0', aria-controls='#pane-federation-0', role='tab', data-toggle='tab', title='Academic Access Management Federation in Japan (GakuNin)', aria-selected='false')
+                            span Academic Access Management Federation in Japan (GakuNin)
+                    li(role='presentation')
+                        a#pane-federation-con-1(href='#pane-federation-1', aria-controls='#pane-federation-1', role='tab', data-toggle='tab', title='UK Higher Education', aria-selected='false')
+                            span UK Higher Education
+                ul.rlist.tab__content
+                    li#pane-select.tab__pane(aria-labelledby='pane-select-con', role='tabpanel')
+                    li#pane-federation-0.tab__pane(aria-labelledby='pane-federation-con-0', role='tabpanel')
+                        label(for='institution') Select your institution
+                        ul#institution
+                            li(data-value='Kyoto University')
+                                a(href='http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fauthidp1.iimc.kyoto-u.ac.jp%2Fidp%2Fshibboleth&redirectUri=%2Faction%2Fssostart&targetSP=https%3A%2F%2Fpericles.one-lts.literatumonline.com') Kyoto University
+                    li#pane-federation-1.tab__pane(aria-labelledby='pane-federation-con-1', role='tabpanel')
+                        label(for='institution') Select your institution
+                        ul#institution
+                            li(data-value='Totton College')
+                                a(href='http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fidp.totton.ac.uk%2Fshibboleth&redirectUri=%2Faction%2Fssostart&targetSP=https%3A%2F%2Fpericles.one-lts.literatumonline.com') Totton College
+                            li(data-value='UK federation test IdP')
+                                a(href='http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Ftest-idp.ukfederation.org.uk%2Fidp%2Fshibboleth&redirectUri=%2Faction%2Fssostart&targetSP=https%3A%2F%2Fpericles.one-lts.literatumonline.com') UK federation test IdP

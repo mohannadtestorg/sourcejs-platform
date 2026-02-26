@@ -1,0 +1,111 @@
+.meta-wrapper {
+  .ajp-theme & {
+    background-image: url("../images/ajp_journal_bg.jpeg");
+  }
+
+  @include media('<tablet'){
+    .journal-home & {
+      background-image:none;
+    }
+
+  }
+}
+.journal-home {
+  .meta__left-side{
+    .meta__info{
+      @include media('<tablet') {
+        .eissn {
+          display: block;
+        }
+        .issn{
+          +span {
+            display: none;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.impact{
+  margin-top: 16px;
+  margin-bottom: 0;
+  font-weight: 700;
+
+  @include themify($themes) {
+    color: themed('color');
+  }
+
+  span{
+    display: inline-block;
+    &:first-child{
+      padding-right: 10px;
+      border-right: none;
+      margin-right: 10px;
+      @include media('>phone') {
+        border-right: 2px solid black;;
+      }
+      @include themify($themes) {
+        border-color:themed('color');
+      }
+    }
+  }
+
+}
+
+.loi {
+  .date,.parent-item{
+    @include themify($themes) {
+      color: themed('color');
+    }
+    text-transform: none;
+  }
+
+  &__issue{
+    h6 {
+      font-weight: 400;
+    }
+    .status{
+      font-weight: 400;
+    }
+    .iPageRange{
+      font-weight: 400;
+    }
+
+    i{
+      @include themify($themes) {
+        color: themed('color');
+      }
+    }
+  }
+
+  &__access{
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+}
+
+
+main.journal{
+  &-home {
+      @include media('<desktop') {
+      padding-top: 140px;
+    }
+
+      @include media('<tablet') {
+        padding-top: 100px;
+      }
+
+    .meta{
+      &__title{
+        margin-bottom:15px;
+      }
+    }
+  }
+
+
+}
+
+

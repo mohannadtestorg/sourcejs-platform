@@ -1,0 +1,54 @@
+mixin menu(addLOI)
+    ul#menubar.rlist--inline.menu-nav(role="menubar")
+        li(role="menuitem" , tabindex="-1" , aria-label="Journal Home" , id="secondary-menu-item-0" ,class="menu-item")
+                a(href="#" ,title="title")
+                    span journal home
+        li(role="menuitem" , tabindex="-1" , aria-label="Collections" , id="secondary-menu-item-2" ,class="dropdown menu-parent")
+            a(href="#" ,title="title")
+                span Current Issue
+        li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="Ahead of print" , id="secondary-menu-item-4" ,class="dropdown menu-parent")
+            a(href="#" ,title="title")
+                span Ahead of print
+        li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="" , id="secondary-menu-item-4" ,class="dropdown menu-parent")
+            a(href="#" ,title="title")
+                span Early Releases
+        li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="About" , id="secondary-menu-item-5" ,class="dropdown menu-parent")
+            if (addLOI)
+                a(href="#" ,title="title" , id="secondary-menu-2" ,data-toggle="dropdown" , class="dropdown__toggle")
+                    span About
+                ul(labelledby="secondary-menu-2" ,aria-hidden="true" , role="menu" , class="rlist dropdown__menu" id="p5")
+                    li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="About 1" ,class="menu-item")
+                        a(href="#" ,title="title")
+                            span ABOUT 1
+                    li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="About 2" ,class="menu-item")
+                        a(href="#" ,title="title")
+                            span ABOUT 2
+            else
+                a(href="#" ,title="About" class="w-slide__btn", data-db-target-for='p5', data-slide-target='#p5', data-slide-clone='self')
+                    span About
+                    i.icon-arrow_r
+div.publication-menu.hidden-xs.hidden-sm.container
+   .row
+       +menu(true)
+       .pull-right
+           ul.rlist--inline.publication-icons
+               li
+                   a(href="#")
+                       i.icon-bookmark(aria-hidden="true")
+
+               li
+                   a(href="#")
+                       i.icon-Icon_Alerts(aria-hidden="true")
+
+               li
+                   a(href="#")
+                       i.icon-Icon_Share(aria-hidden="true")
+div.hidden-md.hidden-lg.publication-menu--res
+    .container
+        .row
+            .col-xs-12
+                a.w-slide__btn.publication--res(href="#" data-slide-target=".publication-menu-mobile")
+                    i.icon-toc
+                    span Journal Menu
+                div.publication-menu-mobile
+                    +menu(false)

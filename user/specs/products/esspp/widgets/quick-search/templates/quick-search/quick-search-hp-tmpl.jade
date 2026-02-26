@@ -1,0 +1,23 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+block anywhereSearch
+
+block quickSearch
+    .clearfix
+        form.quick-search--form(action="/action/doSearch" name="defaultQuickSearch" method="get" title="Quick Search")
+
+            .quick-search--input
+                .input-group(class="option-0")
+                    input.autocomplete(type="search" name="AllField" placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+
+
+            .quick-search--button
+                +btnSearch()
+    .clearfix
+        block advancedSearch
+            | !{pb.renderDropzone(thisWidget, "TestDropZone")}
+
+
+block quickSearchWrapper
+    div.quick-search
+        +search()

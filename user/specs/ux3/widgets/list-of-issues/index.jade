@@ -1,0 +1,1535 @@
+﻿extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include ../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use List of issues template.
+        +printJson({
+            "data": {
+                "attr": {
+                    "id" : "p1"
+                },
+                "links": [
+                    {
+                        "type": "current",
+                        "text": "Current issue",
+                        "itemUrl": "#"
+                    },
+                    {
+                        "type": "archive",
+                        "text": "Archive",
+                        "itemUrl": "#",
+                        "tabs": {
+                            "config": {
+                                "type": "default",
+                                "id": "loi2"
+                            },
+                            "data": {
+                                "nav": [
+                                    {
+                                        "text": "2000 - 2010",
+                                        "content": {
+                                            "config": {
+                                                "type": "default",
+                                                "id": "loi3"
+                                            },
+                                            "data": {
+                                                "nav": [
+                                                    {
+                                                        "text": "2010",
+                                                        "content": {
+                                                            "loi": [
+                                                                {
+                                                                    "title": "Christmas Issue",
+                                                                    "fpage": "478",
+                                                                    "lpage": "1021",
+                                                                    "date": {
+                                                                        "year": "2015",
+                                                                        "month": "December",
+                                                                        "day":"1"
+                                                                    },
+                                                                    "parentItem": {
+                                                                        "volume": 2,
+                                                                        "issue": 5
+                                                                    },
+                                                                    "isLegacy":"false",
+                                                                    "access":"full",
+                                                                    "itemUrl": "#",
+                                                                    "isCurrent": "true",
+                                                                    "inProgress":"false"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "text": "2011",
+                                                        "content": "2011 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element. Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap"
+                                                    }
+
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "text": "2011",
+                                        "content": "2011 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element. Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap"
+                                    }
+                                ]
+                            }
+                        }
+
+                    }
+                ]
+            }
+        })
+
+        markdown
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `attr - id`
+                        td the value that used for dropblock data attributes, it must be a unique value.
+                    tr
+                        td `links`
+                        td list of likns that can be added to the LOI banner
+                            table
+                                tbody
+                                    tr
+                                        td `type`
+                                        td Link type
+                                    tr
+                                        td `text`
+                                        td Link text
+                                    tr
+                                        td `itemUrl`
+                                        td Link url
+                                    tr
+                                        td `tabs`
+                                        td Tabs data, for more information #[a(href="/specs/ux3/components/tabs/") Tabs]
+            p LOI data structure
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `loi`
+                        td LOI, Array of issues
+                    tr
+                        td `title`
+                        td Issue title
+                    tr
+                        td `fpage`
+                        td First page
+                    tr
+                        td `lpage`
+                        td Last page
+                    tr
+                        td `date`
+                        td Issue Date, for more information #[a(href="/specs/ux3/components/date/") Date]
+                    tr
+                        td `date`
+                        td Issue Parent item, for more information #[a(href="/specs/ux3/components/parent-item/") Parent item]
+                    tr
+                        td `isLegacy`
+                        td Is legacy, `true`, `false`
+                    tr
+                        td `access`
+                        td Access type, `full`, `partial`, `free`, `oa`, `no`
+                    tr
+                        td `itemUrl`
+                        td Issue url
+                    tr
+                        td `isCurrent`
+                        td Is Current, `true`, `false`
+                    tr
+                        td `inProgress`
+                        td Is in Progress, `true`, `false`
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+        h3 List of issues
+        +printJson({
+            "thisWidget": {
+                "id": "p1"
+            },
+            "data": {
+                "widget": {
+                    "template": "default"
+                },
+                "nav": {
+                    "currentIssue": {
+                        "href": "http://...",
+                        "label": "Lorem"
+                    },
+                    "allIssues": {
+                        "href": "http://...",
+                        "label": "Lorem"
+                    },
+                    "aop": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "ja": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "issueInProgress": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "forthcoming": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "archive": {
+                        "href": "#",
+                        "label": "Lorem Text"
+                    }
+                },
+                "loi": {
+                    "groupType": "decade",
+                    "decades": [
+                        {
+                            "label": "2014",
+                            "href": "http://...",
+                            "issues": [
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                },
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem 123",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "2016",
+                            "href": "http://...",
+                            "issues": [
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem 2016",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                },
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem 2016",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        })
+        .source_example
+            .container
+                | !{pb.render("list-of-issues", "list-of-issues/demo/list-of-issues-demo", "loi-data.json", {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+
+        h3 List of issues - Decade
+        +printJson({
+            "thisWidget": {
+                "id": "p2"
+            },
+            "data": {
+                "widget": {
+                    "template": "default"
+                },
+                "nav": {
+                    "currentIssue": {
+                        "href": "http://...",
+                        "label": "Lorem"
+                    },
+                    "allIssues": {
+                        "href": "http://...",
+                        "label": "Lorem"
+                    },
+                    "aop": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "ja": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "issueInProgress": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "forthcoming": {
+                        "href": "http://...",
+                        "label": "Label Text"
+                    },
+                    "archive": {
+                        "href": "#",
+                        "label": "Lorem Text"
+                    }
+                },
+                "loi": {
+                    "groupType": "decade",
+                    "decades": [
+                        {
+                            "label": "2014",
+                            "href": "http://...",
+                            "issues": [
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                },
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem 123",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "2016",
+                            "href": "http://...",
+                            "issues": [
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem 2016",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                },
+                                {
+                                    "issue": "1",
+                                    "volume": "27",
+                                    "url": "/toc/ahe/27/1",
+                                    "seq": "T100",
+                                    "title": "Lorem Lorem 2016",
+                                    "pageRange": "1-10",
+                                    "isLegacy": false,
+                                    "isCurrent": true,
+                                    "inProgress": true,
+                                    "access": "full",
+                                    "coverDate": "February 2014"
+                                }
+                            ]
+                        },
+                        {
+                            "label": "2000-2010",
+                            "href": "http://...",
+                            "years": [
+                                {
+                                    "year": "2000",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 2000",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        },
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 2000",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1990",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 1990",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "2022",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 2022",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1999",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem 1999",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "2018",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem 2018",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "1989-1980",
+                            "href": "http://...",
+                            "years": [
+                                {
+                                    "year": "2001",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 2001",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1989",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1989",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 9",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1989",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 23",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1989",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "label": "1990-1999",
+                            "href": "http://...",
+                            "years": [
+                                {
+                                    "year": "1990",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 1990",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1991",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 1991",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1992",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 1992",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1989",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem 23",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "1989",
+                                    "volume": "23",
+                                    "href": "http://...",
+                                    "issues": [
+                                        {
+                                            "issue": "1",
+                                            "volume": "27",
+                                            "url": "/toc/ahe/27/1",
+                                            "seq": "T100",
+                                            "title": "Lorem Lorem",
+                                            "pageRange": "1-10",
+                                            "isLegacy": false,
+                                            "isCurrent": true,
+                                            "inProgress": true,
+                                            "access": "full",
+                                            "coverDate": "February 2014"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        })
+        .source_example
+            .container
+                | !{pb.render("list-of-issues", "list-of-issues/demo/list-of-issues-demo", "loi-decade.json", {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+
+
+        h3 List of issues not collapsible
+
+        +printJson({
+                "thisWidget": {
+                    "id": "p1"
+                },
+                "data": {
+                    "widget": {
+                        "template": "default"
+                    },
+                    "nav": {
+                        "ja": {
+                            "href": "http://...",
+                            "label": "Journal home"
+                        },
+
+                        "currentIssue": {
+                            "href": "http://...",
+                            "label": "Current Issue"
+                        },
+                        "archive": {
+                            "href": "#",
+                            "label": "Archive"
+                        },
+                        "aop": {
+                            "href": "http://...",
+                            "label": "Ahead of print"
+                        },
+                        "issueInProgress": {
+                            "href": "http://...",
+                            "label": "Issues in progress"
+                        },
+                        "forthcoming": {
+                            "href": "http://...",
+                            "label": "Early releases"
+                        },
+                        "allIssues": {
+                            "href": "http://...",
+                            "label": "About"
+                        },
+                        "additionalLinksData": [
+                            {
+                                "enabled": "on",
+                                "label": "Test Label",
+                                "url": "/link/to/page"
+                            },
+                            {
+                                "enabled": "",
+                                "label": "Test Label 2",
+                                "url": "/link/to/page-2"
+                            }
+                        ]
+                    },
+                    "loi": {
+                        "groupType": "year",
+                        "journalTitle": "Journal of Applied Physiology",
+                        "journalDoi": "10.1152/japplphysiol",
+                        "oldestIssue": "January 1898",
+                        "latestIssue": "December 1999",
+                        "content": [
+                            {
+                                "label": "2005",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": true,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FREE_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "2",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "OPEN_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "3",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "NO_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "3",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": true,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2006",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2007",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2008",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2009",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2010",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2011",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2012",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2013",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2014",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 123",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 123",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 123",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2016",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2017",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2018",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2019",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2020",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "2021",
+                                "href": "http://...",
+                                "issues": [
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    },
+                                    {
+                                        "issue": "1",
+                                        "volume": "27",
+                                        "url": "/toc/ahe/27/1",
+                                        "seq": "T100",
+                                        "title": "Lorem Lorem 2016",
+                                        "pageRange": "1-10",
+                                        "isLegacy": false,
+                                        "isCurrent": true,
+                                        "inProgress": true,
+                                        "access": "FULL_ACCESS",
+                                        "coverDate": "February 2014"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            })
+        .source_example
+                .container
+                    | !{pb.render("list-of-issues", "list-of-issues/demo/list-of-issues-new-demo", "loi-data-new.json", {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+
+
+        h3 Issue list - Ajax
+        +printJson({
+            "thisWidget": {
+                "id": "p1"
+            },
+            "data": {
+                "ajaxRequest": true,
+                "loi": {
+                    "groupType": "decade",
+                    "journalTitle": "Journal of Applied Physiology",
+                    "journalDoi": "10.1152/japplphysiol",
+                    "oldestIssue": "January 1898",
+                    "latestIssue": "December 1999",
+                    "content": [
+                        {
+                            "content": [
+                                {
+                                    "volumes": [
+                                        {
+                                            "VolNo": "107",
+                                            "issues": [
+                                                {
+                                                    "issue": "6",
+                                                    "url": "/toc/jappl/107/6",
+                                                    "seq": -1,
+                                                    "pageRange": "1679-1989",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "December 2009"
+                                                },
+                                                {
+                                                    "issue": "5",
+                                                    "url": "/toc/jappl/107/5",
+                                                    "seq": -1,
+                                                    "pageRange": "1367-1678",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "November 2009"
+                                                },
+                                                {
+                                                    "issue": "4",
+                                                    "url": "/toc/jappl/107/4",
+                                                    "seq": -1,
+                                                    "pageRange": "1005-1366",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "October 2009"
+                                                },
+                                                {
+                                                    "issue": "3",
+                                                    "url": "/toc/jappl/107/3",
+                                                    "seq": -1,
+                                                    "pageRange": "639-1003",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "September 2009"
+                                                },
+                                                {
+                                                    "issue": "2",
+                                                    "url": "/toc/jappl/107/2",
+                                                    "seq": -1,
+                                                    "pageRange": "375-638",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "August 2009"
+                                                },
+                                                {
+                                                    "issue": "1",
+                                                    "url": "/toc/jappl/107/1",
+                                                    "seq": -1,
+                                                    "pageRange": "1-373",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "July 2009"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "VolNo": "106",
+                                            "issues": [
+                                                {
+                                                    "issue": "6",
+                                                    "url": "/toc/jappl/106/6",
+                                                    "seq": -1,
+                                                    "pageRange": "1755-2069",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "June 2009"
+                                                },
+                                                {
+                                                    "issue": "5",
+                                                    "url": "/toc/jappl/106/5",
+                                                    "seq": -1,
+                                                    "pageRange": "1477-1754",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "May 2009"
+                                                },
+                                                {
+                                                    "issue": "4",
+                                                    "url": "/toc/jappl/106/4",
+                                                    "seq": -1,
+                                                    "pageRange": "1029-1475",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "April 2009"
+                                                },
+                                                {
+                                                    "issue": "3",
+                                                    "url": "/toc/jappl/106/3",
+                                                    "seq": -1,
+                                                    "pageRange": "751-1027",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "March 2009"
+                                                },
+                                                {
+                                                    "issue": "2",
+                                                    "url": "/toc/jappl/106/2",
+                                                    "seq": -1,
+                                                    "pageRange": "353-750",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "February 2009"
+                                                },
+                                                {
+                                                    "issue": "1",
+                                                    "url": "/toc/jappl/106/1",
+                                                    "seq": -1,
+                                                    "pageRange": "1-351",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "NO_ACCESS",
+                                                    "coverDate": "January 2009"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        })
+        .source_example
+            .container
+                | !{pb.render("list-of-issues", "list-of-issues/demo/list-of-issues-demo", "issue-list.json", {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+
+
+
+
+
+    | #{''}

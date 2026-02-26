@@ -1,0 +1,312 @@
+.profile-pages {
+  font-family: Helvetica, Arial, sans-serif;
+  @include media('<tablet') {
+    padding-top:32px;
+  }
+  .table-responsive {
+    table {
+      thead {
+        th {
+          border-bottom:none;
+          border-top: none;
+          background: $aha_darken_white;
+          padding: 16px;
+          color: $aha_lighten_black;
+          font-size: 18px;
+        }
+      }
+      tbody {
+        td {
+          padding: 12px 16px;
+          font-size: 14px;
+          &.table__mark {
+            padding: 12px 0;
+            input[type=checkbox], input[type=radio] {
+              margin:0;
+            }
+          }
+          label, input {
+            margin:0;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .border-bottom, .separator td, .separator th {
+  }
+  > .tab {
+    &--aside {
+      font-family: Helvetica, Arial, sans-serif;
+      @include media('>tablet') {
+        display: flex;
+      }
+
+      > .tab__nav {
+        background: $aha_darken_white;
+        padding: 16px 0;
+        @include media('>tablet') {
+          width: 30%;
+          margin-bottom:0;
+          border-bottom:none;
+        }
+        @include media('>desktop') {
+          width:25%;
+        }
+        a {
+          margin:  0px;
+          padding: 16px 26px;
+          font-size: 18px;
+          font-family: Helvetica, Arial, sans-serif;
+          font-weight: 600;
+          border: none;
+        }
+      }
+      > .tab__content {
+        @include media('>phone') {
+          border-left: 1px solid $aha_grey;
+        }
+        @include media('>tablet') {
+          padding-left: 24px;
+          padding-bottom: 80px;
+          width:70%;
+        }
+        @include media('>desktop') {
+          width:75%;
+        }
+        .tab__pane {padding-top: 32px;}
+        .tab__pane .tab__pane {
+          padding-top: 10px;
+          padding-top: 10px;
+        //  border-top: 1px solid $aha_grey;
+
+        }
+        h6, h5, h4, h3, h2, h1, strong {
+          font-family: inherit;
+          font-weight: bold;
+        }
+      }
+    }
+    .dropBlock {
+      >a {
+        color: $aha_black;
+        font-size:14px;
+        display: flex;
+        align-items: center;
+        padding: 0px 0px 16px;
+        span {
+          margin: 0 10px;
+          color: $aha_green;
+        }
+        i {
+          margin:0;
+        }
+      }
+      [data-db-target-of="sort"] {
+        li {
+          color: $aha_black;
+          background: none;
+          border-color: $aha_darken_white;
+        }
+        a {
+          padding: 0;
+          margin: 0;
+          font-weight: normal;
+          font-size: 14px;
+          &:hover {
+            background: none;
+            color: $aha_red;
+          }
+        }
+      }
+    }
+  }
+
+  .sortby__dropdown {
+    color: $aha_black;
+    font-size:14px;
+    padding: 0px 0px 16px;
+    margin:0;
+    label {
+      color: inherit;
+      font-size:inherit;
+    }
+    >span {
+      margin: 0 10px;
+      color: $aha_green;
+    }
+    i {
+      margin:0;
+    }
+
+
+    .jcf-select {
+      font-size: inherit;
+      color: $aha_green;
+      margin:0 10px;
+      span {
+        font-size: inherit;
+        margin:0;
+      }
+    }
+    .jcf-select-text {
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    .left-side-label {
+      label {
+        color: inherit;
+      }
+    }
+
+
+  }
+
+}
+
+.entitlemints-page {
+  p {
+  }
+  label {
+  }
+  th {
+  }
+  td {
+    p {
+    }
+  }
+}
+
+.account, .select-all {
+  &__sort {
+    &.dropBlock > a {
+    }
+    &.dropBlock i {
+    }
+    .sort-by {
+    }
+    .dropBlock__holder {
+      a {
+        i {
+        }
+        &:hover {
+        }
+      }
+    }
+  }
+}
+
+.my-account__cancle {
+}
+
+.profile-dark__btn {
+  @include media('<desktop') {
+  }
+}
+
+.tab--res {
+  .access-token__btn {
+  }
+}
+
+.account-tab {
+  margin-top: 0;
+  &__nav:not(.js--open) {
+    a {
+      margin: 0;
+      border-color: $aha_green;
+      color: $aha_green;
+      height: 100%;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .active a {
+      border-color: $aha_green;
+      background-color: $aha_green;
+      font-weight:bold;
+    }
+  }
+  &__error {
+  }
+  &__label {
+  }
+  .jcf-select {
+  }
+
+  th {
+  }
+}
+
+.form-btn {
+}
+
+.btn {
+  &__transparent, &__transparent:hover {
+  }
+  &-alert__transparent, &-alert__transparent:hover {
+  }
+}
+
+@include media('<desktop') {
+  .btn.profile--table--btn {
+  }
+}
+
+.frequency-block {
+}
+
+.content-alert-form {
+  h3 {
+  }
+  li {
+  }
+}
+
+.address-block {
+}
+
+.user-addresses {
+  i {
+  }
+  p {
+  }
+}
+
+@include media('>=desktop') {
+  .profile-pages {
+    .tab--aside {
+      > .tab__content {
+      }
+      > .tab__nav {
+
+        .active a, a:hover {
+          color: $aha_green;
+        }
+        a {
+          color: $aha_black;
+        }
+      }
+    }
+  }
+}
+
+.subscriptions-form {
+  .quick-search__button {
+  }
+}
+
+
+#reports .label-txt, #formats .label-txt, #recipients .label-txt {
+  padding-left: 0;
+  font-weight: normal;
+}
+
+.favoriteShortlist {
+  .checkbox--primary p {
+    margin: 0;
+  }
+}

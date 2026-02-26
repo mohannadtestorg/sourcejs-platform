@@ -1,0 +1,49 @@
+/***
+
+Intended for very simple tables..
+
+```
+<table class="a-table f-ui">
+  <tbody>
+    <tr>
+      <th><a href="#">Protocol</a></th>
+      <td>PDF</td>
+      <td>2017kb</td>
+    </tr>
+    <tr>
+      <th><a href="#">Supplementary Appendix</a></th>
+      <td>PDF</td>
+      <td>1312kb</td>
+    </tr>
+    <tr>
+      <th><a href="#">Disclosure Forms</a></th>
+      <td>PDF</td>
+      <td>1337kb</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+***/
+
+.a-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.a-table th,
+.a-table td {
+  padding: 7px 12px 8px;
+  border-top: 1px solid $color__rules;
+  color: $color__text--secondary;
+  font-weight: normal;
+  text-align: left;
+}
+
+.a-table th:first-child,
+.a-table td:first-child {
+  padding-left: 0;
+  color: $color__text--headlines;
+}
+

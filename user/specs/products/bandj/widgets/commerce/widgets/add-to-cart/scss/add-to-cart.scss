@@ -1,0 +1,73 @@
+.eCommerceCheckoutAddToCartWidget {
+    border: 1px solid $profile-primary-color;
+    color: $profile-primary-color;
+    font-weight: 600;
+    padding: 12px;
+    text-align: center;
+}
+
+.eCommerceCheckoutAddToCartWidget:hover {
+    color: $text-onDark;
+    background-color: $button-bg;
+}
+
+.eCommerceCheckoutAddToCartWidgetExpanded {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 120000;
+    .close {
+        cursor: pointer;
+        margin: 0 auto;
+    }
+    .overlay-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #000;
+        opacity: 0.8;
+        z-index: -1;
+        overflow-x: hidden;
+    }
+    .add-journal-to-cart-container {
+        background-color: #fff;
+        margin: 0 auto;
+        padding: 20px 50px 30px;
+        @include media('>=desktop') {
+            width: 600px;
+        }
+        @include media('<desktop') {
+            width: 100%;
+        }
+        .title {
+            line-height: 1;
+            padding-top: 20px;;
+        }
+        .AddToCartLabel {
+            font-size: 24px;
+            color: #a6192e;
+        }
+        .CartBookTitle {
+            display: block;
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .icon-close_thin {
+            color: #666;
+            font-size: 14px;
+            float: right;
+            position: relative;
+            left: 25px;
+        }
+        .saved-go-cart {
+            font-weight: 500;
+        }
+        .save-for-later-link {
+            font-weight: 500;
+        }
+    }
+}

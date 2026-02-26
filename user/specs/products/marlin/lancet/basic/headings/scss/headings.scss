@@ -1,0 +1,14 @@
+.section__header {
+    color: $section-default-header;
+    font-size: 0.88rem;
+    &.secondary {
+        color: $section-secondary-header;
+    }
+}
+
+h2,
+h3 {
+    @include  themify($themes) {
+        color: themed('headings');
+    }
+}

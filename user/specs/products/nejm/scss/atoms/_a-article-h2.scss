@@ -1,0 +1,62 @@
+/***
+
+Default - removes spacing at top of next sibling (if its a `.f-body`, `.f-body--sm` or `.a-list` - body copy type things)
+
+```
+<h2 class="a-article-h2 f-h12">Header level 2</h2>
+<p class="f-body">Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.</p>
+```
+***/
+/***
+
+Variant `a-article-h2--inline` floats left to appear inline of the next paragraph
+
+```
+<h2 class="a-article-h2 a-article-h2--inline f-h12">Header level 2 inline</h2>
+<p class="f-body">Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.</p>
+```
+***/
+/***
+
+Variant `a-article-h2--proud` stands proud of content below (doesn't cancel top margin of next sibling)
+
+```
+<h2 class="a-article-h2 a-article-h2--proud f-h12">Header level 2 inline</h2>
+<p class="f-body">Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.</p>
+```
+
+***/
+
+.a-article-h2 {
+  color: $color__text--headlines;
+}
+
+.a-article-h2--inline {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: -1px;
+  padding-top: 1px;
+  line-height: 24px;
+
+  @include breakpoint('medium+') {
+    margin-bottom: -3px;
+    padding-top: 3px;
+    line-height: 28px;
+  }
+}
+
+.a-article-h2--inline:first-child {
+  margin-top: 0;
+
+  @include breakpoint('small+') {
+    margin-top: 0;
+  }
+}
+
+.a-article-h2:not(.a-article-h2--inline):not(.a-article-h2--proud) + .f-body,
+.a-article-h2:not(.a-article-h2--inline):not(.a-article-h2--proud) + .f-body--sm,
+.a-article-h2:not(.a-article-h2--inline):not(.a-article-h2--proud) + .f-ui,
+.a-article-h2:not(.a-article-h2--inline):not(.a-article-h2--proud) + .a-list,
+.a-article-h2:not(.a-article-h2--inline):not(.a-article-h2--proud) ~ .fig-paragraph {
+  margin-top: 0;
+}

@@ -1,0 +1,48 @@
+{
+    "title": "Related Digital Objects",
+    "template": "doc",
+    "tag": ["components"],
+    "templateData": {
+        "nypRelation": {
+            "$pug": {
+                "template": "./templates/related-DO/related-DO-tmpl.jade",
+                "data": {
+                    "$ref": "./data/nyp-data.json"
+                }
+            }
+        },
+        "relatedBook": {
+            "$pug": {
+                "template": "./templates/related-DO/related-DO-tmpl.jade",
+                "data": {
+                    "$ref": "./data/related-books-data.json"
+                }
+            }
+        },
+        "MainSlides":{
+            "$pug": {
+                "template": "../../widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                "data": {
+                    "$ref": "./data/related-books-data.json"
+                }
+            }
+
+        },
+        "bookSetRelation": {
+            "$pug": {
+                "template": "./templates/related-DO/related-DO-tmpl.jade",
+                "data": {
+                    "$ref": "./data/book-set-data.json"
+                }
+            }
+        },
+        "bookwuRelation": {
+            "$pug": {
+                "template": "./templates/related-DO/related-DO-tmpl.jade",
+                "data": {
+                    "$ref": "./data/bookwu-data.json"
+                }
+            }
+        }
+    }
+}

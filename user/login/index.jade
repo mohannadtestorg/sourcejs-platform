@@ -1,0 +1,10 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+
+    section.source_section
+        h2 Log in
+        p You need to log in with your Google+ account to access Atypon UX3 Styleguide. Your Google email needs to be added to the list of authorized accounts for the specified product.  Please contact our support team at #[a(href="mailto:ux3styleguide@atypon.com") ux3styleguide@atypon.com], if you are not able to access you product's templates.
+        - if(no_access)
+            b.alert.alert-warning You don't have access to any UX3 product.
+        p #[a(href="/auth/google" class="source_btn") Log in with Google+]

@@ -1,0 +1,28 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Table Of Content page
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.toc
+                .container
+                    | !{pb.render("html", data.socialLinks)}
+                .container
+                    | !{data.tocHeader}
+                    .row.separator
+                        .col-md-8.col-sm-8
+                            | !{data.toc}
+
+                        .col-md-4.col-sm-4.sidebar-region
+                            | !{data.sidebarContent}
+                            | !{data.sidebarSupport}
+
+
+            | !{data.footer}
+    | #{''}

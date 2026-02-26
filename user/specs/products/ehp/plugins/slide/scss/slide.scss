@@ -1,0 +1,126 @@
+.w-slide {
+    &_head {
+        background-color: $slide-head-bg;
+        text-transform: capitalize;
+        color: $slide-head-color;
+        max-height: $slide-head-height;
+    }
+    &__title {
+        &.js--open {
+            color: $slide-head-color;
+        }
+    }
+    &__back {
+        i {
+            color: $slide-head-color;
+        }
+    }
+    &__content {
+
+        &[original-target="#filter"] {
+            background-color: $light-gray-color;
+        }
+
+        // paddings
+        @include make-column-padding();
+        padding-top: $slide-head-height + $default-inner-padding-y;
+
+        > a,
+        .w-slide--list,
+        .accordion-tabbed {
+            @include make-row();
+            width: auto;
+        }
+
+        .accordion-tabbed {
+            &__content,
+            &__control {
+                padding-left: 20px;
+            }
+        }
+
+        .author-aff-link {
+            display: none!important;
+        }
+
+        // @fixme: clean this up in UX3
+        .w-slide--list {
+            li {
+                &:first-child {
+                    border-top: $slide-separators;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            a {
+                border-bottom: $slide-separators;
+            }
+
+            .active {
+                a {
+                    border-bottom: $slide-separators;
+                }
+            }
+
+            &.js--open {
+                // background: #eee;
+            }
+            &.fixed {
+                // background: #eee;
+            }
+
+            @include make-tabs-variant(
+                $tab-nav-color: $tab-secondary-nav-color,
+                $tab-nav-active-border-color: $slide-separators-color, // don't use active color in this case
+                $tab-nav-active-icons-color: $tab-secondary-nav-color, // don't use active color in this case
+                $tab-nav-active-color: $tab-secondary-nav-color // don't use active color in this case
+            );
+        }
+        .article-tool {
+            i {
+                // color: $primary-text-color;
+            }
+        }
+
+        > a, > ul > li {
+            // color: $primary-light-text-color;
+            border-top: $slide-separators;
+
+            &:last-child {
+                border-bottom: $slide-separators;
+            }
+
+        }
+
+        .separator > li ~ li {
+            border-top: $slide-separators;
+        }
+
+        .accordion {
+
+            &-tabbed {
+
+                &__control {
+                    .icon-arrow_d_n {
+                        font-size: 8px!important; // sorry about !important, but this selector is complicated enough
+                        font-weight: bold;
+                        margin-right: 20px;
+                    }
+                }
+
+                &__control {
+                    @include make-link(
+                            $link-color: $primary-link-color,
+                            $link-hover-color: $primary-link-hover-color,
+                            $link-decoration: none,
+                            $link-hover-decoration: none,
+                            $link-focus-outline: none
+                    );
+                }
+            }
+        }
+
+    }
+}

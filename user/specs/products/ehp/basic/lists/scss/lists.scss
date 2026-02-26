@@ -1,0 +1,19 @@
+.rlist {
+
+    &--inline {
+
+        &.separator {
+            > li:not(:last-of-type) {
+                border-right-color: $list-separators-color;
+            }
+        }
+
+    }
+
+    &.spaced {
+        & > li {
+            margin-bottom: $default-inner-padding-y;
+        }
+    }
+
+}

@@ -1,0 +1,239 @@
+.footer {
+    color: $text-onDark;
+
+    &_first-row {
+        padding: 21px 0px;
+        background-color: $primary-second-bg-color ;
+        line-height: 60px;
+        font-size: $h4-font-size;
+
+        @include media('<desktop') {
+            padding: 30px 0px 40px 0px;
+        }
+
+        img {
+            max-height: 60px;
+            max-width: 100%;
+            vertical-align: middle;
+            @include media('<desktop') {
+                max-height: 47px;
+                max-width: 75px;
+            }
+        }
+
+        &_title {
+            float: left;
+
+            @include media('<desktop') {
+                text-align: center;
+                float: none;
+                line-height: normal;
+            }
+
+            span {
+                display: inline-block;
+                border-right: 2px solid rgba(255, 255, 255, 0.12);
+                padding-right: 45px;
+                font-weight: 500;
+
+                @include media('<desktop') {
+                    border-right: none;
+                    border-bottom: 1px solid $default-border-color;
+                    padding: 0px 30px 10px 30px;
+                }
+            }
+        }
+
+        &_logos {
+            text-align: center;
+            float: right;
+            font-size: 0px;
+
+            @include media('<desktop') {
+                float: none;
+            }
+
+            div {
+                display: inline-block;
+                padding-left: 100px;
+
+                @include media('>=desktop','<large') {
+                    padding-left: 70px;
+                }
+
+                @include media('>=tablet','<desktop') {
+                    width: 20%;
+                }
+
+                @include media('<tablet') {
+                    width: 33.3%;
+                }
+
+                @include media('<desktop') {
+                    float: none;
+                    padding-top: 20px;
+                    padding-left: 0px;
+                }
+
+                &:first-child {
+                    padding-left: 0px;
+                }
+            }
+        }
+
+        &_item {
+            width: 11.11%;
+            text-align: center;
+
+            &:first-child {
+                text-align: left;
+                border-right: 2px solid rgba(255, 255, 255, 0.12);
+            }
+        }
+    }
+
+    &_second-row {
+        background-color: $primary-third-bg-color;
+        padding: 33px 0px;
+
+        @include media('<desktop') {
+            padding: 25px 0px;
+        }
+
+        &_left {
+            img {
+                height: 38px;
+                vertical-align: middle;
+                margin-top: 8px;
+
+                @include media('<desktop') {
+                    margin-top: 0px;
+                }
+                @include media('<tablet') {
+                    height: 28px;
+                }
+            }
+
+            @include media('<desktop') {
+                text-align: center;
+            }
+        }
+
+        &_right {
+            text-align: right;
+
+            @include media('<desktop') {
+                text-align: center;
+            }
+        }
+    }
+
+    &_social {
+        line-height: $icon-font-size;
+        font-size: $icon-font-size;
+
+        @include media('<desktop') {
+            margin-top: 30px;
+            line-height: $medium-5-font-size;
+            font-size: $medium-5-font-size;
+        }
+
+        a {
+            color: $text-onDark;
+            transition: all 0.3s;
+
+            &:hover {
+                color: $tertiary-fifth-text-color;
+            }
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        li {
+            padding: 0px;
+            margin: 0px 18px 0px 0px;
+            display: inline-block;
+            vertical-align: middle;
+
+            &:last-child {
+                margin: 0px;
+            }
+        }
+    }
+
+    &_menu {
+        margin-top: 15px;
+        font-size: $small-font-size;
+        color: $tertiary-sixth-text-color;
+        font-weight: 500;
+
+        @include media('<desktop') {
+            margin-top: 30px;
+            font-size: $xsmall-font-size;
+            line-height: 1.5;
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        li {
+            padding: 0px;
+            margin: 0px;
+            display: inline-block;
+
+            &:after {
+                content: "|";
+                padding: 0px 5px;
+
+                @include media('<desktop') {
+                    padding: 0px 13px;
+                }
+            }
+
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+            }
+
+            &.footer_menu_address, &.footer_menu_copyright {
+                @include media('<desktop') {
+                    display: block;
+
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+
+            &.footer_menu_privacy {
+                @include media('<desktop') {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        a {
+            color: inherit;
+            vertical-align: middle;
+            transition: all 0.3s;
+
+            &:hover {
+                color: $tertiary-fifth-text-color;
+            }
+        }
+
+        span {
+            vertical-align: middle;
+        }
+    }
+}

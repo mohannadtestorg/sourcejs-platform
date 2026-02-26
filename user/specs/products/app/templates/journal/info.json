@@ -1,0 +1,290 @@
+{
+    "title": "Journal home page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header-loi.json"
+                }
+            }
+        },
+        "ajpHeader":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/ajp-header-loi.json"
+                }
+            }
+        },
+        "meta":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card card--gutter card--shadow meta__body\"><div class=\"meta__left-side left-side-image\"><img alt=\"cover\" src=\"/specs/products/app/templates/journal/images/ajp_journal_logo.jpeg\"><h1 class=\"meta__title\">The American Journal of Psychiatry</h1><div class=\"meta__info\"><p>ISSN (print): 0893-1321 | ISSN (online): 1943-5525</p><p>Frequency: Bimonthly | Sponsored by the Aerospace Division</p></div><p class=\"meta__contrib\">Editor: Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</p></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--inverse btn--journal-meta\">Submit an article</a><a href\"#=\"href\" #\"=\"\"class=\"btn btn--inverse btn--journal-meta\">Subscribe</a></div></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "ajpMeta":{
+          "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+              "model": {
+                "config": {
+                  "wrapper": "false"
+                },
+                "data": {
+                  "content": {
+                    "$pug": {
+                      "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                      "data": {
+                        "thisWidget": {
+                          "id": "htmlAssetwrapper",
+                          "properties": {
+                            "render": "html",
+                            "html": "<div class=\"card card--gutter card--shadow meta__body\"><div class=\"meta__left-side left-side-image\"><img alt=\"cover\" src=\"/specs/products/app/templates/journal/images/ajp_journal_logo.jpeg\"><h1 class=\"meta__title\">The American Journal of Psychiatry</h1><div class=\"meta__info\"><ul class='rlist--inline separator'><li>ISSN (print): 0893-1321 </li><li> ISSN (online): 1943-5525</li></ul><ul class='rlist--inline separator'><li>Frequency: Bimonthly </li><li> Sponsored by the Aerospace Division</li></ul></div><p class=\"meta__contrib\">Editor: Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</p><div class=\"meta__info impact\"><span>Impact Factor: 114123</span><span>Total Citations: 12312</span></div></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--inverse btn--journal-meta\">Submit an article</a><a href\"#=\"href\" #\"=\"\"class=\"btn btn--inverse btn--journal-meta\">Subscribe</a></div></div>"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+
+            }
+          }
+        },
+        "articles":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-lg-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "LATEST ARTICLES",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/journal/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "news":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "News ",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "pbr5",
+                                            "properties": {
+                                                "displayStyle": "singleCover",
+                                                "actions": "linkToIssueOrBook"
+                                            }
+                                        },
+                                        "data": {
+                                            "single": {
+                                                "coverImage": {
+                                                    "src": "/specs/ux3/build/images/components/teaser/news.png"
+                                                },
+                                                "serial": {
+                                                    "contentType": "Journal",
+                                                    "serialTitle": "Journal Title"
+                                                },
+                                                "linkURL": "http://nine-lts.literatumonline.com/toc/bio/9/4"
+                                            }
+                                        },
+                                        "errors": []
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "nl": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "card--dark",
+                                "card--gutter"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/components/newsletter/templates/data/newsletter.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "Recommended":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "Recomended",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/journal/templates/data/data-2.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "cited":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "most cited   ",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/journal/templates/data/data-2.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "read":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "most read ",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/journal/templates/data/data-2.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "tweets":{
+            "$pug": {
+                "template": "../../components/tweets/templates/tweets/tweets-tmpl.jade",
+                "data": {
+                    "body": [
+                        {
+                            "screenName": "TwitterDev",
+                            "height": "510"
+                        }
+                    ]
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        },
+        "ajpFooter":{
+          "$pug": {
+            "template": "../footer/templates/footer/footer-tmpl.jade",
+            "data": {
+              "$ref": "../footer/templates/data/ajp-footer.json"
+            }
+          }
+        }
+    }
+}

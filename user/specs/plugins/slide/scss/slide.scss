@@ -1,0 +1,111 @@
+
+.w-slide {
+    left: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 250ms;
+    background: $white;
+    bottom: 0;
+    z-index: 10;
+
+    &_head {
+        position: fixed;
+        width: 100%;
+        z-index: 20;
+        background-color: $slide-bg-color;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+        font-size: 0.875rem; // 14px
+        font-weight: bold;
+        line-height: 0.875rem; // 14px
+        padding: 13px;
+        max-height: 40px;
+    }
+
+    &__content {
+        background: $white;
+        height: 100vh;
+        overflow-y: scroll;
+        padding: 40px 0 0;
+
+        > a, > ul >li {
+            font-size: 0.875rem;
+            font-weight: bold;
+            padding: 17px 15px;
+            display: block;
+            line-height: 0.875rem;
+            color: $primary-light-text-color;
+            border-top: 2px solid $light-grey;
+
+            &:last-child {
+                border-bottom: 2px solid $light-grey;
+            }
+
+        }
+
+        .separator >li ~ li {
+            border-top: 2px solid $light-grey;
+            margin-top: 0;
+            padding: 17px 15px;
+        }
+
+        [data-db-target-of] {
+            display: block !important;
+            box-shadow: none;
+            position: static;
+        }
+
+        &[original-target="#filter"]{
+            margin-top: 15px;
+        }
+    }
+
+    &__back {
+        float: left;
+
+        i {
+            margin-right: 15px;
+            font-size: 0.875rem; // 14px
+            color: $slide-back-btn;
+
+        }
+
+    }
+
+    &__title {
+        display: inline-block;
+        position: absolute;
+        transform: translateX(100%);
+        transition: all 50ms;
+        left: 50%;
+        color: transparent;
+
+        max-height: 15px;
+        overflow: hidden;
+
+        &.js--open {
+            transform: translateX(-50%);
+            color: $primary-text-color;
+            transition: all 0ms;
+        }
+    }
+
+}
+
+[class*='nested--'] {
+    left: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 250ms;
+    background: $white;
+    bottom: 0;
+    z-index: 10;
+
+}
+
+.slide-item {
+    .creative-work__title {
+        color: $primary-link-color;
+    }
+}

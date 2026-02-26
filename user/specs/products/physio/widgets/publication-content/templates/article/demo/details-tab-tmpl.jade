@@ -1,0 +1,46 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/details-tab-tmpl.jade
+block detailsTabTopDropzone
+    div.article-cover-image
+        each item, l in data.nav
+            if item.class == "details"
+                | !{pb.render("cover-image" , "cover-image/cover-image--article" , item.content , "physio" )}
+block detailsTabTopSections
+    if (original.item && original.item.copyright)
+        section.section
+            .section__body
+                strong.section__title  Copyright & Permissions
+                p Copyright !{original.item.copyright}
+                if (original.item.license.statement)
+                    p !{original.item.license.statement}
+    block metaData
+        section.meta-data
+            ul
+                if(original.item.ids && original.item.ids.doi && original.item.ids.doi.value)
+                    li
+                        a(href="https://doi.org/"+ original.item.ids.doi.value) https://doi.org/!{original.item.ids.doi.value}
+                li
+                    span.title PubMed
+                    a(href="https://www.ncbi.nlm.nih.gov/pubmed/"+ original.item.ids.medline, target="_blank") !{original.item.ids.medline}
+                li
+                    span.title Published By
+                    span !{original.item.ePubDate}
+            section
+                span.title History
+                div.article__history
+                    | !{pb.renderDropzone(thisWidget, "historyDropZone")}
+    if (original.item && original.item.keywords)
+        section.article__keyword
+            strong.section__title Keywords
+            .section__body
+                ul.rlist.rlist--inline
+                    each item, i in original.item.keywords
+                        li
+                            if(item.searchUrl && item.label)
+                                a.badge-type(href = item.searchUrl) !{item.label}
+block acknowledgements
+
+block detailsDropZoneBottom
+    div.related-articles.card
+        each item, l in data.nav
+            if item.class == "details"
+                | !{pb.render("teaser", "teaser" , item.content2 )}

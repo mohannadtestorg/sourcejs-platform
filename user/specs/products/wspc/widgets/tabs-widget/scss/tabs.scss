@@ -1,0 +1,20 @@
+.tab:not(.tab--flex) {
+  .tab__nav {
+    border-bottom: 1px solid $divider-color;
+    width: 100%;
+    li {
+      margin-bottom: 0;
+      border-bottom: none;
+      a {
+        border-bottom: none;
+        font-size: 0.875rem;
+        padding: 1rem 1.5rem;
+        color: #000;
+      }
+      &.active a {
+        border-bottom: 4px solid $primary-bg-color;
+        color: $primary-bg-color;
+      }
+    }
+  }
+}

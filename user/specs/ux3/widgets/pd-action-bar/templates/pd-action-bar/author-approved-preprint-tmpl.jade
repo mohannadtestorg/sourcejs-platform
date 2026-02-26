@@ -1,0 +1,45 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        form(action="#", method="post")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            button.btn.btn--submit.btn--inverse(type="button", data-toggle="modal", data-target="#modalApprovedUpdate") Update Submission Info
+            button.btn.btn--submit.btn--inverse(type="button", data-toggle="modal", data-target="#modalApprovedRevise") Revise
+
+            .ux-modal-container
+                #modalApprovedRevise.modal(role="dialog")
+                    .modal__dialog
+                        .modal__body
+                            | Revising your submission will create a new version. This version will remain posted. Please, confirm that you would like to start a new version.
+
+                        .modal__footer
+                            button.btn--cancel(data-dismiss="modal") Cancel
+                            button.btn(data-action=data.reviseLink) Revise
+
+            .ux-modal-container
+                #modalApprovedUpdate.modal(role="dialog")
+                    .modal__dialog.modal__dialog--form.modal__dialog--w600
+                        .modal__header
+                            h5.modal__title Update Submission
+                        .modal__body
+                            .input-group.left-side-label
+                                label Submitted to:
+                                    | !{pb.render('tooltip', { data: { "type": "icon", "title": "Submitted to", "text": "Select the journal, you plan to or have already submitted your preprint to, from the drop-down menu." } })}
+
+                                - var journalLabel = "";
+                                if ( data.journal && data.journals)
+                                    each item, l in data.journals
+                                        if (data.journal == item.name)
+                                            - journalLabel=item.label;
+
+                                input.ux3-autocomplete(data-url=data.journalSearchLink, placeholder="Search Journal...", value=journalLabel)
+                                input(type="hidden", name="submitted-to", id="submitted-to", value=data.journal)
+
+                            .input-group.left-side-label
+                                label(for="versionOfRecord") Version of Record
+                                    | !{pb.render('tooltip', { data: { "type": "icon", "title": "Version of Record", "text": "ESSOAr will automatically try to link the preprint posted on ESSOAr to the final article published in a journal, the Version of Record (VoR), once available. If a match is not identified, you can enter the digital object identifier (DOI) of the final, published article here to manually link to the VoR." } })}
+                                input(id="versionOfRecord", name="vor", type="text", value=data.vor)
+
+                        .modal__footer
+                            button.btn--cancel(data-dismiss="modal") Cancel
+                            button.btn(data-action=data.updateLink) Update

@@ -1,0 +1,20 @@
+header.header.base(data-db-parent-of="sb1")
+    .scrollThenFix
+        .container.header--first-row
+            .pull-left
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/ehp/templates/header/Images/headerLogo.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo hidden-md hidden-sm hidden-xs"]}}}})}
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/ehp/templates/footer/images/footerLogo.jpg", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo hidden-lg"]}}}})}
+            .pull-right.header__right
+
+                |!{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/ehp/templates/header/Images/openAccess.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["open-access-img"]}}}})}
+
+                .header__quick-menu
+                    ul.rlist--inline
+                        li
+                            | !{pb.render('quick-search', "quick-search/quick-search-alt",'quick-search.json')}
+
+
+        .primary-bg-color.text-onDark.drawer__nav
+            .container
+                .row
+                    | !{pb.render('menu', 'demo/demo-menu', {"thisWidget": {"properties": {"vPort": "medium"}}, "data": {"id": "main0", "list": [{"text": "Home", "link": "#", "current": "true"}, {"text": "Current Issue", "link": "#"}, {"text": "List Of Issues", "link": "#"}, {"text": "Collections", "link": "#"},{"text": "Confernces", "link": "#","list": [{"text": "Confernces", "link": "#", "current": "true"}]}, {"text": "News", "link": "#","list": [{"text": "News1", "link": "#", "current": "true"}]}, {"text": "Authors", "link": "#"}, {"text": "Submit to EHP", "link": "#"}, {"text": "About", "link": "#","list": [{"text": "about1", "link": "#", "current": "true"}]}]}, "alert": "<a href='#'><i class='icon-Icon_Alerts'></i></a>","share": "<a href='#'><i class='icon-share'></i></a>"}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}

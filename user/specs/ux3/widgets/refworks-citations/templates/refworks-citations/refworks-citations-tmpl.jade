@@ -1,0 +1,7 @@
+form#refworks(method="post" action=data.actionLink)
+    textarea(name="ImportData" rows="20" cols="40")
+        if(data.lines)
+          each line in data.lines
+            if(line)
+              | !{line}
+    button.btn--inverse.extra-border(type='submit') Submit data to RefWorks

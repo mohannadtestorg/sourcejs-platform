@@ -1,0 +1,53 @@
+.topical-index {
+    padding: 25px 0;
+    h2 {
+        padding-left: 30px;
+        margin-bottom: 25px;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    a {
+        font-size: 1.25rem;
+        padding: 7px 30px;
+        display: block;
+        border-top: 1px solid $borders;
+    }
+    .expandable-list {
+        &__body {
+            a {
+                padding: 7px 60px;
+            }
+        }
+        &.js--open {
+            .icon-add_box {
+                &:before {
+                    content: "\e61c";
+                    font-size: 0.5rem;
+                }
+            }
+        }
+        i {
+            font-size: .75rem;
+            font-weight: 800;
+            display: inline-block;
+            padding-right: 10px;
+            min-width: 23px;
+        }
+        .new{
+            font-size: 0.88rem;
+            padding: 7px;
+            margin-left: 20px;
+            text-transform: uppercase;
+        }
+        span{
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        &__count {
+            margin-left: 5px;
+        }
+    }
+}

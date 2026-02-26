@@ -1,0 +1,14 @@
+extends ../teaser-tmpl
+
+block teaserWrapper
+    - var itemNo = items.length
+    if itemNo > 1
+        ul.rlist.lot
+            li.grid-item
+                each item, l in items
+                    if(l % 2 == 0)
+                        +teaser(item)
+            li.grid-item
+                each item, l in items
+                    if(l % 2 != 0)
+                        +teaser(item)

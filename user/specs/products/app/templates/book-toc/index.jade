@@ -1,0 +1,40 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Books Toc
+    .source_info
+
+
+    section.source_section
+        h2 Books Toc
+        markdown
+        .source_example
+            | !{data.header}
+            main.pol-theme.content
+                .container.book-toc.page-top-margin
+                    .col-lg-9.col-md-8
+
+                        |  !{data.imageCover}
+
+
+                    .col-lg-3.col-md-4
+
+                        .newsletter__wrapper
+                            h5.font-weight-light.section__header.border-bottom newsletter
+                            |  !{data.nl}
+
+
+                        .advertisement.center
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+
+
+
+
+
+
+            | !{data.footer}
+    | #{''}

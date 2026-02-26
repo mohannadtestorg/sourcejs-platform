@@ -1,0 +1,52 @@
+.message {
+    &_info, &_info_primary, &_info_success, &_info_error {
+        color: $secondary-fourth-text-color;
+        background-color: $default-bg-color;
+        transition: all 0.3s;
+        font-size: $medium-font-size;
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 0px 3px 6px $shadow-color;
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: 0px 6px 6px $shadow-color;
+        }
+
+        p {
+            margin: 10px 0px 0px 0px;
+        }
+    }
+
+    &_info_primary, &_info_success, &_info_error {
+        &:before {
+            content: " ";
+            height: 5px;
+            display: block;
+            margin: -20px -20px 15px -20px;
+        }
+    }
+
+    &_info_primary {
+        &:before {
+            background-color: $primary-bg-color;
+        }
+    }
+
+    &_info_success {
+        &:before {
+            background-color: $secondary-second-bg-color;
+        }
+    }
+
+    &_info_error {
+        &:before {
+            background-color: $error-bg-color;
+        }
+    }
+
+    &_title {
+        font-weight: bold;
+        color: $primary-text-color;
+    }
+}

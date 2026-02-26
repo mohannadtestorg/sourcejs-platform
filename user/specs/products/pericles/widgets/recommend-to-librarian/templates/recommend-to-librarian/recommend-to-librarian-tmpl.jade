@@ -1,0 +1,8 @@
+extends ../../../../../../ux3/widgets/recommend-to-librarian/templates/recommend-to-librarian/recommend-to-librarian-tmpl.jade
+
+block recommendationFormButtons
+    .form-btn
+        p.small-txt.pull-left * Marks a required field
+
+        if(data.form.submitButton)
+            input.btn(type=data.form.submitButton.type name=data.form.submitButton.name value="RECOMMEND")

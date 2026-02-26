@@ -1,0 +1,17 @@
+extends ../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade
+block parentInfo
+    div.parent-item
+        block volume
+            a.volume(href=data.tocUrl)
+                if (data) && (data.volume)
+                    span.volume Volume #{data.volume}
+                if (data) && (data.issue)
+                    span.issue Issue #{data.issue}
+        if (data) && (data.title)
+            span.issue !{data.title}
+        if (data) && (data.coverDate)
+            span.coverDate !{data.coverDate}
+        if (data) && (data.fPage) &&(data.lPage)
+            span.pages pages !{data.fPage} - !{data.lPage}
+        else if (data) && (data.pages)
+            span.pages pages !{data.pages}

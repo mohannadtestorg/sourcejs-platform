@@ -1,0 +1,123 @@
+.popup {
+    background-color: rgba($wiley-gray-dark, .8);
+
+    .close {
+        opacity: 1;
+        text-shadow: none;
+        color: $wiley-gray;
+        margin: 10px;
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .content {
+        padding: 0;
+        @include media('>=tablet') {
+            border-radius: 0;
+        }
+    }
+
+    .modal__header {
+        padding: 24px;
+        @include widgetHeader;
+    }
+
+    .modal__body {
+        padding: 24px;
+        @include widgetBody;
+    }
+
+    &.login-popup {
+        @include loginStyling;
+    }
+
+    &.request-reset-password-drawer {
+        .form-btn {
+            border: 0;
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .btn {margin: 0;}
+
+        .header_logo {
+            border-bottom: 1px solid $tertiary-bg-color;
+            margin-bottom: 20px;
+            padding: 24px 24px 20px 24px;
+        }
+
+        .modal {
+            &__header {
+                padding: 0;
+                border:0;
+                 .sub {
+                     border-bottom: 1px solid $tertiary-bg-color;
+                     margin: 16px 24px 20px 24px;
+                     padding: 0 0 20px 0;
+                }
+                .close {
+                    margin: 0;
+                    padding: 24px;
+                    font-size: 1rem;
+                }
+            }
+            &__body {
+                padding: 0 24px 20px 24px;
+            }
+        }
+
+        .content {
+            h2, p {
+                padding: 0 24px;
+            }
+
+            h2 {
+                margin-bottom:15px;
+            }
+        }
+
+        .g-recaptcha {
+            div:first-child {
+                float: left;
+            }
+        }
+    }
+
+    &.login-popup,
+    &.request-reset-password-drawer {
+        .content {
+            max-width: 500px;
+        }
+    }
+    &.login-popup{
+        .content{
+            @include media('<tablet') {
+                max-width: 650px;
+            }
+        }
+    }
+
+    @include media('<tablet') {
+        padding: 8px;
+
+        .close {
+            font-size: 1.0625rem;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    @include media('>=tablet') {
+       .close:focus {
+           box-shadow: 0 0 10px $wiley-blue-color;
+           outline: none;
+       }
+        &.login-popup,
+        &.request-reset-password-drawer {
+            .content {
+                width: 500px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+extends ../../../../../../ux3/widgets/search-history/templates/search-history/search-history-tmpl.jade
+
+block SearchHistoryRows
+    td.search-history.savedResult.to_hide.unlabeled(data-thead="Search name")
+        a(href=item.runUrl)
+            | !{item.searchName}
+    td.search-history.savedResult.to_hide(data-thead="Searched On")
+        | !{item.searchedOn}
+
+block SearchHistoryHeaders
+    th.search-history.savedResult
+        | Search name
+    th.search-history.savedResult
+        | Searched on

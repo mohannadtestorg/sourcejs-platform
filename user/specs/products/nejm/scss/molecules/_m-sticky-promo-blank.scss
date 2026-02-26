@@ -1,0 +1,43 @@
+.m-sticky-promo-blank {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+
+  @include breakpoint('medium-') {
+    transition: bottom .25s linear;
+  }
+
+  @include breakpoint('medium+') {
+    height: 96px;
+  }
+
+  @include breakpoint('large+') {
+    left: 50%;
+    right: auto;
+    width: colspan(8, large);
+    margin-left: colspan(6, large, (map-get($inner-gutters, large) / 2), true);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(7, xlarge);
+    margin-left: colspan(5, xlarge, (map-get($inner-gutters, xlarge) / 2), true);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(7, xxlarge);
+    margin-left: colspan(5, xxlarge, (map-get($inner-gutters, xxlarge) / 2), true);
+  }
+}
+
+/* old class name, to deprecate */
+.g-cta-sticky-subscribe {
+  @extend .m-sticky-promo-blank;
+}
+
+
+.m-sticky-promo-blank .pb-ad{
+  height: 100%;
+}

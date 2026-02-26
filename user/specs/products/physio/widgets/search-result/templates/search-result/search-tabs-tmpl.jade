@@ -1,0 +1,11 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-tabs-tmpl
+
+block articleTabLabel
+    - newurl = pb.updateParam(temp,"content","standard")
+    - newurl = pb.updateParam(newurl,"target") // removes param "target"
+    a(class= classes href= newurl) ARTICLES & CHAPTERS (!{data.widgetData.groupTabs.articlesChapters.count})
+
+block publicationTabLabel
+    - newurl = pb.updateParam(temp,"content","titleSearch")
+    - newurl = pb.updateParam(newurl,"target")
+    a(class= classes href= newurl) PUBLICATION (!{data.widgetData.groupTabs.journalTitle.count})

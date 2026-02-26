@@ -1,0 +1,59 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdownSearch
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.dark-region
+                .container
+                    .col-sm-8.advanced-search__region
+                        .tab
+                            ul.rlist.tab__nav.bottom__bordered__tabs__nav
+                                li.active(role='presentation')
+                                    a#pane-pcw-advancedcon.details-tab(href='#pane-pcw-advanced', aria-controls='#pane-pcw-advanced', role='tab', data-toggle='tab', title='Advanced Search', data-slide-target='#pane-pcw-advanced')
+                                        span Advanced Search
+                                li(role='presentation')
+                                    a#pane-pcw-historycon.figures-tab.empty(href='#pane-pcw-history', aria-controls='#pane-pcw-history', role='tab', data-toggle='tab', title='Search History', data-slide-target='#pane-pcw-history')
+                                        span Search History
+                                li(role='presentation')
+                                    a#pane-pcw-savedcon.references-tab.empty(href='#pane-pcw-saved', aria-controls='#pane-pcw-saved', role='tab', data-toggle='tab', title='Saved Searches', data-slide-target='#pane-pcw-saved')
+                                        span Saved Searches
+                            ul.rlist.tab__content
+                                li#pane-pcw-advanced.tab__pane.active(aria-labelledby='pane-pcw-advancedcon', role='tabpanel')
+                                    | !{data.advancedSearch}
+                                li#pane-pcw-history.tab__pane.empty(aria-labelledby='pane-pcw-historycon', role='tabpanel')
+                                li#pane-pcw-saved.tab__pane.empty(aria-labelledby='pane-pcw-savedcon', role='tabpanel')
+
+
+
+                    .col-sm-4.search-tips
+                        div.sidebar-region
+                            h3.sidebar-region__title Search Tips
+                            section
+                                h4.section__header Boolean searches
+                                div.section__body You can use the Boolean Operators AND, OR and NOT within search fields.  By default an AND relationship is assumed between search terms unless another operator is specified.
+                            section
+                                h4.section__header Searching for authors
+                                div.section__body To search for multiple authors, separate each author name with either AND or OR.  Using AND will search for content that has been co-authored by the authors. Using OR will search for content that has been authored by either of the authors.
+                            section
+                                h4.section__header Searching for phrases
+                                div.section__body Enclose your search term with quotation marks to search for an exact match of that phrase.  Without quotation marks, articles including all of the search terms somewhere in the article will be listed. For example searching for "civil war" will find articles containing that exact phrase.
+                            section
+                                h4.section__header Wildcards
+                                div.section__body Use a question mark (?) in a search term to represent any one character and use an asterisk (*) to represent zero or more characters. For example, searching for Europe* will find results containing Europe and European. Wildcards cannot be used at the start of a search term or when searching for phrases in quotes.
+                            section
+                                h4.section__header DOIs
+                                div.section__body Search for DOIs using the format 10.3366/code.2016.0000 (do not add http://dx.doi.org/).
+
+
+
+
+            | !{data.footer}
+    | #{''}

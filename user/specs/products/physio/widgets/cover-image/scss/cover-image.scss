@@ -1,0 +1,100 @@
+.cover-with-details {
+    .cover-image__image {
+        max-width: 150px;
+        max-height: 190px;
+        display: inline-block;
+        vertical-align: middle;
+        box-sizing: content-box;
+        padding-right: 20px;
+        margin-top: -69px;
+        position: relative;
+        img {
+            max-height: 190px;
+        }
+        &:hover .cover-image__hover {
+            display: block
+        }
+    }
+    a.volume {
+        font-size: 26px;
+        color: $primary-text-color;
+        font-weight: 900;
+        display: block;
+        .volume {
+            &:after {
+                content: ",";
+                padding-right: 5px;
+            }
+        }
+    }
+    .parent-item {
+        > .issue {
+            display: none;
+        }
+        .coverDate {
+            color: $gray-2;
+            font-size: 20px;
+            display: block;
+            padding-top: 5px;
+            font-weight: 900;
+            &:before {
+                content: "//";
+                letter-spacing: 2px;
+                padding-right: 5px;
+            }
+        }
+        .pages {
+            font-size: 12px;
+            color: $gray-2;
+            display: block;
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+    }
+    .cover-image__hover {
+        position: absolute;
+        opacity: .7;
+        top: 0;
+        display: none;
+        width: 89%;
+        height: 100%;
+        background: black;
+        color: white;
+        padding: 14px;
+        box-sizing: border-box;
+        h3 {
+            margin: 41% 0;
+        }
+    }
+}
+
+@include media('<desktop') {
+    .cover-with-details {
+        a {
+            &.volume {
+                font-size: 18px;
+            }
+        }
+        .parent-item {
+            margin-top: 1%;
+            .coverDate {
+                font-size: 16px;
+            }
+
+        }
+    }
+}
+
+.cover-image {
+    .parent-item {
+        text-transform: initial;
+    }
+}
+
+@include media('>desktop') {
+    .cover-with-details {
+        .parent-item {
+            margin-top: 6%;
+        }
+    }
+}

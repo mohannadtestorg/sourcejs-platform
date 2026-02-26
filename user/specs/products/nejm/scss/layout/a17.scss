@@ -1,0 +1,25 @@
+#a17 {
+  @extend %container;
+  position: relative;
+  padding-top: 132px;
+
+  @include breakpoint('medium+') {
+    padding-top: 196px;
+  }
+
+  @include breakpoint('large+') {
+    padding-top: 336px;
+  }
+
+  div > & {
+    padding-top: 0;
+
+    @include breakpoint('medium+') {
+      padding-top: 0;
+    }
+
+    @include breakpoint('large+') {
+      padding-top: 0;
+    }
+  }
+}

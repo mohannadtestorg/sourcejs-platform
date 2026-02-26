@@ -1,0 +1,87 @@
+/***
+
+```
+<div class="m-metric">
+  <span class="m-metric__title">In the</span>
+  <span class="m-metric__figure m-metric__figure--large">96%<small>ile</small></span>
+</div>
+<p>
+<a class="m-metric" href="#citations">
+  <span class="m-metric__title">Citations</span>
+  <span class="m-metric__icon">
+    <svg class="icon--metrics_citations" aria-hidden="true"><use xlink:href="#icon--metrics_citations" /></svg>
+  </span>
+  <span class="m-metric__figure">25</span>
+</a>
+</p>
+```
+
+***/
+
+.m-metric {
+  @include f-body--sm;
+  margin-top: 24px;
+  overflow: hidden;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & + & {
+    margin-top: 16px;
+  }
+}
+
+.m-metric__title {
+  display:block;
+
+  color:$color__text--headlines;
+}
+
+.m-metric__icon {
+  float:left;
+  height:64px;
+  width:64px;
+  color:$color__text--quaternary;
+  margin-top: 12px;
+
+  @each $name, $point in $breakpoints {
+    @include breakpoint('#{$name}') {
+      margin-right: map-get($inner-gutters, $name) / 2;
+    }
+  }
+}
+
+.m-metric__figure {
+  display:block;
+  @include f-h3;
+  color:$color__text--headlines;
+  margin-top: 12px;
+
+  small {
+    display: inline-block;
+    margin-bottom: -4px;
+    padding-left: 5px;
+    font-size: 16px;
+
+    @include breakpoint('medium+') {
+      font-size: 20px;
+      margin-bottom: -5px;
+    }
+
+    @include breakpoint('large+') {
+      font-size: 23px;
+      margin-bottom: -6px;
+    }
+  }
+}
+
+.m-metric__figure--large {
+  @include f-h1;
+  margin-top: 0;
+}
+
+.m-metric__icon + .m-metric__figure {
+  float:left;
+  line-height:64px;
+}

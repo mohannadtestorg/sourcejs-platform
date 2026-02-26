@@ -1,0 +1,34 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+
+    .source_info
+        markdown
+            p
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/products/pericles/widgets/confirmation-dialog/templates/confirmation-dialog/confirmation-dialog-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use confirmation-dialog template.
+        +printJson({
+            "data": {
+                "oauthToken" : "ggjhgsedw"
+            },
+            "errors": []
+        })
+
+
+    section.source_section
+        h2 Example
+        .source_example
+            .container
+                | !{pb.render('confirmation-dialog', 'data.json', 'pericles')}
+
+    | #{''}

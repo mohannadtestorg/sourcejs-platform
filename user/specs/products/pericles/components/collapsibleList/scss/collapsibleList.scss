@@ -1,0 +1,19 @@
+.collapsible-menu {
+
+    [class*='icon-chevron'] {
+        display: none;
+
+        @include media ('<desktop') {
+            display: block;
+            float: right;
+        }
+    }
+
+    &-body {
+        @include media ('<desktop') {
+            display: none;
+            padding-left: 10px;
+        }
+    }
+}
+

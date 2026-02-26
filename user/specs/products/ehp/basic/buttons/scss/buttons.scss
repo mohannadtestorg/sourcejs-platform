@@ -1,0 +1,61 @@
+// reset UX3 selector for any button existing, because we don't want this at all
+// any styled button should have class .btn, or any variant class
+// @fixme on UX3 level
+button, [type="submit"],[type="button"] {
+    display: inline-block;
+    border: initial;
+    color: initial;
+    text-align: left;
+    padding: 0;
+    font-size: initial;
+    background: transparent;
+    font-weight: normal;
+    transition: none;
+    font-family: $default-font-family;
+    line-height: 1rem;
+
+    &[disabled], &.disabled, &:disabled {
+        opacity: 1;
+
+        &:hover,
+        &:focus {
+            background: transparent;
+            color: initial;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        background: transparent;
+        color: initial;
+    }
+}
+
+.btn, .button {
+    @include make-btn-size();
+    @include make-btn();
+}
+
+.btn--inverse, .button--inverse {
+    @include make-btn-size(
+        $btn-padding: ($btn-default-padding - 2px)
+    );
+    @include make-inverse-btn();
+}
+
+.btn--full-width {
+    @include make-btn-size();
+}
+
+.btn--submit {
+    @include make-btn-size();
+    @include make-btn();
+}
+
+.btn--cancel {
+    @include make-btn-size(
+        $btn-padding: ($btn-default-padding - 2px)
+    );
+    @include make-inverse-btn();
+}

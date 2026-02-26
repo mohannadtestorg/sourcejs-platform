@@ -1,0 +1,58 @@
+mixin relationItem (relation, text)
+    if thisWidget.properties.displayDate
+        p.list-of-relations--date !{relation.relationshipDate}
+
+    p.list-of-relations--relationshipType
+        b !{data.journal.title}
+        | !{' ' + text + ' '}
+        b !{relation.relatedJournal.title}
+
+mixin relations(relations)
+    each relation, r in relations
+        li
+            case relation.relationshipType
+                when 'CONTINUE'
+                    if thisWidget.properties.displayContinueRelation
+                        +relationItem(relation, 'was continued by')
+
+                when 'CHANGE_GENRE'
+                    if thisWidget.properties.displayChangeGenreRelation
+                        +relationItem(relation, 'changed genre, and was renamed')
+
+                when 'SPLIT'
+                    if thisWidget.properties.displaySplitRelation
+                        +relationItem(relation, 'split into')
+
+                when 'ABSORB'
+                    if thisWidget.properties.displayAbsorbRelation
+                        +relationItem(relation, 'was absorbed by')
+
+                when 'SPLIT-ABSORB'
+                    if thisWidget.properties.displaySplitAbsorbRelation
+                        +relationItem(relation, 'split, and was absorbed by')
+
+                when 'MERGE'
+                    if thisWidget.properties.displayMergeRelation
+                        +relationItem(relation, 'merged into')
+
+                when 'SPINOFF'
+                    if thisWidget.properties.displaySpinOffRelation
+                        +relationItem(relation, 'spun off')
+
+
+if (data) && (data.journal)
+    if (data.journal.successors)
+        - var itemNoS = data.journal.successors.length
+
+    if (data.journal.predecessors)
+        - var itemNoP = data.journal.predecessors.length
+
+    - var itemNo = itemNoS + itemNoP
+
+    if itemNo > 0
+        block relationsList
+            ul.rlist.separator.list-of-relations
+                if thisWidget.properties.displaySuccessors && itemNoS > 0
+                    +relations(data.journal.successors)
+                if itemNoP > 0
+                    +relations(data.journal.predecessors)

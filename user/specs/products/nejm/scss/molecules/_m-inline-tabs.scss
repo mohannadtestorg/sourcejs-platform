@@ -1,0 +1,89 @@
+/***
+
+```
+<div class="m-inline-tabs" data-behavior="InlineTabs">
+  <nav class="m-simple-tabs">
+    <ul class="m-simple-tabs__links" data-inline-tabs-links>
+      <li class="s-active"><a href="#treatment1" aria-controls="treatment1" aria-expanded="true" data-inline-tabs-link>Treatment 1</a></li>
+      <li><a href="#treatment2" aria-controls="treatment2" aria-expanded="false" data-inline-tabs-link>Treatment 2</a></li>
+    </ul>
+  </nav>
+  <div class="m-inline-tabs__tab s-active" id="treatment1" aria-hidden="false" data-inline-tabs-tab>
+    ...visible...
+  </div>
+  <div class="m-inline-tabs__tab s-inactive" id="treatment2" aria-hidden="true" data-inline-tabs-tab>
+    ...hidden...
+  </div>
+</div>
+```
+
+***/
+
+.m-inline-tabs {
+  position: relative;
+  margin-top: 40px;
+}
+
+.m-inline-tabs .m-simple-tabs {
+  margin-top: 0;
+}
+
+.m-inline-tabs__tab,
+[data-inline-tabs-tab] {
+
+  &.s-inactive {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}
+
+// -------------------------------------
+// `m-inline-tabs` after a `m-article-meta`
+//
+
+.m-article-meta + .m-inline-tabs {
+  margin-top: 20px;
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+// -------------------------------------
+// `m-inline-tabs` after a `a-subtitle`
+//
+
+.a-subtitle + .m-inline-tabs {
+  padding-top: 1px;
+  border-top: 0 none;
+}
+
+.m-inline-tabs__tab .m-inline-tabs__tab{
+  .o-article-body__section--affiliations{
+    .o-article-body__section-title{
+      pointer-events: none;
+      .icon--chevron{
+        display: none;
+      }
+    }
+    .o-article-body__collapsible-content{
+      &::after{
+        display: none;
+      }
+    }
+  }
+}
+
+.m-inline-tabs__tab{
+  .o-article-body__section:first-child, .m-quick-links:empty + .o-article-body__section{
+    border-top: 0;
+    padding-top: 0;
+  }
+}

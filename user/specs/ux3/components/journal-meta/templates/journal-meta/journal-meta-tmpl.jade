@@ -1,0 +1,17 @@
+
+
+
+div.meta__body
+    if(data.type)
+        div.meta__type !{data.type}
+    if (data.title)
+        h4.meta__title !{data.title}
+    div.meta__info
+        if (data.issns)
+            p.meta__issns !{data.issns}
+        if (data.frequency)
+            p.meta__frequency !{data.frequency}
+    if (data.quote) && (data.quote.text)
+        blockquote.quote !{data.quote.text}
+    if (data.quote) && (data.quote.attribution)
+        p.meta__attr !{data.quote.attribution}

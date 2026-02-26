@@ -1,0 +1,212 @@
+/***
+
+```
+
+```
+
+***/
+
+.m-comment-form {
+  padding-top: 16px;
+}
+
+.m-comment-form__show-form-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+
+  @include breakpoint('medium+') {
+    display: none;
+  }
+}
+
+.m-comment-form__hide-form-btn {
+  position: absolute;
+  right: 20px;
+  top: 22px;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  background-color: transparent;
+  color: $color__text--quaternary;
+  cursor: pointer;
+}
+
+.m-comment-form__hide-form-btn:hover {
+  color: $color__text--headlines;
+}
+
+.m-comment-form__form {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 64px 24px 24px;
+  background-color: $color__white;
+  overflow-y: auto;
+  -webkit-overflow-scroll: touch;
+
+  @include breakpoint('medium+') {
+    display: block;
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    background-color: transparent;
+    overflow: visible;
+    -webkit-over-scroll: auto;
+  }
+}
+
+.m-comment-form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+
+.m-comment-form__fieldset legend {
+  @include serif(21, 64, bold);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  float: left;
+  width: 100%;
+  height: 64px;
+  padding-top: 2px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid $color__rules;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    font-size: 24px;
+  }
+
+  @include breakpoint('medium+') {
+    display: none;
+  }
+}
+
+.m-comment-form__note {
+  color: $color__text--quaternary;
+
+  @include breakpoint('medium+') {
+    legend + & {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-comment-form__fields-list {
+  clear: both;
+  margin-top: 24px;
+
+  @include breakpoint('medium') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.m-comment-form__fields-list > li {
+  margin-top: 16px;
+}
+
+@include breakpoint('medium') {
+  .m-comment-form__fields-list > li {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .m-comment-form__fields-list > li:nth-child(1) {
+    margin-right: map-get($inner-gutters, medium);
+  }
+
+  .m-comment-form__fields-list > li:nth-child(1),
+  .m-comment-form__fields-list > li:nth-child(2) {
+    width: calc(50% - #{map-get($inner-gutters, medium) / 2});
+  }
+}
+
+@include breakpoint('xxlarge') {
+  .m-comment-form__fields-list > li {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}
+
+.m-comment-form .a-label {
+
+  @include breakpoint('xxlarge') {
+    flex: 0 0 auto;
+    width: colspan(2, xxlarge, map-get($inner-gutters, xxlarge));
+    margin-top: 8px;
+  }
+}
+
+.m-comment-form input[type=text],
+.m-comment-form textarea,
+.m-comment-form .a-form-select {
+  width: 100%;
+  margin-top: 12px;
+
+  @include breakpoint('xxlarge') {
+    flex: 0 0 auto;
+    width: colspan(5, xxlarge);
+    margin-top: 0;
+  }
+}
+
+.m-comment-form .a-form-hint {
+  margin-top: 8px;
+}
+
+.m-comment-form__btns {
+  margin-top: 16px;
+  text-align: right;
+
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: colspan(2, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.m-comment-form__btns .a-btn {
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+  }
+}
+
+.m-comment-form__btns .a-btn:not(.a-btn--fake-link-secondary) {
+  width: 100%;
+  text-align: center;
+
+  @include breakpoint('medium+') {
+    width: auto;
+    text-align: left;
+  }
+}
+
+.m-comment-form__btns .a-btn--fake-link-secondary {
+  margin-top: 4px;
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+  }
+}
+
+.m-comment-form__btns .a-btn svg {
+  display: none;
+
+  @include breakpoint('medium+') {
+    display: inline-block;
+  }
+}

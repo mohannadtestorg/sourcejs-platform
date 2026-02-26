@@ -1,0 +1,55 @@
+.static-page{
+
+  margin-bottom: 50px;
+
+h1,h2,h3,h4,h5,h6
+  {
+  &:not([class^="filled"]){
+  color: $standard-color;
+  font-weight: 500;
+  font-family: $secondary-font-family;
+   }
+
+  }
+
+  a[name]{
+    display: block;
+    padding-top: 175px;
+    margin-top: -175px;
+
+    @include media('<tablet'){
+      padding-top: 105px;
+      margin-top: -105px;
+    }
+  }
+
+}
+
+.citationFormats{
+
+  .link{
+    text-decoration: underline;
+    font-weight: 500;
+    color:$standard-color;
+  }
+  .formats {
+    th {
+      color:$standard-color;
+      width: 200px;
+      vertical-align: top;
+      font-weight: 500;
+      @include media('<phone'){
+        width: 140px;
+      }
+    }
+    label{
+      display:inline-block;
+      font-size: 1rem;
+    }
+
+  }
+}
+
+.static-topics {
+  padding: 0;
+}

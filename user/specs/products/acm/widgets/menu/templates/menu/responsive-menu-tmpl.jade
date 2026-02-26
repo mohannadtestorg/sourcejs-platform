@@ -1,0 +1,24 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/responsive-menu-tmpl
+
+
+block  menuHeader
+
+block mainNavArrows
+    i.icon-section_arrow_d.pull-right(aria-hidden="true" class=viewPortInvertClass)
+    i.icon-section_arrow_d.pull-right(aria-hidden="true" class=viewPortClass)
+
+
+block menuPrefix
+    li.hidden-lg.hidden-md
+        div(class="quick-search-mobile" data-toggle="transplant" data-target-class="hidden-xs hidden-sm"  data-target=".header--second-row .quick-search--form" data-direction="from" data-transplant="self")
+    li.hidden-lg.hidden-md
+        div(data-toggle="transplant" data-target-class="hidden-xs hidden-sm"  data-target=".header__quick-menu .advanced-search-link" data-direction="from" data-transplant="self")
+
+    li.hidden-lg.hidden-md
+        div(data-toggle="transplant" data-target-class="hidden-xs hidden-sm"  data-target=".header__quick-menu .show-on-mobile" data-direction="from" data-transplant="self")
+
+
+
+block navIcons
+    span.drawer__icons-box
+       span.drawer__icons-controls

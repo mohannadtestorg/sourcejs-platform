@@ -1,0 +1,63 @@
+$themes: (
+        bj-journal: (
+                color: $journal-bg-color-bj,
+                color2:$journal-bg-color-light-bj,
+        ),
+        csuracm-journal: (
+                color: $csuracm-journal-color,
+                color2:$black,
+        ),
+        jea-journal: (
+                color: $jea-journal-color,
+                color2:$black,
+        ),
+        idiq--journal: (
+                color: $idiq-journal-color,
+                color2:$black,
+        )
+) !default;
+
+
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    @include themify($themes) {
+        color: themed('color');
+    }
+
+    &.light{
+        @include themify($themes) {
+            color: themed('color2');
+        }
+    }
+}
+
+.theme-background {
+    @include themify($themes) {
+        background-color: themed('color');
+    }
+    &.light{
+        @include themify($themes) {
+            background-color: themed('color2');
+        }
+    }
+}

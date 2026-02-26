@@ -1,0 +1,114 @@
+.quick-search {
+  padding: 8px 0px;
+  float: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  form {
+    position: relative;
+    float: left;
+    @include media('>tablet') {
+      margin-right: 28px;
+    }
+    @include media('<desktop') {
+      margin-right:0px;
+    }
+    input {
+      padding: 8px 22px;
+      border-color : $aha_grey;
+    }
+    button.quick-search__button {
+      right: 1px;
+      background: $aha_white;
+      color: darken($aha_darken_grey, 5);
+      padding: 0px 12px;
+      box-shadow: none;
+      border-left: 1px solid $aha_grey;
+      height: 32px;
+      font-size: 16px;
+    }
+  }
+
+  .quick-search-advanced-link {
+  //  font-family: HelveticaNeueCondensed;
+    font-size: 12px;
+    line-height: normal;
+    color: $aha_lighten_red;
+    &:hover, &:active {
+      font-weight: normal;
+    }
+  }
+
+}
+
+.quickSearchRegion {
+  &.dark {
+    background: $aha_black;
+    color: $aha_white;
+
+  }
+
+  .quick-search {
+    float: none;
+    >.tab {
+      @include media('>=tablet'){
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    }
+
+    form {
+      float: none;
+
+      input {
+        background: $aha_white;
+        border-color: $aha_white;
+        height: 37px;
+        line-height: 37px;
+        padding: 0px 22px;
+      }
+
+      button.quick-search__button {
+        min-width: initial;
+        background: $aha_white;
+        border: none;
+        height: 37px !important;
+        line-height: 37px;
+        padding: 0 !important;
+        width: 54px;
+        max-height: initial;
+        border: none !important;
+        top: 0;
+        right: 0;
+      }
+    }
+    @include media('>=tablet') {
+      .input-group {
+        padding:0;
+      }
+    }
+  }
+
+  .search_bar_title {
+    text-align: center;
+  }
+
+  .dropBlock {
+    background: $aha_white;
+    color: $aha_black;
+    i {
+      color: inherit;
+    }
+  }
+  .dropblock--tab {
+    a {
+      width: 100%;
+      text-align: left;
+      padding: 13px 0;
+    }
+  }
+
+
+}

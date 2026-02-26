@@ -1,0 +1,19 @@
+.scrollThenFix {
+    position: relative;
+    top: auto;
+
+    @include media('<desktop') {
+
+    }
+
+    &.locked {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        background-color: #fff;
+        z-index: 100;
+    }
+}

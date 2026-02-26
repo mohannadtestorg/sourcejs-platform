@@ -1,0 +1,33 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/article-tmpl.jade
+include ./map/map-article-tmpl.jade
+
+block article
+    if(data.item.mathJax && data.item.mathJax.enabled)
+        article.container(data-figures=data.item.figures data-references=data.item.references data-enable-mathjax=data.item.mathJax.enabled)
+            +articleRow()
+    else
+        article.container(data-figures=data.item.figures data-references=data.item.references)
+            +articleRow()
+
+block articleRow
+    .row
+        .col-xs-12.col-sm-8.col-lg-9
+
+            .citation__top.hidden-xs.hidden-sm
+                | !{pb.renderDropzone(thisWidget, "articleTopDropZone")}
+            .row
+                .col-xs-12.col-md-3.col-lg-2
+                    | !{pb.render('access-icon', 'access-icon/access-icon', { "data": { "access": data.item.license.type, "license": data.item.license, "type": data.item.type } }), "aha"}
+                    include ./extended/ext-coolbar-tmpl
+
+                .col-xs-12.col-md-9.col-lg-10.article__content
+                    include ./extended/ext-citation-tmpl
+                    +articleBody()
+                    | !{pb.renderDropzone(thisWidget, "articleBottomDropZone")}
+
+        .col-sm-4.col-lg-3.hidden-xs.sticko__parent.article-row-right.gutterless
+            include ./extended/ext-tabs-tmpl
+
+block figureViewer
+    include ../../../../components/figure-viewer/templates/figure-viewer/figure-viewer-tmpl.jade
+    include ../../../../components/table-viewer/templates/table-viewer/table-viewer-tmpl.jade

@@ -1,0 +1,28 @@
+/***
+
+```
+<div class="m-no-results">
+  <h1 class="m-no-results__title">No results for Aristotle</h1>
+  <p>Did you mean: <a href="#">Plato</a>?</p>
+</div>
+```
+
+***/
+
+
+.m-no-results {
+  border-top: 1px solid $color__rules;
+}
+
+.m-no-results__title {
+  @extend %f-h3;
+}
+
+.m-no-results p,
+.m-no-results .a-list {
+  @extend %f-body;
+
+  @include breakpoint('large+') {
+    margin-top: 28px;
+  }
+}

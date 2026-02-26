@@ -1,0 +1,232 @@
+extends ../search-result-alt-tmpl
+
+block searchResultTop
+
+block searchResultTopShowPublications
+    div.search-result__meta
+        div.pull-left.search__result
+            if (data.serviceName == "showPublications")
+                a(href="#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                    i(class="icon-filter_list inline-icon" aria-hidden="true")
+                    span Filters
+
+        div.pull-right.search__bottom.clearfix
+            if (data.serviceName == "doSearch")
+                a(href = "#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                    i(class="icon-filter_list inline-icon" aria-hidden="true")
+                    span Filters
+
+
+
+block defineUserLayout
+    -searchlistClass="search-result__books "
+    -searchlistClass=searchlistClass + "search-result--tile";
+    -isTileLayoutActive=true;
+
+
+block searchResultMain
+    ul.rlist.search-result__body(class=searchlistClass)
+        li.clearfix.separator.search__item
+            .item__image
+                a(href='/link/to/journal', title='go to Future Science OA')
+                    img(src='http://placehold.it/144x215', title='cover Image of Future Science OA')
+            .item__body
+                .meta__header
+                    span.meta__type Books
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service oriented architecture
+                .meta__info
+                    .meta__book-authors
+                        span by:
+                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                            li
+                                a(href='#') Peter Schrenk
+
+                    .meta__isbn
+                         span ISBN/EAN:
+                         span.gray 97835254545
+                    .meta__first-published
+                          span First Published:
+                          span.gray 23/5/2014
+                    .meta__details
+                        span Edition:
+                          span.gray  4th
+                        span  Pages:
+                          span.gray 480
+                    .meta__available
+                             span Also available in: 
+                             a.link(href="#" title="eReader format" ) eReader format
+        li.clearfix.separator.search__item
+            .item__image
+                a(href='/link/to/journal', title='go to Future Science OA')
+                    img(src='http://placehold.it/144x215', title='cover Image of Future Science OA')
+            .item__body
+                .meta__header
+                    span.meta__type Books
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service
+                .meta__info
+                    .meta__book-authors
+                        span by:
+                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                            li
+                                a(href='#') Peter Schrenk
+
+
+                    .meta__isbn
+                        span ISBN/EAN:
+                        span.gray 97835254545
+                    .meta__first-published
+                        span First Published:
+                        span.gray 23/5/2014
+                    .meta__details
+                        span Edition:
+                            span.gray  4th
+                        span  Pages:
+                            span.gray 480
+                    .meta__available
+                        span Also available in: 
+                        a.link(href="#" title="eReader format" ) eReader format
+        li.clearfix.separator.search__item
+            .item__image
+                a(href='/link/to/journal', title='go to Future Science OA')
+                    img(src='http://placehold.it/144x215', title='cover Image of Future Science OA')
+            .item__body
+                .meta__header
+                    span.meta__type Books
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service oriented architecture
+                .meta__info
+                    .meta__book-authors
+                        span by:
+                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                            li
+                                a(href='#') Peter Schrenk
+
+                    .meta__isbn
+                        span ISBN/EAN:
+                        span.gray 97835254545
+                    .meta__first-published
+                        span First Published:
+                        span.gray 23/5/2014
+                    .meta__details
+                        span Edition:
+                            span.gray  4th
+                        span  Pages:
+                            span.gray 480
+                    .meta__available
+                        span Also available in: 
+                        a.link(href="#" title="eReader format" ) eReader format
+        li.clearfix.separator.search__item
+            .item__image
+                a(href='/link/to/journal', title='go to Future Science OA')
+                    img(src='http://placehold.it/144x215', title='cover Image of Future Science OA')
+            .item__body
+                .meta__header
+                    span.meta__type Books
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service
+                .meta__info
+                    .meta__book-authors
+                        span by:
+                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                            li
+                                a(href='#') Peter Schrenk
+
+
+                    .meta__isbn
+                        span ISBN/EAN:
+                        span.gray 97835254545
+                    .meta__first-published
+                        span First Published:
+                        span.gray 23/5/2014
+                    .meta__details
+                        span Edition:
+                            span.gray  4th
+                        span  Pages:
+                            span.gray 480
+                    .meta__available
+                        span Also available in: 
+                        a.link(href="#" title="eReader format" ) eReader format
+        li.clearfix.separator.search__item
+            .item__image
+                a(href='/link/to/journal', title='go to Future Science OA')
+                    img(src='http://placehold.it/144x215', title='cover Image of Future Science OA')
+            .item__body
+                .meta__header
+                    span.meta__type Books
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service oriented architecture
+                .meta__info
+                    .meta__book-authors
+                        span by:
+                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                            li
+                                a(href='#') Peter Schrenk
+
+                    .meta__isbn
+                        span ISBN/EAN:
+                        span.gray 97835254545
+                    .meta__first-published
+                        span First Published:
+                        span.gray 23/5/2014
+                    .meta__details
+                        span Edition:
+                            span.gray  4th
+                        span  Pages:
+                            span.gray 480
+                    .meta__available
+                        span Also available in: 
+                        a.link(href="#" title="eReader format" ) eReader format
+        li.clearfix.separator.search__item
+            .item__image
+                a(href='/link/to/journal', title='go to Future Science OA')
+                    img(src='http://placehold.it/144x215', title='cover Image of Future Science OA')
+            .item__body
+                .meta__header
+                    span.meta__type Books
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service
+                .meta__info
+                    .meta__book-authors
+                        span by:
+                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                            li
+                                a(href='#') Peter Schrenk
+
+
+                    .meta__isbn
+                        span ISBN/EAN:
+                        span.gray 97835254545
+                    .meta__first-published
+                        span First Published:
+                        span.gray 23/5/2014
+                    .meta__details
+                        span Edition:
+                            span.gray  4th
+                        span  Pages:
+                            span.gray 480
+                    .meta__available
+                        span Also available in: 
+                        a.link(href="#" title="eReader format" ) eReader format
+
+
+

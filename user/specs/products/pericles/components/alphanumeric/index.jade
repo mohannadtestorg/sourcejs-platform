@@ -1,0 +1,48 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/alphanumeric/templates/alphanumeric/alphanumeric-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use Accordion template.
+        +printJson({
+            "type": "alphabetRange",
+            "title": "Alphanumeric",
+            "values": [
+                {
+                    "label": "0-9",
+                    "disabled": "true",
+                    "used": false
+                },
+                {
+                    "label": "A",
+                    "link": "#",
+                    "used": true
+                },
+                {
+                    "label": "B",
+                    "link": "#",
+                    "used": false
+                }
+            ]
+
+        })
+
+    | #{''}
+
+    section.source_section
+        h2 Alphanumeric
+        markdown
+            p styled based on <a href='https://jira.atypon.com/browse/LIT-200349' target="_blank">`LIT-200349`</a>
+        .source_example
+            .container
+                .col-md-4
+                    | !{pb.render('alphanumeric', 'data.json')}
+    | #{''}

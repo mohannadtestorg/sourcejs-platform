@@ -1,0 +1,77 @@
+.publication-menu--res {
+    background: $almost-black;
+    margin-bottom: 20px;
+}
+
+.publication--res {
+    color: $badge-type-bg-color;
+    display: block;
+    padding: 10px 0;
+    span {
+        padding-left: 5px;
+    }
+    &:focus, &:hover {
+        color: $badge-type-bg-color;
+    }
+}
+.publication-menu-container{
+    background: $almost-black;
+    color: $badge-type-bg-color;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    .main-nav #menubar {
+        float:none;
+    }
+    .publication-menu .menu-item>a, .publication-menu .menu-parent>a {
+        padding: 14px 8px;
+        font-weight: 700;
+    }
+    .main-nav a, .main-nav p{
+        color:#fff;
+            font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+            font-weight: 700;
+            padding-top: 14px;
+    }
+    .main-nav{
+        float: left;
+    }
+    .publication{
+        @include media('<tablet') {
+            display:none
+        }
+    }
+}
+[original-target=".menu-parent-main1-1"]{
+    li {
+        list-style: none;
+        padding: 10px 15px;
+        border-top: 2px solid #eee;
+        color: $primary-light-text-color;
+    }
+}
+.publication-menu {
+    .dropzone {
+        min-height: 20px;
+        line-height: 150px;
+        width: 50px;
+    }
+}
+
+.publication-menu-mobile {
+    display: none;
+}
+
+#loi-banner > a {
+    color: $badge-type-bg-color;
+}
+
+.publication-icons {
+    padding: 7px 0;
+    font-size: 20px;
+    i {
+        padding: 0 5px;
+    }
+}

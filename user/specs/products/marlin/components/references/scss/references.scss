@@ -1,0 +1,61 @@
+.ref {
+    $this: &;
+
+    position: relative;
+    margin-top: -4px;
+
+    & + & {
+        margin-top: 34px;
+    }
+
+    &__authors {
+
+        &__name {
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.75rem;
+
+            @include media('>=phone') {
+                font-size: $h4-font-size;
+            }
+        }
+    }
+
+    &__item {
+        margin: 0;
+    }
+    &__seriesTitle {
+        font-style: italic;
+    }
+
+    &__controls {
+        margin-top: .875rem;
+        line-height: 1.75rem;
+
+        @include media('>=phone') {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        ul {
+            @include media('>=phone') {
+                margin-left: 3ex;
+            }
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            font-size: 1rem;
+            box-shadow: inset 0 -3px 0 0 $white, inset 0 -5px 0 0 $generic-bottom-border;
+
+            i {
+                font-size: .5rem;
+                color: $inline-bullet-list;
+                margin-left: 1ex;
+            }
+        }
+    }
+}

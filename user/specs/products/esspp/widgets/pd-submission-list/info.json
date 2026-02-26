@@ -1,0 +1,35 @@
+{
+    "title": "Submission List",
+    "template": "doc",
+    "tag": ["pdc"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Submission List",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/pd-submission-list/templates/pd-submission-list/pd-submission-list-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/pd-submission-list/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

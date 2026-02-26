@@ -1,0 +1,169 @@
+{
+    "title": "TOC page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "meta":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card card--gutter card--shadow meta__body\"><div class=\"meta__left-side\"><h1 class=\"meta__title\">Journal of Aerospace Engineering</h1><div class=\"meta__info\"><p>ISSN (print): 0893-1321 | ISSN (online): 1943-5525</p><p>Frequency: Bimonthly | Sponsored by the Aerospace Division</p></div><p class=\"meta__contrib\">Editor: Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</p></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--inverse btn--journal-meta\">Submit an article</a><a href\"#=\"href\" #\"=\"\"class=\"btn btn--inverse btn--journal-meta\">Subscribe</a></div></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "loi":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/list-of-issues/templates/data/loi-decade-withQS2.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "toc":{
+            "$pug": {
+                "template": "../../widgets/table-of-content/templates/table-of-content/markup.jade",
+                "data": {}
+            }
+        },
+        "coverImage":{
+            "thisWidget": {
+                "id":"15646",
+                "properties": {
+                    "displayStyle": "singleCover",
+                    "actions": "showCoverDetails"
+                }
+            },
+            "data": {
+                "single": {
+                    "title": " title goes here",
+                    "coverImage": {
+                        "src": "/specs/products/physio/images/ajpregu.2017.313.issue-3.cover.gif",
+                        "caption":"\u003cP\u003e\u003cI\u003eCover\u003c/I\u003e: In a healthy aquatic environment, turtle eggs incubated at a low temperature develop into males with a masculinized brain transcriptomic profile. However, when exposed to bisphenol A, turtles who should otherwise be male demonstrate a feminized brain transcriptomic profile. For details see Manshack LK, Conard CM, Bryan SJ, Deem SL, Holliday DK, Bivens NJ, Givan SA, Rosenfeld CS. Transcriptomic alterations in the brain of painted turtles (\u003cI\u003eChrysemys picta\u003c/I\u003e) developmentally exposed to bisphenol A or ethinyl estradiol. \u003cI\u003ePhysiol Genomics\u003c/I\u003e 49: \u003cA href\u003d\"/cgi/content/short/49/4/201\"\u003e201\u0026#8211;215\u003c/A\u003e, 2017 (10.1152/physiolgenomics.00103.2016).\u003c/P\u003e\n\n\n\n"
+                    },
+                    "largeCoverImage": {
+                        "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png",
+                        "caption": "\u003cP\u003e\u003cI\u003eCover\u003c/I\u003e: In a healthy aquatic environment, turtle eggs incubated at a low temperature develop into males with a masculinized brain transcriptomic profile. However, when exposed to bisphenol A, turtles who should otherwise be male demonstrate a feminized brain transcriptomic profile. For details see Manshack LK, Conard CM, Bryan SJ, Deem SL, Holliday DK, Bivens NJ, Givan SA, Rosenfeld CS. Transcriptomic alterations in the brain of painted turtles (\u003cI\u003eChrysemys picta\u003c/I\u003e) developmentally exposed to bisphenol A or ethinyl estradiol. \u003cI\u003ePhysiol Genomics\u003c/I\u003e 49: \u003cA href\u003d\"/cgi/content/short/49/4/201\"\u003e201\u0026#8211;215\u003c/A\u003e, 2017 (10.1152/physiolgenomics.00103.2016).\u003c/P\u003e\n\n\n\n"
+                    },
+                    "tocUrl": "http://nine-lts.literatumonline.com/toc/bio/9/4",
+                    "contentType": "Issue",
+                    "volume": "9",
+                    "issue": "4",
+                    "fPage" : "r568",
+                    "lPage" : "r623",
+                    "pages" : "327-354",
+                    "issueType": "IssueType{char=NORMAL, name='Normal'}",
+                    "coverDate": "Feb 2017",
+                    "doi": "10.1152/ajpregu.00013.2017",
+                    "serial": {
+                        "type": "Journal",
+                        "serialTitle": "AJP-Regulatory, Integrative and Comparative Physiology",
+                        "journalUrl": "/journal/physiolgenomics"
+                    }
+                }
+            }
+        },
+        "featured":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/publication-list/templates/publication-list/publication-list-toc-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/publication-list/templates/data/publication-list.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "trending":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "./templates/demo/demo-tabs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "./templates/data/trending.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "tweets":{
+            "$pug": {
+                "template": "../../../../ux3/components/tweets/templates/tweets/tweets-tmpl.jade",
+                "data": {
+                    "body": [
+                        {
+                            "screenName": "TwitterDev",
+                            "height": "500"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

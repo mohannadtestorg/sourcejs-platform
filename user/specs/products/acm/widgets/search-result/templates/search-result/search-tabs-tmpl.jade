@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-tabs-tmpl
+
+
+
+block extraTabs
+    if (groupTabsPath.videos)
+        if (groupTabsPath.videos.enabled == "true") || (groupTabsPath.videos.enabled == "active")
+            - var classes = "search-result__nav__item"
+            if groupTabsPath.videos.active == "true"
+                - classes = "search-result__nav__item active"
+            block publicationTabLabel
+                a(class= classes href= groupTabsPath.videos.link)  !{groupTabsPath.videos.label}

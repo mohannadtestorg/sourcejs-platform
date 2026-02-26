@@ -1,0 +1,14 @@
+extends ../publication-list-tmpl.jade
+
+block meta
+    ul.rlist--inline.separator.issue-item__details
+        if (item.earliestPubDate)
+            li
+                label First published:
+                span  !{' ' + item.earliestPubDate}
+
+        if (item && item.doi)
+            li.coverDoi
+                label DOI:
+                span
+                    a(href=item.best) !{' ' + item.doi}

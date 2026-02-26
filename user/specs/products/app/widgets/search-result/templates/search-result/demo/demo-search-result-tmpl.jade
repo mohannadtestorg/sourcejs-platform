@@ -1,0 +1,1746 @@
+extends ../search-result-tmpl
+
+
+block searchResultMain
+    ul.rlist.search-result__body(class=searchlistClass)
+        li.clearfix.separator.search__item
+            .item__body
+                .meta__header
+                    span.meta__type Article
+                    span.meta__type CME
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title.meta__title__margin
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service oriented architecture
+                .meta__info
+                    ul.meta__authors.search-authors-truncate.rlist--inline(title='list of authors' id="sb-11232")
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Duncan%2C+Laramie', title='Duncan Laramie') Duncan Laramie
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Yilmaz%2C+Zeynep', title='Yilmaz Zeynep') Yilmaz Zeynep
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gaspar%2C+Helena', title='Gaspar Helena') Gaspar Helena
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Walters%2C+Raymond', title='Walters Raymond') Walters Raymond
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Goldstein%2C+Jackie', title='Goldstein Jackie') Goldstein Jackie
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Anttila%2C+Verneri', title='Anttila Verneri')
+                                    span.single_highlight_class(onclick='highlight()') Anttila
+                                    |  Verneri
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Bulik-Sullivan%2C+Brendan', title='Bulik-Sullivan Brendan') Bulik-Sullivan Brendan
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ripke%2C+Stephan', title='Ripke Stephan') Ripke Stephan
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/', title='')
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Thornton%2C+Laura', title='Thornton Laura') Thornton Laura
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hinney%2C+Anke', title='Hinney Anke')
+                                    | Hinney
+                                    span.single_highlight_class(onclick='highlight()') Anke
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Daly%2C+Mark', title='Daly Mark') Daly Mark
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Sullivan%2C+Patrick+F', title='Sullivan Patrick F.') Sullivan Patrick F.
+                        | ,
+                        degrees M.D., F.R.A.N.Z.C.P.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Zeggini%2C+Eleftheria', title='Zeggini Eleftheria') Zeggini Eleftheria
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Breen%2C+Gerome', title='Breen Gerome') Breen Gerome
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Bulik%2C+Cynthia+M', title='Bulik Cynthia M.') Bulik Cynthia M.
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Duncan%2C+Laramie', title='Duncan Laramie') Duncan Laramie
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Yilmaz%2C+Zeynep', title='Yilmaz Zeynep') Yilmaz Zeynep
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gaspar%2C+H%C3%A9l%C3%A9na', title='Gaspar Héléna') Gaspar Héléna
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Walters%2C+Raymond', title='Walters Raymond') Walters Raymond
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Goldstein%2C+Jackie', title='Goldstein Jackie') Goldstein Jackie
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Anttila%2C+Verneri', title='Anttila Verneri')
+                                    span.single_highlight_class(onclick='highlight()') Anttila
+                                    |  Verneri
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Bulik-Sullivan%2C+Brendan', title='Bulik-Sullivan Brendan') Bulik-Sullivan Brendan
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ripke%2C+Stephan', title='Ripke Stephan') Ripke Stephan
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Adan%2C+Roger', title='Adan Roger')
+                                    span.single_highlight_class(onclick='highlight()') Adan
+                                    |  Roger
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Alfredsson%2C+Lars', title='Alfredsson Lars')
+                                    span.single_highlight_class(onclick='highlight()') Alfredsson
+                                    |  Lars
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ando%2C+Tetsuya', title='Ando Tetsuya')
+                                    span.single_highlight_class(onclick='highlight()') Ando
+                                    |  Tetsuya
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Andreassen%2C+Ole', title='Andreassen Ole')
+                                    span.single_highlight_class(onclick='highlight()') Andreassen
+                                    |  Ole
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Aschauer%2C+Harald', title='Aschauer Harald')
+                                    span.single_highlight_class(onclick='highlight()') Aschauer
+                                    span.single_highlight_class(onclick='highlight()') Harald
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Baker%2C+Jessica', title='Baker Jessica') Baker Jessica
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Barrett%2C+Jeffrey', title='Barrett Jeffrey') Barrett Jeffrey
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Bencko%2C+Vladimir', title='Bencko Vladimir') Bencko Vladimir
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Bergen%2C+Andrew', title='Bergen Andrew')
+                                    | Bergen
+                                    span.single_highlight_class(onclick='highlight()') Andrew
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Berrettini%2C+Wade', title='Berrettini Wade') Berrettini Wade
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Birgeg%C3%A5rd%2C+Andreas', title='Birgegård Andreas')
+                                    | Birgegård
+                                    span.single_highlight_class(onclick='highlight()') Andreas
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Boni%2C+Claudette', title='Boni Claudette') Boni Claudette
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Perica%2C+Vesna+Boraska', title='Perica Vesna Boraska') Perica Vesna Boraska
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Brandt%2C+Harry', title='Brandt Harry')
+                                    | Brandt
+                                    span.single_highlight_class(onclick='highlight()') Harry
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Burghardt%2C+Roland', title='Burghardt Roland') Burghardt Roland
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Carlberg%2C+Laura', title='Carlberg Laura') Carlberg Laura
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Cassina%2C+Matteo', title='Cassina Matteo') Cassina Matteo
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Cesta%2C+Carolyn', title='Cesta Carolyn') Cesta Carolyn
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Cichon%2C+Sven', title='Cichon Sven') Cichon Sven
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Clementi%2C+Maurizio', title='Clementi Maurizio') Clementi Maurizio
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Cohen-Woods%2C+Sarah', title='Cohen-Woods Sarah') Cohen-Woods Sarah
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Coleman%2C+Joni', title='Coleman Joni') Coleman Joni
+                        | ,
+                        degrees M.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Cone%2C+Roger', title='Cone Roger') Cone Roger
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Courtet%2C+Philippe', title='Courtet Philippe') Courtet Philippe
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Crawford%2C+Steven', title='Crawford Steven') Crawford Steven
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Crow%2C+Scott', title='Crow Scott') Crow Scott
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Crowley%2C+Jim', title='Crowley Jim') Crowley Jim
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Danner%2C+Unna', title='Danner Unna')
+                                    | Danner
+                                    span.single_highlight_class(onclick='highlight()') Unna
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Davis%2C+Oliver', title='Davis Oliver')
+                                    | Davis
+                                    span.single_highlight_class(onclick='highlight()') Oliver
+                        | ,
+                        degrees M.Sc., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/de+Zwaan%2C+Martina', title='de Zwaan Martina') de Zwaan Martina
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Dedoussis%2C+George', title='Dedoussis George') Dedoussis George
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Degortes%2C+Daniela', title='Degortes Daniela') Degortes Daniela
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/DeSocio%2C+Janiece', title='DeSocio Janiece') DeSocio Janiece
+                        | ,
+                        degrees Ph.D., R.N.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Dick%2C+Danielle', title='Dick Danielle') Dick Danielle
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Dikeos%2C+Dimitris', title='Dikeos Dimitris') Dikeos Dimitris
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Dina%2C+Christian', title='Dina Christian') Dina Christian
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ding%2C+Bo', title='Ding Bo') Ding Bo
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Dmitrzak-Weglarz%2C+Monika', title='Dmitrzak-Weglarz Monika') Dmitrzak-Weglarz Monika
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Docampo%2C+Elisa', title='Docampo Elisa') Docampo Elisa
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Egberts%2C+Karin', title='Egberts Karin') Egberts Karin
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ehrlich%2C+Stefan', title='Ehrlich Stefan') Ehrlich Stefan
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Escaram%C3%ADs%2C+Ge%C3%B2rgia', title='Escaramís Geòrgia') Escaramís Geòrgia
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Esko%2C+T%C3%B5nu', title='Esko Tõnu') Esko Tõnu
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Espeseth%2C+Thomas', title='Espeseth Thomas') Espeseth Thomas
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Estivill%2C+Xavier', title='Estivill Xavier') Estivill Xavier
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Favaro%2C+Angela', title='Favaro Angela')
+                                    | Favaro
+                                    span.single_highlight_class(onclick='highlight()') Angela
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Fern%C3%A1ndez-Aranda%2C+Fernando', title='Fernández-Aranda Fernando')
+                                    | Fernández-
+                                    span.single_highlight_class(onclick='highlight()') Aranda
+                                    |  Fernando
+                        | ,
+                        degrees Ph.D., F.A.E.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Fichter%2C+Manfred', title='Fichter Manfred') Fichter Manfred
+                        | ,
+                        degrees M.D., Dipl.-Psych.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Finan%2C+Chris', title='Finan Chris') Finan Chris
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Fischer%2C+Krista', title='Fischer Krista') Fischer Krista
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Floyd%2C+James', title='Floyd James') Floyd James
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/F%C3%B6cker%2C+Manuel', title='Föcker Manuel') Föcker Manuel
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Foretova%2C+Lenka', title='Foretova Lenka') Foretova Lenka
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Forzan%2C+Monica', title='Forzan Monica') Forzan Monica
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Fox%2C+Caroline', title='Fox Caroline') Fox Caroline
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Franklin%2C+Christopher', title='Franklin Christopher') Franklin Christopher
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gaborieau%2C+Valerie', title='Gaborieau Valerie') Gaborieau Valerie
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gallinger%2C+Steven', title='Gallinger Steven') Gallinger Steven
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gambaro%2C+Giovanni', title='Gambaro Giovanni') Gambaro Giovanni
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Giegling%2C+Ina', title='Giegling Ina') Giegling Ina
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gonidakis%2C+Fragiskos', title='Gonidakis Fragiskos') Gonidakis Fragiskos
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gorwood%2C+Philip', title='Gorwood Philip') Gorwood Philip
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Gratacos%2C+Monica', title='Gratacos Monica') Gratacos Monica
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Guillaume%2C+S%C3%A9bastien', title='Guillaume Sébastien') Guillaume Sébastien
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Guo%2C+Yiran', title='Guo Yiran') Guo Yiran
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hakonarson%2C+Hakon', title='Hakonarson Hakon')
+                                    | Hakonarson
+                                    span.single_highlight_class(onclick='highlight()') Hakon
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Halmi%2C+Katherine', title='Halmi Katherine')
+                                    span.single_highlight_class(onclick='highlight()') Halmi
+                                    |  Katherine
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Harrison%2C+Rebecca', title='Harrison Rebecca')
+                                    span.single_highlight_class(onclick='highlight()') Harrison
+                                    |  Rebecca
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hatzikotoulas%2C+Konstantinos', title='Hatzikotoulas Konstantinos') Hatzikotoulas Konstantinos
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hauser%2C+Joanna', title='Hauser Joanna')
+                                    span.single_highlight_class(onclick='highlight()') Hauser
+                                    |  Joanna
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hebebrand%2C+Johannes', title='Hebebrand Johannes') Hebebrand Johannes
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Helder%2C+Sietske', title='Helder Sietske') Helder Sietske
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hendriks%2C+Judith', title='Hendriks Judith') Hendriks Judith
+                        | ,
+                        degrees B.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Herms%2C+Stefan', title='Herms Stefan') Herms Stefan
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Herpertz-Dahlmann%2C+Beate', title='Herpertz-Dahlmann Beate') Herpertz-Dahlmann Beate
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Herzog%2C+Wolfgang', title='Herzog Wolfgang') Herzog Wolfgang
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hilliard%2C+Christopher', title='Hilliard Christopher') Hilliard Christopher
+                        | ,
+                        degrees B.S.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Huckins%2C+Laura', title='Huckins Laura')
+                                    span.single_highlight_class(onclick='highlight()') Huckins
+                                    |  Laura
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hudson%2C+James', title='Hudson James')
+                                    span.single_highlight_class(onclick='highlight()') Hudson
+                                    |  James
+                        | ,
+                        degrees M.D., Sc.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Huemer%2C+Julia', title='Huemer Julia')
+                                    span.single_highlight_class(onclick='highlight()') Huemer
+                                    |  Julia
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Imgart%2C+Hartmut', title='Imgart Hartmut')
+                                    | Imgart
+                                    span.single_highlight_class(onclick='highlight()') Hartmut
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Inoko%2C+Hidetoshi', title='Inoko Hidetoshi')
+                                    | Inoko
+                                    span.single_highlight_class(onclick='highlight()') Hidetoshi
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Jall%2C+Sigrid', title='Jall Sigrid') Jall Sigrid
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Jamain%2C+Stephane', title='Jamain Stephane') Jamain Stephane
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Janout%2C+Vladimir', title='Janout Vladimir') Janout Vladimir
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Jim%C3%A9nez-Murcia%2C+Susana', title='Jiménez-Murcia Susana') Jiménez-Murcia Susana
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Johnson%2C+Craig', title='Johnson Craig') Johnson Craig
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Jordan%2C+Jenny', title='Jordan Jenny') Jordan Jenny
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Juli%C3%A0%2C+Antonio', title='Julià Antonio')
+                                    | Julià
+                                    span.single_highlight_class(onclick='highlight()') Antonio
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Jur%C3%A9us%2C+Anders', title='Juréus Anders')
+                                    | Juréus
+                                    span.single_highlight_class(onclick='highlight()') Anders
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kalsi%2C+Gursharan', title='Kalsi Gursharan') Kalsi Gursharan
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kaplan%2C+Allan', title='Kaplan Allan')
+                                    | Kaplan
+                                    span.single_highlight_class(onclick='highlight()') Allan
+                        | ,
+                        degrees M.D., F.R.C.P.(C.)
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kaprio%2C+Jaakko', title='Kaprio Jaakko') Kaprio Jaakko
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Karhunen%2C+Leila', title='Karhunen Leila') Karhunen Leila
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Karwautz%2C+Andreas', title='Karwautz Andreas')
+                                    | Karwautz
+                                    span.single_highlight_class(onclick='highlight()') Andreas
+                        | ,
+                        degrees M.D., F.A.E.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kas%2C+Martien', title='Kas Martien') Kas Martien
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kaye%2C+Walter', title='Kaye Walter') Kaye Walter
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kennedy%2C+Martin', title='Kennedy Martin') Kennedy Martin
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kennedy%2C+James', title='Kennedy James') Kennedy James
+                        | ,
+                        degrees M.D., F.R.C.P.(C.)
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Keski-Rahkonen%2C+Anna', title='Keski-Rahkonen Anna')
+                                    | Keski-Rahkonen
+                                    span.single_highlight_class(onclick='highlight()') Anna
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kiezebrink%2C+Kirsty', title='Kiezebrink Kirsty') Kiezebrink Kirsty
+                        | ,
+                        degrees Ph.D., F.H.E.A.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kim%2C+Youl-Ri', title='Kim Youl-Ri') Kim Youl-Ri
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Klareskog%2C+Lars', title='Klareskog Lars') Klareskog Lars
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Klump%2C+Kelly', title='Klump Kelly') Klump Kelly
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Knudsen%2C+Gun+Peggy', title='Knudsen Gun Peggy') Knudsen Gun Peggy
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Koeleman%2C+Bobby', title='Koeleman Bobby') Koeleman Bobby
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Koubek%2C+Doris', title='Koubek Doris') Koubek Doris
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/la+Via%2C+Maria', title='La Via Maria') La Via Maria
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Land%C3%A9n%2C+Mikael', title='Landén Mikael') Landén Mikael
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/le+Hellard%2C+Stephanie', title='Le Hellard Stephanie') Le Hellard Stephanie
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Leboyer%2C+Marion', title='Leboyer Marion') Leboyer Marion
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Levitan%2C+Robert', title='Levitan Robert') Levitan Robert
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Li%2C+Dong', title='Li Dong') Li Dong
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Lichtenstein%2C+Paul', title='Lichtenstein Paul') Lichtenstein Paul
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Lilenfeld%2C+Lisa', title='Lilenfeld Lisa') Lilenfeld Lisa
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Lissowska%2C+Jolanta', title='Lissowska Jolanta') Lissowska Jolanta
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Lundervold%2C+Astri', title='Lundervold Astri')
+                                    | Lundervold
+                                    span.single_highlight_class(onclick='highlight()') Astri
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Magistretti%2C+Pierre', title='Magistretti Pierre') Magistretti Pierre
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Maj%2C+Mario', title='Maj Mario') Maj Mario
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Mannik%2C+Katrin', title='Mannik Katrin') Mannik Katrin
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Marsal%2C+Sara', title='Marsal Sara') Marsal Sara
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Kaminska%2C+Debora', title='Kaminska Debora') Kaminska Debora
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Martin%2C+Nicholas', title='Martin Nicholas') Martin Nicholas
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Mattingsdal%2C+Morten', title='Mattingsdal Morten') Mattingsdal Morten
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/McDevitt%2C+Sara', title='McDevitt Sara') McDevitt Sara
+                        | ,
+                        degrees M.D., M.R.C.Psych.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/McGuffin%2C+Peter', title='McGuffin Peter') McGuffin Peter
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Merl%2C+Elisabeth', title='Merl Elisabeth') Merl Elisabeth
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Metspalu%2C+Andres', title='Metspalu Andres')
+                                    | Metspalu
+                                    span.single_highlight_class(onclick='highlight()') Andres
+                        | ,
+                        degrees Ph.D., M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Meulenbelt%2C+Ingrid', title='Meulenbelt Ingrid') Meulenbelt Ingrid
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Micali%2C+Nadia', title='Micali Nadia') Micali Nadia
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Mitchell%2C+James', title='Mitchell James') Mitchell James
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Mitchell%2C+Karen', title='Mitchell Karen') Mitchell Karen
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Monteleone%2C+Palmiero', title='Monteleone Palmiero') Monteleone Palmiero
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Monteleone%2C+Alessio+Maria', title='Monteleone Alessio Maria')
+                                    | Monteleone
+                                    span.single_highlight_class(onclick='highlight()') Alessio
+                                    |  Maria
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Montgomery%2C+Grant', title='Montgomery Grant') Montgomery Grant
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Mortensen%2C+Preben', title='Mortensen Preben') Mortensen Preben
+                        | ,
+                        degrees M.D., Dr.Med.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Munn-Chernoff%2C+Melissa', title='Munn-Chernoff Melissa') Munn-Chernoff Melissa
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/M%C3%BCller%2C+Timo', title='Müller Timo') Müller Timo
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Nacmias%2C+Benedetta', title='Nacmias Benedetta') Nacmias Benedetta
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Navratilova%2C+Marie', title='Navratilova Marie') Navratilova Marie
+                        | ,
+                        degrees M.U.Dr., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Nilsson%2C+Ida', title='Nilsson Ida') Nilsson Ida
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Norring%2C+Claes', title='Norring Claes') Norring Claes
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ntalla%2C+Ioanna', title='Ntalla Ioanna') Ntalla Ioanna
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ophoff%2C+Roel', title='Ophoff Roel')
+                                    span.single_highlight_class(onclick='highlight()') Ophoff
+                                    |  Roel
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/O%27Toole%2C+Julie', title='O’Toole Julie')
+                                    span.single_highlight_class(onclick='highlight()') O’Toole
+                                    |  Julie
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Palotie%2C+Aarno', title='Palotie Aarno')
+                                    | Palotie
+                                    span.single_highlight_class(onclick='highlight()') Aarno
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Pantel%2C+Jacques', title='Pantel Jacques') Pantel Jacques
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Papezova%2C+Hana', title='Papezova Hana')
+                                    | Papezova
+                                    span.single_highlight_class(onclick='highlight()') Hana
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Parker%2C+Richard', title='Parker Richard') Parker Richard
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Pinto%2C+Dalila', title='Pinto Dalila') Pinto Dalila
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Rabionet%2C+Raquel', title='Rabionet Raquel') Rabionet Raquel
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Raevuori%2C+Anu', title='Raevuori Anu')
+                                    | Raevuori
+                                    span.single_highlight_class(onclick='highlight()') Anu
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Rajewski%2C+Andrzej', title='Rajewski Andrzej')
+                                    | Rajewski
+                                    span.single_highlight_class(onclick='highlight()') Andrzej
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ramoz%2C+Nicolas', title='Ramoz Nicolas') Ramoz Nicolas
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Rayner%2C+N+William', title='Rayner N. William') Rayner N. William
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Reichborn-Kjennerud%2C+Ted', title='Reichborn-Kjennerud Ted') Reichborn-Kjennerud Ted
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ricca%2C+Valdo', title='Ricca Valdo') Ricca Valdo
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ripatti%2C+Samuli', title='Ripatti Samuli') Ripatti Samuli
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Ritschel%2C+Franziska', title='Ritschel Franziska') Ritschel Franziska
+                        | ,
+                        degrees M.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Roberts%2C+Marion', title='Roberts Marion') Roberts Marion
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Rotondo%2C+Alessandro', title='Rotondo Alessandro')
+                                    | Rotondo
+                                    span.single_highlight_class(onclick='highlight()') Alessandro
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Rujescu%2C+Dan', title='Rujescu Dan') Rujescu Dan
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Rybakowski%2C+Filip', title='Rybakowski Filip') Rybakowski Filip
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Santonastaso%2C+Paolo', title='Santonastaso Paolo') Santonastaso Paolo
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Scherag%2C+Andr%C3%A9', title='Scherag André')
+                                    | Scherag
+                                    span.single_highlight_class(onclick='highlight()') André
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Scherer%2C+Stephen', title='Scherer Stephen') Scherer Stephen
+                        | ,
+                        degrees Ph.D., F.R.S.C.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Schmidt%2C+Ulrike', title='Schmidt Ulrike')
+                                    | Schmidt
+                                    span.single_highlight_class(onclick='highlight()') Ulrike
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Schork%2C+Nicholas', title='Schork Nicholas') Schork Nicholas
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Schosser%2C+Alexandra', title='Schosser Alexandra')
+                                    | Schosser
+                                    span.single_highlight_class(onclick='highlight()') Alexandra
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Scott%2C+Laura', title='Scott Laura') Scott Laura
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Seitz%2C+Jochen', title='Seitz Jochen') Seitz Jochen
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Slachtova%2C+Lenka', title='Slachtova Lenka') Slachtova Lenka
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Sladek%2C+Robert', title='Sladek Robert') Sladek Robert
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Slagboom%2C+P+Eline', title='Slagboom P. Eline') Slagboom P. Eline
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/%27t+Landt%2C+Margarita+Slof-Op', title='’t Landt Margarita Slof-Op') ’t Landt Margarita Slof-Op
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Slopien%2C+Agnieszka', title='Slopien Agnieszka')
+                                    | Slopien
+                                    span.single_highlight_class(onclick='highlight()') Agnieszka
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Smith%2C+Tosha', title='Smith Tosha') Smith Tosha
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Soranzo%2C+Nicole', title='Soranzo Nicole') Soranzo Nicole
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Sorbi%2C+Sandro', title='Sorbi Sandro') Sorbi Sandro
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Southam%2C+Lorraine', title='Southam Lorraine') Southam Lorraine
+                        | ,
+                        degrees B.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Steen%2C+Vidar', title='Steen Vidar') Steen Vidar
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Strengman%2C+Eric', title='Strengman Eric') Strengman Eric
+                        | ,
+                        degrees B.S.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Strober%2C+Michael', title='Strober Michael') Strober Michael
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Szatkiewicz%2C+Jin', title='Szatkiewicz Jin') Szatkiewicz Jin
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Szeszenia-Dabrowska%2C+Neonila', title='Szeszenia-Dabrowska Neonila') Szeszenia-Dabrowska Neonila
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tachmazidou%2C+Ioanna', title='Tachmazidou Ioanna') Tachmazidou Ioanna
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tenconi%2C+Elena', title='Tenconi Elena') Tenconi Elena
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tortorella%2C+Alfonso', title='Tortorella Alfonso')
+                                    | Tortorella
+                                    span.single_highlight_class(onclick='highlight()') Alfonso
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tozzi%2C+Federica', title='Tozzi Federica') Tozzi Federica
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Treasure%2C+Janet', title='Treasure Janet') Treasure Janet
+                        | ,
+                        degrees Ph.D., F.R.C.P.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tsch%C3%B6p%2C+Matthias', title='Tschöp Matthias') Tschöp Matthias
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tsitsika%2C+Artemis', title='Tsitsika Artemis')
+                                    | Tsitsika
+                                    span.single_highlight_class(onclick='highlight()') Artemis
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Tziouvas%2C+Konstantinos', title='Tziouvas Konstantinos') Tziouvas Konstantinos
+                        | ,
+                        degrees M.D., M.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/van+Elburg%2C+Annemarie', title='van Elburg Annemarie')
+                                    | van Elburg
+                                    span.single_highlight_class(onclick='highlight()') Annemarie
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/van+Furth%2C+Eric', title='van Furth Eric') van Furth Eric
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Wade%2C+Tracey', title='Wade Tracey') Wade Tracey
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Wagner%2C+Gudrun', title='Wagner Gudrun') Wagner Gudrun
+                        | ,
+                        degrees D.O., D.P.O.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Walton%2C+Esther', title='Walton Esther') Walton Esther
+                        | ,
+                        degrees Dr.rer.nat., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Watson%2C+Hunna', title='Watson Hunna')
+                                    | Watson
+                                    span.single_highlight_class(onclick='highlight()') Hunna
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Wichmann%2C+H-Erich', title='Wichmann H-Erich') Wichmann H-Erich
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Widen%2C+Elisabeth', title='Widen Elisabeth') Widen Elisabeth
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Woodside%2C+D+Blake', title='Woodside D. Blake') Woodside D. Blake
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Yanovski%2C+Jack', title='Yanovski Jack') Yanovski Jack
+                        | ,
+                        degrees M.D., Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Yao%2C+Shuyang', title='Yao Shuyang') Yao Shuyang
+                        | ,
+                        degrees M.Sc.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Zerwas%2C+Stephanie', title='Zerwas Stephanie') Zerwas Stephanie
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Zipfel%2C+Stephan', title='Zipfel Stephan') Zipfel Stephan
+                        | ,
+                        degrees M.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Thornton%2C+Laura', title='Thornton Laura') Thornton Laura
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Hinney%2C+Anke', title='Hinney Anke')
+                                    | Hinney
+                                    span.single_highlight_class(onclick='highlight()') Anke
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Daly%2C+Mark', title='Daly Mark') Daly Mark
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Sullivan%2C+Patrick+F', title='Sullivan Patrick F.') Sullivan Patrick F.
+                        | ,
+                        degrees M.D., F.R.A.N.Z.C.P.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Zeggini%2C+Eleftheria', title='Zeggini Eleftheria') Zeggini Eleftheria
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Breen%2C+Gerome', title='Breen Gerome') Breen Gerome
+                        | ,
+                        degrees Ph.D.
+                        | ,
+                        li
+                            span.hlFld-ContribAuthor
+                                a(href='/author/Bulik%2C+Cynthia+M', title='Bulik Cynthia M.') Bulik Cynthia M.
+                        | ,
+                        degrees Ph.D.
+
+                    .meta__details
+                        a.meta__title(href='link/to/book') Journal Title
+                        a.meta__vol(href="#")  Volume 23, Issue 2
+                        a.meta__coverDate(href='link/to/book') 10 Mar 2017
+                    .meta__keywords
+                        span.keywords-label Topics:
+                        ul.rlist--inline.comma.keywords-list(title='list of keywords')
+
+                            li
+                                a(href='#').keyword-title Architecture
+                            li
+                                a(href='#').keyword-title Psychology
+                            li
+                                a(href='#').keyword-title Service
+                    .accordion
+                        a.accordion__control(href='#', title='show Abstract', aria-expanded='false')
+                            span Abstract
+                            i.icon-section_arrow_d(aria-hidden='true')
+                        .accordion__content(style='display: none;')
+                            | An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamisharr numbers by the estimated area of steelhead rearing habitat
+
+
+        li.clearfix.separator.search__item
+            .item__body
+                .meta__header
+                    span.meta__type Chapter
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title.meta__title__margin
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Ad primers context:Architecture and the genius of place
+                .meta__info
+                    ul.meta__authors.rlist--inline.comma(title='list of authors')
+                        li
+                            a(href='#') Peter Schrenk
+                        li
+                            a(href='#') Henry Smith
+                        li
+                            a(href='#') Samantha Letrin
+                        li
+                            a(href='#') Dallas Luanver
+                    .meta__details
+                        a.meta__title(href='link/to/book') Book Name
+                        a.meta__edition(href="#")  Third Edition
+                        a(href="#")  ACSE Press
+                        a.meta__coverDate(href='link/to/book')  2017
+                    .meta__keywords
+                        span.keywords-label Topics:
+                        ul.rlist--inline.comma.keywords-list(title='list of keywords')
+
+                            li
+                                a(href='#').keyword-title Architecture
+                            li
+                                a(href='#').keyword-title Psychology
+                            li
+                                a(href='#').keyword-title Service
+                    .accordion
+                        a.accordion__control(href='#', title='show summary', aria-expanded='false')
+                            span Summary
+                            i.icon-section_arrow_d(aria-hidden='true')
+                        .accordion__content(style='display: none;')
+                            | An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamisharr numbers by the estimated area of steelhead rearing habitat
+
+
+        li.clearfix.separator.search__item
+            .item__body
+                .meta__header
+                    span.meta__type Refrence Work
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title.meta__title__margin
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Advanced computer architecture
+                .meta__info
+                    ul.meta__authors.rlist--inline.comma(title='list of authors')
+                        li
+                            a(href='#') Peter Schrenk
+                        li
+                            a(href='#') Henry Smith
+                        li
+                            a(href='#') Samantha Letrin
+                    .meta__details
+                        a.meta__title(href='link/to/book') Refrence Work Title
+                        a.meta__vol(href="#")  Volume 23, Issue 2
+                        a.meta__coverDate(href='link/to/book') 10 Mar 2017
+                    .meta__keywords
+                        span.keywords-label Topics:
+                        ul.rlist--inline.comma.keywords-list(title='list of keywords')
+
+                            li
+                                a(href='#').keyword-title Architecture
+                            li
+                                a(href='#').keyword-title Psychology
+                            li
+                                a(href='#').keyword-title Service
+                    .accordion
+                        a.accordion__control(href='#', title='show Abstract', aria-expanded='false')
+                            span Abstract
+                            i.icon-section_arrow_d(aria-hidden='true')
+                        .accordion__content(style='display: none;')
+                            | An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamisharr numbers by the estimated area of steelhead rearing habitat
+        li.clearfix.separator.search__item
+            .item__body
+                .meta__header
+                    span.meta__type Article
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title.meta__title__margin
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Achieving service oriented architecture
+                .meta__info
+                    ul.meta__authors.rlist--inline.comma(title='list of authors')
+                        li
+                            a(href='#') Peter Schrenk
+                        li
+                            a(href='#') Henry Smith
+                        li
+                            a(href='#') Samantha Letrin
+                        li
+                            a(href='#') Dallas Luanver
+                    .meta__details
+                        a.meta__title(href='link/to/book') Journal Title
+                        a.meta__vol(href="#")  Volume 23, Issue 2
+                        a.meta__coverDate(href='link/to/book') 10 Mar 2017
+                    .meta__keywords
+                        span.keywords-label Topics:
+                        ul.rlist--inline.comma.keywords-list(title='list of keywords')
+
+                            li
+                                a(href='#').keyword-title Architecture
+                            li
+                                a(href='#').keyword-title Psychology
+                            li
+                                a(href='#').keyword-title Service
+                    .accordion
+                        a.accordion__control(href='#', title='show Abstract', aria-expanded='false')
+                            span Abstract
+                            i.icon-section_arrow_d(aria-hidden='true')
+                        .accordion__content(style='display: none;')
+                            | An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamisharr numbers by the estimated area of steelhead rearing habitat
+
+
+        li.clearfix.separator.search__item
+            .item__body
+                .meta__header
+                    span.meta__type Chapter
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title.meta__title__margin
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Ad primers context:Architecture and the genius of place
+                .meta__info
+                    ul.meta__authors.rlist--inline.comma(title='list of authors')
+                        li
+                            a(href='#') Peter Schrenk
+                        li
+                            a(href='#') Henry Smith
+                        li
+                            a(href='#') Samantha Letrin
+                        li
+                            a(href='#') Dallas Luanver
+                    .meta__details
+                        a.meta__title(href='link/to/book') Book Name
+                        a.meta__edition(href="#")  Third Edition
+                        a(href="#")  ACSE Press
+                        a.meta__coverDate(href='link/to/book')  2017
+                    .meta__keywords
+                        span.keywords-label Topics:
+                        ul.rlist--inline.comma.keywords-list(title='list of keywords')
+
+                            li
+                                a(href='#').keyword-title Architecture
+                            li
+                                a(href='#').keyword-title Psychology
+                            li
+                                a(href='#').keyword-title Service
+                    .accordion
+                        a.accordion__control(href='#', title='show summary', aria-expanded='false')
+                            span Summary
+                            i.icon-section_arrow_d(aria-hidden='true')
+                        .accordion__content(style='display: none;')
+                            | An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamisharr numbers by the estimated area of steelhead rearing habitat
+
+
+        li.clearfix.separator.search__item
+            .item__body
+                .meta__header
+                    span.meta__type Refrence Work
+                    span.meta__access
+                        i.icon-lock_open
+                        span Full Access
+                h4.meta__title.meta__title__margin
+                    a(href='http://ux3-prod.literatumonline.com/doi/10.4155/fsoa-2016-0031e1') Advanced computer architecture
+                .meta__info
+                    ul.meta__authors.rlist--inline.comma(title='list of authors')
+                        li
+                            a(href='#') Peter Schrenk
+                        li
+                            a(href='#') Henry Smith
+                        li
+                            a(href='#') Samantha Letrin
+                    .meta__details
+                        a.meta__title(href='link/to/book') Refrence Work Title
+                        a.meta__vol(href="#")  Volume 23, Issue 2
+                        a.meta__coverDate(href='link/to/book') 10 Mar 2017
+                    .meta__keywords
+                        span.keywords-label Topics:
+                        ul.rlist--inline.comma.keywords-list(title='list of keywords')
+
+                            li
+                                a(href='#').keyword-title Architecture
+                            li
+                                a(href='#').keyword-title Psychology
+                            li
+                                a(href='#').keyword-title Service
+                    .accordion
+                        a.accordion__control(href='#', title='show Abstract', aria-expanded='false')
+                            span Abstract
+                            i.icon-section_arrow_d(aria-hidden='true')
+                        .accordion__content(style='display: none;')
+                            | An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamisharr numbers by the estimated area of steelhead rearing habitat

@@ -1,0 +1,21 @@
+.colored-block
+    .colored-block__title.clearfix
+        h4 Current Issue
+    .colored-block__content
+        .meta__body
+            .meta__left-side
+                | !{pb.render("cover-image","cover-image/demo/demo-cover-image", 'single-cover-image.json')}
+
+            .meta__right-side
+                a.btn.btn--journal-meta(href="#" title="Subscribe to Journal")
+                   i.icon-Icon_Cart
+                   | Subscribe to Journal
+                a.btn.btn--journal-meta(href="#" title="Recommend ACM DL")
+                    i.icon-like
+                    | Recommend ACM DL
+                a.btn.btn--journal-meta(href="#" title="Digital Edition")
+                    i.icon-open-book
+                    | Digital Edition
+
+
+        .colored-block__dash

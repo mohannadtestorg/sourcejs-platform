@@ -1,0 +1,71 @@
+﻿header.header.base.fixed(data-db-parent-of="sb1")
+    div.header--first-row
+        div.container
+            div.header--logo.pull-left
+                | !{logo}
+            div.header--main-menu.drawer__nav.pull-left
+                | !{mainmenu}
+            div.header--quick-menu.pull-right
+                .header__search
+                    | !{search}
+                .header__cart
+                    | !{cart}
+                .header__login
+                    | !{user}
+                .institution-wrapper
+                    | !{institution}
+    div.header--second-row
+        div.container
+            div.header--second-row--left.pull-left
+                | !{radiologyLogo}
+                | !{radiographicsLogo}
+            div.header--second-row--right.pull-right
+                a(href="#")
+                    i.icon-favorites
+                a(href="#" data-slide-target=".about__menu")
+                    i.icon-info
+                a(href="#" data-slide-target=".header--third-row--left").w-slide__btn
+                    | Sections
+    div.header--third-row
+        div.container
+            div.header--third-row--left.pull-left
+                ul
+                    li
+                        a(href="#") Latest Articles
+                    li
+                        a(href="#") Current Issue
+                    li
+                        a(href="#") All Issues1
+                    li
+                        a(href="#") Submit a Manuscript
+                    li.menu-parent
+                        a(href="#")
+                            span For Authors
+                        ul.menu-sub
+                            li
+                                a(href="#") Instructions for Authors
+                            li
+                                a(href="#") Submit a Manuscript
+            div.header--third-row--right.pull-left
+                ul.rlist--inline
+                    li
+                        a(href="#")
+                            i.icon-favorites
+                    li.menu-parent.dropdown.about__menu__toggler
+                        a(href="#")
+                            i.icon-info
+                            span About
+                        div.dropdown__menu.about__menu
+                            ul.rlist
+                                li
+                                    a(href="#") About RadioGraphics
+                                li
+                                    a(href="#") Citation Metrics
+                                li
+                                    a(href="#") Editorial Board
+                                li
+                                    a(href="#") Podcasts
+                                li
+                                    a(href="#") For Reviewers
+                                li
+                                    a(href="#") Open Access Policy

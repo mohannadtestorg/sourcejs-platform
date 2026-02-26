@@ -1,0 +1,18 @@
+.m-intro-block
+  p.a-alert-bar.a-alert-bar--error
+    svg.icon--alert(aria-hidden='true')
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--alert')
+    |  The link that you followed to reset your password has expired.
+  p.f-body
+    | To reset your password, enter a new password twice and click the 'Reset Passsword' button.
+form.m-signin-form(method='post')
+  fieldset
+    ol
+      li
+        label.a-label(form='email') New Password
+        input#password(type='password', name='password')
+      li
+        label.a-label(form='email') Confirm Password
+        input#password2(type='password', name='password2')
+  p.m-signin-form__btns
+    button.a-btn.a-btn--no-icon(type='submit') Reset Password

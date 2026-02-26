@@ -1,0 +1,433 @@
+.owl {
+    &-carousel {
+        outline:none;
+        padding: 0 0px;
+        &.owl-loaded {
+            display: inline-block;
+        }
+
+        .owl-nav {
+            margin: 0;
+
+            div.owl-nav-active {
+                i {
+                    color: $black;
+                    opacity: .5;
+                }
+            }
+
+            [class*="owl-"] {
+                position: absolute;
+                top: 50%;
+                margin: 0;
+                margin-top: -15px;
+                font-weight: bold;
+
+                &:hover {
+                    background: inherit !important  ;
+                }
+
+                @include media('<phone') {
+                    color: darken($aha_green, 10%);
+                    background: transparent ;
+
+                    i {
+                        font-weight: bold;
+                    }
+                    &:hover {
+                        color: $aha_white;
+                        background: inherit !important  ;
+
+                    }
+                }
+            }
+        }
+
+        .owl-item {
+            .slide-item span {
+                line-height: normal;
+                font-size: 20px;
+                color: $aha_red;
+                padding: 16px 0px;
+                display: inline-block;
+            }
+        }
+    }
+
+    &-prev {
+        left: 0;
+    }
+
+    &-next {
+        right: 0;
+    }
+
+    &-controls {
+        margin-top: 10px;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+
+        [class*="owl-"] {
+            color: $aha_white;
+            font-size: 0.875rem;
+            margin: 5px;
+            padding: 4px 7px;
+            background: $aha_transparent;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+
+            &:hover {
+                background: $aha_transparent;
+            }
+        }
+
+    }
+}
+
+
+.slideShow {
+    min-height: 215px;
+
+    @include media('<tablet') {
+        min-height: 100px;
+    }
+
+    .owl-carousel {
+        //float: left;
+        width: 100%;
+    }
+
+    [class^=card] {
+        float: left;
+        width: 100%;
+    }
+
+    .cover-image__image  {
+        img {
+            float: left;
+            width:100%;
+        }
+    }
+    .cover-image__details {
+        font-family: Helvetica;
+        font-weight:bold;
+        line-height: normal;
+        font-size: 18px;
+        color: $aha_green;
+        float: left;
+        width:100%;
+    }
+}
+
+
+@include media('<phone') {
+    .left-side-image {
+        .owl-item img {
+            width: 100%;
+        }
+    }
+}
+
+
+.has-image {
+    &.has-thumbnails-viewer {
+        >div {
+            padding:0;
+            overflow: hidden;
+            >div {
+                overflow: hidden;
+            }
+        }
+    }
+    .owl {
+        &-item {
+            .slide-item {
+                height: 100%;
+            }
+            img {
+                min-width:100%;
+                min-height: 100%;
+                object-fit: cover;
+            }
+            span.text {
+                line-height: normal;
+                font-size: 28px;
+                position: absolute;
+                bottom:0;
+                left:0;
+                right:0;
+                padding:20px 24px;
+                background: transparentize($aha_black, 0.3);
+                color: $aha_white;
+                padding-right: 150px;
+            }
+        }
+
+        &-carousel {
+            padding:0;
+            .owl-nav {
+                .owl-prev, .owl-next {
+                    top:initial;
+                    bottom:21px;
+                    left: initial;
+                    right:32px;
+                    width:32px;
+                    height:32px;
+                    background: $aha_transparent;
+                    border-color: $aha_transparent;
+                    outline:none;
+                    i[class^='icon-arrow'] {
+                        color: $aha_white;
+                        opacity:1;
+                    }
+                    &:hover {
+                        background: $aha_transparent;
+                        border-color: $aha_transparent;
+                    }
+                }
+                .owl-prev {
+                    right: 80px;
+                }
+
+            }
+        }
+    }
+
+    .slider-thumbnail-viewer {
+        .slide-item {
+            float: left;
+            position: relative;
+            height: 50%;
+            img {
+                min-width:100%;
+                min-height: 100%;
+                float: left;
+                object-fit: cover;
+            }
+            span.text {
+                line-height: normal;
+                font-size: 18px;
+                position: absolute;
+                bottom:0;
+                left:0;
+                right:0;
+                padding:8px 24px;
+                background: transparentize($aha_black, 0.3);
+                color: $aha_white;
+                padding-right: 150px;
+            }
+        }
+    }
+}
+
+
+.has-numeric-pagination {
+    .owl-stage-outer {
+        border-bottom: 1px solid $aha_grey;
+        margin-bottom: 16px;
+    }
+    .owl-carousel .owl-dots {
+        display: inline-block;
+        float: left;
+        .owl-dot {
+            width: 24px;
+            margin: 6px 2px;
+            float: left;
+            font-family: HelveticaNeueCondensedBold;
+            @include media('<=tablet') {
+                width: 20px;
+            }
+            span {
+                display: none;
+            }
+            counter-increment: slides-num;
+            &:before {
+                content:  counter(slides-num);
+            }
+            &.active {
+                color: $aha_green;
+                border-bottom:1px solid $aha_green;
+            }
+
+            &:not(.visible):nth-of-type(5) ~ .owl-dot:not(.visible) {
+                visibility: hidden;
+                width:0;
+                margin:0;
+            }
+            &.visible {
+                visibility: visible;
+                width: 24px;
+                margin: 6px 2px;
+                @include media('<=tablet') {
+                    width: 20px;
+                }
+            }
+            &.invisible {
+                visibility: hidden;
+                width:0;
+                margin:0;
+            }
+        }
+    }
+    .owl-pagination-next, .owl-pagination-prev {
+        display: inline-block;
+        float: left;
+        cursor: pointer;
+        width: 24px;
+        margin: 6px 2px;
+        text-align: center;
+        vertical-align: middle;
+        font-size:14px;
+        color: $aha_green;
+        i {
+            vertical-align: middle;
+        }
+    }
+}
+
+
+.has-covers {
+    .is-gallery {
+        max-width: 100%;
+        overflow: hidden;
+        .slideShow {
+            width: 464px;
+            box-sizing: content-box;
+            max-width: 100%;
+            display: inline-block;
+            float: left;
+            padding-right: 45px;
+            @include media('<=tablet') {
+                width: 432px;
+                padding-right: 24px;
+            }
+            @include media('<tablet') {
+              width: 100%;
+              padding: 0;
+            }
+            .owl-carousel {
+                padding: 0;
+                width: 100%;
+            }
+        }
+        .gallery-items {
+            @include media('<tablet') {
+              display: none;
+            }
+            overflow: auto;
+            >ul {
+                min-width: 850px;
+                display: inline-block;
+                float: left;
+                margin-left: -42px;
+                >li.grid-item.cover-image {
+                    margin:0;
+                    padding:0;
+                    padding-left: 60px;
+                    padding-bottom: 16px;
+                    cursor: pointer;
+                    img {
+                        width:100%;
+                        float: left;
+                    }
+
+                }
+                @include media('<=tablet'){
+                    margin-left: -24px;
+                    >li.grid-item.cover-image {
+                        padding-left: 24px;
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+
+.is-gallery {
+    .slideShow {
+        .cover-image__details {
+            color: $aha_green;
+            position: relative;
+            h2 {
+                line-height: normal;
+                font-size: 30px;
+                height: 74px;
+            }
+            .btn-sm {
+                line-height: normal;
+                font-size: 18px;
+                padding:8px 18px;
+            }
+            .owl-nav {
+                [class^=owl] {
+                    bottom: 24px;
+                    top: auto;
+                }
+            }
+        }
+
+        .owl-nav .owl-prev, .owl-nav .owl-next {
+            height:34px;
+            width:34px;
+            line-height: 34px;
+            color: $aha_white;
+            padding:0;
+            background: transparentize($aha_black, 0.5) !important;
+            @include media('>phone'){
+                margin:0;
+                background: $aha_green !important;
+                //top: calc();
+                right:32px;
+                bottom: initial;
+                left: initial;
+                border:none;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                border-radius: 0;
+            }
+            i {
+                color: $aha_white;
+                font-size: 18px;
+                line-height: inherit;
+                opacity: 1;
+            }
+            &.owl-nav-active, &:hover, &:active {
+                background: transparentize($aha_black, 0.5) !important;
+                @include media('>phone') {
+                    background: $aha_green !important;
+                }
+                i {
+                    color: $aha_white;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .owl-nav .owl-prev {
+            @include media('>phone') {
+                right: 82px;
+            }
+        }
+    }
+
+    .listing__covers__holder {
+        .cover-image__details {
+            color: $aha_green;
+            padding-bottom:22px;
+            line-height: normal;
+            font-size: 18px;
+            font-weight:bold;
+            height: 86px;
+            float: left;
+        }
+    }
+}
+
+.owl-carousel.slide-removal {
+    display: block;
+}

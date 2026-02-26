@@ -1,0 +1,899 @@
+/***
+
+Can live inside `.o-col--primary` or `.col--secondary` (the left rail or the right rail);
+by default, will be limited width of `.o-col--primary` and 100% width of `.col--secondary`.
+
+Basic markup:
+
+```
+<aside class="m-cta">
+  <h3 class="a-subtitle">Aside title</h3>
+</aside>
+```
+
+***/
+/***
+
+With a `.m-titles-listing`:
+
+```
+<aside class="m-cta">
+  <p class="a-subtitle">More In &hellip;</p>
+  <ul class="m-cta__items m-titles-listing f-h8">
+    <li><a href="#">A Fully Magnetically Levitated Circulatory Pump for Advanced Heart Failure</a></li>
+    <li><a href="#">Single Versus Bilateral Internal-Thoracic-Artery</a></li>
+    <li><a href="#">A Fully Magnetically Levitated Circulatory Pump for Advanced Heart Failure</a></li>
+    <li><a href="#">Single Versus Bilateral Internal-Thoracic-Artery</a></li>
+    <li><a href="#">A Fully Magnetically Levitated Circulatory Pump for Advanced Heart Failure</a></li>
+  </ul>
+</aside>
+```
+
+***/
+/***
+
+With 2 related articles:
+
+```
+<aside class="m-cta">
+  <p class="a-subtitle">Related Articles</p>
+  <ul class="m-cta__items">
+    <li class="m-simple-listing-item">
+      <a href="#" class="m-simple-listing-item__link">
+        <span class="m-simple-listing-item__type f-caps">Clinical Practices</span> <br>
+        <strong class="m-simple-listing-item__title f-h8">Acute Kidney Injury in Critically Ill Children &mdash; An Ominous Legacy</strong> <br>
+        <em class="m-simple-listing-item__author f-author">J.M Beaten and Others</em>
+      </a>
+    </li>
+    <li class="m-simple-listing-item">
+      <a href="#" class="m-simple-listing-item__link">
+        <span class="m-simple-listing-item__type f-caps">Clinical Practices</span> <br>
+        <strong class="m-simple-listing-item__title f-h8">Acute Kidney Injury in Critically Ill Children &mdash; An Ominous Legacy</strong> <br>
+        <em class="m-simple-listing-item__author f-author">J.M Beaten and Others</em>
+      </a>
+    </li>
+  </ul>
+</aside>
+```
+
+***/
+/***
+
+With 2 most viewed articles, `m-cta__items` has a modifier class of `m-cta__items--border-top`:
+
+```
+<aside class="m-cta">
+  <p class="a-subtitle">Most Viewed</p>
+  <ul class="m-cta__items m-cta__items--border-top">
+    <li class="m-simple-listing-item">
+      <a href="#" class="m-simple-listing-item__link">
+        <span class="m-simple-listing-item__type f-caps">Clinical Practices</span> <br>
+        <strong class="m-simple-listing-item__title f-h8">Acute Kidney Injury in Critically Ill Children &mdash; An Ominous Legacy</strong>
+      </a>
+    </li>
+    <li class="m-simple-listing-item">
+      <a href="#" class="m-simple-listing-item__link">
+        <span class="m-simple-listing-item__type f-caps">Clinical Practices</span> <br>
+        <strong class="m-simple-listing-item__title f-h8">Acute Kidney Injury in Critically Ill Children &mdash; An Ominous Legacy</strong>
+      </a>
+    </li>
+  </ul>
+</aside>
+```
+
+***/
+/***
+
+Can optionally hide a widget in smaller viewports by adding the class `m-cta--hide@small`
+
+***/
+
+.m-cta {
+  position: relative;
+}
+
+.m-cta::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+#article_figures {
+  .m-cta.m-cta--full-width:first-of-type {
+    padding-top: 0;
+    .m-media-item {
+      padding-top: 0;
+    }
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.m-cta .o-curated-area__col-items .m-article {
+  @include breakpoint('small+') {
+    padding-top: 19px;
+  }
+}
+
+.o-article-body__section {
+  > .m-cta.m-cta--full-width {
+    .m-media-item {
+      padding-top: 28px;
+    }
+  }
+}
+
+.m-cta--hide\@small {
+  @include breakpoint('small-') {
+    display: none;
+  }
+}
+
+.m-cta--cta-dupe {
+  display: none;
+
+  @include breakpoint('small+') {
+    display: block;
+  }
+}
+
+.m-cta--cta-dupe ~ .m-cta--cta-dupe {
+  display: block;
+
+  @include breakpoint('small+') {
+    display: none;
+  }
+}
+
+.m-cta .m-simple-listing-item,
+.m-cta .m-cta__figure {
+  margin-top: 20px;
+}
+
+.m-cta__figure-link {
+  display: block;
+}
+
+.m-cta__figure-img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.m-cta__figure-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.m-cta__figure-img svg {
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  border: 4px solid $color__black;
+  background-color: $color__black;
+  color: $color__white;
+}
+
+.m-cta__figure-link:hover .m-cta__figure-img svg {
+  display: block;
+}
+
+.m-cta__figcaption {
+  margin-top: 16px;
+  color: $color__text--tertiary;
+}
+
+.m-cta__items {
+  margin-top: 16px;
+}
+
+.m-cta__items > li {
+  display: block;
+  list-style-type: none;
+}
+
+.m-cta__items > li > .m-cta__items {
+  margin-top: 0;
+}
+
+.m-cta__sponsor {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.m-cta__sponsor:not(.m-cta__sponsor--top) {
+  .m-cta__items + &,
+  .m-simple-listing-item + & {
+    margin-top: 16px;
+    padding-top: 8px;
+    padding-bottom: 1px;
+    border-top: 1px solid $color__rules;
+  }
+
+  .m-simple-listing-item + & {
+    margin-top: 20px;
+  }
+}
+
+.m-cta__sponsor--top {
+  position: absolute;
+  right: 0;
+  top: 13px;
+  background-color: $color__white;
+}
+
+.m-cta__sponsor-label {
+  flex: 0 0 auto;
+  margin-top: 0;
+  color: $color__text--quaternary;
+  line-height: 34px;
+}
+
+.m-cta__sponsor-image {
+  flex: 0 0 auto;
+  width: 88px;
+  height: 31px;
+  margin-left: 12px;
+  overflow: hidden;
+}
+
+.m-cta__sponsor-image * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+// -------------------------------------
+// `.m-titles-listing` inside of `.m-cta__items`
+//
+
+.m-cta__items.m-titles-listing {
+  margin-top: 12px;
+}
+
+// -------------------------------------
+// `.m-simple-listing-item` inside of `.m-cta__items`
+//
+
+.m-cta__items .m-simple-listing-item {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 16px;
+}
+
+.m-cta__items .m-simple-listing-item:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.m-cta__items .m-simple-listing-item:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+/***
+
+## Inside `.o-col--primary`
+
+`.m-cta` - with a related listing article
+
+```
+<div class="o-col--primary">
+  <aside class="m-cta">
+    <h3 class="a-subtitle">Related Article</h3>
+    <p class="m-simple-listing-item">
+      <a href="#" class="m-simple-listing-item__link">
+        <span class="m-simple-listing-item__type f-caps">Clinical Practices</span> <br>
+        <strong class="m-simple-listing-item__title f-h8">Acute Kidney Injury in Critically Ill Children &mdash; An Ominous Legacy</strong> <br>
+        <em class="m-simple-listing-item__author f-author">J.M Beaten and Others</em>
+      </a>
+    </p>
+  </aside>
+
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc. Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.</p>
+</div>
+```
+
+***/
+
+/***
+
+Can be left aligned by adding the modifier class `m-cta--left`
+
+```
+<div class="o-col--primary">
+  <aside class="m-cta m-cta--left">
+    <h3 class="a-subtitle">Related Article</h3>
+  </aside>
+
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros.</p>
+</div>
+```
+
+***/
+/***
+
+Can be made narrower with modifier class `m-cta--narrow`
+
+```
+<div class="o-col--primary">
+  <aside class="m-cta m-cta--narrow">
+    <h3 class="a-subtitle">Related Article</h3>
+  </aside>
+
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros.</p>
+</div>
+```
+
+***/
+/***
+
+Can be narrow and left aligned
+
+```
+<div class="o-col--primary">
+  <aside class="m-cta m-cta--narrow m-cta--left">
+    <h3 class="a-subtitle">Related Article</h3>
+  </aside>
+
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros.</p>
+</div>
+```
+
+***/
+/***
+
+Narrow, with figure
+
+```
+<div class="o-col--primary">
+  <aside class="m-cta m-cta--narrow">
+    <a href="/templates/figures.php#figure1" class="m-cta__figure-link" data-behavior="ShowFigureModal" data-figure-id="figure1">
+      <p class="a-subtitle a-subtitle--alt">Figure 1.</p>
+      <figure class="m-cta__figure">
+        <div class="m-cta__figure-img">
+          <img srcset="http://placehold.dev.area17.com/image/300x400" sizes="(min-width: 1480px) 320px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 3), (min-width: 1024px) calc(((100vw - 390px) / 12) * 3), (min-width: 768px) calc(((100vw - 270px) / 8) * 3), (min-width: 480px) calc(((100vw - 140px) / 6) * 3), calc(100vw - 32px)" width="300" height="400">
+          <svg class="icon--fullscreen"><use xlink:href="#icon--fullscreen"></use></svg>
+        </div>
+        <figcaption class="m-cta__figcaption f-caption">Ultrasonography of the Abdomen</figcaption>
+      </figure>
+    </a>
+  </aside>
+
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros.</p>
+</div>
+```
+
+***/
+/***
+
+Can be full width with modifier class `m-cta--full-width`
+
+```
+<div class="o-col--primary">
+  <aside class="m-cta m-cta--full-width">
+    <h3 class="a-subtitle">Related Article</h3>
+  </aside>
+
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros.</p>
+</div>
+```
+
+***/
+
+.o-col--primary .m-cta {
+  margin: map-get($inner-gutters, xsmall) 0;
+
+  @include breakpoint('small+') {
+    clear: both;
+    float: right;
+    width: colspan(3, small);
+    margin: 28px map-get($inner-gutters, small);
+    margin-right: 0;
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(4, medium);
+    margin: 28px map-get($inner-gutters, medium);
+    margin-right: 0;
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(4, large);
+    margin: 28px map-get($inner-gutters, large);
+    margin-right: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(4, xlarge);
+    margin: 28px map-get($inner-gutters, xlarge);
+    margin-right: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(4, xxlarge);
+    margin: 28px map-get($inner-gutters, xxlarge);
+    margin-right: 0;
+  }
+}
+
+.o-col--primary .m-cta--narrow {
+
+  @include breakpoint('small+') {
+    width: colspan(2, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(3, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(3, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(3, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(3, xxlarge);
+  }
+}
+
+.o-col--primary .m-cta--left {
+
+  @include breakpoint('medium+') {
+    float: left;
+    margin-right: map-get($inner-gutters, medium);
+    margin-left: 0;
+  }
+
+  @include breakpoint('large+') {
+    margin-right: map-get($inner-gutters, large);
+    margin-left: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: map-get($inner-gutters, xlarge);
+    margin-left: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: map-get($inner-gutters, xxlarge);
+    margin-left: 0;
+  }
+}
+
+.o-col--primary .m-cta--full-width {
+
+  @include breakpoint('small+') {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  @include breakpoint('medium+') {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  @include breakpoint('large+') {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  & + hr {
+    margin-top: -1px;
+  }
+}
+
+// -------------------------------------
+// `.m-cta` inside of `.m-curated-area`
+//
+
+.m-curated-area .m-cta,
+.o-col--primary .o-curated-area .m-cta,
+.m-curated-area .m-cta--narrow,
+.o-col--primary .o-curated-area .m-cta--narrow {
+  float: none !important;
+  width: 100%;
+  margin: 0;
+
+  @include breakpoint('small+') {
+    width: 100%;
+    margin: 0;
+  }
+
+  @include breakpoint('medium+') {
+    width: 100%;
+    margin: 0;
+  }
+
+  @include breakpoint('large+') {
+    width: 100%;
+    margin: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: 100%;
+    margin: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .m-cta {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+  }
+}
+
+.o-col--secondary .m-cta::before {
+  background-color: $color__text--headlines;
+}
+
+.o-col--secondary > .m-cta:first-child,
+.o-col--secondary .o-cols-2\@medium > .m-cta:first-child {
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+.o-col--secondary .o-cols-2\@small > .m-cta,
+.o-col--secondary .o-cols-2\@small > .m-cta:first-child {
+  @include breakpoint('small') {
+    margin-top: 0;
+  }
+}
+
+.o-col--secondary .o-cols-2\@medium > .m-cta,
+.o-col--secondary .o-cols-2\@medium > .m-cta:first-child {
+  @include breakpoint('medium') {
+    margin-top: 0;
+  }
+}
+
+/***
+
+Image of the week
+
+```
+<aside class="m-cta m-cta--image-challenge">
+  <p class="a-subtitle">
+    <a href="#">
+      Image of the Week
+      <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+    </a>
+  </p>
+  <div class="m-cta__image-challenge-image">
+    <span class="m-cta__image-challenge-image-container">
+      <img
+        src="http://placehold.dev.area17.com/image/300x200"
+        sizes="
+        "
+        width="300" height="200">
+    </span>
+  </div>
+  <p class="m-cta__image-challenge-prompt f-blurb">
+    <strong>String of Beads Artery</strong> &mdash; In this 68-year-old woman with dyspnea and chest pain, attempts at angiography failed.
+  </p>
+</aside>
+```
+
+***/
+
+.m-cta--image-challenge {
+  overflow: hidden;
+  &:not(.m-cta--image-challenge-primary){
+    .m-cta__image-challenge-prompt a {
+      color: $color__black--70;
+    }
+  }
+}
+
+.m-cta--image-challenge legend {
+  overflow: hidden;
+}
+
+.m-cta__image-challenge-image {
+  @include ratio-image;
+  float: right;
+  width: colspan(2, xsmall);
+  margin: 16px 0 16px 16px;
+
+  @include breakpoint('small+') {
+    width: colspan(1, small, map-get($inner-gutters, small));
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(1, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(1, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(1, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(1, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.m-cta__image-challenge-prompt {
+  margin-top: 16px;
+  a:first-child{
+    &::before{
+      display: none;
+    }
+  }
+}
+
+.m-cta__image-challenge-prompt strong {
+  font-weight: 700;
+}
+
+.m-cta__image-challenge-prompt a {
+
+  &::before {
+    content: '\A';
+    white-space: pre;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/***
+
+Image challenge
+
+```
+<aside class="m-cta m-cta--image-challenge m-cta--image-challenge-primary">
+  <p class="a-subtitle">
+    <a href="#">
+      Image Challenge
+      <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+    </a>
+  </p>
+  <div class="m-cta__image-challenge-image">
+    <span class="m-cta__image-challenge-image-container">
+      <img
+        src="http://placehold.dev.area17.com/image/300x200"
+        sizes="
+        "
+        width="300" height="200">
+    </span>
+  </div>
+  <p class="m-cta__image-challenge-prompt f-blurb">
+    <strong>What is the diagnosis?</strong>
+    <a href="#" class="f-related">Answer &raquo;</a>
+  </p>
+</aside>
+
+```
+
+***/
+
+.m-cta--image-challenge-primary,
+.m-cta--image-challenge-primary .m-cta__sponsor--top {
+  background-color: $color__background;
+}
+
+.m-cta--image-challenge-primary .a-subtitle {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+.m-cta--image-challenge-primary .a-subtitle::after {
+  left: 16px;
+  right: 16px;
+}
+
+.m-cta--image-challenge-primary .a-subtitle .icon--arrow,
+.m-cta--image-challenge-primary .m-cta__sponsor--top {
+  right: 16px;
+  padding-left: 0;
+}
+
+.m-cta--image-challenge-primary .m-cta__sponsor {
+  padding-left: 16px;
+}
+
+.m-cta--image-challenge-primary .m-cta__image-challenge-image {
+  margin-right: 16px;
+}
+
+.m-cta--image-challenge-primary .m-cta__image-challenge-prompt {
+  padding-left: 16px;
+}
+
+.o-col--secondary .m-cta--image-challenge {
+  margin-top: 20px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 20px;
+  }
+}
+
+/***
+
+Variant `m-cta--access-prompt`
+
+```
+<aside class="m-cta m-cta--full-width m-cta--access-prompt">
+  <h2 class="f-h3">Want to read more?</h2>
+  <p class="f-ui">Subscribe today and receive the iPad Edition and 20 CME exams for free.</p>
+  <p>
+    <a href="#" class="a-btn a-btn--primary">Get Access <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a>
+    <a href="#" class="a-btn a-btn--simple">Purchase Article</a>
+  </p>
+  <p class="f-ui"><strong>Print Subscriber?</strong> <a href="#">Activate your online access</a>.</p>
+</aside>
+```
+
+***/
+
+.m-cta--access-prompt {
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+
+.m-cta--access-prompt::before {
+  content: none;
+  display: none;
+}
+
+.m-cta--access-prompt .f-h3 {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-cta--access-prompt .f-h3 + .f-ui {
+  margin-top: 16px;
+}
+
+.m-cta--access-prompt .f-ui {
+  margin-top: 24px;
+}
+
+.m-cta--access-prompt .f-ui strong {
+  color: $color__text--headlines;
+  font-weight: bold;
+}
+
+.m-cta--access-prompt .f-ui a:hover {
+  text-decoration: underline;
+}
+
+.m-cta .m-cta__buttons {
+  font-size: 0;
+}
+
+.m-cta--access-prompt .a-btn {
+  width: 100%;
+  margin-top: 12px;
+
+  @include breakpoint('small+') {
+    width: colspan(3, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: 170px;
+  }
+}
+
+.m-cta--access-prompt .a-btn + .a-btn {
+  margin-left: 0;
+
+  @include breakpoint('small+') {
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    margin-left: 20px;
+  }
+}
+
+/* Variant of the cta__items that is keeping on one line */
+
+.m-cta__items--oneline {
+  position:relative;
+}
+
+.m-cta__items--oneline > li {
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.o-col + .m-cta__items--oneline,
+.m-cta__items--oneline + .m-cta__items--oneline {
+  margin-top:13px;
+  padding-top:16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: $color__rules;
+  }
+}
+
+.m-cta__figure-link{
+  cursor: pointer;
+  > *, .m-cta__figcaption{
+    display: block;
+  }
+}
+
+.m-cta .m-simple-listing-item,
+.m-cta .m-cta__figure {
+  display: block;
+}

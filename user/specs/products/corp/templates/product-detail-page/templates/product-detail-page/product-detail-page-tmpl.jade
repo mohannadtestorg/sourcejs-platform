@@ -1,0 +1,48 @@
+| !{pb.render("hero-block",{"news": false},"corp")}
+
+section.section
+    .container
+        .row
+            .col-xs-12.col-sm-12.col-md-12
+                | !{pb.render("articles","articles/article-detail",{},"corp")}
+
+        .row
+            .col-xs-12.col-sm-12.col-md-4
+                aside
+                    article.article__feature
+                        h3 Features
+                        p This copy should introduce the features that fall under Content Maagement. This subheading will work to lead users into any relevant feature cards below.
+                        a(href="#").text-link.text-link--secondary
+                            | View full list of features
+
+            .col-xs-12.col-sm-12.col-md-8
+                article.article__feature
+                    h4 Hosting
+                    p
+                        | This copy should introduce the features in detail, give the user a better understanding of why this will benefit them and lead the user to find out more information about this specific feature.
+                        | This copy should introduce the features in detail, give the user a better understanding of why this will benefit them and lead the user to find out more information about this specific feature.
+                article.article__feature
+                    h4 Hosting
+                    p
+                        | This copy should introduce the features in detail, give the user a better understanding of why this will benefit them and lead the user to find out more information about this specific feature.
+                        | This copy should introduce the features in detail, give the user a better understanding of why this will benefit them and lead the user to find out more information about this specific feature.
+        .hr
+            hr
+
+        .row.cards-holder
+            .col-xs-12.col-sm-12.col-md-4.hidden-xs
+                aside
+                    article.article__feature
+                        h3 Related Case Studies
+                        p This copy should introduce the features that fall under Content Maagement. This subheading will work to lead users into any relevant feature cards below.
+
+            .col-xs-12.col-sm-12.col-md-8
+                .row
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards", "cards/card", {}, "corp")}
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards", "cards/card", {}, "corp")}
+
+| !{pb.render("call-to-action",{},"corp")}
+
+| !{pb.render("footer",{},"corp")}

@@ -1,0 +1,27 @@
+{
+    "title": "Psychiatric News Article",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/psych-header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/psychiatricNews-header.json"
+                }
+            }
+        },
+
+        "content": {
+            "$ref": "../../widgets/publication-content/templates/data/psychiatricNews.json"
+        },
+
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pol-footer.json"
+                }
+            }
+        }
+    }
+}

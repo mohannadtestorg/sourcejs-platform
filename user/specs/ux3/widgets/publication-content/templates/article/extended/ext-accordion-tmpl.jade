@@ -1,0 +1,44 @@
+extends ../../../../../components/accordion/templates/accordion/accordion-tmpl.jade
+
+block accordionLink
+    a.accordion-tabbed__control(href="#")
+        +position(item)
+
+block accordionType
+    ul.accordion-tabbed.rlist
+        if(data.item)
+            if (data.item.citedBy)
+                li.accordion-tabbed__tab
+                    block citedByTitle
+                        a.accordion-tabbed__control(href="#" title="Cited By" aria-expanded="false" aria-controls="relatedTab1")
+                            | Cited By
+                    .accordion-tabbed__content(id= "relatedTab1")
+                        | !{data.item.citedBy}
+
+            block relatedTabBlock
+                if (data.item && data.item.related && data.item.related.items && data.item.related.items.length > 0)
+                    li.accordion-tabbed__tab.related-articles
+                        a.accordion-tabbed__control(href="#" title="Cited By" aria-expanded="false" aria-controls="relatedTab1")
+                            | Related articles
+                        ul.rlist.accordion-tabbed__content.creative-work(id= "relatedTab1")
+                            each item, i in data.item.related.items
+                                li
+                                    a(href=item.url)
+                                        | !{item.articleTitle}
+                                        div.meta
+                                            span
+                                                | !{item.date}
+                                            span.journal-title
+                                                | !{item.journalTitle}
+
+            block RecommendedTab
+                li.accordion-tabbed__tab
+                    block Recommended
+                        a.accordion-tabbed__control(href="#" title="Similar" aria-expanded="false" aria-controls="relatedTab3")
+                            | Recommended
+                        .accordion-tabbed__content(id= "relatedTab3")
+                            | !{pb.renderDropzone(thisWidget, "recommendedDropZone")}
+
+        block extraTabs
+
+block accordionSuffix

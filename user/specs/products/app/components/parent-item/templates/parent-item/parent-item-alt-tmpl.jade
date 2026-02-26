@@ -1,0 +1,23 @@
+extends ../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl
+
+block parentInfo
+    div.parent-item.alt
+        if (data) && (data.type == "Book")
+            if(data.title)
+                .book__title
+                    a(href=data.bookUrl title=data.title)
+                        h4 !{data.title}
+            if(data.contribs)
+                span.bold Edited by:
+                .book__authors !{data.contribs}
+                if(data.edition)
+                    .book__edition
+                        span.bold Edition:
+                        span.gray-color  !{data.edition}
+            if(data.doi)
+                .book__doi
+                    a.link(href="https://doi.org/"+data.doi title="https://doi.org/"+data.doi)  https://doi.org/!{data.doi}
+
+
+
+

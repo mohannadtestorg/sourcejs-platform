@@ -1,0 +1,24 @@
+.w-slide{
+    &_head{
+        color: $white;
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+
+    &__title.js--open,&__back i{
+        color: $white;
+        text-transform: capitalize;
+    }
+&__content {
+    .w-slide--list {
+        a,i{
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+        }
+
+    }
+
+}

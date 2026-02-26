@@ -1,0 +1,108 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content.journal-home
+                .meta-wrapper
+
+                .container
+                    | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<div class=\"card card--shadow card--gutter meta__body journal-banner\"><div class=\"meta__left-side left-side-image\"><a href=\"/action/showJournal?doi=10.1142%2Fjmrr&amp;publicationCode=jmrr\"><img src=\"https://wspc-x2258.ciplit.com//home/office-santaclara-cip/publisher/wspc-x2258/journals/covergifs/jmrr/cover.jpg\" alt=\"0 cover\"></a><h1 class=\"meta__title\"> <a href=\"/action/showJournal?doi=10.1142%2Fjmrr&amp;publicationCode=jmrr\">Journal of Medical Robotics Research</a></h1><div class=\"meta__info\"><span class=\"issn\">ISSN (print): 2424-905X</span><span>&nbsp;|&nbsp;</span><span class=\"eissn\">ISSN (online): 2424-9068</span> <div class=\"frequency\"></div> <div class=\"banner-note\"> </div> </div></div><div class=\"meta__right-side\"> <a href=\"https://mc04.manuscriptcentral.com/fm-jmrr\" class=\"btn btn--inverse\" target=\"blank\">Submit an article</a> <a href=\"/page/journal-order-form#/jmrr\" class=\"btn btn--inverse\">Subscribe</a> </div></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    | !{pb.render('list-of-issues', 'list-of-issues/demo/list-of-issues-demo', 'loi-decade.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    .row.separator
+                        .col-lg-9.col-md-12.col-sm-12.gutterless
+
+                            div.journal-featured__list.section
+                                h3.section__header.border-bottom Featured Articles
+                                ul.rlist.lot
+                                    li.journal-featured__item
+                                        h3
+                                            a(href="#") Particle physics today, tomorrow and beyond
+                                        span.meta John Ellis
+                                        div.item-content
+                                            div.item-content__text
+                                                | The most important discovery in particle physics in recent years was that of the Higgs boson, and much effort is continuing to measure its properties, which agree obstinately with the Standard Model, so far. However, there are many reasons to expect physics beyond the Standard Model, motivated by the stability of the electroweak vacuum, the existence of dark matter and the origin of the visible matter in the Universe, neutrino physics, the hierarchy of mass scales in physics, cosmological inflation and the need for a quantum theory for gravity. Most of these issues are being addressed by the experiments during Run 2 of the LHC, and supersymmetry could help resolve many of them. In addition to the prospects for the LHC, I also review briefly those for direct searches for dark matter and possible future colliders.
+                                            div.item-content__image
+                                                img(src="https://www.worldscientific.com/sda/1492/ijmpa-featured-article-S0217751X1830003X.jpg")
+
+                                    li.journal-featured__item
+                                        h3
+                                            a(href="#") Fate of global symmetries in the Universe: QCD axion, quintessential axion and trans-Planckian inflaton decay constant
+                                        span.meta Jihn E. Kim, Soonkeon Nam and Yannis K. Semetzidis
+                                        div.item-content
+                                            div.item-content__text
+                                                | Pseudoscalars appearing in particle physics are reviewed systematically. From the fundamental point of view at an ultraviolet completed theory, they can be light if they are realized as pseudo-Goldstone bosons of some spontaneously broken global symmetries. The spontaneous breaking scale is parametrized by the decay constant f. The global symmetry is defined by the lowest order terms allowed in the effective theory consistent with the gauge symmetry in question. Since any global symmetry is known to be broken at least by quantum gravitational effects, all pseudoscalars should be massive. The mass scale is determined by f and the explicit breaking terms ΔV in the effective potential and also anomaly terms ΔΛ4G for some non-Abelian gauge groups G. The well-known example by non-Abelian gauge group breaking is the potential for the “invisible” QCD axion, via the Peccei–Quinn symmetry, which constitutes a major part of this review.
+                                            div.item-content__image
+                                                img(src="https://www.worldscientific.com/sda/1492/ijmpa-featured-article-S0217751X18300028.jpg")
+
+                            div.section
+                                h3.section__header.border-bottom 2017 Nobel Prize In Physics
+                                p IJMPA congratulates Prof. Rainer Weiss, Prof. Barry C. Barish and Prof. Kip S. Thorne who have been awarded the 2017 Nobel Prize in Physics for decisive contributions to the LIGO detector and the observation of gravitational waves. A paper contributed by Prof. Barry Barish and Prof. James E. Brau and other selected papers on Gravitational Waves are now free for read on World Scientific website.
+                                ul.rlist
+                                    li
+                                        h3
+                                            a(href="#") The International Linear Collider
+                                        span.authors Barry Barish and James E. Brau
+                                        span.journal-volume Int. J. Mod. Phys. A, Vol. 28, 1330039 (2013)
+                                    li
+                                        h3
+                                            a(href="#") Exploring fundamental physics with gravitational waves
+                                        span.authors Archil Kobakhidze
+                                        span.journal-volume Int. J. Mod. Phys. A, Vol. 32, 1744001 (2017)
+                                    li
+                                        h3
+                                            a(href="#") Gravitational-wave observations from ground-based detectors
+                                        span.authors Tjonnie G. F. Li
+                                        span.journal-volume Int. J. Mod. Phys. A, Vol. 32, 1744002 (2017)
+                                    li
+                                        h3
+                                            a(href="#") The International Linear Collider
+                                        span.authors Barry Barish and James E. Brau
+                                        span.journal-volume Int. J. Mod. Phys. A, Vol. 28, 1330039 (2013)
+                                    li
+                                        h3
+                                            a(href="#") The International Linear Collider
+                                        span.authors Barry Barish and James E. Brau
+                                        span.journal-volume Int. J. Mod. Phys. A, Vol. 28, 1330039 (2013)
+                                div.section-links
+                                    div
+                                        span Feature articles:
+                                        a(href="#") Remembering Kerson Huang
+                                    div
+                                        span Featured Topic:
+                                        a(href="#") Discussion on the Supercollider Project in China
+                                    div
+                                        a(href="#") Other Special Issues
+
+                            | !{pb.render('top-content', 'data.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2 "], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "LATEST ARTICLES"}}}})}
+                            .news
+                                | !{pb.render('top-content', 'teaser-home', 'teaser-home.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2 grid-lg-2 featured"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "News"}}}})}
+                            | !{pb.render('top-content', 'recommended.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Recomended"}}}})}
+                            | !{pb.render('top-content', 'recommended.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Most cited"}}}})}
+                            | !{pb.render('top-content', 'recommended.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Most read"}}}})}
+
+
+                        .col-lg-3.col-md-12.col-sm-12
+                            .row
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    h3.section__header.border-bottom newsletter
+                                    | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+                                    //mpu a
+                                    .mpu
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

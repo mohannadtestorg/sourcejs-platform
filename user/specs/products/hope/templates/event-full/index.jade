@@ -1,0 +1,23 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Event Full page
+    .source_info
+
+
+
+    section.source_section
+        h2 Event Full page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                .container
+                    .row
+                        include templates/event-full/event-full-tmpl
+            | !{data.footer}
+    | #{''}

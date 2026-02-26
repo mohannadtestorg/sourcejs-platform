@@ -1,0 +1,90 @@
+.popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 110000;
+    background: $modal-content-bg;
+    @include media('>=tablet') {
+        background-color: $modal-backdrop-color;
+    }
+    overflow: auto;
+    h2 {
+        text-align: center;
+        border-bottom: 1px solid $borders;
+        margin-top: 0;
+        padding-bottom: 15px;
+        font-weight: 400;
+        color: $section-header-color;
+    }
+    .error:not(.label) {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .content {
+        max-width: 390px;
+        margin: 11% auto 5%;
+        background: $modal-content-bg;
+        position: relative;
+        padding: 17px 30px 30px;
+        @include media('>=tablet') {
+            border-radius: 10px;
+            width: 430px;
+            margin: 30px auto;
+        }
+        form {
+            margin-top: 20px;
+        }
+    }
+    .close {
+        float: right;
+        font-size: 25px;
+        margin-right: 30px;
+        margin-top: 30px;
+        color: #cccccc;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .button {
+        width: 100%;
+        margin: 15px 0;
+    }
+    .show-login {
+        color: $label;
+    }
+    .message {
+        color: $warning;
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.error .message{
+    display: inline-block;
+}
+
+.button {
+    background: $primary-bg-color;
+}
+
+@include media('<tablet') {
+    .popup {
+        .content {
+            max-width: none;
+            height: auto;
+            margin: 0;
+            padding-top: 60px;
+            z-index: -1;
+        }
+    }
+
+    .noscroll {
+        overflow: hidden !important;
+    }
+}
+
+.center {
+    text-align: center;
+}

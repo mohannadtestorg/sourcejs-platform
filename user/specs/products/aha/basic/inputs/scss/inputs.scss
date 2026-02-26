@@ -1,0 +1,97 @@
+input, optgroup, select, textarea {
+    border: 1px solid $aha_grey;
+}
+
+/* GLOBAL RADIO AND CHECKBOX INPUTS ~ NO NEED TO USED THE JCF PLUGIN */
+
+input[type=checkbox],
+input[type=radio],
+.checkbox--primary input[type=checkbox]:not(.jcf),
+.radio--secondary input[type=radio]:not(.jcf) {
+    display: initial;
+    height: 18px;
+    width: 18px;
+    background: none;
+    border: none;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 0;
+    box-sizing: content-box;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+
+    &:after {
+        content: '';
+        height: 18px;
+        width: 18px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $aha_white;
+        z-index: 99;
+        border: 2px solid $aha_black;
+        line-height: 18px;
+        text-align: center;
+    }
+    &:checked {
+        background: $aha_green;
+        color: $aha_white;
+        &:after {
+            background: $aha_green;
+            border: none;
+            content: '\2713';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            z-index: 99;
+            font-size: 22px;
+        }
+    }
+}
+
+input[type=radio],
+.radio--secondary input[type=radio]:not(.jcf) {
+    &:after {
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+    }
+    &:checked {
+        &:after {
+            background: $aha_green;
+            border: none;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 18px;
+            z-index: 99;
+            font-size: 22px;
+        }
+
+    }
+}
+
+label {
+    color: inherit;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    span.label-txt {
+        padding:0;
+        line-height: 20px;
+    }
+}
+.input-group span {
+    font-weight: bold;
+    font-size: 14px;
+}
+input, optgroup, select, textarea {
+    width: initial;
+}
+

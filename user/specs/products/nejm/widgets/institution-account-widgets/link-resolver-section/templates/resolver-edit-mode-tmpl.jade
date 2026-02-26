@@ -1,0 +1,37 @@
+.o-colset-1-2
+    .o-col.o-col--primary
+        h2.a-subtitle Link Resolver
+
+        form.m-deflist(action='#', enctype='multipart/form-data')
+            dl.m-deflist__dl
+                dt
+                    strong Link Server
+
+                    i
+                        | If your institution has a local OpenURL-compliant link server, you can choose to display OpenURL reference links.
+
+                dd
+                    input#linkServer(type='text', value='https://example.edu/openURL-link', name='linkServer')
+
+            dl.m-deflist__dl.m-deflist__dl--sep
+                dt
+                    strong OpenURL Image
+
+                    i If you do not upload an image, the default OpenURL image will display.
+
+                dd
+                    span.m-deflist__img Default
+
+                    span.a-form-file(data-behavior='CheckFileUpload')
+                        input#sfxImage(type='file', value='', name='sfxImage', accept='image/jpeg, image/jpg, image/png, image/gif, image/bmp')
+
+                        label(for='sfxImage', data-btn='Browse')
+
+            .m-deflist__submits
+                a.a-btn.a-btn--simple(href='/templates/institution-account-manage.php?bannerInstitution=2') Cancel
+
+                button.a-btn.a-btn--no-icon(type='submit') Save Changes
+
+        .m-deflist__action
+            p.f-ui
+                a(href='/templates/help-with-link-resolver.php') Help with Link Resolver

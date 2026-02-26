@@ -1,0 +1,95 @@
+.footer {
+    position: relative;
+    z-index: 100;
+    background-color: #fff;
+
+    &__logo {
+        padding-top: 50px;
+    }
+    &__social-links {
+        @include media('>=tablet') {
+            border-bottom: 2px solid $footer-social-links-border;
+        }
+        i {
+            font-size: 1.15rem;
+            color: $footer-social-links-color;
+            &.icon-Icon_Google-plus {
+                font-size: 1.5rem;
+            }
+        }
+        li {
+            padding: 0 10px;
+            margin: 15px 2px;
+            vertical-align: middle;
+        }
+    }
+    &__bottom {
+        padding: 30px 0;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        background: $white;
+
+        @include media('>=phone') {
+            padding: 30px 16px;
+        }
+    }
+}
+.groups {
+    &.bordered {
+        @include media('>=tablet') {
+            border-right: 1px solid $footer-social-links-border;
+            margin-bottom: -500px;
+            padding-bottom: 460px;
+            margin-right: 10px;
+        }
+        @include media('>=desktop') {
+            margin-right: 20px;
+        }
+    }
+}
+.group {
+    margin-bottom: 40px;
+    @include media('<tablet') {
+        margin-bottom: 26px;
+    }
+    &.sided {
+        @include media('>=desktop') {
+            width: 50%;
+            float: left;
+        }
+    }
+    &__title {
+        color: $headings-primary-color;
+        font-weight: bold;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+    .sided {
+        @include media('>=desktop') {
+            column-count: 2;
+        }
+    }
+    a {
+        color: $primary-body-font-color;
+        margin: 4px 0;
+        padding: 3px 0;
+        display: block;
+        font-size: 1rem;
+        transition: color 0.2s;
+        @include media('>=desktop') {
+            line-height: 1.5rem;
+        }
+        @include media('<tablet') {
+            margin: 5px 0;
+            padding: 5px 0;
+        }
+        &:hover,
+        &:focus {
+            color: lighten($primary-body-font-color, 20);
+            text-decoration: underline;
+        }
+    }
+}

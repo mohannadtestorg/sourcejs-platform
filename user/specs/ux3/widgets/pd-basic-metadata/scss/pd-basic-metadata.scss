@@ -1,0 +1,82 @@
+.submission-info{
+    .left-side-content{
+        @extend .input-metadata;
+    }
+
+    .jcf{
+        &-compact-multiple{
+            max-width: 100%;
+        }
+
+        &-select{
+            &-text{
+                max-width: 90%;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            &-opener{
+                visibility: hidden;
+            }
+        }
+    }
+
+
+    .left-side-label{
+        &.__top{
+            label{
+                vertical-align: top;
+                margin-top: 8px;
+            }
+        }
+
+        label~textarea, label~.jcf-select ,label~input {
+            @extend .input-metadata;
+        }
+
+        .radio-group {
+            @extend .input-metadata;
+            .radio--primary{
+                width:100%;
+            }
+        }
+    }
+    .success {
+        margin: 0;
+    }
+
+
+    .readonly{
+        font-size: .75rem;
+
+        &.margin{
+            margin-top: 10px;
+            display: inline-block;
+        }
+    }
+
+    .js-counter{
+        .warning {
+            display: inline-block;
+            float: right;
+        }
+    }
+}
+
+.input-metadata{
+    width: 100%;
+    display: block;
+    margin: 0;
+    @include media('>=phone') {
+        width: 70%;
+    }
+}
+
+.left-side-label {
+    label.__nomargin {
+        margin: 0;
+    }
+}
+
+

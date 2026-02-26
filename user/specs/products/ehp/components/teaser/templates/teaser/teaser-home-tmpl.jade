@@ -1,0 +1,15 @@
+extends ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+
+block teaser
+
+    img.slide-item__bg(src=item.image alt=item.title title=item.title)
+
+    div.slide-item__caption
+        block teaserAltmetric
+        if (item.title)
+            if (item.best)
+                a(href=item.best title=item.title)
+                    h2.slide-item__title !{item.title}
+            else
+                h2.slide-item__title !{item.title}
+        +meta(item)

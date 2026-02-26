@@ -1,0 +1,19 @@
+.email.primary
+    .row
+        .col-md-6
+            .input-group.hidden
+                .label
+                input.originalEmail.value.fullwidth(id='orignalEmail', type='hidden', name='email[0].value', value='rdissi+alm-aa5t@atypon.com', placeholder='')
+            .input-group
+                .label
+                    label(for='fakeEmail')
+                        | Email
+                        span.required-marker *
+                input.orignalEmail.value.fullwidth(id='fakeEmail', type='email', name='fakeEmail', placeholder='')
+        .col-md-6
+            .input-group
+                .label
+                    label(for='login.email2') Retype email *
+                input.confirmEmail.email2.fullwidth(id='login.email2', type='text', name='login.email2', value='', size='15', placeholder='')
+    input(type='hidden', name='email[0].primary', value='true')
+    input(type='hidden', name='email[0].verified', value='true')

@@ -1,0 +1,61 @@
+extends ../../../../../components/coolbar/templates/coolbar/coolbar-tmpl.jade
+
+mixin download_item(el_to_check,icon,text, list)
+    if el_to_check
+        if el_to_check != ''
+            - list.push({"icon": icon,"text": text,"url": el_to_check})
+
+block coolbarPrefix
+    - var original = data
+
+    block coolbarDate
+        - var coolbarData = {"sections": {"icon": "icon-Icon_Section-menu","label": "Sections"},"download": {"icon": "icon-Icon_Download","label": "View Article","items": []},"extra": [{"content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-favorites\"></i><span>Add to Favorites</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-Email\"></i><span>Email a Friend</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-track\"></i><span>Track Citations</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-permissions\"></i><span>Permissions</span></a></li></ul>"},{"content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"}]}
+    if(data.item && data.item.formats &&  coolbarData.download)
+        block prefixCoolbarExtraDownloadLinks
+        +download_item(data.item.formats.fullText,"icon-download","View Full Text",coolbarData.download.items)
+        +download_item(data.item.formats.pdf,"icon-download","View PDF",coolbarData.download.items)
+        +download_item(data.item.formats.pdfPlus,"icon-download","View PDF Plus",coolbarData.download.items)
+        +download_item(data.item.formats.ePub,"icon-download","View ePub",coolbarData.download.items)
+        +download_item(data.item.formats.am,"icon-download","View AM",coolbarData.download.items)
+        +download_item(data.item.formats.amPdf,"icon-download","View AM PDF",coolbarData.download.items)
+    block coolbarExtraDownloadLinks
+    - data  = coolbarData
+
+block coolbarDropZone
+    //div.coolBar__section
+        //| pb.renderDropzone(thisWidget, 'coolbarDropZone1')
+    a.coolBar__ctrl.hidden-md.hidden-lg.w-slide__btn(href="#" data-db-target-for="article" data-db-switch="icon-close_thin" data-slide-target="#articleMenu")
+        i(class= "icon-Icon_About-Article" aria-hidden="true")
+        block aboutArticleTitle
+            span About
+    div.coolBar__drop.fixed.rlist(data-db-target-of="article" id="articleMenu")
+        block coolbarDropZoneTransplant
+            div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--download .coolBar__drop" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+block coolbarFull
+    li.coolBar__section.coolBar--sections.hidden
+        if(data.sections && data.sections.label)
+            a.coolBar__ctrl.w-slide__btn(href="#" data-db-target-for="sections" data-db-switch="icon-close_thin" title= data.sections.label data-slide-target="#sectionMenu")
+                i(class= data.sections.icon aria-hidden="true")
+                span !{data.sections.label}
+        div.coolBar__drop.rlist(data-db-target-of="sections" id="sectionMenu")
+
+    block downloadCoolbarSection
+        if (data.download && data.download.items.length > 0)
+            li.coolBar__section.coolBar--download.hidden-xs.hidden-sm
+                if(data.download && data.download.label)
+                    a.coolBar__ctrl(href="#" data-db-target-for="downloads" data-db-switch="icon-close_thin")
+                        i(class= data.download.icon aria-hidden="true")
+                        span !{data.download.label}
+                ul.coolBar__drop.rlist.w-slide--list(data-db-target-of="downloads")
+                    if(data.download && data.download.items)
+                        each item, i in data.download.items
+                            if(item.url)
+                                li
+                                    a(href= item.url)
+                                        i(class= item.icon aria-hidden="true")
+                                        span !{item.text}
+
+    block addtionalCoolbarSection
+
+block coolbarSuffix
+    - data = original

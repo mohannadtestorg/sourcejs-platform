@@ -1,0 +1,41 @@
+{
+    "title": "Shibboleth",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+
+                "title": "Shibboleth",
+                "body": [
+                    {
+                        "$pug": {
+                            "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                            "data": {
+                                "model": {
+                                    "config": {
+                                        "wrapper": "false"
+                                    },
+                                    "data": {
+                                        "content": {
+                                            "$pug": {
+                                                "template": "../../../../ux3/widgets/shibboleth/templates/shibboleth/shibboleth-tmpl.jade",
+                                                "data": {
+                                                    "$ref": "../../../../ux3/widgets/shibboleth/templates/data/data.json"
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                ]
+
+
+            }
+        ]
+    }
+}

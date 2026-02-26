@@ -1,0 +1,77 @@
+[data-db-target-for] {
+  &.js--open {
+    color: $aha_red;
+    border-bottom: 2px solid $aha_red;
+    margin-bottom: -1px;
+  }
+}
+[data-db-target-of] {
+    &.js--open {
+        display: block;
+        border: none;
+    }
+
+    &.inverse {
+        color: $aha_white;
+        background-color: $aha_green;
+        padding: 25px;
+    }
+
+    @include card(6px, $aha_white);
+    min-width: initial;
+    li {
+        padding:12px;
+        line-height: normal;
+        font-size: 14px;
+        color: $aha_black;
+        border-bottom:1px solid $aha_lighten_grey;
+        width: max-content;
+        min-width: 100%;
+        margin: 0;
+        font-weight:normal;
+        display: inline-flex;
+        &:hover {
+            color: $aha_red;
+        }
+        i {
+            padding-right: 4px;
+            font-size: 18px;
+            vertical-align: text-bottom;
+        }
+        &:last-of-type {
+            border-bottom:none;
+        }
+    }
+    .inline-icon i {
+        padding-right: 10px;
+    }
+}
+
+
+.dropBlock--actions {
+    .dropBlock__holder {
+        right:auto;
+        left:0;
+
+        li {
+            padding:12px;
+            line-height: normal;
+            font-size: 14px;
+            color: $aha_black;
+            border-bottom:1px solid $aha_lighten_grey;
+            width: max-content;
+            font-weight:normal;
+            &:hover {
+                color: $aha_red;
+            }
+            i {
+                padding-right: 4px;
+                font-size: 18px;
+                vertical-align: text-bottom;
+            }
+            &:last-of-type {
+                border-bottom:none;
+            }
+        }
+    }
+}

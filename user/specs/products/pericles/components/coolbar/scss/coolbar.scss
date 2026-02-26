@@ -1,0 +1,583 @@
+.coolBar {
+
+    &__wrapper {
+        border-bottom: 2px solid $wiley-lightGray-color;
+        margin-bottom: 20px;
+        margin-top: 18px;
+
+        .stickybar--sticky & {
+            margin-top: 0;
+            @include media('>=desktop') {
+                padding-top: 26px;
+            }
+        }
+    }
+
+    a {
+        font-size: 0.875rem;
+        color: $black;
+    }
+
+    &__second {
+        .coolBar__section {
+            [class*=__ctrl] {
+                i {
+                    padding: 4px 12px;
+                    margin-left: 0;
+                }
+                &.js--open:after {
+                    left: 0;
+                    -webkit-transform: translateX(50%);
+                    -moz-transform: translateX(50%);
+                    -ms-transform: translateX(50%);
+                    -o-transform: translateX(50%);
+                    transform: translateX(50%);
+                }
+                //i {
+                //    padding-left: 12px;
+                //}
+            }
+        }
+    }
+
+    [class*=__ctrl] {
+        font-size: 0.75rem;
+        color: $wiley-gray-text-color;
+        font-weight: normal;
+        display: inline-block;
+        @include media ('>=desktop') {
+            text-transform: uppercase;
+        }
+        margin: 0;
+        padding: 0;
+        padding-bottom: 17px;
+
+        &.js--open {
+            border-bottom: 4px solid $wiley-blue-color;
+            padding-bottom: 14px;
+            color: $wiley-blue-color;
+
+            @include media('<desktop') {
+                color: $white;
+            }
+        }
+    }
+
+    i {
+        font-size: $h4-font-size;
+        color: $wiley-blue-color;
+        vertical-align: middle;
+    }
+
+    &--sections {
+        //.coolBar__ctrl {
+        //    margin-left: 0;
+        //    padding-bottom: 16px;
+        //}
+        //
+        //&:last-child {
+        //    padding-left: 0;
+        //}
+
+        i {
+            padding-bottom: 2px;
+            color: $wiley-blue-color;
+        }
+
+        .icon-close_thin {
+            font-size: 1rem;
+            line-height: 23px;
+        }
+        .w-slide--list {
+
+            @include media('<=desktop') {
+                .w-slide__hide {
+                    padding: 10px 20px;
+                    padding-left: 30px;
+                }
+            }
+            &:first-child li {
+                margin-top: 3px;
+            }
+        }
+
+        @include media('<=tablet'){
+            .w-slide--list {
+                > li:before {
+                    content: "";
+                    display: inline-block;
+                    background-color: $wiley-typography-color;
+                    border-radius: 50%;
+                    position: absolute;
+                    width: 5px;
+                    height: 5px;
+                    top: 1.35rem;
+                    background-color: $wiley-darkBlue-color;
+                    left: 15px;
+                }
+                li {
+                    position: relative;
+                    padding-left: 20px;
+
+                    ~li {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__section {
+        padding: 0;
+    }
+
+    [class*=__block] {
+        min-width: 0;
+    }
+
+    &__drop, [class*=__block] {
+        padding: 0;
+        background: $white;
+        border: 2px solid $wiley-blue-color;
+
+        li {
+            margin: 0;
+            border-bottom: 1px solid #eee;
+
+            &:hover {
+                background: $wiley-blue-color;
+
+                a, i {
+                    @include media('>=desktop') {
+                        color: $text-onDark;
+                    }
+
+                }
+
+            }
+        }
+        a {
+            padding: 15px 20px;
+            display: inline-block;
+            width: 100%;
+
+            color: $wiley-typography-color;
+            text-transform: capitalize;
+        }
+
+        i {
+            color: $wiley-blue-color;
+        }
+    }
+
+    &__drop {
+        .coolBar--download {
+            a {
+                padding: 0;
+                display: block;
+            }
+        }
+    }
+
+    .share__block, #download_Pop {
+        right: 0;
+    }
+
+    .relative {
+        margin-left: 18px;
+
+        @include media('<desktop') {
+            margin-left: 0;
+        }
+    }
+
+    .go-to-full {
+        color: $wiley-blue-color;
+        padding: 0;
+        margin: 0;
+        margin-left: 6px;
+        font-weight: 600;
+
+        @include media('<358px'){
+            text-transform: capitalize;
+        }
+
+        i {
+            font-size: 10px;
+            font-weight: 700;
+            padding-left: 8px;
+        }
+    }
+
+    &--res {
+        border: none;
+        margin: 0;
+
+        .coolBar__wrapper {
+            background-color: $wiley-blue-color;
+            margin: 0;
+            left: 0;
+            height: 54px;
+            width: 100% !important;
+        }
+
+        .coolBar__second {
+            .relative {
+                [class*=__ctrl] {
+                    i {
+                        padding: 4px 12px;
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        [class*=__ctrl] {
+            font-size: $h6-font-size;
+            color: $text-onDark;
+            padding: 14px 0;
+
+            &.share__ctrl {
+                width: 43px;
+            }
+            i {
+                color: $text-onDark;
+                display: inline;
+
+            }
+
+            &.js--open {
+                height: 48px;
+                position: relative;
+
+                &:after {
+                    content: " ";
+                    border: 10px solid transparent;
+                    position: absolute;
+                    top: 100%;
+                    left: 10px;
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-top-color: $wiley-blue-color;
+                    z-index: 10;
+                    margin-top: 6px;
+                }
+            }
+
+        }
+
+        li {
+            background: transparent !important;
+            margin: 0;
+            padding: 0;
+
+            a {
+                color: $wiley-text-color;
+                width: auto;
+                min-width: 0;
+            }
+
+        }
+
+        .tab__nav {
+            > li > a {
+
+                &:after {
+                    content: "\e92b";
+                    display: inline-block;
+                    float: right;
+                    font-family: icomoon !important;
+                    speak: none;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    line-height: 20px;
+                    font-size: $small-font-size;
+                    font-weight: 800;
+                }
+            }
+        }
+
+        .tab__nav, .coolBar__drop, [class*=__block ] {
+
+            li {
+                padding: 0;
+            }
+            a {
+                padding: 16px 20px 16px 12px;
+                border-bottom-color: $separators-color;
+                color: $info-text-color;
+                font-size: $h6-font-size;
+                font-weight: normal;
+                text-transform: inherit;
+            }
+
+            .active a {
+                //padding: 20px 20px 14px;
+                border-bottom-color: $primary-light-text-color;
+            }
+        }
+
+        .pdf-download.pdf-download.pdf-download { // to increase the priority
+            padding: 16px 20px 16px 17px;
+            line-height: 1.69rem;
+        }
+        .coolBar--download.cloned .pdf-download {
+            line-height: 0.875rem;
+        }
+
+        .coolBar__drop.fixed, [class*=__block].fixed {
+            border: none;
+            top: 54px;
+            height:0 ;
+            transition: all 0.5s;
+            display: block;
+            padding: 0;
+            overflow-y: scroll;
+
+            &.js--open {
+                height:85vh;
+                @include media('<tablet') {
+                    height:76vh ;
+                }
+                padding: 0 0 102px;
+            }
+
+            //&[data-db-target-of] {
+            //
+            //
+            //    //height: calc(100vh - 170px);
+            //
+            //    @include media('<tablet') {
+            //        //height: calc(100vh - 137px);
+            //    }
+            //}
+        }
+
+        .coolBar__section,.relative {
+            ~ .coolBar__section {
+                margin-left: 12px;
+
+                [class*="__ctrl"] {
+                    i {
+                        border-left: 1px solid $white;
+
+                    }
+                }
+
+            }
+            [class*="__ctrl"] {
+                i {
+                    padding: 0 0 0 12px;
+                    &.icon-close_thin:before {
+                        //font-size: 0.81rem;
+                        transform: scale(0.75);
+                    }
+                }
+            }
+        }
+
+        .coolBar__section:first-child {
+            [class*="__ctrl"] {
+                i {
+                    padding: 0;
+                }
+            }
+        }
+
+        .go-to-full.go-to-full {
+            color: $text-onDark;
+            padding: 15px 0;
+
+            .extra-text {
+                @include media('<358px'){
+                    display: none;
+                }
+            }
+
+            i {
+                color: $text-onDark;
+            }
+        }
+
+    }
+
+    [data-db-target-for=sections] {
+
+        &.js--open {
+            padding-bottom: 9px;
+        }
+    }
+    [data-db-target-of=sections] {
+        width: 300px;
+    }
+    .article-tools__block {
+        width: 225px;
+    }
+
+    .article-tools {
+        &__block {
+            i {
+                font-size: 1rem;
+            }
+        }
+    }
+
+}
+
+.pdf-download.pdf-download.pdf-download {
+    line-height: 0.875rem;
+
+    img {
+        width: 16px;
+        vertical-align: middle;
+        margin-right: 5px;
+
+        @include media('<desktop') {
+            margin-right: 12px;
+        }
+    }
+
+    &.js--open {
+        padding-bottom: 13px;
+    }
+}
+
+.coolBar--res {
+    .relative {
+        position: static;
+    }
+}
+
+[data-db-target-of=pdfLinks] {
+    width: 140px;
+
+    .coolBar--download {
+        float: none;
+        padding: 0;
+
+        a {
+            padding: 20px;
+            line-height: 8px;
+
+            &:hover {
+                background: $wiley-blue-color;
+                color: $white;
+            }
+        }
+
+    }
+}
+
+
+.readcubeEPdfLink.readcubeEPdfLink {
+    display: none;
+
+    .transplanted-clone & {
+
+        .readcubeEpdfEnabled & {
+            display: block;
+        }
+    }
+
+    .readcubeEpdfEnabled & {
+        display: inline-block;
+    }
+
+    &.cloned {
+        .coolBar--res & {
+            display: none;
+        }
+    }
+}
+
+.PdfLink {
+    &.cloned {
+        .coolBar--res & {
+            display: none;
+        }
+    }
+}
+
+.pdfLink--is-hidden.pdfLink--is-hidden {
+    display: inline-block;
+
+    .transplanted-clone & {
+        display: block;
+
+        .readcubeEpdfEnabled & {
+            display: none;
+        }
+    }
+
+    .readcubeEpdfEnabled & {
+        display: none;
+    }
+
+    &.cloned {
+        .coolBar--res & {
+            display: none;
+        }
+    }
+
+}
+
+.transplanted-clone {
+    .coolBar--download__item {
+        a {
+            &:before {
+                content: "";
+                background: transparent url('/products/pericles/releasedAssets/images/pdf-icon.png') no-repeat 0 0;
+                display: block;
+                height: 20px;
+                width: 26px;
+                background-size: 16px 20px;
+                float: left;
+                top: 5px;
+                position: relative;
+            }
+        }
+
+    }
+    .PdfLink, .readcubeEPdfLink, .coolBar--download {
+        float: none;
+        margin: 0 !important;
+        padding: 0;
+    }
+}
+
+.showOnJSLoad {
+    display: none;
+}
+@include media('<=tablet') {
+    .stickybar {
+        &--sticky {
+            position: fixed;
+        }
+    }
+}
+
+.stickybar--sticky{
+    z-index:3;
+}
+
+.hideOnJSLoad {
+    display: initial;
+    margin-right: 2px;
+
+    a.coolBar__ctrl.pdf-download:before {
+        background: url('/products/pericles/releasedAssets/images/pdf-icon.png') no-repeat 0 0;
+        content: '';
+        width: 16px;
+        height: 20px;
+        display: block;
+        background-size: 105%;
+        float: left;
+        margin: 0 5px 0 0;
+        position: relative;
+        top: -2px;
+    }
+}

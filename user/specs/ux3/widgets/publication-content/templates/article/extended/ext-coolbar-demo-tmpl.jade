@@ -1,0 +1,100 @@
+extends ../../../../../components/coolbar/templates/coolbar/coolbar-tmpl.jade
+block coolbarPrefix
+    - var original = data;
+    - var coolbarData = {"sections": {"icon": "icon-Icon_Section-menu","label": "Sections"},"download": {"icon": "icon-Icon_Download","label": "View Article","items": [{"icon": "icon-Icon_Download","text": "View PDF","url": data.item.formats.pdf},{"icon": "icon-Icon_Download","text": "View PDFPlus","url": data.item.formats.pdfPlus},{"icon": "icon-Icon_Download","text": "View ePub","url": data.item.formats.ePub}]},"extra": [{"content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-favorites\"></i><span>Add to Favorites</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-Email\"></i><span>Email a Friend</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-track\"></i><span>Track Citations</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-permissions\"></i><span>Permissions</span></a></li></ul>"},{"content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"}]};
+    - data  = coolbarData;
+
+
+block coolbarDropZone
+    div.coolBar__section
+    a.coolBar__ctrl.hidden-md.hidden-lg.w-slide__btn(href="#" data-db-target-for="article" data-db-switch="icon-close_thin"  data-slide-target="#articleMenu")
+        i(class="icon-Icon_About-Article" aria-hidden="true")
+        span About
+    div.coolBar__drop.fixed.rlist(data-db-target-of="article" id="articleMenu")
+        block coolbarDropZoneTransplant
+            div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--download .coolBar__drop" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+block coolbarFull
+    li.coolBar__section.coolBar--sections
+        if(data.sections && data.sections.label)
+          a.coolBar__ctrl.w-slide__btn(href="#" data-db-target-for="sections" data-db-switch="icon-close_thin" title= data.sections.label data-slide-target="#sectionMenu")
+            i(class= data.sections.icon aria-hidden="true")
+            span !{data.sections.label}
+        div.coolBar__drop.rlist(data-db-target-of="sections" id="sectionMenu")
+    block downloadCoolbarSection
+        if(data.download)
+            li.coolBar__section.coolBar--download.hidden-xs.hidden-sm
+                if(data.download.label)
+                  a.coolBar__ctrl(href="#" data-db-target-for="downloads" data-db-switch="icon-close_thin")
+                    i(class= data.download.icon aria-hidden="true")
+                    span !{data.download.label}
+                ul.coolBar__drop.rlist.w-slide--list(data-db-target-of="downloads")
+                    if(data.download.items)
+                      each item, i in data.download.items
+                        if(item.url)
+                            li
+                                a(href= item.url)
+                                    i(class= item.icon aria-hidden="true")
+                                    span !{item.text}
+
+    block addtionalCoolbarSection
+
+block coolBarSecond
+    block coolBarToolsMenu
+        li.coolBar__section.coolBar-tools
+            a.article-tools__ctrl.w-slide__btn(href='#', data-db-target-for='71533d8f-4694-4fc9-87ea-6c6499e838d9', data-db-switch='icon-close_thin', aria-haspopup='true', aria-controls='articleToolsPop', role='button', data-slide-target= '#71533d8f-4694-4fc9-87ea-6c6499e838d9')
+                i.icon-Icon_Tools(aria-hidden='true')
+                span Tools
+            div.article-tools__block.fixed(data-db-target-of='71533d8f-4694-4fc9-87ea-6c6499e838d9', aria-labelledby='articleToolsCtrl', role='menu', id='71533d8f-4694-4fc9-87ea-6c6499e838d9')
+                ul.rlist.w-slide--list
+                  block coolBarTools
+                    li.article-tool(role='none')
+                        a(href='http://ux3-prod.literatumonline.com/personalize/addFavoritePublication?doi=10.2217%2Fcnc-2016-0006', role='menuitem')
+                            i.icon-Icon_Star-26(aria-hidden="true")
+                            span Add to favorites
+                    li.article-tool(role='none')
+                        a(href='http://ux3-prod.literatumonline.com/action/showCitFormats?doi=10.2217%2Fcnc-2016-0006', role='menuitem')
+                            i.icon-Icon_Download(aria-hidden="true")
+                            span download Citation
+                    li.article-tool(role='none')
+                        a(href='http://ux3-prod.literatumonline.com/action/addCitationAlert?doi=10.2217%2Fcnc-2016-0006', role='menuitem')
+                            i.icon-Icon_Track-citations(aria-hidden="true")
+                            span track Citation
+    block coolBarShareMenu
+        li.coolBar__section.coolBar-share
+            // Go to www.addthis.com/dashboard to customize your tools
+            script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-4faab26f2cff13a7')
+            a.share__ctrl.w-slide__btn(href='#', data-db-target-for='22945ae0-2b6a-4231-9667-e0f4f2a14628', data-db-switch='icon-close_thin' data-slide-target= '#22945ae0-2b6a-4231-9667-e0f4f2a14628')
+                i.icon-Icon_Share(aria-hidden='true')
+                span Share
+            .share__block.fixed(data-db-target-of='22945ae0-2b6a-4231-9667-e0f4f2a14628' id ='22945ae0-2b6a-4231-9667-e0f4f2a14628')
+                ul.rlist.addthis.addthis_toolbox.addthis_default_style.addthis_32x32_style.w-slide--list
+                    li
+                        a.addthis_button_facebook
+                            i.at-icon-wrapper.icon-facebook(aria-hidden='true')
+                            span Facebook
+                    li
+                        a.addthis_button_twitter
+                            i.at-icon-wrapper.icon-twitter(aria-hidden='true')
+                            span Twitter
+                    li
+                        a.addthis_button_linkedin
+                            i.at-icon-wrapper.icon-linkedin(aria-hidden='true')
+                            span Linked In
+                    li
+                        a.addthis_button_google_plusone_share
+                            i.at-icon-wrapper.icon-Icon_Google-plus(aria-hidden='true')
+                            span Google+
+                                |                     Share
+                    li
+                        a.addthis_button_reddit
+                            i.at-icon-wrapper.icon-Icon_Share(aria-hidden='true')
+                            span Reddit
+                    li
+                        a.addthis_button_email
+                            i.at-icon-wrapper.icon-Icon_mail(aria-hidden='true')
+                            span Email
+
+
+block coolbarSuffix
+    - data = original;

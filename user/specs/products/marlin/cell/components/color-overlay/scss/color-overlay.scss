@@ -1,0 +1,32 @@
+.article-header {
+    background: $default-journal;
+    color: $white;
+    @include  themify($themes) {
+        background: themed('color');
+        color: themed('font-color');
+    }
+    @include media('<desktop') {
+        background-position-x: center;
+    }
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: transparent;
+        background-image: url("../images/CellPress-LifeSci-Overlay.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include  themify($themes) {
+            background-image: url(themed('background'));
+        }
+    }
+
+    .read-more, .read-less {
+        line-height: 23px;
+        i {
+            display: none;
+        }
+    }
+}

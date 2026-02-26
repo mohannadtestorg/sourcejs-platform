@@ -1,0 +1,106 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Addresses
+
+    .source_info
+        markdown
+            p Its Legacy widget, the following structure used for demonstration purposes
+            p JSP file
+                | `/_ux3/_pericles/pb2/widgets/pageBuilderLiteratum/profile/raa/addresses.jsp`
+
+    section.source_section
+        h2 Example
+
+        .source_example
+            #address
+                section.edit
+                    input(type='hidden', name='address.id', value='b8f7727f-71f8-43d1-911b-4740a8abd7f4')
+                    input(type='hidden', name='section', value='address')
+                    input(type='hidden', name='address.uuid', value='')
+                    .printMailing-dropzone(data-pb-dropzone='printMailingdropzone')
+                    .input-group.hidden
+                        label.checkbox--primary
+                            input(type='checkbox', name='printMail', checked='')
+                            span.label-txt
+                                | Please include me on your mailing list to receive brochures and other printed information about books and journals in my subject area.
+                    .row
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.organization') Organization
+                                input.dynamic(id='address.organization', type='text', name='address.organization', value='', size='15', placeholder='')
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.department') Department
+                                input.dynamic(id='address.department', type='text', name='address.department', value='', size='15', placeholder='')
+                    .row
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.address1')
+                                        | Address line 1
+                                        span.required-marker *
+                                input(id='address.address1', type='text', name='address.address1', value='', size='15', placeholder='')
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.address2') Address line 2
+                                input(id='address.address2', type='text', name='address.address2', value='', size='15', placeholder='')
+                    .row
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.city')
+                                        | City/Town
+                                        span.required-marker *
+                                input(id='address.city', type='text', name='address.city', value='', size='15', placeholder='')
+                        .col-md-6
+                            .input-group.hidden
+                                .label
+                                    label(for='address.state')
+                                        | State/Province
+                                        span.required-marker *
+                                select.state.CA(id='address.state', name='address.state', disabled='disabled')
+                                    option(value='')
+                                    option(value='AB') Alberta
+                                    option(value='BC') British Columbia
+                                    option(value='MB') Manitoba
+                                    option(value='NB') New Brunswick
+
+                                select.state.US(id='address.state', name='address.state', disabled='disabled')
+                                    option(value='')
+                                    option(value='AL') Alabama
+                                    option(value='AK') Alaska
+                                    option(value='AS') American Samoa
+                                    option(value='AZ') Arizona
+
+                    .row
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.country')
+                                        | Country/Location
+                                        span.required-marker *
+                                select.country.jcf.jcf-hidden(id='address.country', name='address.country')
+                                    option(value='', selected='selected') Select your country
+                                    option(value='AF') Afghanistan
+                                    option(value='AX') Aland Islands
+                                    option(value='AL') Albania
+                                    option(value='DZ') Algeria
+
+
+                        .col-md-6
+                            .input-group
+                                .label
+                                    label(for='address.zipCode')
+                                        | Post/Zip Code
+                                        span.required-marker *
+                                input(id='address.zipCode', type='text', name='address.zipCode', value='', size='15', placeholder='')
+
+
+
+
+

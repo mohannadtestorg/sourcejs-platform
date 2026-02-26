@@ -1,0 +1,13 @@
+if (data && data.list)
+    .glossary
+        h2.top Glossary
+        - var classes = data.bullets ? "glossary__list--bullets" : "";
+        dl.glossary__list(class=classes)
+            each item in data.list
+                dt.glossary__term
+                    | #{item.term}
+                dd.glossary__description
+                    | #{item.description}
+
+
+

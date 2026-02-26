@@ -1,0 +1,16 @@
+extends /specs/products/marlin/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 Header
+    section.source_section
+        h3 Logged in
+        .source_example
+            .ux3
+                include ./templates/header/header-tmpl
+    | #{''}
+    section.source_section
+        h3 Logged out
+        .source_example
+            .ux3
+                include ./templates/header/header-out-tmpl
+    | #{''}

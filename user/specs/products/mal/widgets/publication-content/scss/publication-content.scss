@@ -1,0 +1,186 @@
+.citation {
+    &__title {
+        font-weight: bold;
+    }
+    &__meta{
+        line-height: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $disabled-links;
+        .doi-link , .journal-title , .cover-date, .author, .page-range, .aop {
+            font-size: 11px;
+            display: inline-block;
+            padding-right: 3px;
+        }
+        .doi-link{
+            color: $primary-link-color;
+        }
+        .article-data{
+            padding-bottom: 10px;
+        }
+        .label{
+            display: block;
+            font-size: 11px;
+        }
+        .history {
+            font-size: 12px;
+            span{
+                display: inline-block;
+                padding-left: 5px;
+            }
+        }
+        .icon{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+article {
+    .tab__pane {
+        .creative-work__title.min-height{
+            height: auto;
+        }
+        section{
+            h6 {
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+    }
+    .tab__nav {
+        .active {
+            a {
+                color: $dark-gray;
+                i {
+                    color: $dark-gray
+                }
+            }
+        }
+        a {
+            padding: 8px 5px;
+            color: $primary-link-color;
+            i {
+                color: $primary-link-color
+            }
+        }
+    }
+    .epub-section {
+        margin: 15px 0 10px;
+    }
+    .author-name {
+        color: $secondary-text-color;
+    }
+
+    .related{
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid gray
+
+    }
+    .cover-image{
+        &__image{
+            text-align: center;
+            max-width: 150px;
+            margin: 0 auto;
+        }
+    }
+    .cover-image__details{
+        text-align: center;
+        span.volume{
+            &:after {
+                content: ", ";
+            }
+        }
+        .volume , .issue{
+            color:$primary-link-color;
+        }
+        .coverDate{
+            font-weight:400;
+        }
+    }
+    .section__separator{
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        margin-top: 15px;
+    }
+    hr.section__separator{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 0;
+
+    }
+}
+
+.article-table-caption {
+    font-weight: bold;
+    font-family: $default-font-family;
+    padding-bottom: 10px;
+}
+
+.article {
+    &__keyword a {
+        background: $badge-oa-bg-color;
+        color: #fff;
+    }
+    &__crossmark i {
+        color: $badge-oa-bg-color;
+    }
+    &__access__type{
+        color:$primary-link-color;
+    }
+}
+
+.article-section, .abstractSectionHeading {
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    &__table{
+        font-weight: 700;
+        font-family: $default-font-family;
+        padding-bottom: 10px;
+        font-size: 16px;
+        margin: 15px 0 0;
+        text-align: left;
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+}
+.hlFld-Abstract{
+    .article-section{
+        &__title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    }
+}
+.article__body{
+    p{
+        font-family: $default-font-family;
+        font-size: 14px;
+    }
+}
+article {
+    .tab__pane {
+        .creative-work {
+            .loa-wrapper {
+                display: none;
+            }
+            .loa{
+                display: block;
+            }
+        }
+    }
+}
+.figure__caption {
+    p {
+        color: $white;
+        font-family: $default-font-family;
+    }
+}

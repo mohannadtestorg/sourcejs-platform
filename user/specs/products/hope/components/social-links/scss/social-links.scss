@@ -1,0 +1,36 @@
+.social-links {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    float: right;
+    @include media('<tablet') {
+        float: left;
+        margin-bottom: 20px;
+    }
+    &__item {
+        background: $share-this-icons-color;
+        color: $white;
+        padding: 1px 3px 0;
+        border-radius: 4px;
+        display: block;
+        line-height: 1;
+
+        &:hover,&:focus{
+            color: $text-onDark;
+            background: $tertiary-bg-color;
+        }
+
+        i:before{
+            padding: 4px 0;
+        }
+    }
+
+}
+
+.main-article,.blog-full,.brief-full{
+    .social-links{
+        @include media('<tablet'){
+            margin-top: 60px;
+        }
+    }
+}

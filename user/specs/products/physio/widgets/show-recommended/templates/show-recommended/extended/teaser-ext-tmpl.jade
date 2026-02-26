@@ -1,0 +1,21 @@
+extends ../../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl.jade
+block teaser
+    div.creative-work
+        .delayLoad
+            if (item.title)
+                if (item.best)
+                    a(href=item.best title=item.title)
+                        h5.creative-work__title !{item.title}
+                else
+                    h5.creative-work__title !{item.title}
+            +meta(item)
+        +loading(image)
+block meta
+    div.meta
+        if (item && item.epubDate)
+            i.icon-date
+            span.publication-time
+                | !{pb.render('date', {date: item.epubDate, format: 'dateYearMonthDayShort'})}
+        if (item.group.serial.journalLink) && (item.group.serial.title)
+            span.publication-journal-title
+                a(href=item.group.serial.journalLink) !{item.group.serial.title}

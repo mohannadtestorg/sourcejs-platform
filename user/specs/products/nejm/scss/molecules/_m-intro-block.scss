@@ -1,0 +1,80 @@
+/***
+
+```
+<div class="m-intro-block">
+  <p class="f-body">Etiam ullamcorper ornare sollicitudin. Sed in nisl nisi. Vestibulum a convallis nisl, non elementum mi. Donec at lacus erat. Nam orci ex, vestibulum eget sagittis id, scelerisque vel eros. Sed dui nibh, sodales vulputate felis in, sagittis tempor eros. Aenean at odio nulla.</p>
+</div>
+```
+
+***/
+
+.m-intro-block {
+  position: relative;
+  margin-top: 40px;
+  padding-top: 20px;
+  color: $color__text--headlines;
+}
+
+.m-intro-block + *[class*=colset] {
+  margin-top: 32px;
+
+  @include breakpoint('small+') {
+    margin-top: 40px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 48px;
+  }
+}
+
+.m-intro-block .a-alert-bar:first-child {
+  margin-top: -20px;
+}
+
+.m-intro-block:first-child {
+  margin-top: 0;
+}
+
+.m-featured-header + .m-intro-block {
+  margin-top: 20px;
+}
+
+.m-intro-block::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-intro-block *:first-child {
+  margin-top: 0;
+}
+
+// -------------------------------------
+// `m-intro-block` after a `m-article-meta`
+//
+
+.m-article-meta + .m-intro-block {
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+.m-intro-block-style{
+  padding-bottom: 22px;
+  @include breakpoint('medium+') {
+    margin-bottom: 20px;
+  }
+}
+
+.m-intro-block-style +.container > .row-md{
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 40px;
+  }
+}

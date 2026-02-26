@@ -1,0 +1,57 @@
+.colored-block {
+
+  margin-bottom: 20px;
+
+  &.shadow {
+    box-shadow: 0 4px 2px rgba(0, 0, 0, .1);
+  }
+
+  &__title {
+    background-color: rgba(0, 0, 0, 0.06);
+    @include themify($themes) {
+      background-color: themed('color2');
+    }
+    padding: 10px 0;
+
+    h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      border-left: 8px solid;
+      @include themify($themes) {
+        border-color: themed('color');
+      }
+      padding-left: 8px;
+      font-style: italic;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding: 16px;
+    background-color: $secondary-lighten-bg-color;
+  }
+  &__dash {
+    width: 18px;
+    height: 4px;
+    background: $text-onLight;
+    @include themify($themes) {
+      background-color: themed('color');
+    }
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+  }
+
+  .js--sticko &{
+    margin-top: 10px;
+  }
+
+  &__more{
+    border-top: 1px solid $secondary-border-color;
+    margin: 10px -15px 0;
+    padding: 10px 15px 0;
+    a{
+      float: right;
+      color:$link-text-color;
+    }
+  }
+}

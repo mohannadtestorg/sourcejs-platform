@@ -1,0 +1,24 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/manage-alerts/templates/manage-alerts/manage-alerts-tmpl.jade')
+
+
+    section.source_section
+        h2 Example
+
+        each item, l in data.items
+            h3!= item.title
+            .source_example
+                div.container
+                    | !{item.body}
+
+
+    | #{''}

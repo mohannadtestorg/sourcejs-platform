@@ -1,0 +1,16 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+
+
+    section.source_section
+        h2 Examples
+        markdown
+            p See the source code...
+        .source_example
+            | !{data.body}

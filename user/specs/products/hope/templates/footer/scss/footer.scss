@@ -1,0 +1,111 @@
+.footer-top {
+    &__header {
+        @include media('<tablet') {
+            margin-bottom: 10px;
+        }
+        span {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .back-to-top {
+            float: right;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+    }
+    &__list {
+        float: left;
+        padding-right: 15px;
+        width: 18%;
+        &--large {
+            width: 22%;
+        }
+
+        @include media('<tablet') {
+            float: left;
+            padding-left: 15px;
+            width: 100%;
+            ul {
+                padding-left: 0;
+            }
+        }
+
+        footer & {
+            font-size: 0.72rem;
+            padding-right: 10px;
+        }
+
+        a {
+            display: block;
+        }
+    }
+    &__title {
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: .75rem;
+        margin-bottom: 2px;
+        font-family: $secondary-font-family;
+    }
+    .main-nav__extra-links & {
+        &__list {
+            a {
+                margin-bottom: 2px;
+                &:before {
+                    display: none;
+                }
+            }
+            ul {
+                padding-left: 8px;
+                @include media('<desktop') {
+                    padding-left: 0;
+                    margin-left: 0;
+                }
+            }
+        }
+        &__title {
+            color: $primary-text-color;
+            font-size:.875rem;
+            font-family: $default-font-family;
+            @include media('<tablet') {
+                color: $white;
+            }
+        }
+    }
+}
+.footer-bottom {
+    font-size: 0.78rem;
+    font-weight: 300;
+    li {
+        padding-right: 8px;
+        margin-right: 8px;
+    }
+    a {
+        text-decoration: underline;
+    }
+    .copyright {
+        margin-top: 4px;
+        margin-bottom: 60px;
+        @include media('<tablet') {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+    &__nav {
+        margin-bottom: 10px;
+        .rlist--inline.separator {
+            li {
+                border-color: $white;
+            }
+        }
+    }
+}
+
+footer {
+    margin-top: 20px;
+    background: $primary-bg-color;
+    color: $text-onDark;
+    .address {
+        font-weight: 300;
+        line-height: 1.7rem;
+    }
+}

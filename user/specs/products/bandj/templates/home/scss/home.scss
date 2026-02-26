@@ -1,0 +1,47 @@
+.top-image {
+    height: 230px;
+    background-color: $primary-bg-color-secondary;
+    @include themify($themes) {
+        background-color: themed('color2');
+    }
+}
+
+.side-tower {
+    position: absolute;
+    right: -150px;
+}
+
+.support-feature {
+    img {
+        border-radius: 15px;
+    }
+}
+
+.homepageCovers {
+    text-align: center;
+    h3 {
+        text-align: left;
+    }
+    .journalCover {
+        display: inline-block;
+        padding: 10px;
+        width: 30%;
+        vertical-align: top;
+        img {
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+        }
+    }
+    @include media('<tablet') {
+        .journalCover {
+            width: 50%;
+        }
+    }
+}
+.scrollThenFix {
+    @include media('<desktop') {
+        padding-right: 10px;
+    }
+}
+.static-page {
+    margin-top: 26px;
+}

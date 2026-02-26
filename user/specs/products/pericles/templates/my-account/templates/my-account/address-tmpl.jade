@@ -1,0 +1,162 @@
+| !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+.pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+    // begin pagefulltext
+    .page-body.pagefulltext
+        div(data-pb-dropzone='main')
+            div
+            .profile-pages__heading.card(data-widget-def='ux3-layout-widget', data-widget-id='9ce29057-a88f-4b0f-a1ec-8a2349f23131')
+                .container
+                    .row
+                        div
+                            .col-md-6.gutterless
+                                h1.account-page__header
+                                    | My account
+                                div
+                            .col-md-6.gutterless
+            .container
+                .row
+                    .raaAccountInfo.gutterless--md.gutterless--sm.gutterless--xs.col-md-12.gutterless
+                        .gutterless--md.gutterless--sm.gutterless--xs.col-md-3
+                            | !{pb.render('profile-menu', 'data.json', 'pericles')}
+                        .main-content.gutterless--md.gutterless--sm.gutterless--xs.col-md-9
+                            .card(data-widget-def='ux3-layout-widget', data-widget-id='e4b6e977-0f74-48ae-8308-a1bcdbd63bde')
+                                .accountInfo
+                                    h2.section__header
+                                        | Address
+                                    p
+                                        | Please note that this address is used only for promotional mailings. If you would like to update your mailing address for a print journal subscription, please contact
+                                        a(href='https://hub.wiley.com/community/support/onlinelibrary') Customer Service
+                                        | .
+                                    form#personalInformationForm(action='/action/doUpdateAccount', method='post')
+                                        input(type='hidden', name='anti-forgery-token', value='785f45fc-5976-476e-bbf2-6957141cfd7e')
+                                        input(type='hidden', name='menuTab', value='address')
+                                        input(type='hidden', name='redirectUri', value='/action/showPreferences?menuTab=address')
+                                        .pb-dropzone.formDropZone(data-pb-dropzone='formDropZone')
+                                            .addresses(data-widget-def='addressWidget', data-widget-id='b8f7727f-71f8-43d1-911b-4740a8abd7f4')
+                                                section.addresses
+                                                    .input-group
+                                                        .label
+                                                            label Address
+                                                        select.switch-address
+                                                            option(value='bcfeba49-105c-4c9b-8c72-1ad3fb402316', selected='selected')
+                                                                | werte
+                                                            option.placeholder(value='') Add new address
+                                                    .address.bcfeba49-105c-4c9b-8c72-1ad3fb402316
+                                                        .inline-actions
+                                                            a(href='/action/deleteAddress?uuid=bcfeba49-105c-4c9b-8c72-1ad3fb402316&redirectUri=%2Faction%2FshowPreferences%3FmenuTab%3Daddress')
+                                                                span.icon-trash-can.font-small(aria-hidden='true')
+                                                            button.edit-address.icon-pencil.font-small(style='background: transparent; color: inherit', title='Edit Address')
+                                                        .hidden(data-name='description')
+                                                        .hidden(data-name='uuid') bcfeba49-105c-4c9b-8c72-1ad3fb402316
+                                                        .hidden(data-name='organization') rrr
+                                                        .hidden(data-name='department') ert
+                                                        div
+                                                            span(data-name='givenNames')
+                                                            span(data-name='surname')
+                                                        div(data-name='address1') werte
+                                                        div(data-name='address2') qertqert
+                                                        div
+                                                            span(data-name='city') qerwtq
+                                                            | ,
+                                                            span(data-name='zipCode') wqetq
+                                                            span(data-name='state')
+                                                        div(data-name='country') Afghanistan
+
+                                                    script(type='text/javascript').
+                                                        var $change = $('.switch-address');
+                                                        var $edit = $('.edit');
+                                                        var $addresses = $('.address');
+                                                        $change.change(function () {
+
+                                                            var uuid = $change.val();
+                                                            $('.edit').addClass('hidden');
+                                                            $addresses.addClass('hidden');
+                                                            if (uuid) {
+                                                                $addresses.filter('.' + uuid).removeClass('hidden');
+                                                            } else {
+
+                                                                $('.edit').removeClass('hidden');
+                                                            }
+                                                        });
+
+                                                    .edit.hidden
+                                                        input(type='hidden', name='address.id', value='b8f7727f-71f8-43d1-911b-4740a8abd7f4')
+                                                        input(type='hidden', name='section', value='address')
+                                                        input.dynamic(id='address.uuid', type='hidden', name='address.uuid', value='')
+                                                        .row
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.organization') Organization
+                                                                    input.dynamic(id='address.organization', type='text', name='address.organization', value='', size='15', placeholder='')
+                                                                pb:renderdropzone(widget='Widget type: addressWidget, #b8f7727f-71f8-43d1-911b-4740a8abd7f4', dropzone='phoneNumber')
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.department') Department
+                                                                    input.dynamic(id='address.department', type='text', name='address.department', value='', size='15', placeholder='')
+                                                        .row
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.address1')
+                                                                            | Address line 1
+                                                                            span.required-marker *
+                                                                    input(id='address.address1', type='text', name='address.address1', value='', size='15', placeholder='')
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.address2') Address line 2
+                                                                    input(id='address.address2', type='text', name='address.address2', value='', size='15', placeholder='')
+                                                        .row
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.city')
+                                                                            | City/Town
+                                                                            span.required-marker *
+                                                                    input(id='address.city', type='text', name='address.city', value='', size='15', placeholder='')
+                                                            .col-md-6
+                                                                .input-group.hidden
+                                                                    .label
+                                                                        label(for='address.state')
+                                                                            | State/Province
+                                                                            span.required-marker *
+                                                                    select.state.CA(id='address.state', name='address.state', disabled='disabled')
+                                                                        option(value='')
+                                                                        option(value='AB') Alberta
+
+                                                                    select.state.US(id='address.state', name='address.state', disabled='disabled')
+                                                                        option(value='')
+                                                                        option(value='AL') Alabama
+
+                                                        .row
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.country')
+                                                                            | Country/Location
+                                                                            span.required-marker *
+                                                                    select.country(id='address.country', name='address.country')
+                                                                        option(value='', selected='selected') Select your country
+                                                                        option(value='AF') Afghanistan
+
+                                                            .col-md-6
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='address.zipCode')
+                                                                            | Post/Zip Code
+                                                                            span.required-marker *
+                                                                    input(id='address.zipCode', type='text', name='address.zipCode', value='', size='15', placeholder='')
+                                        .actions.form-btn
+                                            p.small-txt.float-left * Marks a required field
+                                            a.linkBtn(href='/action/showPreferences?menuTab=address', onclick='history.go(0)')
+                                                | CLEAR
+                                            input.button.btn.primary(type='submit', name='submit', value='SUBMIT')
+
+
+    // end pagefulltext
+
+
+| !{pb.render('footer', 'pericles')}

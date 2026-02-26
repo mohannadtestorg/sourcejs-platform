@@ -1,0 +1,96 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Usage
+
+    section.source_section
+        h2 Inputs
+
+        h3 Text input
+        .source_example
+            .input-group
+                input(type="text" placeholder="Text input")
+
+        h3 Select list
+        markdown
+            p In the example below we are creating `select` element. In this case we must also add `options` array.
+        .source_example
+            .input-group
+                select
+                    option Lorem
+                    option Ipsum
+                    option Dolor
+
+        h3 Search input
+        markdown
+            p In the example below we are creating `input` element with `input-search` class.
+        .source_example
+            .input-group
+                .input-with-icon
+                    input(type="text" placeholder="Text input")
+                    i.icon-search
+
+
+        h3 Textarea
+        markdown
+            p In the example below we are creating `textarea` element, and we also use `rows` and `cols` attributes.
+        .source_example
+            .input-group
+                label(for="example-textarea") Example Textarea
+                textarea(rows="20" cols="40" placeholder="Example" id="example-textarea")
+
+        h3 Label with input
+        .source_example
+            fieldset.input-group
+                label(for="example-input1") label
+                input(type="text" placeholder="Example" id="example-input1")
+
+        h3 left side Label with input
+        .source_example
+            .input-group.left-side-label
+                label(for="example-input") label
+                input(type="text" placeholder="Example" id="example-input")
+
+        h3 Radio button
+        markdown
+            p In the example below we are creating `radio` element
+        .source_example
+            .input-group
+                label.radio
+                    input(type="radio", name="radio1", value="1", checked)
+                    span(class="label-txt") Value 1
+                label.radio
+                    input(type="radio", name="radio1", value="2")
+                    span(class="label-txt") Value 2
+                label.radio
+                    input(type="radio", name="radio1", value="3")
+                    span(class="label-txt") Value 3
+
+        h3 Checkbox
+        markdown
+            p In the example below we are creating `checkbox` element.
+        .source_example
+            .input-group
+                label.checkbox
+                    input(type="checkbox", name="checkbox[]", value="1", checked)
+                    span(class="label-txt") Example label
+                label.checkbox
+                    input(type="checkbox", name="checkbox[]", value="2")
+                    span(class="label-txt") Example label
+                label.checkbox
+                    input(type="checkbox", name="checkbox[]", value="3")
+                    span(class="label-txt") Example label
+
+        h3 File
+        markdown
+            p In the example below we are creating `file` element.
+        .source_example
+            .input-group
+                label Example label
+                input(type="file")
+
+
+
+    | #{''}

@@ -1,0 +1,20 @@
+.card {
+
+    &--dark {
+        color: $card-dark-color;
+
+        h2 {
+            border-color: $card-dark-text-decoration-color;
+        }
+
+        button, [type=submit], [type=button], .btn, .button {
+            font-weight: 500;
+            @include make-inverse-btn();
+        }
+
+        margin-bottom: 30px;
+    }
+
+}
+
+

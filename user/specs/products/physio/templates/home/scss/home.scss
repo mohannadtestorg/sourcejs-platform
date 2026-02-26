@@ -1,0 +1,234 @@
+.home-page {
+    .featured-thumbnail {
+        margin-top: -75px;
+        .tab__nav a {
+            font-size: 26px;
+            line-height: 10px;
+            &:after {
+                padding: 0 7px;
+                font-size: 26px;
+            }
+        }
+    }
+    .top-list__journal-name {
+        display: block;
+    }
+}
+
+.featured__journal-name {
+    a {
+        padding-top: 5px;
+        display: inline-block;
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}
+
+.asp-select {
+    .featured {
+        &__title {
+            font-size: 16px;
+        }
+
+    }
+}
+
+@include media('>desktop') {
+    .home-page {
+        .card {
+            padding: 30px 40px;
+            margin-bottom: 20px;
+        }
+        .slideshow-wrapper {
+            padding-top: 100px;
+        }
+    }
+}
+
+.home-page, .journal-home {
+    .slideShow {
+        .featured {
+            &__title {
+                color: $primary-white;
+            }
+        }
+    }
+    .slideshow-wrapper {
+        margin-top: 0;
+
+        .featured {
+            &__title {
+                font-size: 30px;
+                max-height: 130px;
+                overflow: hidden;
+            }
+            &__container {
+                width: 80%;
+            }
+            &__cover {
+                display: none;
+            }
+            &__tocHeading {
+                font-size: 20px;
+                color: $primary-white;
+                a {
+                    &:before {
+                        content: " | ";
+                    }
+                    &:hover {
+                        color: $primary-red;
+                        &:before {
+                            color: $primary-white;
+                        }
+                    }
+                }
+                i {
+                    font-size: 12px;
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.home-page {
+    .sidebar-top-content {
+        .featured__title {
+            font-size: 14px;
+        }
+        .info-container {
+            padding: 6px 0;
+        }
+        .featured__summary {
+            display: none;
+        }
+        .featured__container {
+            &:not(:last-child) {
+                .info-container {
+                    border-bottom: 1px solid $primary-border;
+                }
+            }
+        }
+    }
+}
+
+.sidebar-top-content {
+    .top-list {
+        &__container {
+            .meta-container {
+                width: 66%;
+            }
+        }
+        &__cover {
+            max-width: 55px;
+        }
+        &__title {
+            font-size: 16px;
+        }
+    }
+    .without__cover__image {
+        .top-list__cover {
+            display: none;
+        }
+        .meta-container {
+            width: 100%;
+        }
+    }
+}
+
+@include media('<desktop') {
+    .home-page, .journal-home {
+        .slideshow-wrapper {
+            padding: 0 20px;
+            padding-top: 20px;
+            .featured {
+                &__title {
+                    font-size: 18px
+                }
+                &__tocHeading {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    .home-page {
+        .featured-thumbnail {
+            margin-top: 20px;
+            .tab__nav a {
+                font-size: 18px;
+            }
+        }
+        h1, h2 {
+            font-size: 18px;
+        }
+        h3 {
+            font-size: 14px;
+        }
+    }
+    .home-cards {
+        padding: 15px;
+    }
+}
+
+.home-covers {
+    img {
+        width: 150px;
+    }
+    .slide-item {
+        padding: 0;
+        &:nth-child(5n) {
+            clear: both;
+        }
+    }
+    .owl-prev {
+        left: 0;
+        text-align: left;
+        right: auto;
+        font-size: 18px;
+    }
+    .owl-carousel {
+        .owl-nav div.owl-nav-active i {
+            color: $gray-2;
+            opacity: 1;
+        }
+        .owl-item {
+            img {
+                margin: 0 auto;
+            }
+            a {
+                text-align: center;
+                display: block;
+            }
+        }
+    }
+    .owl-next, .owl-prev {
+        i {
+            font-size: 18px;
+            color: $gray-2;
+            opacity: 1;
+        }
+    }
+}
+
+@include media('<tablet') {
+    .home-page {
+        .slideshow-wrapper {
+            padding-top: 0;
+        }
+    }
+    .journal-home {
+        .slideshow-wrapper {
+            .featured {
+                &__container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .home-covers {
+        .slide-item {
+            text-align: center;
+        }
+    }
+}

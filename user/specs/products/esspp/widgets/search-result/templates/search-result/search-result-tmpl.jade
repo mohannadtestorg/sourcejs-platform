@@ -1,0 +1,38 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl
+
+block searchResultTopShowPublications
+    div.search-result__meta
+        div.search-result__meta__top.clearfix
+            div.pull-left.search__result
+                if (data.serviceName == "showPublications")
+                    if data.search && data.search.hitsLength > 0
+                        span.result__current Results: !{resultFrom} - !{resultTo}
+                        span.result__sep of
+                        span.result__count !{data.search.hitsLength}
+                    else
+                        span.result__current Results: 0 - 0
+                        span.result__sep of
+                        span.result__count 0
+                    a(href="#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                        i(class="icon-filter_list inline-icon" aria-hidden="true")
+                        span Filters
+                else
+                    block refineSearch
+                        a.search-result__refine.advanced-search__ctrl.w-slide__btn(href="#" data-slide-target="#advancedSearch" )
+                            span refine search
+                            i(class="icon-section_arrow_d" aria-hidden="true")
+            div.pull-right.search__bottom.clearfix
+                if (data.serviceName == "doSearch")
+                    a(href = "#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                        i(class="icon-filter_list inline-icon" aria-hidden="true")
+                        span Filters
+                //- check if we have result
+                if data.search && data.search.hitsLength > 0
+                    | !{pb.render("search-result", "search-result/per-page", {data: data, thisWidget: thisWidget},"esspp")}
+                if (data.widgetData && data.widgetData.sortLinks)
+                    | !{pb.render("search-result", "search-result/sort-options", {data: data, thisWidget: thisWidget})}
+
+        if (data.serviceName == "doSearch")
+            block advancedSearch
+                div.advanced-search__tabs#advancedSearch
+                    | !{pb.render("search-result", "search-result/extended/ext-tabs", {data: data, thisWidget: thisWidget},"esspp")}

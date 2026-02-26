@@ -1,0 +1,42 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl
+
+
+block mainNavBlock
+    div.main-nav.menu-drawer
+        a.menu-drawer__ctrl(href="#" + data.id data-target=data.id data-toggle="nav" title="Explore Marlin")
+            block navIcons
+                span.menu-drawer--open
+                    i.icon-gizmo-hamburger(aria-hidden="true")
+                span.menu-drawer--close
+                    i.icon-close_thin(aria-hidden="true")
+                        span Close
+        nav.menu-drawer__nav.drawer__nav.gutterless(role="navigation" id=data.id data-ctrl-res=viewPort)
+            span.menu-drawer--holder(class=viewPortInvertClass)
+            +menu(data.list, false)
+
+
+block mainNavArrows
+    i.icon-arrow_r.pull-right(aria-hidden="true")
+
+block nestedUl
+    if nested == true
+        if dropDownId > 1
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId class="level-" + dropDownId aria-hidden="true" role="menu")
+                - dropDownId = 0;
+                li.menu-drawer__back(role="menuitem" aria-haspopup="true" class=viewPortInvertClass)
+                    a.menu-drawer__back__ctrl(href="#")
+                        i.icon-arrow_l(aria-hidden="true")
+                        span Back
+                +menuItem(list, nested)
+        else
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId aria-hidden="true" role="menu")
+                li.menu-drawer__back(role="menuitem" aria-haspopup="true" class=viewPortInvertClass)
+                    a.menu-drawer__back__ctrl(href="#")
+                        i.icon-arrow_l(aria-hidden="true")
+                        span Back
+                +menuItem(list, nested)
+    else
+        ul#menubar.menubar.rlist--inline(role="menubar")
+            block menuPrefix
+            +menuItem(list, nested)
+            block menuSuffix

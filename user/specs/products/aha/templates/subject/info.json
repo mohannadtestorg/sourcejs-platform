@@ -1,0 +1,141 @@
+{
+    "title": "Subject page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/demo/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "quickSearch": {
+            "$pug": {
+                "template": "../../widgets/quick-search/templates/quick-search/demo/demo-quick-search-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/widgets/quick-search/templates/data/quick-search.json"
+                }
+            }
+        },
+        "facet":{
+            "$pug": {
+                "template": "../../widgets/search-facets/templates/search-facets/subject-search-facets-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/search-facets/templates/data/facet.json"
+                }
+            }
+        },
+        "searchresult": {
+            "$pug": {
+                "template": "../../widgets/search-result/templates/search-result/subject-search-result-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/search-result/templates/data/search.json"
+                }
+            }
+        },
+        "current_issue": {
+            "$pug": {
+                "template": "../../widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/cover-image/templates/data/single-cover-image-metadata.json"
+                }
+            }
+        },
+        "meta":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card\"><h3>Collection Subject</h3><h1>Arrhythmia and Electrophysiology</h1>Here goes a a brief description of the collection that is displayed. It could be collapsible by the button at the end of this text so the user can read the full description without pusshing the content of the page too low. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "related_collections":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card related__collections__body\"><h2>Related Collections</h2><ul class=\"rlist related__collections\"><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li><li><a href=\"#\" title=\"Arrhythmias\"><h3>Arrhythmias</h3></a></li></ul><p><a class=\"btn btn-sm\" href=\"#\" title=\"See all\">See all</a></p></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "submit_article_box":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card--danger\"><h2>Submit your article CIRCULATION</h2><a class=\"btn btn--inverse\" href=\"#\" title=\"Submit\">Submit</a></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

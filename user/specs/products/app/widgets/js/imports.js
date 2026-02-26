@@ -1,0 +1,9 @@
+import '../quick-search/js/quick-search.js';
+import '../menu/js/menu.js';
+import '../slideshow/js/slideshow.js';
+import '../list-of-issues/js/loi.js';
+import '../addresses/js/addresses.js'
+import '../pairing-management/js/pairing-management'
+import '../publication-content/js/publication-content'
+import '../search-result/js/search-result'
+import '../favorites/js/favorites'

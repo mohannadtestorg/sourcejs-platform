@@ -1,0 +1,16 @@
+.radio--primary {
+    span {
+        &:before {
+            border: 2px solid $primary-bg-color;
+        }
+    }
+    input {
+        display: none;
+        &:checked ~ span {
+            &:before {
+                background-color: $primary-bg-color;
+            }
+
+        }
+    }
+}

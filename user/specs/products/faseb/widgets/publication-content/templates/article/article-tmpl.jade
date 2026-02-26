@@ -1,0 +1,40 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/article-tmpl.jade
+
+block includeCoolbar
+    include ./extended/ext-coolbar-tmpl
+
+block contentClasses
+    -var contentClasses="article__content col-lg-9 col-sm-7 col-md-8"
+
+block includeCitation
+    include ./extended/ext-citation-tmpl
+    +epub()
+
+block tabsContainer
+    .col-sm-5.col-md-4.col-lg-3.hidden-xs.sticko__parent
+        //+articleTab()
+        block includeTabs
+            include ./extended/ext-tabs-tmpl.jade
+
+block ePubDoi
+    if(data.item.ids.doi.canDisplay)
+        span.epub-section__item
+            if(data.item.ids && data.item.ids.doi && data.item.ids.doi.value)
+                a.epub-section__doi__text(href= "https://doi.org/"+ data.item.ids.doi.value) https://doi.org/!{data.item.ids.doi.value}
+    else if (data.item.ids.doi.abstractNumber)
+        span.epub-section__item
+            span.epub-section__state Abstract Number:
+            span.epub-section__date !{data.item.ids.doi.abstractNumber}
+
+block ePubCitedby
+
+mixin article()
+    block article
+        div
+            if(data.item)
+                if(data.item.mathJax && data.item.mathJax.enabled)
+                    article.container(data-figures=data.item.figures data-references=data.item.references data-enable-mathjax=data.item.mathJax.enabled)
+                        +articleRow()
+                else
+                    article.container(data-figures=data.item.figures data-references=data.item.references)
+                        +articleRow()

@@ -1,0 +1,117 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td, th {
+        text-align: left;
+        padding: 1em;
+    }
+
+    thead {
+        td, th {
+            color: $thead-color;
+            font-weight: 500;
+        }
+    }
+
+    tbody {
+        td {
+            font-weight: normal;
+        }
+    }
+
+    &.separator {
+        margin-bottom: 5px;
+        thead {
+            th, td {
+                border-bottom: none;
+                padding: 10px 10px 10px 0;
+            }
+        }
+        tbody {
+            td, th {
+                border-bottom: 1px solid $table-border-color;
+                padding: 10px 10px 10px 0;
+            }
+        }
+    }
+}
+.table {
+    &__row {
+        &--highlighted {
+            background: $note-bg-secondary-color;
+            box-shadow: inset 4px 0 0 0 $note-bg-color;
+            td {
+                vertical-align: bottom;
+            }
+        }
+    }
+}
+.thead-color {
+    color: $thead-color;
+}
+.ui-sortable-helper {
+    display: table;
+}
+
+
+
+.table-actions{
+    @include media('<tablet') {
+      tr{
+          background-color: $facet-bg-color;
+          margin-bottom: 8px;
+      }
+        .separator {
+            td{
+                padding:8px 0 10px 10px;
+                border-bottom: 1px solid $primary-border-color;
+            }
+
+            .table__td--dropdown{
+                padding: 0;
+            }
+        }
+
+    }
+
+    .btn--action{
+        font-weight: 600;
+        color: $secondary-text-color;
+        background-color: $facet-bg-color;
+
+        &:hover,&:focus{
+            background-color:$standard-secondary-bg-color;
+        }
+    }
+
+}
+
+.expandable {
+    td:before {
+        font-weight: 700;
+    }
+}
+
+
+    table.separator.sortable {
+        @include media('<tablet') {
+            tbody {
+                th, td {
+                    border: none;
+                    padding: 0;
+                }
+
+            }
+        }
+
+        //TODO: this is not solution
+        @include media('<phone') {
+            th:first-child,
+            td:first-child,
+            .table__td--dropdown {
+                display: none;
+            }
+        }
+    }
+

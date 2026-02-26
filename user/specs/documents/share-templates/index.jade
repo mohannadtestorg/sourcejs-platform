@@ -1,0 +1,163 @@
+﻿h1 Theo
+block content
+    section.source_section
+        include ../../page-structure/helpers/print-json-mixin.jade
+        include ../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Information
+
+        p In UX3 implementation we have multiple components. Some components share templates or part of templates such "publication content" widget. This widget uses the tabs and the accordion templates as part of its template.
+        p Pug supports template inheritance via the block and extends keywords. A block is simply a “block” of Pug that may be replaced within a child template. This process is recursive.
+        p The following document will go through our latest approach in sharing templates.
+
+        strong The basics
+        p While working on the UX3 project we have noticed that we have shared template between our components. We used to copy parts we need across our templates . At some point we had out dated templates. So we decided to find better approach to share those bits of code across our templates.
+
+        p
+            | Lets take the "publication content widget" as an example. It has the following components as part of its template:
+            ul
+                li Tabs
+                li Accordion
+                li Citation
+                li Toolbox
+        p Instead of cloning those components templates directly to the "publication content widget" template we created new "extenders" template files for each one of our shared components.
+
+        h3 Original template
+        p The following code block contains the original tabs template code:
+        code.src-html.source_visible.source_example
+            | block tabsPrefix
+            | mixin item(item)
+            |     block tabsItem
+            | mixin nav()
+            |     block tabsNav
+            |         - var l = 0
+            |         each item, k in data.nav
+            |             li
+            |                 +link(item,l)
+            |             if (item.url)
+            |                 - l++
+            | mixin link(item,l)
+            |     block tabsLinks
+            |         if (item.url)
+            |             a.external(href= item.url aria-controls=item.url role="tab" title=item.text)
+            |                 +item(item)
+            |         else if ((config["effect"]) && (config["effect"] == "slide")
+            |             a(href="#pane-" + config.idName + l aria-controls="#pane-"+ config.idName + l role="tab" data-toggle="tab" title=item.text id="pane-" + config.idName + l + "con" data-slide-target="#pane-" + config.idName + l)
+            |                 +item(item)
+            |         else
+            |             a(href="#pane-"+ config.idName + l aria-controls="#pane-"+ config.idName + l role="tab" data-toggle="tab" title=item.text id="pane-"+ config.idName + l + "con")
+            |                 +item(item)
+            | mixin pane()
+            |     block tabsPanes
+            |         ul.rlist.tab__content.sticko__child
+            |             - var i = 0
+            |             each item, I in data.pane
+            |                 if (item.attr)
+            |                     li.tab__pane(data-i= i)&attributes(item.attr )
+            |                         | \\!{item.content}
+            |                 else
+            |                     li.tab__pane(id="pane-"+ config.idName + i aria-labelledby="pane-"+ config.idName + i + "con" role="tabpanel")
+            |                         | \\!{item.content}
+            |                 - i++
+            | block tabsMain
+            |     div.tab(class=classNames.wrapper)
+            |         if (config["effect"])
+            |             ul.rlist.tab__nav(data-mobile-toggle = config["effect"])
+            |                 +nav()
+            |             +pane()
+            |         else
+            |             ul.rlist.tab__nav
+            |                 +nav()
+            |             +pane()
+            | block tabsSuffix
+
+        p
+            | In our original template, Please note the following:
+            ul
+                li Pug blocks can provide default content if desired, however its optional
+                li Since blocks content is optional, we have defined two empty blocks "block tabsPrefix" (line number 1) and "block tabsSuffix" (line number 56) at the beginning and the end of our template file, we'll use those blocks to add custom code blocks  at the beginning and the end of our original template.
+                li we have divided our template into multiple mixins and block as default content.  Those blocks must have unique names. we'll use those blocks to override.
+        h3 "Extender" template (Child Template)
+        p The following is an "Extender" template.  "Extender template" is a template file that extends only one template as max and contains blocks to override the original template and its file name start with "ext-" followed by the original file name. we simply created new file and used the extends directive as shown below (line 1), giving the path of the original template. we have defined multiple blocks that will override the parent blocks content in the origin template, note that here the tabsLinks block and tabsNav are not redefined and will output their default content in our original template above.
+        code.src-html.source_visible.source_example
+            | extends ../../../../../components/tabs/templates/tabs/tabs-tmpl.jade
+            | block tabsPrefix
+            |     - var config = tabs.config;
+            |     - var data = tabs.data;
+            | block tabsLinks
+            |     a(href="#pane-" + config.idName + l aria-controls="#pane-"+ config.idName + l role="tab" data-toggle="tab" title=item.text id="pane-" + config.idName + l + "con" data-slide-target="#pane-" + config.idName + l)
+            |         +item(item)
+            | block tabsPanes
+            |     ul.rlist.tab__content.sticko__child
+            |         - var i = 0
+            |         each item, I in data.pane
+            |             li.tab__pane(id="pane-"+ config.idName + i  aria-labelledby="pane-"+ config.idName + i + "con" role="tabpanel")
+            |                 if i == 2
+            |                     include ./ext-accordion-tmpl.jade
+            |                 else
+            |                     | \\!{item.content}
+            |             - i++
+            | block tabsMain
+            |     div.tab.tab--slide(class=classNames.wrapper)
+            |         ul.rlist.tab__nav(data-mobile-toggle = "slide")
+            |             +nav()
+            |         +pane()
+        p The extender template above is equivalent to the following template code:
+        code.src-html.source_visible.source_example
+            | block tabsPrefix
+            |     - var config = tabs.config;
+            |     - var data = tabs.data;
+            | block tabsPrefix
+            | mixin item(item)
+            |     block tabsItem
+            | mixin nav()
+            |     block tabsNav
+            |         - var l = 0
+            |         each item, k in data.nav
+            |             li
+            |                 +link(item,l)
+            |             if typeof item.url == "undefined"
+            |                 - l++
+            | mixin link(item,l)
+            |     block tabsLinks
+            |     a(href="#pane-" + config.idName + l aria-controls="#pane-"+ config.idName + l role="tab" data-toggle="tab" title=item.text id="pane-" + config.idName + l + "con" data-slide-target="#pane-" + config.idName + l)
+            |         +item(item)
+            | mixin pane()
+            |     block tabsPanes
+            |         ul.rlist.tab__content.sticko__child
+            |         - var i = 0
+            |         each item, I in data.pane
+            |             li.tab__pane(id="pane-"+ config.idName + i  aria-labelledby="pane-"+ config.idName + i + "con" role="tabpanel")
+            |                 if i == 2
+            |                     include ./ext-accordion-tmpl.jade
+            |                 else
+            |                     | \\!{item.content}
+            |             - i++
+            | block tabsMain
+            |     div.tab.tab--slide(class=classNames.wrapper)
+            |         ul.rlist.tab__nav(data-mobile-toggle = "slide")
+            |             +nav()
+            |         +pane()
+            | block tabsSuffix
+        p * Note:  any changes in to the original template will affect the extender template as well,  unless those changes have been made in one of the overridden blocks.
+
+        h3 Widget template (Parent template)
+        p After we have created our extender templates we created our widget template that groups our widget actual code with our extender templates.
+        code.src-js.source_visible.source_example
+            | main.content
+            |     article.container
+            |         .row
+            |             .col-md-8.col-xs-11
+            |                 include ./extended/ext-citation-tmpl.jade
+            |                 | \\!{content}
+            |                 include ./extended/ext-toolbox-tmpl.jade
+            |             .col-md-4.col-xs-1.sticko__parent
+            |                 include ./extended/ext-tabs-tmpl.jade
+            |         include ../../../figure-viewer/templates/figure-viewer/figure-viewer-tmpl.jade
+        p We have included our extender templates in our actual templates ( line 5, line7, line 10 and 11 )
+
+        h3 File structure
+        p We moved our extenders template to be with in "extended" directory under "publication-content/templates/article/" as "/publication-content/templates/article/extended/ext-tabs-tmpl.jade" as the following:
+        img(src="/specs/documents/share-templates/releasedAssets/images/file-structure.png")
+        //

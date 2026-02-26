@@ -1,0 +1,181 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+include ../../../../ux3/page-structure/structure/templates/structure/helpers/print-json-mixin.jade
+include ../../../../ux3/page-structure/structure/templates/structure/helpers/print-js-code-mixin.jade
+
+block content
+
+    section.source_section
+
+        h2 Media object
+        p Basic component for display image next to text
+
+        h3 Usage
+        markdown.
+            - widget name: `media-object`
+
+        h3 Data
+        p The following (or similar) data structure must exist to be able to use Media Object widget.
+        markdown
+            | ```mediaObjectClass``` // is optional setting, which generates different CSS classes in markup
+
+        +printJson({
+            "model": {
+                "config": {
+                    "mediaObjectClass": "collections"
+                }
+            },
+            "data": {
+                "items": [
+                    {
+                        "title": "Children's Health collection",
+                        "content": "Nam placerat dolor nec sapien aliquam faucibus. Etiam venenatis eros nec consequat rutrum. Pellentesque sagittis pellentesque pharetra. Ut nec vulputate est. Praesent in leo mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam auctor magna sed diam hendrerit congue et vel orci. Vestibulum aliquet posuere metus, non sodales metus rutrum non.",
+                        "image": "/specs/ux3/releasedAssets/images/cover.png"
+                    },
+                    {
+                        "title": "Children's special collection",
+                        "content": "Nam placerat dolor nec sapien aliquam faucibus. Etiam venenatis eros nec consequat rutrum. Pellentesque sagittis pellentesque pharetra. Ut nec vulputate est. Praesent in leo mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam auctor magna sed diam hendrerit congue et vel orci. Vestibulum aliquet posuere metus, non sodales metus rutrum non.",
+                        "image": "/specs/ux3/releasedAssets/images/cover.png"
+                    }
+                ]
+            }
+        })
+
+        h3 Basic example
+
+        .source_example
+            div.container
+                | !{pb.render('media-object', 'media-object.json')}
+
+        h3 Custom class example
+
+        +printJson({
+            "model": {
+                "config": {
+                    "mediaObjectClass": "collections"
+                }
+            },
+            "data": {
+                "items": [
+                    {
+                        "title": "Children's Health collection",
+                        "content": "Nam placerat dolor nec sapien aliquam faucibus. Etiam venenatis eros nec consequat rutrum. Pellentesque sagittis pellentesque pharetra. Ut nec vulputate est. Praesent in leo mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam auctor magna sed diam hendrerit congue et vel orci. Vestibulum aliquet posuere metus, non sodales metus rutrum non.",
+                        "image": "/specs/ux3/releasedAssets/images/cover.png"
+                    }
+                ]
+            }
+        })
+
+        .source_example
+            div.container
+                | !{pb.render('media-object', {"model":{"config":{"mediaObjectClass":"collections"}},"data":{"items":[{"title":"Children's Health collection","content":"Nam placerat dolor nec sapien aliquam faucibus. Etiam venenatis eros nec consequat rutrum. Pellentesque sagittis pellentesque pharetra. Ut nec vulputate est. Praesent in leo mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam auctor magna sed diam hendrerit congue et vel orci. Vestibulum aliquet posuere metus, non sodales metus rutrum non.","image":"/specs/ux3/releasedAssets/images/cover.png"}]}})}
+
+    section.source_section
+        h2 Media object alternative template: conference
+        p Alternative template for conference list
+
+        h3 Usage
+        markdown.
+            - widget name: `media-object`
+            - alternative template: `conference`
+
+        h3 Data
+
+        +printJson({
+            "data": {
+                "items": [
+                    {
+                        "title": "Long Term Exposure to Black Carbon and Cardiovascular Mortality: A Study based on A Dynamic Three-Dimensional Exposure Model in an Elderly Cohort",
+                        "content": "<p>Yang Yang(School of Public Health, Li Ka Shing Faculty of Medicine, The University of Hong Kong, China, yangy28@hku.hk), Linwei Tian(School of Public Health, Li Ka Shing Faculty of Medicine, The University of Hong Kong, China), Robert Tang(School of Public Health, Li Ka Shing Faculty of Medicine, The University of Hong Kong, China), Hong Qiu(School of Public Health, Li Ka Shing Faculty of Medicine, The University of Hong Kong, China), Poh-Chin Lai(School of Public Health, Li Ka Shing Faculty of Medicine, The University of Hong Kong, China), Thuan-Quoc Thach(School of Public Health, Li Ka Shing Faculty of Medicine, The University of Hong Kong, China), Ryan Allen(Faculty of Health Sciences, Simon Fraser University, Canada), Michael Brauer(School of Population and Public Health, University of British Columbia, Canada), Benjamin Barratt(MRC-PHE Centre for Environment and Health & NIHR GSTFT/KCL Biomedical Research Centre Analytical and Environmental Sciences Division, Faculty of Life Sciences & Medicine, King's College London, United Kingdom)</p><p>Background/Aim: It has been well documented that air pollution is linked to adverse cardiovascular and respiratory health effects. Nevertheless, there has only been a few epidemiologic studies focusing on health effects of long term exposure of black carbon (BC). In addition, most of the studies have not accounted for the 3 Dimensional landscapes in cities and mobility of the population. We aim to estimate BC based on a novel dynamic 3 dimensional (D3D) land use regression (LUR) model and assess the long-term effects on mortality in a large elderly cohort in Hong Kong.</p><p>Methods: We conducted a cohort study of BC and cardiovascular mortality among 66,820 subjects aged 65 years old or older in Hong Kong from 1998-2011. BC concentrations were estimated by LUR model and assigned to all participants based on their residential addresses at baseline periods, adjusted the vertical and dynamic components. Cox regression models were used to estimate the hazard ratios (HRs) of mortality associated with BC.</p><p>Results: Statistically associations were observed not only for all natural causes mortality (HR=1.05; 95%CI: 1.03, 1.07) and cardiovascular disease (HR=1.1; 95CI%: 1.04, 1.17) but also for the two subcategories, IHD ( HR=1.11; 95%CI: 1.04, 1.17) and cerebrovascular disease ( HR=1.07; 95%CI: 1.01, 1.15) per IQR increase of BC.</p><p>Conclusions: This cohort study demonstrated that long-term exposure to ambient BC was associated with an increased risk of cardiovascular mortality. These findings suggested that BC may play a role in the association between traffic related air pollutants and mortality.</p>",
+                        "image": "/specs/ux3/releasedAssets/images/cover.png",
+                        "abstractNumber": "268",
+                        "id": "2017-26"
+                    }
+                ]
+            }
+        })
+
+        h3 Example
+
+        .source_example
+            div.container
+                | !{pb.render('media-object', 'conference', 'conference.json')}
+
+    section.source_section
+        h2 Media object alternative template: conference
+        p Alternative template for conference list
+
+        h3 Usage
+        markdown.
+            - widget name: `media-object`
+            - alternative template: `conference-abstracts`
+
+        h3 Data
+
+        +printJson({
+            "data": {
+                "items": [
+                    {
+                        "title": "ISEE Annual Conferences",
+                        "content": "<p><a href=\"#\">The International Society for Environmental Epidemiology (ISEE)</a> is an international organization with members from more than 60 countries and regional chapters and local groups in Latin America, the Mediterranean, Europe, and East Asia. EHP is pleased to present the abstracts for these ISEE conferences:</p>",
+                        "image": "/specs/ux3/releasedAssets/images/cover.png",
+                        "items": [
+                            {
+                                "title": "Healthy Places, Healthy People—Where Are the Connections? ",
+                                "url": "#",
+                                "date": "24–28 September 2017",
+                                "place": "Sydney, Australia"
+                            },
+                            {
+                                "title": "Healthy Places, Healthy People—Where Are the Connections? ",
+                                "url": "#",
+                                "date": "24–28 September 2017",
+                                "place": "Sydney, Australia"
+                            },
+                            {
+                                "title": "Healthy Places, Healthy People—Where Are the Connections? ",
+                                "url": "#",
+                                "date": "24–28 September 2017",
+                                "place": "Sydney, Australia"
+                            },
+                            {
+                                "title": "From Local to Global: Advancing Science for Policy in Environmental Health",
+                                "url": "#",
+                                "date": "24–28 September 2017",
+                                "place": "Sydney, Australia"
+                            },
+                            {
+                                "title": "Healthy Places, Healthy People—Where Are the Connections? ",
+                                "url": "#",
+                                "date": "24–28 September 2017",
+                                "place": "Sydney, Australia"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Children's Environmental Health Network (CEHN) Conference on the Contribution of Epigenetics in Pediatric Environmental Health",
+                        "content": "<p><a href=\"#\">The International Society for Environmental Epidemiology (ISEE)</a> is an international organization with members from more than 60 countries and regional chapters and local groups in Latin America, the Mediterranean, Europe, and East Asia. EHP is pleased to present the abstracts for these ISEE conferences:</p>",
+                        "image": "/specs/ux3/releasedAssets/images/cover.png",
+                        "date": "30 May-1 June 2012",
+                        "place": "San Francisco, California",
+                        "items": [
+                            {
+                                "pdf": {
+                                    "url": "#?pdf",
+                                    "title": "The Contribution of Epigenetics in Pediatric Environmental Health",
+                                    "size": "5.5"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        })
+
+        h3 Example
+
+        .source_example
+            div.container
+                | !{pb.render('media-object', 'conference-abstracts', 'conference-abstracts.json')}
+
+    | #{''}

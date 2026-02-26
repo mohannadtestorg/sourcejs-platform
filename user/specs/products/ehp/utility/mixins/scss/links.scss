@@ -1,0 +1,51 @@
+/*
+ * Mixins for link appearance
+ * @require animate
+ */
+@import "animate";
+
+@mixin make-link(
+        $link-color: $primary-link-color,
+        $link-hover-color: $primary-link-hover-color,
+        $link-decoration: $primary-link-decoration,
+        $link-hover-decoration: $primary-link-hover-decoration,
+        $link-focus-outline: $link-focus-outline
+    ) {
+    @include animate(color);
+    color: $link-color;
+    text-decoration: $link-decoration;
+    &:hover, &:focus, &:active {
+        color: $link-hover-color;
+        text-decoration: $link-hover-decoration;
+    }
+    &:focus {
+        outline: $link-focus-outline;
+        outline-offset: 2px;
+    }
+}
+@mixin make-primary-link() {
+    @include make-link();
+}
+@mixin make-secondary-link() {
+    @include make-link(
+        $link-color: $secondary-link-color,
+        $link-hover-color: $secondary-link-hover-color,
+        $link-decoration: $secondary-link-decoration,
+        $link-hover-decoration: $secondary-link-hover-decoration
+    );
+}
+@mixin make-default-link() {
+    @include make-link(
+        $link-color: $default-link-color,
+        $link-hover-color: $default-link-hover-color,
+        $link-decoration: $default-link-decoration,
+        $link-hover-decoration: $default-link-hover-decoration
+    );
+}
+
+@mixin inherit-link-color() {
+    color: inherit;
+    &:hover, &:focus, &:active {
+        color: inherit;
+    }
+}

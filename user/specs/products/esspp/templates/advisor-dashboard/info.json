@@ -1,0 +1,47 @@
+{
+    "title": "Advisor Dashboard",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "submissionList":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/pd-submission-list/templates/pd-submission-list/pd-submission-list-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/widgets/pd-submission-list/templates/data/data.json"
+                }
+            }
+        },
+        "actionBar":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/pd-action-bar/templates/pd-action-bar/advisor-in-review-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/widgets/pd-action-bar/templates/data/advisor-in-review.json"
+                }
+            }
+        },
+        "articleView":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/pd-article-view/templates/pd-article-view/pd-article-view-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/widgets/pd-article-view/templates/data/data.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

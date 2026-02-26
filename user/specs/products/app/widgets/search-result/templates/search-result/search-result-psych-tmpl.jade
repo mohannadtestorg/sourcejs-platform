@@ -1,0 +1,28 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl
+
+
+
+block searchResultPager
+    include ./pager-tmpl
+
+
+block tileIcon
+    i.icon-two-rows-and-three-columns-layout
+
+
+block currentIssueTitle
+
+block searchResultTabs
+    if data.widgetData.groupTabs && data.serviceName == "doSearch"
+        | !{pb.render("search-result", "search-result/search-tabs", {data: data}, "app")}
+
+
+block searchResultTop
+
+block searchResultTopShowPublications
+
+block searchListClasses
+    -var listClasses=searchlistClass ;
+
+
+

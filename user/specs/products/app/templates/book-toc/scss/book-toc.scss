@@ -1,0 +1,157 @@
+
+.book-toc{
+@include media('<tablet'){
+  padding: 0;
+}
+
+  .cover-image{
+    &__image{
+      @include media('<phone'){
+        text-align: center;
+        img{
+          height: 250px;
+        }
+      }
+    }
+  }
+
+  &__expandable-links{
+    i{
+      font-weight: 900;
+      padding-right: 10px;
+    }
+  }
+
+  &__access{
+    color: green;
+    font-size: .875rem;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    min-width:75px;
+    text-transform: capitalize;
+    i{
+      padding-right: 2px;
+    }
+    &-full-access{
+      color: green;
+      text-transform: capitalize;
+    }
+    &-no-access{
+      color: red;
+      text-transform: capitalize;
+    }
+    &-partial-access{
+      color: $yellow-text-color;
+      text-transform: capitalize;
+    }
+    @include media('<tablet'){
+      top: 375px;
+    }
+    @include media('<phone'){
+      top: 280px;
+    }
+  }
+
+  &__links{
+    font-weight: 700;
+    margin-top: 15px;
+    position: relative;
+    min-height: 20px;
+
+  .rlist--inline{
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    a{
+      &:hover,&:focus{
+        color: $primary-darken-text-color;
+      }
+    }
+  }
+    .accordion{
+      display: inline-block;
+      width: 100%;
+      &__control{
+        padding-right: 8px;
+        border-right: 1px solid;
+        font-size: .875rem;
+        display: inline-block;
+        margin-bottom: 5px;
+        width: auto;
+
+        i{
+          font-size: 0.42rem;
+          margin: 8px 10px 0 0;
+
+        }
+
+      }
+
+      &__content{
+        padding: 15px;
+        background: $secondary-lighten-bg-color;
+        font-weight:500;
+      }
+      .js--open {
+        i{
+          margin-right: 8px;
+        }
+      }
+    }
+
+  }
+&__content{
+  .accordion{
+    margin-top: 25px;
+    &__control{
+      font-size: .875rem;
+      display: inline-block;
+      width: auto;
+      position: relative;
+      i{
+        font-size: 0.42rem;
+        margin: 8px 15px 0 0;
+        font-weight: 900;
+        color: $link-text-color;
+        position: absolute;
+      }
+      span{
+        display: inline-block;
+        margin-left: 30px;
+      }
+    }
+    &__content{
+      padding:0px 10px 10px 30px;
+      p{
+        margin: 0;
+      }
+
+      .chapter{
+        padding-bottom: 8px;
+        .link{
+          padding-left: 5px;
+        }
+      }
+    }
+  }
+
+}
+
+  .newsletter__wrapper{
+    margin-top: 0;
+  }
+
+  .parent-item{
+     position: relative;
+
+      .book{
+        &__title {
+          h4 {
+            width: calc(100% - 75px);
+          }
+        }
+      }
+  }
+
+}

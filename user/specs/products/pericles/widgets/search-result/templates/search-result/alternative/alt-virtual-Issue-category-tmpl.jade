@@ -1,0 +1,38 @@
+extends ../search-result-tmpl.jade
+
+block searchResultTop
+block searchResultTopShowPublications
+
+block searchResultDropZone
+block searchResultPager
+
+block searchResultMainItemsJade
+    .search-result__virtual-issues
+        .card.clearfix
+            ul.rlist.search-result__body.titles-results
+                if(data.search && data.search.results)
+                    each item, i in data.search.results
+                        - var url = "#"
+                        li.clearfix.separator.search__item
+                            h4.meta__title.meta__title__margin
+                                if(item.content)
+                                    a(href=item.content.issueLink) !{item.content.title}
+                            div.meta__info
+                                div.meta__details
+                                    if (item.content.firstPublished)
+                                        span.meta__epubDate
+                                            label First published:
+                                            span !{item.content.firstPublished}
+                                    if (item.content.lastUpdated)
+                                        span.meta__epubDate
+                                            label Last updated:
+                                            span !{item.content.lastUpdated}
+                                if (item.content.serial) && (item.content.serial.journalSubmissionsLink)
+                                    div.meta__submit_article
+                                        a(href=item.content.serial.journalSubmissionsLink)
+                                            i.icon-submit_article
+                                            span Submit an article
+                                if (item.content) && (item.content.abstract)
+                                    div.article-section__abstract
+                                        .article-section__content
+                                            p !{item.content.abstract}

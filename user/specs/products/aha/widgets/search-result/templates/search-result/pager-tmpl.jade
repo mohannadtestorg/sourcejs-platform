@@ -1,0 +1,19 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/pager-tmpl
+
+block previousPage
+    span.pagination__btn--prev
+        - var prevPageId = data.search.startPage -1;
+        - newurl = pb.updateParam(temp,"startPage",prevPageId)
+        a.btn.btn-sm.btn--primary(href= newurl, title='Previous Page')
+            span.hidden-xs.hidden-sm.hidden-md Previous
+            span.hidden-lg
+                i.icon-arrow_l
+
+block nextPage
+    span.pagination__btn--next
+        - var nextPageId = data.search.startPage +1;
+        - newurl = pb.updateParam(temp,"startPage",nextPageId)
+        a.btn.btn-sm.btn--primary(href= newurl, title='Next page')
+            span.hidden-xs.hidden-sm.hidden-md Next
+            span.hidden-lg
+                i.icon-arrow_r

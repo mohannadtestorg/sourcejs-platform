@@ -1,0 +1,81 @@
+article
+    if data
+        .article__header
+            | !{data.articleHeader}
+
+
+        .article__body
+            .article__tos
+                ul.rlist.article__tos__upper.hidden
+                ul.rlist.article__tos__bottom.hidden
+            block adPlaceholders
+                .adplaceholders.sticky.hidden-xs.hidden-sm
+                    | !{pb.renderDropzone(thisWidget, 'AdvertisementPaid1')}
+
+                .adplaceholders.hidden-xs.hidden-sm
+                    | !{pb.renderDropzone(thisWidget, 'AdvertisementContextual1')}
+                    | !{pb.renderDropzone(thisWidget, 'AdvertisementContextual2')}
+            .container
+                .row
+                    .col-md-2.hidden-sm
+
+
+                    .col-sm-7
+                        | !{data.articleContentHTML}
+                        block articleBottomDropZone
+                            | !{pb.renderDropzone(thisWidget, 'articleBottomDropZone')}
+
+
+                        include ../../../../components/figure-viewer/templates/figures/figure-viewer-tmpl
+
+                        block adstransplant
+                            .adplaceholder__transplant.hidden-md.hidden-lg(data-toggle="transplant", data-direction="from", data-transplant="self", data-target=".adplaceholder--slot2, .adplaceholder--slot3 ", data-remove="false")
+                        block upsellbx
+                            if data.acessDinalData
+                                if (data.acessDinalData.freeToRegisteredUsers)
+                                    section.upsell-box.clearfix.free
+                                        .upsell-box__top
+                                            .upsell-box__title This article is available free of charge.
+                                            .upsell-box__body Simple log in to access the full article, or register for free if you do not yet have a username and password.
+                                        .upsell-box__wrapper.clearfix.row
+                                            .col-sm-6
+                                                .upsell-box__actions__label Already registered? Please log in.
+                                                .upsell-box__actions__list
+                                                    div
+                                                        a.upsell-box__action.block(href=data.acessDinalData.showLoginURL title="Log in to existing account") Log in to existing account
+                                                    div
+                                                        a.upsell-box__action.block(href=data.acessDinalData.requestResetPasswordURL title="Log in to existing account") Forgot password?
+                                            .col-sm-6
+                                                .upsell-box__actions__label Not yet registered? Create a new account.
+                                                a.upsell-box__register.upsell-box__banner(href=data.acessDinalData.registrationURL title="Register for free") Register for free
+                                else
+                                    section.upsell-box.clearfix
+                                        .row
+                                            .col-sm-5
+                                                a.upsell-box__banner.upsell-box__control(href=data.acessDinalData.articlePurchaseURL title="Purchase one-time access") Purchase one-time access
+                                                .upsell-box__wrapper
+                                                    if data.acessDinalData.isCell && data.acessDinalData.readItNow
+                                                        a.upsell-box__action.block(href=data.acessDinalData.readItNow title="Or purchase Read-It-Now") Or purchase Read-It-Now
+                                                        .upsell-box__body Access all research journal HTML articles for 6 or 36 hours
+                                                    if data.acessDinalData.isLancet && data.acessDinalData.LancetChoice
+                                                        a.upsell-box__action.block(href=data.acessDinalData.LancetChoice title="Or purchase The Lancet Choice") Or purchase The Lancet Choice
+                                                        .upsell-box__body Access any 5 articles from the Lancet Family of journals
+                                            .col-sm-7
+                                                a.upsell-box__banner.upsell-box__control(href=data.acessDinalData.journalSubscribeURL title="Subscribe to " + data.acessDinalData.journalPrimaryTitle)
+                                                    span Subscribe to
+                                                    i  !{data.acessDinalData.journalPrimaryTitle}
+                                                .upsell-box__wrapper
+                                                    .upsell-box__item
+                                                        span.upsell-box__suffix Already a print subscriber?
+                                                        a.upsell-box__action(href=data.acessDinalData.activateClaimURL title="Claim online access")  Claim online access
+                                                    .upsell-box__item
+                                                        span.upsell-box__suffix Already an online subscriber?
+                                                        a.upsell-box__action(href=data.acessDinalData.showLoginURL title="Sign in")  Sign in
+                                                    .upsell-box__item
+                                                        span.upsell-box__suffix Register:
+                                                        a.upsell-box__action(href=data.acessDinalData.registrationURL title="Create an account")  Create an account
+                                                    .upsell-box__item
+                                                        span.upsell-box__suffix Institutional Access:
+                                                        a.upsell-box__action(href=data.acessDinalData.scienceDirectLoginURL title="Sign in to ScienceDirect")  Sign in to ScienceDirect
+                    .col-sm-3
+

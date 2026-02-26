@@ -1,0 +1,19 @@
+if(data.formFields)
+ -var lang = data.formFields.language
+
+h2.section__header= lang
+div !{data.note}
+br
+
+if lang == 'jsp'
+    include ./language/tpsCode-jsp-tmpl
+else if lang == 'perl'
+    include ./language/tpsCode-perl-tmpl
+else if lang == 'coldfusion'
+    include ./language/tpsCode-coldfusion-tmpl
+else if lang == 'php'
+    include ./language/tpsCode-php-tmpl
+else if lang == 'asp'
+    include ./language/tpsCode-asp-tmpl
+else
+    p No such language

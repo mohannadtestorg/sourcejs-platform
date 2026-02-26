@@ -1,0 +1,321 @@
+/***
+
+```
+<header class="m-article-header">
+  <p class="m-article-header__type f-caps"><a href="#">Clinical Problem-Solving</a></p>
+  <h1 class="m-article-header__title f-h1">After the Party's Over</h1>
+  <ul class="m-article-header__authors f-ui">
+    <li>James H. Ware, Ph.D.</li>
+    <li>, David Harrington, Ph.D.</li>
+    <li>, Ralph B. D'Agostino, Sr., Ph.D.</li>
+    <li>, Robert M. Califf, M.D.</li>
+    <li>, Melissa A. Robb, M.S.(Reg.Sci.), B.S.N.</li>
+    <li class="m-article-header__authors__show-all">, <button data-behavior="ShowAllAuthors">Et al.</button></li>
+    <li class="m-article-header__authors__group">, for the POT-CAST Group<sup><a href="#tip_1" data-behavior="ShowPopupTip">*</a></sup></li>
+  </ul>
+</header>
+```
+
+***/
+/***
+
+With a tag in the type:
+
+```
+<header class="m-article-header">
+  <p class="m-article-header__type f-caps"><a href="#">Clinical Problem-Solving</a> <span class="a-type-tag a-type-tag--archive">Archive</span></p>
+  <h1 class="m-article-header__title f-h1">After the Party's Over</h1>
+  <ul class="m-article-header__authors f-ui">
+    <li>James H. Ware, Ph.D.</li>
+    <li>, David Harrington, Ph.D.</li>
+    <li>, Ralph B. D'Agostino, Sr., Ph.D.</li>
+    <li>, Robert M. Califf, M.D.</li>
+    <li>, Melissa A. Robb, M.S.(Reg.Sci.), B.S.N.</li>
+    <li class="m-article-header__authors__show-all">, <button data-behavior="ShowAllAuthors">Et al.</button></li>
+    <li class="m-article-header__authors__group">, for the POT-CAST Group<sup><a href="#tip_1" data-behavior="ShowPopupTip">*</a></sup></li>
+  </ul>
+</header>
+```
+
+***/
+/***
+
+With a series title/sub type:
+
+```
+<header class="m-article-header">
+  <p class="m-article-header__type f-caps"><a href="#">Clinical Problem-Solving</a> <a href="#" class="m-article-header__series">The Changing Face of Clinical Trials</a></p>
+  <h1 class="m-article-header__title f-h1">After the Party's Over</h1>
+  <ul class="m-article-header__authors f-ui">
+    <li>James H. Ware, Ph.D.</li>
+    <li>, David Harrington, Ph.D.</li>
+    <li>, Ralph B. D'Agostino, Sr., Ph.D.</li>
+    <li>, Robert M. Califf, M.D.</li>
+    <li>, Melissa A. Robb, M.S.(Reg.Sci.), B.S.N.</li>
+    <li class="m-article-header__authors__show-all">, <button data-behavior="ShowAllAuthors">Et al.</button></li>
+    <li class="m-article-header__authors__group">, for the POT-CAST Group<sup><a href="#tip_1" data-behavior="ShowPopupTip">*</a></sup></li>
+  </ul>
+</header>
+```
+
+***/
+/***
+
+If the the title is long - the font class of `m-article-header__title` changes from `f-h1` to `f-h5`:
+
+```
+<header class="m-article-header">
+  <p class="m-article-header__type f-caps"><a href="#">Clinical Problem-Solving</a></p>
+  <h1 class="m-article-header__title f-h15">A controlled trial of trimethoprim&ndash;sulfamethoxazole or aerosolized pentamidine for secondary prophylaxis of <em>Pneumocystis carinii</em> pneumonia in patients with the acquired immunodeficiency syndrome &mdash; AIDS Clinical Trials Group Protocol 021" : "Transforming Evidence Generation to Support Health and Health Care Decisions</h1>
+  <ul class="m-article-header__authors f-ui">
+    <li>James H. Ware, Ph.D.</li>
+    <li>and David Harrington, Ph.D.</li>
+  </ul>
+</header>
+```
+
+***/
+/***
+
+Alt variant `m-article-header--alt`:
+
+```
+<header class="m-article-header m-article-header--alt">
+  <p class="m-article-header__type f-h14"><a href="#">Perspective</a></p>
+  <h1 class="m-article-header__title f-h1">After the Party's Over</h1>
+  <ul class="m-article-header__authors f-ui">
+    <li>James H. Ware, Ph.D.</li>
+    <li>, David Harrington, Ph.D.</li>
+    <li>, Ralph B. D'Agostino, Sr., Ph.D.</li>
+    <li>, Robert M. Califf, M.D.</li>
+    <li>, Melissa A. Robb, M.S.(Reg.Sci.), B.S.N.</li>
+    <li class="m-article-header__authors__show-all">, <button data-behavior="ShowAllAuthors">Et al.</button></li>
+    <li class="m-article-header__authors__group">, for the POT-CAST Group<sup><a href="#tip_1" data-behavior="ShowPopupTip">*</a></sup></li>
+  </ul>
+</header>
+```
+
+***/
+/***
+
+Alt variant `m-article-header--alt` with long title:
+
+```
+<header class="m-article-header m-article-header--alt">
+  <p class="m-article-header__type f-h14"><a href="#">Perspective</a></p>
+  <h1 class="m-article-header__title f-h15">After the Party's Over</h1>
+  <ul class="m-article-header__authors f-ui">
+    <li>James H. Ware, Ph.D.</li>
+    <li>, David Harrington, Ph.D.</li>
+    <li>, Ralph B. D'Agostino, Sr., Ph.D.</li>
+    <li>, Robert M. Califf, M.D.</li>
+    <li>, Melissa A. Robb, M.S.(Reg.Sci.), B.S.N.</li>
+    <li class="m-article-header__authors__show-all">, <button data-behavior="ShowAllAuthors">Et al.</button></li>
+    <li class="m-article-header__authors__group">, for the POT-CAST Group<sup><a href="#tip_1" data-behavior="ShowPopupTip">*</a></sup></li>
+  </ul>
+</header>
+```
+
+***/
+
+.m-article-header {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.m-article-header__type {
+  margin-top: 0;
+}
+
+.m-article-header__type,
+.m-article-header__type a,
+.m-article-header__type a:hover {
+  color: $color__accent;
+}
+
+.m-article-header__type .a-type-tag {
+  display: table;
+  margin: 3px auto 0;
+
+  @include breakpoint('small+') {
+    display: inline-block;
+    margin: 0 0 0 4px;
+  }
+}
+
+.m-article-header:not(.m-article-header--alt) .m-article-header__series,
+.m-article-header:not(.m-article-header--alt) a.m-article-header__series,
+.m-article-header:not(.m-article-header--alt) a.m-article-header__series:hover {
+  display: inline-block;
+  padding-left: 8px;
+  color: $color__promo-accent;
+  font: inherit;
+}
+
+.m-article-header__type a:hover {
+  text-decoration: underline;
+}
+
+.m-article-header__title {
+  margin-top: 16px;
+  color: $color__text--headlines;
+}
+
+.m-article-header__authors {
+  margin-top: 20px;
+  color: $color__text--tertiary;
+}
+
+.m-article-header__title,
+.m-article-header__authors {
+  display: block;
+  padding-right: map-get($inner-gutters, xsmall);
+  padding-left: map-get($inner-gutters, xsmall);
+
+  @include breakpoint('small+') {
+    padding-right: map-get($inner-gutters, small);
+    padding-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    padding-right: map-get($inner-gutters, medium);
+    padding-left: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    max-width: colspan(10, large);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    max-width: colspan(10, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    max-width: colspan(10, xxlarge);
+  }
+}
+
+.m-article-header__authors li {
+  display: inline;
+}
+
+.m-article-header__authors li button {
+  @include f-ui;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  background: transparent;
+  color: $color__text--tertiary;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.m-article-header__authors li:nth-child(4) ~ li:not([class]) {
+  @include breakpoint('small-') {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity .2s;
+  }
+}
+
+.m-article-header__authors li:nth-child(12) ~ li:not([class]) {
+  @include breakpoint('medium+') {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity .2s;
+  }
+}
+
+.m-article-header__authors.s-show-all li:nth-child(4) ~ li:not([class]),
+.m-article-header__authors.s-show-all li:nth-child(12) ~ li:not([class]) {
+  @include breakpoint('small-') {
+    display: inline;
+    width: auto;
+    height: auto;
+    opacity: 1;
+  }
+
+  @include breakpoint('medium+') {
+    display: inline;
+    width: auto;
+    height: auto;
+    opacity: 1;
+  }
+}
+
+
+.m-article-header__authors.s-show-all .m-article-header__authors__show-all {
+  display: none;
+}
+
+
+
+.m-article-header--alt {
+  text-align: left;
+}
+
+.m-article-header--alt .m-article-header__title,
+.m-article-header--alt .m-article-header__authors {
+  margin-top: 12px;
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+
+  @include breakpoint('small+') {
+    padding-left: 0;
+  }
+
+  @include breakpoint('medium+') {
+    padding-left: 0;
+  }
+}
+
+.m-article-header--alt .m-article-header__title {
+  margin-top: 0;
+}
+
+.m-article-header--alt .m-article-header__type,
+.m-article-header--alt .m-article-header__type .f-h14,
+.m-article-header--alt .m-article-header__type a.f-h14:hover {
+  color: $color__text--quaternary;
+  text-decoration: none;
+}
+
+.m-article-header--alt .m-article-header__type a.f-h14:hover {
+  @include text-underline(.9em, $color__text--quaternary);
+
+  @include breakpoint('small+') {
+    background-position: 0 .85em;
+  }
+
+  @include breakpoint('large+') {
+    background-position: 0 .9em;
+  }
+}
+
+.m-article-header--alt .m-article-header__type > br {
+  display: none;
+}
+
+.m-article-header--alt .m-article-header__series,
+.m-article-header--alt a.m-article-header__series {
+  display: block;
+  margin-bottom: 6px;
+  color: $color__promo-accent;
+}
+
+.m-article-header--alt a.m-article-header__series:hover {
+  color: $color__promo-accent;
+  text-decoration: underline;
+}

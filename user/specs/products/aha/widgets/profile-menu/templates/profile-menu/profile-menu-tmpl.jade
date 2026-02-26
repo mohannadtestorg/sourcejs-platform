@@ -1,0 +1,40 @@
+mixin account_list(menu)
+    each item,I in menu
+        - var check = false
+
+        if item.label != undefined
+            case I
+                when 'author'
+                    if data.isAuthor
+                        - check = true
+                when 'showInstitutionShibbolethConfig'
+                    if data.shibbolethAdminEnabled
+                        - check = true
+
+                default
+                    - check = true
+
+        if check
+            li(class=item.active ? 'active' : '')
+                block profileTabsLinks
+                    if(item.link)
+                        a(href=item.link)
+                            span !{item.label}
+                            if (item.status)
+                                span(class="item-badge " + (item.status == "Pending Update" ? "orange" : "green"))
+                                    span.badge-container
+                                        | !{item.status}
+
+
+div.profile-pages
+    .tab.tab--aside
+        ul.rlist.tab__nav
+            if data.accountMenu
+                +account_list(data.accountMenu)
+            if data.institutionAdminMenu
+                +account_list(data.institutionAdminMenu)
+        .tab__content.mt-0
+            | !{pb.renderDropzone(thisWidget, "profileTabContentDropZone")}
+
+
+

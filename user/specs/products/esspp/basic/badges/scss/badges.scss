@@ -1,0 +1,68 @@
+.badge {
+    &-type {
+        background-color:$note-bg-color;
+        color:$ess-primary-text-color ;
+    }
+}
+
+.badge-state {
+    z-index: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #ccc;
+    border-radius: 100%;
+
+    &:before{
+        display: block;
+        line-height: 1;
+    }
+
+    &--in-review {
+        background-color: $review-bg-color;
+        &:before {
+            content: "R";
+        }
+    }
+    &--submitted {
+        background-color: $submitted-bg-color;
+        &:before {
+            content: "S";
+        }
+    }
+    &--rejected {
+        background-color: $rejected-bg-color;
+        &:before {
+            content: "R";
+        }
+    }
+    &--cancelled {
+        background-color: $cancelled-bg-color;
+        &:before {
+            content: "C";
+        }
+    }
+    &--draft {
+        background-color: $draft-bg-color;
+        &:before {
+            content: "D";
+        }
+    }
+    &--processing {
+        background-color: $draft-bg-color;
+        &:before {
+            content: "P";
+        }
+    }
+    &--approved {
+        background-color: $approval-bg-color;
+        &:before {
+            content: "A";
+        }
+    }
+}

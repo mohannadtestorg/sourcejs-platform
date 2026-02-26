@@ -1,0 +1,160 @@
+{
+    "title": "TOC page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/demo/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "current_issue": {
+            "$pug": {
+                "template": "../../widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/cover-image/templates/data/single-cover-image-metadata.json"
+                }
+            }
+        },
+        "advertisements" : [
+            {
+                "$pug": {
+                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                    "data": {
+                        "thisWidget": {
+                            "id":"advertisement1",
+                            "properties": {
+                                "render": "html",
+                                "html": "<small classs=\"advertisement--title\">ADVERTISEMENT</small><a href=\"#\" class=\"advertisment--block\" title=\"Title\"><img src=\"/specs/products/aha/images/home_ads_1.png\" alt=\"\" title=\"\"/></a>"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "$pug": {
+                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                    "data": {
+                        "thisWidget": {
+                            "id":"advertisement2",
+                            "properties": {
+                                "render": "html",
+                                "html": "<small classs=\"advertisement--title\">ADVERTISEMENT</small><a href=\"#\" class=\"advertisment--block\" title=\"Title\"><img src=\"/specs/products/aha/images/home_ads_2.png\" alt=\"\" title=\"\"/></a>"
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "videocasts": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["has-pagination has-numeric-pagination"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/slideshow/templates/demo/slideshow-images-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/slideshow/templates/data/slideshow-numeric-pagination.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "podcasts": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["has-pagination has-numeric-pagination"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/slideshow/templates/demo/slideshow-images-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/slideshow/templates/data/slideshow-numeric-pagination.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "meta":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card meta__body\"><h2 class=\"meta__title\">Table of Contents</h2><strong class=\"meta__info\">July 4, 2017 - Volume 136, Issue 1</strong></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "toc":{
+            "$pug": {
+                "template": "../../widgets/table-of-content/templates/table-of-content/demo/table-of-content-tmpl.jade",
+                "data": {}
+            }
+        },
+        "pagination": {
+            "$pug": {
+                "template": "../../components/pagination/templates/pagination/extended/ext-pagination-tmpl.jade",
+                "data": {
+                    "data": {
+                        "pager": [],
+                        "prevButton": {
+                            "itemUrl": "#prev"
+                        },
+                        "nextButton": {
+                            "itemUrl": "#next"
+                        }
+                    }
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

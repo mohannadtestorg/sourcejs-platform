@@ -1,0 +1,34 @@
+form.o-form-sm(action='/', data-behavior='AjaxFormSubmit')
+    fieldset
+        legend Save Article
+
+        ol.o-form-sm__fields-list
+            li
+                label.a-label(for='saveArticle_description') Description
+
+                input#saveArticle_description(name='saveArticle_description', type='text')
+
+            li
+                label.a-label(for='saveArticle_keywords') Keywords
+
+                input#saveArticle_keywords(name='saveArticle_keywords', type='text', data-input-keywords='')
+
+                em.a-form-hint Separated by semicolon
+
+        p.o-form-sm__prev-keywords(data-behavior='PrevKeywords')
+            | Previously used keywords:
+            em Coronary Artery Disease
+            | ,
+            em Stents Research
+
+        p.o-form-sm__btns
+            button.a-btn(type='submit')
+                | Save
+                svg.icon--arrow(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+            button.a-btn.a-btn--fake-link-secondary(data-behavior='CloseModal')
+                | Cancel
+
+        p.o-form-sm__success-msg.sg-scala-sans-offc-pro
+            a(href='#') See all my saved articles

@@ -1,0 +1,13 @@
+﻿extends /specs/products/achs/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 User login bar
+        h3 User logged in example
+        .source_example
+            | !{pb.render("user-login-bar", "user-login-bar-logged-in.json")}
+        h3 User logged out example
+        .source_example
+            | !{pb.render("user-login-bar", "user-login-bar-logged-out.json")}
+    | #{''}

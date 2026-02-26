@@ -1,0 +1,55 @@
+extends /specs/products/mal/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Home page
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        p Use json file to render Home page info
+
+        +printJson({
+
+        })
+
+
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+
+            | !{data.header}
+            main.content.with-bg
+                .top-image
+                .container
+                    | !{data.slider}
+
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.articles}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            | !{data.nl}
+
+                            //mpu ad
+                            .mpu
+                    .row.separator--extra
+                        .col-md-8.col-sm-7.gutterless.news
+                            | !{data.news}
+
+                        .col-md-4.col-sm-5
+                            | !{data.tweets}
+                .container
+                    .row.separator
+                        .col-md-12.gutterless
+                            | !{data.issues}
+            | !{data.footer}
+    | #{''}

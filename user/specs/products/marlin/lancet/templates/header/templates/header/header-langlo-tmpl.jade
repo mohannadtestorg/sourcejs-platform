@@ -1,0 +1,11 @@
+header.header.base.fixed
+    .header__wrapper.clearfix(data-db-parent-of="quickSearch")
+        .col-xs-6
+            block headerLogo
+                a.journal-logos(href="/" title="Go home")
+                    img(src='/specs/products/marlin/lancet/components/journal-logos/images/TLGH.svg', alt='lancet logo')
+        .col-xs-6
+            .header__nav.row
+                | !{pb.render("menu", "mainMenu.json")}
+                | !{pb.render("quick-search","demo/quick-search", "quick-search.json")}
+                | !{pb.render("profile-links", "profile-links-logged-in.json")}

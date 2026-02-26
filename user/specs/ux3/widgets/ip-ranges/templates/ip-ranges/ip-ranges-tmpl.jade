@@ -1,0 +1,94 @@
+mixin ranges_cols(rows,description,ranges,message,ch_name,ch_id)
+    block ipRangePrefix
+        - var cols = []
+        - cols.push({"content": description})
+        - cols.push({"content": ranges})
+        - cols.push({"content": message})
+
+        if ch_id || ch_id == 0
+            - rows.push({"cols": cols,"ch_name":ch_name,"ch_id": ch_name+ch_id,"ch_value":ch_id})
+        else
+            - rows.push({"cols": cols})
+
+mixin ranges_table(source)
+    block tablePrefix
+        - var tableData = {"headings":[], "actions":[], "rows":[]}
+        - var config = {"checkbox": true,"expandable": false}
+
+    block tableHead
+        - var headings = [{"content": data.descLabel},{"content": data.ipRangesTitle}, {"content": ''}];
+        - tableData.headings = headings
+
+    block tableBody
+        each record,i in source.records
+            - var description = '<input class="smalltextfield" name="description'+(i)+'" value="'+record.ipRangeUserDescription+'">'
+            - var ranges = '<input class="smalltextfield" name="ipRange'+(i)+'" value="'+record.ipRangeUserDisplayName+'">'
+            - var message = record.messageKey ? ('<div class="error">' + record.messageKey + '</div>') : ''
+            +ranges_cols(tableData.rows,description,ranges,message,'indexes',(i))
+        +ranges_cols(tableData.rows,'<label for=check-'+source.records.length+'>'+data.ipChangeForceLabel+'</label>','','','force',0)
+
+    block table
+        | !{pb.render('tables', {data: tableData, config: config})}
+
+
+mixin addIPRanges()
+    block addIPRanges
+        h2.section__header.border-bottom !{data.addSectionTitle}
+        if (data.SuccessMsg)
+            | !{pb.render('notification', {data: {"message": data.SuccessMsg, "messageType": "success"}})}
+        if (data.ErrorMsg)
+            | !{pb.render('notification', {data: {"message": data.ErrorMsg, "messageType": "error"}})}
+        form(action='/action/institutionMultiIpChange' name="InstitutionAdmin_MultiIpChange" id="institutionMultiIpAdd" method='post')
+            input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+            .row
+                if(data.descLabel)
+                    .col-sm-2
+                        label(for="addDescription") !{data.descLabel}
+                .col-sm-6
+                    input(type='text' name='description' id="addDescription")
+                .col-sm-4
+            .row
+                if(data.ipRangesTitle)
+                    .col-sm-2
+                        label(for="addRanges") !{data.ipRangesTitle}
+                .col-sm-6
+                    input(type='text' name='ipRanges' id="addRanges")
+                    .ipexamples
+                        if(data.ipChangeExLabel)
+                            span !{data.ipChangeExLabel}
+                        if data.ipChangeEx1 != ''
+                            span.example !{data.ipChangeEx1}
+                        if data.ipChangeEx2 != ''
+                            span.example !{data.ipChangeEx2}
+                        if data.ipChangeEx3 != ''
+                            span.example !{data.ipChangeEx3}
+                        if data.ipChangeEx4 != ''
+                            span.example !{data.ipChangeEx4}
+                .col-sm-4
+                    input.btn--inverse.extra-border(type='submit' name='add' value="ADD IP RANGE")
+                    input(type='hidden' name='mail' id='mail')
+
+mixin updateIPRanges()
+    block updateIPRanges
+        if(data.updateSectionTitle)
+            h2.section__header.border-bottom !{data.updateSectionTitle}
+        form(action='/action/institutionMultiIpChange' name="InstitutionAdmin_MultiIpChange" id="institutionMultiIpChange" method='post')
+            input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+            div.textSection
+                +ranges_table(data)
+            input.btn--inverse.extra-border(type='submit' name='update' value=data.ipChangeUpdateChecked)
+            input(type='submit' name='delete' value=data.ipChangeDeleteChecked)
+
+
+block ipRangesMain
+    div.ipRangesWidget
+        if(data.ipRangesInfo)
+          p.info !{data.ipRangesInfo}
+
+        +addIPRanges()
+        +updateIPRanges()
+
+        if(data.identityNote)
+          div !{data.identityNote}
+        if(data.mailNote)
+            div !{data.mailNote}

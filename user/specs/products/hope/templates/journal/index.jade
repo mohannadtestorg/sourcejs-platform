@@ -1,0 +1,61 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.journal
+                .container
+                    .row
+                        .col-sm-12
+                            | !{data.loi}
+                        .col-sm-8.journal--top
+                            | !{pb.render("html", data.healthAfairsBlog)}
+                        .col-sm-4
+                            | !{pb.render("html", data.socialLinks)}
+                        .col-sm-12.col-md-6.col-md-push-3
+                            | !{data.featuredArticles}
+                        .col-sm-6.col-md-3.col-md-pull-6
+                            | !{pb.render("card", data.DO1, 'hope')}
+                        .col-sm-6.col-md-3
+                            .ads--top
+                                img(style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-image:linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);" src="http://via.placeholder.com/265x350")
+                    .row
+                        .col-sm-12
+                            | !{pb.render("html", data.featuredContent)}
+                    .row
+                        .col-sm-6.col-md-3
+                            | !{pb.render("card", data.DO1, 'hope')}
+                        .col-sm-6.col-md-3.col-md-push-6
+                            .ads
+                                img(style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-image:linear-gradient(45deg, #6d6e70 25%, transparent 25%, transparent 75%, #6d6e70 75%, #6d6e70 100%),linear-gradient(45deg, #6d6e70 25%, white 25%, white 75%, #6d6e70 75%, #6d6e70 100%);" src="http://via.placeholder.com/265x340")
+                        .clearfix-sm
+                            .col-sm-6.col-md-3.col-md-pull-3
+                                | !{data.articleSeries}
+                            .col-sm-6.col-md-3.col-md-pull-3
+                                | !{data.mostRead}
+                .bottom-banner
+                    .container
+                        .row
+                            .col-md-12
+                                | !{pb.render("html", data.dataHead)}
+                            .col-md-3.col-sm-6
+                                | !{pb.render("card", data.DO1, 'hope')}
+                            .col-md-3.col-sm-6.col-md-push-6
+                                .ads
+                                    img(style="-webkit-user-select: none;background-position: 0px 0px, 10px 10px;background-size: 20px 20px;background-image:linear-gradient(45deg, #6d6e70 25%, transparent 25%, transparent 75%, #6d6e70 75%, #6d6e70 100%),linear-gradient(45deg, #6d6e70 25%, white 25%, white 75%, #6d6e70 75%, #6d6e70 100%);" src="http://via.placeholder.com/265x340")
+                            .col-md-6.col-sm-12.col-md-pull-3
+                                | !{pb.render("card", data.graph ,'hope')}
+            | !{data.footer}
+    | #{''}

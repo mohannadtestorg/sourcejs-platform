@@ -1,0 +1,164 @@
+.article {
+    &__tocHeading {
+        text-transform: uppercase;
+        color: $tertiary-text-color;
+    }
+    &-section__content {
+        font-size: 1.13rem;
+    }
+    &-table-content {
+        article & {
+            border: 0;
+        }
+    }
+
+    &__body {
+        font-family: serif;
+    }
+
+    &__content {
+        @include media('>=tablet') {
+            padding: 0;
+        }
+    }
+
+    &__body{
+        .fulltext {margin: 0;}
+    }
+
+    &-table-content {
+        th {
+            border: none;
+        }
+    }
+}
+
+.citation {
+    &__title {
+        font-weight: 300; //LIT-164327
+        color: $primary-link-color;
+    }
+
+    .author-name {
+        font-size: 1rem;
+        color: $tertiary-text-color;
+        .icon-Email {
+            font-size: 0.75rem;
+            vertical-align: text-top;
+            color: $loa-icon-color;
+        }
+    }
+}
+
+article {
+    font-family: $secondary-font-family;
+
+    .epub-section__state {
+        font-weight: 500;
+        color: $light-text-color;
+    }
+
+    tr:nth-child(even) {
+        background-color: $light-gray-bg;
+    }
+
+    tbody {
+        font-size: 0.94rem;
+    }
+
+    // LIT-162840
+    .boxed-text-float {
+        padding: 10px;
+        border: 1px solid;
+        margin: 10px 0;
+        border-radius: 5px;
+        background: $light-gray-bg;
+    }
+
+    .tab__pane {
+        .accordion-tabbed__content {
+            border-color: $secondary-border-color;
+        }
+    }
+
+    .hlFld-Abstract .section__title:first-of-type {
+        opacity: 0;
+        line-height: 0;
+        font-size: 0;
+    }
+
+    .tab__content {
+        background: transparent;
+
+        .tab__pane {
+            padding: 0;
+            .references__authors__others {
+                font-style: italic;
+            }
+        }
+
+        figure {
+            border-bottom: 1px solid $primary-border-color;
+            padding-bottom: 15px;
+            margin: 0;
+        }
+    }
+
+    .citation {
+        margin-bottom: 30px;
+        .epub-section {margin-bottom: 10px;}
+    }
+
+    tbody {
+        th[scope='rowgroup'] {
+            background-color: $table-rowgroup-bg;
+            color: $table-rowgroup-text;
+        }
+    }
+}
+// LIT-162840
+.modal__header {
+    z-index: 1;
+    position: relative;
+}
+
+.citation + .epub-section {
+    .article--res & {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid $primary-bg-color;
+    }
+}
+
+.responsiveAccessDenialWidget {
+    .mobile-authors {
+        border-bottom: 2px solid $primary-bg-color;
+        padding-bottom: 20px;
+    }
+}
+
+#keywords {
+    li:not(:last-child):after {
+        padding-left: 5px;
+    }
+}
+
+.figure__caption {
+    font-size: $h6-font-size;
+    font-family: $secondary-font-family;
+}
+
+.related  {
+    &__title {
+        font-weight: 300;
+        font-size: 1rem;
+
+        a {
+            color: $secondary-text-color;
+
+            &:hover {
+                color: $primary-link-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/details-tab-tmpl.jade
+block detailsTabTopDropzone
+    div.article-cover-image
+        each item, l in data.nav
+            if item.class == "details"
+                | !{pb.render("cover-image" , "cover-image/cover-image" , item.content , "aha" )}
+block detailsTabTopSections
+    h2 Article Information
+    if(original.item.ids && original.item.ids.doi && original.item.ids.doi.value)
+        section#doi_altmetric_drawer_area
+          h4 Metrics
+          div.altmetric-container
+              div.altmetric-embed(data-badge-details="right" data-badge-type="medium-donut" data-hide-no-mentions="true" class="altmetric-embed" data-doi=original.item.ids.doi.value )
+
+    if (original.item)
+        section.information
+            h4 Information
+            if (original.item.receivedDate)
+                p Received !{original.item.receivedDate}
+            if (original.acceptedDate)
+                p Accepted !{original.item.acceptedDate}
+            if (original.item.copyright)
+                p !{original.copyright}
+     
+    block metaData
+        if(original.item.ids && original.item.ids.doi && original.item.ids.doi.value)
+            section.meta-data
+                a(href="https://doi.org/" + original.item.ids.doi.value) https://doi.org/!{original.item.ids.doi.value}
+
+        if(original.item.ids && original.item.ids.doi && original.item.ids.doi.value)
+            section.article__history
+                if (original.item.history)
+                    ul.rlist
+                        each item, i in original.item.history
+                            li
+                                strong !{item.title}:
+                                | !{item.date}
+
+
+    if (original.item && original.item.keywords)
+        section.article__keyword
+            h4 Keywords
+            ul.rlist.rlist--inline.keywords-group
+                each item, i in original.item.keywords
+                    li
+                        if(item.searchUrl && item.label)
+                            a.badge-type(href = item.searchUrl) !{item.label}
+block acknowledgements
+
+block detailsDropZoneBottom

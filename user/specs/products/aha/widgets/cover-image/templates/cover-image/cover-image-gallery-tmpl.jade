@@ -1,0 +1,16 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block defaultImageNothing
+    if (cover.coverImage && cover.coverImage.src)
+        div(class=imageClass)
+            if(cover.coverImage && cover.coverImage.src && cover.serial && cover.serial.serialTitle)
+                img(src=cover.coverImage.src alt=cover.serial.serialTitle + " cover image")
+
+block coverImageMain
+    if(thisWidget.properties)
+        if data.journal && data.journal.gallery
+            - var covers = data.journal.gallery
+            ul.rlist.grid-sm-4
+                each cover, l in covers
+                    li.grid-item.cover-image
+                        +cover(cover, l)

@@ -1,0 +1,56 @@
+.stats-highlighted-article {
+    margin-top: 24px;
+    padding: 30px 40px;
+    background-color: $secondary-card-bg;
+    color: $white;
+    box-shadow: 4px 4px 0 0 $shadow-color;
+
+    @include media('>phone') {
+        margin-top: 38px;
+    }
+    @include media('>desktop') {
+        margin-top: 48px;
+        box-shadow: 8px 8px 0 0 $shadow-color;
+    }
+
+    &__header {
+        @include media('>phone') {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+    }
+    &__title {
+        margin-right: 24px;
+        color: $white;
+        font-family: $default-font-family;
+        font-size: 50px;
+        font-weight: 300;
+        line-height: 50px;
+        @include media('>phone') {
+            font-size: 60px;
+            line-height: 70px;
+        }
+        @include media('>desktop') {
+            font-size: 70px;
+            line-height: 70px;
+        }
+    }
+    &__perex {
+        color: $white;
+        font-weight: normal;
+    }
+    &__content {
+        p {
+            color: $white;
+            margin: 0;
+            font-size: 1rem;
+            @include media('>desktop') {
+                font-size: .89rem;
+            }
+        }
+        p + p {
+           margin-top: 1em;
+        }
+    }
+}

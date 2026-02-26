@@ -1,0 +1,72 @@
+{
+    "title": "Institutional Login page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "institutionAccordion":{
+            "$pug": {
+                "template": "../../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "accordion--centered"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../../ux3/components/accordion/templates/accordion/demo/demo-accordion-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "id1"
+                                        },
+                                        "model": {
+                                            "config": {
+                                                "type": "tabbed"
+                                            },
+                                            "data": {
+                                                "items": [
+                                                    {
+                                                        "label": "Academic Access Federation in Japan (Gakunin)",
+                                                        "content": "<ul class=\"rlist\"><li><a href=\"#\">Camden & Islington NHS Foundation Trust (Athens)</a></li></ul>"
+                                                    },
+                                                    {
+                                                        "label": "OpenAthens Federation",
+                                                        "content": "<ul class=\"rlist\"><li><a href=\"#\">Camden & Islington NHS Foundation Trust (Athens)</a></li><li><a href=\"#\">Camden & Islington NHS Foundation Trust</a></li><li><a href=\"#\">Central London Community Healthcare NHS Trust (Athens)</a></li></ul>"
+                                                    },
+                                                    {
+                                                        "label": "UK Higher Education",
+                                                        "content": "<ul class=\"rlist\"><li><a href=\"#\">Camden & Islington NHS Foundation Trust (Athens)</a></li><li><a href=\"#\">Camden & Islington NHS Foundation Trust</a></li><li><a href=\"#\">Central London Community Healthcare NHS Trust (Athens)</a></li></ul>"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

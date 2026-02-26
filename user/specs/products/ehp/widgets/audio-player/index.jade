@@ -1,0 +1,29 @@
+﻿extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+include ../../../../ux3/page-structure/structure/templates/structure/helpers/print-json-mixin.jade
+include ../../../../ux3/page-structure/structure/templates/structure/helpers/print-js-code-mixin.jade
+
+block content
+
+    section.source_section
+        h2 Audio player
+        p HTML5 audio player styled
+
+        h3 Usage
+
+        markdown.
+            - widget name: `audio-player`
+            - requires JavaScript (`widgets/audio-player/js/audio-player.js`)
+
+        h3 Data
+
+        .source_info
+            p Not ready, static data presented in widget template
+
+        h3 Example
+
+        .source_example
+            div.container
+                | !{pb.render('audio-player', 'audio-player.json')}
+
+    | #{''}

@@ -1,0 +1,43 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+block citationPrefix
+    if(data.item)
+        - var original = data;
+        - var citationData = {"abstract":data.item.titles.subtitle,"primaryTopic":data.primaryTopic,"detailsTabAuthors":data.item.detailsTabAuthors,"itemUrl": data.item.formats.fullText,"title": data.item.titles.primary,"authors": data.item.contribsShort, "tocHeading": data.item.headings.primary};
+        - data = citationData;
+
+block citation__tocHeading
+
+    h3.filled--blog.secondary-font.no-top-margin !{data.tocHeading}
+    span.citation__top__item.blog__primary-topic
+      | !{data.primaryTopic}
+    div.blog__related-topics
+        div
+            | Related Topics:
+            ul.rlist--inline
+                li
+                    a(title='Millennium Development Goals' href="#") Millennium Development Goals
+                li
+                    a(title='Unaids' href="#") Unaids
+                li
+                    a(title='World Health Organization' href="#") World Health Organization
+
+
+
+
+
+
+block citationTitleSuffix
+
+
+
+block citation__access
+
+
+
+block citationAuthors
+    div.blog__authors
+      | !{data.authors}
+
+
+

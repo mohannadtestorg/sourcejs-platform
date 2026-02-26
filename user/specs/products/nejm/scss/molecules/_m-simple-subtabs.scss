@@ -1,0 +1,97 @@
+/***
+
+Tab links have an optional `em` to show secondary tab info such as a number of results.
+The tabs note is also optional and doesn't display on small/medium screens.
+
+```
+<nav class="m-simple-subtabs">
+  <ul class="m-simple-subtabs__links">
+    <li><a href="#">Articles</a></li>
+    <li class="s-active"><a href="#">Multimedia <em>48</em></a></li>
+  </ul>
+</nav>
+```
+
+***/
+
+.m-simple-subtabs {
+  position: relative;
+  height: 56px;
+  background:$color__background;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include breakpoint('small+') {
+    overflow-x: visible;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+.m-simple-subtabs__links {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 0;
+}
+
+.m-simple-subtabs__links > li {
+  flex: 1 0 auto;
+  max-width: 50%;
+
+  @include breakpoint('medium+') {
+    flex-grow: 0;
+    max-width: none;
+  }
+}
+
+.m-simple-subtabs__links a {
+  color:$color__text--quaternary;
+  display: block;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+  white-space: nowrap;
+  @include f-caps;
+  height: 56px;
+  line-height: 56px;
+}
+
+.m-simple-subtabs__links a:hover {
+  color: $color__accent;
+}
+
+.m-simple-subtabs__links .s-active a,
+.m-simple-subtabs__links .s-active a:hover {
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    height: 56px;
+  }
+}
+
+.m-simple-subtabs__links em {
+  color: $color__text--quaternary;
+  font-style: normal;
+  font-weight: normal;
+}
+
+// -------------------------------------
+// `m-simple-subtabs` after a `m-article-meta`
+//
+
+.m-article-meta + .m-simple-subtabs {
+  margin-top: 20px;
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+// -------------------------------------
+// `m-simple-subtabs` after a `a-subtitle`
+//
+
+.a-subtitle + .m-simple-subtabs {
+  padding-top: 1px;
+  border-top: 0 none;
+}
+

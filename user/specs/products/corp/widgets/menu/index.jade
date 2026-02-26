@@ -1,0 +1,25 @@
+﻿extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/menu/templates/menu/menu-tmpl.jade')
+
+
+    section.source_section
+        h2 Example
+        each item, l in data.items
+            h3!= item.title
+            .source_example
+                | !{item.body}
+                div
+                    p Lorem ipsum dolor sit
+
+    | #{''}

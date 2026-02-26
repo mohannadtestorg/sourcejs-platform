@@ -1,0 +1,88 @@
+.coolBar{
+    &__wrapper{
+        border-color: $primary-border-color;
+    }
+
+    &__section{
+        padding: 0 15px 0 0;
+
+        @include media('<desktop'){
+            padding: 0 10px 0 0;
+        }
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+    &.stickybar{
+        transition: none;
+        &--stick-to-top{
+
+            &:not(.slide){
+                z-index: 99;
+            }
+        }
+    }
+    &-tools,&-share{
+     padding: 0;
+    }
+
+    i{
+        @include themify($themes) {
+            color: themed('color');
+        }
+
+        + span{
+            font-size: .875rem;
+            margin-left: 2px;
+
+            @include media('<desktop'){
+                margin-left: 0px;
+            }
+        }
+    }
+
+    .share__block,.article-tools__block,.coolBar__drop{
+        i{
+            color: $text-onDark;
+        }
+    }
+
+
+    &--res {
+        border-bottom: 1px solid $primary-border-color;
+        font-family:$menu-font-family;
+        background-color: $default-bg-color;
+        .coolBar{
+            &__wrapper{
+                background-color: $default-bg-color;
+                width: 100% !important;
+            }
+
+            &__zone{
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+        }
+
+
+    }
+
+    &--cme{
+       ul{
+           padding: 0;
+       }
+    }
+}
+.w-slide__content{
+    .w-slide--list{
+        &.coolBar__drop{
+            li{
+                &:first-child{
+                    border: none;
+                }
+            }
+        }
+    }
+}

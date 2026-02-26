@@ -1,0 +1,15 @@
+section.phones-wrappers(data-max='3', data-count='1')
+    input(type='hidden', name='phone.id', value='c0963c02-b518-4944-8cce-45508c07e636')
+    input(type='hidden', name='section', value='phones')
+    .phone.reproducible__wrapper
+        input(type='hidden', name='phone[0].primary', value='true')
+        input(type='hidden', name='phone[].verified', value='false')
+        .input-group
+            label Phone
+                span.required-marker *
+            .reproducible
+                input(type='tel', name='phone[0].value', value='')
+                a.remove-ctrl-field(href="#" title="Remove search field")
+                    i.icon-trash-can(aria-hidden="true")
+                a.add-ctrl-field(href="#" title="Add search field")
+                    i.icon-circle-plus(aria-hidden="true")

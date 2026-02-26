@@ -1,0 +1,14 @@
+mixin item(itemIsDropzone, itemLink, itemIcon, itemTitle)
+    li(role="menuitem", tabindex="-1", aria-label=itemTitle, class="quick-links-item")
+        if itemIsDropzone
+            | !{pb.renderDropzone(thisWidget, itemIcon)}
+        else
+            a(href=itemLink, title=itemTitle)
+                i(class=itemIcon, aria-hidden=true)
+div.quick-links-holder
+    ul.quick-links-items.rlist
+        +item(true, "#", "icon-share", "Share")
+        +item(false, "#", "icon-info", "Information")
+        +item(false, "#", "icon-Email", "Alerts")
+        +item(false, "#", "icon-Rss", "RSS Feeds")
+        +item(false, "#", "icon-eye", "Journal")

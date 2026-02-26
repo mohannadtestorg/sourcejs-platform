@@ -1,0 +1,256 @@
+.meta-wrapper {
+    height: 246px;
+}
+
+.meta{
+    &__authors{
+        a{
+            color: $secondary-text-color;
+        &:hover,&:focus{
+            color: $primary-bg-color;
+        }
+        }
+    }
+}
+
+@include media("<tablet") {
+    .meta__body.card {
+        margin: 1rem 0 0;
+    }
+}
+
+$banner-image-width: 15%;
+
+.journal-banner {
+    background: #FAFAFA;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+    padding: 16px;
+    display: flex;
+    margin-top: 2rem;
+
+    .meta__left-side {
+        flex: 1;
+        width: auto;
+        margin-right: auto;
+        & > a:first-child, .image-container {
+            display: block;
+            float: left;
+            padding-right: 20px;
+            @include media(">="+$screen-lg) {
+                width: $banner-image-width;
+            }
+        }
+        .banner__meta {
+            @include media(">="+$screen-lg) {
+                margin-left: $banner-image-width;
+            }
+            display: flex;
+            flex-direction: column;
+            .article-tools__block {
+                margin-top: auto;
+                padding: 0;
+                background-color: transparent;
+                .rlist {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .article-tool {
+                        margin-right: 1rem;
+                    }
+                    a {
+                        display: flex;
+                        align-items: center;
+                        color: $secondary-color;
+                        span {
+                            margin: 0 0 0 0.5rem;
+                            font-weight: bold;
+                            font-size: 0.875rem;
+                        }
+                        i {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+
+            }
+        }
+        .meta__title {
+            min-height: 0;
+        }
+        .meta__info {
+            margin-bottom: 42px;
+            color: $secondary-text-color;
+            margin-left: 0;
+
+            .subtitle {
+                margin-bottom: 1rem;
+                color: $primary-bg-color;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            &-item {
+                color: #000;
+            }
+        }
+        &.left-side-image img {
+            width: 100%;
+            padding: 0;
+        }
+    }
+    .meta__right-side {
+        display: flex;
+        width: auto;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        & > a {
+            margin: 12px 12px 0 0;
+            padding: 17px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    @include media("<desktop") {
+        flex-direction: column;
+        .meta__right-side {
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+        .meta__left-side {
+            & > a:first-child {
+                display: none;
+            }
+        }
+    }
+}
+
+.article-list {
+    margin-bottom: 2rem;
+
+    &__wrapper {
+        margin: 1.5rem 0 0.25rem;
+    }
+    &__item {
+        margin-bottom: 1rem;
+        a {
+            display: block;
+        }
+        img {
+            width: 165px;
+        }
+        h3 {
+            margin: 0;
+            font-size: 0.875rem;
+            line-height: 1.1875rem;
+        }
+        .details {
+            color: #000;
+        }
+    }
+}
+
+.journal-featured {
+    &__item {
+        padding-top: 0 !important;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid $divider-color;
+        h3 {
+            font-size: 1rem;
+        }
+        .meta {
+            color: $secondary-text-color;
+            font-size: 0.875rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.section {
+    .item-content {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        &__text {
+            flex: 1;
+            padding-right: 1.5rem;
+            line-height: 1.1875rem;
+        }
+        &__image {
+            flex: 0 0 250px;
+            @include media("<phone") {
+                flex: 1;
+            }
+        }
+    }
+    p {
+        line-height: 1.1875rem;
+    }
+    .rlist {
+        margin-bottom: 1rem;
+        li {
+            padding: 1rem 0;
+            border-bottom: 1px solid $divider-color;
+            line-height: 1.1875rem;
+            h3 {
+                font-size: 1rem;
+            }
+            .authors {
+                color: $secondary-text-color;
+                font-size: 0.875rem;
+            }
+            .journal-volume {
+                display: block;
+                margin-top: 1rem;
+                color: #000;
+                font-weight: bold;
+            }
+            &:last-child {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+    &-links {
+        padding-top: 0.5rem;
+        margin-bottom: 2rem;
+        div {
+            line-height: 1.1875rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            span {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    &.journal-custom__news {
+        //border-bottom: 1px solid $divider-color;
+        .rlist li {
+            border: none;
+            padding: 0 0 1rem;
+            &:last-child {
+                border-bottom: 1px solid $divider-color;
+            }
+        }
+        p {
+            margin-bottom: 1.5rem;
+        }
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    .special-issue {
+        padding-bottom: 0.78rem;
+        margin-bottom: 1.75rem;
+        border-bottom: 1px solid $divider-color;
+    }
+}
+
+.journal-custom__top-heading {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,101 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    section.source_section
+        h2 Spacings - Margin & Padding utility classes
+
+        markdown
+            p
+                | Use the margin and padding spacing utilities to control how elements and components are spaced and sized. Styleguide includes a five-level scale for spacing utilities, based on a 1rem value default $spacer variable. Choose values for all viewports (e.g., .ml-3 for margin-left: 1rem).
+        .source_example
+            div
+                | This is an element with the default margin-right.
+            div.ml-3
+                | This is an element with the margin-right = 1rem.
+
+    section.source_section
+        h2 How it works
+        markdown
+            p
+                | Assign margin or padding values to an element or a subset of its sides with shorthand classes. Includes support for individual properties, all properties, and vertical and horizontal properties. Classes are built from a default Sass map ranging from .25rem to 3rem.
+
+    section.source_section
+        h2 Notation
+        markdown
+            p The classes are named using the format {property}-{size}.
+            p Where property is one of:
+            ul
+                li m - for classes that set margin
+                li p - for classes that set padding
+            p Where sides is one of:
+            ul
+                li t - for classes that set margin-top or padding-top
+                li b - for classes that set margin-bottom or padding-bottom
+                li l - for classes that set margin-left or padding-left
+                li r - for classes that set margin-right or padding-right
+                li x - for classes that set both *-left and *-right
+                li y - for classes that set both *-top and *-bottom
+                li blank - for classes that set a margin or padding on all 4 sides of the element
+            p Where sides is one of:
+            ul
+                li 0 - for classes that eliminate the margin or padding by setting it to 0
+                li 1 - (by default) for classes that set the margin or padding to $spacer * .25
+                li 2 - (by default) for classes that set the margin or padding to $spacer * .5
+                li 3 - (by default) for classes that set the margin or padding to $spacer
+                li 4 - (by default) for classes that set the margin or padding to $spacer * 1.5
+                li 5 - (by default) for classes that set the margin or padding to $spacer * 3
+                li auto - for classes that set the margin to auto
+
+    section.source_section
+        h2 Examples - Margin
+
+        markdown
+            div.source_example
+                p.border-top.m-0 this is an element with 0rem margin
+            div.source_example
+                p.border-top.m-1 this is an element with .25rem margin
+            div.source_example
+                p.border-top.m-2 this is an element with .5rem margin
+            div.source_example
+                p.border-top.m-3 this is an element with 1rem margin
+            div.source_example
+                p.border-top.m-4 this is an element with 1.5rem margin
+            div.source_example
+                p.border-top.m-5 this is an element with 3rem margin
+            div.source_example
+                p.border-top.m-auto this is an element with auto margin
+            div.source_example
+                p.border-top.mt-5.mb-3.mr-4.ml-1 this is an element with 3rem margin from top, 1rem from bottom, 1.5rem from right and .25re, from left
+            div.source_example
+                p.border-top.mx-5 this is an element with 3rem margin from right and left
+            div.source_example
+                p.border-top.my-5 this is an element with 3rem margin from top and bottom
+
+    section.source_section
+        h2 Examples - Padding
+
+        markdown
+            div.source_example
+                p.border-top.p-0 this is an element with 0rem padding
+            div.source_example
+                p.border-top.p-1 this is an element with .25rem padding
+            div.source_example
+                p.border-top.p-2 this is an element with .5rem padding
+            div.source_example
+                p.border-top.p-3 this is an element with 1rem padding
+            div.source_example
+                p.border-top.p-4 this is an element with 1.5rem padding
+            div.source_example
+                p.border-top.p-5 this is an element with 3rem padding
+            div.source_example
+                p.border-top.p-auto this is an element with auto padding
+            div.source_example
+                p.border-top.pt-5.pb-3.pr-4.pl-1 this is an element with 3rem padding from top, 1rem from bottom, 1.5rem from right and .25re, from left
+            div.source_example
+                p.border-top.px-5 this is an element with 3rem padding from right and left
+            div.source_example
+                p.border-top.py-5 this is an element with 3rem padding from top and bottom
+
+
+
+| #{''}

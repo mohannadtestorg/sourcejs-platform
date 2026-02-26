@@ -1,0 +1,48 @@
+.search {
+
+    &-result {
+
+        .search__item {
+            i[class*=icon-] {
+                font-size: 6px;
+                margin-left: 6px;
+            }
+        }
+
+        .search__modal {
+
+            .button {
+                background-color: $primary-bg-color;
+                @include themify($themes) {
+                    background-color: themed('color');
+                }
+            }
+
+            .close {
+                color: $black;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+@include media('<tablet') {
+
+    .search-result {
+        .search__bottom {
+            &.pull-right {
+                float: none;
+            }
+        }
+    }
+
+    .w-slide__content {
+
+        .facet__title {
+            margin-top: 10px;
+        }
+    }
+
+
+}
+

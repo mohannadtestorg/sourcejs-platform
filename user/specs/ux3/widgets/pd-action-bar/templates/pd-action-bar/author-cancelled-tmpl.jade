@@ -1,0 +1,7 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        form(action="#", method="post",name="")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            button.btn.btn--submit.btn--inverse(data-action=data.reinstateLink) Resume Submission
+

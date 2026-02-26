@@ -1,0 +1,56 @@
+header.header.base
+    .container.header--advertisment.hidden-xs.hidden-sm.hidden-md
+        .row
+            .col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2
+                block adsHolder
+                    | !{pb.renderDropzone(thisWidget, 'adsDropZone')}
+
+    .container-fluid.header--first-row
+        .container
+            block topLeftLinksHolder
+                ul.rlist--inline.navbar--top--links.pull-left
+                    li
+                        a(href="http://professional.heart.org/professional/registration/volunteerForm.jsp" title="Volunteer" target="blank") Volunteer
+                    li
+                        a(href="http://www.heart.org/HEARTORG/Conditions/911-Warnings-Signs-of-a-Heart-Attack_UCM_305346_SubHomePage.jsp" title="Warning Signs" target="_blank") Warning signs
+
+            block topRightItemsHolder
+                ul.rlist--inline.pull-right
+                    li.hidden-xs
+                        block searchHolder
+                            | !{pb.renderDropzone(thisWidget, 'searchDropZone')}
+                    li.buttons
+                        a(href="https://donatenow.heart.org/?s_src=MAH" target="_blank" class="btn btn--danger" title="donate") Donate
+
+    .container-fluid.header--second-row
+        .container.hidden-xs.hidden-sm.hidden-md
+            .pull-left.logo__container
+                block logoHolder
+                    | !{pb.renderDropzone(thisWidget, 'logoDropZone')}
+            .pull-right.actions__container
+                block quickLinksHolder
+                    .header__quick-menu
+                        | !{pb.renderDropzone(thisWidget, 'loginButtonDropZone')}
+                        ul.rlist--inline
+                            li
+                                a(href="#" title="Submit your article" class="btn submit__article__btn") Submit your article
+                            li.pull-right
+                                ul.rlist--inline.share__links
+                                    li
+                                        a.addthis_button_twitter(href="#")
+                                            i(aria-hidden="true").icon-twitter
+                                    li
+                                        a.addthis_button_facebook(href="#")
+                                            i(aria-hidden="true").icon-facebook
+
+        .container.hidden-lg
+            .pull-left.logo__container
+                block logoMobileHolder
+                    | !{pb.renderDropzone(thisWidget, 'logoMobileDropZone')}
+            .pull-right.actions__container
+                block searchMobileHolder
+                    | !{pb.renderDropzone(thisWidget, 'searchMobileDropZone')}
+
+    .primary-bg-color.text-onDark.drawer__nav
+        block menuHolder
+            | !{pb.renderDropzone(thisWidget, 'menuDropZone')}

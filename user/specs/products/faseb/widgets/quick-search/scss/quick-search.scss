@@ -1,0 +1,116 @@
+.quick-search {
+
+    @include media('<tablet') {
+        padding-top: 15px;
+    }
+
+    .dropBlock {
+        font-size: $h6-font-size;
+        color: $primary-link-color;
+
+        i {
+            padding: 3px 15px;
+        }
+
+        > a {
+            border: 1px solid $tertiary-border-color;
+        }
+    }
+
+    input {
+        border-color: $tertiary-border-color;
+        color: $primary-text-color;
+        padding: 10px 15px;
+    }
+
+    &__dropBlock {
+        background-color: $secondary-bg-color;
+
+        .quick-search__button{
+            color: $primary-link-color;
+            font-size: $icon-font-size;
+            padding: 10px 15px;
+            background-color: transparent;
+            right: 0px;
+        }
+    }
+
+    .quick-search-advanced-link {
+        color: $primary-link-color;
+        font-size: $h6-font-size;
+        line-height: 38px;
+
+        &:hover, &:focus {
+            font-weight: normal;
+        }
+    }
+
+    &__dropBlock-container {
+        width: 160px;
+        margin-right: 15px;
+        float: left;
+    }
+
+    &__inputs-container {
+        width: calc(100% - 305px);
+        float: left;
+        position: relative;
+    }
+
+    &__advanced-link-container {
+        width: 130px;
+        float: left ;
+    }
+
+}
+
+.quickSearchRegion.dark{
+
+    .quick-search__button {
+        color: $primary-link-color;
+        font-size: $icon-font-size;
+        padding: 10px 15px;
+        background-color: transparent;
+        right: 0px;
+    }
+
+}
+
+@include media('<desktop') {
+    .quick-search {
+        input {
+            margin-top: 10px;
+
+            &:first-child {
+                margin-top: 0px;
+            }
+        }
+
+        .quick-search-advanced-link {
+            line-height: normal;
+        }
+
+        .option-citation {
+            border-bottom: 1px solid $tertiary-border-color;
+            margin-bottom: 10px ;
+        }
+
+        &__dropBlock-container {
+            width: 100%;
+            float: none;
+        }
+
+        &__inputs-container {
+            width: 100%;
+            float: none;
+        }
+
+        &__advanced-link-container {
+            width: 100%;
+            float: none;
+        }
+
+    }
+
+
+}

@@ -1,0 +1,51 @@
+.left-side-image {
+    img {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, .2);
+        margin-right: 20px;
+        padding-right: 0;
+    }
+}
+
+main {
+    a {
+        color: $primary-bg-color;
+        @include themify($themes) {
+
+            color: themed('color');
+
+            &.btn--inverse {
+                color: $white;
+                font-weight: 700;
+
+                &:hover {
+                    text-decoration: none;
+                }
+
+            }
+        }
+        .about_menu {
+            @include media('<desktop') {
+                color: $white;
+            }
+        }
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    @include themify($themes) {
+        .coolBar__drop {
+            a {
+                color: $white;
+            }
+        }
+
+        &.w-slide--list {
+            a {
+                @include media('<tablet') {
+                    color: $black;
+                }
+            }
+        }
+    }
+}

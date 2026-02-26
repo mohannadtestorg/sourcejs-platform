@@ -1,0 +1,19 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        markdown
+            p Its a legacy widget, the following structure used for demonstration purposes
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200484' target="_blank">`LIT-200484`</a>
+            p JSP file
+                | `/_ux3/_pericles/pb2/widgets/passport/publicationTools/downloadCitations/downloadCitations.jsp`
+
+
+    section.source_section
+        h2 Download citation
+
+
+        .source_example
+            .container
+                | !{pb.render('download-citations', 'pericles')}
+    | #{''}

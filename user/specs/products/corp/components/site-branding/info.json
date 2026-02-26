@@ -1,0 +1,48 @@
+{
+    "title": "Site Branding",
+    "template": "doc",
+    "tag": ["components"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Base and Primary",
+                "description": "`site-branding site-branding--primary` or simply `site-branding`",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/branding/branding-tmpl.jade",
+                        "data": {
+                        }
+                    }
+                }
+            },
+            {
+                "title":"Secondary",
+                "description": "`site-branding site-branding--secondary`",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/branding/branding-tmpl.jade",
+                        "data": {
+                            "data": {
+                                "type": "secondary"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title":"Tertiary",
+                "description": "`site-branding site-branding--tertiary`",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/branding/branding-tmpl.jade",
+                        "data": {
+                            "data": {
+                                "type": "tertiary"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,94 @@
+
+.share {
+    &__block {
+
+        padding: 0;
+        background: $white;
+        border: 2px solid $wiley-blue-color;
+        min-width: 0;
+        width: 227px;
+
+        p {
+            padding: 15px 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin: 0;
+            text-transform: uppercase;
+            color: $wiley-typography-color;
+        }
+
+        .addthis {
+            i {
+                font-size: 1rem;
+            }
+        }
+
+        .w-slide--list {
+            li {
+                margin: 0;
+                border-bottom: 1px solid #eee;
+                display: inline-block;
+                width: 100%;
+
+                &:hover {
+                    background: $wiley-blue-color;
+                    a, i {
+                        color: $text-onDark;
+                    }
+
+                }
+            }
+        }
+        a {
+            color: $wiley-typography-color;
+            text-transform: capitalize;
+            padding: 0;
+            font-weight: normal;
+            border: none;
+        }
+
+        i[class*='icon-'] {
+            color: $wiley-blue-color;
+        }
+    }
+
+    &__ctrl {
+        i {
+            border-left: 1px solid $white;
+            @include media('<desktop') {
+                padding-left: 12px;
+                margin-left: 12px;
+            }
+            &.icon-close_thin:before {
+                //font-size: 0.81rem;
+                transform: scale(0.889);
+            }
+        }
+    }
+}
+
+
+.addthis.addthis {
+    a, [class*=addthis_button], .at-resp-share-element .at-share-btn {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding: 15px 20px;
+    }
+    .at-icon-wrapper {
+        text-align: center;
+        font-size: 1rem;
+        width: 40px;
+        margin-right: 0;
+
+        &.icon-twitter-t {
+            font-size: 0.75rem;
+        }
+    }
+
+    span.at-icon-wrapper {
+        margin-right: 10px;
+    }
+
+}

@@ -1,0 +1,38 @@
+div#figure-viewer.figure-viewer(data-ux3-wrapper="figure-viewer",data-ux3-transformed-by="figureInit", data-ux3-role="parent", role="dialog")
+    .figure-viewer__reg__top.clearfix
+        .figure-viewer__top__right
+            span.figure-viewer__ctrl
+                a.figure-viewer__ctrl__close(title="Close Figure Viewer", href="#" , data-ux3-role="controller" )
+                    span.icon-close_thin
+            span.figure-viewer__ctrl
+                a.figure-viewer__ctrl__browse(title="Browse All Figures", href="#" )
+                    span.icon-allfigures
+                a.figure-viewer__ctrl__return.is-hidden(title="Return to Figure", href="#" )
+                    span.icon-arrow-right
+            span.figure-viewer__ctrl
+                a.figure-viewer__ctrl__prev(title="Previous Figure", href="#" )
+                        span.icon-arrow_l
+                a.figure-viewer__ctrl__next(title="Next Figure", href="#" )
+                    span.icon-arrow_r
+
+        .figure-viewer__top__left
+            span.figure-viewer__ctrl
+                span.figure-viewer__title__text Title
+            span.figure-viewer__ctrl
+                span.zoomSlider.js__zoom-slider.ui-slider(tabindex="1")
+                    input.zoom-range(type="range")
+                button.figure-viewer__label__zoom.icon-zoom.zoom-in(title='zoom in')
+                button.figure-viewer__label__zoom.icon-zoom-out.zoom-out.hidden(title='zoom out')
+            span.figure-viewer__ctrl
+                a.figure-viewer__ctrl__caption(title="Open/Close Caption", href="#")
+                    span.icon-doublearrow
+                    span.figure-viewer__caption__label Caption
+    .figure-viewer__caption_area
+        a.figure-viewer__ctrl__caption.reversed(title="Open/Close Caption", href="#")
+            span.icon-doublearrow
+        div.figure-viewer__hold__figcap
+    .figure-viewer__reg__center
+        .figure-viewer__cent__left
+            .figure-viewer__hold__fig
+                figure.holder
+            .figure-viewer__hold__list.clearfix.container

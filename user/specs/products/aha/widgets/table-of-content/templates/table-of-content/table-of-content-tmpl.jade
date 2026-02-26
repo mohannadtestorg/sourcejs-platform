@@ -1,0 +1,17 @@
+- if (model !== undefined) data = model.data;
+
+nav.stickybar.coolBar.hidden-lg
+    div.stickybar__wrapper.coolBar__wrapper.clearfix
+        div.coolBar--sections.scroll-to-target
+            a.coolBar__ctrl(href="#" data-db-target-for="sections" data-db-switch="icon-section_arrow_u" )
+                span Jump to
+                i(class="icon-section_arrow_d" aria-hidden="true")
+            div.coolBar__drop.rlist(data-db-target-of="sections" id="sectionMenu")
+
+div.toc_content.article__content
+    nav.toc__section.hidden.visible-lg
+        #sections.article-sections
+            h2.toc__heading.section__header Jump to
+            ul.sections__drop.rlist
+    if(data && data.group)
+        | !{data.group.tocXsl}

@@ -1,0 +1,26 @@
+.js-editable {
+    position: relative;
+    padding: 9px 9px;
+
+    &__text {
+        text-decoration: underline dotted;
+    }
+
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+        font-size: inherit;
+        max-width: 85%;
+
+        @include media('>=phone') {
+            max-width: 100%;
+        }
+
+    }
+
+    .__hidden {
+        visibility: hidden;
+    }
+}

@@ -1,0 +1,306 @@
+.toc-item {
+    &__detail {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: $gray-2;
+        li {
+            margin-right: 0;
+            display: inline;
+            &:not(:last-of-type) {
+                margin-right: 0;
+                padding: 0;
+                text-transform: uppercase;
+            }
+        }
+        span {
+            color: $gray-2;
+        }
+    }
+    &__footer {
+        .toc-item__detail, .accordion__control {
+            color: $primary-blue-color;
+            font-size: 12px;
+            font-weight: 400;
+            margin: 20px 0;
+            .icon {
+                display: none;
+            }
+            span {
+                margin-right: 0;
+                color: $primary-blue-color;
+                text-transform: none;
+            }
+        }
+        i[class*=icon-] {
+            color: $primary-blue-color;
+            margin-right: 6px;
+            margin-left: 0;
+        }
+    }
+    &__main {
+        display: flex;
+        .article-image {
+            max-width: 105px;
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            float: left;
+            margin-right: 15px;
+        }
+        .article-meta {
+            display: block;
+        }
+        .epub-section__item {
+            a{
+                display: inline-block;
+                word-break: break-word;
+            }
+        }
+    }
+}
+
+.corrections-container {
+    &__list {
+        .parent-item {
+            font-size: 12px;
+        }
+    }
+}
+
+.table-of-content {
+    .issue-item {
+        padding-top: 0;
+        &:not(:first-child) {
+            border-bottom: 1px solid $default-bg-color;
+            border-top: 0;
+        }
+        &__title {
+            font-weight: 800;
+            margin: 0 0 6px;
+        }
+        .loa {
+            color: $gray-2;
+            margin: 3px 0 3px;
+        }
+    }
+    .epub-section__item {
+        &:not(:last-child) {
+            border-right: 0 solid;
+            padding-right: 0;
+        }
+    }
+    .section__header {
+        font-size: 26px;
+        text-transform: none;
+        margin: 20px 0;
+        @include media('<tablet') {
+            font-size: 18px;
+            font-weight: 900;
+        }
+    }
+    .abstract__synopsis {
+        margin: 9px 0 0;
+    }
+    .citation__access__icon {
+        margin-left: 0;
+    }
+    .badge-type--icon {
+        margin-bottom: 0;
+        padding: 3px 6px 3px 0;
+    }
+}
+
+.access__type {
+    color: $light-green;
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+
+.access__OA {
+    color: $light-orange;
+}
+
+.access__icon {
+    font-size: 16px;
+    color: $light-green;
+    padding-right: 5px;
+    vertical-align: middle;
+}
+
+.icon-Icon_Permissions-Locked {
+    color: $secondary-link-red;
+    font-size: 18px;
+}
+
+.icon-lock_open {
+    font-size: 18px;
+}
+
+.toc {
+    &__section {
+        border-bottom: 0;
+        .sections__drop {
+            border: 0;
+            padding: 0;
+            width: auto;
+            background: $transparent;
+        }
+        .separator > li ~ li {
+            border: 0;
+            font-size: 12px;
+            margin: 0;
+            padding: 6px 0;
+        }
+    }
+    &__heading.sub-heading {
+        margin: 5px 0;
+        color: $gray-2;
+    }
+
+    .publication_header {
+        margin-top: 0;
+    }
+}
+
+.accordion__content {
+    .left-side-image {
+        background: $primary-white;
+        padding: 15px;
+    }
+    h6 {
+        color: $dark-gray;
+    }
+}
+
+.toc-left-side {
+    background: $primary-white;
+}
+
+.toc-right-side {
+    padding-right: 0;
+    @include media('<tablet') {
+        display: none;
+    }
+}
+
+.toc-res {
+    display: none;
+}
+
+@include media('<desktop') {
+    .toc-res {
+        display: block;
+    }
+    .toc-item {
+        &__footer {
+            position: relative;
+            .toc-item__detail {
+                position: absolute;
+                right: 0;
+                span {
+                    display: none;
+                }
+                .icon {
+                    font-size: 17px;
+                    border: 1px solid $primary-blue-color;
+                    padding: 7px;
+                    color: $primary-blue-color;
+                    margin: 3px;
+                    display: inline-block;
+                }
+            }
+            .rlist--inline.separator > li:not(:last-of-type) {
+                border-right: 0;
+                padding: 0;
+                margin: 0;
+            }
+            .accordion__control {
+                width: 80px;
+            }
+        }
+        &__main {
+            display: block;
+        }
+    }
+    .toc__section {
+        .separator > li {
+            font-size: 18px;
+            color: $primary-blue-color;
+            border-bottom: 1px solid $primary-border;
+            padding: 10px;
+        }
+        .separator > li ~ li {
+            padding: 10px;
+            border-bottom: 1px solid $primary-border;
+            font-size: 18px;
+        }
+        .sections__drop {
+            background: $primary-white;
+            max-height: 150px;
+            overflow: auto;
+            width: 100%;
+        }
+        i[class*=icon-] {
+            text-align: left;
+        }
+    }
+}
+
+.toc_content {
+    background: $primary-white;
+    > .col-md-2 {
+        padding: 0;
+    }
+}
+
+.gray-bg {
+    background: $default-bg-color;
+    padding: 0 0 0 15px;
+    @include media('<tablet') {
+        padding: 0 15px;
+    }
+    @include media('>=tablet', '<desktop') {
+        padding: 0;
+    }
+    &.toc-right-side {
+        @include media('>=tablet', '<desktop') {
+            padding: 0 0 0 15px;
+        }
+    }
+}
+
+@include media('<tablet') {
+    .table-of-content .issue-item {
+        &__title {
+            font-size: 16px;
+        }
+    }
+    .toc-item__detail{
+        &.rlist--inline li{
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+}
+.aop-toc{
+    &.toc-left-side{
+        @include media('>tablet') {
+            padding: 20px 30px 45px;
+        }
+    }
+    .toc_content{
+        >.col-md-2{
+            display: none;
+        }
+        >.col-md-10 {
+            width: 100%;
+            padding: 0;
+        }
+        >.toc-separator{
+            border-left: 0;
+            padding: 0;
+        }
+    }
+}

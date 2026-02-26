@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'HelveticaNeueCondensed';
+  src:  url('../../fonts/HelveticaNeueLTStd-Cn.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueCondensedBold';
+  src:  url('../../fonts/HelveticaNeueLTStd-BdCn.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueCondensedBoldOblique';
+  src:  url('../../fonts/HelveticaNeueLTStd-BdCnO.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueCondensedOblique';
+  src:  url('../../fonts/HelveticaNeueLTStd-CnO.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  * {
+    outline:none;
+  }
+  font-family: HelveticaNeueCondensed, Arial, sans-serif;
+  main {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  i {
+    font-style: normal;
+    font-family: HelveticaNeueCondensedOblique;
+  }
+  @include media('<desktop') {
+    padding-top: 87px;
+  }
+  b, strong {
+    font-family: HelveticaNeueCondensedBold;
+
+    font-weight:normal;
+  }
+  .content {
+    padding-top: 16px;
+    .row {
+      >.rlist {
+        width:100%;
+      }
+    }
+    [class^='card'] .row {
+      margin-bottom:0;
+    }
+
+    .advertisement--title {
+      float: left;
+      line-height: 12px;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    .advertisment--block img{
+      width: 100%;
+    }
+  }
+
+  @include media('>=desktop') {
+    .flex--desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      justify-items: stretch;
+      align-items: center;
+      >div {
+        &:last-child {
+          width:initial;
+        }
+      }
+    }
+  }
+
+  @include media('>=tablet') {
+    .flex--tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      justify-items: stretch;
+      align-items: center;
+      >div {
+        &:last-child {
+          width:initial;
+        }
+      }
+    }
+  }
+
+  p {
+    margin-top: 0;
+  }
+}
+
+.dropzone {
+  min-width:150px;
+}
+

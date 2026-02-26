@@ -1,0 +1,36 @@
+mixin errorMsg(error)
+    if (error)
+        .infoBox
+            i.icon-notice(aria-hidden="true")
+            span.error_msg= error
+
+mixin formlabel(field,label)
+    if field
+        label(for=field.name)= label
+            if field.required == true
+                span= ' *'
+
+mixin formField(field,placeholder,type)
+    if field
+        input(id=field.name name=field.name type=type required=field.required hidden=field.hidden placeholder=placeholder value=field.value)
+        +errorMsg(field.message)
+
+.membership-access-code.raaAccountInfo
+    if (data) && (data.societyDescription)
+        h1#society-name !{data.societyDescription}
+    - var form = data.form
+    if (form)
+        if (form.tokenDomain)
+            input(value=data.tokenDomain id=form.tokenDomain.name name=form.tokenDomain.name type='hidden' required=form.tokenDomain.required hidden=form.tokenDomain.hidden)
+
+        .row
+            .col-md-6
+                .input-group
+                    +formlabel(form.membershipNo, 'Membership No')
+                    +formField(form.membershipNo, 'Type your membership number', 'text',form.membershipNo.value)
+            .col-md-6
+                .input-group
+                    +formlabel(form.accessCode, 'Access code')
+                    +formField(form.accessCode, 'Type your access code', 'text',form.accessCode.value)
+
+        +errorMsg(data.formMsg)

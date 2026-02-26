@@ -1,0 +1,19 @@
+extends ../../../../../../ux3/widgets/content-navigation/templates/content-navigation/content-navigation-tmpl
+
+block previousCaption
+    if(data.content.type=="Chapter")
+        i.icon-arrow_l.hidden-sm.hidden-md.hidden-lg
+        span.link.hidden-xs previous chapter
+
+    else
+        i.icon-arrow_l
+        span Previous
+
+block nextCaption
+    if(data.content.type == "Chapter")
+          span.link.hidden-xs next chapter
+          i.icon-arrow_r.hidden-sm.hidden-md.hidden-lg
+    else
+            span Next
+            i.icon-arrow_r
+

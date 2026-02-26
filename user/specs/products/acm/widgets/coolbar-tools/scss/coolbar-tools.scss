@@ -1,0 +1,57 @@
+.coolbar-tools {
+  li {
+    padding: 15px 0;
+  }
+
+  .accordion-tabbed {
+    &__content {
+      padding: 5px 0;
+      li{
+        padding: 0px 0 15px;
+        color: $link-text-color;
+      }
+      ul {
+        padding-left: 22px;
+      }
+    }
+
+    &__tab {
+      i{
+        min-width: 22px;
+        padding-right: 5px;
+        display: inline-block;
+        color: $transparent-black-color;
+        font-size: 1rem;
+        vertical-align: text-bottom;
+      }
+
+      .icon-attach_file{
+        font-size: 1.2rem;
+      }
+
+      &:first-child,&:last-child{
+        padding: 0;
+      }
+
+
+      &.js--open {
+        .accordion-tabbed__control:after {
+          content: "\e60c";
+        }
+      }
+    }
+
+    &__control {
+      &:after {
+        color:$tertiary-darken-color;
+        content: "\e60b";
+        font-family: icomoon !important;
+        font-size: .6rem;
+        padding-left: 10px;
+      }
+
+    }
+  }
+
+}
+

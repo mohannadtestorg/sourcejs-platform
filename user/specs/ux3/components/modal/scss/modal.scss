@@ -1,0 +1,132 @@
+.close {
+    float: right;
+    font-size: 1.375rem; // 22px
+    font-weight: bold;
+    line-height: 1;
+    color: $modal-close-button-color;
+    text-shadow: 0 1px 0 $text-onDark;
+    opacity: 0.5;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+
+    &:hover, &:focus{
+        color: $modal-close-button-color;
+        text-decoration: none;
+        background-color: transparent;
+    }
+}
+
+.ux-modal-container .modal {
+    display: none;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+
+    @include media('<phone') {
+        overflow-y: auto;
+    }
+
+    &-open {
+        overflow: hidden;
+    }
+
+    &-open & {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    &__header {
+
+        h2 {
+            margin: 0;
+            @include media('>=tablet') {
+                font-size: 2rem; //32px;
+            }
+            font-size: 1.125rem; //18px;
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+
+    &__body {
+        position: relative;
+    }
+    &__footer{
+        border-top: 1px solid $tertiary-bg-color;
+        padding-top:10px ;
+        margin-top: 10px;
+
+        button:not(:last-child){
+            margin-left: 10px;
+        }
+    }
+
+    &__dialog {
+        overflow: auto;
+        position: relative;
+        background: $modal-content-bg;
+        padding: 17px 30px 30px;
+        @include media('>=tablet') {
+            border-radius: 10px;
+            width: 430px;
+            margin: 30px auto;
+        }
+    }
+
+    &--large {
+        @include media('>=tablet') {
+            width: 80%;
+            max-width: 700px;
+            max-height: 90%;
+        }
+    }
+
+    &-backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1040;
+        @include media('>=tablet') {
+            background-color: $modal-backdrop-color;
+        }
+        background: $modal-content-bg;
+
+        &.fade {
+            opacity: 0;
+        }
+
+        &.in {
+            opacity: 1;
+        }
+    }
+
+    &-scrollbar-measure {
+        position: absolute;
+        top: -9999px;
+        width: 50px;
+        height: 50px;
+        overflow: scroll;
+    }
+
+    @include media('<phone') {
+        &__dialog {height: 100%;}
+    }
+}
+
+.modal--full-width {
+    .ux-modal-container .modal{
+        &__dialog {
+            background: transparent;
+        }
+    }
+}

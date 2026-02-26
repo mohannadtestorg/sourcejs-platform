@@ -1,0 +1,96 @@
+- var nestedListID = 0;
+- var liClass = '';
+- var itemNo = 0;
+
+mixin item(item, nestedList)
+    if (item.label)
+        if nestedList == true
+            i.icon-add_box.sidebar-region__toggle(aria-hidden="true")
+        span.sidebar-region__label !{item.label}
+
+
+
+mixin sidebar-regionsList(data, nestedList)
+    if !nestedList
+        each item, l in data.values
+
+                li
+                    - var linkTitle = 'sidebar-region item'
+                    if (item.label)
+                        - linkTitle = item.label
+
+                    if (item.values)
+
+                        if (item.link)
+                            a(href=item.link title=linkTitle data-toggle='dropdown' class='dropdown__toggle' id='sidebar-regionList-' + nestedListID)
+                                +item(item, true)
+                            +sidebar-regionUl(item, true)
+                    else
+                        if (item.link)
+                            a(href=item.link title=linkTitle)
+                                +item(item, false)
+    else
+        each item, l in data.values
+            li
+                - var linkTitle = 'sidebar-region item'
+                if (item.label)
+                    - linkTitle = item.label
+
+                if (item.values)
+
+                    if (item.link)
+                        a(href=item.link title=linkTitle data-toggle='dropdown' class='dropdown__toggle' id='sidebar-regionList-' + nestedListID)
+                            +item(item, true)
+                        +sidebar-regionUl(item, true)
+                else
+                    if (item.link)
+                        a(href=item.link title=linkTitle)
+                            +item(item, false)
+
+
+
+
+mixin sidebar-regionUl(data, nestedList)
+
+    - itemNo = data.values.length;
+
+    if nestedList == true
+        ul.rlist.sidebar-region-dropdown__menu(aria-labelledby='sidebar-regionList-' + nestedListID  aria-hidden='true')
+            +sidebar-regionsList(data, nestedList)
+        - nestedListID = nestedListID + 1
+    else
+        ul.rlist.sidebar-region__list
+            +sidebar-regionsList(data, nestedList)
+
+
+        if (itemNo > 10)
+            .sidebar-region__select--hidden
+                select(name="sidebar-region" class="sidebar-region__select" data-placeholder="Search (" + (itemNo - 10) + ") more")
+                    each item, l in data.values
+                        if (l > 9)
+                            option(value=item.link)
+                                if (item.label)
+                                    span.sidebar-region__label !{item.label}
+
+
+
+mixin sidebar-regionTitle()
+        h4.sidebar-region__group-title !{data.title}
+
+
+div.sidebar-region__wrapper
+    block showedItems
+        input(type="hidden" value="5" class="showed-items")
+
+    if (data) && (data.title)
+        a(href="#", title=data.title, aria-controls="tocContnetType", class="sidebar-region__ctrl accordion__control js--open")
+            +sidebar-regionTitle()
+            i(aria-hidden="true" class="icon-section_arrow_d")
+    if (data) && (data.values)
+        div.sidebar-region__content.accordion__content.js--open(id="tocContnetType")
+           +sidebar-regionUl(data)
+
+
+
+
+

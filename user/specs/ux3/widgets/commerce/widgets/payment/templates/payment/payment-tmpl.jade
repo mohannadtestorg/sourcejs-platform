@@ -1,0 +1,71 @@
+#99e2023e-106d-423d-931e-1c5f4717e546.widget.eCommerceCheckoutPaymentWidget.none.widget-none.widget-compact-horizontal
+    .wrapped
+        .widget-body.body.body-none.body-compact-horizontal
+            .checkoutList.scroll-focus
+                .header
+                    | Payment
+                .checkout-expand
+                    .infoMsgBox.hidden
+                        h3 Confirm your order
+                        p
+                    .errorMsgBox.hidden
+                        p
+                    .payment
+                        #creditCarPayment
+                            form(action='https://apg.atypon.com/apg/post', name='apg', method='post')
+                                .checkoutSubList.billingPayment
+                                    .errorMsgBox.hidden
+                                        p
+                                    p
+                                        | Credit Card
+                                    .input-group(data-notification='holderName')
+                                        .label
+                                            label(for='holderName') Card's owner name*
+                                            span.field-info.hidden
+                                                span  -
+                                                span.message
+                                        input#holderName(type='text', name='holderName', value='', size='15', maxlength='', autocomplete='off', placeholder='', data-validate='notEmpty')
+                                    .input-group(data-notification='realNumber')
+                                        .label
+                                            label(for='realNumber') Card number*
+                                            span.field-info.hidden
+                                                span  -
+                                                span.message
+                                        input#realNumber(type='tel', name='realNumber', value='', maxlength='', autocomplete='off', placeholder='', data-validate='creditcard')
+                                    div
+                                        .input-group(data-notification='creditcardDate')
+                                            .label
+                                                label(for='expireDate') Expiration date*
+                                                span.field-info.hidden
+                                                    span  -
+                                                    span.message
+                                            input#expireDate(type='tel', name='expireDate', value='', maxlength='7', autocomplete='off', placeholder='MM/YYYY', data-validate='creditcardDate')
+                                            input#expMonth(name='expMonth', type='hidden')
+                                            input#expYear(name='expYear', type='hidden')
+                                        .input-group(data-notification='secNumber')
+                                            .label
+                                                label(for='secNumber') Security code*
+                                                span.field-info.hidden
+                                                    span  -
+                                                    span.message
+                                            input#secNumber(type='tel', name='secNumber', value='', maxlength='', autocomplete='off', placeholder='', data-validate='securityCode')
+                                    input#cartHash(name='cartHash', type='hidden', value='1017546049')
+                                    input#address1(name='address1', type='hidden', value='Aqaba')
+                                    input#address2(name='address2', type='hidden', value='')
+                                    input#firstName(name='firstName', type='hidden', value='amman')
+                                    input#lastName(name='lastName', type='hidden', value='Nofal')
+                                    input#city(name='city', type='hidden', value='Amman')
+                                    input#countryCode(name='countryCode', type='hidden', value='JO')
+                                    input#department(name='department', type='hidden', value='')
+                                    input#email(name='email', type='hidden', value='Amman')
+                                    input#ext(name='ext', type='hidden', value='')
+                                    input#fax(name='fax', type='hidden', value='')
+                                    input#mobile(name='mobile', type='hidden', value='')
+                                    input#phone(name='phone', type='hidden', value='')
+                                    input#organization(name='organization', type='hidden', value='')
+                                    input#state(name='state', type='hidden', value='')
+                                    input#title(name='title', type='hidden', value='')
+                                    input#zipCode(name='zipCode', type='hidden', value='1118')
+                                    input#postBackUri(name='postBackUri', type='hidden', value='/action/apgReturn?cartHash=1017546049')
+                                    .actions.float-right
+                                        input.button.primary(type='submit', value='Place Order', data-bind='placeOrder')

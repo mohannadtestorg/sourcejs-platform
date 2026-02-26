@@ -1,0 +1,13 @@
+h2 {
+    font-weight: 700;
+    @include media('<desktop') {
+        font-weight: 600;
+    }
+}
+
+h2,
+h3 {
+    @include  themify($themes) {
+        color: themed('headings');
+    }
+}

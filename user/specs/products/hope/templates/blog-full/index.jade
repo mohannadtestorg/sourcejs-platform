@@ -1,0 +1,20 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Blog full page
+
+    section.source_section
+        h2 Blog full page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.blog-full
+                .container
+                    | !{pb.render("html", data.socialLinks)}
+                | !{pb.render("blog-content", "article/demo/blog", data.content,'hope')}
+            | !{data.footer}
+    | #{''}

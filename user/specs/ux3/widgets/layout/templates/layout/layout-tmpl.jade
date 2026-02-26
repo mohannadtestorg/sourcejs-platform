@@ -1,0 +1,59 @@
+
+if (model && model.data)
+    - data = model.data
+if (!thisWidget)
+    - thisWidget = {};
+-
+    var colSize = 'xs';
+    var cMarkup = 'div';
+
+mixin col(col, l)
+    if (thisWidget.properties && thisWidget.properties.displayFrame)
+        if thisWidget.properties.displayFrame == 'mobile'
+            - colSize = 'sm';
+        else if thisWidget.properties.displayFrame == 'tablet'
+            - colSize = 'md';
+
+    - var colClass = (col && col.config && col.config.className) ? col.config.className : '';
+
+
+    if (col && col.config && col.config.width && col.config.width != 'Unspecified')
+
+        - colClass = colClass + ' col-' + colSize + '-' + col.config.width;
+
+        if (thisWidget.properties && thisWidget.properties.displayGutterless) && thisWidget.properties.displayGutterless == 'true'
+            - colClass = colClass + ' gutterless ';
+
+    if (col && col.config && col.config.markup)
+        - cMarkup = col.config.markup;
+
+    if (thisWidget.properties && thisWidget.properties.isList) && thisWidget.properties.isList == 'true'
+        - cMarkup = 'li';
+
+    #{cMarkup}(class=colClass)
+        | !{pb.renderDropzone(thisWidget, "col-"+ l)}
+
+
+if (thisWidget.properties && thisWidget.properties.mainWrapper) && thisWidget.properties.mainWrapper == 'true'
+    .container
+        .row
+            if (thisWidget.properties.isList) && thisWidget.properties.isList == 'true'
+                ul.rlist--inline
+                    if (data && data.columns)
+                        each col, l in data.columns
+                            +col(col, l)
+            else
+                if (data && data.columns)
+                    each col, l in data.columns
+                        +col(col, l)
+else
+    if (thisWidget.properties && thisWidget.properties.isList) && thisWidget.properties.isList == 'true'
+        ul.rlist--inline
+            if (data && data.columns)
+                each col, l in data.columns
+                    +col(col, l)
+    else
+        if (data && data.columns)
+            each col, l in data.columns
+                +col(col, l)
+

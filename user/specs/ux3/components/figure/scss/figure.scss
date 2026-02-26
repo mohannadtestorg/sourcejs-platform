@@ -1,0 +1,36 @@
+figure {
+    margin: 0 0 15px;
+}
+
+.article__tabFigure {
+    &:not(:first-child) {
+        padding-top: 18px;
+    }
+}
+
+.figure {
+    &__image {
+        margin-bottom: 5px;
+    }
+    &__title {
+        font-weight: bold;
+        margin-right: 5px;
+
+        .w-slide & {
+            display: block;
+            text-transform: uppercase;
+        }
+    }
+}
+
+figcaption {
+    cursor: default;
+    .w-slide & {
+        border-bottom: 1px solid $borders;
+        padding-bottom: 10px;
+    }
+    .accordion__control {
+        font-weight: normal;
+        margin-top: 5px;
+    }
+}

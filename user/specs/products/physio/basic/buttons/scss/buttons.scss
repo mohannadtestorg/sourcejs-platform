@@ -1,0 +1,44 @@
+button.btn, input.btn {
+    padding: 12px 16px;
+    text-transform: uppercase;
+    background: $primary-blue-color;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+button[disabled] {
+    background: $publication;
+    opacity: 0.5;
+}
+
+button.btn {
+    background: $primary-blue-color;
+    @include themify($themes) {
+        background: themed('color');
+    }
+}
+
+.btn {
+    &.btn__transparent, &.btn__transparent:hover {
+        border: 3px solid $primary-blue-color;
+        color: $primary-blue-color;
+        background: transparent;
+    }
+}
+
+.btn--inverse {
+    font-size: 18px;
+    padding: 14px;
+    font-weight: 900;
+    @include themify($themes) {
+        border: 3px solid themed('color');
+        color: themed('color');
+    }
+    &:hover {
+        color: $primary-white;
+        @include themify($themes) {
+            border: 3px solid themed('color');
+            background: themed('color');
+        }
+    }
+}

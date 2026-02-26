@@ -1,0 +1,44 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "journal__page__tabs"
+        },
+        "config": {
+            "type": "default",
+            "id": "journal__page__tabs",
+            "effect": "slide",
+            "vPort": "xsmall"
+        },
+        "data": {
+            "nav": [
+                {
+                    "text": "Current Issue",
+                    "content": {
+                        "$pug": {
+                            "template": "../../components/teaser/templates/teaser/teaser-tmpl.jade",
+                            "data": {
+                                "$ref": "./current-issue-list.json"
+                            }
+                        }
+                    }
+                },
+                {
+                    "text": "Immediate pasu issue",
+                    "content": "tab333 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element. Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap"
+                },
+                {
+                    "text": "Most read",
+                    "content": {
+                        "$pug": {
+                            "template": "../../components/teaser/templates/teaser/teaser-tmpl.jade",
+                            "data": {
+                                "$ref": "../../../../components/teaser/templates/data/creative-work-list.json"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+}

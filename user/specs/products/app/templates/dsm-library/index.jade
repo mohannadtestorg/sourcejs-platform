@@ -1,0 +1,88 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 DSM Library
+    .source_info
+
+
+    section.source_section
+        h2 DSM Library
+        markdown
+        .source_example
+            | !{data.header}
+            main.dsm-theme.content.content--extra
+                .container.dsm-library.page-top-margin
+                    .col-lg-9.col-md-8
+                        h5.font-weight-light.border-bottom FEATURED
+                        .slider__container
+                          | !{data.MainSlides}
+
+
+                        h5.font-weight-light.border-bottom DISCOVER DSM TITLES
+
+                        .books-container.row
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage2}
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage}
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage2}
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage}
+
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage}
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage2}
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage}
+                            .col-lg-3.col-md-4.col-sm-4.clearfix
+                                | !{data.coverImage2}
+
+
+
+                    .col-lg-3.col-md-4
+                        .advertisement.center
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+                        .card--shadow.card-small
+                            h5.border-bottom
+                               span DSM-5 Updates
+                               br
+                               span (September 2016)
+
+                            p orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ac consequat lacini
+                            a(href="#" title="orem ipsum dolor sit amet").link orem ipsum dolor sit amet
+                            p.border-bottom orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ac consequat
+                            .center
+                                a(href="#").btn Sign up Now
+
+                        .card--shadow.card-small
+                            h5.border-bottom
+                                span DSM-5 Updates
+                                br
+                                span (September 2016)
+
+                            p orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ac consequat lacini
+                            a(href="#" title="orem ipsum dolor sit amet").link orem ipsum dolor sit amet
+
+                        .card-small.center.dark-gradient
+                            .dark-gradient--container
+                                h5.title
+                                    span DSM-5
+                                    br
+                                    span Smart Updates
+
+                                p orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ac consequat laciorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur conva
+                                p llis massa ac consequat laciorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ac consequat lacini
+
+
+
+
+
+
+            | !{data.footer}
+    | #{''}

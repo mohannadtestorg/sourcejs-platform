@@ -1,0 +1,463 @@
+form(action='/action/doUpdateSessionAccount?local=true', method='post')
+    input(type='hidden', name='source', value='')
+    input(type='hidden', name='redirectUri', value='/')
+    input(type='hidden', name='current', value='/action/registration?prg140729=996c3f31-b189-496c-b7ff-68ba3d17c2e4')
+    .pb-dropzone.formDropZone(data-pb-dropzone='formDropZone')
+        section.personal-information
+            input(type='hidden', name='personal.id', value='5b6c82b3-8ba5-4b71-8568-cc6d9fae5a4b')
+            input(type='hidden', name='section', value='personal')
+            .input-group
+                .label
+                    label(for='personal.givenNames')
+                        | First Name
+                        span.required-marker *
+                input(id='personal.givenNames', type='text', name='personal.givenNames', value='', size='15')
+            .input-group
+                .label
+                    label(for='personal.surname')
+                        | Last Name
+                        span.required-marker *
+                input(id='personal.surname', type='text', name='personal.surname', value='', size='15')
+        section.login-info
+            input(type='hidden', name='login.id', value='107be65f-a726-447c-b2c5-e3c5e4f5f6f5')
+            input(type='hidden', name='section', value='login')
+            .input-group
+                .label
+                    label(for='login.email')
+                        | Email
+                        span.required-marker *
+                input.email(id='login.email', type='text', name='login.email', value='aqoraan+323@atypon.com', size='15')
+            .input-group
+                .label
+                    label(for='login.password')
+                        | Password
+                        span.required-marker *
+                input.pass-hint(id='login.password', type='password', name='login.password', value='', autocomplete='off')
+                span.password-eye-icon.icon-eye.hidden
+                .password-strength-indicator(data-min='6', data-max='15', data-strength='4')
+                    span.text.too-short Too Short
+                    span.text.weak Weak
+                    span.text.medium Medium
+                    span.text.strong Strong
+                    span.text.very-strong Very Strong
+                    span.text.too-long Too Long
+        section.phone
+            input(type='hidden', name='phone.id', value='36b47168-265f-4b67-977c-e3e1ccb244e4')
+            input(type='hidden', name='section', value='phone')
+            .input-group
+                .label
+                    label(for='phone.value')
+                        | Phone
+                        span.required-marker *
+                input(id='phone.value', type='tel', name='phone.value', value='')
+        section.marketable
+            input(type='hidden', name='marketable.id', value='a06bb13f-6329-4050-a2da-be399fed230a')
+            input(type='hidden', name='section', value='marketable')
+            .notified-group
+                p.normal-txt
+                    | Your subscription will let us send you monthly news letters with the latest news   and with our special offers!
+                p.small-txt You may unsubscribe from our mailing list any time.
+                .switch.small-switch
+                    input.cmn-toggle.cmn-toggle-round-flat(id='marketable.value', type='checkbox', name='marketable.value', value='true')
+                    label.tgl-btn(for='marketable.value')
+        section.professional-information
+            input(type='hidden', name='professional.id', value='54e3435b-4c23-4dfe-8dfb-9ace5089359d')
+            input(type='hidden', name='section', value='professional')
+            .input-group
+                .label
+                    label(for='professional.position') Position
+                input(id='professional.position', type='text', name='professional.position', value='', size='15')
+            .input-group
+                .label
+                    label(for='professional.organization') Organization
+                input(id='professional.organization', type='text', name='professional.organization', value='', size='15')
+            .input-group
+                .label
+                    label(for='professional.department') Department
+                input(id='professional.department', type='text', name='professional.department', value='', size='15')
+        section.taxonomies
+            input(type='hidden', name='taxonomy.id', value='52286837-20f9-4dda-95b1-3605a531fb1a')
+            input(type='hidden', name='section', value='taxonomies')
+        section.edit
+            input(type='hidden', name='address.id', value='f895dd58-5982-4e7a-87b6-f2e7b8009b51')
+            input(type='hidden', name='section', value='address')
+            input(type='hidden', name='address.uuid', value='')
+            .input-group
+                .label
+                    label(for='address.description') Short Name
+                input(id='address.description', type='text', name='address.description', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.givenNames') First Name
+                input.dynamic(id='address.givenNames', type='text', name='address.givenNames', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.surname') Last Name
+                input.dynamic(id='address.surname', type='text', name='address.surname', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.address1')
+                        | Address
+                        span.required-marker *
+                input(id='address.address1', type='text', name='address.address1', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.address2') Street/Apt
+                input(id='address.address2', type='text', name='address.address2', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.zipCode') Zip/Postal Code
+                input(id='address.zipCode', type='text', name='address.zipCode', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.city')
+                        | City
+                        span.required-marker *
+                input(id='address.city', type='text', name='address.city', value='', size='15')
+            .input-group
+                .label
+                    label(for='address.country')
+                        | Country
+                        span.required-marker *
+                select.country(id='address.country', name='address.country')
+                    option(value='')
+                    option(value='AF') Afghanistan
+                    option(value='AX') Aland Islands
+                    option(value='AL') Albania
+                    option(value='DZ') Algeria
+                    option(value='AS') American Samoa
+                    option(value='AD') Andorra
+                    option(value='AO') Angola
+                    option(value='AI') Anguilla
+                    option(value='AQ') Antarctica
+                    option(value='AG') Antigua and Barbuda
+                    option(value='AR') Argentina
+                    option(value='AM') Armenia
+                    option(value='AW') Aruba
+                    option(value='AU') Australia
+                    option(value='AT') Austria
+                    option(value='AZ') Azerbaijan
+                    option(value='BS') Bahamas
+                    option(value='BH') Bahrain
+                    option(value='BD') Bangladesh
+                    option(value='BB') Barbados
+                    option(value='BY') Belarus
+                    option(value='BE') Belgium
+                    option(value='BZ') Belize
+                    option(value='BJ') Benin
+                    option(value='BM') Bermuda
+                    option(value='BT') Bhutan
+                    option(value='BO') Bolivia
+                    option(value='BQ') Bonaire, Sint Eustatius and Saba
+                    option(value='BA') Bosnia and Herzegovina
+                    option(value='BW') Botswana
+                    option(value='BV') Bouvet Island
+                    option(value='BR') Brazil
+                    option(value='IO') British Indian Ocean Territory
+                    option(value='BN') Brunei Darussalam
+                    option(value='BG') Bulgaria
+                    option(value='BF') Burkina Faso
+                    option(value='BI') Burundi
+                    option(value='KH') Cambodia
+                    option(value='CM') Cameroon
+                    option(value='CA') Canada
+                    option(value='CV') Cape Verde
+                    option(value='KY') Cayman Islands
+                    option(value='CF') Central African Republic
+                    option(value='TD') Chad
+                    option(value='CL') Chile
+                    option(value='CN') China
+                    option(value='CX') Christmas Island
+                    option(value='CC') Cocos (Keeling) Islands
+                    option(value='CO') Colombia
+                    option(value='KM') Comoros
+                    option(value='CG') Congo
+                    option(value='CD') Congo, The Democratic Republic of the
+                    option(value='CK') Cook Islands
+                    option(value='CR') Costa Rica
+                    option(value='CI') Cote D'ivoire
+                    option(value='HR') Croatia
+                    option(value='CU') Cuba
+                    option(value='CW') Curaçao
+                    option(value='CY') Cyprus
+                    option(value='CZ') Czech Republic
+                    option(value='DK') Denmark
+                    option(value='DJ') Djibouti
+                    option(value='DM') Dominica
+                    option(value='DO') Dominican Republic
+                    option(value='EC') Ecuador
+                    option(value='EG') Egypt
+                    option(value='SV') El Salvador
+                    option(value='GQ') Equatorial Guinea
+                    option(value='ER') Eritrea
+                    option(value='EE') Estonia
+                    option(value='ET') Ethiopia
+                    option(value='FK') Falkland Islands (Malvinas)
+                    option(value='FO') Faroe Islands
+                    option(value='FJ') Fiji
+                    option(value='FI') Finland
+                    option(value='FR') France
+                    option(value='GF') French Guiana
+                    option(value='PF') French Polynesia
+                    option(value='TF') French Southern Territories
+                    option(value='GA') Gabon
+                    option(value='GM') Gambia
+                    option(value='GE') Georgia
+                    option(value='DE') Germany
+                    option(value='GH') Ghana
+                    option(value='GI') Gibraltar
+                    option(value='GR') Greece
+                    option(value='GL') Greenland
+                    option(value='GD') Grenada
+                    option(value='GP') Guadeloupe
+                    option(value='GU') Guam
+                    option(value='GT') Guatemala
+                    option(value='GG') Guernsey
+                    option(value='GN') Guinea
+                    option(value='GW') Guinea-Bissau
+                    option(value='GY') Guyana
+                    option(value='HT') Haiti
+                    option(value='HM') Heard Island and Mcdonald Islands
+                    option(value='VA') Holy See (Vatican City State)
+                    option(value='HN') Honduras
+                    option(value='HK') Hong Kong
+                    option(value='HU') Hungary
+                    option(value='IS') Iceland
+                    option(value='IN') India
+                    option(value='ID') Indonesia
+                    option(value='IR') Iran, Islamic Republic of
+                    option(value='IQ') Iraq
+                    option(value='IE') Ireland
+                    option(value='IM') Isle of Man
+                    option(value='IL') Israel
+                    option(value='IT') Italy
+                    option(value='JM') Jamaica
+                    option(value='JP') Japan
+                    option(value='JE') Jersey
+                    option(value='JO') Jordan
+                    option(value='KZ') Kazakhstan
+                    option(value='KE') Kenya
+                    option(value='KI') Kiribati
+                    option(value='KP') Korea, Democratic People's Republic of
+                    option(value='KR') Korea, Republic of
+                    option(value='XK') Kosovo
+                    option(value='KW') Kuwait
+                    option(value='KG') Kyrgyzstan
+                    option(value='LA') Lao People's Democratic Republic
+                    option(value='LV') Latvia
+                    option(value='LB') Lebanon
+                    option(value='LS') Lesotho
+                    option(value='LR') Liberia
+                    option(value='LY') Libyan Arab Jamahiriya
+                    option(value='LI') Liechtenstein
+                    option(value='LT') Lithuania
+                    option(value='LU') Luxembourg
+                    option(value='MO') Macau
+                    option(value='MK') Macedonia, The Former Yugoslav Republic of
+                    option(value='MG') Madagascar
+                    option(value='MW') Malawi
+                    option(value='MY') Malaysia
+                    option(value='MV') Maldives
+                    option(value='ML') Mali
+                    option(value='MT') Malta
+                    option(value='MH') Marshall Islands
+                    option(value='MQ') Martinique
+                    option(value='MR') Mauritania
+                    option(value='MU') Mauritius
+                    option(value='YT') Mayotte
+                    option(value='MX') Mexico
+                    option(value='FM') Micronesia, Federated States of
+                    option(value='MD') Moldova, Republic of
+                    option(value='MC') Monaco
+                    option(value='MN') Mongolia
+                    option(value='ME') Montenegro
+                    option(value='MS') Montserrat
+                    option(value='MA') Morocco
+                    option(value='MZ') Mozambique
+                    option(value='MM') Myanmar
+                    option(value='NA') Namibia
+                    option(value='NR') Nauru
+                    option(value='NP') Nepal
+                    option(value='NL') Netherlands
+                    option(value='AN') Netherlands Antilles
+                    option(value='NC') New Caledonia
+                    option(value='NZ') New Zealand
+                    option(value='NI') Nicaragua
+                    option(value='NE') Niger
+                    option(value='NG') Nigeria
+                    option(value='NU') Niue
+                    option(value='NF') Norfolk Island
+                    option(value='MP') Northern Mariana Islands
+                    option(value='NO') Norway
+                    option(value='OM') Oman
+                    option(value='PK') Pakistan
+                    option(value='PW') Palau
+                    option(value='PS') Palestinian Territory, Occupied
+                    option(value='PA') Panama
+                    option(value='PG') Papua New Guinea
+                    option(value='PY') Paraguay
+                    option(value='PE') Peru
+                    option(value='PH') Philippines
+                    option(value='PN') Pitcairn
+                    option(value='PL') Poland
+                    option(value='PT') Portugal
+                    option(value='PR') Puerto Rico
+                    option(value='QA') Qatar
+                    option(value='RE') Reunion
+                    option(value='RO') Romania
+                    option(value='RU') Russian Federation
+                    option(value='RW') Rwanda
+                    option(value='BL') Saint Barthelemy
+                    option(value='SH') Saint Helena
+                    option(value='KN') Saint Kitts and Nevis
+                    option(value='LC') Saint Lucia
+                    option(value='MF') Saint Martin
+                    option(value='PM') Saint Pierre and Miquelon
+                    option(value='VC') Saint Vincent and the Grenadines
+                    option(value='WS') Samoa
+                    option(value='SM') San Marino
+                    option(value='ST') Sao Tome and Principe
+                    option(value='SA') Saudi Arabia
+                    option(value='SN') Senegal
+                    option(value='RS') Serbia
+                    option(value='SC') Seychelles
+                    option(value='SL') Sierra Leone
+                    option(value='SG') Singapore
+                    option(value='SX') Sint Maarten (Dutch part)
+                    option(value='SK') Slovakia
+                    option(value='SI') Slovenia
+                    option(value='SB') Solomon Islands
+                    option(value='SO') Somalia
+                    option(value='ZA') South Africa
+                    option(value='GS') South Georgia and the South Sandwich Islands
+                    option(value='SS') South Sudan
+                    option(value='ES') Spain
+                    option(value='LK') Sri Lanka
+                    option(value='SD') Sudan
+                    option(value='SR') Suriname
+                    option(value='SJ') Svalbard and Jan Mayen
+                    option(value='SZ') Swaziland
+                    option(value='SE') Sweden
+                    option(value='CH') Switzerland
+                    option(value='SY') Syrian Arab Republic
+                    option(value='TW') Taiwan
+                    option(value='TJ') Tajikistan
+                    option(value='TZ') Tanzania, United Republic of
+                    option(value='TH') Thailand
+                    option(value='TL') Timor-Leste
+                    option(value='TG') Togo
+                    option(value='TK') Tokelau
+                    option(value='TO') Tonga
+                    option(value='TT') Trinidad and Tobago
+                    option(value='TN') Tunisia
+                    option(value='TR') Turkey
+                    option(value='TM') Turkmenistan
+                    option(value='TC') Turks and Caicos Islands
+                    option(value='TV') Tuvalu
+                    option(value='UG') Uganda
+                    option(value='UA') Ukraine
+                    option(value='AE') United Arab Emirates
+                    option(value='GB') United Kingdom
+                    option(value='US') United States
+                    option(value='UM') United States Minor Outlying Islands
+                    option(value='UY') Uruguay
+                    option(value='UZ') Uzbekistan
+                    option(value='VU') Vanuatu
+                    option(value='VE') Venezuela
+                    option(value='VN') Vietnam
+                    option(value='VG') Virgin Islands, British
+                    option(value='VI') Virgin Islands, U.S.
+                    option(value='WF') Wallis and Futuna
+                    option(value='EH') Western Sahara
+                    option(value='YE') Yemen
+                    option(value='ZM') Zambia
+                    option(value='ZW') Zimbabwe
+            .input-group.hidden
+                .label
+                    label(for='address.state')
+                        | State
+                        span.required-marker *
+                select.state.CA(id='address.state', name='address.state', disabled='disabled')
+                    option(value='')
+                    option(value='AB') Alberta
+                    option(value='BC') British Columbia
+                    option(value='MB') Manitoba
+                    option(value='NB') New Brunswick
+                    option(value='NL') Newfoundland and Labrador
+                    option(value='NT') Northwest Territories
+                    option(value='NS') Nova Scotia
+                    option(value='NU') Nunavut
+                    option(value='ON') Ontario
+                    option(value='PE') Prince Edward Island
+                    option(value='QC') Quebec
+                    option(value='SK') Saskatchewan
+                    option(value='YT') Yukon Territory
+                select.state.US(id='address.state', name='address.state', disabled='disabled')
+                    option(value='')
+                    option(value='AL') Alabama
+                    option(value='AK') Alaska
+                    option(value='AS') American Samoa
+                    option(value='AZ') Arizona
+                    option(value='AR') Arkansas
+                    option(value='CA') California
+                    option(value='CO') Colorado
+                    option(value='CT') Connecticut
+                    option(value='DE') Delaware
+                    option(value='DC') District Of Columbia
+                    option(value='FL') Florida
+                    option(value='GA') Georgia
+                    option(value='GU') Guam
+                    option(value='HI') Hawaii
+                    option(value='ID') Idaho
+                    option(value='IL') Illinois
+                    option(value='IN') Indiana
+                    option(value='IA') Iowa
+                    option(value='KS') Kansas
+                    option(value='KY') Kentucky
+                    option(value='LA') Louisiana
+                    option(value='ME') Maine
+                    option(value='MH') Marshall Islands
+                    option(value='MD') Maryland
+                    option(value='MA') Massachusetts
+                    option(value='MI') Michigan
+                    option(value='FM') Micronesia
+                    option(value='MN') Minnesota
+                    option(value='MS') Mississippi
+                    option(value='MO') Missouri
+                    option(value='MT') Montana
+                    option(value='NE') Nebraska
+                    option(value='NV') Nevada
+                    option(value='NH') New Hampshire
+                    option(value='NJ') New Jersey
+                    option(value='NM') New Mexico
+                    option(value='NY') New York
+                    option(value='NC') North Carolina
+                    option(value='ND') North Dakota
+                    option(value='MP') Northern Mariana Islands
+                    option(value='OH') Ohio
+                    option(value='OK') Oklahoma
+                    option(value='OR') Oregon
+                    option(value='PW') Palau
+                    option(value='PA') Pennsylvania
+                    option(value='PR') Puerto Rico
+                    option(value='RI') Rhode Island
+                    option(value='SC') South Carolina
+                    option(value='SD') South Dakota
+                    option(value='TN') Tennessee
+                    option(value='TX') Texas
+                    option(value='UT') Utah
+                    option(value='VT') Vermont
+                    option(value='VI') Virgin Islands
+                    option(value='VA') Virginia
+                    option(value='WA') Washington
+                    option(value='WV') West Virginia
+                    option(value='WI') Wisconsin
+                    option(value='WY') Wyoming
+                    option(value='AA') Armed Forces (AA)
+                    option(value='AE') Armed Forces (AE)
+                    option(value='AP') Armed Forces (AP)
+        script(src='//www.google.com/recaptcha/api.js?render=explicit&onload=loadRecaptcha', async='', defer='')
+        .g-recaptcha(data-sitekey='6Lc4HR8TAAAAAPFSxfchztMruqn2dTwPIQ9vaX9b')
+    .actions
+        input.button.primary(type='submit', name='submit', value='Save')
+        a.cancel(href='/') skip

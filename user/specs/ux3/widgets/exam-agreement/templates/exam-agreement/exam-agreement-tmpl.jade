@@ -1,0 +1,14 @@
+- var examLink = "";
+if(data.exam && data.exam.link)
+    - examLink = (data.exam.link.indexOf("?") != -1) ? data.exam.link+"&disclosure=accepted" : data.exam.link+"?disclosure=accepted";
+div.exam-agreement
+    div.exam-agreement__link
+        a.btn.btn--inverse(href=examLink) Take this course
+    if (data && data.exam && data.exam.xslt)
+        | !{data.exam.xslt}
+    block examAgreementDropZone
+        | !{pb.renderDropzone(thisWidget, "examAgreementDropZone")}
+    div.exam-agreement__link
+        a.btn.btn--inverse(href=examLink) Take this course
+        a(href="javascript:history.back()") Return to the previous page
+

@@ -1,0 +1,43 @@
+mixin meta(item)
+    block meta
+        div.meta
+            if (item && item.host && item.length)
+                .meta__detail
+                    span Host:
+                    |  !{item.host}
+                    span.separator
+                    span Length:
+                    |  !{item.length}
+            if (item && item.epubDate)
+                | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}
+            if (item && item.doi)
+                p.meta__doi
+                    a(href=item.doi) !{item.doi}
+            .meta__footer
+                ul.rlist--inline.separator.meta__links
+                    if (item && item.pdf)
+                        li
+                            a(href=item.pdf, title='PDF') PDF version
+
+mixin podcastsItem(item)
+    block podcastsItem
+        div.podcasts-item
+            if (item.title)
+                if (item.best)
+                    a(href=item.best title=item.title)
+                        h5.podcasts-item__title !{item.title}
+                else
+                    h5.podcasts-item__title !{item.title}
+
+            +meta(item)
+
+
+mixin render(items)
+    block podcastsWrapper
+        ul.rlist.podcasts-list
+            each item, l in items
+                li.grid-item
+                    +podcastsItem(item)
+
+if ((data) && (data.items))
+    +render(data.items)

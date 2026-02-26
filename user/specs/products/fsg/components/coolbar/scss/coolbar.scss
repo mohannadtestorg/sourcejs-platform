@@ -1,0 +1,111 @@
+.coolBar {
+    i {
+        font-size: 20px;
+        color: inherit;
+        vertical-align: middle;
+    }
+
+    &__wrapper {
+        padding-top: 11px;
+    }
+
+    &--res {
+        .coolBar__wrapper {
+            left: 0;
+            background-color: $primary-bg-color;
+        }
+
+        [class*=__ctrl] {
+            color: $text-onLight;
+            padding: 10px 0;
+        }
+
+        .tab__nav,
+        .coolBar__drop,
+        .article-tools__block,
+        .share__block {
+            &.fixed {
+                top: 47px;
+            }
+            .active {
+                a {
+                    border-color: $primary-border-color;
+                }
+                i {
+                    color: $secondary-text-color;
+                }
+            }
+            a {
+                border-color: $primary-border-color;
+            }
+            i {
+                color: $secondary-text-color;
+                &:not(:first-child) {
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+.w-slide {
+    &_head {
+        background-color: $primary-bg-color;
+        color: $text-onLight;
+    }
+
+    &__content {
+        .w-slide--list {
+            box-shadow: 0px -8px 0px 0px $wslide_mobile_bg;
+
+            li:first-child {border-top-color: $primary-border-color;}
+
+            .active a, a {
+                border-bottom-color: $primary-border-color;
+                font-weight: 400;
+            }
+            .active i, i {
+                color: $secondary-text-color;
+            }
+        }
+        .article-tool, .addthis.addthis {
+            i {
+                color: $secondary-text-color;
+            }
+        }
+        figure {
+            padding: 10px 15px;
+            background: $white;
+            margin-top: 8px;
+            border: 1px solid $borders;
+
+            box-shadow: 0px 15px 0px 0px $wslide_mobile_bg, 0px -8px 0px 0px $wslide_mobile_bg;
+        }
+    }
+
+    figcaption {
+        border: none;
+    }
+
+    &__back i,
+    &__title.js--open {
+        color: $text-onLight;
+    }
+
+    @include media('>=tablet') {
+        &--list {
+            i:not(:first-child) {
+                display: none;
+            }
+        }
+    }
+
+    @include media('<tablet'){
+        .transplant.showit:after {
+            display: block;
+            content: '';
+            height: 100vh;
+            background: $wslide_mobile_bg;
+        }
+    }
+}

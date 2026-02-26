@@ -1,0 +1,163 @@
+- var displayArticles = thisWidget && thisWidget.properties && thisWidget.properties.displayArticles
+- var displayPublications = thisWidget && thisWidget.properties && thisWidget.properties.displayPublications
+- var tableData;
+- var config;
+
+mixin favorites_cols(rows,title,type,date,doi)
+    - var cols = []
+    - cols.push({"content": title})
+    - cols.push({"content": type})
+    if date
+        - cols.push({"content": date})
+    block tableBodyExtra
+
+    - rows.push({"cols": cols, "ch_name": 'doi', "ch_id": doi, "ch_value": doi})
+
+mixin tablePublication(source)
+    each favorite,i in source.favorites.booksAndSerials
+        - var doi = 'publication' + i
+        if favorite.doi
+            if favorite.doi != ''
+                - doi = favorite.doi
+
+        - var title = '<a href="' + favorite.bestFormat + '">'+favorite.title+'</a>'
+        - var type = ''
+
+        if favorite.type
+            - type = favorite.type
+
+        +favorites_cols(tableData.rows,title,type,null,doi)
+
+
+mixin tableArticle(source)
+    each favorite,i in source.favorites.items
+
+        - var doi = i
+
+        if (favorite.doi) && favorite.doi != ''
+            - doi = favorite.doi
+
+        - var title = '<a href="' + favorite.bestFormat + '">'+favorite.title+'</a>'
+        - var type = favorite.articleType
+        - type = type.substr(type.lastIndexOf(':') + 1)
+        - type = type.charAt(0).toUpperCase() + type.slice(1);
+        - var publication = ''
+        - var date = ''
+        if favorite.epubDate
+            - date = favorite.epubDate
+
+        +favorites_cols(tableData.rows,title,type,date,doi)
+
+
+mixin favorites_table(source,category)
+    block tablePrefix
+        - tableData = {"headings":[], "actions":[], "rows":[]}
+        - config = {"checkbox": true,"expandable": true}
+
+    block tableHead
+        - var headings = {'Article': [{"content":"Title"},{"content": "Type"},{"content": "Publication Date"}], 'Publication': [{"content": category +" Title"},{"content": "Publication Type"}]}
+        block tableHeadExtra
+        - tableData.headings = headings[category]
+
+    block tableBody
+        if category == 'Article'
+            +tableArticle(source)
+
+        else if category == 'Publication'
+            +tablePublication(source)
+
+    block table
+        | !{pb.render('tables', {data: tableData, config: config})}
+
+mixin favorites_sort(category)
+    - var article_list = [{'title':'Publication Date','value':'EPUB_DATE'}, {'title':'Title','value':'ITEM_TITLE'}]
+    - var book_list = [{'title':'Publication Date','value':'PPUB_DATE'},{'title':'Serial Title','value':'SERIAL_TITLE'}]
+    - var list = []
+    block favoritesSort
+        .pull-right
+            .selectMenuLabel
+                label Sort By:
+
+            if (category == 'Publication')
+                -list = book_list
+            else if (category == 'Article')
+                -list = article_list
+
+            .pull-right
+                select#slct_sortBy.sortOptions.jcf(name="sortBy")
+                    each item in list
+                        option.js__favSort(value=item.value,selected=data.sortBy==item.value?"true":undefined) !{item.title}
+
+mixin favorites_actions(tabId)
+    - var action_list = {'articles': [{'title':'Select Action','icon':'','value':''},{'title':'Download Citation','icon':'icon-export_citation','value':'showCitFormats'},{'title':'Track Citations','icon':'icon-track','value':'addCitationAlert'},{'title':'Delete','icon':'icon-trash-can','value':'delete'}], 'publications': [{'title':'Select Action','icon':'','value':''},{'title':'Delete','icon':'icon-trash-can','value':'delete'}]};
+    - var actions = action_list[tabId];
+    
+    block favoritesActions
+        .pull-left
+            .selectMenuLabel
+                label.checkbox--primary
+                    input(type='checkbox' name="markall")
+                    span.label-txt
+                        p.inline.hidden-xs Select All
+            .pull-right
+                select.favoritePublicationsOptions.jcf(name="action")
+                    each item in actions
+                        option.js__favActions(value=item.value) !{item.title}
+
+block favMainWrapper
+    div.favoriteShortlist.separator
+        div.tab.tab--slide.tab--flex
+            - var tabsLabels = ['Article','Publication']
+            block tabsLinksLabels
+                - var tabsLinksLabels = ['Article','Publication']
+
+            block tabsLinks
+                ul.rlist.tab__nav.account-tab__nav(data-mobile-toggle="slide")
+                    if (displayArticles)
+                        li.active(role="presentation")
+                            a#pane-favorites0con(href="#pane-favorites0" aria-controls="#pane-favorites0" role="tab" data-toggle="tab" title=tabsLinksLabels[0] +' Shortlist' data-slide-target="#pane-favorites0" data-type=tabsLinksLabels[0])
+                                span=thisWidget.properties.articlesLabel
+                    if (displayPublications)
+                        li(role="presentation")
+                            a#pane-favorites1con(href="#pane-favorites1" aria-controls="#pane-favorites1" role="tab" data-toggle="tab" title=tabsLinksLabels[1] +' Shortlist' data-slide-target="#pane-favorites1" data-type=tabsLinksLabels[1])
+                                span=thisWidget.properties.publicationsLabel
+            block tabsPanes
+                ul.rlist.tab__content
+                    if (displayArticles)
+                        li#pane-favorites0.tab__pane.active(aria-labelledby="pane-favorites0con" role="tabpanel")
+                            if data.favorites && data.favorites.items && data.favorites.items != ''
+                                form(action='/personalize/removeFavoriteArticle' name="favoriteArticlesForm" method='post')
+                                    .section__separator
+                                        +favorites_actions('articles')
+                                        +favorites_sort(tabsLabels[0])
+
+                                    .favorites__list
+                                        +favorites_table(data,tabsLabels[0])
+
+                                    input(type="hidden" name="href" value="")
+                                    input(type="hidden" name="currentUrl" value="")
+
+                                    noscript
+                                        input(type="submit" value="delete")
+                            else
+                                p You do not have any Favorites.
+
+                    if (displayPublications)
+                        li#pane-favorites1.tab__pane(aria-labelledby="pane-favorites1con" role="tabpanel")
+                            if data.favorites && data.favorites.booksAndSerials && data.favorites.booksAndSerials != ''
+                                form(action='/action/removeFavoritePublication' name="favoritePublicationsForm" method='post')
+                                    block favoritePublicationActions
+                                        .section__separator
+                                            +favorites_actions('publications')
+                                            +favorites_sort(tabsLabels[1])
+
+                                    .favorites__list
+                                        +favorites_table(data,tabsLabels[1])
+
+                                    input(type="hidden" name="href" value="")
+                                    input(type="hidden" name="currentUrl" value="")
+
+                                    noscript
+                                        input(type="submit" value="delete")
+                            else
+                                p You do not have any Favorites.

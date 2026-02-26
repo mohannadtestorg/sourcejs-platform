@@ -1,0 +1,24 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/pager-tmpl
+
+block pagerMain
+    .pagination
+        -pages=pages | 0
+        - var nextPageId = data.search.startPage +1;
+        - var prevPageId = data.search.startPage -1;
+        block previousPage
+            if(pages > 0)
+                span
+                    - var prevPageId = data.search.startPage -1;
+                    - newurl = pb.updateParam(temp,"startPage",prevPageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a.pagination__btn--prev(href= newurl, title='Previous Page' class=prevPageId < 0 ? "disabled" : "")
+        ul.rlist--inline.pagination__list
+            - var i = 1
+            +pageItem( data.search.startPage - 2, pages )
+        block nextPage
+            if(pages>0)
+                span
+                    - var nextPageId = data.search.startPage +1;
+                    - newurl = pb.updateParam(temp,"startPage",nextPageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a.pagination__btn--next(href= newurl, title='Next page' class=nextPageId >= pages ? "disabled" : "")

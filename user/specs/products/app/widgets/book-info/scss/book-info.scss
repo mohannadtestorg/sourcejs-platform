@@ -1,0 +1,64 @@
+.bookInfo{
+  &__title{
+    .bookInfo &{
+      color: $black;
+    }
+
+    margin-bottom: 10px;
+  }
+
+  &__authors{
+    color: $secondary-text-color;
+    font-size: .75rem;
+    margin-bottom: 10px;
+
+  }
+  &__summary{
+    font-size: .75rem;
+    margin-bottom: 10px;
+
+    .pages{
+      padding-left: 10px;
+      margin-left: 10px;
+      border-left:1px solid $secondary-border-color;
+    }
+  }
+
+  &__image{
+    width: 80%;
+    @include media('<large'){
+      width: 60%;
+    }
+    margin: auto;
+    margin-bottom: 5px ;
+
+    .left-small-book &{
+      width: 200px;
+
+
+      @include media('>=tablet'){
+        width: 250px;
+      display: inline-block;
+      margin-right: 15px;
+      vertical-align: top;
+    }
+
+    }
+
+  }
+
+  &__data{
+    .left-small-book &{
+      @include media('>=tablet') {
+        width: calc(100% - 265px);
+        display: inline-block;
+      }
+
+    }
+  }
+
+  &__about{
+    display: none;
+  }
+}
+

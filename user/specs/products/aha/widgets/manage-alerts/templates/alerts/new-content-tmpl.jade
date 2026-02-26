@@ -1,0 +1,19 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/new-content-tmpl.jade
+
+block newContentAlertText
+    p To receive alerts when new content is published in the journals or book series listed below, check the box next to each publication you select. TOC alerts are sent immediately after a new issue publishes. By default, article alerts are sent !{data.currentPerson.alerts.frequency}.
+    if(data && data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.toc[0])
+        p To change the alert frequency for article-based alerts, select the alert frequency you would like from the drop-down below and click "Submit." Note that if you subscribe to more than one alert, your frequency and format settings will apply to all of your alerts.
+    else
+        p To change the alert frequency for article-based alerts, first select the journals you want to be alerted on and then save your selection. Once saved, you can change the default frequency for article-based alerts. Note that if you subscribe to more than one alert, your frequency and format settings will apply to all of your alerts.
+
+block formButton
+    .form-btn
+        input(type="hidden" name="save" value="save")
+        input(type="hidden" name="referrer" value="/action/showPreferences?menuTab=Alerts")
+        button.btn.btn-sm(type='submit')  SUBMIT
+        button.btn.btn-sm.btn--inverse(type='reset')  RESET
+
+block deleteButton
+    .form-btn
+        button.btn--inverse.extra-border(type="submit" id="removeJournal") Delete

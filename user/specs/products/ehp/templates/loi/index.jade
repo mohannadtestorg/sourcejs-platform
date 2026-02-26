@@ -1,0 +1,36 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 LOI page
+    .source_info
+
+    section.source_section
+        h2 LOI page
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+
+            main.content
+                .meta-wrapper
+
+                .container
+                    .row.separator
+                        .col-lg-9.col-md-8
+                            | !{pb.render('list-of-issues',"loi-decade.json")}
+
+                        .col-lg-3.col-md-4
+                            .row
+                                .col-md-12.col-sm-6
+                                    h3.section__header.border-bottom PODCASTS
+                                    .podcasts
+                                        | !{data.podcasts}
+                                        p
+                                            a(href="#", class="btn") See all
+                                .col-md-12.col-sm-6
+                                    .newsletter--wrapper
+                                        | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true","className": ["card--dark", "card--gutter"]}}}})}
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

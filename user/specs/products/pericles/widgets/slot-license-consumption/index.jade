@@ -1,0 +1,30 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p Slot consumption can be performed by 3 different usage scenarios based on the Slot License type
+        ol
+            li When slot license has Acquisition Mode: Explicit (CONFIRMATION REQUIRED) , Licensee Type: Individual (Personal Debit License), slot is consumed with user accepting a confirmation message
+            li When slot license has Acquisition Mode: Explicit (CONFIRMATION REQUIRED) , Licensee Type: Group (Debit License), slot is consumed with user accepting a confirmation message
+            li When slot license has Acquisition Mode: Affiliated (CONFIRMATION & AFFILIATION REQUIRED) , Licensee Type: Group (Debit License) , slot is consumed with user been logged in as Article Select Super User and by accepting a confirmation message
+
+
+    section.source_section
+        h2 Use cases examples
+
+        h3 Acquisition Mode: Explicit, Licensee Type: Individual
+        .source_example
+            .container
+                | !{pb.render('slot-license-consumption', 'data.json', 'pericles')}
+
+        h3 Acquisition Mode: Explicit, Licensee Type: Group
+        .source_example
+            .container
+                | !{pb.render('slot-license-consumption', 'data_case2.json', 'pericles')}
+
+        h3 Acquisition Mode: Affiliated, Licensee Type: Group
+        .source_example
+            .container
+                | !{pb.render('slot-license-consumption', 'data_case3.json', 'pericles')}
+
+

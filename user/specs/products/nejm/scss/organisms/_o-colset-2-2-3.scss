@@ -1,0 +1,54 @@
+/***
+
+.o-colset-2-2-3
+===============
+
+Creates a responsive column set:
+
+* xsmall, small: 2 columns
+* medium: 2 columns
+* large, xlarge, xxlarge: 3 columns
+
+```
+<div class="o-colset-2-2-3">
+  <div class="o-col">Col 1</div>
+  <div class="o-col">Col 2</div>
+  <div class="o-col">Col 3</div>
+  <div class="o-col">Col 4</div>
+  <div class="o-col">Col 5</div>
+  <div class="o-col">Col 6</div>
+</div>
+```
+
+***/
+
+$column__listing-2-2-3-col: (
+  xsmall: 3,
+  small: 3,
+  medium: 4,
+  large: 4,
+  xlarge: 4,
+  xxlarge: 4
+);
+
+.o-colset-2-2-3 {
+  @include columns-container-flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+  margin-right: -4px; // for rounding errors
+}
+
+.o-colset-2-2-3.o-colset-2-2-3--no-wrap {
+  flex-wrap: nowrap;
+}
+
+.o-colset-2-2-3 > .o-col {
+  @include column-flex($column__listing-2-2-3-col);
+}
+
+// for the toolkit:
+div > #a17 .o-colset-2-2-3 > .o-col {
+  background-color: #eee;
+  margin-top: 5px;
+}

@@ -1,0 +1,35 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-applied-facets-tmpl.jade
+
+
+block appliedFacetMain
+    if (data) && (data.appliedFacets)
+        div.facet.applied__filter
+            .clearfix
+                .col-xs-6.gutterless
+                    a(href="#" title="Applied Filters" aria-controls="appliedFacet" class="facet__ctrl")
+                        +title
+
+                .col-xs-6
+                    span.clear
+                        a.search__filters__ctrl__reset(href="#" title="Clear all")
+                            | Clear all
+                            i.icon-tools_close(aria-hidden="true" title="Clear filter")
+
+            div.facet__content(id="appliedFacet")
+                +body
+
+block appliedFacetTilte
+    h3.facet__title.facet__title--main Applied Filters
+
+
+block appliedFacets
+    if (data) && (data.appliedFacets)
+        ul.rlist--inline.facet__list--applied
+            each item, l in data.appliedFacets
+                if (item.pinnedFilter)
+                    li(class="pinned-filter")
+                        +item(item)
+                else
+                    li
+                        +item(item)
+

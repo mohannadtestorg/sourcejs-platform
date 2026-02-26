@@ -1,0 +1,10 @@
+block topContentBody
+    if (data && data.items)
+        block topContentBodyTeaser
+          | !{pb.render('teaser', {data: data})}
+    if (data && data.widget && data.widget.moreUrl)
+        a.more-link(href=data.widget.moreUrl)
+            if (data.widget) && (data.widget.moreText)
+                | !{data.widget.moreText}
+            else
+                | Show More

@@ -1,0 +1,71 @@
+.institutionDetails {
+    color: $wiley-typography-color;
+    line-height: 22px;
+
+    .row {margin-bottom: 12px;}
+
+    form {margin-top:32px;}
+
+    select {
+        min-height: 44px;
+        font-size: 0.75rem;
+        color: $wiley-typography-color;
+    }
+
+    .acceptTermsDropZone1 {
+        width: 100%;
+        p {
+            margin: 0;
+            font-size: 14px;
+        }
+    }
+
+    input, select {
+        @include media('>=desktop') {
+            max-width: 355px;
+        }
+    }
+
+    .form-btn {
+        .btn {
+            white-space: nowrap;
+            font-weight: 600;
+
+            @include media('<phone') {
+                min-width: 40%;
+                padding: 12px 10px;
+
+                ~ .btn {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.institutionAdmin {
+
+    .padding-top {
+        padding-top: 24px;
+
+    }
+
+    .margin-top {
+        margin-top: 32px;
+    }
+    .margin-bottom {
+        margin-bottom: 24px;
+    }
+
+    .checkbox--primary {
+        span {
+            display: inline;
+        }
+    }
+}
+
+.profile-pages__heading .institutionListBlock .pull-right {
+    @include media('<desktop') {
+        float: left;
+    }
+}

@@ -1,0 +1,500 @@
+.pub {
+    &-content {
+        column-gap: 20px;
+        column-fill: auto;
+        column-count: 4;
+
+        @include media('<tablet') {
+            column-count: auto;
+            column-gap: normal;
+            column-fill: balance;
+        }
+
+        @include media('>=tablet', '<desktop') {
+            column-count: 3;
+        }
+
+        & > span {
+            display: block;
+            color: $secondary-fourth-text-color;
+            font-weight: 500;
+            font-size: $medium-2-font-size;
+            border-bottom: 1px solid $light-third-border-color ;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+
+            span {
+                display: inline-block;
+                color: $primary-text-color;
+                border-radius: 50%;
+                background-color: $tertiary-third-bg-color;
+                width: 22px;
+                line-height: 22px;
+                text-align: center;
+            }
+        }
+
+        a {
+            display: block;
+            font-size: $small-font-size;
+            padding-bottom: 10px;
+            color: $tertiary-third-text-color;
+
+            &:hover {
+                color: $primary-text-color;
+            }
+
+            &+span {
+                padding-top: 20px;
+            }
+        }
+    }
+
+    &_news {
+        &:before {
+            font-family: icomoon;
+            content: "\f1ea";
+        }
+    }
+
+    &_books {
+        &:before {
+            font-family: icomoon;
+            content: "\f02d";
+        }
+    }
+
+    &_news, &_books {
+        &:before {
+            font-family: icomoon;
+            font-size: $default-font-size;
+            color: $primary-bg-color;
+            padding-right: 5px;
+            vertical-align: sub;
+            display: inline-block;
+        }
+    }
+}
+
+.acs_noscroll{
+   overflow-x: hidden;
+   overflow-y: hidden;
+ }
+
+.pub-modal {
+    background-color: $dark-transparent-bg-color;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    z-index: 3;
+    display: none;
+
+
+    .pub-content {
+        height: 100%;
+        overflow: auto;
+        margin: 0px 60px;
+        padding: 30px 0px;
+        column-gap: 20px;
+        column-count: 3;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+
+        @include media('>=desktop', '<large') {
+            column-count: 2;
+        }
+
+        @include media('>=tablet', '<desktop') {
+            column-count: 1;
+        }
+
+        @include media('<tablet') {
+            padding: 5px 15px 15px 15px;
+            margin: 0px;
+            height: calc(100% - 80px);
+            column-count: auto;
+            position: static;
+        }
+
+        & > span {
+            border-bottom: 1px solid $light-fourth-border-color;
+
+            span {
+                color: $secondary-fourth-text-color;
+                border-radius: 0px;
+                background-color: transparent;
+                width: auto;
+                height: auto;
+                text-align: left;
+
+                @include media('<tablet') {
+                    display: inline-block;
+                    color: $primary-text-color;
+                    border-radius: 50%;
+                    background-color: $tertiary-third-bg-color;
+                    width: 22px;
+                    line-height: 22px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    @include media('<tablet') {
+        background-color: $primary-third-bg-color;
+        top: 77px;
+        left: 0px;
+        height: calc(100% - 77px);
+        padding: 0px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        animation-name: slideInRight;
+        animation-duration: 0.5s;
+    }
+
+    &_close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: $secondary-fourth-text-color;
+        font-size: $large-font-size;
+
+        @include media('<tablet') {
+            position: static;
+            font-size: $medium-2-font-size;
+            color: $text-onDark;
+            margin: -15px;
+            padding: 15px;
+        }
+
+        &:hover {
+            @include media('<tablet') {
+                color: $text-onDark;
+            }
+        }
+    }
+
+    &_back {
+        color: $text-onDark;
+        margin: -15px;
+        padding: 15px;
+        font-weight: bold;
+        line-height: $medium-2-font-size;
+        font-size: $small-font-size;
+
+        i {
+            padding-right: 10px;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            color: $text-onDark;
+        }
+    }
+
+    &_content {
+        background-color: $default-bg-color;
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        animation-name: fadeInUp;
+        animation-timing-function: ease;
+        animation-duration: 1s;
+
+        @include media('<tablet') {
+            background-color: transparent;
+            display: block;
+            animation-name: none;
+        }
+    }
+
+    &_row {
+        display: table-row;
+        @include media('<tablet') {
+            display: block;
+        }
+    }
+
+    &_left {
+        display: table-cell;
+        width: 300px;
+        vertical-align: top;
+
+        @include media('<tablet') {
+            display: block;
+            width: auto;
+            height: 100%;
+        }
+
+        &-content {
+            height: 100%;
+            overflow: auto;
+            padding: 30px;
+
+            @include media('<tablet') {
+                padding: 0px;
+            }
+        }
+
+        h6 {
+            font-size: $xsmall-font-size;
+            color: $secondary-fourth-text-color;
+            font-weight: bold;
+
+            @include media('<tablet') {
+                display: none;
+            }
+        }
+    }
+
+    &_right {
+        display: table-cell;
+        position: relative;
+        vertical-align: top;
+        box-shadow: $shadow-color 60px 0px 60px -60px inset;
+
+        @include media('<tablet') {
+            display: block;
+            position: fixed;
+            background-color: $default-bg-color;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            right: -100%;
+            box-shadow:none;
+            padding: 46px 0px 0px 0px;
+        }
+
+        &-control {
+            @include media('<tablet') {
+                background-color: $primary-bg-color;
+                padding: 15px;
+                position: absolute;
+                width: 100%;
+                top: 0px;
+                left: 0px;
+            }
+        }
+
+        &-cover-gallery {
+            padding: 15px;
+
+            a {
+                background-color: $tertiary-third-bg-color;
+                color: $primary-text-color;
+                font-size: $medium-font-size;
+                padding: 15px 15px 15px 40px;
+                display: block;
+                text-align: center;
+                background-image: url("../../images/coverGallery.png");
+                background-repeat: no-repeat;
+                background-position: 12px center;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &_types {
+        margin-bottom: 40px;
+
+        @include media('<tablet') {
+            margin-bottom: 0px;
+        }
+
+        & > ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+
+            & > li {
+                &.pub-modal_types-active {
+                    a {
+                        background-color: $light-fifth-bg-color;
+                        color: $secondary-fourth-text-color;
+
+                        @include media('<tablet') {
+                            background-color: transparent;
+                            color: $text-onDark;
+                        }
+
+                        &:before {
+                            display: block;
+                        }
+                    }
+                }
+
+                &.pub-modal_types-opened {
+                    & > a {
+                        @include media('<tablet') {
+                            margin-top: -2px;
+                            background-color: $tertiary-third-bg-color;
+                            color: $primary-text-color;
+                            border-bottom: none;
+                        }
+
+                        &:before {
+                            @include media('<tablet') {
+                                background-color: rgba(255, 255, 255, 0.7);
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0px;
+                    display: none;
+                    background-color: $primary-hover-bg-color;
+                    border-bottom: 2px solid rgba(255,255,255,0.3);
+                    padding: 15px;
+                }
+
+                li {
+                    padding-bottom: 20px;
+
+                    &:last-child {
+                        padding-bottom: 0px;
+                    }
+
+                    a {
+                        color: $text-onDark;
+                    }
+                }
+                .checkbox--primary {
+                    span {
+                        display: block;
+                        color: $text-onDark;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                & > a {
+                    display: block;
+                    padding: 0px 30px 0px 10px;
+                    transition: padding 0.3s;
+                    border-bottom: 1px solid $light-fourth-border-color;
+                    font-size: $medium-2-font-size;
+                    color: $tertiary-third-text-color;
+                    position: relative;
+                    line-height: 40px;
+                    font-weight: 500;
+
+                    @include media('<tablet') {
+                        font-size: $default-font-size;
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                        color: $text-onDark;
+                        font-weight: bold;
+                        display: block;
+                        cursor: pointer;
+                        padding: 15px 37px 15px 15px;
+                        border-bottom: 2px solid rgba(255,255,255,0.3);
+                        position: relative;
+                        line-height: 22px;
+                        text-transform: capitalize;
+                    }
+
+                    &:before {
+                        font-family: icomoon;
+                        content: "\f054";
+                        font-size: $xsmall-font-size;
+                        position: absolute;
+                        right: 10px;
+                        top: 0px;
+                        display: none;
+                        transition: all 0.3s;
+
+                        @include media('<tablet') {
+                            font-family: icomoon;
+                            content: "\f105";
+                            display: inline-block;
+                            border-radius: 50%;
+                            background-color: rgba(255,255,255,0.1);
+                            width: 22px;
+                            height: 22px;
+                            text-align: center;
+                            position: absolute;
+                            top: 15px;
+                            right: 15px;
+                            transition: transform 0.3s;
+                        }
+                    }
+
+                    &:hover {
+                        padding: 0px 30px 0px 15px;
+
+                        @include media('<tablet') {
+                            padding: 15px 37px 15px 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_subjects {
+        ul {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        li {
+            padding-bottom: 10px;
+            font-size: $small-font-size;
+            color: $secondary-fourth-text-color;
+        }
+
+        .checkbox--primary {
+            span {
+                padding-left: 35px;
+                padding-top: 4px;
+                display: inline-block;
+                position: relative;
+                min-height: 24px;
+
+                &:before {
+                    border-color: $light-fourth-border-color ;
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                }
+            }
+
+            input {
+                &:checked {
+                    &+span {
+                        &:before {
+                            background-color: $light-fifth-bg-color;
+                            border: 2px solid $light-fourth-border-color;
+                            color: $secondary-fourth-text-color;
+                            font-size: $medium-font-size;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pub_news, .pub_books {
+        &:before {
+            color: $secondary-fourth-text-color;
+
+            @include media('<tablet') {
+                color: $primary-bg-color;
+            }
+        }
+    }
+}

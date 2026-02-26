@@ -1,0 +1,32 @@
+.toc-item__main {
+    display: inline-block;
+    width: 100%;
+    .article-image {
+        @include media('>desktop') {
+            max-width: 26%;
+        }
+        display: inline-block;
+        vertical-align: top;
+        float: left;
+        margin-right: 15px;
+        img{
+            width: 100%;
+        }
+    }
+    .article-meta {
+        @include media('<tablet') {
+            width: 100%;
+        }
+    }
+    .article-image{
+        &~.article-meta {
+            @include media('>desktop') {
+                display: inline-block;
+                width: 71%;
+            }
+        }
+    }
+    .access__icon{
+        padding-right: 5px;
+    }
+}

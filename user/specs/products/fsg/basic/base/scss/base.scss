@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+body {
+
+    color: $base-text-color;
+
+    & * {
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+
+h1, h2, h3, h4 {
+    color: $primary-link-color;
+    font-weight: 300;
+    font-family: $secondary-font-family;
+    a, a:hover, a:focus, a:visited {
+        color: inherit;
+    }
+}
+
+.content {
+    padding-top: 0;
+
+    @include media('<desktop') {
+        padding-top:0;
+    }
+}
+
+.left-side-image {s
+    img {
+        padding-right: 13px;
+    }
+}

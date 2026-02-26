@@ -1,0 +1,26 @@
+.retracted {
+    position: relative;
+
+    &:after{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        content: 'Retracted';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-transform: uppercase;
+        font-size: 54px;
+        font-weight: bold;
+        color: $headings-primary-color;
+        opacity: .6;
+
+        @include media('>=phone') {
+            font-size: 100px;
+        }
+    }
+}

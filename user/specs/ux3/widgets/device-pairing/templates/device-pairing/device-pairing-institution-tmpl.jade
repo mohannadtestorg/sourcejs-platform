@@ -1,0 +1,54 @@
+extends device-pairing-tmpl
+
+block prefixDevicePairing
+    span.hidden.dp-institution-template
+
+
+
+block devicePairingClass
+    -var devicesTableClasses=""
+    -var devicesContainerClasses="institution-mode"
+
+
+
+
+block pairDevice
+
+block showEmail
+    if(data.user.personEmail)
+        .input-group
+            label Email address:
+            span !{data.user.personEmail}
+
+block devicePairingTableHeaders
+    thead
+        tr
+            th
+            th Device Name
+            th Paired On
+
+
+
+block extraContent
+    .device-pairing__history.clearfix
+        h5.title History
+
+        table.separator.expandable(class=hiddenClass)
+            thead
+                tr
+                    th Action
+                    th Date
+                    th Admin ID
+                    th Reason
+            tbody
+                block historyRows
+        .no-result.hidden.border-bottom
+            | None
+        .device-pairing__pagination.clearfix.hidden
+            .controls
+                a(href="#" title="Previous").prev.pagination__btn--prev
+                span.pages
+                a(href="#" title="Next").next.pagination__btn--next
+                input.current_page(type='hidden', value='0')
+                input.show_per_page(type='hidden', value='10')
+                input.pages-displyed(type='hidden', value='7')

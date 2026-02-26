@@ -1,0 +1,58 @@
+$nejm-group-height:40px;
+
+.s-minimal-layout {
+  /* Just the logo showing up : no nav and no search */
+
+  .g-header__site-tools,
+  .g-nav {
+    display:none;
+  }
+
+  #a17 {
+    padding-top: 64px;
+
+    @include breakpoint('medium+') {
+      padding-top: 80px;
+    }
+
+    @include breakpoint('large+') {
+      padding-top: 160px;
+    }
+  }
+
+  .g-header {
+    top: 0;
+
+    @include breakpoint('medium+') {
+      z-index: 5;
+      top: 0;
+    }
+
+    @include breakpoint('large+') {
+      top: 40px;
+    }
+  }
+
+  .g-banner-institution {
+    top: 0;
+  }
+}
+
+.s-minimal-layout--nogroup {
+  .g-nejm-group,
+  .g-header .m-mini-promo--subscribe {
+    display:none;
+  }
+
+  #a17 {
+    @include breakpoint('large+') {
+      padding-top: 160px - $nejm-group-height;
+    }
+  }
+
+  .g-header {
+    @include breakpoint('large+') {
+      top: 40px - $nejm-group-height;
+    }
+  }
+}

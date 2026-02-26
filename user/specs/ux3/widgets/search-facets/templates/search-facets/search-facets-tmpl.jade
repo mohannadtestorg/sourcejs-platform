@@ -1,0 +1,42 @@
+
+mixin appliedFacets()
+    if (data) && (data.appliedFacets)
+        block appliedFacets
+            | !{pb.render('search-facets', 'search-facets/extended/ext-applied-facets', {data: data})}
+
+mixin searchFacetsWrapper()
+    if (data) && (data.facets)
+        block searchFacetsWrapper
+            each facet, l in data.facets
+                if facet.type == 'alphabetRange'
+                    if facet.values
+                        - var itemNo = facet.values.length
+                        if itemNo > 0
+                            | !{pb.render('search-facets', 'search-facets/extended/ext-alphanumeric', {data: facet})}
+                else if facet.type == 'Year'
+                    block dateFacet
+                        | !{pb.render('search-facets', 'search-facets/extended/ext-facet-date', {data: facet})}
+                else
+                    if facet.values
+                        - var itemNo = facet.values.length
+                        if itemNo > 0
+                            block ExtendedFacet
+                               | !{pb.render('search-facets', 'search-facets/extended/ext-facet', {data: facet})}
+                    else if facet.section
+                        - var itemNo = facet.section.length
+                        if itemNo > 0
+                            each taxonomy, l in facet.section
+                                - var itemNo = taxonomy.values.length
+                                if itemNo > 0
+                                    block taxonomyFacet
+                                        | !{pb.render('search-facets', 'search-facets/extended/ext-facet', {data: taxonomy, type: 'Taxonomy'})}
+
+
+
+block searchFacetsMain
+    block searchFacetsTitle
+        h4.facets__title.facets__title--main Narrow Results
+
+    +appliedFacets()
+
+    +searchFacetsWrapper()

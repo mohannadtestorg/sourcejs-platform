@@ -1,0 +1,81 @@
+/***
+
+```
+<div class="m-promo m-promo--submit-manuscript">
+  <p class="m-promo__title f-caps">Submit a manuscript or letter</p>
+  <p class="m-promo__actions">
+    <a href="#" class="a-btn a-btn--primary a-btn--icon-first"><svg class="icon--arrow icon--arrow--external" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg> NEJM Online Submission</a> <br>
+    <a href="#" class="a-btn a-btn--fake-link">Create account</a>
+  </p>
+</div>
+```
+
+***/
+
+.m-promo {
+  position: relative;
+  margin-top: 28px;
+  padding-top: 20px;
+}
+
+.m-promo__title {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-promo__actions {
+  margin-top: 24px;
+}
+
+// -------------------------------------
+// variant `m-promo--submit-manuscript`
+//
+
+.m-promo--submit-manuscript {
+  padding: 20px 20px 4px;
+  background-color: $color__background--alert;
+}
+
+.m-promo--submit-manuscript::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .m-promo {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+  }
+}
+
+.o-col--secondary > .m-promo:first-child {
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}

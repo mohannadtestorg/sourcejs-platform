@@ -1,0 +1,21 @@
+.shibbolethWidget.card
+    h2.section__header Shibboleth
+    p If your institution belongs to a Shibboleth federation, please submit the following information to enable access.
+
+    form#shibboleth(action="/action/institutionConfigShibboleth" name="InstitutionAdmin_ConfigShibboleth" method="post")
+        input(type="hidden" name="anti-forgery-token" value="8f4d6795-8279-4bea-8e81-6880b050b9cc")
+        fieldset
+            .label
+                label(for="txt_entityID") Shibboleth entity ID
+            input(id="txt_entityID" type="text" name="entityID" value="" size="15" placeholder="Entity ID URL")
+
+        fieldset
+            .label
+                label(for="txt_orgUnitID") Scoped Affiliation
+            .reproducible__wrapper
+                .reproducible
+                    input(id="txt_orgUnitID" type='text', name='orgUnitID[0]', value='' size="15" placeholder="E.g member, student, staff")
+                    button.remove-ctrl-field(title="Remove search field")
+                        i.icon-trash-can(aria-hidden="true")
+                    button.add-ctrl-field(title="Add search field")
+                        i.icon-circle-plus(aria-hidden="true")

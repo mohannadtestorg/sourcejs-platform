@@ -1,0 +1,114 @@
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.section__header {
+    text-transform: none;
+    margin-bottom: 12px;
+    font-size: $h4-font-size;
+    font-weight: 600;
+    color: $info-text-color;;
+
+    &[id^='heading-level-2'] {
+        font-size: $h5-font-size;
+    }
+    &[id^='heading-level-3'] {
+        font-size: $h6-font-size;
+    }
+
+    + p {
+        margin-top:0;
+    }
+}
+
+
+.tabs__header {
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: $h6-font-size;
+}
+
+.page__header {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: normal;
+    margin: 3rem 0;
+
+    @include media('<phone') {
+        font-size: $h2-font-size;
+    }
+}
+
+.account-page__header {
+    margin: 0;
+    line-height: 44px;
+    font-size: $h2-font-size;
+    font-weight: 600;
+    color: #1F1F1F;
+}
+
+.medium__header {
+    font-size: $h5-font-size;
+}
+
+.normal__header {
+    font-size: $h6-font-size;
+}
+
+.small__header {
+    font-size: $small-font-size;
+    font-weight: 400;
+}
+
+.fullwidth-header {
+    margin-bottom: 15px;
+    h1, h2, h3, h4, h5 {
+        margin-bottom: 0;
+    }
+}
+
+.bordered__header {
+    padding: 20px 20px 0;
+    margin: 20px -20px 0;
+    border-top: 1px solid $tertiary-bg-color;
+}
+
+.extraPageTitle.card {
+    margin-bottom: 1rem;
+}
+
+.small-txt {
+    color: $wiley-gray;
+    line-height: 12px;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+[class*=section__mainHeader] {
+    color: $wiley-typography-color;
+    font-family: $secondary-font-family;
+    margin-bottom: 28px;
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+.section__mainHeader {
+    &--mid {
+        font-size: 1.75rem;
+        margin-bottom: 15px;
+        line-height: 28px;
+    }
+
+    &--small {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1rem;
+    }
+}
+
+div[data-widget-def="UX3SavedSearch"] {
+    .section__header {
+        margin-bottom: 31px;
+    }
+}

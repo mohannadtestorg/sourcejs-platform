@@ -1,0 +1,93 @@
+.access-widget {
+
+    .quick-search__button {
+        padding: 10px;
+        color: $text-onDark;
+    }
+}
+
+.email .show-change-password{
+    color: $standard-color;
+    margin-top: 5px;
+}
+
+@include media('>tablet')
+{
+.managedInstitutions {
+    select,label{
+        color: $primary-darken-text-color;
+    }
+}
+}
+.header__quick-menu{
+    .navigation-login-dropdown{
+        ul{
+            background:transparent ;
+            a{
+                color: $primary-text-color;
+            }
+        }
+    }
+}
+
+.ui-datepicker{
+    &-calendar{
+        background-color: white;
+        border: 1px solid lightgray;
+    }
+    &-header{
+        background-color: white;
+    }
+    &-year{
+        color:  $standard-color;
+    }
+    &-month{
+        color:  $standard-color;
+        padding:0;
+    }
+}
+.ui-dialog{
+
+    table td{
+        padding: 5px 0 0;
+    }
+
+    input{
+        margin: 8px 0;
+        font-size: .875rem;
+    }
+
+.ui-button{
+    padding:0;
+    margin: 10px 5px;
+    &.ui-state-hover{
+      color: $text-onDark;
+    }
+
+}
+    &-titlebar{
+        border:none;
+        color:  $standard-color;
+        text-transform: uppercase;
+        border-bottom: 1px solid;
+        border-radius: 0;
+    }
+
+    &[aria-describedby="externalEmailDialogForm"]{
+        width: 500px !important;
+    }
+
+    .ui-dialog-titlebar-close {
+        margin-top: -10px;
+    }
+
+    .validateTips {
+        margin: 0 0 5px;
+        COLOR: darkred;
+        font-size: .75rem;
+    }
+}
+
+#externalEmailDialogForm{
+    height: 265px !important;
+}

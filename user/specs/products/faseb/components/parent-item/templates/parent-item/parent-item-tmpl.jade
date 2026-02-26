@@ -1,0 +1,33 @@
+block parentInfo
+    div.parent-item
+
+        if (data) && (data.serial)
+
+                if (data.serial.journalUrl) && (data.serial.serialTitle)
+                    span.comma
+                        a(href=data.serial.journalUrl) !{data.serial.serialTitle}
+
+                else if (data.serial.serialTitle)
+                    span.comma
+                        | !{data.serial.serialTitle}
+
+                else if (data.serial.type)
+                    span.comma
+                        | !{data.serial.type}
+
+
+        if (data) && (data.isAheadOfPrint) && data.isAheadOfPrint == true
+            span.comma Early Online
+
+        if (data) && (data.isJustAccepted) && data.isJustAccepted == true
+            span.comma Just Accepted
+
+        if (data) && (data.isForthcoming) && data.isForthcoming == true
+            span.comma Forthcoming
+
+        block volume
+            if (data) && (data.volume) && (data.isAheadOfPrint == false)
+                span.comma VOL. #{data.volume}
+
+            if (data) && (data.issue) && (data.isAheadOfPrint == false)
+                span.comma No. #{data.issue}

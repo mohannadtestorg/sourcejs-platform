@@ -1,0 +1,38 @@
+
+
+div.form__login
+
+    if (data.institutional)
+        a.form__links#institutional-login(href=data.institutional.itemUrl title="you can login as Institutional click to fill the registration form") !{data.institutional.text}
+
+    ul.rlist--inline.social-login
+        li
+            a(href='#', title='Linkedin')
+                i.icon-linkedin2(aria-hidden="true")
+        li
+            a(href='#', title='Facebook')
+                i.icon-facebook2(aria-hidden="true")
+        li
+            a(href='#', title='Twitter')
+                i.icon-twitter2(aria-hidden="true")
+    form
+        .input-group
+            label(for="email") User name
+            input(type="email" placeholder="User name" id="email")
+            a.form__links(href="#" title="Forgot User name ?" data-dismiss="modal" data-toggle="modal" data-target="#fUser") Forgot User name ?
+
+        .input-group
+            label(for="password") Password
+            input(type="password" placeholder="Password" id="password")
+            a.form__links(href="#" title="Forgot password ?" data-dismiss="modal" data-toggle="modal" data-target="#fPass") Forgot password ?
+
+
+        if (data.button)
+            button.btn.btn--full-width(title=data.button.text) !{data.button.text}
+
+    if (data.extraLinks)
+        each item, l in data.extraLinks
+            if (item.attr)
+                a.form__links(href=item.itemUrl title=item.text)&attributes(item.attr) !{item.text}
+            else
+                a.form__links(href=item.itemUrl title=item.text) !{item.text}

@@ -1,0 +1,56 @@
+/*
+ * Mixins for tabs appearance
+ * @require animate
+ */
+@import "animate";
+
+@mixin make-tabs-variant(
+        $tab-nav-color: $tab-nav-color,
+        $tab-nav-bg: $tab-nav-bg,
+        $tab-nav-icons-color: $tab-nav-icons-color,
+        $tab-nav-active-color: $tab-nav-active-color,
+        $tab-nav-active-bg: $tab-nav-active-bg,
+        $tab-nav-active-icons-color: $tab-nav-active-icons-color,
+        $tab-nav-active-border-color: $tab-nav-active-border-color
+    ) {
+
+    // default state
+    li a {
+        // make tabs smooth on changes
+        @include animate($properties: (color, background, opacity));
+
+        background: $tab-nav-bg;
+        color: $tab-nav-color;
+
+        i {
+            color: $tab-nav-icons-color;
+        }
+    }
+
+    li {
+        // active and focus state
+        &.active a, a:focus {
+            border-bottom-color: $tab-nav-active-border-color;
+            background: $tab-nav-active-bg;
+            color: $tab-nav-active-color;
+
+            i {
+                color: $tab-nav-active-icons-color;
+            }
+        }
+
+        // hover state
+        &:hover a {
+            opacity: 0.8;
+        }
+
+        // disabled state
+        &[disabled], &.disabled, &:disabled {
+            opacity: 0.4;
+            a {
+                opacity: 1;
+            }
+        }
+    }
+
+}

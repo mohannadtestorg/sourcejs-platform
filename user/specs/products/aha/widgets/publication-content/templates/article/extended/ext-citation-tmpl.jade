@@ -1,0 +1,60 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+
+mixin epub()
+    if(original.item)
+        .epub-section
+            if (original.item.ePubDate)
+                span.epub-section__item
+                    span.epub-section__state Originally published
+                    span.epub-section__date !{original.item.ePubDate}
+            if(original.item.ids.doi.canDisplay)
+                span.epub-section__item
+                    if(original.item.ids && original.item.ids.doi && original.item.ids.doi.value)
+                        a.epub-section__doi__text(href= "https://doi.org/" + original.item.ids.doi.value) https://doi.org/!{original.item.ids.doi.value}
+            if(original.item.citations && original.item.citations != "")
+                span.epub-section__item
+                    | !{original.item.citations}
+
+block citationTitleSuffix
+    if (original.item)
+        if(original.item.titles && original.item.titles.subtitle)
+            .citation__subtitle
+                | !{original.item.titles.subtitle}
+
+        if(data.authors)
+            | !{data.authors}
+        +epub()
+        if(original.item.related)
+            - var hasCorrectionOrRetraction = 0;
+            - var hasExam = 0;
+            if (original.item.related.items)
+                each item, i in original.item.related.items
+                    if (item.rel_type === "erratum" || item.rel_type === "retraction" )
+                        -hasCorrectionOrRetraction++;
+                    else if(item.rel_type === "hasExam")
+                        -hasExam++;
+
+                block articleCorrections
+                    +corrections(hasCorrectionOrRetraction)
+
+                +relatedExams(hasExam)
+
+block citationTocHeading
+
+block citationAuthors
+
+block citationSuffix
+    - data = original
+
+block linksAfter
+    if (original.item && original.item.publicationHistoryOnlineEnabled)
+        span.article__versions
+            a.coolBar__ctrl(href="#" title="Other version(s) of this article" data-db-target-for="versions" data-db-switch="icon-section_arrow_u")
+                span Other version(s) of this article
+                i.icon-section_arrow_d(aria-hidden="true")
+            ul.coolBar__drop.versions_dropblock(data-db-target-of="versions")
+                li
+                    div
+                        h4.versions_dropblock__title You are viewing the most recent version of this article. Previous versions:
+                        | !{original.item.publicationHistoryOnline}

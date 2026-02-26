@@ -1,0 +1,32 @@
+.creative-work {
+    &__title {
+        margin-bottom: 10;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .meta {
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: inherit;
+        overflow-y: initial;
+        display: initial;
+        text-overflow: initial;
+        .publication-time {
+            text-transform: uppercase;
+        }
+        >*:not([class^='icon']){
+            &:before {
+                content: '';
+            }
+            margin-left:4px;
+        }
+        [class^='icon'] {
+            margin-left:2px;
+            font-size: 10px;
+        }
+        span:not(:last-child):after {
+            content: '|';
+            margin-left: 4px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+﻿extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Publication Browse page
+    section.source_section
+        h2 Browse small number of journals
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                .container
+                    .row.title__primary__margin
+                        | !{data.browseJournals}
+
+            | !{data.footer}
+
+    | #{''}

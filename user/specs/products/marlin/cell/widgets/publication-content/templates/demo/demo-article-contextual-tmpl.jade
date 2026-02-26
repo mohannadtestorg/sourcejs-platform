@@ -1,0 +1,6 @@
+extends ../../../../../widgets/publication-content/templates/demo/demo-article-tmpl
+
+block adPlaceholders
+    .adplaceholders.visible-lg
+        | !{pb.render("ad-placeholder", {data:{"ad":"<img src='http://via.placeholder.com/300x250/e8117f/ffffff?text=Ad+Placeholder:+Slot2'>","exists":true, "customClass":"adplaceholder--slot2 adplaceholder--300x250"}})}
+        | !{pb.render("ad-placeholder", {data:{"ad":"<img src='http://via.placeholder.com/300x250/e8117f/ffffff?text=Ad+Placeholder:+Slot3'>","exists":true, "customClass":"adplaceholder--slot3"}})}

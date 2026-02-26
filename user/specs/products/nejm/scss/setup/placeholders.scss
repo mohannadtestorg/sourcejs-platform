@@ -1,0 +1,65 @@
+.container,
+%container {
+  margin-right: auto;
+  margin-left: auto;
+
+  @each $name, $point in $breakpoints {
+    @include breakpoint('#{$name}') {
+      @if (map-get($main-col-widths, $name) == 'fluid') {
+        width: auto;
+        padding-right: map-get($outer-gutters, $name);
+        padding-left: map-get($outer-gutters, $name);
+      } @else {
+        width: map-get($main-col-widths, $name);
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media print {
+    width: auto !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+.container .container{
+  @each $name, $point in $breakpoints {
+    @include breakpoint('#{$name}') {
+      @if (map-get($main-col-widths, $name) == 'fluid') {
+        width: auto;
+        padding-right: 0;
+        padding-left: 0;
+      } @else {
+        width: auto;
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}
+%styled-scrollbars {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-scrollbar:vertical {
+    width: 11px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 11px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 2px solid $color__white;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: $color__white;
+  }
+}

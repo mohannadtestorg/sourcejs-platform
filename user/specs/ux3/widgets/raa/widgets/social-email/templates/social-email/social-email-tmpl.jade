@@ -1,0 +1,23 @@
+
+.social-email
+    h2
+        | Complete your registration with ???social.network.???
+    p
+        | Please enter your email address to finish linking your ???social.network.??? account to your personal account. You will only need to do this once.
+    form(action='/action/oauth/', method='post')
+        input(type='hidden', name='id', value='f2700f46-d15b-4f22-98f9-8565dc338489')
+        input(type='hidden', name='emailVerification', value='true')
+        input(type='hidden', name='identityId', value='')
+        .input-group
+            .label
+                label(for='email')
+                    | Email address
+                    span.required-marker *
+            input#email(type='text', name='email', value='', size='15')
+        .input-group
+            .label
+                label(for='verifyEmail')
+                    | Retype email
+                    span.required-marker *
+            input#verifyEmail(type='text', name='verifyEmail', value='', size='15')
+        input.button.primary.submit(type='submit', value='Submit')

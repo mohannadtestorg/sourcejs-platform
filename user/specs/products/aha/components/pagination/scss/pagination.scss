@@ -1,0 +1,56 @@
+.pagination {
+    margin: 40px 0;
+    line-height: normal;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include media('<tablet') {
+        margin: 34px 0px;
+    }
+
+    &__btn--prev, &__btn--next {
+        @include media('<=tablet') {
+           a {
+               min-width: 0;
+           }
+        }
+    }
+    &__btn--prev {
+        &:before {
+            display: none;
+        }
+    }
+    &__btn--next {
+        &:after {
+            display: none;
+        }
+    }
+
+    &__btn--back-to-top {
+        line-height: normal;
+        font-size: 18px;
+        color: $aha_green;
+        i {
+            font-size: 0.625rem;
+            margin-right: 6px;
+        }
+    }
+
+    &__list {
+        a {
+            &.active {
+                color: $aha_green;
+            }
+
+            &:hover {
+                color: $aha_green;
+            }
+        }
+    }
+
+    i {
+        vertical-align: middle;
+    }
+}
+

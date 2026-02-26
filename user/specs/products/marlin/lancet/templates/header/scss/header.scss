@@ -1,0 +1,16 @@
+.header {
+    background: $white;
+    @include  themify($themes) {
+        border-bottom: 2px solid themed('color');
+        .menubar {
+            a {
+                color: $primary-body-font-color;
+            }
+        }
+    }
+    &__wrapper {
+        .sample & {
+            border-bottom: 2px solid #ddd;
+        }
+    }
+}

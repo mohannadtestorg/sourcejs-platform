@@ -1,0 +1,30 @@
+
+h2 Log in to Wiley Online Library
+.login-form
+    form.bordered(action='/action/doLogin?societyURLCode=', method='post')
+        input(type='hidden', name='id', value='67065c09-4a88-49cd-934c-ac707951d35c')
+        input(type='hidden', name='redirectUri', value='/')
+        input(type='hidden', name='loginUri', value='/')
+        input(type='hidden', name='popup', value='true')
+        .input-group
+            .label
+                label(for='login') Email
+            input#login.login(type='text', name='login', value='', size='15', placeholder='Enter your email', autocorrect='off', spellcheck='false', autocapitalize='off')
+            .actions
+        .input-group
+            .label
+                label(for='password') Password
+            input#password.password(type='password', name='password', value='', autocomplete='off', placeholder='Enter your password', autocorrect='off', spellcheck='false', autocapitalize='off')
+            span.password-eye-icon.icon-eye.hidden
+            .actions
+                a.link.show-request-reset-password(href='/action/requestResetPassword') Forgot password?
+        .loginExtraBeans-dropZone(data-pb-dropzone='loginExtraBeans')
+        .align-end
+            .submit(disabled='disabled')
+                input.button.btn.submit.primary.no-margin-bottom(type='submit', name='submit', value='Log In', disabled='disabled')
+    .societySpecificInstructions
+.login-container.clearfix.form-btn
+    a.linkBtn.float-left(href='/action/registration')
+        | NEW USER >
+    a.linkBtn.float-right.instituation-login(href='/action/ssostart?redirectUri=%2F')
+        | INSTITUTIONAL LOGIN >

@@ -1,0 +1,101 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/article-tmpl
+
+
+
+block articleCoolbar
+    include ./extended/ext-coolbar-tmpl
+
+
+
+block articleRow
+    .row.article-row
+        .col-sm-12.col-md-8.col-lg-8.article__content.article-row-left
+            .mrw-banner-dropzone(data-pb-dropzone="mrwBannerDropZone")
+                | !{pb.renderDropzone(thisWidget, "mrwBannerDropZone")}
+            .article-citation
+                | !{data.item.articleInfo}
+            +articleCoolbar()
+            +articleBody()
+            
+        block articleTabs
+            .col-lg-4.col-md-4.col-sm-4.hidden-xs.hidden-sm.hidden-md.sticko__parent.article-row-right
+
+                div.publication-cover-info.clearfix
+                    if data.item.group.coverImageSrc
+                        div.cover-image-wrapper.cover-image__image.hasDetails
+                            a(href=data.item.group.url)
+                                img(src=data.item.group.coverImageSrc alt=data.item.group.titles.primary)
+                    div.extra-info-wrapper.cover-image__details
+                        if data.item.group.volume || data.item.group.issue
+                            p.volume-issue
+                                a(href=data.item.group.url)
+                                    span Volume
+                                    span.val !{data.item.group.volume}
+                                    if (data.item.group.volume) && (data.item.group.issue)
+                                        | !{', '}
+                                    span Issue
+                                    span.val !{data.item.group.issue}
+
+                        if data.item.group.titles.primary
+                            p
+                                a(href=data.item.group.url)
+                                    | !{data.item.group.titles.primary}
+                                    if (data.item.group.titles.subTitle)
+                                        | !{': ' + data.item.group.titles.subTitle}
+                                    if (data.item.group.titles.edition)
+                                        | !{', ' + data.item.group.titles.edition}
+
+                        if data.item.group.coverDate
+                            p
+                                | !{data.item.group.coverDate}
+
+                        if data.item.group.type == "issue" && (data.item.pageRange)
+                            p.page-range
+                                span Pages
+                                span !{' ' + data.item.pageRange}
+
+                        else if data.item.ids.elocationId && data.item.ids.elocationId.value
+                            p
+                                | !{data.item.ids.elocationId.value}
+
+                        if data.item.type == "article"
+                            | !{pb.renderDropzone(thisWidget, "virtualIssuesDropZone")}
+
+                        if (data.item.group.mrwUrls)
+                            p.mrw-urls-list-heading Browse other articles of this reference work:
+                            ul.rlist.mrw-urls-list
+                                each mrwUrl, l in data.item.group.mrwUrls
+                                    li
+                                        a(href=mrwUrl.url) !{mrwUrl.label}
+                                            i.icon-arrow_r
+
+                include ./extended/ext-tabs-tmpl
+
+block article
+
+    if data.item.isAccessDenial
+        article(data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+            +articleRow()
+    else if data.item.type == "chapter" && data.item.series.code != "mrwseries"
+        if data.item.hasAccessToReferences
+            article(data-references=data.item.references data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+                +articleRow()
+        else
+            article(data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+                +articleRow()
+    else
+        if data.item.hasAccessToFigures && data.item.hasAccessToReferences
+            article(data-figures=data.item.figures data-references=data.item.references data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+                +articleRow()
+        else if data.item.hasAccessToFigures
+            article(data-figures=data.item.figures data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+                +articleRow()
+        else if data.item.hasAccessToReferences
+            article(data-references=data.item.references data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+                +articleRow()
+        else
+            article(data-related=data.item.related data-details=data.item.information data-mathjax=data.item.mathJax.mathjaxUrl)
+                +articleRow()
+
+block figureViewer
+    | !{pb.render('figure-viewer', 'pericles')}

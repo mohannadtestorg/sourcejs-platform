@@ -1,0 +1,24 @@
+.device-pairing
+    .device-pairing__Institutions
+            h5.title Select your Institution
+            div.description
+                p Your email address matches multiple institutions,Please choose your institution from the following list:
+
+            form(action='/action/pairDevice',method='post')
+                input.hidden(value='selectInstitutionAction',name='action')
+                input.hidden(value=data.redirectUri,name='redirectUri')
+                input.hidden(value=data.profile,name='profile')
+
+                div.selectList
+                    each item in data.institutions
+                        div.institutionSelectionItem
+                            label.radio--primary
+                                input.institutionId-radio(type='radio',name='institutionId',value=item.institutionId)
+                                span.label-txt !{item.institutionName}
+
+                div.formButtons
+                    input.btn.btn--cancel(value='Back',name='submitbutton',type='submit')
+                    input.btn.continueInstButton(value='Continue',name='submitbutton',type='submit' disabled="disabled")
+
+
+

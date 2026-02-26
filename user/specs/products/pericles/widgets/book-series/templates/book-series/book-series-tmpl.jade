@@ -1,0 +1,66 @@
+- var itemNo = data.series.groupCount
+
+- var pageSize = data.series.pageSize
+- var pages = itemNo / pageSize
+- var rest = itemNo % pageSize
+if rest > 0
+    - pages++
+
+
+
+
+
+.bookSeries
+    .bookSeries__count
+        b !{itemNo}
+        | !{" "} books in this book series
+
+    ul.rlist
+        each item, l in data.series.groups
+            - item = item.content
+            li.card.clearfix.bookSeries__item
+                if (item.coverImage)
+                    .item__image
+                        img(src=item.coverImage.src title=item.coverImage.caption ? item.coverImage.caption : 'Book Cover Image')
+                .item__body
+                    if (item.access)
+                        .doi-access-wrapper
+                            .access-type(class = item.access == 'oa' ? 'open-access' : item.access + '-access')
+                                i(aria-hidden='true' alt="" class= item.access == 'no' ? 'icon-icon-lock_outline' : 'icon-icon-lock_open')
+                                div.doi-access
+                                    if (item.access == 'oa')
+                                        | Open access
+                                    else
+                                        | !{item.access} access
+
+                    if thisWidget.properties.showTitle && (item.title)
+                        if thisWidget.properties.linkTitle && (item.titleLink)
+                            a.bookSeries__title(href=item.titleLink)
+                                h3.medium__header !{item.title + ': ' + item.subtitle}
+                                    if thisWidget.properties.showVolume && (item.volume)
+                                        | !{', Volume ' + item.volume}
+                                    if (item.edition)
+                                        | !{', ' + item.edition}
+                        else
+                            h3.medium__header.bookSeries__title !{item.title + ': ' + item.subtitle}
+                                if thisWidget.properties.showVolume && (item.volume)
+                                    | !{', Volume ' + item.volume}
+                                if (item.edition)
+                                    | !{', ' + item.edition}
+                    else
+                        if thisWidget.properties.showVolume && (item.volume)
+                            h3.medium__header.bookSeries__title !{'Volume ' + item.volume}
+
+                    if (item.pubDate)
+                        .cover-image__date
+                            label First published:
+                            span !{item.pubDate}
+
+                    if (item.about)
+                        .accordion.bookSeries__abst(data-abst=item.about)
+                            a.accordion__control(href='#', title='show Abstract', aria-expanded='false')
+                                span About this Book
+                                i.icon-section_arrow_d(aria-hidden='true' alt="")
+                            .accordion__content
+    block pager
+        include ./pager-tmpl

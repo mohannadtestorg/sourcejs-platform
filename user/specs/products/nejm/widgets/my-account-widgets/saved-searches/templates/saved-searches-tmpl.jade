@@ -1,0 +1,474 @@
+nav.m-simple-subtabs
+    ul.m-simple-subtabs__links
+        li
+            a(href='/templates/my-account-saved.php') Articles
+
+        li.s-active
+            a(href='/templates/my-account-saved-search.php') Searches
+
+nav.m-search-filters.m-search-filters--flyout(data-behavior='ToggleSearchFilters SearchFiltersClicks')
+    ul.m-search-filters__options
+        li.m-search-filters__option-filters
+            button.a-btn.a-btn--simple(data-search-filters-toggle='')
+                svg.icon--plus--sm(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--plus--sm')
+
+                svg.icon--minus--sm(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--minus--sm')
+                |         Keywords
+
+    .m-search-filters__types(data-search-filter-types='')
+        p.m-search-filters__close
+            button.a-btn.a-btn--simple(data-search-filters-toggle='') Hide Keywords
+
+        ul.m-tags__list
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Viral Infections
+                    span.a-tag__num 34
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Global Health
+                    span.a-tag__num 11
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Liver Disease
+                    span.a-tag__num 8
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Primary Care
+                    span.a-tag__num 3
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Lorem Ipsum
+                    span.a-tag__num 11
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Brutum Fulmen
+                    span.a-tag__num 40
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Endocrinology
+                    span.a-tag__num 3
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Genetics
+                    span.a-tag__num 16
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Nephrology
+                    span.a-tag__num 5
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Nephrology
+                    span.a-tag__num 17
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Pediatrics
+                    span.a-tag__num 6
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Surgery
+                    span.a-tag__num 18
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Coronary Artery Disease
+                    span.a-tag__num 4
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Primary Case
+                    span.a-tag__num 15
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Stents Research
+                    span.a-tag__num 9
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Sic Transit Gloria
+                    span.a-tag__num 7
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Lorem Ipsum
+                    span.a-tag__num 6
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Global Health
+                    span.a-tag__num 5
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Liver Disease
+                    span.a-tag__num 18
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Primary Care
+                    span.a-tag__num 17
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Viral Infections
+                    span.a-tag__num 19
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Global Health
+                    span.a-tag__num 6
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Liver Disease
+                    span.a-tag__num 4
+
+            li.m-tags__item
+                a.a-tag(href='#')
+                    | Primary Care
+                    span.a-tag__num 3
+
+ul.o-results
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+    li.m-result.m-result--full-width.m-result--tools-top
+        a.m-result__link(href='/templates/article.php')
+            span.m-result__main
+                strong.m-result__title.f-h4 Nullam sodales ultrices magna sit amet auctor
+
+                br
+
+                span.m-result__blurb.f-blurb
+                    | Mauris congue, lacus vel accumsan posuere, ante libero venenatis tellus, a dictum est elit sit amet sapien
+
+        span.m-result__keywords.f-blurb
+            strong Keywords
+
+            a(href='#') Coronary Artery Disease
+            | ,
+            a(href='#') Primary Case
+            | ,
+            a(href='#') Stents Research
+
+        em.m-result__saved-on.f-author Saved On Dec 22, 2016
+
+        a.m-result__delete(href='#', data-behavior='DeleteArticle ToolTip', data-tooltip='Delete', data-delete-href='/endpoints/DeleteArticle.php')
+            svg.icon--trash(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--trash')
+
+        a.m-result__edit-keywords(href='#', data-behavior='ToolTip', data-tooltip='Edit Keywords')
+            svg.icon--edit(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--edit')
+
+nav.m-paginator
+    ul.m-paginator__prev-next
+        li
+            a.a-btn.a-btn--simple(href='/templates/my-account-saved-search.php')
+                span.a-btn__label Next
+
+                svg.icon--arrow(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+        li.s-disabled
+            a.a-btn.a-btn--simple(href='/templates/my-account-saved-search.php')
+                span.a-btn__label Prev
+
+                svg.icon--arrow.icon--arrow--rev(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+    ul.m-paginator__pages
+        li.s-active
+            a(href='/templates/my-account-saved-search.php') 1
+
+        li
+            a(href='/templates/my-account-saved-search.php') 2
+
+        li
+            a(href='/templates/my-account-saved-search.php') 3
+
+        li
+            a(href='/templates/my-account-saved-search.php') 4
+
+        li
+            a(href='/templates/my-account-saved-search.php') 5
+
+        li
+            span &mldr;
+
+        li
+            a(href='/templates/my-account-saved-search.php') 99
+
+    p.m-paginator__current-page Page 1

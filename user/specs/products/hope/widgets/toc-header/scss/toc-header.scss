@@ -1,0 +1,36 @@
+.toc-header{
+
+  &__title{
+    color: $standard-color;
+    font-weight: 500;
+    font-family: $secondary-font-family;
+
+    @include media('<desktop'){
+      font-size: 2rem;
+    }
+
+  }
+  &__top{
+    padding-bottom: 10px;
+    .filled--journal{
+      margin-right: 10px;
+    }
+  }
+
+  .current-issue{
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+
+    >span:first-child{
+      font-weight: 700;
+      padding-right: 5px;
+    }
+
+    span{
+      @include media('<tablet'){
+        display: inline-block;
+      }
+    }
+  }
+}

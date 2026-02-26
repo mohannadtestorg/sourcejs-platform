@@ -1,0 +1,187 @@
+/***
+
+m-paginator
+===========
+
+```
+<nav class="m-paginator">
+  <ul class="m-paginator__prev-next">
+    <li><a href="#" class="a-btn a-btn--simple">Next</a></li>
+    <li class="s-disabled"><a href="#" class="a-btn a-btn--simple">Prev</a></li>
+  </ul>
+  <ul class="m-paginator__pages">
+    <li class="s-active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><span>&hellip;</span></li>
+    <li><a href="#">99</a></li>
+  </ul>
+</nav>
+```
+
+
+***/
+
+.m-paginator {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 16px;
+  z-index: 0;
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  .m-data-table + & {
+    margin-top: 0;
+
+    @include breakpoint('medium+') {
+      margin-top: 0;
+    }
+
+    @include breakpoint('medium+') {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-paginator::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-paginator__prev-next {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: space-between;
+  margin-top: 0;
+  border: 1px solid $color__rules;
+
+  @include breakpoint('medium+') {
+    border: 0 none;
+  }
+}
+
+.m-paginator__prev-next > li {
+  flex: 0 0 auto;
+
+  @include breakpoint('medium+') {
+    width: 120px;
+  }
+}
+
+.m-paginator__prev-next .a-btn {
+  display: block;
+
+  @include breakpoint('small-') {
+    min-width: 48px;
+    height: 38px;
+    border: 0 none;
+  }
+
+  @include breakpoint('medium+') {
+    width: 100%;
+  }
+}
+
+.m-paginator__prev-next .a-btn__label {
+  display: none;
+
+  @include breakpoint('medium+') {
+    display: inline;
+  }
+}
+
+.m-paginator__prev-next .a-btn svg {
+  margin-right: 0;
+
+  @include breakpoint('medium+') {
+    display: none;
+  }
+}
+
+
+.m-paginator__current-page {
+  @include f-caps;
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  top: 28px;
+  margin-top: 0;
+  text-align: center;
+
+  @include breakpoint('medium+') {
+    display: none;
+  }
+}
+
+.m-paginator__pages {
+  display: none;
+
+  @include breakpoint('medium+') {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    left: colspan(2, medium);
+    right: colspan(2, medium);
+    top: 20px;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  @include breakpoint('large+') {
+    left: colspan(2, large);
+    right: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    left: colspan(2, xlarge);
+    right: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    left: colspan(2, xxlarge);
+    right: colspan(2, xxlarge);
+  }
+}
+
+.m-paginator__pages > li {
+  flex: 0 0 auto;
+}
+
+.m-paginator__pages a,
+.m-paginator__pages span {
+  @include sans-serif(14, 40, bold);
+  display: block;
+  width: 39px;
+  height: 40px;
+  padding-left: 1px;
+  border: 1px solid transparent;
+  color: $color__black;
+  letter-spacing: .16em;
+  text-align: center;
+}
+
+.m-paginator__pages a:hover {
+  border-color: $color__input-border--hover;
+  color: $color__black;
+}
+
+.m-paginator__pages a:not([href]) {
+    pointer-events: none;
+}
+
+.m-paginator__pages .s-active a,
+.m-paginator__pages .s-active a:hover {
+  border-color: $color__rules;
+  color: $color__text--quaternary;
+}

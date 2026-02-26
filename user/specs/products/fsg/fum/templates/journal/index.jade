@@ -1,0 +1,48 @@
+extends /specs/products/fsg/fum/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{data.header}
+            main.content.journal-home
+                .meta-wrapper
+
+                .container
+                    | !{data.meta}
+                    | !{data.loi}
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.articles}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            | !{data.nl}
+
+                            //mpu ad
+                            .mpu
+                    .row.separator
+                        .col-md-8.col-sm-7
+                            | !{data.news}
+
+                    .row.separator--extra
+
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.Recommended}
+                            | !{data.cited}
+                            | !{data.read}
+
+                        .col-md-4.col-sm-5
+                            | !{data.tweets}
+
+            | !{data.footer}
+    | #{''}

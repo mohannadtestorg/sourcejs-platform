@@ -1,0 +1,42 @@
+extends ../../../../../components/tabs/templates/tabs/tabs-tmpl.jade
+block tabsPrefix
+    - var original = data;
+    - var fakeId = "pcw";
+    - var config = {"type":"flex","effect": "slide","vPort":"xsmall"};
+    - var tabsData = {"nav":[{"text": "Figures","icon": "icon-Icon_Images","content": "","class": "figures"},{"text": "References","icon": "icon-Icon_Links-References","content": "","class": "references"},{"text": "Related","icon": "icon-related2","class": "related","content": ""},{"text": "Details","icon": "icon-Icon_Information","class": "details","content": ""}]};
+    - data = tabsData;
+
+
+block tabsLinks
+    a(class= item.class+"-tab" href="#pane-" + fakeId + "-" + item.class aria-controls="#pane-"+ fakeId + "-" + item.class role="tab" data-toggle="tab" title=item.class id="pane-" + fakeId + "-" + item.class + "con" data-slide-target="#pane-" + fakeId + "-" + item.class)
+        +item(item)
+
+block tabsPanes
+    ul.rlist.tab__content.sticko__child
+        - var i = 0
+        if(data.nav)
+            each item, I in data.nav
+                if (item.class == "related")
+                    li.accordion-with-arrow.tab__pane.tab__pane--clear(id="pane-"+ fakeId + "-" + item.class  aria-labelledby="pane-"+ fakeId + "-" + item.class + "con" role="tabpanel")
+                        | !{pb.render("publication-content", "article/extended/ext-accordion", { data: original, thisWidget: thisWidget }, null)}
+                else if (item.class == "details")
+                    li.tab__pane(id="pane-" + fakeId + "-" + item.class  aria-labelledby="pane-" + fakeId + "-" + item.class + "con" role="tabpanel")
+                        block detailsTab
+                            include ../details-tab-tmpl.jade
+                else
+                    li.tab__pane(id="pane-"+ fakeId + "-" + item.class  aria-labelledby="pane-"+ fakeId + "-" + item.class + "con" role="tabpanel")
+                        | !{item.content}
+                - i++
+        li.tab__spinner
+            img(src="/ux3/widgets/publication-content/images/spinner.gif" id="spinner" style="width: 100%")
+
+block tabsMain
+    div.tab.tab--slide.tab--flex.sticko__md(class=classNames)
+        ul.rlist.tab__nav.w-slide--list(data-mobile-toggle = "slide")
+            +nav()
+        +pane()
+block tabs
+    +tabs()
+
+block tabsSuffix
+    - data = original

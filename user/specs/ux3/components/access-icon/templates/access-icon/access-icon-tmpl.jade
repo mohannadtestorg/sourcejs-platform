@@ -1,0 +1,31 @@
+block topAccessIcon
+    - accessValues = {"FULL_ACCESS":{"text":"Full Access", "title":"This content is available for free"},"no-access":{"text":"No Access", "title":"You do not have access to the full text of this content"},"open-access":{"text":"Open Access", "title":"This content is available through an open access license"},"FREE_ACCESS":{"text":"Free Access", "title":"You have full access to this content"}}
+
+if data.access
+    - var currentAccess = accessValues[data.access]
+
+block mainAccessIcon
+    span.citation__top__item.article__access
+        if(data)
+            block citationLicense
+                if(currentAccess)
+
+                    span.article__access__type(title=currentAccess.title)
+                        if(data.access=="FREE_ACCESS" || data.access=="FULL_ACCESS")
+                            i.citation__acess__icon.icon-lock_open
+                        else if(data.license && data.license.type)
+                            if (data.license.type === "full-access")
+                                i.citation__acess__icon.icon-lock_open
+                            else if (data.license.type === "no-access")
+                                i.citation__acess__icon.icon-Icon_Permissions-Locked
+
+                        span.citation__access__type !{currentAccess.text}
+            block citationCC
+            if (data.license && data.license.ccType)
+                if (data.license.ccType === "cc-by")
+                    span.article__cc
+                        i.citation__top__item.icon-cc_large2
+            else
+                if (data.license && data.license.type === "open-access")
+                    span.article__cc
+                        i.citation__top__item.icon-cc_large2

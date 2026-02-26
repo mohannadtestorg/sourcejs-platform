@@ -1,0 +1,32 @@
+.quick-search {
+    margin: 0 15px;
+    input{
+        @include themify($themes) {
+            border-color:themed('color');
+        }
+    }
+
+    .dropBlock{
+        @include themify($themes) {
+            border-color:themed('color');
+        }
+        a{
+            @include themify($themes) {
+                border-color:themed('color');
+                color:themed('color');
+            }
+        }
+        i{
+            @include themify($themes) {
+               color:themed('color');
+            }
+        }
+    }
+
+    &__button,&-advanced-link{
+        @include themify($themes) {
+            color:themed('color');
+            background-color: transparent;
+        }
+    }
+}

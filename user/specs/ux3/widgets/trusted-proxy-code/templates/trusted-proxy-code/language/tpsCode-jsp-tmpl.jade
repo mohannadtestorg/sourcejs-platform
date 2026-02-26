@@ -1,0 +1,18 @@
+textarea.proxy_code(readonly=true)
+    | &lt;%@ page language="java" contentType="text/html" import="java.net.*" import="java.io.*"%&gt;
+    | &lt;%
+    |   String requestTicketUrl = "http://#{data.wwwhost}/tps/requestticket?domain=#{data.formFields.domain}&amp;debug=true";
+    |   String targetUrl = "#{data.formFields.journalUrl}";
+    |   String encodedTarget = URLEncoder.encode(targetUrl);
+    |   requestTicketUrl += "&amp;ru="+encodedTarget;
+    |   String str;
+    |   URL url = new URL(requestTicketUrl);
+    |   BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+    |   StringBuffer result = new StringBuffer();
+    |   while ((str = in.readLine()) != null) {
+    |     result.append(str);
+    |   }
+    |   in.close();
+    |   String returnedUrl = result.toString();
+    |   response.sendRedirect(returnedUrl);
+    | %&gt;

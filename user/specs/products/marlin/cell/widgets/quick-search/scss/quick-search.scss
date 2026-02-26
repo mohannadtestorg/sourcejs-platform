@@ -1,0 +1,32 @@
+.quick-search {
+    button {
+
+    }
+    .dropBlock {
+        i {
+            padding: 0;
+            margin: 0;
+        }
+        &> a {
+            border: 0;
+        }
+        [data-db-target-of] {
+            background: $primary-bg-color;
+            @include  themify($themes) {
+                background: themed('color');
+            }
+            &:before {
+                background: $primary-bg-color;
+                @include  themify($themes) {
+                    background: themed('color');
+                }
+            }
+            .quick-search__close {
+                color: $white;
+            }
+            .quick-search__advanced-link {
+                color: $white;
+            }
+        }
+    }
+}

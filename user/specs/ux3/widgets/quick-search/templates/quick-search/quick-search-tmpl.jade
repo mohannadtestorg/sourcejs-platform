@@ -1,0 +1,112 @@
+- var currentSearchTerm = '';
+-var currentSearchTermFilled=false;
+
+if data.searchTerm
+    - currentSearchTerm = data.searchTerm;
+mixin btnSearch()
+    block btnSearch
+        if(thisWidget.properties)
+            button.btn.quick-search__button.icon-search(type="submit" title="Search")
+                span !{thisWidget.properties.quickMenuLabel}
+
+mixin anywhereSearch(item, index)
+    block anywhereSearch
+        if(thisWidget.properties)
+            li(id="pane-" + thisWidget.properties.id + index aria-labelledby="pane-" + thisWidget.properties.id + index + "-con" role="tab" class="tab__pane quick-search-pane__anywhere")
+                form(action="/action/doSearch" name=item.dataSearchIn + "QuickSearch" method="get" title="Quick Search")
+                    .input-group(class="option-" + index)
+                        input.autocomplete(type="search" name="AllField" placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+                    +btnSearch()
+
+
+mixin citationSearch(item, index)
+    block citationSearch
+        if(thisWidget.properties)
+            li(id="pane-" + thisWidget.properties.id + index aria-labelledby="pane-" + thisWidget.properties.id + index + "-con" role="tab" class="tab__pane")
+                form(action="/action/quickLink" name=item.dataSearchIn + "QuickSearch" method="get" title="Quick Search")
+                    .input-group(class="option-citation option-" + index)
+                        input.autocomplete(type="search" name="quickLinkJournal" placeholder=thisWidget.properties.publicationText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles value=currentSearchTerm)
+                        input(type="search" name="quickLinkYear" autoComplete="false" placeholder=thisWidget.properties.yearText)
+                        input(type="search" name="quickLinkVolume" autoComplete="false" placeholder=thisWidget.properties.volumeText)
+                        input(type="search" name="quickLinkIssue" autoComplete="false" placeholder=thisWidget.properties.issueText)
+                        input(type="search" name="quickLinkPage" autoComplete="false" placeholder=thisWidget.properties.pageText)
+                        input(type="hidden" name="quickLink" value="true")
+                    +btnSearch()
+
+mixin journalSearch(item, index)
+    block journalSearch
+        if(thisWidget.properties)
+            li(id="pane-" + thisWidget.properties.id + index aria-labelledby="pane-" + thisWidget.properties.id + index + "-con" role="tab" class="tab__pane quick-search-pane__anywhere")
+                form(action="/action/doSearch" name=item.dataSearchIn + "QuickSearch" method="get" title="Quick Search")
+                    .input-group(class="option-journal option-" + index)
+                        input.autocomplete(type="search" name="AllField" placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+                        input(type="hidden" name="SeriesKey" value=item.value)
+                    +btnSearch()
+
+
+mixin bookSearch(item, index)
+    if(thisWidget.properties)
+        li(id="pane-" + thisWidget.properties.id + index aria-labelledby="pane-" + thisWidget.properties.id + index + "-con" role="tab" class="tab__pane quick-search-pane__book")
+            form(action="/action/doSearch" name=item.dataSearchIn + "QuickSearch" method="get" title="Quick Search")
+                .input-group(class="option-" + index)
+                    input.autocomplete(type="search" name="AllField" placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+                    input(type="hidden" name="ContentGroupKey" value=item.value)
+                +btnSearch()
+
+
+mixin checkCurrentSearchTerm()
+  if(currentSearchTermFilled==true)
+      -currentSearchTerm = ''
+
+
+mixin search()
+    block quickSearch
+
+        .tab.row.clearfix
+            .col-md-2.gutterless
+                ul.rlist.tab__nav.dropblock--tab(role="tablist")
+                    if(data.dropdown)
+                        each item, i in data.dropdown
+                            li
+                                if(thisWidget.properties && item.label)
+                                    a(href="#pane-" + thisWidget.properties.id + i aria-controls="#pane-" + i role="tab" data-toggle="tab" title=item.label id="pane-" + thisWidget.properties.id + i + "-con" aria-expanded="false") !{item.label}
+            .col-md-7
+                ul.rlist.tab__content(role="tablist")
+                    each item, i in data.dropdown
+                        +checkCurrentSearchTerm()
+                        if (item.dataSearchIn == 'default')
+                            +anywhereSearch(item, i)
+                        else if (item.dataSearchIn == 'thisJournal')
+                            +journalSearch(item, i)
+                        else if (item.dataSearchIn == 'citation')
+                            +citationSearch(item, i)
+                        else if (item.dataSearchIn == 'thisBook' || item.dataSearchIn == 'thisIssue')
+                            +bookSearch(item,i)
+                        -currentSearchTermFilled=true
+
+
+
+
+            .col-md-2
+                block advancedSearch
+                    | !{pb.renderDropzone(thisWidget, "TestDropZone")}
+                //a.pull-right.quick-search-advanced-link(href="#" title="Advanced Search") Advanced Search
+
+
+            .col-md-1
+                a.icon-close_thin(href="#" title="Exit")
+
+block quickSearchWrapper
+    if (thisWidget.properties && thisWidget.properties.displayQuickMenuButton == "true")
+        a(href="#" class="quick-menu__item" title="search" data-db-target-for="sb1")
+            block searchIcon
+                i.block-icon(class=thisWidget.properties.quickMenuIcon aria-hidden="true")
+            span Search
+        div.dropBlock__holder.quick-search__dropBlock.quickSearchFormContainer(data-db-target-of="sb1")
+            .container
+                div.quick-search
+                    +search()
+        block afterSearchIcon
+    else
+        div.quick-search
+            +search()

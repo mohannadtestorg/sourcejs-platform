@@ -1,0 +1,596 @@
+.figure-viewer, .table-viewer {
+  color: $white;
+  background: transparentize($black, 0.4);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  display: none;
+
+  img, .article-table-content {
+    margin: 0 auto;
+    max-height: 100%;
+    width: auto;
+  }
+
+  figure, div.holder {
+    margin: 0;
+    text-align: center;
+  }
+
+  button {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  //opened
+  &.js-opened {
+    display: block;
+  }
+
+  &__hold__fig, &__hold__tbl {
+    img:not(.zoomed), .article-table-content:not(.zoomed) {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%) !important;
+      padding: 30px 0;
+      max-width: 82%;
+    }
+
+    .zoomed {
+      img:hover, .article-table-content:hover {
+        cursor: move;
+      }
+    }
+
+    &cap {
+      font-size: 1rem;
+
+      figcaption, .tblcaption {
+        max-height: 70vh;
+        overflow: auto;
+      }
+
+      .accordion__control {display: none;}
+      .accordion__content {display: block !important;}
+    }
+  }
+
+  &__hold__list {
+    display: flex;
+    flex-wrap: wrap;
+    height: 92vh;
+    overflow: auto !important;
+    justify-content: space-between;
+    align-items: center;
+
+    figure, div.holder {
+      // LIT-161412
+      // https://connect.microsoft.com/IE/feedbackdetail/view/951267/horizontal-scrolling-with-flex-grow-max-width
+      // max-width: 30%;
+      padding: 10px;
+      flex-grow: 1;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 10px;
+      width: 50%;
+    }
+
+    figcaption, .tblcaption {
+      display: none;
+    }
+
+    img, .article-table-content {
+      @include media('>=desktop') {
+        max-height: 200px;
+      }
+    }
+  }
+
+  &__reg__top {
+    background: $dark-grey;
+    padding: 15px 30px;
+  }
+
+  &__reg__center {
+    position: relative;
+    height: 100vh;
+  }
+
+  &__cent__left {
+    //default
+    width: 100%;
+    transition: width 0.3s;
+    position: relative;
+
+    // __cent__right is opened
+    &.js-open {
+      width: 80%;
+
+      @media screen and (min-width: $container-md) and (max-width: $container-lg){
+        width: 75%;
+      }
+    }
+  }
+
+  &__cent__right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 3;
+    width: 20%;
+    @media screen and (min-width: $container-md) and (max-width: $container-lg){
+      width: 25%;
+    }
+    background: transparentize($dark-grey, 0.15);
+    padding: 30px 40px 0 30px;
+    //default
+    backface-visibility: hidden;
+    transform: translateX(100%);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    .icon-doublearrow {
+      transform: rotate(180deg);
+      font-size: 1.625rem; // 26px
+      vertical-align: top;
+      //margin-left:-30px;
+    }
+
+    &.js-open { //opened
+      transform: translateX(0);
+
+      .icon-doublearrow {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__top__right {
+    float: right;
+
+    span {
+      display: block;
+    }
+  }
+
+  &__top__left {
+    float: left;
+    overflow: hidden;
+    height: 24px;
+  }
+
+  [class*="__ctrl__"],
+  [class*="__label__"] {
+    color: $white;
+  }
+
+  &__ctrl__close {
+    float: right;
+    font-size: 1.625rem; // 26px
+  }
+
+  &__label__zoom {
+    float: right;
+    margin-right: 20px;
+    font-size: 1.8125rem; // 29px
+  }
+
+  &__ctrl__browse,
+  &__ctrl__return {
+    margin-right: 60px;
+    vertical-align: top;
+    display: inline-block;
+  }
+
+  &__ctrl__next,
+  &__ctrl__prev {
+    position: absolute;
+    top: 50%;
+    margin-top: -13px;
+    z-index: 9;
+    font-size: 1.625rem; // 26px
+    padding: 20px;
+
+    span {
+      display: inline-block;
+      text-shadow: 0 0 1px rgba(0, 0, 0, 1);
+    }
+  }
+
+  &__ctrl__next {
+    right: 49px;
+  }
+
+  &__ctrl__prev {
+    left: 49px;
+  }
+
+  &__ctrl__browse,
+  &__ctrl__return {
+    span {
+      font-size: 1.625rem; // 26px
+      display: block;
+    }
+  }
+
+  &__title {
+    position: relative;
+    left: -125px;
+    font-size: 1.25rem;
+    transition: left 0.3s;
+    margin-bottom: 30px;
+
+    .js-open & {
+      left: 0;
+
+      &__text {
+        opacity: 1;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__ctrl__caption {
+    & > span {
+      min-width: 30px;
+      display: inline-block;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+  }
+
+  @include media('>=desktop') {
+    &__ctrl__caption  {
+      margin-left: -30px;
+      background: $dark-grey;
+      padding: 5px;
+    }
+  }
+
+  &__caption {
+    &__label {
+      &:after {
+        content: "|";
+        margin: 0 10px 0px 19px;
+      }
+    }
+  }
+
+  .zoomSlider, .tblZoomSlider {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    width: 120px;
+    margin-right: 13px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .ui-slider-handle {
+    background: transparent;
+    border-radius: 10px;
+    border: 3px solid $white;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    width: 1.2em;
+    height: 1.2em;
+    top: -0.1em;
+    margin-left: -0.6em;
+  }
+
+  .is-hidden {
+    display: none;
+  }
+
+  // ------------------------  Zoom Range custom styles, visit http://danielstern.ca/range.css/#/ for more details and cutomization ---------------------------
+  // range thumb related styles
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    margin: 0;
+    background: transparent;
+    border: 0;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2.3px;
+    cursor: pointer;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+    background: $grey;
+    border-radius: 0;
+    border: 0 solid $darker-grey;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px $dark-grey, 0 0 1px $darker-grey;
+    border: 1px solid $white;
+    height: 15px;
+    width: 1px;
+    border-radius: 250px;
+    background: $dark-grey;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6.35px;
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $light-grey;
+  }
+
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 2.3px;
+    cursor: pointer;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+    background: $grey;
+    border-radius: 0;
+    border: 0 solid $darker-grey;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px $dark-grey, 0 0 1px $darker-grey;
+    border: 1px solid $white;
+    height: 15px;
+    width: 1px;
+    border-radius: 250px;
+    background: $dark-grey;
+    cursor: pointer;
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 2.3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  input[type=range]::-ms-fill-lower {
+    background: $grey;
+    border: 0 solid $darker-grey;
+    border-radius: 0;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+  }
+
+  input[type=range]::-ms-fill-upper {
+    background: $grey;
+    border: 0 solid $darker-grey;
+    border-radius: 0;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+  }
+
+  input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px $dark-grey, 0 0 1px $darker-grey;
+    border: 1px solid $white;
+    height: 15px;
+    width: 1px;
+    border-radius: 250px;
+    background: $dark-grey;
+    cursor: pointer;
+    height: 2.3px;
+  }
+
+  input[type=range]:focus::-ms-fill-lower {
+    background: $grey;
+  }
+
+  input[type=range]:focus::-ms-fill-upper {
+    background: $light-grey;
+  }
+
+  // range track related styles
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 2.3px;
+    cursor: pointer;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+    background: $grey;
+    border-radius: 0.4px;
+    border: 0 solid $darker-grey;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px $dark-grey, 0 0 1px $darker-grey;
+    border: 1px solid $white;
+    height: 20px;
+    width: 20px;
+    border-radius: 250px;
+    background: $dark-grey;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8.85px;
+  }
+
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $light-grey;
+  }
+
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 2.3px;
+    cursor: pointer;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+    background: $grey;
+    border-radius: 0.4px;
+    border: 0 solid $darker-grey;
+  }
+
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px $dark-grey, 0 0 1px $darker-grey;
+    border: 1px solid $white;
+    height: 20px;
+    width: 20px;
+    border-radius: 250px;
+    background: $dark-grey;
+    cursor: pointer;
+  }
+
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 2.3px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  input[type=range]::-ms-fill-lower {
+    background: $grey;
+    border: 0 solid $darker-grey;
+    border-radius: 0.8px;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+  }
+
+  input[type=range]::-ms-fill-upper {
+    background: $grey;
+    border: 0 solid $darker-grey;
+    border-radius: 0.8px;
+    box-shadow: 0 0 0 $dark-grey, 0 0 0 $darker-grey;
+  }
+
+  input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px $dark-grey, 0 0 1px $darker-grey;
+    border: 1px solid $white;
+    width: 20px;
+    border-radius: 250px;
+    background: $dark-grey;
+    cursor: pointer;
+    height: 2.3px;
+  }
+
+  input[type=range]:focus::-ms-fill-lower {
+    background: $grey;
+  }
+
+  input[type=range]:focus::-ms-fill-upper {
+    background: $light-grey;
+  }
+}
+
+.figure-viewer {
+  .figure-extra {
+    display: none;
+  }
+}
+
+figure, div.holder {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+/*  small and xsmall screen size styles
+===============================================================*/
+
+@include media('>=desktop') {
+  .figure-viewer, .table-viewer {
+    &__title__text {opacity: 0;}
+  }
+}
+
+@include media('<desktop') {
+  .figure-viewer, .table-viewer {
+    &__hold__list {
+      figure, div.holder {
+        width: 125%;
+        max-width: 100%;
+      }
+    }
+
+    &__reg__center {
+      height: 96vh;
+    }
+
+    &__cent__left {
+      &.js-open {
+        width: 100%;
+      }
+    }
+
+    &__cent__right {
+      position: absolute;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      height: auto;
+      z-index: 9;
+      width: 100%;
+      padding: 20px 20px 60px;
+      transform: translateY(100%);
+
+      &.js-open { //opened
+        transform: translateY(0);
+      }
+    }
+
+    &__ctrl__caption {
+      left: 50%;
+      top: -26px;
+      margin-left: -36px;
+      text-align: center;
+      border-radius: 4px 4px 0 0;
+      text-shadow: 0px 0px 5px rgba(150, 150, 150, 1);
+
+      .icon-arrow_d_n {
+        display: none;
+        font-size: 0.625rem; // 10px
+        padding-bottom: 10px;
+      }
+
+      &.js-open {
+        .icon-arrow_d_n {
+          display: block;
+        }
+
+        .icon-info,
+        .icon-arrow_r {
+          display: none;
+        }
+      }
+    }
+
+    &__title {
+      position: relative;
+      left: auto;
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 30px;
+      top: -125px;
+      transition: top 0.3s;
+
+      .js-open & {
+        left: auto;
+        top: 10px;
+      }
+    }
+
+    .icon-doublearrow {
+      transform: rotate(270deg);
+    }
+
+    &__cent__right.js-open {
+      .icon-doublearrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+@include media('<tablet') {
+  .figure-viewer, .table-viewer{
+    &__top__left {
+      max-width: calc(100% - 30px);
+    }
+
+    &__ctrl__prev {left: -10px;}
+    &__ctrl__next {right: -10px;}
+
+    &__hold__fig img:not(.zoomed), &__hold__tbl div.holder:not(.zoomed) {max-width: 75%;}
+  }
+}

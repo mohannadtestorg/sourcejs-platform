@@ -1,0 +1,106 @@
+
+- var page = 0
+- var pageSize = thisWidget.properties.tokensPageSize
+- var numberOfUsers = data.licenses.length
+- var pages = data.pages
+- var rest = numberOfUsers % pageSize
+if rest > 0
+    - pages++
+
+- var selectedLicense;
+
+
+.slot-license-usage
+    .card.card-style.clearfix
+        | !{pb.renderDropzone(thisWidget, "slot-license--formDropZone")}
+
+        h4 Your article select tokens
+        p Click on a license to see the related accesible content.
+
+        //if (data.emailSuccessfullyMessage)
+        //    .infoBox
+        //        i.icon-notice(aria-hidden="true")
+        //        span.success !{data.emailSuccessfullyMessage}
+
+        .separator.table--sortable.js-pages
+            table.expandable
+                thead
+                    tr
+                        th.sortable(width='16.6%') License ID
+                        th.sortable(width='16.6%') Content
+                        th.sortable(width='16.6%') Valid from
+                        th.sortable(width='16.6%') Valid to
+                        th.sortable(width='16.6%') Tokens remaining
+                        th(width='16.6%') Usage report
+                tbody
+                    if (data.licenses)
+                        each token, l in data.licenses
+                            if l % pageSize == 0
+                                - page++
+                            tr(data-page=page data-href=data.actionUrl+ "&action=getContent&contentId=" + token.contentId + "&selectedId=" + token.licenseId class=token.selected ? "selected" : "")
+                                td(data-thead='License ID') !{token.licenseId}
+                                td(data-thead='Content') !{token.productDescription}
+                                td(data-thead='Valid from') !{token.validFrom}
+                                td(data-thead='Valid to') !{token.validTo}
+                                td(data-thead='Tokens remaining') !{token.tokensRemaining}
+                                td(data-thead='Usage report')
+                                    button.btn.licenseReportBtn(data-db-target-for="licenseReport" +l  aria-haspopup="true" role="button") Report
+                                    .licenseReportForm.card.card--light-shadow(data-db-target-of="licenseReport" + l)
+                                        form(method="post" action=data.actionUrl )
+                                            input(type="hidden" name="contentId" value=token.contentId)
+                                            input(type="hidden" name="action" value="report")
+                                            .input-group
+                                                label(for='reportEmail-'+ l) Type an email to send the report to
+                                                input(id="reportEmail-"+ l type='email' name="emailAddress"  placeholder='ex.example@example.com' required)
+
+                                            .form-btn
+                                                button.btn.btn--inverse(type="cancel") cancel
+                                                button.btn(type="submit"  data-db-target-for="licenseReport-info-" +l) Send
+
+                                    .licenseReport-infoBox.card.card--light-shadow(data-db-target-of="licenseReport-info-" + l)
+                                        .infoBox
+
+
+
+            include ../../../../components/pagination/templates/pagination/client-pagination-tmpl
+
+    if (data.publications)
+
+        - var contentFrom = 1 + (data.content.startPage * data.content.pageSize)
+        - var contentTo = ((data.content.startPage + 1) * data.content.pageSize)
+
+        .selected-license
+            h4 Accessible content for the selected license
+            each token, l in data.licenses
+                - selectedLicense = (token.selected) && token.selected ? token : null
+                if (selectedLicense)
+                    .selected-license__meta
+                        span
+                            label License ID:&nbsp;
+                            span !{' ' +selectedLicense.licenseId}
+                        | !{', '}
+                        span !{selectedLicense.productDescription}
+                        | !{', '}
+                        span
+                            label Valid from:&nbsp;
+                            span !{selectedLicense.validFrom}
+                        | !{', '}
+                        span
+                            label Valid to:&nbsp;
+                            span !{selectedLicense.validTo}
+                        | !{', '}
+                        span
+                            label Tokens remaining:&nbsp;
+                            span !{selectedLicense.tokensRemaining}
+
+
+            .selected-license__meta--result
+                b !{contentFrom} - !{contentTo}
+                | !{' of '}
+                b !{data.content.hitLength}
+                | !{' items '}
+                p.note !{data.listMessage}
+
+            ul.rlist.selected-license__result-list
+                block issueItems
+                    include ../extended/ext-issue-item-tmpl

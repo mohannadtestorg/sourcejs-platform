@@ -1,0 +1,86 @@
+.author-index{
+
+  margin-top: 30px;
+  @include media('<desktop'){
+    margin-top: 60px;
+  }
+
+  @include media('<tablet'){
+    margin-top: 0;
+  }
+
+  .facet__title{
+    text-transform: capitalize;
+  }
+
+  .facets__title{
+    &--main{
+      display: none;
+    }
+
+  }
+.facet__title{
+  margin-top: 10px;
+}
+  &__facet-title{
+    color: $black;
+    padding:10px;
+    font-weight: 700;
+    background-color: white;
+    @include media('<tablet'){
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+   }
+
+  &__results{
+    .result{
+      &__current,&__count{
+        padding:0 5px;
+        font-weight: 700;
+
+      }
+    }
+    @include media('<tablet'){
+      background: darken($secondary-lighten-bg-color , 10%);
+      margin: 0 -15px;
+      padding: 15px 15px;
+    }
+
+  }
+
+  &__list{
+    margin-top: 30px;
+    .link{
+      padding: 5px 0;
+      display: inline-block;
+    }
+  }
+
+  &__container{
+    margin-top: 40px;
+    @include media('<tablet'){
+      margin-top: 0;
+    }
+  }
+
+  &__browse-alpha {
+    margin: 0px -15px;
+    padding: 10px 15px;
+    background: $secondary-lighten-bg-color;
+  }
+
+&__alphanumeric{
+  font-weight: 700;
+  padding: 10px 15px;
+  border-bottom: 1px solid $primary-border-color;
+  margin: 0 -15px;
+  .letter{
+  background-color: $secondary-lighten-bg-color;
+    border-radius: 50%;
+    padding: 2px 5px;
+    margin: 0 5px;
+  }
+}
+
+}

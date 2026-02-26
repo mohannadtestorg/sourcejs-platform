@@ -1,0 +1,22 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 Controller
+    p This plugin is used to act as a middleware between interactive plugins/modules (such as slide / Drop block / figure viewer ... etc) to make sure they work together and there are no behavioural conflicts.
+
+    section.source_section
+        h2 Usage
+        h3 include controller js file
+        code.src-js.source_visible
+            | import '../../plugins/controller/js/controller.js'
+        markdown
+            p Include `controller.js` in your js code to be able to use it.
+
+        h3 Check() function
+        code.src-js.source_visible
+            | if (typeof(LIT.controller) != "undefined"){
+            |   LIT.controller.check();
+            | }
+        markdown
+            p Call `LIT.controller.check()` function in your `something.on.show()` and make sure to check if controller is defined before using it's functions.
+    | #{''}

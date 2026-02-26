@@ -1,0 +1,89 @@
+extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    section.source_section
+
+        include ../../../page-structure/helpers/print-json-mixin
+        include ../../../page-structure/helpers/print-template-include-mixin
+        include ../../../page-structure/helpers/print-js-code-mixin
+
+        h2 Usage
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use authors widget.
+
+        +printJson({
+            "data": {
+                "forms": [
+                    {
+                        "orcid": {
+                            "value": "000-0003-2587",
+                            "message": {}
+                        },
+                        "first-name": {
+                            "value": "Jerome",
+                            "message": {}
+                        },
+                        "last-name": {
+                            "value": "Christiasen",
+                            "message": {}
+                        },
+                        "email": {
+                            "value": "jChar.edu.com",
+                            "message": {}
+                        },
+                        "affiliations": {
+                            "value": "University",
+                            "message": {}
+                        },
+                        "corresponding": {
+                            "value": "..."
+                        }
+                    },
+
+                    {
+                        "orcid": {
+                            "value": "000-0545-2587",
+                            "message": {}
+                        },
+                        "first-name": {
+                            "value": "George",
+                            "message": {}
+                        },
+                        "last-name": {
+                            "value": "Mark",
+                            "message": {}
+                        },
+                        "email": {
+                            "value": "gmark.edu.com",
+                            "message": {}
+                        },
+                        "affiliations": {
+                            "value": "University 2",
+                            "message": {}
+                        },
+                        "corresponding": {
+                            "value": "..."
+                        }
+                    }
+
+                ],
+                "affiliationSearchLink": "#"
+            }
+        })
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        .source_example
+            | !{data.items[1].body}
+
+    | #{''}

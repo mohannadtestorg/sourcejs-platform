@@ -1,0 +1,64 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/topical-tmpl.jade
+
+block headerContent
+
+block alertFrequency
+    .alert__freq
+        .input-group.left-side-label
+            label Frequency
+            select.jcf(name="period")
+                each freq, l in freqs.freqs
+                    if data.currentPerson.alerts.topicAlertFrequency == freq
+                        option(value=freq.charAt(0) selected="selected") !{freq}
+                    else
+                        option(value=freq.charAt(0)) !{freq}
+            button.btn(type="submit" name="save" value="true") UPDATE
+
+block alertFormats
+
+
+block taxonomyContent
+    .alert__list
+        if (data.taxonomies)
+            - var taxonomyNo = data.taxonomies.length
+            if !taxonomyNo
+                - taxonomyNo = data.taxonomies.size()
+            if taxonomyNo > 0
+                .section__separator
+                    h4 You are receiving alerts for the following topics
+                    small Select any item to unsubscribe
+
+                    .input-group
+                        label.checkbox--primary
+                            input(type='checkbox' name="markall")
+                            span.label-txt SELECT ALL
+
+
+                each taxonomy, i in data.taxonomies
+                    if (taxonomy.tags)
+                        ul.rlist
+                            each tag, l in taxonomy.tags
+                                li
+                                    .input-group
+                                        label.checkbox--primary
+                                            if tag.subscribed == true
+                                                input(type="checkbox" id=tag.value name="topicalAlert[]" value=tag.value checked="checked")
+                                            else
+                                                input(type="checkbox" id=tag.value name="topicalAlert[]" value=tag.value )
+
+                                            span(for=tag.value)
+                                                a(href=tag.link) !{tag.label}
+
+            else if (thisWidget.properties.topicsAlertView == "modifyOnly")
+                .section__separator
+                    h4 you are not subscribed for any publication
+
+        else if (thisWidget.properties.topicsAlertView == "modifyOnly")
+            .section__separator
+                h4 you are not subscribed for any publication
+
+
+
+block topicalButtons
+   .form-btn
+       button.btn.extra-border(type='submit' name='delete' value='true')  Update alert settings

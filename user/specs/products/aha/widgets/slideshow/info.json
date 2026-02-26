@@ -1,0 +1,161 @@
+{
+    "title": "Slideshow",
+    "template": "doc",
+    "tag": ["ready"],
+    "templates": {
+        "default": "slideshow",
+        "alternative": {
+            "slideshow-covers": {
+                "name": "Covers",
+                "path": "slideshow-covers",
+                "deprecated": false
+            },
+            "slideshow-images-thumbnails": {
+                "name": "Image Thumbnails",
+                "path": "slideshow-images-thumbnails",
+                "deprecated": false
+            },
+            "slideshow-images": {
+                "name": "Images",
+                "path": "slideshow-images",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Slideshow of images with text",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "has-image"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/slideshow-images-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/slideshow-images.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Slideshow of images with text - With slide thumbnails for the next two slides ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "has-image",
+                                        "has-thumbnails-viewer"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/slideshow-images-thumbnails-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/slideshow-images-thumbnails.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Slideshow of images with text",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "has-image",
+                                        "has-pagination",
+                                        "has-numeric-pagination"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/slideshow-images-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/slideshow-numeric-pagination.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Slideshow Covers",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "has-covers"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/slideshow-covers-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/slideshow-covers.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            }
+        ]
+    }
+}
+

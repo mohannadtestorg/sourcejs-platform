@@ -1,0 +1,23 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block coverDetails
+    .cover-image__details
+        | !{pb.render('parent-item','parent-item/parent-item-article', {data: cover}, 'mal')}
+
+block defaultImageNothing
+    if(cover && cover.coverImage && cover.coverImage.src && cover.serial && cover.serial.code)
+        div(class=imageClass)
+            a(href="https://home.liebertpub.com/"+cover.serial.code , title="Journal")
+                img(src=cover.coverImage.src , alt=cover.serial.serialTitle + " cover image")
+    else if (cover && cover.coverImage && cover.coverImage.src)
+        div(class=imageClass)
+            img(src=cover.coverImage.src , alt=cover.serial.serialTitle + " cover image")
+
+block defaultImagelinkToIssueOrBookOrSeriesHome
+    if(cover && cover.coverImage && cover.coverImage.src && cover.serial && cover.serial.code)
+        div(class=imageClass)
+            a(href="https://home.liebertpub.com/"+cover.serial.code , title="Journal")
+                img(src=cover.coverImage.src alt=altValue)
+    else if (cover && cover.coverImage && cover.coverImage.src)
+        div(class=imageClass)
+            img(src=cover.coverImage.src , alt=cover.serial.serialTitle + " cover image")

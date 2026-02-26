@@ -1,0 +1,30 @@
+extends /specs/products/ascb/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 User Panel
+
+    .source_info
+        p User panel uses <strong>#[a(href="../../components/drop-block/") Drop block]</strong> functionality for logged in state functionality and <strong>#[a(href="../../components/modal/") Modal]</strong> for logged out state functionality.
+    section.source_section
+        h2 Logged in user panel Example
+        p The following example demonstrate Logged in state
+        markdown
+        code.src-html
+        .source_example
+            .container
+                | !{data.loggedIn}
+    | #{''}
+    section.source_section
+        h2 Logged out user panel Example
+        p The following example demonstrate Logged out state
+        markdown
+        code.src-html
+        .source_example
+            | !{data.loggedOut}
+
+        markdown
+            p <strong>Note: </strong> the institutional anchor is absolute positioned to support accessibility
+    | #{''}

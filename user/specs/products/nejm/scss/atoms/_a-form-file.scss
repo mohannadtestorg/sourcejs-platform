@@ -1,0 +1,68 @@
+/***
+
+a-form-file
+=============
+
+```
+<span class="a-form-file">
+  <input type="file" name="file" id="file">
+  <label for="file">Browse</label>
+</span>
+```
+
+
+***/
+
+.a-form-file {
+  position: relative;
+  display: block;
+}
+
+.a-form-file input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.a-form-file label {
+  display: block;
+  position: relative;
+  @include sans-serif(15, 15);
+  text-align:left;
+  color: $color__text;
+  line-height:40px;
+  min-width: 120px;
+  height: 40px;
+  border: 1px solid $color__black--20;
+  background-color: $color__white;
+  padding-left: 12px;
+  padding-right: 120px + 12px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:after {
+    @include f-ui;
+    @include sans-serif(12, 40);
+    font-weight: 700;
+    min-width: 120px;
+    vertical-align: middle;
+    letter-spacing: .12em;
+    content:attr(data-btn);
+    position:absolute;
+    border-left: 1px solid $color__black--20;
+    right:0;
+    background:$color__black--5;
+    top:0;
+    color: $color__black;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    bottom:0;
+  }
+}

@@ -1,0 +1,12 @@
+if (data && thisWidget && thisWidget.properties && thisWidget.properties.doType)
+    case thisWidget.properties.doType
+        when "nyp"
+            include ./nyp-tmpl
+        when "related-books"
+            include ./relatedBooks-tmpl
+            //.books__slider.responsiveSlider5-3-2-1
+            //    | !{pb.render('slideshow', 'slideshow/demo/slideshow-demo', 'books.json')}
+        when "booksetwu"
+            include ./book-set-tmpl
+        when "bookwu"
+            include ./bookwu-tmpl

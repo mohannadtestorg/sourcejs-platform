@@ -1,0 +1,130 @@
+.tab--flex {
+    .slashed__tabs__nav {
+        .tab__nav {
+            li {
+                flex: none;
+            }
+        }
+    }
+}
+
+
+.slashed__tabs__nav {
+    .tab__nav {
+        a {
+            padding: 0px;
+            border-bottom: none !important;
+            font-size: 26px;
+            font-weight: 800;
+        }
+        span {
+            color: $secondary-text-color;
+            &:hover {
+                color: $primary-blue-color;
+            }
+        }
+        li.active {
+            span {
+                color: $primary-text-color;
+            }
+        }
+        li {
+            &:last-child {
+                a {
+                    &:after {
+                        content: '';
+                    }
+                }
+            }
+        }
+        a {
+            &:after {
+                content: '//';
+                display: inline-block;
+                color: $secondary-text-color;
+                padding: 0 10px;
+                font-size: 1.75rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.bottom__bordered__tabs__nav {
+    .tab__nav {
+        .active {
+            a {
+                border-bottom: solid 4px $primary-red;
+            }
+            span {
+                color: $primary-red;
+            }
+        }
+        span {
+            color: $gray-2;
+            &:hover, &:focus {
+                color: $primary-text-color;
+            }
+        }
+        a {
+            padding: 15px 0;
+            margin: 0 14px;
+            font-size: .75rem;
+            &:after {
+                content: none;
+            }
+        }
+    }
+}
+
+@include media('<tablet') {
+    .slashed__tabs__nav {
+        .tab {
+            &__nav {
+                border-bottom: 1px solid $primary-border;
+                li {
+                    display: none;
+                    &.active {
+                        display: inline-block;
+                    }
+                }
+                .arrows-slide {
+                    display: inline-block;
+                }
+                a:after {
+                    content: "";
+                    padding: 0px;
+                }
+            }
+            &__content {
+                padding-top: 10px;
+            }
+        }
+    }
+    .journal-home {
+        .card {
+            padding: 15px;
+        }
+    }
+    .arrows-slide {
+        float: right;
+        width: 70px;
+        padding: 10px 0px;
+        text-align: right;
+        .next, .prev {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 900;
+        }
+        .next {
+            padding-left: 20px;
+        }
+    }
+    .current-issue {
+        .issue-info {
+            font-size: 16px;
+            color: $secondary-text-color;
+
+        }
+    }
+}

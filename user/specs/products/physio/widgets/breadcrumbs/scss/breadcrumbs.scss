@@ -1,0 +1,33 @@
+.article {
+    &__breadcrumbs {
+        a + a:before {
+            display: inline-block;
+            content: "\e625";
+            position: relative;
+            left: 0;
+            margin-right: 5px;
+            font-family: icomoon;
+            font-size: 9px;
+            padding: 5px;
+        }
+        a {
+            margin-bottom: 0;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 400;
+            padding: 6px 0;
+        }
+        .article__title {
+            display: inline-block;
+            white-space: nowrap;
+            width: 28em;
+            overflow: hidden;
+            vertical-align: middle;
+            text-overflow: ellipsis;
+        }
+        .separator:after {
+            content: ' ';
+            padding: 0;
+        }
+    }
+}

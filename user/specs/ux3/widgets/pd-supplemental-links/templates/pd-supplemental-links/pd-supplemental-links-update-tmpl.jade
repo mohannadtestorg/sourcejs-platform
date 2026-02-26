@@ -1,0 +1,92 @@
+mixin td(row,r,jsonFieldName, theadName, classes,firstRow,isContentType,isdummy)
+    td(data-thead=theadName class=classes)
+        if(firstRow)
+            a(href="#").icon-arrow_d_n.pull-right.hidden-md.hidden-lg.table__control__button
+
+        if(row[jsonFieldName])
+            if(isContentType)
+                | !{pb.render("supplemental-content-type", {data: {"value": row[jsonFieldName].value}})}
+            else
+                .td-text !{row[jsonFieldName].value}
+            block linksTd
+                if(isdummy)
+                    fakedinput(type="hidden" value=row[jsonFieldName].value name="external-links[" + r + "]." + jsonFieldName)
+                else
+                    input(type="hidden" value=row[jsonFieldName].value name="external-links[" + r + "]." + jsonFieldName)
+
+                if(row[jsonFieldName].message && row[jsonFieldName].message.text)
+                    div(class=row[jsonFieldName].message.type == "error" ? "error" : row[jsonFieldName].message.type == "warning" ? "warning" : "success") !{row[jsonFieldName].message.text}
+
+
+
+
+mixin row(r ,row,isdummy)
+    tr.expanded(data-row-num=r)
+
+        +td(row,r,"label","Description","description-td",true,false,isdummy)
+        +td(row,r,"link","URL (DOI preferred)","to_hide url-doi-td",false,false,isdummy)
+        +td(row,r,"type","Content Type","to_hide content-type-td",false,true,isdummy)
+
+        block actions
+            td(class="table__td--dropdown to_hide")
+                | !{pb.render('drop-block', 'drop-block/drop-block-actions', {data: {"id": "suppLink__" + r, "actions": [{"label": "Edit", "icon": "icon-pencil", "class": "edit"}, {"label": "Delete", "icon": "icon-delete", "class": "delete"}]}})}
+
+
+.row
+    .col-md-12
+        block submissionLinks
+            .supplemental-links.editable
+                input(type="hidden" name="supplemental-files.id" value=thisWidget.id)
+                h4.border-bottom Add Supplemental Links
+                    span.__optional #{" "} (Optional)
+                    | !{pb.render('tooltip', {data: {"type": "icon", "title": "Supplemental Links", "text": "Supplemental links connect your preprint or poster with data sets at repositories or other online resources and can also link to the final published paper. Digital Object Identifier (DOI)s are preferred, if available. Be sure to provide a description for each link, and select the appropriate Content Type."}})}
+
+                .table-responsive.supplemental-links__table.table-actions
+                    table(class='expandable separator ')
+                        thead
+                            tr
+                                th Description
+                                th URL (DOI preferred)
+                                th Content Type
+                                th
+
+
+                        tbody
+                            if (data.forms)
+                                each row, r in data.forms
+                                    +row(r,row)
+                button#addSuppLink.btn.btn--inverse.submission-table__btn Add link
+
+
+
+                table.hidden.rowTemplate
+                    - var dummyRow = {'label':{'value':'{{0}}'}, 'link':{'value':'{{1}}'}, 'type':{'value':'{{2}}'}}
+                    +row("{{3}}",dummyRow,true)
+
+
+            .ux-modal-container.submission__modal
+                #supplemental-links-modal.modal(role="dialog")
+                    .modal__header.hidden-lg.hidden-md
+                        div Supplemental Link
+                    .modal__dialog
+                        input.mode.hidden(value="add")
+                        input.row-num.hidden(value="-1")
+
+                        .modal__body
+                            .error.modal-validation-message
+                            .input-group
+                                label(for="supp-link-description") Description
+                                input(id="supp-link-description", name="supp-link-description", type="text")
+
+                            .input-group
+                                label(for="supp-link-url") URL (DOI preferred)
+                                input(id="supp-link-url", name="supp-link-url", type="text")
+
+                            .input-group
+                                label(for="supp-link-type") Content Type
+                                | !{pb.render("supplemental-content-type", {data: {"type": "list", "listId": "supp-link-type"}})}
+
+
+                        .modal__footer
+                            button.btn.pull-right(type='button',  id="saveSuppLink")  Save
+                            button.link.pull-right(type='button', data-dismiss='modal')  Cancel

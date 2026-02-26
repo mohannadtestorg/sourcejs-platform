@@ -1,0 +1,29 @@
+extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Authors Index Page
+    section.source_section
+        h2 Authors Index Page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+
+                .container.author-index
+                    .row
+                        .col-sm-4
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                div.author-index__facet-title AUTHORS
+                                each facet, l in data.facet
+                                    | !{facet}
+                        .col-sm-8
+                            | !{data.authors}
+
+
+
+            | !{data.footer}
+    | #{''}

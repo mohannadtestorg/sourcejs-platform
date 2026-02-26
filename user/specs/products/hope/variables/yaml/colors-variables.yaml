@@ -1,0 +1,88 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    #default
+    white:
+      value: "{!WHITE}"
+    # backgrounds
+    default-bg-color:
+      value: "{!WHITE}"
+    primary-bg-color:
+      value: "{!GRAY_02}"
+    primary-lighten-bg-color:
+      value: "{!GRAY_00}"
+    header-bg-color:
+      value: "{!GRAY_02}"
+    donate-bg-color:
+      value: "{!YELLOW_01}"
+    slider-bg-color:
+      value: "{!BLUE_02}"
+    footer-bg-color:
+      value: "{!GRAY_06}"
+    loi-bg-color:
+      value: "{!GRAY_07}"
+    # section branding
+    journal-color:
+      value: "{!RED_01}"
+    blog-color:
+      value: "{!BLUE_01}"
+    standard-color:
+      value: "{!BLUE_02}"
+    # text colors
+    primary-text-color:
+      value: "{!GRAY_02}"
+    secondary-text-color:
+      value: "{!GRAY_05}"
+    headings-color:
+      value: "{!BLACK_01}"
+    qoutation-color:
+      value: "{!RED_02}"
+    date-color:
+      value: "{!RED_01}"
+    filled-text-color:
+      value: "{!WHITE}"
+    date-text-color:
+      value: "{!RED_01}"
+    keyword-text-color:
+      value: "{!GRAY_01}"
+    qoutation-color--blog  :
+      value: "{!BLUE_04}"
+
+    # buttons and links colors
+    primary-btn-color:
+      value: "{!GRAY_02}"
+    primary-link-color:
+      value: "{!BLACK}"
+    hover-secondary-link-color:
+      value: "{!RED_01}"
+    button-bg:
+      value: "{!GRAY_02}"
+    links-color:
+      value: "{!BLUE_05}"
+    links-hover-color:
+      value: "{!GRAY_08}"
+    # social media
+    share-this-icons-color:
+      value: "{!GRAY_04}"
+    #borders
+    borders:
+       value: "{!GRAY_00}"

@@ -1,0 +1,52 @@
+.toc {
+  &-item {
+    &__footer {
+      .toc-item__detail {
+        @include themify($themes) {
+          color: themed('color');
+        }
+
+        li {
+          @include themify($themes) {
+            border-color: themed('color');
+          }
+        }
+
+        span {
+          @include themify($themes) {
+            color: themed('color');
+
+          }
+        }
+
+      }
+    }
+
+  }
+
+  &__section {
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+}
+
+.tocHeading {
+  border-bottom: 1px solid $borders;
+  padding-bottom: 15px;padding-right: 5px;
+
+}
+
+.table-of-content {
+  .issue-item{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    padding-top: 0;
+    margin-top: 0;
+
+    border-bottom: 1px solid $borders;
+    &:not(:first-child) {
+      border-top: none;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 accordion widget sample
+        p accordion widget is using #[a(href="/specs/products/pericles/components/accordion/") accordion] template in component
+        p For more details about accordion please visit #[a(href="/specs/products/pericles/components/accordion/") accordion components].
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+        .source_example
+            | !{pb.render("accordion-widget", "content.json", {"shared": {"model": {"config": {"wrapper": "true"}}}})}

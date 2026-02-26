@@ -1,0 +1,97 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl.jade
+
+block tabsPrefix
+    - var dataOld = originaldata.loi;
+    - var thisWidget = originaldata.loi.thisWidget;
+    - var data = originaldata.loi;
+    - var tabNumber = 0;
+    - var numberOfVol;
+    - var volIndex = false;
+    - var totalIssues = 0;
+
+block loIssues
+    if (items)
+        -totalIssues = 0;
+        -numberOfVol= items;
+        ul.rlist.row
+            block firstLoiIssue
+            if (flag)
+                each volume, v in items
+                    +issues(volume.issues , volume)
+            else
+                +issues(items, null)
+
+block tabsMain
+    if (originaldata && originaldata.ajaxRequest && originaldata.ajaxRequest == true)
+        each item, i in data.content[0].content
+            if (item.volumes)
+                +loi(item.volumes, true, 0)
+            else
+                +loi(item.issues, false,I)
+
+    else
+        div.loi.tab
+            - tabNumber++;
+            ul.rlist.loi__list.tab__nav.swipe__list
+                +nav()
+            +pane()
+
+block pageRange
+    if (item.pageRange)
+        div.iPageRange Pages !{item.pageRange}
+
+block tabsparent
+    | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item}, "physio")}
+
+block yearIndex
+    - volIndex = false;
+
+block currentProgressIssue
+
+block issueTitle
+
+block IssueState
+
+block firstLoiIssue
+
+block issuesMixin
+    if (itemo)
+        -var length1 = numberOfVol.length
+        each item, l in itemo
+            -totalIssues += 1;
+            if l > 5 || totalIssues > 6
+                - var className = "hidden";
+            li.col-sm-2(class=className)
+                div.loi__issue
+                    block coverimage
+                        if(item.coverImage)
+                            if(item.url)
+                                a(href=item.url)
+                                    img(src=item.coverImage , alt="journal cover")
+                            else
+                                img(src=item.coverImage , alt="journal cover")
+                        else
+                            if(item.url)
+                                a(href=item.url)
+                                    img(src="/products/physio/releasedAssets/images/article_default_cover.svg" alt="journal cover")
+                            else
+                                img(src="/products/physio/releasedAssets/images/article_default_cover.svg" alt="journal cover")
+                    block IssueState
+                        .clearfix
+                            if (item.isLegacy)
+                                i.icon-ic_history_black_24px
+                            if (item.access)
+                                .loi__access
+                                    if item.access == 'FREE_ACCESS'
+                                        | FREE
+                                    else if item.access == 'OPEN_ACCESS'
+                                        | OPEN ACCESS
+                    block volumeIssue
+                        if (volume && volume.VolNo && !item.volume)
+                            - item.volume = volume.VolNo;
+                        if ((item.volume) || (item.issue))
+                        block tabsparent
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item})}
+        if totalIssues > 6 && !volIndex
+            - volIndex = true;
+            a.see-all-loi(href="#") See full list of issues

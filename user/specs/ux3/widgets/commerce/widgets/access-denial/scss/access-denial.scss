@@ -1,0 +1,95 @@
+.purchaseArea {
+    background: $white;
+    border: 3px solid $primary-commerce-color;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 10px;
+    &--label {
+        display: block;
+        color: $info-text-color;
+        font-size: $h6-font-size;
+        padding-bottom: 10px;
+    }
+    &--list {
+        padding: 10px 0;
+        a {
+            margin: 5px 0;
+            //display: inline-block;
+            @include media('>=tablet') {
+                font-size: $h5-font-size;
+            }
+            @include media('<tablet') {
+                font-size: $h6-font-size;
+            }
+            &.active {
+                font-weight: bold;
+            }
+        }
+        .login-form {
+            padding: 0 10px;
+        }
+    }
+    .expand-link {
+        display: inline-block;
+    }
+    .content {
+        padding-top: 0;
+    }
+    .remember {
+        position: relative;
+    }
+    .button {
+        width: auto;
+        margin-top: 10px;
+    }
+    .link {
+        font-size: $h6-font-size;
+    }
+    a {
+        color: $primary-commerce-color;
+    }
+}
+
+.responsiveAccessDenialWidget {
+    article {
+        min-height: auto;
+    }
+    h1, .parent-item {
+        font-weight: 300;
+    }
+    // LIT-164327
+    //.epub-section {
+    //    margin-bottom: 15px;
+    //}
+}
+
+/**************** switches **********************/
+.cmn-toggle + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    &:before, &:after {
+        content: '';
+        left: 0;
+        position: absolute;
+        z-index: 1;
+    }
+}
+
+.claim-options {
+    list-style: none;
+    padding: 0;
+}
+
+.coolBarDropZone {
+    float: right;
+    max-width: 50%;
+}

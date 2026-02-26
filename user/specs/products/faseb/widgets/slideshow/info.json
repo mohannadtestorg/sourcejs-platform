@@ -1,0 +1,103 @@
+{
+    "title": "Slideshow",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Slideshow of cards - default 'slide effect' ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/slide.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Slideshow of cards - 'fade effect' ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/cards.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Slideshow of cards - 'fade effect' ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/realDemo.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

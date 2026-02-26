@@ -1,0 +1,37 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+block citationPrefix
+    if(data.item)
+        - var original = data;
+        - var citationData = {"primaryTopic":data.primaryTopic,"detailsTabAuthors":data.item.detailsTabAuthors,"itemUrl": data.item.formats.fullText,"title": data.item.titles.primary,"seriesTitle": data.item.titles.seriesTitle,"authors": data.item.contribsFull, "tocHeading": data.articleSeries};
+        - data = citationData;
+
+block citation__tocHeading
+    h3.filled--journal.secondary-font.no-top-margin !{data.tocHeading}
+    if(data.primaryTopic)
+      span.citation__top__item.article__primary-topic
+        | !{data.primaryTopic}
+    span.article__breadcrumbs
+        | !{pb.render('breadcrumbs', {data: demo_data})}
+    span.article__seriesTitle
+        | !{data.seriesTitle}
+
+
+block citationTitleSuffix
+
+block citation__access
+
+
+
+block citationAuthors
+    div.issue-item
+      | !{data.authors}
+
+    if(data.detailsTabAuthors)
+      .article__affiliations
+          div.affiliations.accordion
+             a(href="#" title="affiliations" aria-controls="articleAffiliations" class="affiliations__ctrl accordion__control w-slide__btn"  data-slide-target="#articleAffiliations" )
+                 span.affiliations__label Affiliations
+                 i(aria-hidden="true" class="icon-section_arrow_d")
+             div.div.affiliations__content.accordion__content(id="articleAffiliations")
+                 | !{ data.detailsTabAuthors}

@@ -1,0 +1,27 @@
+
+.institution {
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+
+
+    &__name {
+        padding-left: 0;
+        @include media('<desktop'){
+            display: block;
+        }
+    }
+
+    &__image{
+        max-height: 25px;
+        vertical-align: middle;
+        margin-right: 12px;
+        @include media('<desktop'){
+            display: none;
+        }
+    }
+    &-info-wrapper{
+        display: inline-block;
+    }
+
+}

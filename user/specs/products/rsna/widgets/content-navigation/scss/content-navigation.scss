@@ -1,0 +1,44 @@
+.content-navigation {
+    background-color: $secondary-bg-color;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+
+    @include themify($themes) {
+        background-color: themed('background-color');
+    }
+
+    a {
+        color: $primary-link-color;
+        font-size: $h6-font-size;
+        font-weight: bold;
+        text-transform: uppercase;
+        
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    i {
+        color: $secondary-lighten-text-color;
+    }
+
+    &__extra {
+        width: calc(100% - 145px);
+        text-align: center;
+    }
+
+    &__btn--pre {
+        width: 90px;
+        i {
+            margin-right: 8px;
+        }
+    }
+
+    &__btn--next {
+        width: 55px;
+        i {
+            margin-left: 8px;
+        }
+    }
+}

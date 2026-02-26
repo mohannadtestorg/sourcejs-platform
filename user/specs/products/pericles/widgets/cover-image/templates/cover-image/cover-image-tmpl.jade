@@ -1,0 +1,645 @@
+- var details = false;
+- var imageClass =  'cover-image__image';
+- var covers = null;
+- var recent = false;
+- var altValue = null;
+- var linkUrl = null;
+- var coverParent= null;
+
+
+
+mixin coverParentItem(link, itemVloume, itemIssue)
+    a.cover-image__parent-item(href=link)
+        if (itemVloume)
+            span.comma Volume #{itemVloume},&nbsp;
+        if (itemIssue)
+            | Issue #{itemIssue}
+
+
+mixin coverCommonDetails(cover, date)
+    if cover.pageRange
+        .cover-image__pageRange
+            label Pages:&nbsp;
+            span !{cover.pageRange}
+    if date
+        .cover-image__date
+            span !{date}
+
+    if cover.editors
+        .cover-image__editors
+            case cover.type
+                when 'Book'
+                    label Editor(s)&nbsp;
+                default
+                    label Issue Edited by:&nbsp;
+            span !{cover.editors}
+
+
+mixin coverDetails(cover)
+    block coverDetails
+        if details
+            .cover-image__details
+                if thisWidget.properties.actions == 'slider'
+                    case cover.type
+                        when 'Issue'
+                            if (cover.title)
+                                a(href=cover.tocUrl)
+                                    h2.cover-image__title !{cover.title}
+
+
+                            if cover.issueLabel
+                                h2.cover-label !{cover.issueLabel}
+
+                            else if (cover.volume) || (cover.issue)
+                                +coverParentItem(cover.tocUrl, cover.volume, cover.issue)
+
+                            a(href=cover.tocUrl)
+                                h2.cover-image__title !{cover.title}
+
+                            if cover.issueText
+                                p.cover-text !{cover.issueText}
+                            else
+                                +coverCommonDetails(cover, cover.coverDate)
+                            if cover.coverImage
+                                p.cover-image__desc !{cover.coverImage.caption}
+
+                        when 'Book'
+                            a(href=cover.bookUrl)
+                                h2.cover-image__title !{cover.title}
+                                    if (cover.edition)
+                                        | !{', ' + cover.edition}
+                            if cover.issueText
+                                p.cover-text !{cover.issueText}
+                            else
+                                +coverCommonDetails(cover, cover.coverDate)
+                            if cover.coverImage
+                                p.cover-image__desc !{cover.coverImage.caption}
+
+                        when 'Journal'
+                            a(href=cover.journalUrl)
+                                span.cover-image__parent-title !{cover.title}
+
+                            if cover.issueLabel
+                                h2.cover-label !{cover.issueLabel}
+
+                            else if (cover.latestIssue)
+                                +coverParentItem(cover.latestIssue.tocUrl, cover.latestIssue.volume, cover.latestIssue.issue)
+
+                            h2.cover-image__title !{cover.latestIssue.title}
+                            if cover.issueText
+                                p.cover-text !{cover.issueText}
+                            else
+                                +coverCommonDetails(cover, cover.latestIssue.coverDate)
+                            if cover.description
+                                p.cover-image__desc !{cover.description}
+
+
+                        when 'BookSeries'
+                            a(href=cover.bookSeriesURL)
+                                span.cover-image__parent-title !{cover.title}
+
+                            if cover.issueLabel
+                                h2.cover-label !{cover.issueLabel}
+
+                            else if (cover.latestBook)
+                                +coverParentItem(cover.bookSeriesURL, cover.latestBook.volume, cover.latestBook.issue)
+
+                            h2.cover-image__title !{cover.latestBook.title}
+                            if cover.issueText
+                                p.cover-text !{cover.issueText}
+                            else
+                                +coverCommonDetails(cover, cover.latestBook.coverDate)
+                            if cover.description
+                                p.cover-image__desc !{cover.description}
+
+                else if thisWidget.properties.actions == 'linkToIssueOrBook'
+                    if cover.type
+                        span.cover-image__type !{cover.type}
+
+                        case cover.type
+                            when 'Issue'
+                                if (cover.title)
+                                    a(href=cover.tocUrl)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.volume) || (cover.issue)
+                                    +coverParentItem(cover.tocUrl, cover.volume, cover.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Book'
+                                if (cover.title)
+                                    a(href=cover.bookUrl)
+                                        h2.cover-image__title !{cover.title}
+                                            if (cover.edition)
+                                                | !{', ' + cover.edition}
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Journal'
+                                if (cover.title)
+                                    a(href=cover.journalUrl)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestIssue)
+                                    +coverParentItem(cover.latestIssue.tocUrl, cover.latestIssue.volume, cover.latestIssue.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestIssue.coverDate)
+
+                            when 'BookSeries'
+                                if (cover.title)
+                                    a(href=cover.latestBook.bookUrl)
+                                        h2.cover-image__title !{cover.title}
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestBook)
+                                    +coverParentItem(cover.latestBook.bookUrl, cover.latestBook.volume, cover.latestBook.volume)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestBook.coverDate)
+
+
+                else if thisWidget.properties.actions == 'linkToSeriesHome'
+                    if cover.type
+                        span.cover-image__type !{cover.type}
+
+                        case cover.type
+                            when 'Issue'
+                                if (cover.title)
+                                    a(href=cover.tocUrl)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.volume) || (cover.issue)
+                                    +coverParentItem(cover.serial.journalUrl, cover.volume, cover.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Book'
+                                if (cover.title)
+                                    a(href=cover.bookUrl)
+                                        h2.cover-image__title !{cover.title}
+                                            if (cover.edition)
+                                                | !{', ' + cover.edition}
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Journal'
+                                if (cover.title)
+                                    a(href=cover.journalUrl)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestIssue)
+                                    +coverParentItem(cover.latestIssue.tocUrl, cover.latestIssue.volume, cover.latestIssue.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestIssue.coverDate)
+
+                            when 'BookSeries'
+                                if (cover.title)
+                                    a(href=cover.bookSeriesURL)
+                                        h2.cover-image__title !{cover.title}
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestBook)
+                                    +coverParentItem(cover.bookSeriesURL, cover.latestBook.volume, cover.latestBook.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestBook.coverDate)
+
+                else if thisWidget.properties.actions == 'linkToLatestIssue'
+                    if cover.type
+                        case cover.type
+                            when 'Issue'
+                                if (coverParent && coverParent.latestIssue)
+                                    - var latest = coverParent.latestIssue
+                                a.cover-image__link(href=latest.tocUrl title='Go to latest issue') LATEST ISSUE >
+
+                                if (latest) && ((latest.volume) || (latest.issue))
+                                    div
+                                        if (latest.volume)
+                                            span.comma Volume #{latest.volume},&nbsp;
+                                        if (latest.issue)
+                                            | Issue #{latest.issue}
+
+                                if (latest) && (latest.title)
+                                    div
+                                        span !{latest.title}
+
+                                if (latest) && (latest.coverDate)
+                                    div
+                                        span !{latest.coverDate}
+
+                            when 'Book'
+                                span.cover-image__type !{cover.type}
+                                if (cover.title)
+                                    a(href=cover.bookUrl)
+                                        h2.cover-image__title !{cover.title}
+                                            if (cover.edition)
+                                                | !{', ' + cover.edition}
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Journal'
+                                span.cover-image__type !{cover.type}
+                                if (cover.title)
+                                    a(href=cover.journalUrl)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestIssue)
+                                    +coverParentItem(cover.latestIssue.tocUrl, cover.latestIssue.volume, cover.latestIssue.issue)
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestIssue.coverDate)
+
+
+                            when 'BookSeries'
+                                span.cover-image__type !{cover.type}
+                                if (cover.title)
+                                    a(href=cover.bookSeriesURL)
+                                        h2.cover-image__title !{cover.title}
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestBook)
+                                    +coverParentItem(cover.bookSeriesURL, cover.latestBook.volume, cover.latestBook.issue)
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestBook.coverDate)
+
+
+                else if thisWidget.properties.actions == 'nothing'
+                    block coverImageToc
+                        if cover.type
+                            span.cover-image__type !{cover.type}
+
+                            case cover.type
+                                when 'Issue'
+                                    if (cover.title)
+                                        a(href=cover.tocUrl)
+                                            h2.cover-image__title !{cover.title}
+
+
+                                    if cover.issueLabel
+                                        h2.cover-label !{cover.issueLabel}
+
+                                    else if (cover.volume) || (cover.issue)
+                                        .cover-image__parent-item
+                                            if (cover.volume)
+                                                span.comma Volume #{cover.volume},&nbsp;
+
+                                            if (cover.issue)
+                                                | Issue #{cover.issue}
+                                    if cover.issueText
+                                        p.cover-text !{cover.issueText}
+                                    else
+                                        +coverCommonDetails(cover, cover.coverDate)
+
+                                when 'Book'
+                                    if (cover.title)
+                                        h2.cover-image__title !{cover.title}
+                                            if (cover.edition)
+                                                | !{', ' + cover.edition}
+                                    if cover.issueText
+                                        p.cover-text !{cover.issueText}
+                                    else
+                                        +coverCommonDetails(cover, cover.coverDate)
+
+                                when 'Journal'
+                                    if (cover.title)
+                                        h2.cover-image__title !{cover.title}
+
+                                    if (cover.latestIssue)
+                                        .cover-image__parent-item
+                                            if (cover.latestIssue.volume)
+                                                span.comma Volume #{cover.latestIssue.volume},&nbsp;
+
+                                            if (cover.latestIssue.issue)
+                                                span Issue #{cover.latestIssue.issue}
+                                    if cover.issueText
+                                        p.cover-text !{cover.issueText}
+                                    else if (cover.latestIssue)
+                                        +coverCommonDetails(cover, cover.latestIssue.coverDate)
+
+                                when 'BookSeries'
+                                    if (cover.title)
+                                        h2.cover-image__title !{cover.title}
+                                    if (cover.latestBook)
+                                        .cover-image__parent-item
+                                            if (cover.latestBook.volume)
+                                                span.comma Volume #{cover.latestBook.volume},&nbsp;
+
+                                            if (cover.latestBook.issue)
+                                                | Issue #{cover.latestBook.issue}
+                                    if cover.issueText
+                                        p.cover-text !{cover.issueText}
+                                    else
+                                        +coverCommonDetails(cover, cover.latestBook.coverDate)
+
+                else
+                    if cover.type
+                        span.cover-image__type !{cover.type}
+
+                        case cover.type
+                            when 'Issue'
+                                if (cover.title)
+                                    a(href=cover.tocUrl)
+                                        h2.cover-image__title !{cover.title}
+
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.volume) || (cover.issue)
+                                    +coverParentItem(cover.tocUrl, cover.volume, cover.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Book'
+                                if (cover.title)
+                                    a(href=cover.bookUrl)
+                                        h2.cover-image__title !{cover.title}
+                                            if (cover.edition)
+                                                | !{', ' + cover.edition}
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.coverDate)
+
+                            when 'Journal'
+                                if (cover.title)
+                                    a(href=cover.journalUrl)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestIssue)
+                                    +coverParentItem(cover.latestIssue.tocUrl, cover.latestIssue.volume, cover.latestIssue.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestIssue.coverDate)
+
+                            when 'BookSeries'
+                                if (cover.title)
+                                    a(href=cover.bookSeriesURL)
+                                        h2.cover-image__title !{cover.title}
+
+                                if cover.issueLabel
+                                    h2.cover-label !{cover.issueLabel}
+
+                                else if (cover.latestBook)
+                                    +coverParentItem(cover.bookSeriesURL, cover.latestBook.volume, cover.latestBook.issue)
+
+                                if cover.issueText
+                                    p.cover-text !{cover.issueText}
+                                else
+                                    +coverCommonDetails(cover, cover.latestBook.coverDate)
+
+
+
+mixin coverImage(cover, link, alt, className)
+    div(class=className)
+        - var imageSRC = !recent && (data.coverImage) && (data.coverImage.src) ? data.coverImage.src : cover.coverImage.src
+        if (thisWidget.properties.actions == 'linkToLatestIssue' && coverParent && coverParent.latestIssue && coverParent.latestIssue.coverImage && coverParent.latestIssue.coverImage.src)
+            - imageSRC = coverParent.latestIssue.coverImage.src ;
+            - link = coverParent.latestIssue.tocUrl
+        a(href=link title=alt)
+            img(src=imageSRC alt=altValue)
+    if thisWidget.properties.includeMetaData
+        +coverDetails(cover)
+
+mixin cover(cover, index)
+    block coverCheckDetails
+        if ((cover.coverDate) || (cover.pageRange) || (cover.issue) || (cover.volume) || (cover.serial) || (cover.latestIssue) || (cover.latestBook) || (cover.title) || (cover.issueLabel) || (cover.issueText) || (cover.type)) && thisWidget.properties.includeMetaData
+            - details = true
+            - imageClass = 'cover-image__image hasDetails'
+
+    if thisWidget.properties.actions == 'nothing'
+        block coverImage
+            div(class=imageClass)
+                img(src= !recent && (data.coverImage) && (data.coverImage.src) ? data.coverImage.src : cover.coverImage.src alt="Cover image")
+            if thisWidget.properties.includeMetaData
+                +coverDetails(cover)
+
+    else if thisWidget.properties.actions == 'linkToIssueOrBook'
+        block coverImageIssueOrBookLink
+            if (cover.type)
+                case cover.type
+                    when 'Issue'
+                        - altValue = "View Table of Contents for " + cover.serial.title + " volume "+cover.volume+" issue "+ cover.issue;
+                        - linkUrl = cover.tocUrl;
+
+
+                    when 'Book'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookUrl;
+
+
+                    when 'Journal'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.latestIssue.tocUrl ;
+                        if (coverParent && coverParent.latestIssue)
+                            - linkUrl = coverParent.latestIssue.tocUrl ;
+
+                    when 'BookSeries'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.latestBook.bookUrl ;
+
+                +coverImage(cover, linkUrl, altValue, imageClass)
+
+    else if thisWidget.properties.actions == 'linkToLatestIssue'
+        block coverImageIssueOrBookLink
+            if (cover.type)
+                case cover.type
+                    when 'Issue'
+                        - altValue = "View Table of Contents for " + cover.serial.title + " volume "+cover.volume+" issue "+ cover.issue;
+                        - linkUrl = cover.tocUrl;
+                        if (coverParent && coverParent.latestIssue)
+                            - linkUrl = coverParent.latestIssue.tocUrl ;
+
+                    when 'Book'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookUrl;
+
+
+                    when 'Journal'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.latestIssue.tocUrl ;
+                        if (coverParent && coverParent.latestIssue)
+                            - linkUrl = coverParent.latestIssue.tocUrl ;
+
+                    when 'BookSeries'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.latestBook.bookUrl ;
+
+                +coverImage(cover, linkUrl, altValue, imageClass)
+
+
+
+    else if thisWidget.properties.actions == 'linkToSeriesHome'
+        block coverImageSeriesLink
+            if (cover.type)
+                case cover.type
+                    when 'Issue'
+                        - altValue = "View Table of Contents for " + cover.serial.title + " volume "+cover.volume+" issue "+ cover.issue;
+                        - linkUrl = cover.serial.journalUrl;
+
+                    when 'Book'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookUrl;
+
+                    when 'Journal'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.journalUrl;
+
+                    when 'BookSeries'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookSeriesURL;
+
+                +coverImage(cover, linkUrl, altValue, imageClass)
+
+
+    else if thisWidget.properties.actions == 'showCoverDetails'
+        block coverImageDetails
+            .base
+                div(class=imageClass)
+                    a(href="#" title="View details for " + cover.serial.serialTitle + " cover image" data-db-target-for=thisWidget.id + index)
+                        img(src=!recent && (data.coverImage) && (data.coverImage.src) ? data.coverImage.src : cover.coverImage.src alt="View details for " + cover.serial.serialTitle + " cover image")
+                if thisWidget.properties.includeMetaData
+                    div.dropBlock__holder(data-db-target-of=thisWidget.id+ index)
+                        +coverDetails(cover)
+
+
+    else if thisWidget.properties.actions == 'showLargeCover'
+        block coverImageLarge
+            figure.figure
+                img.figure__image(src=cover.coverImage.src alt="View large " + cover.serial.serialTitle + " cover image")
+                if thisWidget.properties.includeMetaData
+                    figcaption
+                        .figure__caption
+                            +coverDetails(cover)
+                    | !{pb.render('figure-viewer', 'pericles')}
+
+
+
+mixin coverTmpl(covers, recent)
+    if (covers)
+        if thisWidget.properties.actions == 'slider'
+            .tab
+                ul.rlist.loc.tab__nav.swipe__list(role='tablist')
+                    each cover, l in covers
+                        li.cover-image(role='presentation')
+                            a(id='coverPane-' + l + thisWidget.properties.id + 'con' href='#coverPane-' + l + thisWidget.properties.id aria-controls='#coverPane-' + l + thisWidget.properties.id role='tab' data-toggle='tab' aria-selected='false')
+                                img(src=cover.coverImage.src, alt=cover.title )
+
+                if thisWidget.properties.includeMetaData
+                    ul.rlist.tab__content(role="tablist")
+                        each cover, l in covers
+                            li.tab__pane(id='coverPane-' + l + thisWidget.properties.id aria-labelledby='coverPane-' + l + thisWidget.properties.id + 'con', role='tab')
+
+                                if (cover.coverDate) || (cover.issue) || (cover.volume) || (cover.serial) || (cover.latestIssue) || (cover.latestBook) || (cover.pageRange) || (cover.issueLabel) || (cover.issueText)
+                                    - details = true
+                                    - imageClass = 'cover-image__image hasDetails'
+
+                                +coverDetails(cover)
+
+        else
+            ul.rlist.loc
+                each cover, l in covers
+                    li.grid-item.cover-image(class= thisWidget.properties.actions == 'linkToLatestIssue' ? 'cover-image__latestIssue' : '')
+                        +cover(cover, l)
+
+mixin coverRecentTmpl(covers, recent)
+    if (covers)
+        if thisWidget.properties.actions == 'slider'
+            .tab
+                ul.rlist.loc.tab__nav.swipe__list(role='tablist')
+                    each cover, m in covers
+                        - coverParent = cover;
+                        each recent, l in cover.recent
+                            li.cover-image(role='presentation')
+                                a(id='coverPane-' + m + thisWidget.properties.id + 'con' href='#coverPane-' + m + thisWidget.properties.id aria-controls='#coverPane-' + m + thisWidget.properties.id role='tab' data-toggle='tab' aria-selected='false')
+                                    if (recent.coverImage) && (recent.coverImage.src)
+                                        img(src=recent.coverImage.src, alt=recent.title )
+
+
+                if thisWidget.properties.includeMetaData
+                    ul.rlist.tab__content(role="tablist")
+                        each cover, m in covers
+                            - coverParent = cover;
+                            each recent, l in cover.recent
+                                li.tab__pane(id='coverPane-' + m + thisWidget.properties.id aria-labelledby='coverPane-' + m + thisWidget.properties.id + 'con', role='tab')
+
+                                    if (recent.coverDate) || (recent.issue) || (recent.volume) || (recent.serial) || (recent.latestIssue) || (recent.latestBook) || (recent.pageRange) || (recent.issueLabel) || (recent.issueText)
+                                        - details = true
+                                        - imageClass = 'cover-image__image hasDetails'
+
+                                    +coverDetails(recent)
+
+        else
+            ul.rlist.loc.mostRecent
+                each cover, m in covers
+                    - coverParent = cover;
+                    each recent, m in cover.recent
+                        li.grid-item.cover-image(class= thisWidget.properties.actions == 'linkToLatestIssue' ? 'cover-image__latestIssue' : '')
+                            +cover(recent, m)
+
+
+block coverImageMain
+    if (data) && (data.single)
+        - covers = data.single
+        if thisWidget.properties.mostRecentCover && thisWidget.properties.numberOfCoverToDisplay > 0
+            -recent = true;
+            +coverRecentTmpl(covers, recent)
+
+        else
+            -recent = false;
+            +coverTmpl(covers, recent)
+
+        if thisWidget.properties.MoreLink
+            a.more-widget-link(href=thisWidget.properties.moreLinkUrl) !{thisWidget.properties.moreLinkLable}

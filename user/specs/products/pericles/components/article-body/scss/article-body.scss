@@ -1,0 +1,49 @@
+.article-section {
+
+    &__inline-figure {
+        margin: 65px 0;
+
+        @include media(">=desktop") {
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        display: flex;
+        justify-content: center;
+
+        figure {
+            width: 100%;
+        }
+
+        img {
+            margin-bottom: 25px;
+        }
+        figcaption {
+            font-size: 0.875rem;
+            line-height: 26px;
+
+            .figure__caption__header {
+                @include media(">=desktop") {
+                    display: flex;
+                }
+
+                strong {
+                    display: block;
+                    font-size: 1rem;
+                    color: $primary-bg-color;
+                    margin-bottom: 0.5rem;
+                    flex: 1;
+                }
+
+                .figure-extra {
+                    display: block;
+
+                    @include media("<desktop") {
+                        display: block;
+                    }
+                }
+            }
+
+        }
+    }
+}

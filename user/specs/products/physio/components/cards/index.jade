@@ -1,0 +1,90 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    .source_info
+        p <strong>Card</strong> component can be used on different other components and widgets (eg. slider, newsletter).
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/card/templates/cards/cards-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Card template.
+        +printJson({
+            "config": {
+                "className": [
+                "card"
+                ]
+            },
+            "data": {
+            "content": "text"
+            }
+        })
+        markdown
+            p You can add custom classes to the container element by passing an array of class names in `"addClassNames": ["...", "..."]`.
+    | #{''}
+    section.source_section
+        h2 Physio cards Examples
+        h3!= data.items[1].title
+        +printJson({
+            "card": {
+                "config": {
+                "classes": ""
+            },
+            "header": "Drug & Medical Innovation",
+            "body": "<a href=\"#\"> <img class=\"featuredCard__cover\" src=\"/specs/products/hope/components/card/images/hope-fetaured-card-cover.png\" alt=\"\"> <h3 class=\"featuredCard__title\">House Seeks Pause In Cost-Sharing Reduction Litigation (Updated)</h3> </a> <div class=\"featuredCard__details\"> <span class=\"featuredCard__date\">November 22, 2016</span><span class=\"featuredCard__authors\">Timothy Jost</span> </div>",
+            "tale": {
+                "text": "More",
+                "link": "#"
+                }
+            }
+        })
+        .source_example
+            .container
+                .row
+                    .col-sm-4
+                        | !{data.items[1].body}
+        markdown
+            p In the example below we have added `journal` class to to one of its parents element.
+        h3!= data.items[2].title
+        +printJson({
+            "card": {
+                "config": {
+                "classes": ""
+                },
+                "header": "Drug & Medical Innovation",
+                "body": "<a href=\"#\"> <img class=\"featuredCard__cover\" src=\"/specs/products/hope/components/card/images/hope-fetaured-card-cover.png\" alt=\"\"> <h3 class=\"featuredCard__title\">House Seeks Pause In Cost-Sharing Reduction Litigation (Updated)</h3> </a> <div class=\"featuredCard__details\"> <span class=\"featuredCard__date\">November 22, 2016</span><span class=\"featuredCard__authors\">Timothy Jost</span> </div>",
+                    "tale": {
+                        "text": "More",
+                        "link": "#"
+                    }
+            }
+        })
+        .source_example
+            .container
+                .row
+                    .journal.col-sm-4
+                        | !{data.items[2].body}
+        markdown
+            p In the example below we have added `blog` class to to one of its parents element.
+        h3!= data.items[3].title
+        +printJson({
+            "card": {
+                "config": {
+                "classes": ""
+                },
+                    "header": "Drug & Medical Innovation",
+                    "body": "<a href=\"#\"> <img class=\"featuredCard__cover\" src=\"/specs/products/hope/components/card/images/hope-fetaured-card-cover.png\" alt=\"\"> <h3 class=\"featuredCard__title\">House Seeks Pause In Cost-Sharing Reduction Litigation (Updated)</h3> </a> <div class=\"featuredCard__details\"> <span class=\"featuredCard__date\">November 22, 2016</span><span class=\"featuredCard__authors\">Timothy Jost</span> </div>",
+                    "tale": {
+                        "text": "More",
+                        "link": "#"
+                }
+            }
+        })
+        .source_example
+            .container
+                .row
+                    .blog.col-sm-4
+                        | !{data.items[3].body}
+    | #{''}

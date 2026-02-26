@@ -1,0 +1,33 @@
+extends ../../../../components/media-object/templates/media-object/media-object-tmpl
+
+mixin item(item)
+    if (item.title)
+        if (item.best)
+            a(href=item.best) !{item.title}
+        else
+            | !{item.title}
+        if (item.pdf)
+            |  (Also available as a #{' '}
+            if (item.pdf.size && item.pdf.url)
+                a(href=item.pdf.url) !{item.pdf.size}-MB PDF
+            else if (item.pdf.url)
+                a(href=item.pdf.url) PDF
+            else
+                a(href=item.pdf) PDF
+            | )
+
+mixin renderItems(items)
+    - var itemNo = items.length
+    if itemNo > 1
+        ul.rlist.spaced
+            each item, l in items
+                li.media-object__item
+                    +item(item)
+    else
+        each item, l in items
+            .media-object__item
+                +item(item)
+
+
+block mediaObjectContent
+    +renderItems(item.items)

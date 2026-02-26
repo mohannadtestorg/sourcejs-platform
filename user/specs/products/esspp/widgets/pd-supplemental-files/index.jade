@@ -1,0 +1,59 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use supplemental-files widget.
+
+        +printJson({
+            "data": {
+                "forms": [
+                    {
+                        "label": {
+                            "value": "",
+                            "message": {
+
+                            }
+                        },
+                        "path": {
+                            "value": "",
+                            "message": {
+
+                            }
+                        }
+                    },
+                    {
+                        "label": {
+                            "value": "",
+                            "message": {}
+                        },
+                        "path": {
+                            "value": "",
+                            "message": {}
+                        }
+                    }
+                ]
+            }
+        })
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        .source_example
+            | !{data.items[1].body}
+
+    | #{''}

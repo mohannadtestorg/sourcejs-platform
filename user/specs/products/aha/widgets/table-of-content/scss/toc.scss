@@ -1,0 +1,374 @@
+.toc-item {
+    &__detail {
+        margin: 4px 0;
+        padding: 0;
+        list-style: none;
+        li {
+            margin-right: 0;
+            display: inline;
+            &:not(:last-of-type) {
+                margin-right: 0;
+                padding: 0;
+            }
+        }
+        span {
+            color: $aha_black;
+            //font-weight:lighter;
+        }
+    }
+    &__footer {
+
+        .toc-item__detail, .accordion__box {
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+            float: none;
+            margin-top: 18px;
+
+
+            a, a:hover {
+                font-family:HelveticaNeueCondensedBold;
+                color: $aha_green;
+                font-weight: normal;
+                display: inline;
+                margin-right:32px;
+            }
+            span {
+                margin-right: 0;
+                text-transform: none;
+                color: $aha_green;
+            }
+        }
+        i[class*=icon-] {
+            margin-right: 6px;
+            margin-left: 0px;
+            color: $aha_green;
+
+        }
+        .toc-item__detail {
+            i[class*=icon-]:not(.icon-section_arrow_d) {
+                font-size: inherit;
+                margin-left: 6px;
+            }
+        }
+    }
+    &__main {
+        display: flex;
+        .article-image {
+            max-width: 105px;
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            float: left;
+            margin-right: 15px;
+        }
+        .article-meta {
+            display: block;
+        }
+        .epub-section__item {
+            a{
+                display: inline-block;
+                word-break: break-word;
+            }
+        }
+    }
+    &__abstract {
+        background: $aha_white;
+        color: $aha_black;
+        border-top: 1px solid $aha_grey;
+        padding: 4px 0px;
+        line-height: 26px;
+        font-size: 16px;
+        margin-top:18px;
+    }
+}
+
+.corrections-container {
+    &__list {
+        .parent-item {
+            font-size: 12px;
+        }
+    }
+}
+
+.table-of-content {
+    .issue-item {
+        font-family: Helvetica, Arial, sans-serif;
+        border-bottom:1px solid $aha_grey;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        margin-top: 18px;
+        padding-bottom: 18px;
+        >div {
+            width:100%;
+        }
+        &:not(:first-child) {
+            border-top: 0;
+        }
+        &__title {
+            font-weight: 600;
+            margin: 0 0 6px;
+            font-size: 20px;
+            color: $aha_lighten_red;
+        }
+        .loa {
+            margin: 4px 0 3px;
+        }
+    }
+    .editorial-issues {
+        padding-left: 42px;
+    }
+    .epub-section__item {
+        margin-bottom:0;
+        margin-top:4px;
+        &:not(:last-child) {
+            border-right: 0 solid;
+            padding-right: 0;
+        }
+    }
+    .section__header {
+        text-transform: none;
+        margin:18px 0;
+    }
+    .toc__sub__heading {
+        line-height: normal;
+        font-size: 24px;
+        color: $aha_lighten_black;
+    }
+    .abstract__synopsis {
+        margin: 9px 0 0;
+    }
+    .citation__access__icon {
+        margin-left: 0;
+    }
+    .badge-type--icon {
+        margin-bottom: 0;
+        padding: 3px 6px 3px 0;
+    }
+}
+
+.access__type {
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+
+.access__OA {
+}
+
+.access__icon {
+    font-size: 18px;
+    line-height:normal;
+    padding-right: 5px;
+    vertical-align: middle;
+    color: $aha_black;
+}
+
+.icon-Icon_Permissions-Locked {
+    font-size: 18px;
+}
+
+.icon-lock_open {
+    font-size: 18px;
+}
+
+.toc {
+    &_content {
+        display: flex;
+        flex-direction: row;
+    }
+    &__section {
+        border-bottom: 0;
+        width: 170px;
+        min-width: 170px;
+        margin-right: 30px;
+        margin-top: 8px;
+        .toc__heading {
+            font-size:24px;
+        }
+        .sections__drop {
+            border: 0;
+            padding: 0;
+            width: auto;
+            line-height: normal;
+            font-size: 14px;
+            font-family: HelveticaNeueCondensedBold;
+            letter-spacing: 0.04em;
+            color: $aha_lighten_black;
+            li {
+                margin-bottom:18px;
+            }
+            .accordion {
+                a {
+                    font-size: inherit;
+                    font-weight: inherit;
+                    color: inherit;
+                    line-height: inherit;
+                    display: block;
+                    clear: both;
+                    margin: 0;
+                    &.js--open {
+                        color: $aha_red;
+                        &:after {
+                            content: '';
+                            height: 1px;
+                            width: 24px;
+                            background: $aha_red;
+                            display: block;
+                        }
+                    }
+                    i {
+                        font-size:8px;
+                        margin:0;
+                    }
+                }
+                &__content {
+                    padding-left: 18px;
+                    li {
+                        margin-bottom:0;
+                        margin-top: 18px;
+                        color: $aha_black;
+                    }
+                }
+            }
+        }
+        .separator > li ~ li {
+            border: 0;
+            font-size: 12px;
+            margin: 0;
+            padding: 6px 0;
+        }
+    }
+    .table-of-content {
+        width: 100%;
+    }
+    &__heading.sub-heading {
+        margin: 5px 0;
+    }
+
+    .publication_header {
+        margin-top: 0;
+    }
+}
+
+.accordion__content {
+    .left-side-image {
+        padding: 15px;
+    }
+    h6 {
+    }
+}
+
+.toc-left-side {
+}
+
+.toc-right-side {
+    padding-right: 0;
+    @include media('<tablet') {
+        display: none;
+    }
+}
+
+.toc-res {
+    display: none;
+}
+
+@include media('<desktop') {
+    .toc-res {
+        display: block;
+    }
+    .toc-item {
+        &__footer {
+            position: relative;
+            .toc-item__detail {
+                position: relative;
+                right: 0;
+                float: right;
+                margin-right:0;
+                span {
+                    display: none;
+                }
+                .icon {
+                    font-size: 17px;
+                    padding: 0px 7px;
+                    margin: 3px;
+                    display: inline-block;
+                }
+            }
+            .rlist--inline.separator > li:not(:last-of-type) {
+                border-right: 0;
+                padding: 0;
+                margin: 0;
+            }
+            .accordion__control {
+                width: auto;
+            }
+        }
+        &__main {
+            display: block;
+        }
+        &details {
+            float: right;
+        }
+    }
+    .toc__section {
+        .separator > li {
+            font-size: 18px;
+            padding: 10px;
+        }
+        .separator > li ~ li {
+            padding: 10px;
+            font-size: 18px;
+        }
+        .sections__drop {
+            max-height: 150px;
+            overflow: auto;
+            width: 100%;
+        }
+        i[class*=icon-] {
+            text-align: left;
+        }
+    }
+}
+
+.toc_content {
+    > .col-md-2 {
+        padding: 0;
+    }
+}
+
+.gray-bg {
+    padding: 0 0 0 15px;
+    @include media('<tablet') {
+        padding: 0 15px;
+    }
+    @include media('>=tablet', '<desktop') {
+        padding: 0;
+    }
+    &.toc-right-side {
+        @include media('>=tablet', '<desktop') {
+            padding: 0 0 0 15px;
+        }
+    }
+}
+
+@include media('<tablet') {
+    .table-of-content .issue-item {
+        &__title {
+            font-size: 16px;
+        }
+    }
+    .toc-item__detail{
+        &.rlist--inline li{
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+}
+
+.makeSticky {
+    position: fixed;
+    padding-bottom: 0;
+    width: 170px;
+}

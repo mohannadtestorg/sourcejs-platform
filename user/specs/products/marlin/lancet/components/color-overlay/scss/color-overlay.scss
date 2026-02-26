@@ -1,0 +1,42 @@
+.article-header {
+    background: $primary-bg-color;
+    color: $white;
+    font-family: Helvetica, Arial, sans-serif;
+
+    @include  themify($themes) {
+        background: themed('color');
+        color: themed('font-color');
+    }
+
+    @include media('<desktop') {
+        background-position-x: center;
+    }
+
+    h1 {
+        color: $article-header-head-1;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: transparent;
+        background-image: url("../images/The-Lancet.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include  themify($themes) {
+            background-image: url(themed('background'));
+        }
+    }
+    &__meta {
+        span,
+        a {
+            font-size: 0.88rem;
+            @include media('<desktop') {
+                font-size: 0.69rem;
+            }
+        }
+    }
+}

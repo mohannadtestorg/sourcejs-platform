@@ -1,0 +1,43 @@
+.patient-education{
+
+  @include media('<tablet'){
+    padding: 0;
+  }
+
+
+  &__book{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $primary-border-color;
+
+  &:last-child{
+    @include media('>=desktop'){
+      border-bottom: none;
+    }
+  }
+  }
+
+
+  .eReader-format{
+    padding-left: 5px;
+  }
+
+  .alt{
+    .cover-image{
+      &__extra-info{
+        @include media('<large'){
+          padding-top:15px;
+          display: block;
+          width:100%;
+          clear:both;
+        }
+        @include media('<phone'){
+          margin-top: 15px;
+          padding-top:0px;
+          border-top: 2px solid $primary-border-color;
+        }
+      }
+    }
+  }
+
+}

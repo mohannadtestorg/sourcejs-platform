@@ -1,0 +1,29 @@
+{
+    "title": "Article page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "content": {
+            "$ref": "../../widgets/publication-content/templates/data/pubContent.json"
+        },
+        "loi": {
+            "$ref": "../../widgets/list-of-issues/templates/data/loi-decade-withQS2.json"
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+{
+    "title": "Article View",
+    "template": "doc",
+    "tag": ["pdc"],
+    "templateData": {
+        "items": [
+            {
+                "title": "",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/pd-article-view/templates/pd-article-view/pd-article-view-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/pd-article-view/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Nothing is selected",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/pd-article-view/templates/pd-article-view/no-article-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/pd-article-view/templates/data/no-data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

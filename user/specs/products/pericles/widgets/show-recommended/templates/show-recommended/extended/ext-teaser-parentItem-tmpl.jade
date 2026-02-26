@@ -1,0 +1,25 @@
+extends ../../../../../../../ux3/components/teaser/templates/teaser/teaser-parentItem-tmpl.jade
+
+
+
+block metaTitle
+    if (item.group) && (item.group.serial) && (item.group.serial.journalLink) && (item.group.serial.title)
+        span
+            a(href=item.group.serial.journalLink) !{item.group.serial.title}
+
+    else if (item.group) && (item.group.serial) && (item.group.serial.title)
+        span !{item.group.serial.title}
+
+    if (item.type) && (item.type == 'Chapter')
+        if (item.group) && (item.group.link)
+            a(href=item.group.link)
+                if (item.group) && (item.group.title)
+                    | !{item.group.title}
+                if (item.group) && (item.group.subTitle)
+                    | !{': ' + item.group.subTitle}
+                if (item.group) && (item.group.edition)
+                    | !{', [' + item.group.edition + ']' }
+
+block volume
+
+

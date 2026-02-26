@@ -1,0 +1,41 @@
+﻿extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        h3 Data
+        p The following the JSON structure to use file uploader widget:
+        +printJson({
+            "data": {
+                "name": "pdf.path",
+                "labelLink": "Select one",
+                "labelText": "Drag and drop new PDF File",
+                "isMultiple":"true",
+                "uploaderButton":"true"
+
+            }
+        }
+        )
+
+    | #{''}
+    section.source_section
+        h2 Example
+
+        each item, l in data.items
+            h3!= item.title
+            markdown
+               p Add `uploader-form` class to form use the file uploader widget
+
+            .source_example
+
+                div.container
+                  form.uploader-form(action="http://localhost:8080/specs/products/esspp/widgets/pdf-uploader/")
+                    | !{item.body}
+
+
+    | #{''}

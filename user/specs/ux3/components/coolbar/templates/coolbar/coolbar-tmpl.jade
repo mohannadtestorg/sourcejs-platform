@@ -1,0 +1,21 @@
+block coolbarPrefix
+
+nav.stickybar.coolBar.trans
+    div.stickybar__wrapper.coolBar__wrapper.clearfix
+        div.rlist.coolBar__zone
+            block coolbarDropZone
+                div.coolBar__section
+                    | !{pb.renderDropzone(thisWidget, 'coolbarDropZone1')}
+        ul.rlist.coolBar__first(data-cb-group="Article" data-cb-group-icon="icon-toc")
+            block CoolbarSections
+            block coolbarDownloads
+            block coolbarFull
+
+        block coolBarSecondUl
+            ul.coolBar__second.rlist
+                block coolBarSecond
+                    block coolBarToolsMenu
+                        | !{pb.renderDropzone(thisWidget, 'coolbarDropZone')}
+                    block coolBarShareMenu
+                    
+block coolbarSuffix

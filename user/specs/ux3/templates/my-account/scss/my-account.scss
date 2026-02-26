@@ -1,0 +1,302 @@
+.profile-pages {
+    .table-responsive {
+        border: none;
+        .table-responsive {
+            margin-bottom: 5px;
+        }
+    }
+    .border-bottom, .separator td, .separator th {
+        border-color: $light-grey;
+    }
+    > .tab {
+        > .dropBlock {
+            a {
+                background: $tertiary-lighten-bg-color;
+                font-size: 12px;
+                font-weight: bold;
+                border-bottom: none;
+                padding: 20px;
+                border-top: 1px solid #e7e7e7;
+                &:hover {
+                    background: #949494;
+                    color: $default-bg-color;
+                }
+            }
+        }
+        &--aside {
+            > .dropBlock {
+                margin-left: -15px;
+                margin-right: -15px
+            }
+            > .tab__nav {
+                padding: 30px 0;
+                background: $tertiary-lighten-bg-color;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        }
+    }
+    &__heading {
+        width: 100%;
+        background: $profile-primary-color;
+        color: $default-bg-color;
+        padding: 15px 0 0 0;
+        h3{
+            color: inherit;
+            font-weight: bold;
+        }
+        > .container > .row h3 {padding: 0 15px;}
+    }
+
+    .jcf-select.jcf-compact-multiple .jcf-select-opener:before {
+        content: "";
+    }
+
+    .jcf-select.jcf-compact-multiple {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .jcf-select.jcf-compact-multiple .jcf-select-text {
+        margin: 0 35px 0 8px;
+        overflow: hidden;
+        white-space: normal;
+        color: #9d9d9b;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #9d9d9b;
+        font-family: "Open Sans";
+        font-size: 15px;
+        font-weight: 400;
+    }
+    ::-moz-placeholder {
+        color: #9d9d9b;
+        font-family: "Open Sans";
+        font-size: 15px;
+        font-weight: 400;
+    }
+    :-ms-input-placeholder {
+        color: #9d9d9b;
+        font-family: "Open Sans";
+        font-size: 15px;
+        font-weight: 400;
+    }
+    :-moz-placeholder {
+        color: #9d9d9b;
+        font-family: "Open Sans";
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .tab .dropBlock > a {
+        font-size: 12px;
+        color: #757575;
+    }
+}
+
+.entitlemints-page {
+    p {
+        font-size: 12px;
+    }
+    label {
+        color: $profile-primary-color;
+    }
+    th {
+        color: $primary-light-text-color;
+    }
+    td {
+        color: $primary-light-text-color;
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+.account, .select-all {
+    &__sort {
+        position: relative;
+        color: $secondary-text-color;
+        &.dropBlock > a {
+            background: transparent;
+        }
+        &.dropBlock i {
+            margin-left: 15px;
+        }
+        .sort-by {
+            margin: 10px;
+        }
+        .dropBlock__holder {
+            right: 0;
+            left: 0;
+            a {
+                padding: 10px 5px;
+                display: block;
+                i {
+                    margin-left: 0;
+                    margin-right: 10px;
+                    font-size: 01em;
+                }
+                &:hover {
+                    background: $secondary-text-color;
+                    color: $default-bg-color;
+                }
+            }
+        }
+    }
+}
+
+.my-account__cancle {
+    margin-left: 30px;
+    color: $profile-primary-color;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.profile-dark__btn {
+    padding: 10px 25px;
+    font-weight: normal;
+    background: $profile-primary-color;
+    font-size: 12px;
+    color: $default-bg-color;
+    @include media('<desktop') {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}
+
+.tab--res {
+    .access-token__btn {
+        width: 100%;
+        margin-bottom: 30px
+    }
+}
+
+.account-tab {
+    margin-top: 40px;
+    &__nav:not(.js--open) {
+        a {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .active a {
+            background: $profile-primary-color;
+            color: $default-bg-color;
+            border-color: $profile-primary-color;
+        }
+        a {
+            border: 2px solid $profile-primary-color;
+            background: $default-bg-color;
+            color: $primary-text-color;
+            padding: 15px 8px;
+        }
+    }
+    &__error {
+        color: #FF4D18;
+    }
+    &__label {
+        margin-top: 10px;
+        margin-right: 5px;
+    }
+    .jcf-select {
+        margin-bottom: 0;
+    }
+    th {
+        color: #A2A2A2;
+    }
+}
+
+.form-btn {
+    margin-top: 40px;
+}
+
+.btn {
+    &__transparent, &__transparent:hover {
+        border: 3px solid $profile-primary-color;
+        color: $profile-primary-color;
+        background: transparent;
+        font-size: 12px;
+    }
+    &-alert__transparent, &-alert__transparent:hover {
+        border-width: 1px;
+    }
+}
+
+@include media('<desktop') {
+    .btn.profile--table--btn {
+        width: auto;
+        margin-top: 18px;
+    }
+}
+
+/*.select-all {
+    &__action {
+        padding: 0;
+        > li {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &__checkbox {
+        margin: 10px 0;
+        border-right: 1px solid $separators-color;
+        padding-right: 15px;
+    }
+}*/
+
+.frequency-block {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.content-alert-form {
+    h3 {
+        margin-top: 40px;
+    }
+    li {
+        margin-top: 20px;
+    }
+}
+
+.address-block {
+    border-width: 0;
+    border-style: solid;
+    border-color: $light-grey;
+    border-bottom-width: 2px;
+    margin-bottom: 40px;
+}
+
+.user-addresses {
+    i {
+        vertical-align: middle;
+    }
+    p {
+        font-size: 13px;
+    }
+}
+
+@include media('>=desktop') {
+    .profile-pages {
+        .tab--aside {
+            > .tab__content {
+                padding-left: 40px;
+            }
+            > .tab__nav {
+
+                .active a {
+                    color: #333;
+                    border-color: #333;
+                }
+                a {
+                    color: #9D9D9D;
+                }
+            }
+        }
+    }
+}
+
+.subscriptions-form {
+    position: relative;
+    .quick-search__button {
+        right: 1px;
+    }
+}

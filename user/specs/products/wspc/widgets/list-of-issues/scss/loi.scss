@@ -1,0 +1,215 @@
+.loi {
+    background-color: $secondary-bg-color;
+
+    &__banner {
+        box-shadow: none;
+        min-height: 40px;
+        display: flex;
+        .pub-pages-about {
+            .about__block {
+                top: 32px;
+                right: -16px;
+            }
+        }
+        .coolBar__wrapper {
+            height: 40px;
+            padding: 0;
+            flex: 1 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .18)
+        }
+        &-list {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        &__right-side {
+            margin-left: auto;
+            > ul {
+                display: flex;
+                li {
+                    margin-right: 12px;
+                    line-height: 1;
+                }
+            }
+
+            i {
+                color: #fff;
+            }
+        }
+
+        .coolBar-tools {
+            display: flex;
+            > a, [class*=__ctrl] {
+                padding: 0;
+                display: flex;
+                align-items: center;
+                .secondary-text-color {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &__archive:after {
+        color: #fff;
+    }
+    &-list__wrapper {
+        max-width: none;
+    }
+    &__list {
+        li {
+            margin: 0 20px;
+        }
+        a {
+            font-weight: normal;
+            color: #000;
+            font-size: 0.875rem;
+            padding: 20px 0 16px;
+        }
+        li.active a {
+            color: $secondary-color;
+        }
+        &.tab__nav a {
+            padding: 20px 0 16px !important;
+
+        }
+    }
+    .tab__content {
+        border-top: 2px solid $badge-bg-color;
+        .tab__content {
+            border-width: 1px;
+        }
+    }
+
+    .coverDate {
+        color: #000;
+        padding-right: 10px;
+        margin-right: 10px;
+        border-right-color: $badge-bg-color;
+    }
+    /*&.loi--res {
+      @include media(">=mobile") {
+        display: block;
+      }
+    }*/
+
+    .parent-item {
+        text-transform: capitalize;
+    }
+}
+
+.loi-slide__ctrl {
+    flex: 0 1 100%;
+}
+
+.loi__issue {
+    width: 100%;
+    & > .clearfix {
+        margin-bottom: 0.5rem;
+        i {
+            font-size: 1.5rem;
+            padding-right: 10px;
+        }
+        .loi__access {
+            line-height: normal;
+        }
+        i, .loi__access {
+            color: #000;
+        }
+    }
+}
+
+#loi-banner {
+    flex: 0 1 100%;
+    & > a {
+        color: #fff;
+        & ~ a {
+            border-left: 1px solid #fff;
+        }
+    }
+}
+
+.scroll {
+    direction: inherit;
+}
+
+.loi__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+[data-order="ascending"] {
+    .scroll {
+        direction: inherit;
+    }
+    .loi__list {
+        text-align: center;
+        direction: inherit;
+        flex-direction: row-reverse;
+    }
+}
+
+.loi-wrapper.uncollapsible {
+    background-color: #f000;
+    .row.rlist {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col-md-4 {
+        float: none;
+        display: flex;
+    }
+    .loi {
+        background-color: transparent;
+        padding: 0;
+        &__banner {
+            background-color: transparent;
+            position: relative;
+            z-index: auto;
+        }
+        &__issue {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid $divider-color;
+        }
+        .tab__content {
+            max-height: none;
+        }
+        &.loi--res {
+            display: block;
+            .loi-slide__ctrl {
+                padding: 0;
+                flex: 0 1 100%;
+            }
+        }
+    }
+
+    .dropBlock-loi__holder {
+        flex: 1 0 100%;
+    }
+
+    .tab__content .loi-list__wrapper {
+        background-color: $secondary-bg-color;
+    }
+    .loi__banner > .dropBlock-loi__holder > .loi > .loi-list__wrapper {
+        .loi__btn--prev {
+            background: rgba(255, 255, 255, 1);
+            background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.85) 76%, rgba(255, 255, 255, 0.73) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(255, 255, 255, 1)), color-stop(76%, rgba(255, 255, 255, 0.85)), color-stop(100%, rgba(255, 255, 255, 0.73)));
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.85) 76%, rgba(255, 255, 255, 0.73) 100%);
+            background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.85) 76%, rgba(255, 255, 255, 0.73) 100%);
+            background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.85) 76%, rgba(255, 255, 255, 0.73) 100%);
+        }
+        .loi__btn--next {
+            background: rgba(255, 255, 255, 0.73);
+            background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.73) 0%, rgba(255, 255, 255, 0.85) 24%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255, 255, 255, 0.73)), color-stop(24%, rgba(255, 255, 255, 0.85)), color-stop(50%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(255, 255, 255, 1)));
+            background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.73) 0%, rgba(255, 255, 255, 0.85) 24%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+            background: -o-linear-gradient(left, rgba(255, 255, 255, 0.73) 0%, rgba(255, 255, 255, 0.85) 24%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+            background: -ms-linear-gradient(left, rgba(255, 255, 255, 0.73) 0%, rgba(255, 255, 255, 0.85) 24%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.73) 0%, rgba(255, 255, 255, 0.85) 24%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+        }
+    }
+}

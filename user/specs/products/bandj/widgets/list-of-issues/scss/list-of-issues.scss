@@ -1,0 +1,32 @@
+.loi {
+    color: $primary-bg-color;
+    @include themify($themes) {
+        color: themed('color');
+    }
+
+    &__list {
+        .active {
+            border-bottom: 3px solid $primary-bg-color;
+            @include themify($themes) {
+                border-bottom: themed('color');
+            }
+        }
+    }
+
+    &__banner {
+
+        .pub-pages-about {
+
+            .about__block {
+                top: 38px;
+                right: -5px;
+                width: 180px;
+            }
+
+            a {
+                padding: 0 10px;
+            }
+
+        }
+    }
+}

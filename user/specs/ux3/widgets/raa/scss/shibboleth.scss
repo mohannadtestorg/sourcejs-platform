@@ -1,0 +1,53 @@
+.shibboleth {
+    .header {
+        text-transform: uppercase;
+        color: $brandingColor;
+        border-bottom: 1px solid #ddd;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+    .open-athens .header {
+        border-bottom: none;
+        text-transform: none;
+    }
+    .content {
+        padding-left: 15px;
+    }
+    .recent {
+        color: #000000;
+    }
+    .federation {
+        color: #000000;
+        padding-bottom: 20px;
+        .name {
+            text-transform: uppercase;
+            a:after {
+                font-family: 'icomoon';
+                font-size: 8px;
+                margin-left: 5px;
+                content: '\e61c';
+                vertical-align: middle;
+            }
+            a.collapsed:after {
+                content: '\e61d';
+            }
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        display: block;
+        margin-bottom: 0px;
+        a {
+            color: #000000;
+        }
+        &.active {
+            display: none;
+        }
+    }
+}

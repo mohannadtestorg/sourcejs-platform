@@ -1,0 +1,8 @@
+﻿div(class="#{siteClass}").generic-site
+    .site-header
+        .header--second-row
+                | !{siteLogoBanner}
+                | !{siteLogo}
+                if(siteText && siteText!="")
+                  .site-header__text
+                    |  !{siteText}

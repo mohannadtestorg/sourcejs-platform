@@ -1,0 +1,10 @@
+.col-xs-12.col-sm-6.col-md-6.col-lg-12
+  h3 Connect
+  .row
+    ul.rlist.grid-xs-2
+      each item, i in data.social_networks
+        li.grid-item.my-2
+          a(href="#{item.link}" class="inline-icon")
+            i(aria-hidden="true" class="#{item.icon}")
+            | !{item.title}
+  

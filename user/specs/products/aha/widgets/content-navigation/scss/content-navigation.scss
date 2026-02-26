@@ -1,0 +1,28 @@
+.content-navigation {
+    margin-bottom: 20px;
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0px;
+    align-items: center;
+    .btn {
+        @include media ('>tablet') {
+            min-width:145px;
+        }
+        width:initial;
+        float: left;
+    }
+    i {
+        font-size: 0.7rem;
+    }
+    &__extra {
+        width: 100%;
+        margin: 0 20px;
+        text-align: center;
+    }
+
+    a[disabled], a.disabled {
+        visibility: hidden;
+    }
+
+}

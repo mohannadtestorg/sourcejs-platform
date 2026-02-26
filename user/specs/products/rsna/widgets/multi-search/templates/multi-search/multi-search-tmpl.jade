@@ -1,0 +1,62 @@
+extends ../../../../../../ux3/widgets/multi-search/templates/multi-search/multi-search-tmpl
+
+if (data.items)
+    block teaser
+        - var itemNo = data.items.length
+        if itemNo > 1
+            ul.rlist.lot
+                li.grid-item
+                    each item, l in data.items
+                        if(l % 2 == 0)
+                            +teaserElement(item)
+                li.grid-item
+                    each item, l in data.items
+                        if(l % 2 != 0)
+                            +teaserElement(item)
+
+mixin teaserElement(item)
+    div.creative-work
+            .delayLoad
+                if (item.title)
+                    if (item.best)
+                        a(href=item.best title=item.title)
+                            h5.creative-work__title !{item.title}
+                    else
+                        h5.creative-work__title !{item.title}
+
+                block authors
+                    if (thisWidget && thisWidget.properties && thisWidget.properties.displayAuthors === "true" && item.contribs)
+                        | !{item.contribs}
+                +meta(item)
+
+            +loading(image)
+
+
+block content
+    .multi-search
+        if(data && data.tags)
+            +topicDropdown(data.tags)
+        if(!data.tags && data.currentTopic)
+            ul.facet__list--applied.rlist--inline
+                li
+                    span(title=data.currentTopic)
+                        | !{data.currentTopic}
+                        a.remove-topic
+                            i.icon-tools_close(aria-hidden="true")
+
+        if ((data) && (data.items) && (data.items.length > 0))
+            - var itemNo = data.items.length
+            if itemNo > 0
+                +teaser(item)
+
+
+                if (data.widget) && (data.widget.moreUrl)
+                    a(class=moreLinkclasses,href=data.widget.moreUrl)
+                        if (data.widget) && (data.widget.moreText)
+                            | !{data.widget.moreText}
+                        else
+                            | Show More
+
+        else
+            div.multi-search__no-result 
+                | !{thisWidget.properties.noResultMessage}

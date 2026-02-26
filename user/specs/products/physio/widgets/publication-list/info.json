@@ -1,0 +1,96 @@
+{
+    "title": "Publication List",
+    "template": "doc",
+    "tag": [
+        "ready"
+    ],
+    "templates": {
+        "default": "publication-list",
+        "alternative": {
+            "publication-list-altmetrics": {
+                "name": "Altmetrics",
+                "path": "publication-list-altmetrics",
+                "deprecated": false
+            },
+            "publication-list-header": {
+                "name": "Header",
+                "path": "publication-list-header",
+                "deprecated": false
+            },
+            "publication-list-journal": {
+                "name": "Journal",
+                "path": "publication-list-journal",
+                "deprecated": false
+            },
+            "publication-list-slider": {
+                "name": "Slider",
+                "path": "publication-list-slider",
+                "deprecated": false
+            },
+            "publication-list-toc": {
+                "name": "TOC",
+                "path": "publication-list-toc",
+                "deprecated": false
+            },
+            "publication-single": {
+                "name": "Single Publication",
+                "path": "publication-single",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Publication List",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/publication-list/publication-list-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/publication-list.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Publication slider",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/publication-list/publication-list-slider-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/publication-list-slider.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

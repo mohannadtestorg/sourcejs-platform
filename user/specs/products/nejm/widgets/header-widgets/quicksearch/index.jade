@@ -1,0 +1,14 @@
+﻿extends /specs/products/nejm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Quick Search
+
+        h3 Default
+        .source_example.source_visible
+            | !{data.quicksearch}
+
+        h3 Expanded initially
+        p Requires ".s-search-active-init" added to its container (header, body)
+        .source_example.source_visible.s-search-active-init
+            | !{data.quicksearch}

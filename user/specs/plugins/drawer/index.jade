@@ -1,0 +1,64 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 Drawer
+    p sliding drawer navigation, which contains links to pages all around the website
+
+    section.source_section
+        h2 Default set-up
+        p Use HTMl attributes to control Drawer
+
+        h3 Drawer toggle
+        p adding an anchor to toggle the nav
+
+        code.src-html.source_visible.source_example
+            |   <a href="#targetNav" data-target="#targetNav" data-toggle="nav">
+            |       <i class="icon-menu2" aria-hidden="true">Main menu</i>
+            |       <i class="icon-close_thin" aria-hidden="true">Close main menu </i>
+            |   </a>
+
+        markdown
+            p use `data-target` and `data-toggle="nav"` to the anchor
+
+        h3 Target nav
+        markdown
+            p adding an `id="targetNav"` same as `data-target` value to the div that will slide
+
+        code.src-html.source_visible.source_example
+            |   <div id="targetNav" class="drawer__nav">
+            |       <nav role="navigation" >
+            |           .....
+            |       </nav>
+            |   </div>
+
+    section.source_section
+        h2 Working example
+        .source_example
+            a(href="#" ) link
+            .main-nav
+                a(href="#mainNav" data-target="mainNav" data-toggle="nav" )
+                    i.icon-menu2(aria-hidden="true")
+                    i.icon-close_thin(aria-hidden="true")
+                #mainNav.drawer__nav
+                    nav(role="navigation" class="main-menu container")
+                        ul.rlist--inline
+                            li
+                                a(href="#") Journals
+                            li
+                                a(href="#") Books
+                            li
+                                a(href="#") Proceedings
+                            li
+                                a(href="#") Blog
+            p Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendusNam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendusNam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendusNam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
+            a(href="#" ) link
+        markdown
+            p <strong>Note: </strong> In the example above, the anchors that hold "link" as value are not part of the template and shouldn't be used along with the structure. they were added to support and demonstrate  some accessibility functionality.
+
+
+script(src='../../utility/js/namespace.js')
+script(src='js/drawer.js')
+
+
+
+

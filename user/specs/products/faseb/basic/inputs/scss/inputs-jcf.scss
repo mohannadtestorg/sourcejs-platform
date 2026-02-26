@@ -1,0 +1,67 @@
+.jcf-select,
+.jcf-file {
+    padding: 11px 15px 11px 15px;
+    border: 1px solid $primary-border-color;
+    margin-bottom: 15px;
+}
+
+.jcf-select .jcf-select-text {
+    color: $primary-link-color;
+    font-size: $h6-font-size;
+}
+
+.jcf-select-text {
+    position: relative;
+    &:after {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        content: "\e61c";
+        color: $primary-link-color;
+        font-family: icomoon;
+        font-size: 0.5rem;
+    }
+}
+
+.jcf-select {
+    background-image: none;
+}
+
+.jcf-select-drop .jcf-hover,
+.jcf-list-box .jcf-selected {
+    color: $primary-link-color;
+}
+
+.jcf-list {
+    .jcf-option {
+        padding: 11px 15px 11px 15px;
+        min-height: auto;
+    }
+}
+
+.checkbox--primary {
+    color: $primary-text-color;
+    font-weight: normal;
+    font-size: $default-font-size;
+
+    .jcf-checkbox {
+        margin-right: 15px;
+        margin-top: 2px;
+        transition: all 0s;
+
+        span {
+            &:before {
+                font-size: $h6-font-size;
+                font-weight: bold;
+            }
+        }
+
+        &.jcf-unchecked {
+            border: 2px solid $primary-text-color;
+        }
+        &.jcf-checked {
+            border: 2px solid $secondary-border-color;
+            background-color: $primary-bg-color;
+        }
+    }
+}

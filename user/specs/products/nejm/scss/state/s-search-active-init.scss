@@ -1,0 +1,33 @@
+/*
+
+On large screens, on the search results page, the normally hidden search bar is not hidden.
+These styles "show" the search bar
+
+*/
+
+.s-search-active-init {
+  @include breakpoint('large+') {
+    .g-search {
+      top: 335px;
+      height: 72px;
+      overflow: visible;
+      opacity: 1;
+    }
+
+    .g-search__fieldset-primary-input {
+      // padding-top: 12px;
+    }
+
+    .g-nav__primary-item--search {
+      display: none;
+    }
+
+    #content {
+      padding-top: 72px;
+    }
+    .page-body {
+      padding-top: 72px;
+    }
+  }
+
+}

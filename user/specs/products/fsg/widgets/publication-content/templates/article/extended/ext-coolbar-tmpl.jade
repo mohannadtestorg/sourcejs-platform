@@ -1,0 +1,10 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-coolbar-tmpl.jade
+
+block coolbarDropZone
+    a.coolBar__ctrl.hidden-lg.w-slide__btn(href="#" data-db-target-for="article" data-db-switch="icon-close_thin" data-slide-target="#articleMenu")
+        i(class= "icon-Icon_About-Article" aria-hidden="true")
+        block aboutArticleTitle
+            span About
+    div.coolBar__drop.fixed.rlist(data-db-target-of="article" id="articleMenu")
+        block coolbarDropZoneTransplant
+            div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--download .coolBar__drop" data-remove="false" data-target-class="hidden-xs hidden-sm hidden-md" data-toggle="transplant" data-direction="from" data-transplant="self")

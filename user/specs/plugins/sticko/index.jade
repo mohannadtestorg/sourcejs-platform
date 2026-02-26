@@ -1,0 +1,47 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 Sticko
+    p Make any element sticky using HTML Classes
+
+    section.source_section
+        h2 Usage
+        p Use HTMl Classes to control Sticko
+        h3 Basic Sticky Element
+        code.src-html.source_visible.source_example
+            | <header class="sticko">
+            |   ... header code over here ...
+            | </header>
+        p Adding "sticko" to any element will make it sticky all the time, its dimensions will be related to the "body" in other words the element's width will be fluid.
+            | This approach has been used in UX3 sticky header Please visit Article template page.
+        h3 Contained Sticky Element
+        code.src-html.source_visible.source_example
+            | <div class="col-md-4 col-xs-1 sticko__parent">
+            |   <div class="tab sticko tab--slide">
+            |       ... some content over here ...
+            |   </div>
+            | </div>
+        p Adding "sticko__parent" to any parent element will make "sticko" element dimensions be related to that parent element.
+            | This class has been used in article page side bar tabs.
+        h3 Responsive Sticky Element
+        code.src-html.source_visible.source_example
+            | <div class="col-md-4 col-xs-1 sticko__parent">
+            |   <div class="tab sticko__md tab--slide">
+            |       ... some content over here ...
+            |   </div>
+            | </div>
+        p Adding "sticko-md" to any element will make it sticky in medium and large screens.
+        h3 Dynamic Sticky Element
+        code.src-html.source_visible.source_example
+            | <div class="col-md-4 col-xs-1 sticko__parent">
+            |   <div class="tab sticko__md tab--slide">
+            |       <ul class=" rlist--inline tab__nav">
+            |           ... some content over here ...
+            |       </ul>
+            |       <div class="tab__content sticko__child">
+            |           ... some content goes overhere ...
+            |       </div>
+            |   </div>
+            | </div>
+        p Adding "sticko__child" to one of it's direct children will make it scrollable and has a dynamic height, in other words the height of the "sticko__child" will be affected when ever "scroll" event has been triggered.
+    | #{''}

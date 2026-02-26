@@ -1,0 +1,50 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Patient Education
+    .source_info
+
+
+    section.source_section
+        h2 Patient Education
+        markdown
+        .source_example
+            | !{data.header}
+            main.pol-theme.content
+                .container.patient-education.page-top-margin
+                    .col-lg-9.col-md-8
+                        h5.font-weight-light.border-bottom FOR PATIENTS AND FAMILIES
+
+                        |  !{data.imageCover}
+
+                        |  !{data.imageCover}
+
+                        |  !{data.imageCover}
+
+                        |  !{data.imageCover}
+
+
+
+                    .col-lg-3.col-md-4
+
+                        .advertisement.center
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+
+                        .card--shadow.card-small
+                            h5.border-bottom Patients & Families
+                            p.border-bottom orem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur convallis massa ac consequat lacini
+                            .center
+                                a(href="#").btn Sign up Now
+
+
+
+
+
+
+
+            | !{data.footer}
+    | #{''}

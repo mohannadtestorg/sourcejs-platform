@@ -1,0 +1,51 @@
+.g-banner-institution {
+  @include background-fill($color__background);
+  display: block;
+  //position: absolute;
+  left: 0;
+  right: 0;
+  //top: 68px;
+  height: 40px;
+  padding-top: 8px;
+  text-align: center;
+
+  @include breakpoint('medium+') {
+    //top: 116px;
+    height: 48px;
+    padding-top: 12px;
+  }
+
+  @include breakpoint('large+') {
+    //top: 120px;
+    height: 56px;
+    padding-top: 16px;
+
+    &::before {
+      border-bottom: 1px solid $color__rules;
+    }
+  }
+}
+
+.g-banner-institution p {
+  position: relative;
+  margin-top: 0;
+  line-height: 24px;
+  vertical-align: text-bottom;
+
+  @include breakpoint('small-') {
+    @include sans-serif(14, 20);
+    @include baseliner(3);
+  }
+}
+
+.g-banner-institution img {
+  display: inline-block;
+  width: 170px;
+  height: auto;
+  margin-left: 4px;
+  vertical-align: middle;
+
+  @include breakpoint('medium+') {
+    width: 200px;
+  }
+}

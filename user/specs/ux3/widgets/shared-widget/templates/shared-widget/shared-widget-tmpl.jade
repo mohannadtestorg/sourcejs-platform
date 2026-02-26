@@ -1,0 +1,39 @@
+- if (model !== undefined) data = model.data;
+- if (model !== undefined) config = model.config;
+
+-
+    var headingEl = (config) && (config.headingLevel) ? config.headingLevel : 'h2';
+    var wMarkup = (config) && (config.markup) ? config.markup : 'div';
+
+
+mixin heading()
+    if (data && data.title)
+        if (config && config.headingClass)
+            if(data.title)
+              #{headingEl}(class=config.headingClass) !{data.title}
+        else if(data.title)
+            #{headingEl} !{data.title}
+if (config && config.wrapper) && config.wrapper == 'true'
+    if (config.className)
+        if (config.attr)
+            - var pattributes = JSON.parse(config.attr);
+            #{wMarkup}(class=config.className )&attributes(pattributes)
+                +heading()
+                if(data && data.content)
+                  | !{data.content}
+        else
+            #{wMarkup}(class=config.className )
+                +heading()
+                if(data && data.content)
+                  | !{data.content}
+
+    else
+        #{wMarkup}
+            +heading()
+            if(data && data.content)
+              | !{data.content}
+else
+    +heading()
+    if(data && data.content)
+      | !{data.content}
+

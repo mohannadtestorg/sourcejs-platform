@@ -1,0 +1,47 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "m1x"
+        },
+        "config": {
+            "type": "default",
+            "id": "m1x",
+            "hideEmpty": "false",
+            "vPort": "medium"
+        },
+        "data": {
+            "nav": [
+                {
+                    "text": "Trending research",
+                    "icon": ["icon-shoppingcart"],
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/publication-list/templates/publication-list/publication-list-altmetrics-tmpl.jade",
+                            "data": {
+                                "$ref": "../../../../widgets/top-content/templates/data/data.json"
+                            }
+                        }
+                    }
+                },
+                {
+                    "text": "Most read ",
+                    "icon": ["icon-permissions"],
+                    "content": "tab333 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element. Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap"
+                },
+                {
+                    "text": "Most cited",
+                    "icon": ["icon-search"],
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/publication-list/templates/publication-list/publication-list-altmetrics-tmpl.jade",
+                            "data": {
+                                "$ref": "../../../../widgets/top-content/templates/data/data.json"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+}

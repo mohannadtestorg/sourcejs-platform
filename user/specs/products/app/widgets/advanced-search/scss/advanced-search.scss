@@ -1,0 +1,112 @@
+.advanced-search {
+
+    [class*=-ctrl-field]{
+        i{
+            @include themify($themes) {
+                color:themed('color');
+            }
+        }
+    }
+
+    .time-frame {
+        label{
+            @include media('<large','>=phone'){
+                width: 142px;
+            }
+        }
+    }
+
+
+    &--filters{
+
+        .dateFilterSelect{
+            label{
+
+                @include media('<phone'){
+                  display: block;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        label.timeFrame-to__label{
+            display: inline-block;
+            text-align: right;
+            padding-right: 10px;
+            @include media('<tablet'){
+                margin-top: 10px;
+            }
+            @include media('<phone'){
+                display: block;
+                text-align: left;
+            }
+
+        }
+        .timeFrame-to{
+            @include media('<large'){
+                display: block;
+            }
+
+            margin-top: 10px;
+
+            label{
+                min-width: 50px;
+                @include media('<large','>=phone'){
+                    width: 142px;
+                }
+            }
+
+        }
+    }
+
+
+
+
+    >button{
+        margin-bottom: 15px;
+    @include media('<tablet'){
+        width: 100%;
+    }
+
+    }
+
+    input[placeholder]{
+        content:attr(placeholder);
+    }
+    .ms-sel-ctn{
+        input{
+            @include media('<large') {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.searchIn--field {
+    .jcf-select{
+        min-height: 40px;
+    &-text{
+        font-weight: 500;
+    }
+    }
+}
+
+.advancedSearch{
+    &__tabs__nav{
+        font-weight: 600;
+
+@include media('<tablet'){
+    margin: -15px -30px 15px;
+    background: $secondary-bg-color;
+
+    li{
+         margin-bottom: 0px;
+    }
+}
+
+    }
+
+
+
+}
+

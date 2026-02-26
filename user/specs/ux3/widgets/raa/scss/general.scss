@@ -1,0 +1,160 @@
+input.button {
+    width: auto;
+}
+
+.email {
+    .show-change-password {
+        font-size: 0.75rem;
+        color: $profile-primary-color;
+
+    }
+}
+
+#accessTokenForm {
+    .submit {
+        float: right;
+    }
+}
+
+.personal-information {
+    @extend .clearfix;
+}
+
+.managedInstitutions {
+
+    select {
+        background-color: transparent;
+    }
+
+    option {
+        color: $black;
+    }
+
+
+
+    @include media('<tablet') {
+        #pb-page-content .profileMain & {
+            position: static !important;
+            padding: 15px 0;
+        }
+
+    }
+
+}
+
+
+.header__quick-menu .right-side {
+  position: relative;
+}
+.navigation-login-dropdown-container {
+    position: absolute;
+    text-align: left;
+    box-shadow: 0 3px 7px rgba(0,0,0,.15);
+    z-index: 2;
+    padding: 10px 20px;
+    background: $default-bg-color;
+    min-width: 200px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .right-side & {
+        left: auto !important;
+        right: 0;
+    }
+}
+
+
+.tfa-form-container {
+    #hidden-message {
+        a {
+            font-weight: bold;
+        }
+    }
+
+    label {
+        font-size: 1rem;
+        color: $profile-primary-color;
+        font-weight: normal;
+    }
+
+    .OK-btn{
+        padding: 12px;
+        background: #212121;
+        border: none;
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed!important;
+        }
+    }
+
+    form {
+        text-align: left;
+
+        label {
+            display: inline-block;
+            font-size: .75rem;
+        }
+    }
+
+    .extra-space {
+        padding: 20px;
+        margin: 20px 0;
+        visibility: hidden
+    }
+
+    #container-all {
+        margin-top: 20px;
+    }
+
+}
+
+
+
+.access-widget {
+    form {
+        position: relative;
+    }
+
+    .quick-search__button {
+        right: 1px;
+
+        @include media('<desktop') {
+            bottom: auto;
+            top: 1px;
+
+        }
+    }
+
+    .account__sort {
+        min-width: 245px;
+    }
+}
+
+#saveSearchDialog a {
+    color: $secondary-text-color;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

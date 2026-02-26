@@ -1,0 +1,171 @@
+//-
+    Can't figure out how to properly escape the single quote, so we'll do a different mixin here
+//
+
+mixin editorsMessage(editorsMessageLink)
+    li(role="menuitem" tabindex="-1" aria-label="Editor's Message for #{data.journal.code}" class="menu-item")
+        a(href=editorsMessageLink title="#{data.journal.title} Editor's Message")
+            span Editor's Message
+
+
+mixin subMenuItem(itemLink, itemText, itemTitle)
+    li(role="menuitem", tabindex="-1", aria-label=itemTitle, class="menu-item")
+        a(href=itemLink, title=itemTitle)
+            span #{itemText}
+
+mixin infoSubMenu()
+    +subMenuItem("/author-info", "For Authors", "Information for Authors")
+    +subMenuItem("/reviewers", "For Reviewers", "Information for Reviewers")
+    +subMenuItem("/librarians", "For Librarians", "Information for Librarians")
+    +subMenuItem("/advertisers", "For Advertisers", "Information for Advertisers")
+    +subMenuItem("/media", "For Media/Public", "Information for Media/Public")
+    +subMenuItem("/members", "For APS Members", "Information for APS Members")
+
+mixin menu(notMobile)
+    ul#menubar.rlist--inline.menu-nav(role="menubar", class="#{data.journal.code}")
+        li(role="menuitem", tabindex="-1", aria-label="Journal Home", id="secondary-menu-item-0", class="menu-item")
+            if (notMobile)
+                a(href="#{data.journal.link}", title="#{data.journal.title} Home")
+                    span Journal home
+            else
+                a(href="#", title="title")
+                    span Home
+
+        li(role="menuitem", aria-haspopup="true", tabindex="-1", aria-label="Issues", id="secondary-menu-item-1", class="menu-item")
+            if (notMobile)
+                !{pb.renderDropzone(thisWidget, "loi")}
+            else
+                a(href="#", title="Issues", class="w-slide__btn loi__archive--res", data-db-target-for="dropBlock-loi__holder", data-slide-target=".dropBlock-loi__holder", data-slide-clone="self")
+                    span Issues
+                    i.icon-arrow_r
+
+        case data.journal.code
+            when "ajpcell"
+            when "ajpendo"
+            when "ajpgi"
+            when "ajpheart"
+            when "ajpregu"
+            when "ajpregu"
+            when "jn"
+            when "advances"
+            when "physiolgenomics"
+                li(role="menuitem", tabindex="-1", aria-label="Collections", id="secondary-menu-item-2", class="dropdown menu-parent")
+                    a(href="/#{data.journal.code}/collections", title="#{data.journal.title} Collections")
+                        span Collections
+            default
+                - break
+
+        if data.journal.code != "apsselect"
+            li(role="menuitem", aria-haspopup="true", tabindex="-1", aria-label="Information", id="secondary-menu-item-3", class="dropdown menu-parent")
+                if (notMobile)
+                    a(href="#", title="Information", id="info-menu-1", data-toggle="dropdown", class="dropdown__toggle")
+                        span Information
+                    ul(labelledby="info-menu-1" aria-hidden="true" role="menu" class="rlist dropdown__menu" id="p3")
+                        +infoSubMenu()
+                else
+                    a(href="#" title="information" class="w-slide__btn" data-db-target-for="p3" data-slide-target="#p3" data-slide-clone="self")
+                        span Information
+                        i.icon-arrow_r
+            li(role="menuitem" tabindex="-1" aria-haspopup="true" aria-label="About" id="secondary-menu-item-4" class="dropdown menu-parent")
+                if (notMobile)
+                    a(href="#" title="About" id="about-menu-1" data-toggle="dropdown" class="dropdown__toggle")
+                        span About
+                    ul(aria-labelledby="about-menu-1" aria-hidden="true" role="menu" class="rlist dropdown__menu" id="p4")
+                        //-
+                            About link doesn't vary by journal
+                        //
+                        +subMenuItem("/" + data.journal.code + "/about", "About " + data.journal.code, "About " + data.journal.code)
+
+                        //-
+                          Article types page only exists for some journals.
+                          Will assume that we will host this information
+                          on physiology.org (rather than the-aps.org).  Can change later if needed
+                        //
+                        case data.journal.code
+                            when "ajplegacy"
+                            when "physiology"
+                            when "physrev"
+                                - break
+                            default
+                                +subMenuItem("/" + data.journal.code + "/article-types", "Article Types", "Article Types for " + data.journal.code)
+
+                        // JN Newsletter
+                        if data.journal.code == "jn"
+                            +subMenuItem("/jn/neuro-forum-guidelines", "Neuro Forum Guidelines", "Neuro Forum Guidelines")
+                            +subMenuItem("http://jnpeditor.org/Newsletter.html", "JN Newsletter", "JN Newsletter")
+
+                        // Editor's Message -- used everywhere except for advances/ajpendo/ajplegacy
+                        if data.journal.code != "ajplegacy"
+                            case data.journal.code
+                                when "advances"
+                                when "ajpendo"
+                                    - break
+                                when "ajpcell"
+                                    +editorsMessage("/doi/10.1152/ajpcell.zh0-7539.2014")
+                                when "ajpregu"
+                                    +editorsMessage("/doi/10.1152/ajpregu.00223.2013")
+                                when "jn"
+                                    +editorsMessage("/doi/10.1152/jn.00000.2014")
+                                when "physiolgenomics"
+                                    +editorsMessage("/doi/10.1152/physiolgenomics.00050.2015")
+                                default
+                                    +editorsMessage("/" + data.journal.code + "/editors-message")
+
+                            //- Editor's Bio
+                            // +subMenuItem("/#{data.journal.code}/editors-bio", "Editor's Bio", "Editor's Bio")
+                            li(role="menuitem" tabindex="-1" aria-label="Editor's Bio" class="menu-item")
+                                a(href="/#{data.journal.code}/editors-bio" title="Editor's Bio")
+                                    span Editor's Bio
+
+                            //- Feature Associate Editors -- only appears on ajpregu
+                            if data.journal.code == "ajpregu"
+                                +subMenuItem("/" + data.journal.code + "/associate", "Featured Associate Editor", "Featured Associate Editor for " + data.journal.code)
+
+                            //- Editorial Board
+                            +subMenuItem("/" + data.journal.code + "/edboard", "Editorial Board", data.journal.title + " Editorial Board")
+
+
+                        //- AJP Legacy Order Form
+                        if data.journal.code == "ajplegacy"
+                            +subMenuItem("/pb-assets/PDFs/2017-Legacy.pdf", "Order Form (PDF)", "AJP-Legacy Order Form (PDF)")
+
+                        //- Cover Archive
+                        if data.journal.code == "physiolgenomics"
+                            +subMenuItem("http://www.the-aps.org/mm/Publications/Journals/Physiol-Genomics/Covers", "Cover Archive", "Cover Archive")
+                        else if data.journal.code == "physiology"
+                            +subMenuItem("http://www.the-aps.org/mm/Publications/Journals/Physiology/Covers", "Cover Archive", "Cover Archive")
+                        else if data.journal.code == "physrev"
+                            +subMenuItem("http://www.the-aps.org/mm/Publications/Journals/physrev/Covers", "Cover Archive", "Cover Archive")
+                else
+                    a(href="#" title="About" class="w-slide__btn" data-db-target-for="p4" data-slide-target="#p4" data-slide-clone="self")
+                        span About
+                        i.icon-arrow_r
+
+div.publication-menu.hidden-xs.hidden-sm.container
+    .row
+        +menu(true)
+        // About is a button for APSselect, and we don't need submit/subscribe
+        if data.journal.code == "apsselect"
+            div(class="loi-buttons")
+                a(href="/apsselect/about", title="About APSselect", class="btn", aria-label="About")
+                    span About
+        else
+            div(class="loi-buttons")
+                a(href="http://#{data.journal.code}.msubmit.net/cgi-bin/main.plex/submit", title="Submit to #{data.journal.title}", target="_blank", aria-label="Submit", class="btn")
+                    span Submit
+                a(href="/subscribe", title="Subscribe to #{data.journal.title}", aria-label="Subscribe", class="btn")
+                    span Subscribe
+        div.publication-quick-search
+            !{pb.renderDropzone(thisWidget, "quick-search")}
+
+div.hidden-md.hidden-lg.publication-menu--res
+    .container
+        .row
+            .col-xs-12
+                a.loi-slide__ctrl.w-slide__btn.publication--res(href="#" data-slide-target=".loi-menu-res-cont")
+                    i.icon-toc
+                    span Journal Menu
+                div.loi-menu-res-cont
+                    div.transplant.showit.loi-menu-res(data-target=".publication-quick-search" data-remove="false" data-targetClass="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+                    +menu(false)
+                    div.transplant.showit.loi-menu-res(data-target=".loi-buttons" data-remove="false" class=data.journal.code data-targetClass="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")

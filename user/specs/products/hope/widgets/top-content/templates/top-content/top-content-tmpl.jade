@@ -1,0 +1,10 @@
+block topContentBody
+    .featuredCard__body
+        if (data && data.items)
+            | !{pb.render('featured-items', {data: data},'hope')}
+    if (data && data.widget && data.widget.moreUrl)
+        a.featuredCard__tale(href=data.widget.moreUrl)
+            if (data && data.widget && data.widget.moreText)
+                | !{data.widget.moreText}
+            else
+                | More

@@ -1,0 +1,40 @@
+.pagination {
+
+    &__btn--prev {
+        &:before {
+            content: "\e92a";
+            font-weight: bold;
+            font-size: $small-font-size;
+            vertical-align: middle;
+        }
+    }
+    &__btn--next {
+        &:after {
+            content: "\e92b";
+            font-weight: bold;
+            font-size: $small-font-size;
+            vertical-align: middle;
+        }
+    }
+
+    &__list a {
+        padding: 5px;
+        border-radius: 100%;
+        line-height: 1.4;
+        min-width: 30px;
+        height: 30px;
+        margin: 0 5px;
+        font-weight: 600;
+        display: inline-block;
+
+        @include media('<tablet') {
+            margin: 0;
+        }
+
+        &.active {
+            color: $text-onDark;
+            background: $wiley-gray-color;
+            text-decoration: none;
+        }
+    }
+}

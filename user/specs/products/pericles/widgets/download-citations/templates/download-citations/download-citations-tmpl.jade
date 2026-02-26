@@ -1,0 +1,52 @@
+.citationFormats
+    .article-info
+        h4 Download Citation
+    .citation-download
+        p.citation-msg
+            | If you have the appropriate software installed, you can download article citation data to the citation manager of your choice. Simply select your manager software from the list below and click on download.
+
+        // download options
+        form.citation-form(action='/action/downloadCitation', name='frmCitmgr', method='post', target='_self')
+            input(type='hidden', name='doi', value='10.1002/wsbm.1275')
+            input(type='hidden', name='downloadFileName', value='pericles_1939005x6')
+            input(type='hidden', name='include', value='abs')
+            .select-container
+                label.bold(for='slct_format')
+                    | Format
+                .row
+                    #slct_format.col-md-5.input-group(styleclass='js__slcInclude')
+                        label.radio--primary
+                            input(type='radio', name='format', value='ris', checked='')
+                            span.label-txt RIS (ProCite, Reference Manager)
+                        label.radio--primary
+                            input(type='radio', name='format', value='endnote')
+                            span.label-txt EndNote
+                        label.radio--primary
+                            input(type='radio', name='format', value='bibtex')
+                            span.label-txt BibTex
+                        label.radio--primary
+                            input(type='radio', name='format', value='medlars')
+                            span.label-txt Medlars
+                        label.radio--primary
+                            input(type='radio', name='format', value='refworks')
+                            span.label-txt RefWorks
+                    .col-md-7
+                        textarea#example-textarea(rows='5', cols='100', placeholder='Example')
+                        p.note Download citation or copy from the preview above.
+            .select-container.import-type
+                label.bold
+                    | Type of import
+                label.radio--primary(for='direct')
+                    input#direct(type='radio', name='direct', value='direct', checked='')
+                    span.label-txt Direct import
+                label.radio--primary(for='other-type')
+                    input#other-type(type='radio', name='direct', value='other-type')
+                    span.label-txt Other type of import
+            .form-footer
+                input.btn(onclick='onCitMgrSubmit()', type='submit', name='submit', value='Download')
+script(type='text/javascript').
+    $(".js__slcInclude").on("change", function (e) {
+        if ($(this).val() == 'refworks')
+            $('#direct').prop("checked", false);
+        $('#direct').prop("disabled", ($(this).val() == 'refworks'));
+    });

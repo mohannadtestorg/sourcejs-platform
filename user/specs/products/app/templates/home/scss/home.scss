@@ -1,0 +1,98 @@
+.homepage{
+  &__slider{
+
+    margin: 0 0 30px;
+    @include media('<phone'){
+      margin: 0 -15px 30px;
+    }
+
+    .dark-transparent-bg{
+      position: absolute;
+      bottom: 0;
+      padding:10px 15px;
+      min-height: 180px;
+
+      @include media('<phone'){
+       width: 100%;
+        min-height:100%;
+      }
+    }
+
+
+
+      .slide{
+        &-item{
+          position: relative;
+          margin: 0;
+        }
+        &-image{
+          img{
+            width: 100%;
+            @include media('<phone') {
+              min-height: 350px;
+            }
+          }
+        }
+        &-text{
+          width:80%;
+          @include media('<phone'){
+            width:100%;
+            margin-bottom: 35px;
+          }
+        }
+      }
+
+      .owl{
+        &-carousel{
+          padding: 0;
+          position: relative;
+          .owl-dot{
+            span{
+              border: 2px solid $white;
+              background: transparent;
+            }
+            &.active{
+              span{
+                background: $white;
+              }
+            }
+          }
+          .owl-nav {
+            [class*=owl-]{
+              bottom: 18px;
+              top:auto;
+              @include media('<phone'){
+                bottom: 8px;
+              }
+
+            }
+            .owl-nav-active i,i {
+              color: $white;
+              opacity: 1;
+              font-size: 16px;
+            }
+          }
+
+
+        }
+
+        &-dots{
+          position: absolute;
+          bottom: 20px;
+          right: 50px;
+          @include media('<phone'){
+            bottom: 5px;
+          }
+        }
+        &-next{
+          right: 20px;
+        }
+        &-prev{
+          right:170px;
+          left:auto;
+        }
+      }
+
+
+  }
+}

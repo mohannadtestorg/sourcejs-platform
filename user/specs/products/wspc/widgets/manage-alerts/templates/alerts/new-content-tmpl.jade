@@ -1,0 +1,112 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/new-content-tmpl
+
+block beforeList
+    div.clearfix
+
+if thisWidget.properties && thisWidget.properties.newContentView == 'modifyOnly'
+    block alertLists
+                if (data.seriesList)
+                    - var itemNo = data.seriesList.length
+                    if itemNo > 0
+
+                        .accordion.alert__accordion
+
+                            - var label = "BOOK SERIES ALERTS"
+                            if (thisWidget.properties && thisWidget.properties.customHeadingsEnabled)
+                                - label = thisWidget.properties.bookSeriesAlertsHeading
+
+                            a.accordion__control(href="#" title=label aria-expanded="false" aria-controls=thisWidget.id + "-book-series-alerts")
+                                h5 !{label}
+
+                            .accordion__content(id= thisWidget.id + "-book-series-alerts")
+                                ul.rlist.alert__list
+                                    li
+                                        if (itemNo > 1)
+                                            .input-group
+                                                label.checkbox--primary
+                                                    input(type='checkbox' name="markall")
+                                                    if (thisWidget.properties && thisWidget.properties.customHeadingsEnabled)
+                                                        span.label-txt !{thisWidget.properties.selectAllLabel}
+                                                    else
+                                                        span.label-txt Select All
+
+                                    each book, l in data.seriesList
+                                        li
+                                            .input-group
+                                                label.checkbox--primary
+                                                    input(type='checkbox' name="bookSeriesCode" value=book.code)
+                                                    span.label-txt
+                                                        if(book)
+                                                            a(href=book.bookSeriesUrl) !{book.title}
+
+                if (data.journals)
+                    - var journalsNo = data.journals.length
+
+                    if journalsNo > 0
+
+                        .accordion.alert__accordion
+
+                            - var label = "Journal series alerts"
+                            if (thisWidget.properties && thisWidget.properties.customHeadingsEnabled)
+                                - label = thisWidget.properties.journalAlertsHeading
+                            a.accordion__control(href="#" title=label aria-expanded="false" aria-controls=thisWidget.id + "-journal-alerts")
+                                h5 !{label}
+
+                            .accordion__content(id= thisWidget.id + "-journal-alerts")
+                                ul.rlist.alert__list
+                                    li
+                                        if (journalsNo > 1)
+                                            .input-group
+                                                label.checkbox--primary
+                                                    input(type='checkbox' name="markall")
+                                                    if (thisWidget.properties && thisWidget.properties.customHeadingsEnabled)
+                                                        span.label-txt !{thisWidget.properties.selectAllLabel}
+                                                    else
+                                                        span.label-txt Select All
+                                    block journalAlertSeries
+                                        each journal, l in data.journals
+                                            if journal.isVisible && journal.isAlertsEnabled
+                                                li
+                                                    .input-group
+                                                        label.checkbox--primary
+                                                            input(type='checkbox' id=journal.doi name="pubCode" value=journal.code checked=journal.isSubscribedToAlert)
+                                                            span.label-txt
+                                                                a(href=journal.journalUrl) !{journal.title}
+else
+    block alertLists
+        h5.profile__heading.border-bottom Journal title A-Z
+        .table-responsive.separator
+            table.alert__list
+                tbody
+                    tr
+                        td.table__mark
+                            label.checkbox--primary
+                                input.select_all(type="checkbox" name="markall")
+                                span
+                        td
+                            span Select All
+                    if(data.seriesList)
+                        each book, l in data.seriesList
+                            tr
+                                td.table__mark
+                                    label.checkbox--primary
+                                        if(book)
+                                            input(type="checkbox" id="check-" + book.code name="bookSeriesCode" value=book.code)
+                                        span
+                                td
+                                    if(book)
+                                        label(for="check-" + book.code)
+                                            a(href=book.bookSeriesUrl) !{book.title}
+
+                    if(data.journals)
+                        each toc, l in data.journals
+                            tr
+                                td.table__mark
+                                    label.checkbox--primary
+                                        if(toc)
+                                            input(type="checkbox" id="check-" + toc.code name="journalCode" value=toc.code)
+                                        span
+                                td
+                                    if(toc)
+                                        label(for="check-" + toc.code)
+                                            a(href=toc.bookSeriesUrl) !{toc.title}

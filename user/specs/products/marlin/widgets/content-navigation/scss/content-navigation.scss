@@ -1,0 +1,123 @@
+.content-navigation {
+    a {
+        border-bottom: 0;
+        &:hover,
+        &:focus {
+            .content-navigation__body {
+                &.next {
+                    left: -247px;
+                }
+                &.pre {
+                    right: -247px;
+                }
+            }
+            i {
+                color: $primary-links-color;
+                position: relative;
+            }
+        }
+    }
+    &__body {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 290px;
+        background-color: $white;
+        line-height: 1.4rem;
+        //padding: 20px 50px 20px 15px;
+        &.next {
+            left: 91px;
+            padding: 14px 50px 14px 15px;
+            transition: left 0.1s;
+        }
+        &.pre {
+            right: 91px;
+            padding: 14px 15px 14px 50px;
+            transition: right 0.1s;
+        }
+        &__top {
+            color: $primary-links-color;
+            font-size: 0.75rem;
+        }
+        &__top,
+        &__title {
+            display: block;
+        }
+        &__title { // TODO: use truncate() instead of -webkit-line-clamp
+            color: $primary-body-font-color;
+            max-width: 400px;
+            height: 38px;
+            margin: 0 auto;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+    }
+    &__btn--pre,
+    &__btn--next {
+        position: absolute;
+        top: 50%;
+        margin-top: -46px;
+        padding: 32px 14px;
+        background: fade_out($white, 0.7);
+        i {
+            color: $white;
+            font-size: 1.6rem;
+        }
+    }
+    &__btn--pre {
+        left: 0;
+    }
+    &__btn--next {
+        right: 0;
+    }
+    @include media('<desktop') {
+        .content-navigation__body {
+            display: none;
+        }
+        .content-navigation__btn--next {
+            right: 15px;
+        }
+        .content-navigation__btn--pre {
+            right: 75px;
+            left: auto;
+        }
+        .content-navigation__btn--next,
+        .content-navigation__btn--pre {
+            position: fixed;
+            bottom: 0;
+            margin: 0;
+            top: auto;
+            z-index: 1;
+            padding: 10px 14px;
+            background: $figure-navs-bg;
+            &:hover {
+                background: fade_out($figure-navs-bg, 0.3);
+            }
+        }
+    }
+    &.js--sticky {
+        .content-navigation__body {
+            display: none;
+        }
+        .content-navigation__btn--next {
+            right: 15px;
+        }
+        .content-navigation__btn--pre {
+            right: 75px;
+            left: auto;
+        }
+        .content-navigation__btn--next,
+        .content-navigation__btn--pre {
+            position: fixed;
+            bottom: 0;
+            margin: 0;
+            top: auto;
+            z-index: 8;
+            padding: 10px 14px;
+            background: $figure-navs-bg;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}

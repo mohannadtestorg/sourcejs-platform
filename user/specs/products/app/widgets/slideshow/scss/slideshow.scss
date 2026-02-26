@@ -1,0 +1,109 @@
+.slideShow {
+    &--gray-background{
+        background-color: $secondary-lighten-bg-color;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .slide-item{
+        margin: 20px 20px 0;
+    }
+    .owl-next, .owl-prev {
+
+        span {
+            display: none;
+        }
+        i {
+            display: inline-block;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+    }
+
+
+    &--background{
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    &.slideShow--opacity-arrows {
+        .owl-carousel {
+            .owl-nav {
+                .owl-prev, .owl-next {
+                    @include media('<tablet') {
+                        opacity: 0.3;
+                    }
+                }
+            }
+        }
+    }
+
+}
+.owl-carousel {
+    padding: 0  18px;
+    .owl-nav {
+        [class*=owl-]{
+            background: transparent;
+            color: $primary-lighten-bg-color;
+            &:hover,&:focus{
+                background: transparent !important;
+                color:$secondary-text-color;
+            }
+        }
+    }
+
+    .owl-dots {
+        margin-top: 30px;
+        .owl-dot {
+            span{
+                border: 1px solid $primary-border-color;
+
+
+            }
+            &.active ,&:hover,&:focus{
+                span{
+                    background-color:$tertiary-bg-color;
+                }
+            }
+        }
+
+    }
+}
+
+.slider__container{
+    margin: 30px 0px;
+
+    &.border{
+        .slide-item{
+            border-bottom: 1px solid $primary-border-color;
+
+
+            @include media('>=tablet'){
+                min-height: 260px;
+            }
+            @include media('>=desktop'){
+                min-height: 330px;
+            }
+        }
+    }
+}
+
+.cover-images-slider{
+    .cover-image{
+        &__image{
+            @include media('<phone'){
+                margin-right: auto;
+                margin-left: auto;
+                width: 60%;
+            }
+        }
+    }
+}
+.main-slider-banner{
+    .slide-item{
+        margin: 0;
+    }
+}
+.slide--transparent{
+    //display: none;
+}
+
+

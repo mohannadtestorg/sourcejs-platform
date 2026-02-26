@@ -1,0 +1,59 @@
+/***
+
+```
+<dl class="a-roles-list f-body">
+  <dt>Managing Editor</dt>
+    <dd>James H. Ware, Ph.D.</dd>
+  <dt>Perspective Editor</dt>
+    <dd>David Harrington, Ph.D.</dd>
+  <dt>National Correspondent</dt>
+    <dd>Pharm.D.</dd>
+</dl>
+```
+
+***/
+
+.a-roles-list {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.a-roles-list dt {
+  font-style: italic;
+
+  @include breakpoint('small+') {
+    float: right;
+    clear: both;
+    width: 50%;
+  }
+
+  @each $name, $point in $breakpoints {
+    @if $name != 'xsmall' {
+      @include breakpoint('#{$name}') {
+        padding-left: map-get($inner-gutters, $name) / 2;
+      }
+    }
+  }
+}
+
+.a-roles-list dt:not(:first-child) {
+  @include breakpoint('xsmall') {
+    margin-top: 8px;
+  }
+}
+
+.a-roles-list dd {
+
+  @include breakpoint('small+') {
+    float: left;
+    width: 50%;
+  }
+
+  @each $name, $point in $breakpoints {
+    @if $name != 'xsmall' {
+      @include breakpoint('#{$name}') {
+        padding-right: map-get($inner-gutters, $name) / 2;
+      }
+    }
+  }
+}

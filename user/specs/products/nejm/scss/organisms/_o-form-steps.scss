@@ -1,0 +1,125 @@
+.o-form-steps {
+  position: relative;
+}
+
+.o-form-steps fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+/*
+.o-form-steps legend {
+  @include serif(21, 64, bold);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  float: left;
+  width: 100%;
+  height: 64px;
+  padding-top: 2px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid $color__rules;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    font-size: 24px;
+  }
+}
+
+.o-form-steps .a-error-msg {
+  margin-right: -20px;
+  margin-left: -20px;
+}*/
+
+.o-form-steps__fields-list {
+  clear: both;
+  margin-top: 24px;
+}
+
+.o-form-steps__fields-list > li {
+  margin-top: 16px;
+}
+
+.o-form-steps input[type=text],
+.o-form-steps .a-form-select {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.o-form-steps .a-form-hint {
+  margin-top: 8px;
+}
+
+.o-form-steps__success-msg {
+  @extend %f-ui;
+  display: none;
+  clear: both;
+}
+
+.o-form-steps.s-success {
+
+  .o-form-steps__btns,
+  .o-form-steps__fieldset {
+    display: none;
+  }
+
+  .o-form-steps__success-msg {
+    display: block;
+  }
+}
+
+.o-form-steps ol ul {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 20px;
+  padding-bottom: 4px;
+}
+
+.o-form-steps ol ul > li {
+  flex: 0 0 auto;
+  margin-top: 0;
+  margin-right: 15px;
+}
+
+.o-form-steps__btns {
+  width:100%;
+  overflow:hidden;
+  margin-top:24px;
+
+  *[data-prev-step] {
+    float:left;
+  }
+
+  *[data-next-step] {
+    float:right;
+  }
+
+  *[data-submit-step] {
+    float:right;
+  }
+}
+
+fieldset[data-form-step],
+button[data-submit-step] {
+  display:none;
+}
+
+/* More than 5 steps for a single form should not happen I guess */
+@for $i from 0 through 5 {
+  form[data-form-steps="#{$i}"] fieldset[data-form-step="#{$i}"],
+  form[data-form-steps="#{$i}"] button[data-submit-step="#{$i}"] {
+    display:block;
+  }
+}
+
+form[data-form-steps="0"] *[data-prev-step="0"] {
+  display:none;
+}
+
+@for $i from 1 through 5 {
+  form[data-form-steps="#{$i}"] *[data-next-step="#{$i}"] {
+    display:none;
+  }
+}

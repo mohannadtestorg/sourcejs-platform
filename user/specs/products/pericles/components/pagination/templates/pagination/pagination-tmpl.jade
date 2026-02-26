@@ -1,0 +1,51 @@
+block topPager
+    - var after = 3;
+    - var before = 3;
+
+
+mixin pageItem(pages)
+    - var current = data.search.startPage + 1;
+
+    //if pages > 7
+    if current <= 3
+        - before = (current - 1);
+        - after = after + (3 - before);
+
+    else if (pages - current) < 3
+        - after = (pages - current);
+        - before = before + (3 - after);
+
+
+    - var from = current - before;
+    - var to = current + after;
+    if pages <= 7
+        - to = pages;
+
+    while from <= to
+        - var pageId = from - 1;
+        li
+            a(href=pb.replaceParam(data.searchParams, "startPage", pageId.toString()), title=from, class=from == current ? 'active' : '' aria-label="Page " + from) !{from}
+        - from++;
+
+
+
+.pagination
+    - var nextPageId = data.search.startPage +1;
+    - var prevPageId = data.search.startPage -1;
+
+    if prevPageId >= 0
+        block previousPage
+            span
+                - var prevPageId = data.search.startPage -1;
+                a.pagination__btn--prev(href= pb.replaceParam(data.searchParams, "startPage", prevPageId.toString()), title='Previous Page' aria-label="Previous page link")
+
+    if(pages > 1)
+        ul.rlist--inline.pagination__list
+            +pageItem( pages )
+
+    if nextPageId < pages
+        block nextPage
+            span
+                - var nextPageId = data.search.startPage +1;
+                a.pagination__btn--next(href= pb.replaceParam(data.searchParams, "startPage", nextPageId.toString()), title='Next page' aria-label="Next page link")
+

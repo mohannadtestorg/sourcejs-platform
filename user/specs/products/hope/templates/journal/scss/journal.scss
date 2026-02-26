@@ -1,0 +1,157 @@
+.journal {
+
+    &__main-content{
+        margin: 0 -15px 0 -30px
+    }
+
+    &-header__top{
+        margin-bottom: 20px;
+    }
+
+    .current-issue {
+        &__title {
+            text-transform: uppercase;
+            font-size: 1.25rem;
+        }
+    }
+    &.content {
+        @include media('<tablet') {
+            padding-top: 145px;
+            margin-bottom: 20px;
+        }
+    }
+    .coolBar__wrapper {
+        background: $primary-lighten-bg-color;
+        border-bottom: 4px solid $journal-color;
+        @include media('<tablet'){
+            width: 100% !important;
+            padding: 0 15px;
+        }
+    }
+    #loi-banner {
+        a {
+            color: $primary-text-color;
+        }
+    }
+    .tab__nav {
+        background: transparent;
+        a {
+            color: $primary-text-color;
+            font-weight: 500;
+        }
+        .active {
+            border-color: $white;
+            a {
+                color: $primary-text-color;
+                font-weight: 600;
+            }
+        }
+    }
+
+
+    .coolBar i {
+        color: $primary-text-color;
+        & + span {
+            color: $primary-text-color;
+        }
+    }
+}
+
+#loi-banner {
+    a {
+        color: $primary-text-color;
+    }
+}
+
+.loi {
+    background-color: $loi-bg-color;
+    .w-slide & {
+        background: $white;
+    }
+    &__banner {
+        box-shadow: none;
+        margin-bottom: 40px;
+    }
+    .coverDate {
+        border-right: 0;
+        color: darken($journal-color, 10%);
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 0.86rem;
+    }
+    .loi__issue {
+        font-weight: normal;
+    }
+    .iPageRange {
+        font-size: 1rem;
+    }
+    .tab__content {
+        border-color: $white;
+    }
+    &__issue {
+        margin-bottom: 12px;
+    }
+    &__list a {
+        padding: 20px 10px 12px;
+    }
+}
+.loi-list__wrapper {
+    max-width: 960px;
+}
+
+.loi--res  {
+    .coolBar__wrapper {
+        padding: 2px 15px;
+    }
+    &.loi__banner {
+        top: 91px;
+    }
+}
+
+[class*="loi__btn"][class*="prev"] {
+    left: -11px;
+    .w-slide & {
+        left: -10px;
+        box-shadow: none;
+        background: linear-gradient(to right, rgba($white,1) 0%, rgba($white,1) 50%, rgba($white,0.85) 76%, rgba($white,0.73) 100%);
+    }
+
+}
+[class*="loi__btn"][class*="next"] {
+    right: -11px;
+    .w-slide & {
+        right: -10px;
+        box-shadow: none;
+        background: linear-gradient(to right, rgba($white,1) 0%, rgba($white,1) 50%, rgba($white,0.85) 76%, rgba($white,0.73) 100%);
+    }
+}
+.loi .tab__pane:not(.nested-tab) {
+    padding-top: 25px;
+}
+.loi-slide__ctrl {
+    color: $primary-text-color;
+}
+
+.journal--top {
+    [class^=filled] {
+        margin-top: 10px;
+    }
+}
+
+.twitter__container {
+    max-height: 400px;
+    margin: 15px 0px;
+    overflow-y: hidden;
+    box-shadow: 1px 1px 1px 1px $primary-lighten-bg-color;
+
+    iframe{
+        width: 100%!important;
+    }
+}
+
+.current-issue__card{
+    .featuredCard{
+        min-width: 100%;
+    }
+}
+

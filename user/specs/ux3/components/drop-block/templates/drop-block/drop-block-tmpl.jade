@@ -1,0 +1,10 @@
+
+
+if (controller)
+    | !{controller}
+
+if (body)
+    each item, k in body
+        if (item.attr)
+            div.dropBlock__holder&attributes(item.attr)
+                | !{item.content}

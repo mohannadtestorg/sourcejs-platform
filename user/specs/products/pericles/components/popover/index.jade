@@ -1,0 +1,28 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p popover functionality. you need to use popover classes to achive this functionality
+            p use `popover-toggle` class to the trigger
+            p use `popover-content` class to the popup
+            p use `popover-close` to dismiss the popup once clicked on
+
+    section.source_section
+        h2 Template
+        .source_example
+            mixin trigger()
+                button.popover-toggle.icon-trash-can(title="Delete item")
+
+            mixin content()
+                .popover-content.card.card--light-shadow
+                    p Are you sure you want to delete this item?
+                    .border-top
+                        button.popover-close NO, DON'T DELETE IT
+                        button.btn(type="SUBMIT" name="delete") YES, DELETE IT
+
+            .popover
+                +trigger()
+                +content()
+    | #{''}

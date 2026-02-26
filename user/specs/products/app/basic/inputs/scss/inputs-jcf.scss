@@ -1,0 +1,63 @@
+.jcf-range {
+    .jcf-range-handle{
+        border-radius: 0;
+        background-color: white;
+        width: 12px;
+        height: 20px;
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,.2);
+
+    }
+}
+
+.jcf-select{
+    background: none;
+    &:before,&:after{
+        content: "\e60b";
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        height: 100%;
+        padding: 0 10px;
+        font-family: icomoon!important;
+        font-size: 7px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    &:before {
+        color: transparent;
+    }
+    &:after {
+        color: $secondary-text-color;
+        transition: transform .3s ease;
+    }
+
+    .jcf-select-text{
+        @include themify($themes) {
+            color:themed('color');
+        }
+    }
+
+}
+.jcf-file {
+    .jcf-upload-button{
+        @include themify($themes) {
+            background-color:themed('color');
+        }
+    }
+}
+
+.jcf-scrollable-wrapper {
+    @include media('>=tablet') {
+        height: 100% !important;
+        .jcf-scrollbar-horizontal {
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,228 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+# brand
+    facebook-bg-color:
+      value: "{!FACEBOOK}"
+    twitter-bg-color:
+      value: "{!TWITTER}"
+# BG
+    primary-bg-color:
+      value: "{!BLUE_03}"
+    green-bg-color:
+      value: "{!GREEN_04}"
+    secondary-lighten-bg-color:
+      value: "{!GRAY_01}"
+    tertiary-lighten-bg-color:
+      value: "{!GRAY_01}"
+    default-box-shadow:
+      value: "0 4px 8px rgba(0, 0, 0, 0.08)"
+# text
+    primary-darken-text-color:
+      value: "{!GRAY_05}"
+    secondary-text-color:
+      value: "{!GRAY_06}"
+    secondary-lighten-text-color:
+      value: "{!GRAY_06}"
+# state colors
+    note-text-color:
+      value: "{!BLUE_05}"
+    success-text-color:
+      value: "{!GREEN_01}"
+    warning-text-color:
+      value: "{!ORANGE}"
+    error-text-color:
+      value: "{!RED}"
+# headings
+    headings-default-color:
+      value: "{!BLUE_03}"
+    headings-emphasis-color:
+      value: "{!PURPLE}"
+# separators
+    separators-color:
+      value: "{!GRAY_05}"
+    separators-style:
+      value: "solid"
+    separators-width:
+      value: "1px"
+    list-separators-color:
+      value: "{!BLUE_03}"
+# border, inputs, buttons
+    primary-border-color:
+      value: "{!GRAY_05}"
+    input-border:
+      value: "{!GRAY_05}"
+    borders:
+      value: "{!GRAY_05}"
+      comment: "deprecated - repleaced by input-border"
+    button-bg:
+      value: "{!GREEN_04}"
+      comment: "deprecated - repleaced by primary-btn-bg"
+    primary-btn-bg:
+      value: "{!GREEN_04}"
+    primary-btn-color:
+      value: "{!WHITE}"
+    inverse-btn-bg:
+      value: "{!WHITE}"
+    inverse-btn-color:
+      value: "{!GRAY_07}"
+    input-range-slider-thumb-color:
+      value: "{!GREEN_04}"
+    input-range-slider-track-color:
+      value: "$separators-color"
+    input-range-slider-progress-color:
+      value: "{!GREEN_04}"
+# badges
+    badge-type-bg-color:
+      value: "{!BLUE_05}"
+# links
+    default-link-color:
+      value: "inherit"
+    default-link-hover-color:
+      value: "inherit"
+    primary-link-color:
+      value: "{!BLUE_03}"
+    primary-link-hover-color:
+      value: "{!BLACK}"
+    secondary-link-color:
+      value: "{!GREEN_01}"
+    secondary-link-hover-color:
+      value: "{!BLACK}"
+# tables
+    table-bg-color:
+      value: "{!GRAY_01}"
+      comment: "default = transparent"
+    table-border-color:
+      value: "$separators-color"
+    table-bg-color-accent:
+      value: "{!GRAY_04}"
+      comment: "Background color used for table-striped"
+    table-head-color:
+      value: "$primary-text-color"
+    table-head-bg-color:
+      value: "$table-bg-color-accent"
+    table-cell-padding:
+      value: "14px"
+# color naming
+    light-gray-color:
+      value: "{!GRAY_01}"
+# icons
+    primary-icons-color:
+      value: "{!BLUE_03}"
+# components
+    meta-wrapper-bg:
+      value: "{!WHITE}"
+    tertiary-bg-color:
+      value: "{!BLUE_03}"
+
+    journal-meta-title-color:
+      value: "{!GRAY_08}"
+
+    dropzone-bg-hover-color:
+      value: "{!GRAY_01}"
+## tabs
+    tab-nav-color:
+      value: "$secondary-text-color"
+    tab-nav-bg:
+      value: "transparent"
+    tab-nav-active-bg:
+      value: "transparent"
+    tab-nav-active-color:
+      value: "$secondary-link-color"
+    tab-nav-active-border-color:
+      value: "$tab-nav-active-color"
+    tab-nav-icons-color:
+      value: "$primary-icons-color"
+    tab-nav-active-icons-color:
+      value: "$secondary-link-color"
+## tabs variant
+### primary button like
+    tab-primary-nav-active-color:
+      value: "$primary-btn-color"
+    tab-primary-nav-active-bg:
+      value: "$primary-btn-bg"
+### primary link like
+    tab-secondary-nav-color:
+      value: "$primary-link-color"
+    tab-secondary-nav-active-color:
+      value: "$secondary-link-color"
+## cards
+    card-dark-color:
+      value: "{!WHITE}"
+    card-dark-text-decoration-color:
+      value: "$card-dark-color"
+## loi
+    loi-bg-color:
+      value: "{!WHITE}"
+    dropblock-loi-bg-color:
+      value: "{!GRAY_01}"
+      comment: "LOI BG in dropblock"
+    loi-banner-bg-color:
+      value: "$primary-bg-color"
+## coolbar
+    coolbar-color:
+      value: "$primary-link-color"
+      commnent: "@FIXME: use make-link mixin"
+    coolbar-res-color:
+      value: "{!WHITE}"
+      comment: "Coolbar text color on mobile @FIXME: use make-link mixin"
+    coolbar-res-icons-color:
+      value: "$coolbar-res-color"
+      comment: "Coolbar icons color on mobile @FIXME: use make-link mixin"
+## slide mobile
+    slide-bg-color:
+      value: "$primary-bg-color"
+      comment: "deprecated -> renamed to $slide-head-bg"
+    slide-head-color:
+      value: "$text-onDark"
+    slide-head-bg:
+      value: "$primary-bg-color"
+    slide-separators-color:
+      value: "{!GRAY_04}"
+    slide-separators-style:
+      value: "$separators-style"
+    slide-separators-width:
+      value: "$separators-width"
+    slide-separators:
+      value: "$slide-separators-width $slide-separators-style $slide-separators-color"
+## creative
+    creative-title-color:
+      value: "inherit"
+    creative-loa-color:
+      value: "$primary-text-color"
+    creative-color:
+      value: "{!GRAY_06}"
+## slideshow
+    slider-nav-bg-color:
+      value: "transparent"
+    slider-nav-hover-bg-color:
+      value: "$slider-nav-bg-color"
+    slider-nav-color:
+      value: "{!WHITE}"
+    slide-item-caption-color:
+      value: "$slider-nav-color"
+    slide-item-caption-bg:
+      value: "rgba(0, 0, 0, 0.8)"
+## pagination
+### pager variant
+    pager-bg:
+      value: "{!GRAY_01}"

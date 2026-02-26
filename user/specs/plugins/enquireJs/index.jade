@@ -1,0 +1,83 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 enquire.js
+
+    section.source_section
+        h2 What is it?
+        p enquire.js is a lightweight, pure JavaScript library for responding to CSS media queries.
+
+    section.source_section
+        h2 Why should I use it?
+        p In responsive design, CSS media queries can only take you so far. enquire.js allows you to harness media queries in JavaScript, giving you the tools to create advanced responsive sites.
+
+        h3 Dependencies?
+        p None! Not even jQuery.
+    section.source_section
+        h2 how to use
+        p The main method you will be dealing with is register. Its signature is as follows:
+            code.src-js.source_visible.source_example
+                | enquire.register("screen and (max-width:45em)", {
+                |     //
+                |     // OPTIONAL
+                |     // If supplied, triggered when a media query matches.
+                |     match : function() {},
+                |     //
+                |     // OPTIONAL
+                |     // If supplied, triggered when the media query transitions
+                |     // *from a matched state to an unmatched state*.
+                |     unmatch : function() {},
+                |     //
+                |     // OPTIONAL
+                |     // If supplied, triggered once, when the handler is registered.
+                |     setup : function() {},
+                |     //
+                |     // OPTIONAL, defaults to false
+                |     // If set to true, defers execution of the setup function
+                |     // until the first time the media query is matched
+                |     deferSetup : true,
+                |     //
+                |     // OPTIONAL
+                |     // If supplied, triggered when handler is unregistered.
+                |     // Place cleanup code here
+                |     destroy : function() {}
+                | });
+
+        h3 Match
+        p Let's say that we want the sidebar displayed at 45em. A simple solution would be as follows:
+            code.src-js.source_visible.source_example
+                | enquire.register("screen and (min-width:45em)", function() {
+                |     // Load sidebar content in via AJAX.
+                |     // Show sidebar
+                | });
+            | By supplying a function to register, you will be able to respond to a media query being matched. Therefore, when the query is matched we will load in content and insert it into the DOM to be displayed. Problem solved? Almost, but not quite!
+        h3 Unmatch
+        p We also need to handle the case where the query goes from a matched state to an unmatched state. For this we can supply an object to register, instead of a function. This gives us a lot more power and allows us to handle unmatching:
+        code.src-js.source_visible.source_example
+            | enquire.register("screen and (min-width: 40em)", {
+            |     match : function() {
+            |         // Load sidebar content in via AJAX.
+            |         // Show sidebar
+            |     },
+            |     unmatch : function() {
+            |         // Hide the sidebar
+            |     }
+            | });
+        h3 Setup
+        p There's a problem with the above solution. What happens if the query gets matched a second time? We needlessly make a second AJAX request. We could put a check in our match callback to see if the content has already been loaded, but that sucks because match no longer has a single responsibility. This is where setup comes in.
+        code.src-js.source_visible.source_example
+            | enquire.register("screen and (min-width: 45em)", {
+            |     setup : function() {
+            |         // Load in content via AJAX (just the once)
+            |     },
+            |     match : function() {
+            |         // Show sidebar
+            |     },
+            |     unmatch : function() {
+            |         // Hide sidebar
+            |     }
+            | });
+        p Setup is run once, as soon as a handler is registered. So now all our one-time code is in a setup callback, meaning no needless AJAX requests. This gives a neat separation of concerns, freeing the match callback from handling any upfront work.
+
+        p More details can be found
+            a.source_a_hl(href='http://wicky.nillia.ms/enquire.js/') here

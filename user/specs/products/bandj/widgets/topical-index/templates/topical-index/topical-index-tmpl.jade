@@ -1,0 +1,14 @@
+ul
+    each item, i in data.search.facet
+        li
+            a(href="#{item.tag.link}") #{item.tag.label} (#{item.count})
+            if item.children
+                ul
+                    each child, l in item.children
+                        li
+                            a(href="#{child.tag.link}") #{child.tag.label} (#{child.count})
+            if item.tags
+                ul
+                    each child, k in item.tags
+                        li
+                            a(href="#{child.link}") #{child.label}

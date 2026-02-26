@@ -1,0 +1,16 @@
+﻿extends /specs/products/achs/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Publications Widget
+        h3 Publications Widget (Modal)
+        .source_example
+            a.pubModal_button(href="#") Publications
+            | !{pb.render("publications", "publications.json")}
+        h3 Publications Widget (list alternative template)
+        .source_example
+            | !{data.pubList}
+
+    | #{''}
+
+

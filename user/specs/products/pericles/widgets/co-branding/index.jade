@@ -1,0 +1,26 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Example
+
+            h3 Co-Branding
+            .source_example
+                div.container
+                    | !{pb.render("co-branding", "data.json", "pericles")}
+
+            h3 Co-Branding - errors
+            .source_example
+                div.container
+                    | !{pb.render("co-branding", "data-errors.json", "pericles")}
+
+            h3 Co-Branding - success
+            .source_example
+                div.container
+                    | !{pb.render("co-branding", "data-success.json", "pericles")}
+
+        | #{''}
+
+    | #{''}

@@ -1,0 +1,62 @@
+#accessTokenForm {
+    margin-top: 34px;
+
+    .submit {
+        float: none;
+        padding: 14px;
+        padding-top:15px;
+        min-width: 109px;
+        margin-left: 13px;
+
+        &[disabled='disabled'] {
+            background: $disabled-blue;
+            opacity: 1;
+            font-weight: 600;
+            &:hover {
+                background-color: $wiley-gray-color;
+            }
+        }
+    }
+
+    @include media('<tablet') {
+        .submit {
+            margin-left: 0;
+            &.subscriptionAccess {
+                width: 15%;
+            }
+
+        }
+        &.subscriptionAccess {
+            .form-btn {
+                .small-txt {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    @include media('>=tablet') {
+        &:not(.subscriptionAccess) .input-group {
+            max-width: calc(100% - 130px);
+            display: inline-block;
+            width: 100%;
+        }
+        .form-btn {
+            .small-txt {
+                float: left;
+            }
+        }
+    }
+    &:not(.subscriptionAccess) {
+        @include media('<tablet') {
+            .submit {
+                width: 100%;
+            }
+        }
+    }
+}
+.subscription-access-tab{
+    > .section__header{
+    margin-bottom: 13px;
+ }
+}

@@ -1,0 +1,62 @@
+.o-two-text-columns {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    position: relative;
+    column-gap: map-get($inner-gutters, medium);
+    column-count: 2;
+  }
+
+  @include breakpoint('large+') {
+    column-gap: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    column-gap: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    column-gap: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-two-text-columns::before {
+  @include breakpoint('medium+') {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: -1px;
+    bottom: 0;
+    width: 1px;
+    background-color: $color__rules;
+  }
+}
+
+.o-two-text-columns > * {
+  display: inline-block;
+  width: 100%;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  break-after: avoid;
+}
+
+
+.a-subtitle + .o-two-text-columns {
+  margin-top: 0;
+}
+
+.a-subtitle + .o-two-text-columns::after {
+  @include breakpoint('medium+') {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: -1px;
+    width: map-get($inner-gutters, medium);
+    height: 1px;
+    background-color: $color__white;
+    transform: translateX(-50%);
+  }
+}

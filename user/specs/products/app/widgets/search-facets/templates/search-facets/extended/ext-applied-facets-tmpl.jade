@@ -1,0 +1,11 @@
+extends ../../../../../components/applied-facets/templates/applied-facets/applied-facets-tmpl.jade
+
+block appliedFacetMain
+    if (data) && (data.appliedFacets)
+        div.facet.accordion
+            a(href="#" title="Alphanumeric Filter" aria-controls="appliedFacet" class="facet__ctrl accordion__control js--open")
+                +title
+                i(aria-hidden="true" class="icon-section_arrow_d")
+            div.facet__content.accordion__content.js--open(id="appliedFacet")
+                +body
+

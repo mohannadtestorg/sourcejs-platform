@@ -1,0 +1,9 @@
+- var dropblockID = "loi__dropBlock";
+- var dropblockTitle = "Issues";
+
+div.loi__banner
+    #loi-banner.hidden-sm.hidden-xs.pull-left(data-db-parent-of= dropblockID+"__content")
+        a.loi__archive.w-slide__btn(class=dropblockID id=dropblockID href="#" title="Issues" data-db-target-for=dropblockID+"__content" data-slide-target= '#'+dropblockID+'__content' data-slide-clone='self')
+            | #{dropblockTitle}
+        div.dropBlock__holder.dropBlock-loi__holder(data-db-target-of=dropblockID+"__content" id=dropblockID+"__content")
+            | !{pb.renderDropzone(thisWidget, dropblockID+"DropZone")}

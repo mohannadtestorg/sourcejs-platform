@@ -1,0 +1,23 @@
+.eCommerceCheckoutBillingWidget
+    div
+        a.expand-purchase-options(data-bind='expand', data-doi='/doi/full/', href='#')
+            | Title
+        .add-journal-to-cart-container
+            h1.widget-header.header-none.header-compact-all
+                | Header
+                span Lorem psum
+            .optionsContainer
+                .purchaseAreaList_expanded(id='#purchasePanel', style='display: block;')
+                    .purchase-options-container
+                        .purchaseMessage.hidden(data-item='HNOFAL_CODE-HNOFAL_P_CODE-ELECTRONIC-USD-10.1061/(ASCE)EY.1943-7897.0000277-40')
+                            p.errorMsgBox
+                        .add-journal-to-cart(data-entity='HNOFAL_CODE-HNOFAL_P_CODE-ELECTRONIC-USD-10.1061/(ASCE)EY.1943-7897.0000277-40')
+                            header
+                                a.add-article-to-cart(data-bind='addItem', data-key='HNOFAL_CODE-HNOFAL_P_CODE-ELECTRONIC-USD-10.1061/(ASCE)EY.1943-7897.0000277-40', href='/action/addToCart?id=HNOFAL_CODE-HNOFAL_P_CODE-ELECTRONIC-USD-10.1061/(ASCE)EY.1943-7897.0000277-40')
+                                    span.add-article-to-cart__title.title
+                                        | hnofal_title, hnofal_p_desc
+                                    span.add-article-to-cart__price.price $20.00
+                        .savedItem-info.hidden
+                            p
+                        a.save-for-later-link(data-bind='saveItem', data-doi='10.1061/(ASCE)EY.1943-7897.0000277', href='/action/saveItem?doi=10.1061/(ASCE)EY.1943-7897.0000277')
+                            | Save for later

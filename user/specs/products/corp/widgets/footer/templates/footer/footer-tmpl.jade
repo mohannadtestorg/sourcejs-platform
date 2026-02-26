@@ -1,0 +1,16 @@
+﻿footer.section
+    include ../svg/atypon_logo.svg
+    .container
+        | !{pb.render("site-branding","branding/footer-branding",{data:{type:'primary'}},"corp")}
+        .row
+            .col-xs-12.col-sm-12.col-md-12
+                | !{pb.render("site-navigation","navigation/footer-navigation", {}, "corp")}
+            .col-xs-12.col-sm-12.col-md-8
+                span.cc &copy; 2017 Atypon Systems, LLC
+                span.slash.hidden-xs /
+                a(href="mailto:info@atypon.com").link info@atypon.com
+                span.slash /
+                a(href="#").link Privacy Policy
+
+            .col-xs-12.col-sm-12.col-md-4
+                | !{pb.render("social-links", {}, "corp")}

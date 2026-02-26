@@ -1,0 +1,39 @@
+.article {
+    &__breadcrumbs {
+        a + a:before {
+            display: inline-block;
+            content: ', ';
+            position: relative;
+            left: 0;
+            margin-right: 5px;
+        }
+        .separator:after {
+            content: ' | ';
+            padding: 0px 5px;
+            vertical-align: middle;
+        }
+        .article__tocHeading {
+            vertical-align: middle;
+            margin-bottom: 0;
+        }
+        .article__title {
+            white-space: nowrap;
+            width: 16em;
+            overflow: hidden;
+            vertical-align: middle;
+            text-overflow: ellipsis;
+            display: inline-block;
+        }
+        /*should be removed after resolving this LIT-188621*/
+        .article__title {
+            display: none;
+        }
+    }
+}
+@include media('<tablet') {
+    .article{
+        &__tocHeading {
+             margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,149 @@
+.multi-search{
+
+  &__no-result{
+    padding: 20px;
+    text-align: center;
+  }
+  &-dropzone {
+    text-align: right;
+    margin-bottom: 15px;
+
+    &__links {
+      a.icon-filter_list {
+        display: none;
+        font-size: $h3-font-size;
+        color: $primary-link-color;
+        cursor: pointer;
+
+        @include media('<tablet') {
+          display: inline-block;
+          margin: -10px;
+          padding: 10px;
+        }
+      }
+
+      &-list {
+        i {
+          @include media('<tablet') {
+            display: none;
+          }
+        }
+      }
+
+      ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+
+        @include media('<tablet') {
+          display: none;
+        }
+      }
+
+      li {
+        display: inline-block;
+        margin: 0px;
+        padding: 0px;
+
+        &:after {
+          content: "|";
+          padding: 0px 10px;
+        }
+
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+      a {
+        color: $primary-link-color;
+        font-size: $default-font-size;
+
+        i {
+          font-size: $small-font-size;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+
+  &__dropblock {
+    font-size: $default-font-size;
+    a {
+      cursor: pointer;
+      color: $primary-link-color;
+
+      &.w-slide__btn {
+        span {
+          display: none;
+        }
+      }
+
+    }
+    span {
+      padding-right: 15px;
+
+      @include media('<tablet') {
+        display: none;
+      }
+    }
+    i.icon-section_arrow_d {
+      font-size: 0.5rem;
+      color: $secondary-lighten-text-color;
+      padding: 0px;
+
+      @include media('<tablet') {
+        display: none;
+      }
+    }
+
+    a.icon-filter_list {
+      font-size: $h3-font-size;
+      color: $primary-link-color;
+      padding: 0px;
+      display: none;
+
+      @include media('<tablet') {
+        display: inline-block;
+        padding: 10px;
+        margin: -10px;
+      }
+    }
+
+    .dropBlock__holder {
+      right: 0px;
+      padding: 15px;
+      max-height: 350px;
+      overflow: auto;
+    }
+
+    ul {
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+    }
+
+    li {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      i {
+        color: $primary-link-color;
+        font-size: $default-font-size;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+
+  .facet__list--applied.rlist--inline {
+    text-align: right;
+  }
+  &-list {
+    span {
+      padding: 0px 0px 0px 15px;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+.sign-up-alerts-container {
+    background-color: $light-orange;
+    color: $primary-white;
+    .sign-up-alerts {
+        background: url(../images/sign-up.png);
+        text-align: center;
+        padding: 15px 0px;
+        background-repeat: no-repeat;
+    }
+    span {
+        font-size: 38px;
+        vertical-align: middle;
+        font-style: italic;
+        padding-right: 10%;
+    }
+    .sign-up-btn {
+        color: $light-orange;
+        text-transform: uppercase;
+        padding: 14px 48px;
+        font-size: 18px;
+        font-weight: 700;
+        background: $primary-white;
+        vertical-align: middle;
+    }
+    &.dark {
+        background-color: $primary-text-color;
+        span {
+            color: $publication;
+        }
+        .sign-up-btn {
+            background-color: #5cb8b2;
+            color: $primary-white;
+
+        }
+    }
+}
+@include media('<tablet') {
+    .sign-up-alerts-container{
+        padding: 10px 15px;
+        background-image:  url(../images/sign-up-mobile.png.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        .sign-up-btn{
+            float: left;
+            margin: 10px 0px;
+        }
+        span{
+            display: block;
+            text-align: left;
+            font-size: 28px;
+        }
+        .sign-up-alerts{
+            background: none;
+        }
+    }
+}

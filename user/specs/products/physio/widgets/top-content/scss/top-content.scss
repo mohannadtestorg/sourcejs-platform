@@ -1,0 +1,91 @@
+.top-list {
+    &__container {
+        display: table;
+        clear: both;
+        content: "";
+        padding-bottom: 40px;
+        width: 100%;
+        &.without__cover__image {
+            .top-list__cover {
+                display: none;
+            }
+            .meta-container {
+                width: 100%;
+            }
+        }
+    }
+    &__cover {
+        display: inline-block;
+        max-width: 83px;
+        width: 100%;
+        padding-right: 20px;
+        box-sizing: content-box;
+        vertical-align: top;
+        text-align: center;
+    }
+    &__title {
+        font-size: 20px;
+        padding-top: 5px;
+        line-height:24px;
+    }
+    &__date {
+        color: #747678;
+        font-size: 12px;
+        i {
+            padding-right: 5px;
+            font-size: 11px;
+            vertical-align: middle;
+        }
+    }
+    &__footer {
+        .more-link {
+            text-align: right;
+            float: none;
+            display: block;
+        }
+    }
+    &__journal-name {
+        display: none;
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}
+
+.top-list__container {
+    .meta-container {
+        display: inline-block;
+        width: 80%;
+    }
+}
+
+.sidebar-top-content {
+    .top-list {
+        &__container {
+            padding-bottom: 0;
+            .meta-container {
+                border-bottom: 1px solid $primary-border;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+            }
+        }
+
+    }
+}
+
+@include media('<tablet') {
+    .top-list {
+        &__container {
+            .meta-container {
+                display: inline-block;
+                width: 75%;
+            }
+        }
+        &__cover {
+            max-width: 42px;
+        }
+        &__title {
+            font-size: 18px;
+        }
+    }
+}

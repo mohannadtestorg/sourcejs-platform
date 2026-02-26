@@ -1,0 +1,43 @@
+.cover-with-details {
+    .cover-image__image {}
+    a.volume {}
+    .parent-item {
+        .comma {
+        }
+    }
+    .cover-image__hover {}
+}
+
+@include media('<desktop') {
+    .cover-with-details {
+        a {
+            &.volume {
+            }
+        }
+        .parent-item {
+            .coverDate {
+            }
+        }
+    }
+}
+
+.cover-image {
+    .parent-item {
+        color: $aha_green;
+        line-height: normal;
+        font-size: 18px;
+    }
+}
+
+@include media('>desktop') {
+    .cover-with-details {
+        .parent-item {
+        }
+    }
+}
+
+[class^='card'] {
+    .cover-image img {
+        max-width: 175px;
+    }
+}

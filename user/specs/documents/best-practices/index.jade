@@ -1,0 +1,373 @@
+﻿.source_info
+    p Instructions for developers creating UX3 Styleguide components.
+
+section.source_section
+    h2 General
+
+    h3 Code Consistency
+    p Usage of the same patterns is important between team members so as to never cause confusion.
+    p It's worth establishing conventions at the project start or enabling automatic settings in the build or editor environments that might enforce particular rules.
+
+    h3 Indentation
+    p Please consistently indent, nest, include braces, quotes, and new lines so that code is clear and can be read easily. New code that is added should never deviate from existing formatting conventions or change the indent levels.
+    p For all code languages, we recommend the use soft tabs comprised of four spaces per tab. Hitting the Tab key in your text editor should generate four space characters rather than one tab character. This results in our code appearing identical across platforms.
+
+    h3 Readability
+    p Use whitespace, comments, and descriptive variable names as appropriate for writing easy-to-read code.
+    p There is no need to write code in an obfuscated or compressed way for the purpose of file-size savings. We will use automated server-side or other build processes to optimize files.
+    p The ability for another developer to read the code is paramount above other concerns, especially if optimization can be handled another way.
+
+    h3 Third-Party Libraries
+    p Un-minified libraries and third-party scripts should be leveraged in local development environments for easier debugging if available. The code should be committed to source control in an unmodified state, or simply referenced in dependency management components that resolve the files in a build. The final products will be compressed with the rest of the source for delivery.
+    p Likewise, third-party code and libraries should never be modified and their original source and the license must be documented and be appropriate for a project. Any changes to third party code must be agreed upon and must be for specific reasons. If changes are mandated by bug fixes then the appropriate upstream project should have the changes submitted (assuming the code is part of an open source repository).
+    p Library code should be treated as an external dependency and should be considered something that may need to be wholesale updated or replaced at a later time.
+    p Inclusion of any third-party code should be carefully considered and verified with the project team as the appropriate solution to a given problem. &quot;Adding another plug-in&quot; is not always the best solution. Finally, selection of third party libraries should be done carefully and not be out of alignment with the nature of the problem being addressed.
+
+section.source_section
+    h2 HTML
+
+    h3 Keep the Syntax Organized
+    ul
+        li Use lowercase letters within element names, attributes, and values
+        li Indent nested elements
+        li Strictly use double quotes, not single or completely omitted quotes
+        li Remove the forward slash at the end of self-closing elements
+        li Omit the values on Boolean attributes
+        li Don't put white spaces around tags and attribute values
+        li Don't separate attributes with two or more white spaces
+
+    h3 Semantic Markup
+    p HTML5 provides a number of semantic constructs that allow automated tools like search engines and screen readers to make sense of the document and to understand relationships between pieces of content.
+    p Make use of HTML5 elements such as <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;section&gt;</code> where appropriate. However, in cases where the HTML needs to be as backwards-compatible as possible, do not apply IDs or classes to them, since older browsers do not understand these elements by default and will not apply styling to them.
+
+    h3 HTML Standards
+    p All markup will be written using the latest HTML5 markup specifications from the W3C.
+    p Use a common HTML5 polyfill or HTML5 Shiv to enable styling and recognition of HTML5 elements in older browsers.
+
+    h3 Doctype
+    p Always include a proper doctype to trigger standards mode. Omitting the doctype triggers quirks mode and should be avoided.
+    code.src-js.source_visible &lt;!doctype html&gt;
+
+    h3 Character Encoding
+    p All markup should be delivered as UTF-8, since it has the best support for internationalization. The character encoding should be designated in the head of the document via a meta tag.
+    p As a best practice, we always put the meta tag as early in the <code>&lt;head&gt;</code> tag as possible.
+    code.src-js.source_visible &lt;meta charset=&quot;UTF-8&quot;&gt;
+
+    h3 Optional Tags
+    p While current standards designate certain closing elements and even document level elements as optional, use all open and closing elements nested in the correct ways to ensure maximum compatibility and clarity of document structure.
+
+    h3 Indentation
+    p Indent nested elements and tags with 4 spaces for each level in the hierarchy of the document.
+
+    h3 Attribute Values
+    p Use quotes to surround all attribute values in HTML, despite quotes being optional in HTML5. This maintains consistency between attribute values that contain whitespace and those that don&apos;t.
+
+    h3 IDs vs. Classes
+    p HTML elements can be identified by using the ID and class attributes. An ID is a unique identifier for that particular element; no other element on the page should use the same ID.
+    p Classes are not unique. The same class can be used on multiple elements within a page, and a single element can have more than one class, in a space delimited list.
+    p When coming up with names for an ID or class, we use semantic names like &quot;secondary-nav&quot; or &quot;primary-button&quot; that describe what the element is, rather than names like &quot;left-nav&quot; or &quot;blue-button&quot; that describe what the element looks like, which can change over time. We also use lowercase names with hyphens separating words.
+    p If you need to attach some JavaScript functionality to your component, you should add a <code>js</code> class.
+
+    h3 Paragraphs
+    p Avoid using <code>&lt;br&gt;</code> tags to separate paragraphs or lines of text. Use <code>&lt;p&gt;</code> instead with proper opening and closing elements.
+
+    h3 Tables
+    p Tables should not be used for page layout; only use them when you need to display tabular data. Tables provide an important semantic association (used mostly by screen readers for the sight-impaired) between row/column headers and their data, so use <code>&lt;table&gt;</code> rather than other elements when displaying multiple records of data.
+    p The <code>&lt;caption&gt;</code> element is the recommended way to describe a table for both sighted and sight-impaired users, though this can also be done less semantically in the normal page text around the table. Use the <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements to denote which row contains column headers so when a user prints the website and the table runs onto another page, browsers can display the <code>&lt;thead&gt;</code> on each page for easier readability. Remember to use the <code>scope</code> attribute on the <code>&lt;th&gt;</code> element to indicate whether the header applies to the row or column.
+
+    h3 Forms
+    p For both semantic and functional reasons, we make full use of the <code>&lt;form&gt;</code> tag for all sections requiring user input. All form action attributes should point to URLs with user-readable content, so they will still work if the form is submitted by the user before JavaScript has loaded on a page, or if JavaScript is broken, disabled, or not supported. This will require that the back-end be able to return a full HTML page for form submission (e.g. registering a new user, editing the quantity in a shopping cart).
+    p Do not nest the HTML form element tag.
+
+    h3 Input Labels
+    p All input fields should be associated with a <code>&lt;label&gt;</code> element. The <code>for</code> attribute of the <code>&lt;label&gt;</code> element should contain the ID of the corresponding input field. Alternatively you can wrap the input field inside <code>&lt;label&gt;</code> element. This means the input field will receive focus when a user clicks the label and also enables screen readers for sight-impaired users to read out an appropriate description of the input field.
+    p Don&apos;t use <code>placeholder</code> attribute instead of labels.
+
+    h3 Use the Alternative Text Attribute on Images
+    p Images should always include the <code>alt</code> attribute. Screen readers and other accessibility software rely on the <code>alt</code> attribute to provide context for images.
+    p The <code>alt</code> attribute value should be very descriptive of what the image contains. If the image doesn&apos;t contain anything of relevance, the <code>alt</code> attribute should still be included; however, the value should be left blank so that screen readers will ignore it rather than read the name of the image file.
+
+    h3 Entity References
+    p Do not use entity references.
+    p There is no need to use entity references like <code>&amp;mdash;</code>, <code>&amp;rdquo;</code>, or <code>&amp;#x263a;</code>, assuming the same encoding (UTF-8) is used for files and editors as well as among teams.
+    p The only exceptions apply to characters with special meaning in HTML (like <code>&lt;</code> and <code>&amp;</code>) as well as control or “invisible” characters (like no-break spaces).
+
+    h3 Type Attributes
+    p Omit type attributes for style sheets and scripts. Do not use type attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).
+    p Specifying type attributes in these contexts is not necessary as HTML5 implies text/css and text/javascript as defaults. This can be safely done even for older browsers.
+
+    h3 Don't use @import
+    p Compared to <code>&lt;link&gt;</code>, @import is slower, adds extra page requests, and can cause other unforeseen problems. Avoid them and instead opt for an alternate approach.
+
+    h3 Separation of concerns
+    p Maintain a clear separation of concerns, avoid in-line styles and in-line JavaScript.
+
+    h3 ARIA use in HTML
+    p Add accessibility information to HTML elements using the #[a(href="https://w3c.github.io/aria-in-html/") Accessible Rich Internet Applications specification], which defines a way to make Web content and Web applications more accessible to people with disabilities.
+
+section.source_section
+    h2 CSS
+
+    // h3 Use CSS Reset
+    // p Browser inconsistencies are one of the biggest problems of front-end development nowadays. Styles like margins, paddings, line heights, headings, font sizes and so on may look different on different browsers. The goal of a reset style sheet is to reduce browser inconsistencies by providing general styles that can be edited and extended.
+
+    h3 Normalize CSS
+    p #[a(href="https://github.com/necolas/normalize.css/") Normalize.css] makes browsers render all elements more consistently and in line with modern standards. It precisely targets only the styles that need normalizing.
+    p Use Normalize.css as a starting point and customize the values to match the design’s requirements.
+
+    h3 Stylesheet Structure
+    p Declare your most generic items first, then the not-so-generic ones and so on. This lets your CSS properly inherit attributes and makes it much easier to override a specific style when you need to.
+
+    h3 Group IDs and Classes That Fall under the Same Element
+    p If you have an element that contains different IDs and classes, group them to make them look organized and easy to find so looking for errors would not take time.
+
+    h3 Organize Code with Comments
+    p Put a comment on each group of CSS. This will make it easy for you to look for specific groups of CSS once you got in to some CSS errors.
+
+    h3 Structure Naming Convention
+    p Use proper naming conventions on IDs and classes. Always name your elements properly based on their use not on their properties such as what color or font size the element have.
+
+    h3 Mixing Tag Names with ID or Class Names
+    p Adding tag name to an ID or Class Name is not a good practice since it would slow down the matching process unnecessarily.
+
+    h3 Use Shorthand Properties &amp; Values
+    p Most properties and values have acceptable shorthand alternatives. Use shorthand properties and avoid using multiple properties when it&apos;s not needed.
+
+    h3 Avoid Using Inline Styles
+    p Don&apos;t use <code>style</code> attribute in the HTML tags for styling. You should always use an external stylesheet.
+
+    h3 Specificity
+    p Don&apos;t make values and selectors hard to override. Minimize the use of IDs and avoid <code>!important</code>. Keep the specificity of our selectors as low as possible and nest them max. three levels deep.
+
+    h3 Units
+    p Use unitless values when you can. Favor <code>rem</code> if you use relative units.
+    p Drop units from zero values. Adding the unit is unnecessary and provides no additional value.
+
+    h3 Colors
+    p If you need transparency, use <code>rgba</code>. Otherwise, always use the hexadecimal format.
+    p When available, use the three-character shorthand hexadecimal color value, and always use lowercase characters within any hexadecimal color value.
+
+    h3 Indentation
+    p Indent nested selectors and rules with 4 spaces for each level in the hierarchy.
+
+    h3 Write CSS Using Multiple Lines &amp; Spaces
+    p It is important to place each selector and declaration on a new line. Then, within each selector we&apos;ll want to indent our declarations.
+    p After a selector and before the first declaration comes the opening curly bracket <code>{</code>, which should have a space before it. Within a declaration, we need to put a space after the colon <code>:</code>, that follows a property and end each declaration with a semicolon <code>;</code>.
+
+    h3 Use Single Quotation Marks for Attribute Selectors and Property Values
+    p Use single <code>''</code> rather than double <code>""</code> quotation marks for attribute selectors or property values. Do not use quotation marks in URI values <code>url()</code>.
+    p Exception: If you do need to use the <code>@charset</code> rule, use double quotation marks, as single quotation marks are not permitted.
+
+    h3 Hacks
+    p Don't use CSS hacks.
+
+    h3 BEM – Block Element Modifier
+    p #[a(href="http://getbem.com/") BEM] is a naming convention to make front-end code easier to read and understand, easier to work with, easier to scale, more robust and explicit and a lot more strict.
+    p We are using BEM convention for our components' class names (eg. <code>.citation</code>, <code>.citation--journal-article</code>, <code>.citation__title</code>).
+
+section.source_section
+    h2 JavaScript
+
+    h3 Best Practices
+    ul
+        li Avoid user-agent sniffing and rely on feature detection instead. Browser detection is dangerous and error-prone.
+        li Avoid using <code>document.write</code>.
+        li Only run scripts on a page that are needed for that page.
+        li Don&apos;t repeat yourself (i.e. keep your code DRY)
+        li Do not modify JavaScript core objects <code>.prototype</code> unless you really know what you&apos;re doing.
+
+    h3 Inclusion of Code
+    p Use external JavaScript files. Do NOT include JavaScript in-line in the page unless there is a good reason.
+    p Use the <code>&lt;script&gt;</code> tag to include your JavaScript files at the bottom of your HTML document just before the closing <code>&lt;/body&gt;</code> tag. For optimal page performance, concatenate your JavaScript into as few files as possible.
+
+    h3 Whitespace
+    p Use blank lines to set off sections of code that are logically related.
+    p Blank spaces should always be used in the following circumstances:
+    ul
+        li A keyword followed by <code>(</code> left parenthesis should be separated by a space. Spaces are used to make things that are not invocations look less like invocations, so for example, there should be space after <code>if</code> or <code>while</code>.
+        li A blank space should not be used between a function value and its invoking <code>(</code> left parenthesis.
+        li The word <code>function</code> is always followed with one space.
+        li Every <code>,</code> comma should be followed by a space or a line break.
+        li Each <code>;</code> semicolon at the end of a statement should be followed with a line break.
+        li Each <code>;</code> semicolon in the control part of a <code>for</code> statement should be followed with a space.
+    p Every statement should begin aligned with the current indentation. The outermost level is at the left margin. The indentation increases by 4 spaces when the last token on the previous line is <code>{</code> left brace, <code>[</code> left bracket, <code>(</code> left parenthesis. The matching closing token will be the first token on a line, restoring the previous indentation.
+
+    h3 Comments
+    p Be generous with comments. It is useful to leave information that will be read at a later time by people who will need to understand what you have done and why. The comments should be well-written and clear, just like the code they are annotating.
+    p It is important that comments be kept up-to-date. Erroneous comments can make programs even harder to read and understand.
+    p Make comments meaningful. Focus on what is not immediately visible.
+
+    h3 Avoid Global Variables
+    p Use of global variables should be minimized/avoided. Use local variables and closures.
+
+    h3 Always Declare Local Variables
+    p All variables should be declared before used. Put all declarations at the top of each script or function.
+
+    h3 Initialize Variables
+    p It is a good coding practice to initialize variables when you declare them.
+    p This will give cleaner code, provide a single place to initialize variables and avoid undefined values.
+
+    h3 Variable Names
+    p Always use meaningful variable names that can be read as words, not as silly abbreviations only you understand.
+    p Names should be formed from the 26 upper and lower case letters (A-Z, a-z), the 10 digits (0-9), and <code>_</code> underscore. Avoid use of international characters because they may not read well or be understood everywhere.
+    ul
+        li Variable names should be <strong>camelCase</strong>.
+        li Objects, classes, and name-spaces should be <strong>TitleCase</strong>.
+        li Boolean values should be prefixed with <strong>is</strong> if at all possible.
+        li Cached jQuery objects can be prefixed with <strong>$</strong>.
+
+    h3 Never Declare Number, String, or Boolean Objects
+    p Always treat numbers, strings, or booleans as primitive values. Not as objects.
+    p Declaring these types as objects slows down execution speed and produces side effects.
+
+    h3 Function Declarations
+    p All functions should be declared before they are used. Inner functions should follow the <code>var</code> / <code>let</code> statements. This helps make it clear what variables are included in its scope.
+    p There should be no space between the name of a function and the <code>(</code> left parenthesis of its parameter list. There should be one space between the <code>)</code> right parenthesis and the <code>{</code> left curly brace that begins the statement body. The body itself is indented four spaces. The <code>}</code> right curly brace is aligned with the line containing the beginning of the declaration of the function.
+    p If a function literal is anonymous, there should be one space between the word <code>function</code> and the <code>(</code> left parenthesis. If the space is omitted, then it can appear that the function's name is <code>function</code>, which is an incorrect reading.
+    p Use of global functions should be minimized/avoided.
+    p When a function is to be invoked immediately, the function should be wrapped in parenthesis.
+    code.src-js.source_visible (function () {...})()
+
+    h3 {} and []
+    p Use <code>{}</code> instead of <code>new Object()</code>. Use <code>[]</code> instead of <code>new Array()</code>.
+
+    h3 === and !== operators
+    p Use the <code>===</code> and <code>!==</code> operators. The <code>==</code> and <code>!=</code> operators do type coercion and should not be used.
+
+    p
+        b note:
+        | in tmpl.jade files we are using == and !=, that because we are using jade for java in Literatum and it dosent understand === and !==
+
+    h3 Feature Detection
+    p Always test for the existence of a browser API, function, or object property before you use it, and make sure the user experience is still functional (to the extent possible) if it&apos;s not found. We rely on JavaScript-based feature detection rather than server-side device detection because it&apos;s more robust, easily maintained, and future-proof.
+
+    h3 Limit Events — Use Event Delegation
+    p It is always preferable to use fewer events being bound to objects on a page as possible. Too many events bound on a page can mean memory leaks or just an accumulation of handlers bound to DOM elements which becomes less and less efficient over time. Additionally, event delegation has the added benefit of persisting events over dynamic page updates when items are added or removed from the DOM.
+
+    h3 ES6
+    p Don't use ES6 features in any Jade template exposed to front-end developers.
+
+    h3 Module Pattern
+    p Follow Object literals Pattern while implementing javascript functionalities. In case it's needed to define private functions and private variables, it's prefered to follow Revealing Modules pattern.
+    code.src-js.source_visible // literals Pattern
+        | var myObjectLiteral = {
+        |   variableKey: variableValue,
+        |   functionKey: function () {
+        |   // ...
+        |   }
+        | };
+        | // Usage: myObjectLiteral.functionKey();
+    code.src-js.source_visible // Revealing Modules
+        | var myRevealingModule = (function () {
+        |   var PrivateVariableKey = "variableValue"; // Private variable
+        |   function privateFunction( variable ) { // Private function
+        |       // ...
+        |   }
+        |   // Reveal public pointers to private functions and properties
+        |   return {
+        |       PublicVariablePointer: PrivateVariableKey, // public pointer to access private variable
+        |       publicFunctionPointer: privateFunction // public pointer to access private function
+        |   };
+        | })();
+        | // Usage: myRevealingModule.publicFunctionPointer("someValue");
+
+section.source_section
+    h2 Accessibility
+
+    h3 Perceivable information and user interface
+
+    h4 Text alternatives for non-text content
+    p Text alternatives are equivalents for non-text content. Examples include:
+    ul
+        li Short equivalents for images, including icons, buttons, and graphics
+        li Description of data represented on charts, diagrams, and illustrations
+        li Brief descriptions of non-text content such as audio and video files
+        li Labels for form controls, input, and other user interface components
+
+    h4 Captions and other alternatives for multimedia
+    p People who cannot hear audio or see video need alternatives. Examples of alternatives for audio and video include:
+    ul
+        li Text transcripts and captions of audio content, such as recordings of people speaking
+        li Audio descriptions, which are narrations to describe important visual details in a video
+        li Sign language interpretation of audio content, including relevant auditory experiences
+
+    h4 Content can be presented in different ways
+    p In order for users to be able to change the presentation of content, it is necessary that:
+    ul
+        li Headings, lists, tables, and other structures in the content are marked-up properly
+        li Sequences of information or instructions are independent of any presentation
+        li Browsers and assistive technologies provide settings to customize the presentation
+
+    h4 Content is easier to see and hear
+    p Distinguishable content is easier to see and hear. This includes:
+    ul
+        li Color is not used as the only way of conveying information or identifying content
+        li Default foreground and background color combinations provide sufficient contrast
+        li Text is resizable up to 200% without losing information, using a standard browser
+        li Images of text are resizable, replaced with actual text, or avoided where possible
+        li Users can pause, stop, or adjust the volume of audio that is played on a website
+        li Background audio is low, or can be turned off, to avoid interference or distraction
+
+    h3 Operable user interface and navigation
+
+    h4 Functionality is available from a keyboard
+    p Many people do not use the mouse and rely on the keyboard to interact with the Web. This requires keyboard access to all functionality, including form controls, input, and other user interface components.
+    p Keyboard accessibility includes:
+    ul
+        li All functionality that is available by mouse is also available by keyboard
+        li Keyboard focus does not get trapped in any part of the content
+        li Browsers, authoring tools, and other tools provide keyboard support
+
+    h4 Users have enough time to read and use the content
+    p Some people need more time than others to read and use the content. For instance, some people need more time to type text, understand instructions, operate controls, or to otherwise complete tasks on a website.
+    p Examples of providing enough time include providing mechanisms to:
+    ul
+        li Stop, extend, or adjust time limits, except where necessary
+        li Pause, stop, or hide moving, blinking, or scrolling content
+        li Postpone or suppress interruptions, except where necessary
+        li Re-authenticate when a session expires without losing data
+
+    h4 Content does not cause seizures
+    p Content that flashes at certain rates or patterns can cause photo-sensitive reactions, including seizures. Flashing content is ideally avoided entirely, or only used in a way that does not cause known risks.
+
+    h4 Users can easily navigate, find content, and determine where they are
+    p Content that is well organized helps users to orient themselves and to navigate effectively. This includes:
+    ul
+        li Pages have clear titles and are organized using descriptive section headings
+        li There is more than one way to find relevant pages within a set of web pages
+        li Users are informed about their current location within a set of related pages
+        li There are ways to bypass blocks of content that are repeated on multiple pages
+        li The keyboard focus is visible and the focus order follows a meaningful sequence
+        li The purpose of a link is clear, ideally even when the link is viewed on its own
+
+    h3 Understandable information and user interface
+
+    h4 Text is readable and understandable
+    p Content authors need to ensure that text content is readable and understandable to the broadest audience possible, including when it is read aloud by text-to-speech. This includes:
+    ul
+        li Identifying the primary language of a web page, such as Arabic, Dutch, or Korean
+        li Identifying the language of text passages, phrases, or other parts of a web page
+        li Providing definitions for any unusual words, phrases, idioms, and abbreviations
+        li Using the clearest and simplest language possible, or providing simplified versions
+
+    h4 Content appears and operates in predictable ways
+    p Many people rely on predictable user interfaces and are disoriented or distracted by inconsistent appearance or behavior. Examples of making content more predictable include:
+    ul
+        li Navigation mechanisms that are repeated on multiple pages appear in the same place each time
+        li User interface components that are repeated on web pages have the same labelling each time
+        li Significant changes on a web page do not happen without the consent of the user
+
+    h4 Users are helped to avoid and correct mistakes
+    p Forms and other interaction can be confusing or difficult to use for many people, and, as a result, they may be more likely to make mistakes. Examples of helping users to avoid and correct mistakes include:
+    ul
+        li Descriptive instructions, error messages, and suggestions for correction
+        li Context-sensitive help for more complex functionality and interaction
+        li Opportunity to review, correct, or reverse submissions if necessary
+
+    h3 Robust content and reliable interpretation
+
+    h4 Content is compatible with current and future user tools
+    p Robust content is compatible with different browsers, assistive technologies, and other user agents. Examples of how this can be achieved include:
+    ul
+        li Ensuring markup can be reliably interpreted, for instance by ensuring it is valid
+        li Providing a name, role, and value for non-standard user interface components

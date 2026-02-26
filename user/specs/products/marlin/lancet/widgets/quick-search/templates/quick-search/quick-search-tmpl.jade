@@ -1,0 +1,7 @@
+extends ../../../../../widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+block autoCompleteInput
+    input.autoComplete(type='text', name='searchText', placeholder='Search for...')
+
+block autoCompleteServerURL
+    input.autoCompleteServerURL(type='hidden', name='autoCompleteUrl', value=data.autoCompleteUrl)

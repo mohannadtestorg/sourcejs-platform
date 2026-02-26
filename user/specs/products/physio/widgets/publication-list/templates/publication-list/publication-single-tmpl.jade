@@ -1,0 +1,13 @@
+div.featured__container
+    if(item.group && item.group.coverImage)
+        img.featured__image(src=item.group.coverImage.src)
+
+    div.info-container
+        div.featured__top
+            div.featured__title
+                a(href=item.best)
+                    | !{item.title}
+            div.featured__journal-title
+                | !{item.group.serial.title}
+        a.featured__circle(href=item.best)
+            i.icon-arrow_r

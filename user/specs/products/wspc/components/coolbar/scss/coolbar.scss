@@ -1,0 +1,28 @@
+.coolBar {
+  &__wrapper {
+    background-color: $primary-text-color;
+    border-right: none;
+    display: flex;
+    align-items: center;
+  }
+  &--res {
+    width: 100%;
+    background-color: $primary-bg-color;
+    .coolBar__wrapper {
+      width: 100%;
+      background-color: $primary-bg-color;
+      a,i {
+        color: #fff;
+      }
+    }
+  }
+  i+span {
+    margin-left: 0;
+  }
+  [class*=__ctrl] i {
+    margin-right: 0.5rem;
+  }
+  &__second {
+    margin-left: auto;
+  }
+}

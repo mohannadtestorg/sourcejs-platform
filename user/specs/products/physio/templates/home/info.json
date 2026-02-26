@@ -1,0 +1,314 @@
+{
+    "title": "Home page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "resources":{
+            "$pug": {
+                "template": "../../components/home-page-compontent/templates/home-resources-tmpl.jade",
+                "data": {}
+            }
+        },
+        "menu":{
+                "$pug": {
+                    "template": "../../../../ux3/widgets/menu/templates/demo/demo-menu-tmpl.jade",
+                    "data": {
+                        "$ref": "../../widgets/menu/templates/data/nestedMenu.json"
+                    }
+                }
+        },
+        "covers":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/cover-image/templates/data/cover-gallery.json"
+                }
+            }
+        },
+        "tabs":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "./templates/demo/demo-tabs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "./templates/data/default-tabs.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "apsSlider":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["container aps-container"],
+                            "headingLevel": "h2"
+                        },
+                        "data": {
+                            "title": "APSselect",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/publication-list/templates/publication-list/publication-list-slider-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/publication-list/templates/data/publication-list-slider.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "slider":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["left-side-image slideshow-wrapper"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/slideshow/templates/data/realDemo.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "articles":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "LATEST ARTICLES",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/home/templates/data/most-x-grid.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "trending":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false",
+                            "headingLevel": "h2"
+                        },
+                        "data": {
+                            "title": "Trending research",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/publication-list/templates/publication-list/publication-list-altmetrics-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "coverImages":{
+            "$pug": {
+                "template": "./templates/demo/demo-covers-slideshow-tmpl.jade",
+                "data": {
+                    "$ref": "../../components/home-page-component/templates/data/slide-covers.json"
+                }
+            }
+        },
+        "most":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["slashed__tabs__nav"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "./templates/demo/demo-tabs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "./templates/data/trending.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "nl": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "card--dark",
+                                "card--gutter"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/components/newsletter/templates/data/newsletter.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "news":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2 grid-lg-2 featured"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "News",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/home/templates/data/most-x-featured.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "tweets":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false",
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "Twitter",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/tweets/templates/tweets/tweets-tmpl.jade",
+                                    "data": {
+                                        "body": [
+                                            {
+                                                "screenName": "TwitterDev",
+                                                "theme": "dark",
+                                                "height": "800"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "issues":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-5 grid-xs-margin--extra"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+
+                        },
+                        "data": {
+                            "title": "JOURNAL LATEST ISSUES",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/home/templates/data/cover.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}
+

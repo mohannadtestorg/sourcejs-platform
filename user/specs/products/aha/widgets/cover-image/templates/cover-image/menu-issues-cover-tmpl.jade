@@ -1,0 +1,12 @@
+extends cover-image-gallery-tmpl
+
+block coverImageMain
+    if(thisWidget.properties)
+        if data.journal && data.journal.gallery
+            - var covers = data.journal.gallery
+            ul.rlist.grid-sm-4
+                each cover, l in covers
+                    li.grid-item.cover-image
+                        +cover(cover, l)
+                li.grid-item.show-more-link
+                    a(class="btn btn-sm btn-primary" href="#" title="See all") See all

@@ -1,0 +1,56 @@
+/***
+
+```
+<ul class="m-century-listing">
+  <li class="m-century-listing__decade">
+    <h2 class="m-century-listing__decade-title f-h5"><a href="#" class="a-title-link">2010</a></h2>
+    <ul class="m-century-listing__years f-body--sm">
+      <li><a href="#">2017</a></li>
+      <li><a href="#">2016</a></li>
+      <li><a href="#">2015</a></li>
+    </ul>
+  </li>
+</ul>
+```
+
+***/
+
+.m-century-listing {
+  margin-top: 0;
+}
+
+.m-century-listing__decade {
+  margin-top: 0;
+}
+
+.m-century-listing__decade-title {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-century-listing__years {
+  list-style-type: none;
+}
+
+.m-century-listing__years.f-body--sm {
+  @include breakpoint('xsmall') {
+    @include baseliner(0);
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.m-century-listing__years > li + li {
+  @include breakpoint('small+') {
+    padding-top: 4px;
+  }
+}
+
+.m-century-listing__years > li > a {
+  color: $color__text;
+}
+
+.m-century-listing__years > li > a:hover {
+  color: $color__text;
+  text-decoration: underline;
+}

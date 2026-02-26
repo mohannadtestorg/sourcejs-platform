@@ -1,0 +1,110 @@
+.brandingDropZone1(data-pb-dropzone="brandingDropZone1")
+    | !{pb.renderDropzone(thisWidget, "brandingDropZone1")}
+
+.co-branding
+    form(action="/action/institutionAdminBannerUpdate" method="post" name="InstitutionAdmin_Banner" enctype="multipart/form-data")
+        if data.antiForgeryToken
+            input(type="hidden" name="anti-forgery-token" value=data.antiForgeryToken)
+
+        if data.error && data.error.message
+            p.error
+                if data.error.message == 'systemError'
+                    | Unfortunately, the system could not process your request. Try again later or
+                    a(href="/feedback/show") contact us
+                    |  and we will be happy to help you.
+                else
+                    | !{data.error.message}
+
+
+        section.bannerText.clearfix
+            h3.border-bottom.section__header Enter or update banner text
+
+            .input-group
+                div
+                    label(for="cobrandText") Banner Text:
+                div
+                    textarea(size=data.inputSize maxLength=data.inputMaxLength id="cobrandText" rows="4" cols="100" name="banner") !{data.managedInstitutionBannerText}
+
+                    p.note The current text is shown above. Edit this text if you wish, and then click Update.
+                    if data.bannerText && data.bannerText.error && data.bannerText.error.bannerTextRequired
+                        p.error Please enter banner text.
+                    else
+                        if data.bannerText && data.bannerText.success
+                            p.success Banner text was successfully updated.
+
+                div
+                    button.btn.btn--full-width(type="submit" name="update" value="true") Update banner text
+
+        if data.isInstLogoUpload
+            if data.instLogoImgMaxWidth > 0
+                section.bannerText.clearfix
+                    h3.border-bottom.section__header Change institution logo
+
+
+
+                    .bannerImageDropZone(data-pb-dropzone="bannerImageDropZone")
+                        | !{pb.renderDropzone(thisWidget, "bannerImageDropZone")}
+
+                    if data.bannerImage
+                        section.clearfix
+                            .input-group
+                                div
+                                    label Current institution logo
+                                div
+                                    if(data.bannerImage.internetPath)
+                                        img(src=data.bannerImage.internetPath + "?trick=" + data.trick alt=data.bannerImage.description)
+
+                                    if data.bannerImage.error && data.bannerImage.error.message
+                                        p.error !{data.bannerImage.error.message}
+                                    else if data.removeImage
+                                        p.success Your institution logo was removed.
+
+                                div
+                                    button.btn.btn--full-width(type="submit" name="removeImage" value="true") Remove logo
+                    section.clearfix
+                        .input-group
+                            div
+                                label(for="imageFile") Banner image file:
+                            div
+                                input(type="file" name="imageFile" id="imageFile" class="jcf" value="")
+
+                                p.note You can upload your institution logo, by selecting a file and clicking Upload. The uploaded image type should be JPEG, GIF or PNG and size should be at most !{data.instLogoImgMaxWidth}x!{data.instLogoImgMaxHeight} pixels.
+                                if data.instLogo && data.instLogo.error
+                                    if data.instLogo.error.imageFileRequired
+                                        p.error Please select the image file to upload.
+                                    if data.instLogo.error.invalidFileType
+                                        p.error The uploaded file has a wrong type.
+                                    if data.instLogo.error.invalidWidth
+                                        p.error The uploaded image has incorrect width. Please fix the image and try again.
+                                    if data.instLogo.error.invalidHeight
+                                        p.error The uploaded image has incorrect height. Please fix the image and try again
+
+                                else if data.uploadImage
+                                    p.success Banner logo was successfully uploaded.
+
+
+                            div
+                                button.btn.btn--full-width(type="submit" name="uploadImage" value="true") Upload institution logo
+
+        if data.urlLabel
+            section.institutionUrlAdmin.clearfix
+                h3.border-bottom.section__header Linking to your institution
+
+                .input-group
+                    div
+                        label(for="institutionUrl") !{data.urlLabel}
+                    div
+                        input(type="text" name="institutionUrl" id="institutionUrl" value=data.institutionUserUrl)
+                        p.note If you wish to provide for a link to your institution, please enter the url above. Users will be able to click your logo or your banner text.
+
+                        if data.institutionUrl && data.institutionUrl.error
+                            if data.institutionUrl.error.urlinvalid
+                                p.error Please enter valid URL!
+                            if data.institutionUrl.error.urldependence
+                                p.error Please enter a banner text or upload a logo first.
+                        else if data.institutionUrl && data.institutionUrl.success
+                            p.success URL was successfully updated.
+
+                    div
+                        button.btn.btn--full-width(type="submit" name="updateInstitutionUrl" id="updateInstitutionUrl" value="true") Update
+

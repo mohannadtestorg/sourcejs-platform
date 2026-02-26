@@ -1,0 +1,82 @@
+.featured-case-study {
+    margin-bottom: 1rem;
+    width: 100%;
+    max-width: 480px;
+    margin-left: 8px;
+    padding-top: 90px;
+    background: url('https://placeimg.com/280/218/people') 0 0 no-repeat;
+    background-size: 100% auto;
+
+    @include media('>phone') {
+        margin-bottom: 0;
+        background: url('https://placeimg.com/472/296/people') 0 0 no-repeat;
+    }
+
+    @include media('>phone') {
+        padding-top: 136px;
+    }
+
+    &__content {
+        margin:0 32px 0 -8px;
+        padding: 25px 32px 25px 16px;
+        clip-path: polygon(0% 0%, 100% 0, 100% 90%, 56% 100%, 0% 100%);
+        background-color: $primary-card-bg;
+    }
+
+    &__title {
+        margin: 0;
+        font-family: $default-font-family;
+        color: $white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+    }
+    &__logo {
+        display: inline-block;
+        height: 1.78rem;
+        margin-right: 1ex;
+
+        & svg {
+            height: 100%;
+            fill: $white;
+        }
+    }
+    &__text {
+        margin: 12px 0 2px;
+        color: $white;
+        font-size: 1rem;
+        @include media('>phone') {
+            font-size: .875rem;
+        }
+        @include media('>desktop') {
+            font-size: .78rem;
+        }
+
+        line-height: $small-line-height;
+    }
+
+    &__link {
+        margin: 0;
+        font-family: $default-font-family;
+        font-weight: bold;
+        font-size: .86rem;
+        line-height:  1rem;
+        @include media('>phone') {
+            font-size: .78rem;
+            line-height: .937rem;
+        }
+        @include media('>desktop') {
+            font-size: .7rem;
+            line-height: .83rem;
+        }
+        text-transform: uppercase;
+        letter-spacing: .2em;
+    }
+
+    &--secondary {
+        & .featured-case-study__content {
+            background-color: $secondary-card-bg;
+        }
+    }
+}

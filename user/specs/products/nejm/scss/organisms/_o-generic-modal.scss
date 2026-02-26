@@ -1,0 +1,89 @@
+/***
+
+```
+<div class="o-generic-modal">
+  <h1 class="o-generic-modal__title">Contributors</h1>
+  <p class="f-body--sm">Body</p>
+</div>
+```
+
+***/
+
+.o-generic-modal {
+  position: relative;
+  padding: 64px 24px 24px;
+
+  .g-modal--locked & {
+    display: flex;
+    flex: 1 0 auto;
+    flex-flow: column nowrap;
+    height: 75vh;
+  }
+
+  .g-modal--locked.g-modal--footer & {
+    height: calc(75vh - 64px);
+    padding-bottom: 20px;
+  }
+
+  #content > & {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media print {
+  .o-generic-modal {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.o-generic-modal__logo {
+  display: block;
+  margin: -44px 0 0;
+}
+
+.o-generic-modal__logo svg {
+  display: block;
+}
+
+.o-generic-modal__title {
+  @include serif(21, 28, bold);
+  position: relative;
+  margin: -64px -24px 0;
+  padding: 18px 64px 17px 24px;
+  border-bottom: 1px solid $color__rules;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    font-size: 24px;
+  }
+
+  .o-generic-modal__logo + & {
+    margin-top: 0;
+  }
+
+  #content > .o-generic-modal & {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media print {
+  .o-generic-modal__title {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.o-generic-modal .f-body--sm strong {
+  color: $color__text--headlines;
+}
+
+.o-generic-modal .a-byline {
+  margin-top: 32px;
+}

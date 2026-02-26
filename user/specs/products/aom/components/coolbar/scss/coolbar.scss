@@ -1,0 +1,104 @@
+.coolBar {
+
+  &__section > a {
+    display: inline-block;
+  }
+
+  [class*=__ctrl] {
+    display: inline-block;
+  }
+ i{
+   color: $white;
+    @include media ('>=tablet'){
+      @include themify($themes) {
+        color: themed('color2');
+      }
+    }
+  }
+  &__wrapper {
+    border-bottom-color: $primary-bg-color;
+    @include themify($themes) {
+      border-bottom-color: themed('color2');
+    }
+  }
+
+  &__section {
+    @include themify($themes) {
+      color: themed('color2');
+    }
+    [class*="__block"] {
+      @include themify($themes) {
+        background-color: themed('color2');
+      }
+    }
+  }
+
+  &__drop {
+    @include themify($themes) {
+      background-color: themed('color2');
+    }
+
+    a:hover, a:focus {
+      color: $white;
+    }
+  }
+  &__drop , [class*=__block] {
+    @include media ('>=tablet'){
+      i{
+        color: $white;
+      }
+    }
+  }
+
+  [data-db-target-of] {
+    display: none;
+    position: absolute;
+    top: 55px;
+    &.js--open {
+      display: block;
+      padding: 15px;
+      &.dropBlock-loi__holder {
+        padding: 0;
+      }
+    }
+    &.article-tools__block {
+      right: -92px;
+    }
+  }
+
+  &__zone {
+    background-color: transparent;
+    @include themify($themes) {
+      color: themed('color2');
+    }
+  }
+  &__first{
+    background-color: transparent;
+    @include themify($themes) {
+      color: themed('color2');
+    }
+  }
+  &--res {
+    .coolBar__wrapper {
+      @include themify($themes) {
+        background-color: themed('color2');
+      }
+
+      a {
+        color: $white;
+      }
+
+      .loi-slide__ctrl {
+        i {
+          color: $white;
+        }
+      }
+      .loi__banner__right-side {
+        i {
+          color: $white;
+        }
+      }
+    }
+  }
+
+}

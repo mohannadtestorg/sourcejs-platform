@@ -1,0 +1,23 @@
+extends ../quick-search-tmpl
+
+block anywhereSearch
+
+
+    form(action="/action/doSearch" name=item.dataSearchIn == undefined ? "QuickSearch" : item.dataSearchIn + "QuickSearch" method="get" title="Quick Search")
+        .input-group(class="option-" + index)
+            label.hiddenLabel(for="searchField" +index)
+                    |Search term
+            input.autocomplete.actualQSInput(type="search" name="AllField" id="searchField" + index placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+        +btnSearch()
+
+block quickSearch
+
+    - var itemNo = data.dropdown.length
+
+    div.main-search-field-wrapper
+        +anywhereSearch('noDropDown', 1)
+
+
+block quickSearchWrapper
+    div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+        +search()

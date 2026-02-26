@@ -1,0 +1,17 @@
+extends media-object-tmpl
+
+mixin meta(item)
+    block meta
+        div.meta
+            if (item && item.abstractNumber && item.id)
+                .meta__detail
+                    span Abstract Number:
+                    |  !{item.abstractNumber}
+                    span.separator
+                    span ID:
+                    |  !{item.id}
+
+block mediaObjectContent
+    if (item.content)
+        +meta(item)
+        | !{item.content}

@@ -1,0 +1,909 @@
+.jcf-select,
+.jcf-file {
+  padding: 9px 8px 11px;
+  max-height: 40px;
+  border: 1px solid $input-border;
+  background: inherit;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.jcf-select-text {
+  font-size: .9375rem;
+  line-height: .9375rem;
+}
+
+/* radio */
+.jcf-radio {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  background: #fff;
+  border: 1px solid #777;
+  border-radius: 9px;
+  margin: 0 3px 0 0;
+  height: 16px;
+  width: 16px;
+}
+
+.jcf-radio span {
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: #777;
+  border-radius: 100%;
+}
+
+.jcf-radio input[type="radio"] {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+
+.jcf-radio.jcf-checked span {
+  display: block;
+}
+
+/* checkbox */
+.jcf-checkbox {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  background: $white;
+  border: 2px solid $checkbox-border;
+  margin: 0 20px 0 0;
+  height: 22px;
+  width: 22px;
+  padding: 0;
+  float: left;
+}
+
+.jcf-checkbox span {
+  position: absolute;
+  display: none;
+  height: 6px;
+  width: 10px;
+  top: 50%;
+  left: 50%;
+  margin: -7px 0 0 -6px;
+  border: 3px solid #777;
+  border-width: 0 0 3px 3px;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865483, M12=0.7071067811865467, M21=-0.7071067811865467, M22=0.7071067811865483, SizingMethod='auto expand')";
+}
+
+:root .jcf-checkbox span {
+  margin: -4px 0 0 -5px;
+}
+
+.jcf-checkbox input[type="checkbox"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  margin: 0;
+  left: 0;
+  top: 0;
+}
+
+.jcf-checkbox.jcf-checked span {
+  display: block;
+}
+
+.checkbox--primary,
+.checkbox--secondary {
+  .jcf-checkbox,
+  .jcf-checkbox ~ span,
+  .jcf-checkbox span {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.checkbox--primary {
+  .jcf-checkbox {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid $primary-bg-color;
+    border-radius: 100%;
+    margin-right: 10px;
+    line-height: 15px;
+    float: left;
+    -webkit-transition: .4s;
+    transition: .4s;
+    span {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      position: static;
+      height: 20px;
+      width: 20px;
+      background: $primary-bg-color;
+      &:before {
+        color: #fff;
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        content: "\e607";
+        font-family: icomoon !important;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+}
+
+.checkbox--secondary {
+  .jcf-checkbox {
+    position: relative;
+    display: block;
+    float: right;
+    border: none;
+    width: 36px;
+    height: 20px;
+    background-color: $tertiary-bg-color;
+    border-radius: 10px;
+    line-height: 15px;
+    float: right;
+    transition: 0.4s;
+
+    span {
+      display: block;
+      position: absolute;
+      height: 14px;
+      width: 14px;
+      right: 17px;
+      bottom: 3px;
+      top: auto;
+      left: auto;
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      background-color: $text-onDark;
+      transition: 0.4s;
+      border-radius: 100%;
+      border: none;
+    }
+    &.jcf-checked {
+      background-color: $primary-bg-color;
+      span {
+        right: 4px;
+      }
+    }
+  }
+}
+
+.radio--primary,
+.radio--secondary {
+  .jcf-radio,
+  .jcf-radio ~ span,
+  .jcf-radio span {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.radio--primary {
+  .jcf-radio {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid $black; // changed to black to match advanced search design
+    border-radius: 100%;
+    margin-right: 10px;
+    line-height: 15px;
+    float: left;
+    -webkit-transition: .4s;
+    transition: .4s;
+    padding: 0;
+    span {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      position: static;
+      height: 20px;
+      width: 20px;
+      border-radius: 0;
+      background: $black; // changed to black to match advanced search design
+    }
+  }
+
+  input {
+    &:checked ~ span:before {
+      box-shadow: inset 0 0 0 2px white;
+    }
+
+  }
+}
+
+.radio--secondary {
+  .jcf-radio {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid $primary-bg-color;
+    border-radius: 100%;
+    margin-right: 10px;
+    line-height: 15px;
+    float: left;
+    -webkit-transition: .4s;
+    transition: .4s;
+    padding: 0;
+    span {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      position: static;
+      height: 20px;
+      width: 20px;
+      background: $primary-bg-color;
+      border-radius: 0;
+      &:before {
+        color: #fff;
+        display: block;
+        font-size: 12px;
+        text-align: center;
+        content: "\e607";
+        font-family: icomoon !important;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+        border: 0;
+        margin: 0;
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+}
+
+/* button */
+.jcf-button {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #777;
+  background: #fff;
+  margin: 0 10px 10px 0;
+  padding: 5px 10px;
+}
+
+.jcf-button .jcf-real-element {
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  outline: none;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+/* file */
+.jcf-file {
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  background: inherit;
+}
+
+.jcf-file .jcf-real-element {
+    position: absolute;
+    width: 230px;
+    cursor: pointer;
+    height: 200px;
+    margin: 0;
+    left: 8px;
+    top: 9px;
+}
+
+.jcf-file .jcf-fake-input {
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: top;
+  overflow: hidden;
+  border: 1px solid #777;
+  padding: 5px 10px;
+  font-size: 13px;
+  line-height: 28px;
+  width: 125px;
+}
+
+.jcf-file .jcf-upload-button {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 1px solid $button-bg;
+  margin: 0 0 0 -1px;
+  padding: 5px 10px;
+  line-height: 28px;
+  background: $button-bg;
+  color: $text-onDark;
+  font-weight: bold;
+}
+
+/* scrollbars */
+.jcf-scrollable-wrapper {
+  box-sizing: content-box;
+  position: relative;
+}
+
+.jcf-scrollbar-vertical {
+  position: absolute;
+  cursor: default;
+  background: #e3e3e3;
+  width: 14px;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-dec,
+.jcf-scrollbar-vertical .jcf-scrollbar-inc {
+  background: #bbb;
+  height: 14px;
+  width: 14px;
+  left: 0;
+  top: 0;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-inc {
+  top: auto;
+  bottom: 0;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-handle {
+  background: #888;
+  height: 1px;
+  width: 14px;
+}
+
+.jcf-scrollbar-horizontal {
+  position: absolute;
+  background: #e3e3e3;
+  right: auto;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  width: 1px;
+  height: 14px;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-dec,
+.jcf-scrollbar-horizontal .jcf-scrollbar-inc {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  background: #bbb;
+  height: 14px;
+  width: 14px;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-inc {
+  left: auto;
+  right: 0;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-slider {
+  display: inline-block;
+  position: relative;
+  height: 14px;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-handle {
+  position: absolute;
+  background: #888;
+  height: 14px;
+}
+
+.jcf-scrollbar.jcf-inactive .jcf-scrollbar-handle {
+  visibility: hidden;
+}
+
+.jcf-scrollbar.jcf-inactive .jcf-scrollbar-dec,
+.jcf-scrollbar.jcf-inactive .jcf-scrollbar-inc {
+  background: #e3e3e3;
+}
+
+/* select */
+.jcf-select {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  background: inherit;
+  width: 100%;
+  min-width: 150px;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+  linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position: calc(100% - 20px) center,
+  calc(100% - 15px) center;
+  background-size: 5px 5px,
+  5px 5px;
+  background-repeat: no-repeat;
+}
+
+.jcf-select select {
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.jcf-select .jcf-select-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+  display: block;
+  color: $input-placeholder-color;
+}
+
+body > .jcf-select-drop {
+  position: absolute;
+  margin: -1px 0 0;
+  z-index: 9999;
+}
+
+body > .jcf-select-drop.jcf-drop-flipped {
+  margin: 1px 0 0;
+}
+
+.jcf-select .jcf-select-drop {
+  position: absolute;
+  margin-top: 0px;
+  z-index: 9999;
+  top: 100%;
+  left: -1px;
+  right: -1px;
+}
+
+.jcf-select .jcf-drop-flipped {
+  bottom: 100%;
+  top: auto;
+}
+
+.jcf-select.jcf-compact-multiple {
+  max-width: 220px;
+}
+
+.jcf-select.jcf-compact-multiple .jcf-select-opener:before {
+  display: inline-block;
+  padding-top: 2px;
+  content: '...';
+}
+
+.jcf-select-drop .jcf-select-drop-content {
+  border: 1px solid $tertiary-bg-color;
+}
+
+.jcf-select-drop.jcf-compact-multiple .jcf-hover {
+  background: none;
+}
+
+.jcf-select-drop.jcf-compact-multiple .jcf-selected {
+  background: #e6e6e6;
+  color: #000;
+}
+
+.jcf-select-drop.jcf-compact-multiple .jcf-selected:before {
+  display: inline-block;
+  content: '';
+  height: 4px;
+  width: 8px;
+  margin: -7px 5px 0 -3px;
+  border: 3px solid #777;
+  border-width: 0 0 3px 3px;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865483, M12=0.7071067811865467, M21=-0.7071067811865467, M22=0.7071067811865483, SizingMethod='auto expand')";
+}
+
+/* multiple select styles */
+.jcf-list-box {
+  overflow: hidden;
+  display: inline-block;
+  border: 1px solid #b8c3c9;
+  min-width: 200px;
+  margin: 0 15px;
+}
+
+/* select options styles */
+.jcf-list {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  background: #fff;
+  line-height: 14px;
+  font-size: 12px;
+  width: 100%;
+}
+
+.jcf-list .jcf-list-content {
+  vertical-align: top;
+  display: inline-block;
+  overflow: auto;
+  width: 100%;
+}
+
+.jcf-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jcf-list ul li {
+  overflow: hidden;
+  display: block;
+}
+
+.jcf-list .jcf-overflow {
+  overflow: auto;
+}
+
+.jcf-list .jcf-option {
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: default;
+  display: block;
+  padding: 5px 9px;
+  color: #656565;
+  min-height: 14px;
+  height: 1%;
+}
+
+.jcf-list .jcf-disabled {
+  background: inherit !important;
+  color: #aaa !important;
+}
+
+.jcf-select-drop .jcf-hover,
+.jcf-list-box .jcf-selected {
+  background: #e6e6e6;
+  color: #000;
+}
+
+.jcf-list .jcf-optgroup-caption {
+  white-space: nowrap;
+  font-weight: bold;
+  display: block;
+  padding: 5px 9px;
+  cursor: default;
+  color: #000;
+}
+
+.jcf-list .jcf-optgroup .jcf-option {
+  padding-left: 30px;
+}
+
+/* other styles */
+.jcf-textarea {
+  border: 1px solid #b8c3c9;
+  box-sizing: content-box;
+  display: inline-block;
+  position: relative;
+}
+
+.jcf-textarea .jcf-scrollbar-horizontal {
+  display: none;
+  height: 0;
+}
+
+.jcf-textarea textarea {
+  padding: 8px 10px;
+  border: none;
+  margin: 0;
+}
+
+.jcf-textarea .jcf-resize {
+  position: absolute;
+  text-align: center;
+  cursor: se-resize;
+  background: #e3e3e3;
+  font-weight: bold;
+  line-height: 15px;
+  text-indent: 1px;
+  font-size: 12px;
+  height: 15px;
+  width: 14px;
+  bottom: 0;
+  right: 0;
+}
+
+.jcf-textarea .jcf-resize:before {
+  border: 1px solid #000;
+  border-width: 0 1px 1px 0;
+  display: block;
+  margin: 4px 0 0 3px;
+  width: 6px;
+  height: 6px;
+  content: '';
+}
+
+/* number input */
+.jcf-number {
+  display: inline-block;
+  position: relative;
+  height: 32px;
+}
+
+.jcf-number input {
+  -moz-appearance: textfield;
+}
+
+.jcf-number input::-webkit-inner-spin-button,
+.jcf-number input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.jcf-number input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #777;
+  padding: 3px 27px 3px 7px;
+  margin: 0;
+  height: 100%;
+}
+
+.jcf-number .jcf-btn-dec,
+.jcf-number .jcf-btn-inc {
+  position: absolute;
+  background: #aaa;
+  width: 20px;
+  height: 15px;
+  right: 1px;
+  top: 1px;
+}
+
+.jcf-number .jcf-btn-dec {
+  top: auto;
+  bottom: 1px;
+}
+
+.jcf-number .jcf-btn-dec:hover,
+.jcf-number .jcf-btn-inc:hover {
+  background: #e6e6e6;
+}
+
+.jcf-number.jcf-disabled .jcf-btn-dec:hover,
+.jcf-number.jcf-disabled .jcf-btn-inc:hover {
+  background: #aaa;
+}
+
+.jcf-number .jcf-btn-dec:before,
+.jcf-number .jcf-btn-inc:before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -4px;
+  border: 4px solid #aaa;
+  border-color: transparent transparent #000 transparent;
+}
+
+.jcf-number .jcf-btn-dec:before {
+  margin: -1px 0 0 -4px;
+  border-color: #000 transparent transparent transparent;
+}
+
+.jcf-number.jcf-disabled .jcf-btn-dec:before,
+.jcf-number.jcf-disabled .jcf-btn-inc:before,
+.jcf-number .jcf-btn-dec.jcf-disabled:before,
+.jcf-number .jcf-btn-inc.jcf-disabled:before {
+  opacity: 0.3;
+}
+
+.jcf-number.jcf-disabled input {
+  background: #ddd;
+}
+
+/* range input */
+.jcf-range {
+  display: inline-block;
+  min-width: 200px;
+  margin: 0 10px;
+  width: calc(100% - 20px);
+}
+
+.jcf-range .jcf-range-track {
+  margin: 0 20px 0 0;
+  position: relative;
+  display: block;
+  height: 10px;
+}
+
+.jcf-range .jcf-range-wrapper {
+  position: relative;
+  background: #e5e5e5;
+  border-radius: 5px;
+  display: block;
+  margin: 5px 0;
+}
+
+.jcf-range.jcf-vertical {
+  min-width: 0;
+  width: auto;
+}
+
+.jcf-range.jcf-vertical .jcf-range-wrapper {
+  margin: 0;
+  width: 10px;
+  height: auto;
+  padding: 20px 0 0;
+}
+
+.jcf-range.jcf-vertical .jcf-range-track {
+  height: 180px;
+  width: 10px;
+}
+
+.jcf-range.jcf-vertical .jcf-range-handle {
+  left: -5px;
+  top: auto;
+  cursor: ns-resize;
+}
+
+.jcf-range .jcf-range-display-wrapper {
+  position: absolute;
+  min-height: 10px;
+  min-width: 10px;
+  left: 10px;
+  right: 10px;
+}
+
+.jcf-range .jcf-range-display {
+  border-radius: 5px;
+  position: absolute;
+  background: #888;
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+}
+
+.jcf-range .jcf-range-display.jcf-range-min {
+  margin: 0 0 0 -10px;
+  padding: 0 0 0 10px;
+}
+
+.jcf-range .jcf-range-display.jcf-range-max {
+  margin: 0 -10px 0 0;
+  padding: 0 10px 0 0;
+}
+
+.jcf-range.jcf-vertical .jcf-range-display-wrapper {
+  left: auto;
+  right: auto;
+  top: 10px;
+  bottom: 10px;
+}
+
+.jcf-range.jcf-vertical .jcf-range-display.jcf-range-min {
+  margin: 0 0 -10px;
+  padding: 0 0 10px;
+}
+
+.jcf-range.jcf-vertical .jcf-range-display.jcf-range-max {
+  margin: -10px 0 0;
+  padding: 10px 0 0;
+}
+
+.jcf-range .jcf-range-handle {
+  position: absolute;
+  background: #aaa;
+  border-radius: 19px;
+  width: 19px;
+  height: 19px;
+  margin: -4px 0 0;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  cursor: ew-resize;
+}
+
+.jcf-range .jcf-range-mark {
+  position: absolute;
+  overflow: hidden;
+  background: #000;
+  width: 1px;
+  height: 3px;
+  top: -7px;
+  margin: 0 0 0 9px;
+}
+
+.jcf-range.jcf-vertical .jcf-range-mark {
+  margin: 0 0 9px;
+  left: 14px;
+  top: auto;
+  width: 3px;
+  height: 1px;
+}
+
+.jcf-range .jcf-active-handle {
+  z-index: 2;
+}
+
+.jcf-range.jcf-focus .jcf-active-handle {
+  //border: 1px solid #f00;
+  margin: -5px 0 0 -1px;
+}
+
+.jcf-range.jcf-disabled {
+  background: none !important;
+  opacity: 0.3;
+}
+
+.jcf-list {
+  .jcf-option {
+    min-height: 40px;
+    padding: 13px 8px 11px;
+    //color: $light-gray-links;
+
+    &.jcf-hover {
+      background-color: $secondary-lighten-bg-color;
+    }
+  }
+
+  li ~ li {
+    border-top: 1px solid $input-border;
+  }
+}
+
+.jcf-range-frequencies {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10px;
+
+}
+
+.jcf-range-frequencies__slice {
+  display: block;
+  height: 10px;
+  float: left;
+  background: #333;
+}
+
+.jcf-range-frequencies__slice:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.jcf-range-frequencies__slice:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.jcf-file {
+  max-height: none;
+}

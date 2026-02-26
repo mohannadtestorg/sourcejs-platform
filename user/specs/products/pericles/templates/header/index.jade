@@ -1,0 +1,20 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    .source_info
+        markdown
+            ul
+                li Institution banner styles changed based on <a href='https://jira.atypon.com/browse/LIT-208532' target="_blank">`LIT-208532`</a>
+                li Quick search styles changed based on <a href='https://jira.atypon.com/browse/LIT-191371' target="_blank">`LIT-191371`</a>, <a href='https://jira.atypon.com/browse/LIT-191372' target="_blank">`LIT-191372`</a> and <a href='https://jira.atypon.com/browse/LIT-200293' target="_blank">`LIT-200293`</a>
+                li Login bar styles changed based on <a href='https://jira.atypon.com/browse/LIT-190963' target="_blank">`LIT-190963`</a> and the design mentioned in <a href='https://jira.atypon.com/browse/LIT-189421' target="_blank">`LIT-189421`</a>
+
+    section.source_section
+        h2 Header
+
+        h3 Header - home page
+        .source_example
+            | !{pb.render('header', {data : data, page: 'home'},'pericles')}
+
+        h3 Header - article page
+        .source_example
+            | !{pb.render('header', {data : data , page: 'article'},'pericles')}

@@ -1,0 +1,71 @@
+extends ../../../../../../ux3/widgets/usage-reports/templates/usage-reports/usage-reports-tmpl
+
+block sushiDetails
+    if(data.usageReportSushiHeader)
+        h3.section__header.border-bottom= data.usageReportSushiHeader
+    table.sushi-table
+        tbody
+            tr
+                th Our SUSHI request URL is:
+                td= data.sushiRequestUrl
+            tr
+                th Your Requestor ID is :
+                td= data.sushiRequestId
+            tr
+                th Your customerReference ID is:
+                td= data.sushiCustomerRefId
+
+block dropdownClasses
+    -var dropdownClasses="jcf"
+    -var monthDreodoenClasses=""
+
+block  dateRanges
+    h3.section__header= data.rangeHeading + ":"
+    - var months = ['January','February','March','April','May','June','July', 'August', 'September', 'October', 'November', 'December']
+    - var years = data.yearsRange;
+
+    if (years)
+        - var yearsNo = years.length
+
+    if(data.monthRange)
+        - var monthRange = data.monthRange.monthRangeRadioOption == '' ? false : data.monthRange.monthRangeRadioOption
+        if(data.monthRange.error && data.monthRange.error != "")
+            p.error
+                | !{data.monthRange.error}
+
+    div
+        span From:
+        select(class=dropdownClasses + " " + monthDreodoenClasses  name="startMonth" size="1" id="startMonthId")
+            if(months)
+                each month,i in months
+                    if (data.monthRange) && i + 1 != data.monthRange.startMonth
+                        option(value=i + 1)= month
+                    else
+                        option(value=i + 1 selected)= month
+
+        if (years && yearsNo > 0)
+            select(class=dropdownClasses name="startYear" size="1" id="startYear")
+                if(years)
+                    each year in years
+                        if (data.monthRange) && year != data.monthRange.startYear
+                            option(value=year)= year
+                        else
+                            option(value=year selected)= year
+    div
+        span To:
+        select(class=dropdownClasses + " " + monthDreodoenClasses name="endMonth" size="1" id="endMonthId")
+            if(months)
+                each month,i in months
+                    if (data.monthRange) && i + 1 != data.monthRange.endMonth
+                        option(value=i + 1)= month
+                    else
+                        option(value=i + 1 selected)= month
+
+        if (years && yearsNo > 0)
+            select(class=dropdownClasses name="endYear" size="1" id="endYear")
+                if(years)
+                    each year in years
+                        if (data.monthRange) && year != data.monthRange.endYear
+                            option(value=year)= year
+                        else
+                            option(value=year selected)= year

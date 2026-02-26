@@ -1,0 +1,91 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# font
+  global:
+    type: "size"
+    category: "sizing"
+    cssProperties:
+    - 'font*'
+  jsGroupe: "base"
+  strip: "false"
+  props:
+    default-font-family:
+      value: "Roboto, arial, sans-serif"
+    secondary-font-family:
+      value: "'Cabin Condensed', arial, sans-serif"
+    tertiary-font-family:
+      value: "Georgia, serif"
+    default-font-size:
+      value: "1rem"
+      suffix: "16px"
+    h1-font-size:
+      value: "2rem"
+      suffix: "32px"
+    h2-font-size:
+      value: "1.625rem"
+      suffix: "26px"
+    h3-font-size:
+      value: "1.5625rem"
+      suffix: "25px"
+    h4-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    h5-font-size:
+      value: "1.625rem"
+      suffix: "26px"
+    h6-font-size:
+      value: "1rem"
+      suffix: "16px"
+    icon-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    large-font-size:
+      value: "1.4375rem"
+      suffix: "23px"
+    xlarge-font-size:
+      value: "2.1875rem"
+      suffix: "35px"
+    xxlarge-font-size:
+      value: "2.375rem"
+      suffix: "38px"
+    xxxxlarge-font-size:
+      value: "3rem"
+      suffix: "48px"
+    xxxlarge-font-size:
+      value: "2.625rem"
+      suffix: "42px"
+    medium-font-size:
+      value: "0.875rem"
+      suffix: "14px"
+    medium-2-font-size:
+      value: "0.9375rem"
+      suffix: "15px"
+    medium-3-font-size:
+      value: "1.0625rem"
+      suffix: "17px"
+    medium-4-font-size:
+      value: "1.25rem"
+      suffix: "20px"
+    medium-5-font-size:
+      value: "1.3125rem"
+      suffix: "21px"
+    small-font-size:
+      value: "0.8125rem"
+      suffix: "13px"
+    xsmall-font-size:
+      value: "0.75rem"
+      suffix: "12px"
+    xxsmall-font-size:
+      value: "0.6875rem"
+      suffix: "11px"
+    xxxsmall-font-size:
+      value: "0.625rem"
+      suffix: "10px"

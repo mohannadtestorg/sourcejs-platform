@@ -1,0 +1,11 @@
+extends  ../../../../../../ux3/components/applied-facets/templates/applied-facets/applied-facets-tmpl
+
+
+block appliedFacetTilte
+    -var appliedFacets="";
+    if (data) && (data.appliedFacets)
+      -appliedFacets="("+ data.appliedFacets.length+")"
+
+
+    h4.facet__title Applied filters !{appliedFacets}
+

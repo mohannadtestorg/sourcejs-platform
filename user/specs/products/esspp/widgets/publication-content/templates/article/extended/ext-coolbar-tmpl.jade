@@ -1,0 +1,31 @@
+extends ../../../../../../../ux3/components/coolbar/templates/coolbar/coolbar-tmpl
+
+block coolbarPrefix
+    div.article--res__download-btn.hidden-md.hidden-lg
+        a.btn.btn--standard(href=data.item.formats.pdf, target="_blank")
+            i(aria-hidden="true" class="icon-Icon_Download")
+            span Download PDF
+
+
+block coolbarDropZone
+    div.article__download-btn.hidden-sm.hidden-xs
+        a.btn.btn--standard(href=data.item.formats.pdf, target="_blank")
+            i(aria-hidden="true" class="icon-Icon_Download")
+            span Download PDF
+
+    div.coolBar__section
+    a.coolBar__ctrl.hidden-md.hidden-lg.w-slide__btn(href="#" data-db-target-for="article" data-db-switch="icon-close_thin"  data-slide-target="#articleMenu")
+        i(class="icon-Icon_About-Article" aria-hidden="true")
+        span About
+    div.coolBar__drop.fixed.rlist(data-db-target-of="article" id="articleMenu")
+        div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--download .coolBar__drop" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+
+block coolBarSecond
+    block coolBarToolsMenu
+        | !{pb.renderDropzone(thisWidget, "coolbarToolsDropZone")}
+
+
+    block coolBarShareMenu
+        div.article__share-control
+            | !{pb.renderDropzone(thisWidget, "coolbarShareDropZone")}

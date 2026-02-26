@@ -1,0 +1,74 @@
+.ux-modal-container .modal {
+    &__dialog {
+        padding: 0;
+        background: $modal-content-bg;
+
+        @include media('>=tablet') {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 342px;
+            margin: 0;
+            box-shadow: 0 4px 4px 0 $shadow-color;
+            border-radius: 0;
+            max-height: 98%;
+        }
+
+        &--form {
+            @include media('>=tablet') {
+                width: 480px;
+            }
+            .modal__body {
+                padding: 16px;
+
+                .input-group {
+                    margin: 0;
+                }
+                .input-group + .input-group {
+                    margin-top: 10px;
+                }
+            }
+        }
+        &--w600 {
+            @include media('>=tablet') {
+                width: 600px;
+            }
+        }
+    }
+    &__header {
+        padding: 16px;
+        h5 {
+            margin: 0;
+        }
+    }
+    &__title {
+        &--important {
+            color: $warning-text-color;
+        }
+    }
+
+    &__body {
+        padding: 16px 40px;
+        min-height: 70px;
+    }
+
+    &__footer {
+        @extend .clearfix;
+        margin: 0;
+        padding: 16px;
+        text-align: center;
+        border-color: $shadow-light-color;
+
+        button {
+            min-width: 88px;
+            text-align: center;
+        }
+    }
+    .btn--cancel {
+        background-color: transparent;
+        &:focus {
+            border: none;
+        }
+    }
+}

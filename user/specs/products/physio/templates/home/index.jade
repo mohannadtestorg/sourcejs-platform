@@ -1,0 +1,61 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Home page
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        p Use json file to render Home page info
+
+        +printJson({
+
+        })
+
+
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.home-page.pageBody
+                div.home-menu
+                    | !{data.menu}
+                include ../../components/home-header/templates/homepage-header-tmpl.jade
+                .container
+                    .row
+                        .xs-space.publication_list_slider
+                            div.card.clearfix.featured-articles-card.featured-thumbnail.slashed__tabs__nav
+                                | !{data.tabs}
+                include ../../components/sign-up/templates/sign-up-dark
+                .container
+                    .row
+                        .xs-space
+                            | !{data.resources}
+                include ../../components/journal-items/templates/calls-for-papers-tmpl.jade
+                .container
+                    .row
+                        .xs-space
+                            .card.clearfix
+                                .col-md-8
+                                    .row
+                                        | !{data.most}
+                                .col-md-4
+                                    .row
+                                        .sidebar-top-content.featured-articles-list
+                                            | !{data.trending}
+                .aps-select
+                    | !{data.apsSlider}
+                .container
+                    .row
+                        .xs-space
+                            | !{data.coverImages}
+            | !{data.footer}
+    | #{''}

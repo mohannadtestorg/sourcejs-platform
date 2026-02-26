@@ -1,0 +1,95 @@
+.usageReports {
+
+    .error{
+        margin-bottom: 10px;
+        &_msg {
+            color: #f00;
+            display: none;
+            margin-bottom: 1rem;
+        }
+    }
+    .rlist--inline.separator li {
+        margin-right: 6px;
+        padding-right: 6px;
+    }
+
+    label{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+
+    table{
+        margin-bottom: 20px;
+    }
+}
+
+#dateRange {
+    select {
+        display: inline-block;
+        width: auto;
+        margin: 10px;
+    }
+
+    span {
+        display: inline-block;
+        min-width: 55px
+    }
+
+}
+
+#reports, #formats, #recipients {
+    .label-txt {
+        padding-left: 28px;
+        display: block;
+
+        &:before {
+            float: none;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -9px;
+        }
+    }
+}
+
+#institutionUsageReport {
+    button {
+        font-size: 1rem;
+    }
+
+    td {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+
+        &:first-of-type {
+            color: $account-color;
+        }
+
+        & + td {
+            font-weight: 700;
+            color: $profile-primary-color;
+        }
+    }
+
+    @include media('<phone') {
+        td {
+            display: block;
+            &:first-of-type {
+                padding-bottom: 0;
+            }
+            & + td {
+                padding-top: 0;
+            }
+        }
+
+        h3 {
+            margin-top: 20px;
+        }
+
+        ol {
+            -webkit-padding-start: 1rem;
+        }
+    }
+}
+

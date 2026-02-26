@@ -1,0 +1,77 @@
+if code
+
+  .m-intro-block
+    p.f-body
+      | Enhance the protection of your account. We are enabling 2-step verification to better protect your account from threats.
+  form.m-signin-form(action='#')
+    fieldset
+      ol
+        li
+          label.a-label(for='verification_code') Enter the verification code we sent via SMS to the mobile number ending in ***
+          input#verification_code(type='text', name='verification_code')
+    p.m-signin-form__remember
+      span.a-form-checkbox
+        input#remember_computer(type='checkbox', value='true', name='remember_computer')
+        label(for='remember_computer') Remember this computer for 30 days
+    p.m-signin-form__btns
+      button.a-btn.a-btn--no-icon(type='submit') OK
+
+else if alert
+  .m-intro-block
+    p.a-alert-bar.a-alert-bar--multi
+      | Haven't received a verification code yet? 
+      a(href='#') Send another verification code
+    p.f-body
+      | Enhance the protection of your account. We are enabling 2-step verification to better protect your account from threats.
+  form.m-signin-form(action='#')
+    fieldset
+      ol
+        li
+          label.a-label(for='verification_code') Enter the verification code we sent via SMS to the mobile number ending in ***
+          input#verification_code(type='text', name='verification_code')
+    p.m-signin-form__remember
+      span.a-form-checkbox
+        input#remember_computer(type='checkbox', value='true', name='remember_computer')
+        label(for='remember_computer') Remember this computer for 30 days
+    p.m-signin-form__btns
+      button.a-btn.a-btn--no-icon(type='submit') OK
+
+else if error
+  .m-intro-block
+    p.a-alert-bar.a-alert-bar--error
+      svg.icon--alert(aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--alert')
+      |  Wrong verification code
+    p.f-body
+      | Enhance the protection of your account. We are enabling 2-step verification to better protect your account from threats.
+  form.m-signin-form(action='#')
+    fieldset
+      ol
+        li.s-error
+          label.a-label(for='verification_code') Enter the verification code we sent via SMS to the mobile number ending in ***
+          input#verification_code(type='text', name='verification_code')
+    p.m-signin-form__remember
+      span.a-form-checkbox
+        input#remember_computer(type='checkbox', value='true', name='remember_computer')
+        label(for='remember_computer') Remember this computer for 30 days
+    p.m-signin-form__btns
+      button.a-btn.a-btn--no-icon(type='submit') OK
+else
+  .m-intro-block
+    p.f-body
+      | Enhance the protection of your account. We are enabling 2-step verification to better protect your account from threats.
+  form.m-signin-form(action='#')
+    fieldset
+      ol
+        li.m-signin-form__international-dialling
+          span.a-label Insert your mobile number to receive a verification code in order to sign in
+          label.a-label(for='dialingCode') International dialing code
+          span.a-form-select
+            select#diallingCode(name='dialingCode')
+              option +1
+              option +30
+              option +44
+          label.a-label(for='password') Mobile number
+          input#mobileNumber(type='text', name='mobileNumber')
+    p.m-signin-form__btns
+      button.a-btn.a-btn--no-icon(type='submit') Send me the code

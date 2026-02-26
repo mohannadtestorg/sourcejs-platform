@@ -1,0 +1,10 @@
+form#accessTokenForm(action='/token', name='accessTokenForm', method='post')
+    p.message Please enter your claim number
+    input(type='hidden', name='id', value='412e0825-b53d-428f-8d92-68ce9557256e')
+    input(type='hidden', name='redirectUri', value='/action/showPreferences?menuTab=address&pbNew=false&pbEdit=true&pbScope=subPage&pbScope=website&pbScope=wgroup&pbScope=page&pbScope=pageGroup')
+    .input-group
+        .label
+            label(for='tokenAccess') Claim Number
+        input#tokenAccess.token(type='text', name='tokenAccess', value='', size='15')
+    .float-left
+        input.btn--inverse.extra-border(type='submit', name='submit', value='Submit', disabled='disabled')

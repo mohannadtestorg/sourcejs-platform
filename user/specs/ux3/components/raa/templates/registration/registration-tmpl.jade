@@ -1,0 +1,29 @@
+
+
+div.form__registration
+
+    ul.rlist--inline.social-login
+        li
+            a(href='#', title='Linkedin')
+                i.icon-linkedin2(aria-hidden="true")
+        li
+            a(href='#', title='Facebook')
+                i.icon-facebook2(aria-hidden="true")
+        li
+            a(href='#', title='Twitter')
+                i.icon-twitter2(aria-hidden="true")
+
+    form
+        label(for="email") Email
+        input(type="email" placeholder="Email" id="email")
+
+
+        if (data.button)
+            button.btn.btn--full-width(title=data.button.text) !{data.button.text}
+
+    if (data.extraLinks)
+        each item, l in data.extraLinks
+            if (item.attr)
+                a.form__links(href=item.itemUrl title=item.text)&attributes(item.attr) !{item.text}
+            else
+                a.form__links(href=item.itemUrl title=item.text) !{item.text}

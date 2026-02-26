@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-parent-item-tmpl
+
+block volume
+    if (data) && (data.coverDate)
+        .loi__coverDate.loi__volume
+            if data.url
+                a(href=data.url)
+                    span  !{data.coverDate}
+            else
+                span  !{data.coverDate}
+
+block parentDate

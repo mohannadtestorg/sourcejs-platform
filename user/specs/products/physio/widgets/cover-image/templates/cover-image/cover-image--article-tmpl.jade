@@ -1,0 +1,14 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block coverDetails
+    .cover-image__details
+        | !{pb.render('parent-item','parent-item/parent-item-article', {data: cover}, 'physio')}
+
+block defaultImageNothing
+    div(class=imageClass)
+        img(src="/products/physio/images/article_default_cover.svg" alt=cover.serial.serialTitle + " cover image")
+block defaultImagelinkToIssueOrBookOrSeriesHome
+    if(!cover.coverImage)
+        div(class=imageClass)
+            a(href=cover.tocUrl  title=altValue)
+                img(src="/products/physio/images/article_default_cover.svg" alt=altValue)

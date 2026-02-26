@@ -1,0 +1,39 @@
+form.o-form-sm(action='/', data-behavior='AjaxFormSubmit')
+    fieldset
+        legend Save Search
+
+        ol.o-form-sm__fields-list
+            li
+                label.a-label(for='saveSearch_query') Search query
+
+                input#saveSearch_query(name='saveSearch_query', type='text', value='test', readonly='')
+
+            li
+                label.a-label(for='saveSearch_description') Description
+
+                input#saveSearch_description(name='saveSearch_description', type='text')
+
+            li
+                label.a-label(for='saveSearch_keywords') Keywords
+
+                input#saveSearch_keywords(name='saveSearch_keywords', type='text', data-input-keywords='')
+
+                em.a-form-hint Separated by semicolon
+
+        p.o-form-sm__prev-keywords(data-behavior='PrevKeywords')
+            | Previously used keywords:
+            em Coronary Artery Disease
+            | ,
+            em Stents Research
+
+        p.o-form-sm__btns
+            button.a-btn(type='submit')
+                | Save
+                svg.icon--arrow(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+            button.a-btn.a-btn--fake-link-secondary(data-behavior='CloseModal')
+                | Cancel
+
+        p.o-form-sm__success-msg.sg-scala-sans-offc-pro
+            a(href='#') See all my saved searches

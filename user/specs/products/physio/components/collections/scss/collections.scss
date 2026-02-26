@@ -1,0 +1,254 @@
+.collections {
+    .tab--aside > .tab__nav {
+        width: 31%;
+        min-width: initial;
+        font-size: 12px;
+        font-size: .75rem;
+        padding: 30px 20px;
+        a {
+            border-left: none;
+            padding: 4px;
+        }
+    }
+    .tab--aside > .tab__content {
+        width: 67%;
+        border: none;
+        padding: 30px;
+    }
+    .tab__pane:not(.nested-tab) {
+        padding-top: 0;
+    }
+    .tab__nav {
+        li {
+            margin-bottom: 0;
+        }
+        span {
+            line-height: 23px;
+            padding-left: 20px;
+            display: inline-block;
+        }
+    }
+    .card {
+        margin-top: 0;
+    }
+}
+
+.collections {
+    h2 {
+        font-weight: 900;
+    }
+    .collections__list {
+        color: $primary-text-color;
+        > li {
+            a {
+                font-size: 20px;
+                font-weight: 800;
+            }
+            ul {
+                a {
+                    font-size: $primary-text-size;
+                    font-weight: 400;
+                }
+            }
+        }
+        &.tab__nav i {
+            display: inline-block;
+            font-size: .75rem;
+            font-weight: 800;
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+        .icon-squared-minus {
+            &:before {
+                content: "\e60b";
+                font-size: 8px;
+            }
+        }
+        &.tab__nav {
+            .active {
+                a {
+                    font-weight: 400;
+                    @include themify($themes) {
+                        color: themed('color');
+                    }
+                }
+            }
+            a {
+                &:hover {
+                    @include themify($themes) {
+                        color: themed('color');
+                    }
+                }
+            }
+        }
+        .expandable-list {
+            &__body {
+                span {
+                    padding-left: 34px;
+                }
+
+            }
+            &.js--open {
+                > a {
+                    @include themify($themes) {
+                        color: themed('color');
+                    }
+                }
+                > span {
+                    padding-left: 13px;
+                }
+            }
+        }
+
+    }
+    .tab__content {
+        max-height: initial;
+    }
+    &__issue {
+        border-bottom: 1px solid $primary-border;
+        padding: 25px;
+        font-size: 14px;
+        padding-left: 0;
+    }
+    &__cover {
+        display: inline-block;
+        max-width: 220px;
+        min-width: 220px;
+        vertical-align: top;
+        float: left;
+        margin-right: 15px;
+    }
+    &__meta-data {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
+.collections_content {
+    h2 {
+        margin: 0;
+    }
+    .intro {
+        font-weight: 800;
+        color: $gray-2;
+        margin-bottom: 25px;
+        &:before {
+            content: "//";
+            padding-right: 5px;
+            letter-spacing: 2px;
+        }
+    }
+    .authors, .coverDate {
+        color: $gray-2;
+    }
+}
+
+.collections__issue {
+    h3 {
+        margin-bottom: 5px;
+    }
+}
+
+.collections-item {
+    &__footer {
+        .collections-item__detail, .accordion__control {
+            color: $primary-blue-color;
+            font-size: 12px;
+            font-weight: 400;
+            margin: 0;
+            .icon {
+                display: none;
+            }
+            span {
+                margin-right: 0;
+                color: $primary-blue-color;
+                text-transform: none;
+            }
+        }
+        i[class*=icon-] {
+            color: $primary-blue-color;
+            margin-right: 6px;
+            margin-left: 0;
+        }
+        .collections-item__detail {
+            float: right;
+        }
+        .accordion__control {
+            margin-top: 8px;
+        }
+    }
+    &__main {
+        display: block;
+    }
+}
+
+@include media('<desktop') {
+    .collections-item {
+        &__footer {
+            position: relative;
+            .collections-item__detail {
+                position: absolute;
+                right: 0;
+                span {
+                    display: none;
+                }
+                .icon {
+                    font-size: 17px;
+                    border: 1px solid $primary-blue-color;
+                    padding: 7px;
+                    color: $primary-blue-color;
+                    margin: 3px;
+                    display: inline-block;
+                }
+            }
+            .rlist--inline.separator > li:not(:last-of-type) {
+                border-right: 0;
+                padding: 0;
+                margin: 0;
+            }
+            .accordion__control {
+                width: 80px;
+            }
+        }
+    }
+}
+
+.collections-list {
+    background: $primary-white;
+    i {
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+    .new{
+        @include themify($themes) {
+            background: themed('color');
+        }
+    }
+    a {
+        border-top: 1px solid $primary-border;
+        &:hover {
+            color: $primary-white;
+            @include themify($themes) {
+                background: themed('color');
+            }
+            .new{
+
+                background: $primary-white;
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+            i{
+                color: $primary-white;
+            }
+        }
+    }
+    .expandable-list {
+        .new{
+            color: $primary-white;
+        }
+    }
+}

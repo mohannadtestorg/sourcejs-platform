@@ -1,0 +1,33 @@
+.loginBar {
+    color: $primary-link-color;
+    padding: 0px 0px 0px 24px;
+
+    .icon-profile_empty,
+    .icon-userprofile {
+        font-size: $icon-font-size;
+        line-height: 1em;
+        margin-bottom: 0px;
+        display: block;
+    }
+
+    .sign-in-label,
+    .profile-text {
+        display: block;
+        font-size: $xx-small-font-size;
+        margin-top: 10px ;
+    }
+}
+
+@include media('<tablet') {
+    .loginBar {
+        .icon-profile_empty,
+        .icon-userprofile {
+            line-height: 29px;
+        }
+
+        .sign-in-label,
+        .profile-text {
+            display: none;
+        }
+    }
+}

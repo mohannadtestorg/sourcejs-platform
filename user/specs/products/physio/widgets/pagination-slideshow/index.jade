@@ -1,0 +1,38 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        p This template includes pagination Slideshow.
+
+
+
+    section.source_section
+        h2 Example
+
+          h3!= data.items[0].title
+
+          p use class `paginationSlideshow` to make the slider pagination , use any class from theming fo color
+          .source_example
+              div.container.ajpregu
+                 div.paginationSlideshow
+                    .stay-connected.publication-box
+                       h2 Podcasts
+                       | !{data.items[0].body}
+
+          h3!= data.items[1].title
+          p use class `paginationSlideshow` to make the slider pagination , use any class from theming fo color
+          .source_example
+              div.container.ajpheart
+                  div.paginationSlideshow
+                      .stay-connected.publication-box
+                          h2 Videos
+                          | !{data.items[1].body}
+
+
+    | #{''}

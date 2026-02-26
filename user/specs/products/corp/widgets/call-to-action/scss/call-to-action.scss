@@ -1,0 +1,31 @@
+.call-to-action {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__inner {
+        background: #fff url('https://placeimg.com/1000/480/people/grayscale') 50% 0 no-repeat;
+        background-size: cover;
+        padding-top: 38px;
+        padding-bottom: 48px;
+        clip-path: polygon(0% 0%, 100% 0, 100% 90%, 24% 100%, 0% 100%);
+        @include media('>phone') {
+            padding-top: 50px;
+            padding-bottom: 60px;
+        }
+        @include media('>=desktop') {
+            padding-top: 110px;
+            padding-bottom: 120px;
+            clip-path: polygon(0% 0%, 100% 0, 100% 85%, 24% 100%, 0% 100%);
+        }
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__content {
+        color: $default-content-color;
+        margin-bottom: 1.5rem;
+    }
+}

@@ -1,0 +1,10 @@
+- if (model !== undefined) data = model.data;
+
+div.toc_content
+    div.col-md-2
+        nav.toc__section
+            #sections.article-sections
+                ul.sections__drop.rlist.separator
+    if(data && data.group)
+        div.col-md-10.toc-separator
+            | !{data.group.tocXsl}

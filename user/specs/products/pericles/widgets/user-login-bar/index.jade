@@ -1,0 +1,32 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 User Panel
+
+        h3 Template Info
+
+        markdown
+            p Add `right-side` class on the parent container to align the dropdown on the right
+            p <strong>Note: </strong> the institutional anchor is absolute positioned to support accessibility
+
+        h3 Examples
+        .source_example
+            h4 User loged in
+            .container
+                | !{pb.render('user-login-bar', 'logged-in-panel/logged-in-panel-right', 'user-panel-logged-in.json', 'pericles')}
+
+        .source_example
+            h4 Institutional Admin loged in
+            .container
+                | !{pb.render('user-login-bar', 'logged-in-panel/logged-in-panel-right', 'user-panel-logged-in-admin.json', 'pericles')}
+
+        .source_example
+            h4 User loged out
+            .container
+                | !{pb.render('user-login-bar', 'logged-out-panel/logged-out-panel', 'user-panel-logged-out.json', 'pericles')}
+    | #{''}
+
+    

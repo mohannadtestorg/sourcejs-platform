@@ -1,0 +1,62 @@
+{
+    "title": "Basic Metadata",
+    "template": "doc",
+    "tag": ["pdc"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Basic Metadata",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/pd-basic-metadata/pd-basic-metadata-update-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/basic-metadata.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Basic Metadata - Readonly",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/pd-basic-metadata/pd-basic-metadata-read-only-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/basic-metadata.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

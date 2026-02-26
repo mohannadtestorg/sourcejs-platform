@@ -1,0 +1,37 @@
+{
+    "title": "Book Chapter page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/pol-header-book.json"
+                }
+            }
+        },
+        "dsmHeader":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/dsm-header-loi.json"
+                }
+            }
+        },
+
+        "content": {
+            "$ref": "../../widgets/publication-content/templates/data/bookChapterContent.json"
+        },
+        "content2": {
+            "$ref": "../../widgets/publication-content/templates/data/DSM.json"
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pol-footer.json"
+                }
+            }
+        }
+    }
+}

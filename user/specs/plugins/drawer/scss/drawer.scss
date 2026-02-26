@@ -1,0 +1,345 @@
+.main-nav {
+    border-bottom: 1px solid $tertiary-darken-color;
+    color: $text-onDark;
+    @extend .primary-bg-color;
+
+    a {
+        display: block;
+        font-size: 0.875rem; // 14px;
+        font-weight: bold;
+        padding: 14px 9px;
+        text-transform: uppercase;
+        line-height: 0.75rem; // 12px;
+
+    }
+
+    a[data-toggle="nav"] {
+        display: none;
+        color: $primary-text-color;
+    }
+    /* On res */
+    &.menu--res {
+        background-color: $menu-background;
+        height: 100%;
+        position: fixed;
+        right: -250px;
+        top: 0;
+        width: 250px;
+        z-index: 10;
+
+        #menubar {
+            position: relative;
+        }
+
+        a {
+            font-size: 1rem;
+        }
+
+        i{
+            font-size:1.25em
+        }
+
+        ul {
+            margin: 0 20px;
+            padding: 0 0 22px 0;
+            ul {
+                margin: 0;
+                width: 100%;
+                padding: 0;
+                border-bottom: 0;
+            }
+            a {
+                color: $text-onDark;
+                opacity: 0.84;
+                text-decoration: none;
+                padding: 0;
+                margin: 5px 0;
+                text-transform: capitalize;
+                line-height: 1.4;
+                i {
+                    color: $text-onDark;
+                    opacity: 0.84;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        li {
+            display: block;
+            -webkit-transform: translate(0, 0);
+            -moz-transform: translate(0, 0);
+            -ms-transform: translate(0, 0);
+            -o-transform: translate(0, 0);
+            transform: translate(0, 0);
+            -webkit-transition: -webkit-transform .4s ease;
+            transition: -webkit-transform .4s ease;
+            transition: transform .4s ease;
+            transition: transform .4s ease, -webkit-transform .4s ease;
+            &:before, &:after {
+                clear: both;
+                content: " ";
+                display: table;
+            }
+        }
+        .primary-bg-color {
+            background: transparent;
+        }
+
+        a[data-toggle="nav"] {
+            display: block;
+        }
+        .dropdown {
+            &.menu-parent__opened {
+                position: absolute;
+                top: 0;
+                background: $menu-background;
+                width: 100%;
+            }
+            &__menu {
+                display: block;
+                -webkit-transform: translate(200%, 0);
+                -ms-transform: translate(200%, 0);
+                transform: translate(200%, 0);
+                -webkit-transform: translate3d(200%, 0, 0);
+                transform: translate3d(200%, 0, 0);
+                -webkit-transition: -webkit-transform .4s ease;
+                transition: -webkit-transform .4s ease;
+                transition: transform .4s ease;
+                transition: transform .4s ease, -webkit-transform .4s ease;
+                -webkit-transform-origin: top left;
+                -ms-transform-origin: top left;
+                transform-origin: top left;
+                box-shadow: none;
+                padding: 5px 0;
+                margin: 5px 0;
+                &.sub-menu__opened {
+                    background: $menu-background;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    -webkit-transform: translate(0, 0);
+                    -ms-transform: translate(0, 0);
+                    transform: translate(0, 0);
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                    -webkit-transition: -webkit-transform .4s ease;
+                    transition: -webkit-transform .4s ease;
+                    transition: transform .4s ease;
+                    transition: transform .4s ease, -webkit-transform .4s ease;
+                }
+            }
+        }
+        .prev-items {
+            -webkit-transform: translate(-680px, 0);
+            -moz-transform: translate(-680px, 0);
+            -ms-transform: translate(-680px, 0);
+            -o-transform: translate(-680px, 0);
+            transform: translate(-680px, 0);
+            -webkit-transition: -webkit-transform .4s ease;
+            transition: -webkit-transform .4s ease;
+            transition: transform .4s ease;
+            transition: transform .4s ease, -webkit-transform .4s ease;
+        }
+        a[data-toggle="nav"] {
+            height: 54px;
+            position: absolute;
+            right: 100%;
+            padding: 13px 20px;
+            display: inline-block;
+            margin: 0;
+            .icon-close_thin {
+                display: none;
+            }
+
+            &.js--open {
+                background: $menu-background;
+
+                .icon-menu2,
+                .icon-menu {
+                    display: none;
+                }
+
+                .icon-close_thin {
+                    display: block;
+                    color: $tertiary-text-color;
+                }
+            }
+        }
+        .drawer__nav {
+            border-bottom: 2px solid $secondary-text-color;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 100%;
+            width: 100%;
+        }
+        .menu-header {
+            position: relative;
+            color: #fff;
+            opacity: 0.84;
+            text-align: center;
+            padding-bottom: 20px;
+            margin: 20px 20px 0;
+            border-bottom: 2px solid $secondary-text-color;
+            cursor: default;
+            i {
+                left: 0;
+                position: absolute;
+                top: 15px;
+                color: #fff;
+                opacity: 0.84;
+                font-size: 14px;
+                cursor: pointer;
+                &:before {
+                    content: "\e624";
+                }
+            }
+        }
+    }
+
+    .dropdown-more{
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+.lock-screen {
+    &[data-active="menu"] {
+        .w-slide {
+            display: none;
+        }
+        position: relative;
+        transform: translateX(-265px);
+        -webkit-transform: translateX(-250px);
+        -moz-transform: translateX(-250px);
+        -ms-transform: translateX(-250px);
+        -o-transform: translateX(-250px);
+
+        transition: all 250ms;
+        -webkit-transition: all 250ms;
+        -moz-transition: all 250ms;
+        -ms-transition: all 250ms;
+        -o-transition: all 250ms;
+        overflow: hidden;
+    }
+}
+
+/*body {
+    transition: all 250ms;
+    -webkit-transition: all 250ms;
+    -moz-transition: all 250ms;
+    -ms-transition: all 250ms;
+    -o-transition: all 250ms;
+}*/
+// it effects the slide on mobile
+
+.dropdown {
+    position: relative;
+
+    &__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        @extend .primary-bg-color;
+        float: left;
+        min-width: 160px;
+        font-size: 14px;
+        text-align: left;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    }
+    /*
+    [class*="level"] {
+        top: 0;
+        left: 100%;
+    }*/
+    //  it's effects the dropdown nav menu
+    &.hover, &:hover, &:focus {
+        background-color: $primary-bg-color;
+        > .dropdown__menu {
+            display: block;
+        }
+        > a {
+            i[class*='_arrow'] {
+                transform: rotate(180deg);
+            }
+        }
+
+    }
+    i[class*='_arrow'] {
+        font-size: 6px;
+        font-weight: 700;
+        color: $text-onDark;
+        line-height: 1;
+        opacity: .84;
+        margin-left: 5px;
+        padding: 3px 0 3px 3px;
+    }
+
+    &__toggle.hover {
+        + .dropdown__menu {
+            display: block;
+        }
+    }
+}
+
+.responsive-menu{
+    &-container{
+        background:  $primary-bg-color;
+
+        .left-section,.right-section,.menu-section{
+            display: inline-block;
+        }
+        @include media('<tablet'){
+            margin-right: 40px;
+        }
+        .institution{
+            color: $white;
+        }
+        .dropzone{
+            min-width: 50px;
+        }
+    }
+
+    &-nav{
+        display: none;
+        border-bottom: none;
+        .pb-dropzone-mode &{
+            display: block;
+        }
+
+        .drawer__nav{
+            width: 100%;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {//for IE11
+            .icon-section_arrow_d {
+                display: ruby-text;
+            }
+        }
+
+        .menuOpenAndClose{
+            &.js--forceClose{
+                .dropdown__menu{
+                    display: none;
+                }
+                i[class*=_arrow]{
+                    transform: initial !important;
+                }
+            }
+
+            &.js--opened{
+                >.dropdown__menu{
+                    display: block;
+                }
+
+            }
+        }
+    }
+}
+.dropdown-more.hidden{
+    display: none;
+}

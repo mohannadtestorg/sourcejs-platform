@@ -1,0 +1,54 @@
+.article-table-caption {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.article-table-content {
+    border: none;
+    border-bottom: 1px solid #000000;
+
+    @include media('<large') {
+        overflow-x: scroll;
+    }
+
+    table {
+        display: table;
+    }
+
+    thead {
+        background-color: $tertiary-bg-color;
+        th {
+            border-color: #000000;
+            color: $text-onLight;
+        }
+    }
+
+    tbody {
+        tr:nth-child(odd) {
+            background-color: $secondary-lighten-bg-color;
+        }
+
+        tr:nth-child(even) {
+            background-color: $tertiary-bg-color;
+        }
+    }
+}
+
+.article-section__inline-figure {
+    margin: 30px 0px;
+
+    figure {
+        width: auto;
+        float: none;
+    }
+
+    img {
+        margin-bottom: 0px;
+    }
+
+    figcaption strong {
+        font-size: $h6-font-size;
+        color: $primary-text-color;
+        display: inline;
+    }
+}

@@ -1,0 +1,50 @@
+//include ../../../../components/raa/templates/login/login-mixin
+//include ../../../../components/raa/templates/registration/registration-mixin
+//include ../../../../components/raa/templates/forget-pass/forget-pass-mixin
+//include ../../../../components/raa/templates/forget-user/forget-user-mixin
+
+- if (model !== undefined) data = model.data;
+
+mixin modal(id,modalData)
+    .ux-modal-container
+        .modal.align-start(id=id)
+            .modal__dialog
+                .modal__header
+                    button(type="button" class="close" data-dismiss="modal")
+                        i.icon-close_thin(aria-hidden="true")
+                    .logoDropZone(data-pb-dropzone="logoDropZone")
+                        | !{pb.renderDropzone(thisWidget, "logoDropZone")}
+                    if (modalData.title)
+                        h2 !{modalData.title}
+                    if (modalData.text)
+                        .form__intro-text !{modalData.text}
+                .modal__body
+                    //if id == "reg"
+                    //    +login(modalData)
+                    //else if id == "signup"
+                    //    + register(modalData)
+                    //else if id == "signup"
+                    //    + register(modalData)
+                    //else if id == "fPass"
+                    //    + forgetPass(modalData)
+                    //else if id == "fUser"
+                    //    + forgetUser(modalData)
+
+.userLoginBar
+    a.quick-menu__item.userLoginBar__controller(href="#" data-toggle="modal" data-target="#reg" title="Login")
+        if(data && data.controller)
+            i.block-icon.separator-end(class= data.controller.icon aria-hidden="true")
+            span
+                | !{data.controller.text}
+
+    if(data && data.login)
+        +modal("reg",data.login)
+
+    if(data && data.register)
+        +modal("signup", data.register)
+
+    if(data && data.forgetPass)
+        +modal("fPass", data.forgetPass)
+
+    if(data && data.forgetUser)
+        +modal("fUser", data.forgetUser)

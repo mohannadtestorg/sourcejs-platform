@@ -1,0 +1,67 @@
+{
+    "title": "Pagination Slideshow",
+    "template": "doc",
+    "tag": [
+        "ready"
+    ],
+    "templateData": {
+        "items": [
+            {
+                "title": "Podcast slideshow",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/slide-podcast.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Video slideshow",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/slide-video.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

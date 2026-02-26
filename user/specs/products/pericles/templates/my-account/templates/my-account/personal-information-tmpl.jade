@@ -1,0 +1,126 @@
+| !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+.pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+    // begin pagefulltext
+    .page-body.pagefulltext
+        div(data-pb-dropzone='main')
+            div
+            .profile-pages__heading.card(data-widget-def='ux3-layout-widget', data-widget-id='9ce29057-a88f-4b0f-a1ec-8a2349f23131')
+                .container
+                    .row
+                        div
+                            .col-md-6.gutterless
+                                h1.account-page__header
+                                    | My account
+                                div
+                            .col-md-6.gutterless
+            .container
+                .row
+                    .raaAccountInfo.gutterless--md.gutterless--sm.gutterless--xs.col-md-12.gutterless
+                        .gutterless--md.gutterless--sm.gutterless--xs.col-md-3
+                            | !{pb.render('profile-menu', 'data.json', 'pericles')}
+                        .main-content.gutterless--md.gutterless--sm.gutterless--xs.col-md-9
+                            .card(data-widget-def='ux3-layout-widget', data-widget-id='a7e50a61-97a0-4cc9-a82e-1b3531caf48d')
+                                .accountInfo
+                                    h2.section__header
+                                        | Personal information
+                                    div
+                                    form#personalInformationForm(action='/action/doUpdateAccount', method='post')
+                                        input(type='hidden', name='anti-forgery-token', value='785f45fc-5976-476e-bbf2-6957141cfd7e')
+                                        input(type='hidden', name='menuTab', value='AccountInfo')
+                                        input(type='hidden', name='redirectUri', value='/action/showPreferences?menuTab=AccountInfo')
+                                        .pb-dropzone.formDropZone(data-pb-dropzone='formDropZone')
+                                            | !{pb.render('personal-information', 'data.json', 'pericles')}
+                                            section.emails-wrappers.reproducible__container(data-count='1', data-max='5')
+                                                input(type='hidden', name='email.id', value='2abc7029-5336-4fda-8425-771fc449c70e')
+                                                input(type='hidden', name='section', value='emails')
+                                                .popup.verification-confirmation.hidden
+                                                    a.close.cancel(href='#')
+                                                        i.icon-close_thin
+                                                    .content
+                                                        .success-template.hidden
+                                                            h2 Congrats!
+                                                            p A verification email has been sent to your email
+                                                        .failure-template.hidden
+                                                            h2.error Oops!
+                                                            p.message
+                                                .email.primary
+                                                    .row
+                                                        .col-md-6
+                                                            .input-group
+                                                                .label
+                                                                    label(for='fakeEmail')
+                                                                        | Email
+                                                                        span.required-marker *
+                                                                input#fakeEmail.fakeEmail.value.fullwidth(type='email', name='fakeEmail', value='rdissi@atypon.com', placeholder='')
+                                                            .hidden
+                                                                .input-group
+                                                                    .label
+                                                                        label(for='email[0].value')
+                                                                            | Email
+                                                                            span.required-marker *
+                                                                    input.originalEmail.value.fullwidth(id='email[0].value', type='hidden', name='email[0].value', value='rdissi@atypon.com', placeholder='')
+                                                        .col-md-6
+                                                            .input-group
+                                                                .label
+                                                                    label(for='login.email2') Retype email
+                                                                input.confirmEmail.email2.fullwidth(id='login.email2', type='text', name='login.email2', value='', size='15', placeholder='')
+                                                                .actions
+                                                                    a.link.show-change-password.pull-right(href='#') change password
+                                                    input(type='hidden', name='email[0].primary', value='true')
+                                                    input(type='hidden', name='email[0].verified', value='true')
+                                            section.taxonomies
+                                                input(type='hidden', name='taxonomy.id', value='ea6e3497-fdfd-4f97-9c09-7f9e20542674')
+                                                input(type='hidden', name='section', value='taxonomies')
+                                                input(type='hidden', name='taxonomy[0].code', value='user-profile-country', data-maxtags='1.')
+                                                .input-group
+                                                    .label
+                                                        label(for='taxonomy[0].values')
+                                                            | Country/Location
+                                                            span.required-marker *
+                                                    select.jcf(id='taxonomy[0].values', name='taxonomy[0].values')
+                                                        option(value='country-bo')
+                                                            | BOLIVIA
+
+
+
+                                                input(type='hidden', name='taxonomy[1].code', value='profile-interest', data-maxtags='1.')
+                                                .input-group
+                                                    .label
+                                                        label(for='taxonomy[1].values')
+                                                            | Area of interest
+                                                            span.required-marker *
+                                                    select.jcf(id='taxonomy[1].values', name='taxonomy[1].values')
+                                                        option(value='')
+                                                            | SELECT YOUR AREA OF INTEREST
+
+                                        .actions.form-btn
+                                            p.small-txt.float-left * Marks a required field
+                                            a.linkBtn(href='/action/showPreferences?menuTab=AccountInfo', onclick='history.go(0)')
+                                                | DISCARD CHANGES
+                                            input.button.btn.primary(type='submit', name='submit', value='UPDATE')
+
+                            .card(data-widget-def='ux3-layout-widget', data-widget-id='514cb7fc-79fa-4ce0-a39b-97bd350ef7e4')
+                                div
+                                    h4 Sign up for Email lists
+                                    section.marketable
+                                        input(type='hidden', name='marketable.id', value='20e06579-d7f5-4d49-a7fd-b5b803acf803')
+                                        input(type='hidden', name='section', value='marketable')
+                                        .notified-group
+                                            .input-group
+                                                label.radio--primary
+                                                    input(id='marketable.value', type='radio', name='marketable.value', value='true')
+                                                    span.label-txt Yes... send me email on Wiley publications in my Area of Interest
+                                            .input-group
+                                                label.radio--primary
+                                                    input(id='marketable.value', type='radio', name='marketable.value', value='false', checked='checked')
+                                                    span.label-txt No, thank you... I do not wish to receive promotional email from Wiley
+                                    p.small-txt
+                                        | You may unsubscribe from our mailing list any time.View our
+                                        a(href='http://www.wiley.com/privacy', target='_blank') Privacy Policy
+                                        | .
+    // end pagefulltext
+
+
+
+| !{pb.render('footer', 'pericles')}

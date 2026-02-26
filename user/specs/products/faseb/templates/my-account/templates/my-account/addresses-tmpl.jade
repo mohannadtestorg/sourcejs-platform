@@ -1,0 +1,42 @@
+extends ../../../../../../ux3/templates/my-account/templates/my-account/addresses-tmpl
+
+block newAddressContent
+    .row
+        .col-md-12
+            form
+                label(for='addressName') Address name
+                input(id="addressName" type="text" placeholder="Select an address or add a new one")
+
+                .grid-md-2.row
+                    .grid-item
+                        label(for='name') Name
+                        input(id="name" type="text" placeholder="Type your name")
+
+                    .grid-item
+                        label(for='surname') Surname
+                        input(id="surname" type="text" placeholder="Type your surname")
+
+                label(for='address') Address
+                input(id="address" type="text" placeholder="Type your address")
+
+                .grid-lg-2.row
+                    .grid-item
+                        label(for='postCode') Post code
+                        input(id="postCode" type="text" placeholder="Type your post code")
+
+                    .grid-item
+                        label(for='city') City
+                        input(id="city" type="text" placeholder="Type your city")
+
+                label(for='country') Country
+                input(id="country" type="text" placeholder="Type your country")
+
+                label State
+                select.jcf
+                    option Select your state
+                    option Ipsum
+                    option Dolor
+
+                .form-btn
+                    button.btn Save Address
+                    a(href="#").my-account__cancle.cancle-new-address Cancle

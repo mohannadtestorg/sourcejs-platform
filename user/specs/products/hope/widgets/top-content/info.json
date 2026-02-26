@@ -1,0 +1,68 @@
+{
+    "title": "Top Content",
+    "tag": ["pbWidgets"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Most Cited",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["featuredCard", "featuredCard--dark", "journal"],
+                                    "markup": "div",
+                                    "headingLevel": "div",
+                                    "headingClass": ["featuredCard__header"]
+                                },
+                                "data": {
+                                    "title": "Most recent",
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/top-content/top-content-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Most Cited",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["featuredCard", "featuredCard--dark", "journal", "featuredCard__teaser"],
+                                    "markup": "div",
+                                    "headingLevel": "div",
+                                    "headingClass": ["featuredCard__header"]
+                                },
+                                "data": {
+                                    "title": "Most recent",
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/top-content/top-content-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

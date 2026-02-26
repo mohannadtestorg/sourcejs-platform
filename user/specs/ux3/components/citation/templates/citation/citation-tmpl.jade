@@ -1,0 +1,28 @@
+block citationPrefix
+
+mixin citationAuthors()
+    block citationAuthors
+        | !{pb.render('loa', {data: data})}
+
+mixin contact()
+    block citation
+        if (data.parentItem)
+            | !{pb.render('parent-item', {data: data.parentItem})}
+        block citationTocHeading
+        //- item title
+        block citationTitle
+            h1.citation__title
+                if (data.itemUrl)
+                    a(href=data.itemUrl title=data.title) !{data.title}
+                else
+                    | !{data.title}
+        block citationTitleSuffix
+
+        //- list of authors
+        +citationAuthors()
+
+div.citation
+    +contact()
+
+block citationSuffix
+

@@ -1,0 +1,36 @@
+.related-audio {
+    .mediaPlayer__player {
+        margin-bottom: 15px;
+    }
+    .mediaPlayer__description {
+        margin-bottom: 10px;
+    }
+    .mediaPlayer__download {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 0;
+    }
+    .mediaPlayer__subtitle {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    &--tabs {
+        .tab__nav {
+            a {
+                border: 1px solid $media-player-bg;
+                margin-right: 5px;
+                padding: 7px 10px;
+            }
+            li {
+                &.active {
+                    a {
+                        background: fade_out($media-player-bg, 0.5);
+                    }
+                }
+            }
+        }
+        .tab__pane {
+            font-size: 1.125rem;
+        }
+    }
+}

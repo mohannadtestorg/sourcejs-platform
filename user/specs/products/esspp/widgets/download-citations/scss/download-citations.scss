@@ -1,0 +1,36 @@
+.citationFormats {
+    margin-top: 15px;
+
+    h4 {
+        color: #212121;
+    }
+
+    .citation-form {
+        &__fields {
+            @include media('>=desktop') {
+                display: flex;
+                align-items: center;
+            }
+        }
+        button {
+            margin-right: 1em;
+            i {
+                color: #fff;
+                margin-right: 10px
+            }
+        }
+        footer {
+            padding-top: 0;
+            a {
+                font-size: $smaller-font-size;
+            }
+        }
+        @include media ('>=tablet') {
+            select,
+            .input-group,
+            label {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

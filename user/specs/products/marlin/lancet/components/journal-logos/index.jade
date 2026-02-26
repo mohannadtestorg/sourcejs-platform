@@ -1,0 +1,17 @@
+extends /specs/products/marlin/lancet/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    h1 Journal Logos
+    section.source_section
+        h2 Example
+        .source_example.source_visible
+            style
+                | .journal-logos {margin: 100px 0;}
+            .ux3
+                .container
+                    include ./templates/journal-logos/journal-logos-tmpl
+
+    | #{''}

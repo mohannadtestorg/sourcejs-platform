@@ -1,0 +1,372 @@
+/***
+
+```
+<p class="m-generic-listing m-generic-listing--lg">
+  <span class="m-generic-listing__img">
+    <img src="http://placehold.dev.area17.com/image/800x400">
+  </span>
+  <span class="m-generic-listing__text">
+    <strong class="m-generic-listing__title f-h4">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <span class="m-generic-listing__blurb f-body--sm">Vestibulum fringilla, arcu vitae vulputate ultrices, lectus nunc laoreet ex, ut tempus orci neque ut dui. Curabitur egestas ullamcorper egestas. Ut ac consequat velit. Quisque velit risus, blandit vitae porta in, viverra id risus.</span>
+    <a href="#" class="m-generic-listing__cta-link f-ui">Learn more</a>
+  </span>
+</p>
+<p class="m-generic-listing m-generic-listing--md">
+  <span class="m-generic-listing__img">
+    <img src="http://placehold.dev.area17.com/image/800x400">
+  </span>
+  <span class="m-generic-listing__text">
+    <strong class="m-generic-listing__title f-h4">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <span class="m-generic-listing__blurb f-body--sm">Vestibulum fringilla, arcu vitae vulputate ultrices, lectus nunc laoreet ex, ut tempus orci neque ut dui. Curabitur egestas ullamcorper egestas. Ut ac consequat velit. Quisque velit risus, blandit vitae porta in, viverra id risus.</span>
+    <a href="#" class="m-generic-listing__cta-link f-ui">Learn more</a>
+  </span>
+</p>
+<p class="m-generic-listing m-generic-listing--md m-generic-listing--keyline-top">
+  <span class="m-generic-listing__img">
+    <img src="http://placehold.dev.area17.com/image/800x400">
+  </span>
+  <span class="m-generic-listing__text">
+    <strong class="m-generic-listing__title f-h4">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <span class="m-generic-listing__blurb f-body--sm">Vestibulum fringilla, arcu vitae vulputate ultrices, lectus nunc laoreet ex, ut tempus orci neque ut dui. Curabitur egestas ullamcorper egestas. Ut ac consequat velit. Quisque velit risus, blandit vitae porta in, viverra id risus.</span>
+    <a href="#" class="m-generic-listing__cta-link f-ui">Learn more</a>
+  </span>
+</p>
+<p class="m-generic-listing m-generic-listing--md m-generic-listing--reverse">
+  <span class="m-generic-listing__img">
+    <img src="http://placehold.dev.area17.com/image/800x400">
+  </span>
+  <span class="m-generic-listing__text">
+    <strong class="m-generic-listing__title f-h4">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <span class="m-generic-listing__blurb f-body--sm">Vestibulum fringilla, arcu vitae vulputate ultrices, lectus nunc laoreet ex, ut tempus orci neque ut dui. Curabitur egestas ullamcorper egestas. Ut ac consequat velit. Quisque velit risus, blandit vitae porta in, viverra id risus.</span>
+    <a href="#" class="m-generic-listing__cta-link f-ui">Learn more</a>
+  </span>
+</p>
+<p class="m-generic-listing m-generic-listing--sm">
+  <span class="m-generic-listing__img">
+    <img src="http://placehold.dev.area17.com/image/800x400">
+  </span>
+  <span class="m-generic-listing__text">
+    <strong class="m-generic-listing__title f-h4">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <span class="m-generic-listing__blurb f-body--sm">Vestibulum fringilla, arcu vitae vulputate ultrices, lectus nunc laoreet ex, ut tempus orci neque ut dui. Curabitur egestas ullamcorper egestas. Ut ac consequat velit. Quisque velit risus, blandit vitae porta in, viverra id risus.</span>
+    <a href="#" class="m-generic-listing__cta-link f-ui">Learn more</a>
+  </span>
+</p>
+<p class="m-generic-listing m-generic-listing--sm m-generic-listing--reverse">
+  <span class="m-generic-listing__img">
+    <img src="http://placehold.dev.area17.com/image/800x400">
+  </span>
+  <span class="m-generic-listing__text">
+    <strong class="m-generic-listing__title f-h4">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <span class="m-generic-listing__blurb f-body--sm">Vestibulum fringilla, arcu vitae vulputate ultrices, lectus nunc laoreet ex, ut tempus orci neque ut dui. Curabitur egestas ullamcorper egestas. Ut ac consequat velit. Quisque velit risus, blandit vitae porta in, viverra id risus.</span>
+    <a href="#" class="m-generic-listing__cta-link f-ui">Learn more</a>
+  </span>
+</p>
+```
+
+***/
+
+
+.m-generic-listing {
+  margin-top: 20px;
+
+  & + & {
+    @include breakpoint('small+') {
+      margin-top: 40px;
+    }
+  }
+
+  .a-subtitle + & {
+    @include breakpoint('medium+') {
+      margin-top: 32px;
+    }
+  }
+
+  .o-free-text-area & {
+    padding-right: 0;
+  }
+}
+
+.m-generic-listing__img {
+  display: block;
+}
+
+.m-generic-listing__img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.m-generic-listing__text {
+  display: block;
+  position: relative;
+
+  @include breakpoint('small+') {
+    padding-bottom: 28px;
+  }
+
+  @include breakpoint('medium+') {
+    padding-bottom: 44px;
+  }
+
+  .m-generic-listing__img + & {
+    margin-top: 16px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+  }
+}
+
+.m-generic-listing__text > br {
+  display: none;
+}
+
+.m-generic-listing__title {
+  display: block;
+
+  &.f-h3 {
+    color: $color__text--headlines;
+  }
+}
+
+.m-generic-listing__date {
+  display: block;
+  margin-top: 12px;
+  color: $color__text--quaternary;
+}
+
+.m-generic-listing__blurb,
+.m-generic-listing__text > * {
+  display: block;
+  margin-top: 20px;
+  padding-right: 20px;
+}
+
+.m-generic-listing__blurb:first-child,
+.m-generic-listing__text > *:first-child {
+  margin-top: 0;
+}
+
+.m-generic-listing__title + .m-generic-listing__blurb {
+  margin-top: 4px;
+
+  @include breakpoint('medium+') {
+    margin-top: 12px;
+  }
+}
+
+.m-generic-listing__inline-title,
+.f-body .m-generic-listing__inline-title,
+.f-body--sm .m-generic-listing__inline-title {
+  color: $color__text--headlines;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.m-generic-listing__cta-link {
+  display: block;
+  margin-top: 16px;
+  color: $color__link-primary;
+
+  @include breakpoint('small+') {
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    margin-top: 0;
+    white-space: nowrap;
+
+    .m-generic-listing--lg & {
+      position: static;
+      margin-top: 20px;
+      white-space: normal;
+    }
+  }
+}
+
+.m-generic-listing__cta-link:hover {
+  text-decoration: underline;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// variant .m-generic-listing--keyline-top
+//
+
+.m-generic-listing--keyline-top {
+  padding-top: 19px;
+  border-top: 1px solid $color__rules;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// variant .m-generic-listing--lg
+//
+
+.m-generic-listing--lg .m-generic-listing__text {
+  padding-bottom: 0;
+}
+
+.m-generic-listing--lg .m-generic-listing__img + .m-generic-listing__text {
+  @include breakpoint('medium+') {
+    margin-top: 28px;
+  }
+}
+
+.m-generic-listing--lg .m-generic-listing__cta-link {
+  @include breakpoint('small+') {
+    position: static;
+    margin-top: 8px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 16px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// variant .m-generic-listing--md
+// variant .m-generic-listing--sm
+//
+
+.m-generic-listing--md,
+.m-generic-listing--sm {
+  @include breakpoint('small+') {
+    display: flex;
+    flex-flow: row nowrap;
+
+    &.m-generic-listing--reverse {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.m-generic-listing--md .m-generic-listing__img,
+.m-generic-listing--sm .m-generic-listing__img {
+  @include breakpoint('small+') {
+    flex: 0 0 auto;
+  }
+}
+
+.m-generic-listing--md .m-generic-listing__text,
+.m-generic-listing--sm .m-generic-listing__text {
+  @include breakpoint('small+') {
+    flex: 1;
+    margin-top: 0;
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    margin-left: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-left: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-left: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.m-generic-listing--md.m-generic-listing--reverse .m-generic-listing__text,
+.m-generic-listing--sm.m-generic-listing--reverse .m-generic-listing__text {
+  @include breakpoint('small+') {
+    margin-right: map-get($inner-gutters, small);
+    margin-left: 0;
+  }
+
+  @include breakpoint('medium+') {
+    margin-right: map-get($inner-gutters, medium);
+    margin-left: 0;
+  }
+
+  @include breakpoint('large+') {
+    margin-right: map-get($inner-gutters, large);
+    margin-left: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: map-get($inner-gutters, xlarge);
+    margin-left: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: map-get($inner-gutters, xxlarge);
+    margin-left: 0;
+  }
+}
+
+.m-generic-listing--md .m-generic-listing__img {
+  @include breakpoint('small+') {
+    width: colspan(2, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(4, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(4, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(4, xxlarge);
+  }
+}
+
+.m-generic-listing--sm .m-generic-listing__img {
+  @include breakpoint('small+') {
+    width: colspan(2, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(3, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(3, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(3, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(3, xxlarge);
+  }
+}
+
+.m-generic-listing--md .m-generic-listing__title,
+.m-generic-listing--sm .m-generic-listing__title {
+  @include breakpoint('small+') {
+    margin-top: -4px;
+  }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// inside `o-results`
+//
+
+.o-results .m-generic-listing {
+  padding-top: 19px;
+  border-top: 1px solid $color__rules;
+}
+
+.o-results .m-generic-listing + .m-generic-listing {
+  @include breakpoint('small+') {
+    margin-top: 28px;
+  }
+}
+
+.o-results .m-generic-listing:first-child {
+  margin-top: 0;
+}

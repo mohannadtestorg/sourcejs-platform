@@ -1,0 +1,33 @@
+/***
+
+```
+<h3 class="f-h5"><a href="#" class="a-title-link">Research</a></h3>
+```
+
+***/
+
+.a-title-link {
+  color: $color__text--headlines;
+}
+
+.a-title-link::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 8px;
+  border-width: 4px 0 4px 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent $color__text--headlines;
+  vertical-align: middle;
+
+  @include breakpoint('medium+') {
+    opacity: 0;
+  }
+}
+
+.a-title-link:hover::after {
+  @include breakpoint('medium+') {
+    opacity: 1;
+  }
+}

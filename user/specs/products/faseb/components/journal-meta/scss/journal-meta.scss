@@ -1,0 +1,118 @@
+.meta {
+    &__body {
+        .meta__title {
+            margin-bottom: 10px;
+
+            a:hover {
+                color: $primary-link-color;
+                transition: color 0.3s;
+            }
+        }
+        .meta__info {
+            margin-bottom: 25px;
+            color: $secondary-text-color;
+        }
+
+        ~hr {
+            margin: 0px;
+            position: absolute;
+            bottom: 0px;
+            width: calc(100% - 120px);
+            margin-left: 120px;
+            @include media('<desktop') {
+                margin-left: 0px;
+                width: 100%;
+            }
+        }
+    }
+
+    &__right-side {
+        @include media('<tablet') {
+            display: block;
+        }
+    }
+
+    &__authors {
+        a:hover {
+            color: $primary-link-color;
+        }
+    }
+}
+
+.toc__latest-issue {
+    position: relative;
+
+    br {
+        display: none;
+    }
+}
+
+.card.meta__body {
+
+    .meta__left-side {
+        padding-left: 15px;
+
+        &.left-side-image {
+            padding-left: 0px;
+
+            img {
+                width: 165px;
+                padding-right: 30px;
+            }
+        }
+    }
+
+    h1.meta__title {
+        font-size: $h1-font-size;
+        line-height: normal;
+        min-height: initial;
+        margin-bottom: 20px;
+
+        @include media('<tablet') {
+            font-size: $h3-font-size;
+            margin-bottom: 40px;
+        }
+    }
+    .meta__info {
+        margin-left: 0px;
+        margin-bottom: 45px;
+
+        @include media('<tablet') {
+            margin-bottom: 15px;
+        }
+    }
+    p.meta__contrib {
+        color: $secondary-text-color;
+
+        .meta__contrib__label {
+            color: $primary-text-color;
+        }
+    }
+}
+
+@include media('<tablet') {
+    .card.meta__body {
+        .meta__left-side {
+            padding-left: 0px;
+        }
+    }
+}
+
+.quote {
+    font-style: normal;
+    text-indent: 0px;
+    padding: 0px 20px;
+    font-size: $h6-font-size;
+
+    .quote {
+        padding: 0px;
+    }
+
+    &:before {
+        content: "";
+    }
+
+    &:after {
+        content: "";
+    }
+}

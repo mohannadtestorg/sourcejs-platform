@@ -1,0 +1,72 @@
+.pagination {
+    margin-top: 0;
+
+    &__list {
+        a {
+            padding: 0 $default-inner-padding-x;
+
+            &.active {
+                color: $primary-link-color;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__btn--prev {
+        &:before {
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    }
+
+    &__btn--next {
+        &:after {
+            //@todo this should be on UX3 level similar to this
+            //@extend %make-icon-base;
+            //@include make-icon("\e624");
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    }
+
+    &__btn--prev,
+    &__btn--next {
+
+        &__title {
+            display: none;
+        }
+        color: $primary-link-color;
+        &.disabled {
+            color: $disabled-links;
+        }
+    }
+
+    // variant
+    &.pager {
+        overflow: hidden;
+        background: $pager-bg;
+        padding: ($default-inner-padding-x / 2);
+
+        .back-to-top {
+            @include make-primary-link();
+        }
+
+        .pagination {
+            &__btn--prev {
+                float: left;
+            }
+
+            &__btn--next {
+                float: right;
+            }
+
+            &__btn--prev,
+            &__btn--next {
+
+                &__title {
+                    display: inline;
+                }
+            }
+        }
+    }
+}

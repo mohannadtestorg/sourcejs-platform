@@ -1,0 +1,49 @@
+/***
+
+```
+<li class="m-correspondence-item f-h7">
+  <a href="#" class="m-correspondence-item__link">
+    Randomized Trial of Thymectomy in Myasthenia Gravis
+  </a>
+</li>
+```
+
+***/
+
+.m-correspondence-item {
+  display: block;
+  position: relative;
+  margin-top: 12px;
+  padding-top: 14px;
+  list-style-type: none;
+  text-align: center;
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+    padding-top: 18px;
+  }
+}
+
+.m-correspondence-item:first-child {
+  margin-top: 0;
+}
+
+.m-correspondence-item::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-correspondence-item__link {
+  color: $color__text--headlines;
+}
+
+.m-correspondence-item__link:hover {
+  @include text-underline();
+  color: $color__text--headlines;
+}

@@ -1,0 +1,36 @@
+div.completed-exams
+    if (data.currentPerson && data.currentPerson.examActivity)
+        each i in data.currentPerson.examActivity
+            - var item = {"showRelatedArticleLink": "", "showCreditHours": "", "showExamLink": "", "examTitle": "", "examLink": "", "articleTitle": "", "articleLink": "", "authors": "", "jornalTitle": "", "jornalLink": "", "creditHours": "", "completedDate": "", "examCertificateLink": "", "status": "", "expiresDate": "", "isExpired": "",  "myActivity": ""};
+            - item.showExamLink = true;
+            - item.showRelatedArticleLink = "true";
+            - item.showCreditHours = true;
+            - item.myActivity = true; //Flags this as Completed Exams rather than the Exam List
+
+            if(i.exam)
+                - var exam = i.exam;
+                - item.examTitle = exam.title ? exam.title : item.examTitle;
+                - item.examLink = exam.examLink ? exam.examLink : item.examLink;
+                - item.isExpired = exam.isExpired ? exam.isExpired: item.isExpired;
+                - item.expiresDate = exam.expiresDate ? exam.expiresDate: item.expiresDate;
+                - item.examCertificateLink = exam.examCertificateLink ? exam.examCertificateLink: item.examCertificateLink;
+
+            if(exam.related && exam.related[0].content)
+                - var content = exam.related[0].content[0];
+                - item.articleTitle = content.title ? content.title : item.articleTitle;
+                - item.articleLink = content.relatedArticleLink ? content.relatedArticleLink : item.articleLink;
+                - item.authors = content.authors ? content.authors : item.authors;
+
+                if(content.group && content.group.serial)
+                    - var serial = content.group.serial;
+                    - item.jornalTitle = serial.title ? serial.title : item.jornalTitle;
+                    - item.jornalLink = serial.link ? serial.link : item.jornalLink;
+
+            if(exam.response)
+                - var response = exam.response;
+                - item.creditHours = response.creditsEarned ? response.creditsEarned : item.creditHours;
+                - item.completedDate = response.completedDate ? response.completedDate : item.completedDate;
+                - item.status = response.status ? response.status: item.status;
+
+            div.completed-exams__item.clearfix
+                | !{pb.render('exam-item', {item:item})}

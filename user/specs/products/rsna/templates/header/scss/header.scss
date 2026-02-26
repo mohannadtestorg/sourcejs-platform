@@ -1,0 +1,381 @@
+header {
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.4);
+}
+.header {
+    @include media('<tablet') {
+        box-shadow: none;
+    }
+
+    @include media('<desktop') {
+        border-bottom: none;
+        padding-right: 0px;
+    }
+    &--first-row {
+        padding: 0px;
+        background-color: $default-bg-color;
+
+        &.container {
+            @include media('<desktop') {
+                padding: 0px;
+            }
+        }
+        
+        li[role="menuitem"] a, i.icon-timeline_mark, div a.quick-menu__item, a[class*=quick-search], div.institution a {
+            color: $primary-link-color;
+        }
+        @include media('<tablet') {
+            li[role="menuitem"] a {
+                color: $text-onDark;
+            }
+        }
+    }
+    &--logo {
+        width: 120px;
+        a {
+            display: inline-block;
+            line-height: 36px;
+
+            @include media('<tablet') {
+                line-height: 61px;
+            }
+        }
+        img {
+            display: inline-block;
+            max-width: 70px;
+            max-height: 25px;
+            vertical-align: middle;
+        }
+    }
+    &__logo {
+        @include media('<desktop') {
+            margin-left: 0px;
+        }
+    }
+    &--main-menu {
+
+    }
+    &--quick-menu {
+        text-align: right;
+
+        @include media('<tablet') {
+            padding: 20px 28px 20px 0px;
+            line-height: $icon-font-size;
+        }
+
+        .header__login {
+            a {
+                color: $primary-link-color;
+            }
+        }
+    }
+    .institution-wrapper {
+        float: left;
+    }
+    &__cart {
+        float: left;
+
+        a {
+            display: inline-block;
+            padding: 0px 15px;
+            border-right: 1px solid $primary-border-color;
+            color: $primary-link-color;
+            transition: background-color 0.3s;
+            float: left;
+
+            @include media('<tablet') {
+                padding: 0px 10px;
+                border-right: none;
+            }
+
+            &:hover {
+                background-color: $secondary-lighten-bg-color;
+
+                @include media('<tablet') {
+                    background-color: transparent;
+                }
+            }
+        }
+
+        i.icon-shopping_cart {
+            margin: 0px;
+            font-size: $h3-font-size;
+            line-height: 36px;
+
+            @include media('<tablet') {
+                font-size: $icon-font-size;
+                line-height: normal;
+            }
+        }
+    }
+    &__login {
+        float: left;
+        position: relative;
+    }
+    &__search {
+        float: left;
+    }
+    &--second-row {
+        height: 75px;
+        padding: 15px 0px;
+        background-color: $primary-bg-color;
+
+        @include themify($themes) {
+            background-color: themed('header-second-row-bg-color');
+        }
+
+        @include media('<tablet') {
+            height: 60px;
+        }
+
+        &--left {
+
+        }
+
+        &--right {
+            a {
+                line-height: 30px;
+                vertical-align: top;
+                display: none;
+                color: $text-onDark;
+
+                @include media('<tablet') {
+                    display: inline-block;
+                }
+
+                @include themify($themes) {
+                    color: themed('header-second-row-color');
+                }
+            }
+
+            .w-slide__btn {
+                padding-left: 10px;
+                font-size: $default-font-size;
+                &:last-of-type {
+                    border-left: 1px solid $default-border-color;
+                    @include themify($themes) {
+                        border-color: themed('border');
+                    }
+                }
+            }
+
+            i {
+                line-height: 30px;
+                padding-right: 10px;
+                font-size: $h3-font-size;
+            }
+        }
+    }
+
+    &--img-radiographics, &--img-radiology {
+        display: none;
+
+        img {
+            max-height: 45px;
+
+            @include media('<tablet') {
+                max-height: 30px;
+            }
+        }
+
+    }
+
+    &--third-row {
+        background-color: $default-bg-color;
+        padding: 10px 0px;
+        font-size: $h6-font-size;
+        font-weight: bold;
+        color: $primary-link-color;
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+
+        @include media('<tablet') {
+            display: none;
+        }
+
+
+
+        &--left {
+            & > ul {
+                li:hover {
+                    a {
+                        color: $primary-link-hover-color;
+                    }
+                }
+            }
+            width: calc(100% - 150px);
+
+            ul {
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+            }
+
+            li {
+                display: inline-block;
+
+                &:after {
+                    content: "|";
+                    padding: 0px 10px;
+                }
+
+                &:last-child:after {
+                    display: none;
+                }
+
+                &.menu-parent {
+                    position: relative;
+                    padding: 10px 0px;
+                    margin: -10px 0px;
+                    & > a {
+                        span {
+                            padding-right: 10px;
+                        }
+                        &:after {
+                            content: "\e603";
+                            font-size: $x-small-font-size;
+                            transition: transform 0.3s;
+                            line-height: $default-font-size;
+                            font-family: icomoon;
+                            display: inline-block;
+                        }
+                    }
+                    ul {
+                        display: none;
+                    }
+
+                    &:hover {
+                        color: $primary-text-color;
+                        & > a {
+                            &:after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                        ul {
+                            display: block;
+                        }
+                    }
+                }
+
+                ul {
+                    position: absolute;
+                    top:100%;
+                    left: -10px;
+                    background-color: $default-bg-color;
+                    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+                    max-height: 350px;
+                    overflow: auto;
+
+                    li {
+                        display: block;
+                        border-top: 1px solid $primary-border-color;
+                        &:after {
+                            content: "";
+                            display: none;
+                        }
+                        &:first-child {
+                            border-top: none;
+                        }
+                    }
+
+                    a {
+                        color: $primary-link-color;
+                        padding: 10px 15px;
+                        font-size: $x-small-font-size;
+                        font-weight: normal;
+                        min-width: 170px;
+                        display: block;
+                        @include themify($themes) {
+                            color: themed('color');
+                        }
+                        &:hover {
+                            background-color: $secondary-lighten-bg-color;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        &--right {
+            width: 150px;
+            text-align: right;
+
+            i {
+                padding-right: 10px;
+                font-size: $h3-font-size;
+                display: inline-block;
+                vertical-align: bottom;
+            }
+
+            .w-slide__btn {
+                display: none;
+            }
+        }
+    }
+
+    .about__menu__toggler {
+        display: inline-block;
+        margin: -10px 0 -10px;
+        padding: 10px;
+        &:hover,
+        &:focus {
+            background-color: #fff;
+        }
+        &:hover {
+            > a {
+                color: $primary-link-hover-color;
+            }
+        }
+    }
+    
+}
+
+.about__menu {
+    background-color: #fff;
+    right: 0;
+    left: initial;
+    @include themify($themes) {
+        color: themed('color');
+    }
+    &:first-child {
+        border-top: none;
+    }
+    li {
+        border-top: 1px solid $primary-border-color;
+        transition: background-color 0.3s;
+        &:hover {
+            background-color: $secondary-lighten-bg-color;
+        }
+
+        &:first-child {
+            border-top: none;
+        }
+
+        a {
+            display: block;
+            font-weight: normal;
+            font-size: $x-small-font-size;
+            padding: 10px 15px;
+            line-height: .75rem;
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+    }
+}
+.jrnl-radiology {
+    .header--img-radiology {
+        display: inline-block;
+    }
+}
+.jrnl-radiographics {
+    .header--img-radiographics {
+        display: inline-block;
+    }
+}
+
+.pb-edit-view .header--second-row {
+    height: 100%
+}

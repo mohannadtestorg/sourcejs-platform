@@ -1,0 +1,54 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/citation-tmpl.jade
+block alertsToolBar
+    ul.rlist--inline.pull-left
+        li
+            input-group
+                label.checkbox--primary
+                    input(type='checkbox' name="markall")
+                    span.label-txt
+                        p.inline.hidden-xs Select All
+        li
+            div.alert__action
+                a.js__citActions(href="#" data-value='removeArticle')
+                    i.icon-delete_filled(aria-hidden="true")
+                    span Delete
+    .pull-right.alert__sort
+        .input-group.left-side-label
+            label.hidden-xs Sort by:
+            select.jcf(id="citationsortby" name="sortBy")
+                option(value="ITEM_TITLE",selected= data.sortBy=="ITEM_TITLE"?"true":undefined) Article Title
+                option(value="SERIAL_TITLE",selected= data.sortBy=="SERIAL_TITLE"?"true":undefined) Publication
+                option(value="EPUB_DATE",selected= data.sortBy=="EPUB_DATE"?"true":undefined) Publication Date
+
+block citationTable
+    .table-responsive.separator
+        table.expandable.alert__list
+            thead
+                tr
+                    th(width="5%")
+                    th(width="35%") Article Title
+                    th(width="35%") Publication
+                    th(width="20%") Publication Date
+            tbody
+                if(data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.citations)
+                    each citation, l in data.currentPerson.alerts.citations
+                        tr.expanded
+                            td.table__mark
+                                label.checkbox--primary
+                                    - var id = citation.ID ? citation.ID : l
+                                    input(type="checkbox" id="cit"+id name="citId" value=id)
+                                    span
+                            td
+                                label(for="cit"+id)
+                                    if(citation.content && citation.content.bestUrl && citation.content.title)
+                                      a(href=citation.content.bestUrl) !{citation.content.title}
+                                a.table__control__button(href="#" title="Expand row")
+                                    i.icon-arrow_u_p(aria-hidden="true")
+                                    i.icon-arrow_d_n(aria-hidden="true")
+
+                            td.to_hide.publication-name
+                                if(citation.content)
+                                  | !{citation.content.group.serial.title}
+                            td.to_hide
+                                if(citation.content && citation.content.epubDate)
+                                  |   !{citation.content.epubDate}

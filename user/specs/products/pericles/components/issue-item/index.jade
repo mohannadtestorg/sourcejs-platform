@@ -1,0 +1,79 @@
+extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p Styled based on <a href='https://jira.atypon.com/browse/LIT-191365' target="_blank">`LIT-191365`</a>, mainly used in toc pages and journal home page
+            p and for the graphical abstract Styled based on <a href='https://jira.atypon.com/browse/LIT-196218' target="_blank">`LIT-196218`</a>
+
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /issue-item/templates/issue-item/issue-item-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use Issue item template.
+
+        +printJson({
+            "data": {
+                "widget": {
+                    "showFulltext": true,
+                    "showAbstract": true,
+                    "showReferences": true,
+                    "showPermissions": true,
+                    "showAccessIcon": true
+                },
+                "items": [
+                    {
+                        "type": "Article",
+                        "title": "Biogenic silica: a neglected component of the coupled global continental biogeochemical cycles of carbon and silicon",
+                        "tocHeading": "Research Articles",
+                        "access": "no",
+                        "best": "https://pericles.pericles-prod.literatumonline.com/doi/full/10.1002/esp.1712",
+                        "earliestPubDate": "25 July 2008",
+                        "contribs": "\u003cul class\u003d\"rlist--inline loa comma loa-authors-trunc\"\u003e\n   \u003cli\u003e\u003cspan\u003e\u003ca href\u003d\"/action/doSearch?ContribAuthorStored\u003dStreet-Perrott%2C+F+Alayne\" title\u003d\"F. Alayne Street‐Perrott\" data-slide-target\u003d\"sb-1\"\u003e\u003cspan\u003e\n               \n               F. Alayne\n               Street‐Perrott\n               \n               \n                 \u003ci aria-hidden\u003d\"true\" class\u003d\"icon-mail_outline\"\u003e\u003c/i\u003e\u003c/span\u003e\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e\n   \u003cli\u003e\u003cspan\u003e\u003ca href\u003d\"/action/doSearch?ContribAuthorStored\u003dBarker%2C+Philip+A\" title\u003d\"Philip A. Barker\" data-slide-target\u003d\"sb-1\"\u003e\u003cspan\u003e\n               \n               Philip A.\n               Barker\n               \n               \u003c/span\u003e\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e\n\u003c/ul\u003e",
+                        "abstract": "\u003cscript type\u003d\"text/javascript\" src\u003d\"//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config\u003dTeX-AMS-MML_HTMLorMML\"\u003e\u003c/script\u003e",
+                        "fullTextLink": "https://pericles.pericles-prod.literatumonline.com/doi/full/10.1002/esp.1712",
+                        "abstractLink": "https://pericles.pericles-prod.literatumonline.com/doi/abs/10.1002/esp.1712",
+                        "pdfLink": "https://pericles.pericles-prod.literatumonline.com/doi/pdf/10.1002/esp.1712",
+                        "epdfLink": "https://pericles.pericles-prod.literatumonline.com/doi/epdf/10.1002/esp.1712",
+                        "referencesLink": "https://pericles.pericles-prod.literatumonline.com/doi/references/10.1002/esp.1712",
+                        "permissions": "",
+                        "pageRange": "1436-1457",
+                        "group": {
+                            "type": "Issue",
+                            "issue": "9",
+                            "volume": "33",
+                            "issueType": "NORMAL",
+                            "isAheadOfPrint": false,
+                            "isJustAccepted": false,
+                            "isForthcoming": false,
+                            "coverDate": "August 2008",
+                            "tocLink": "https://pericles.pericles-prod.literatumonline.com/toc/10969837/33/9",
+                            "serial": {
+                                "title": "Earth Surface Processes and Landforms",
+                                "journalLink": "https://pericles.pericles-prod.literatumonline.com/journal/10969837",
+                                "code": "10969837"
+                            }
+                        }
+                    }
+                ]
+            },
+            "errors": [
+                "ExceptionWhileDataFetching{exception=java.lang.RuntimeException: 41932:canonical}"
+            ]
+        })
+
+    section.source_section
+        h2 Examples
+
+        .source_example
+            .container
+                | !{pb.render('issue-item', 'issue-item.json', 'pericles')}
+
+
+    | #{''}

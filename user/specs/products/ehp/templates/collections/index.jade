@@ -1,0 +1,35 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Collections
+    .source_info
+
+
+
+    section.source_section
+        h2 Collections
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content
+                .container
+                    .row.separator
+                        .col-md-8.col-lg-9
+                            | !{pb.render('collections', 'collections-list', 'collections.json', {"shared":{"model":{"config":{"wrapper":"true","className":[""],"headingLevel":"h3","headingClass":["section__header border-bottom"]},"data":{"title":"Special Collections"}}}})}
+                        .col-md-4.col-lg-3
+                            .row
+                                .col-sm-6.col-md-12
+                                    // @fixme rename this class?
+                                    .newsletter--wrapper
+                                        | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter"]}}}})}
+                                .col-sm-6.col-md-12
+                                    .mpu
+                                .col-sm-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "height": "510"}]})}
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

@@ -1,0 +1,8 @@
+form(action='/action/sessiontoken', method='post')
+    input(type='hidden', name='id', value='1496ee1e-decd-4753-b17b-a06ab72b5f6b')
+    input(type='hidden', name='redirectUri', value='/?=')
+    .input-group
+        .label
+            label(for='tokenAccess') Claim Number
+        input#tokenAccess.token(type='text', name='tokenAccess', value='', size='15')
+    input.submit.button.primary(type='submit', name='submit', value='Submit', disabled='disabled')

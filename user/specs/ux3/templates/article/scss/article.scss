@@ -1,0 +1,49 @@
+article {
+    margin-bottom: 20px;
+    min-height: 640px;
+    .article___body {
+        margin-top: 20px;
+    }
+}
+
+#keywords {
+    color: $primary-btn-color;
+    font-size: 1rem;
+    strong {
+        margin-right: 4px;
+        float: left;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        &:not(:last-child) {
+            &:after {
+                content: '\e949';
+                display: inline-block;
+                font-family: 'icomoon';
+                font-size: 5px;
+                line-height: 22px;
+                position: relative;
+                vertical-align: middle;
+                padding: 0 2px;
+            }
+        }
+    }
+}
+
+.related {
+    margin-bottom: 15px;
+    &__authors {
+        margin-bottom: 8px;
+    }
+    &__authors,
+    &__publication {
+        color: $secondary-text-color;
+    }
+    &__publication {
+        text-transform: uppercase;
+    }
+}

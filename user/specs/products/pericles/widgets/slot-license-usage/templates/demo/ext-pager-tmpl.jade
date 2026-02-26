@@ -1,0 +1,62 @@
+
+if(data.content)
+    - var pages = data.content.pages
+    - var rest = data.content.hitsLength % data.content.pageSize
+    if rest > 0
+        - pages++
+
+
+mixin pageItem(i, pages)
+    -var pageId = i - 1;
+    -var n = 6 - data.content.startPage;
+    -var m = data.content.startPage - (pages - 5);
+    if i < pages
+        if data.content.startPage < 4
+            if  i >= (data.content.startPage - 1) && i <= (data.content.startPage + n)
+                li
+                    a(href="#", title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+
+        else if data.content.startPage > (pages - 4)
+            if  i >= (data.content.startPage - m) && i <= pages
+                li
+                    a(href="#", title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+                - m++;
+        else
+            if  i >= data.content.startPage   && i <= (data.content.startPage + 2)
+                li
+                    a(href="#", title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+
+    if i < (data.content.startPage + 5)
+        +pageItem(i+1, pages)
+
+.pagination
+    - var nextPageId = data.content.startPage +1;
+    - var prevPageId = data.content.startPage -1;
+
+    if prevPageId >= 0
+        span
+            - var prevPageId = data.content.startPage -1;
+            a.pagination__btn--prev(href="#", title='Previous Page' aria-label="Previous page link")
+    ul.rlist--inline.pagination__list
+        - var i = 1
+        - var pageId = i - 1;
+        if pages > 1
+            li
+                a(href="#", title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+            if data.content.startPage >= 4 && data.content.startPage <= (pages - 4)
+                li
+                    a ...
+            - var i = data.content.startPage - 4
+            if i < 2
+                -i = 2
+            +pageItem(i, pages)
+            if data.content.startPage >= 4 && data.content.startPage <= (pages - 4)
+                li
+                    a ...
+            li
+                a(href="#", title=pages , class=pages  == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{pages }
+
+    if nextPageId < pages
+        span
+            - var nextPageId = data.content.startPage +1;
+            a.pagination__btn--next(href="#", title='Next page' aria-label="Next page link")

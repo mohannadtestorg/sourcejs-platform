@@ -1,0 +1,6 @@
+extends ../../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl
+
+
+block justAccepted
+    if (data) && (data.isJustAccepted) && (data.issueType) && data.isJustAccepted == true
+        span.comma !{data.issueType}

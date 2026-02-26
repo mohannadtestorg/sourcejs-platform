@@ -1,0 +1,40 @@
+- data.loi.thisWidget = thisWidget;
+
+block loi
+    div(data-db-parent-of=thisWidget.id)
+        div.loi__banner.coolBar.stickybar
+            .coolBar__wrapper.stickybar__wrapper
+                a.hidden-lg.loi-slide__ctrl.w-slide__btn(href="#" data-slide-target="#loi-banner")
+                    i.icon-toc
+                    span Journal
+
+                div.loi__banner-list
+                    if (data.nav)
+                        #loi-banner.hidden-md.hidden-sm.hidden-xs.pull-left
+                            each item, k in data.nav
+                                if k == 'archive'
+                                    a.w-slide__btn(class='loi__' + k href=item.href title=item.label data-db-target-for=thisWidget.id data-slide-target= '#'+ thisWidget.id data-slide-clone='self')
+                                        if (item.label)
+                                            | !{item.label}
+
+                                else if k == 'additionalLinksData'
+                                    each link, l in item
+                                        if link.enabled == 'on'
+                                            a(class='loi__additionalLink' href=link.url title=link.label)
+                                                if (link.label)
+                                                    | !{link.label}
+
+                                else
+                                    a(class='loi__' + k href=item.href title=item.label)
+                                        if (item.label)
+                                            | !{item.label}
+
+                    .loi__banner__right-side.pull-right
+                        block loiBannerSecond
+                            | !{pb.renderDropzone(thisWidget, "coolbarDropZone")}
+
+                if (data.loi)
+                    div.dropBlock__holder.dropBlock-loi__holder(id=thisWidget.id data-db-target-of=thisWidget.id data-grouptype=data.loi.groupType)
+
+                        block loitabs
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-tabs", {originaldata: data})}

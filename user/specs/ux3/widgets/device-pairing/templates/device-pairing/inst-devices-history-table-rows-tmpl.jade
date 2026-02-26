@@ -1,0 +1,7 @@
+if(data.history)
+    each item in data.history
+        tr.expanded.expanded.device-pairing__row
+            td(data-thead="Action") !{item.action}
+            td(data-thead="Date") !{item.actionDate}
+            td(data-thead="Admin ID") !{item.adminEmail}
+            td(data-thead="Reason") !{item.reason}

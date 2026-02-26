@@ -1,0 +1,29 @@
+.card {
+    background: $aha_lighten_grey;
+    padding: 24px 24px;
+    margin-bottom: 30px;
+
+    @include media('<desktop'){
+        padding:14px;
+    }
+    .card {
+        padding:0;
+        background: $aha_transparent;
+    }
+    &--dark {
+        background: $aha_green;
+        padding:20px 40px;
+        color: $aha_white;
+        margin-bottom: 30px;
+    }
+    &--danger {
+        background: $aha_red;
+        padding:24px;
+        color: $aha_white;
+        margin-bottom: 30px;
+    }
+
+    &.border {
+        border:4px solid $aha_red;
+    }
+}

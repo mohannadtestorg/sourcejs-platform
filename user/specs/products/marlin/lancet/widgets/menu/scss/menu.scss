@@ -1,0 +1,14 @@
+.menu-drawer {
+    li {
+        &.is--current {
+            & > a {
+                @include  themify($themes) {
+                    color: themed('headings');
+                }
+                i {
+                    color: $primary-body-font-color;
+                }
+            }
+        }
+    }
+}

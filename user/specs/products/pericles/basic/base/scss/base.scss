@@ -1,0 +1,160 @@
+
+
+html {
+    font-size: 100%;
+}
+
+body {
+    width: 100%;
+    color: $wiley-typography-color;
+    font-size: $h6-font-size;
+    overflow-x: hidden;
+    word-wrap: normal;
+    font-family: 'Open Sans', sans-serif, 'icomoon';
+}
+
+.content {
+    padding: 0;
+}
+
+a {
+    color: $wiley-blue-color;
+}
+
+.pageBody {
+    min-height: calc(100vh - 287px);
+    padding-bottom: 40px;
+
+}
+
+body *:focus {
+    outline: 2px solid rgba(0,150,255,.56);
+    outline: -webkit-focus-ring-color auto 5px;
+
+}
+
+.card.card {
+    padding: 20px;
+}
+
+.more-widget-link {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.75rem;
+    display: block;
+    text-align: right;
+    clear: both;
+    padding-top: 10px;
+    border-top: 1px solid $tertiary-bg-color;
+    margin-top: 18px;
+
+    .card & {
+        margin: 0 -20px;
+        padding: 20px 20px 0;
+    }
+
+    .card .gutterless & {
+        margin: 0 -5px;
+    }
+
+    .icon-arrow_r {
+        font-size: 10px;
+        vertical-align: middle;
+        margin-left: 8px;
+        display: inline-block;
+        font-weight: 600;
+    }
+}
+
+.section__separator {
+    border-bottom: 2px solid $section-border;
+}
+
+.banner-wrapper {
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+
+    .pb-ad {
+        padding: 10px 0;
+
+        display: table;
+        height: auto;
+    }
+}
+
+hr {
+    clear: both;
+    &.separator {
+        margin-bottom: 25px;
+        margin-top: 25px;
+
+        .card & {
+            margin-left: -20px;
+            margin-right: -20px;
+
+        }
+
+        .card .row & {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+    }
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+}
+
+.relative {
+    display: inline-block;
+    position: relative;
+}
+
+@include media('<=phone') {
+
+    .form-btn {
+        text-align: center;
+        .small-txt.float-left {
+            float: none;
+            text-align: left;
+            margin-top: 4px;
+            margin-bottom: 32px;
+        }
+
+        .linkBtn, .btn {
+            min-width: 45%;
+            display: inline-block;
+            text-align: center;
+            .small-txt.float-left {
+                float: none;
+                text-align: left;
+                margin-top: 4px;
+                margin-bottom: 32px;
+            }
+
+            .linkBtn, .btn {
+                min-width: 45%;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+    }
+}
+
+iframe {
+    border:none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.icon-mail_outline {
+    display: none;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

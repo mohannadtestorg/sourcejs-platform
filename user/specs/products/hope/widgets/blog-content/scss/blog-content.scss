@@ -1,0 +1,79 @@
+.blog
+{
+  &__content{
+    .quote,.epub-section__date{
+      color: $qoutation-color--blog;
+    }
+
+
+    .coolBar--sections{
+      margin-left: 0;
+    }
+  }
+
+
+  &__authors{
+    .rlist--inline.loa{
+      margin: 20px 0 20px;
+      font-size: 1rem;
+    }
+  }
+
+
+
+
+  &__primary-topic{
+    color: $blog-color;
+    @include media('<desktop'){
+      display: block;
+      padding-left: 0;
+    }
+  }
+
+
+  &__related-topics{
+    text-transform: uppercase;
+    color: $secondary-text-color;
+    font-size: .875rem;
+    margin-bottom: 20px;
+
+    li {
+      &:not(:first-child)::before {
+        content: "|";
+        padding: 0 5px;
+      }
+    }
+  }
+}
+
+.brief-full {
+  .sidebar-region {
+    margin-top: 85px;
+  }
+}
+
+.ref__fulltext {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e3e3e3;
+  .institution {
+    font-size: inherit;
+    margin: 0;
+    display: inline;
+    padding: 0;
+    text-indent: 0;
+  }
+  .extlink {
+    color: $secondary-text-color;
+    text-decoration: underline;
+  }
+  .references__item {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e3e3e3;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+.profile-menu{
+    @include themify($themes) {
+        background: themed('color2');
+    }
+    @include media('<tablet'){
+        height: auto!important;
+    }
+
+    .active{
+        @include themify($themes) {
+            border-left-color: themed('color');
+            border-left-width: 8px;
+        }
+
+    }
+
+    .rlist{
+      @include media('>=tablet'){
+          padding: 0 0 0 15px;
+
+          &:nth-child(2):not(:empty){
+              padding: 0 0 0 15px;
+              margin: 0;
+
+          }
+      }
+    }
+
+    &--dropBlock{
+        >a{
+            color: $black;
+        }
+        a{
+            font-size: 1rem;
+        }
+    }
+}

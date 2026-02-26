@@ -1,0 +1,75 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-192164' target="_blank">`LIT-192164`</a>
+
+    section.source_section
+        h2 Blockquotes
+
+
+        h3 default
+        .source_example
+            blockquote
+                | Concussions have become a critical public health issue, resulting in a substantial increase in research. As a clinician searching for the most up-to-date information, Concussion can serve as the go-to journal.
+
+        h3 Quote
+        markdown
+            p In the example below we have added `quote` class.
+        .source_example
+            blockquote.quote
+                | Concussions have become a critical public health issue, resulting in a substantial increase in research. As a clinician searching for the most up-to-date information, Concussion can serve as the go-to journal.
+
+        h3 Poetry
+        markdown
+            p In the example below we have added `poetry` class.
+        .source_example
+            blockquote.poetry
+                ul.custom.rlist
+                    li
+                        p.line tf09blkfxd0006 I cannot rest from travel: I will drink
+                    li
+                        p.line Life to the lees: All times I have enjoy'd
+                    li
+                        p.line Greatly, have suffer'd greatly, both with those
+                    li
+                        p.line I am part of all that I have met.
+
+    section.source_section
+        h2 blockFixed
+        h3 default
+        markdown
+            p In the example below we have added `block-box` class.
+        .source_example
+            div.block-box
+                p tf09blkfxd0011 Here is simple boxed text.
+
+
+
+        h3 Dialogue
+        markdown
+            p In the example below we have added `block-box dialogue` class.
+        .source_example
+            .block-box.dialogue
+                h3.block__title Talkin' the Talk
+                p
+                .list-paired(id='')
+                    dl
+                        dt
+                            li Viktor tf09blkfxd0004a
+                        dd
+                            li
+                                b Privyet Marina, chto novogo? Kuda vy propali?
+                        dt
+                            li Marina
+                        dd
+                            li
+                                b
+                                    | Privyet, Viktor! Ya nyeskol'ko myesyatsyev otdykhala, a potom nachala rabotat' v shkloyle.
+
+
+
+
+    | #{''}

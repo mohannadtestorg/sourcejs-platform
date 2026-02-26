@@ -1,0 +1,35 @@
+{
+    "title": "Breadcrumbs",
+    "tag": ["pbWidgets"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Article Breadcrumbs",
+                "markdown": "Journal Title, Citation Line | Article Type",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/breadcrumbs/templates/breadcrumbs/breadcrumbs-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/widgets/breadcrumbs/templates/data/data.json"
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Book Breadcrumbs",
+                "markdown": "Book Title (linked to the book TOC)",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/breadcrumbs/templates/breadcrumbs/breadcrumbs-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/widgets/breadcrumbs/templates/data/book-data.json"
+                        }
+                    }
+                }
+
+            }
+        ]
+    }
+}

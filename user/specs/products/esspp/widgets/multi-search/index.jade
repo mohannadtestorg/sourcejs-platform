@@ -1,0 +1,51 @@
+﻿extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/multi-search/templates/multi-search/multi-search-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Multi Search template.
+        +printJson({
+            "data": {
+
+
+            },
+            "errors": []
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        markdown
+            p for the bellow example it render the multo search for one item
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        markdown
+            p for the bellow example it render the  mult search items inside the slider, just you must use alternative template "/products/esspp/widgets/multi-search/templates/multi-search/multi-search-slider-tmpl.jade"
+
+        .source_example
+            | !{data.items[1].body}
+
+
+        h3!= data.items[2].title
+        markdown
+            p for the bellow example it render the multi search for many items
+
+        .source_example
+            | !{data.items[2].body}
+
+    | #{''}

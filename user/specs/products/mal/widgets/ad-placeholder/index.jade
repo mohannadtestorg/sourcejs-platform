@@ -1,0 +1,37 @@
+extends /specs/products/mal/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p <strong>Ad Placeholder</strong>
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/ad-placeholder/templates/ad-placeholder/ad-placeholder-tmpl.jade')
+        h3 Data
+        p The following (or similar) data structure must exist to be able to use Ad Placeholder widget.
+
+        +printJson({
+            "data": {
+                "ad": "Ad Placeholder ID"
+            }
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        each item, l in data.items
+
+            h3!= item.title
+            .source_example
+                | !{item.body}
+
+    | #{''}
+
+

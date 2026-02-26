@@ -1,0 +1,114 @@
+.skewed-block {
+    width: 100%;
+    background: $primary-btn-bg;
+    transform: skewY(-4.2deg);
+    box-shadow: 0 15px 35px 0 rgba(0,0,0,0.08), 0 5px 15px 0 rgba(0,0,0,0.05);
+    border-radius: 2px;
+    overflow: hidden;
+
+    &--image {
+        background: transparent;
+
+        & > .skewed-block__image {
+            display: block;
+            width: 100%;
+            transform: scale(1.15) skewY(4.2deg);
+        }
+    }
+
+    &__inner {
+        padding: 36px 24px 24px;
+        font-size: $smaller-font-size;
+        transform: skewY(4.2deg);
+    }
+
+    &__title {
+        margin: 0;
+        color: $white;
+        opacity: .5;
+        font-family: $default-font-family;
+        font-weight: bold;
+        font-size: .79em;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    &__content {
+        margin: 10px 0;
+        color: $white;
+        font-family: $header-font-family;
+        font-size: 1em;
+        line-height: 2;
+
+    }
+
+    &__link{
+        font-family: $default-font-family;
+        margin: 0;
+        color: $white;
+        font-size: .89em;
+        font-weight: bold;
+        letter-spacing: .2em;
+        text-decoration: none;
+        text-transform: uppercase;
+        line-height: 1;
+
+        &:focus, &:hover {
+            color: $white;
+
+            &:after {
+              color: $white;
+            }
+        }
+    }
+}
+
+.skewed-block--stats {
+    box-shadow: 8px 8px 0 0 $shadow-color;
+
+    .skewed-block__title {
+        font-family: $default-font-family;
+        font-weight: 300;
+        font-size: 50px;
+        line-height: 1em;
+        color: $white;
+        opacity: 1;
+        @include media('>phone') {
+            font-size: 80px;
+            line-height: 1.2em;
+        }
+        @include media('>desktop') {
+            font-size: 130px;
+        }
+    }
+    .skewed-block__perex {
+        color: $white;
+    }
+
+    .skewed-block__content {
+        font-family: $default-font-family;
+        p {
+            color: $white;
+            margin: 0;
+            font-size: 1rem;
+            @include media('>desktop') {
+                font-size: .89rem;
+            }
+        }
+        p + p {
+            margin-top: 1em;
+        }
+    }
+
+    @include media ('<=phone') {
+        margin-top: 24px;
+        transform: skew(0deg);
+        box-shadow: 4px 4px 0 0 $shadow-color;
+
+        .skewed-block__inner {
+            transform: skew(0deg);
+        }
+    }
+
+}

@@ -1,0 +1,17 @@
+- if (model !== undefined) data = model.data;
+
+- var random = Math.random().toString(36).substring(2,5);
+
+.userLoginBar.right-side.pull-right(data-db-parent-of="target-" + random)
+    a.quick-menu__item.userLoginBar__controller(href="#" data-db-target-for="target-" + random)
+        if(data && data.controller && data.controller.icon)
+          i.block-icon(class= data.controller.icon aria-hidden="true")
+        span
+            if(data && data.controller && data.controller.text)
+              | !{data.controller.text}
+    ul.rlist.base.spaced.userLoginBar__holder(data-db-target-of="target-" + random)
+        each item, i in data.body
+            li
+                if(item.text)
+                  a(href = item.url)
+                    | !{item.text}

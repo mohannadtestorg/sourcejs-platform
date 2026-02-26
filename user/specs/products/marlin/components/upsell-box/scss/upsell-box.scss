@@ -1,0 +1,66 @@
+.upsell-box {
+    padding: 20px;
+    border: 1px solid $upsell-box-border;
+    background: $upsell-box-body;
+    max-width: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: -0.8px;
+    &.free {
+        @include media('<tablet') {
+            padding: 12px;
+        }
+    }
+    &__action {
+        margin-bottom: 10px;
+        &.block {
+            display: inline-block;
+            clear: left;
+        }
+        &s__label {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+    }
+    &__banner {
+        color: $white;
+        background: $primary-bg-color;
+        padding: 8px 10px;
+        text-align: center;
+        font-size: 1.25rem;
+        display: block;
+        &:hover,
+        &:focus {
+            background: lighten($primary-bg-color, 5);
+            color: $white;
+        }
+    }
+    &__body {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    &__item {
+        margin-bottom: 10px;
+    }
+    &__register {
+        display: block;
+        max-width: 250px;
+        margin-top: 17px;
+        color: $white;
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+    &__title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+    }
+    &__wrapper {
+        padding: 20px 0;
+        font-size: 1rem;
+        line-height: 1.56rem;
+        .free & {
+            padding: 0;
+        }
+    }
+}

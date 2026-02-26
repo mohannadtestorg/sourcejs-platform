@@ -1,0 +1,39 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Elements
+        markdown
+            table
+                thead
+                    tr
+                        th Container element
+                        th Default class name
+                        th Description
+                tbody
+                    tr
+                        td `figure`
+                        td figure
+                        td Figure container element
+                    tr
+                        td `img`
+                        td figure\__image
+                        td Figure image element
+                    tr
+                        td `figcaption`
+                        td figure\__caption
+                        td Figure caption element
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+        h3 Standalone Figure
+        .source_example.source_visible
+            | !{data.body}
+
+    | #{''}

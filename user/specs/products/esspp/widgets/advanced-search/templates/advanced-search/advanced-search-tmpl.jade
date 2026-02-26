@@ -1,0 +1,39 @@
+extends ../../../../../../ux3/widgets/advanced-search/templates/advanced-search/advanced-search-tmpl
+
+
+
+block rangeDate
+    if (item.timeFrame)
+        - var item = item.timeFrame
+        .input-group.time-frame.dateFilterSelect
+            label.radio--primary(for='customRange')
+                input#customRange(type='radio' name='Ppub' value)
+                span.label-txt !{item.label}
+            label.is-accessible(for='fromMonth') Select starting month
+            select#fromMonth.inline.jcf.month-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="AfterMonth")
+                option(value='') Month
+                if(months && months.months)
+                    each month, i in months.months
+                        option(value=i+1) !{month}
+            label.is-accessible(for='fromYear') Select starting year
+            select#fromYear.inline.jcf.year-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="AfterYear")
+                option(value='') Year
+                if(item.afterYear && item.afterYear.fromDropDown)
+                    each year, i in item.afterYear.fromDropDown
+                        option(value=year) !{year}
+            div.timeFrame-to
+                span.__to To:
+                | #{" "}
+                block timeToPrefix
+                label.is-accessible(for='toMonth') Select ending month
+                select#toMonth.inline.jcf.month-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="BeforeMonth")
+                    option(value='') Month
+                    if(months && months.months)
+                        each month, i in months.months
+                            option(value=i+1) !{month}
+                label.is-accessible(for='toYear') Select ending year
+                select#toYear.inline.jcf.year-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="BeforeYear")
+                    option(value='') Year
+                    if(item.beforeYear && item.beforeYear.fromDropDown)
+                        each year, i in item.beforeYear.fromDropDown
+                            option(value=year) !{year}

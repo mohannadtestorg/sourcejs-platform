@@ -1,0 +1,31 @@
+
+if data && data.item && data.item.formats
+    .content-item-format-links
+        ul.rlist--inline.separator
+            each item, l in data.item.formats
+                if item.name == 'HTML_ABSTRACT'
+                    if (thisWidget.properties) && (thisWidget.properties.showAbstract)
+                        li
+                            a(href=item.link, title=item.name) Abstract
+
+                if item.name == 'FIRST_PAGE_IMAGE'
+                    if (thisWidget.properties) && (thisWidget.properties.showFirstPageImage)
+                        li
+                            a(href=item.link, title=item.name) First page image
+
+                if item.name == 'HTML_FULL'
+                    if (thisWidget.properties) && (thisWidget.properties.showFulltext)
+                        li
+                            a(href=item.link, title=item.name) Full text
+
+                if item.name == 'HIGH_RES_PDF'
+                    if (thisWidget.properties) && ((thisWidget.properties.showPDF) || (thisWidget.properties.showIssuePDF))
+                        li
+                            a(href=item.link, title=item.name) PDF
+
+                if item.name == 'HTML_REFS'
+                    if (thisWidget.properties) && (thisWidget.properties.showReferences)
+                        li
+                            a(href=item.link, title=item.name) References
+
+

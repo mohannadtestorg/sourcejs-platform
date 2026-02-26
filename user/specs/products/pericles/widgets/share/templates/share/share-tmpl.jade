@@ -1,0 +1,15 @@
+extends ../../../../../../ux3/widgets/share/templates/share/share-tmpl
+
+
+block shareMain
+    .relative
+        block shareController
+            a#share__ctrl.share__ctrl(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls="share_Pop" role="button")
+                i.icon-Icon_Share(aria-hidden="true")
+                span Share
+
+        block shareBlock
+            div.share__block.dropBlock__holder.fixed(data-db-target-of=thisWidget.id aria-labelledby="share__ctrl" role="menu" id="share_Pop")
+                | !{pb.renderDropzone(thisWidget, "shareDropZone")}
+                p Share a link
+                +addThis()

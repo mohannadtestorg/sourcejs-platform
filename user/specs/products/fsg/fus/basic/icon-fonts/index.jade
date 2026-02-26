@@ -1,0 +1,474 @@
+extends /specs/products/fsg/fus/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/fsg/fus/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='/specs/ux3/basic/icon-fonts/scss/helpers/icons.css')
+
+block content
+    include /specs/page-structure/helpers/print-html-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        p We are using #[a(href="https://icomoon.io/") IcoMoon] font to render icons in our templates (<code>specs/fonts</code>).
+        p Use <code>i</code> tag with icon class name to add an icon in your code. here you can find complete list of icons for reference.
+        h3 Example
+        +printHtmlCode('<i class="icon-facebook" aria-hidden="true"></i>')
+    | #{''}
+
+    section.source_section
+        h2 IcoMoon icons
+        .source_example
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-bookmark
+                    p  icon-bookmark
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-ribbon
+                    p  icon-ribbon
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-google-plus
+                    p  icon-google-plus
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-eye-blocked
+                    p  icon-eye-blocked
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-twitter
+                    p  icon-twitter
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-facebook
+                    p  icon-facebook
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-linkedin
+                    p  icon-linkedin
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-cog
+                    p  icon-cog
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-enlarge2
+                    p  icon-enlarge2
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-eye
+                    p  icon-eye
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-zoom-in
+                    p  icon-zoom-in
+
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-zoom-out
+                    p  icon-zoom-out
+            .col-md-4
+                i(aria-hidden="true").icon-manusript
+                p  icon-manusript
+            .col-md-4
+                i(aria-hidden="true").icon-lock_outline
+                p  icon-lock_outline
+            .col-md-4
+                i(aria-hidden="true").icon-lock_open
+                p  icon-lock_open
+
+            .col-md-4
+                i(aria-hidden="true").icon-circle-plus
+                p  icon-circle-plus
+
+            .col-md-4
+                i(aria-hidden="true").icon-trash
+                p  icon-trash
+
+            .col-md-4
+                i(aria-hidden="true").icon-add
+                p  icon-add
+
+            .col-md-4
+                i(aria-hidden="true").icon-shopping-cart
+                p  icon-shopping-cart
+
+            .col-md-4
+                i(aria-hidden="true").icon-home
+                p  icon-home
+
+            .col-md-4
+                i(aria-hidden="true").icon-menu2
+                p  icon-menu2
+
+            .col-md-4
+                i(aria-hidden="true").icon-arrow-right
+                p  icon-arrow-right
+
+            .col-md-4
+                i(aria-hidden="true").icon-arrow-left
+                p  icon-arrow-left
+
+            .col-md-4
+                i(aria-hidden="true").icon-arrow-down
+                p  icon-arrow-down
+
+            .col-md-4
+                i(aria-hidden="true").icon-arrow-up
+                p  icon-arrow-up
+
+            .col-md-4
+                i(aria-hidden="true").icon-pencil
+                p  icon-pencil
+
+
+            .col-md-4
+                i(aria-hidden="true").icon-by_large
+                p  icon-by_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-cc_large2
+                p  icon-cc_large2
+
+            .col-md-4
+                i(aria-hidden="true").icon-nc-jp_large
+                p  icon-nc-jp_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-nc_large
+                p  icon-nc_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-nd_large
+                p  icon-nd_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-publicdomain_large
+                p  icon-publicdomain_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-sa_large
+                p  icon-sa_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-zero_large
+                p  icon-zero_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-cc_large
+                p  icon-cc_large
+
+            .col-md-4
+                i(aria-hidden="true").icon-access
+                p  icon-access
+
+            .col-md-4
+                i(aria-hidden="true").icon-add2
+                p  icon-add2
+
+            .col-md-4
+                i(aria-hidden="true").icon-allfigures
+                p  icon-allfigures
+
+            .col-md-4
+                i(aria-hidden="true").icon-check
+                p  icon-check
+
+            .col-md-4
+                i(aria-hidden="true").icon-delete
+                p  icon-delete
+            .col-md-4
+                i(aria-hidden="true").icon-doublearrow
+                p  icon-doublearrow
+            .col-md-4
+                i(aria-hidden="true").icon-download2
+                p  icon-download2
+
+            .col-md-4
+                i(aria-hidden="true").icon-download-sitation
+                p  icon-download-sitation
+
+            .col-md-4
+                i(aria-hidden="true").icon-figures2
+                p  icon-figures2
+
+            .col-md-4
+                i(aria-hidden="true").icon-filters
+                p  icon-filters
+            .col-md-4
+                i(aria-hidden="true").icon-sections
+                p  icon-sections
+            .col-md-4
+                i(aria-hidden="true").icon-table
+                p  icon-table
+            .col-md-4
+                i(aria-hidden="true").icon-tools2
+                p  icon-tools2
+            .col-md-4
+                i(aria-hidden="true").icon-truck-sitation
+                p  icon-truck-sitation
+            .col-md-4
+                i(aria-hidden="true").icon-x
+                p  icon-x
+            .col-md-4
+                i(aria-hidden="true").icon-zoom
+                p  icon-zoom
+
+            .col-md-4
+                i(aria-hidden="true").icon-Email
+                p  icon-Email
+
+            .col-md-4
+                i(aria-hidden="true").icon-x_btnclose
+                p  icon-x_btnclose
+
+            .col-md-4
+                i(aria-hidden="true").icon-success
+                p  icon-success
+
+            .col-md-4
+                i(aria-hidden="true").icon-exclamation_mark
+                p  icon-exclamation_mark
+
+            .col-md-4
+                i(aria-hidden="true").icon-info2
+                p  icon-info2
+
+            .col-md-4
+                i(aria-hidden="true").icon-more
+                p  icon-more
+
+            .col-md-4
+                i(aria-hidden="true").icon-advanced_search
+                p  icon-advanced_search
+
+            .col-md-4
+                i(aria-hidden="true").icon-facebook2
+                p  icon-facebook2
+
+            .col-md-4
+                i(aria-hidden="true").icon-linkedin2
+                p  icon-linkedin2
+
+            .col-md-4
+                i(aria-hidden="true").icon-twitter2
+                p  icon-twitter2
+
+            .col-md-4
+                i(aria-hidden="true").icon-mendeley
+                p  icon-mendeley
+
+            .col-md-4
+                i(aria-hidden="true").icon-orcid
+                p  icon-orcid
+
+            .col-md-4
+                i(aria-hidden="true").icon-profile_empty
+                p  icon-profile_empty
+
+            .col-md-4
+                i(aria-hidden="true").icon-profile_empty2
+                p  icon-profile_empty2
+            .col-md-4
+                i(aria-hidden="true").icon-Save
+                p  icon-Save
+            .col-md-4
+                i(aria-hidden="true").icon-Rss
+                p  icon-Rss
+            .col-md-4
+                i(aria-hidden="true").icon-section_collapse
+                p  icon-section_collapse
+            .col-md-4
+                i(aria-hidden="true").icon-toc
+                p  icon-toc
+
+            .col-md-4
+                i(aria-hidden="true").icon-submit
+                p  icon-submit
+
+            .col-md-4
+                i(aria-hidden="true").icon-subscribe
+                p  icon-subscribe
+
+            .col-md-4
+                i(aria-hidden="true").icon-timeline_mark
+                p  icon-timeline_mark
+
+            .col-md-4
+                i(aria-hidden="true").icon-editorial_board
+                p  icon-editorial_board
+
+            .col-md-4
+                i(aria-hidden="true").icon-loi
+                p  icon-loi
+
+            .col-md-4
+                i(aria-hidden="true").icon-plus_n
+                p  icon-plus_n
+
+            .col-md-4
+                i(aria-hidden="true").icon-checkmark
+                p  icon-checkmark
+
+            .col-md-4
+                i(aria-hidden="true").icon-back_matter
+                p  icon-back_matter
+
+            .col-md-4
+                i(aria-hidden="true").icon-cover
+                p  icon-cover
+
+            .col-md-4
+                i(aria-hidden="true").icon-aboutjournal
+                p  icon-aboutjournal
+
+            .col-md-4
+                i(aria-hidden="true").icon-arrow_d_n
+                p  icon-arrow_d_n
+
+            .col-md-4
+                i(aria-hidden="true").icon-arrow_u_p
+                p  icon-arrow_u_p
+
+            .col-md-4
+                i(aria-hidden="true").icon-menu
+                p  icon-menu
+
+            .col-md-4
+                i(aria-hidden="true").icon-search
+                p  icon-search
+
+            .col-md-4
+                i(aria-hidden="true").icon-shoppingcart
+                p  icon-shoppingcart
+
+            .col-md-4
+                i(aria-hidden="true").icon-userprofile
+                p  icon-userprofile
+
+            .col-md-4
+                i(aria-hidden="true").icon-abstract
+                p  icon-abstract
+            .col-md-4
+                i(aria-hidden="true").icon-download
+                p  icon-download
+
+            .col-md-4
+                i(aria-hidden="true").icon-export_citation
+                p  icon-export_citation
+
+            .col-md-4
+                i(aria-hidden="true").icon-favorites
+                p  icon-favorites
+
+            .col-md-4
+                i(aria-hidden="true").icon-figures
+                p  icon-figures
+
+            .col-md-4
+                i(aria-hidden="true").icon-info
+                p  icon-info
+
+            .col-md-4
+                i(aria-hidden="true").icon-metrics
+                p  icon-metrics
+
+            .col-md-4
+                i(aria-hidden="true").icon-permissions
+                p  icon-permissions
+
+            .col-md-4
+                i(aria-hidden="true").icon-references
+                p  icon-references
+
+            .col-md-4
+                i(aria-hidden="true").icon-related
+                p  icon-related
+            .col-md-4
+                i(aria-hidden="true").icon-reprints
+                p  icon-reprints
+
+            .col-md-4
+                i(aria-hidden="true").icon-section_arrow_d
+                p  icon-section_arrow_d
+            .col-md-4
+                i(aria-hidden="true").icon-section_arrow_u
+                p  icon-section_arrow_u
+            .col-md-4
+                i(aria-hidden="true").icon-section_collapse2
+                p  icon-section_collapse2
+            .col-md-4
+                i(aria-hidden="true").icon-section_expand
+                p  icon-section_expand
+            .col-md-4
+                i(aria-hidden="true").icon-share
+                p  icon-share
+            .col-md-4
+                i(aria-hidden="true").icon-tools_close
+                p  icon-tools_close
+            .col-md-4
+                i(aria-hidden="true").icon-tools
+                p  icon-tools
+            .col-md-4
+                i(aria-hidden="true").icon-track
+                p  icon-track
+            .col-md-4
+                i(aria-hidden="true").icon-arrow_l
+                p  icon-arrow_l
+            .col-md-4
+                i(aria-hidden="true").icon-arrow_r
+                p  icon-arrow_r
+            .col-md-4
+                i(aria-hidden="true").icon-close_thin
+                p  icon-close_thin
+            .col-md-4
+                i(aria-hidden="true").icon-glasses
+                p  icon-glasses
+            .col-md-4
+                i(aria-hidden="true").icon-to-figure-viewer
+                p  icon-to-figure-viewer
+            .col-md-4
+                i(aria-hidden="true").icon-point-to-text
+                p  icon-point-to-text
+            .col-md-4
+                i(aria-hidden="true").icon-google-plus-square
+                p  icon-google-plus-square
+            .col-md-4
+                i(aria-hidden="true").icon-facebook-square
+                p  icon-facebook-square
+            .col-md-4
+                i(aria-hidden="true").icon-twitter-square
+                p  icon-twitter-square
+            .col-md-4
+                i(aria-hidden="true").icon-linkedin-square
+                p  icon-linkedin-square
+            .col-md-4
+                i(aria-hidden="true").icon-exclamation
+                p  icon-exclamation
+            .col-md-4
+                i(aria-hidden="true").icon-trash-can
+                p  icon-trash-can
+            .col-md-4
+                i(aria-hidden="true").icon-pencil2
+                p  icon-pencil2
+            .col-md-4
+                i(aria-hidden="true").icon-grid2
+                p  icon-grid2
+            .col-md-4
+                i(aria-hidden="true").icon-document-file-ppt
+                p  icon-document-file-ppt
+            .col-md-4
+                i(aria-hidden="true").icon-minus
+                p  icon-minus
+            .col-md-4
+                i(aria-hidden="true").icon-dots-three-horizontal
+                p  icon-dots-three-horizontal
+
+    | #{''}
+

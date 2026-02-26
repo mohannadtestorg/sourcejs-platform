@@ -1,0 +1,17 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-tabs-tmpl
+
+block tabsPrefix
+    - var original = data;
+    - var fakeId = "pcw";
+    - var config = {"type":"flex","effect": "slide","vPort":"xsmall"};
+    - var tabsData = {"nav":[{"text": "Figures","icon": "icon-Icon_Images","content": "","class": "figures"},{"text": "References","icon": "icon-Icon_Links-References","content": "","class": "references"},{"text": "Cited by","icon": "icon-related2","class": "related","content": ""},{"text": "Details","icon": "icon-Icon_Information","class": "details","content": ""}]};
+    - data = tabsData;
+
+
+block tabsMain
+    div.tab.tab--slide.tab--flex.sticko__md.tabs--xs.dynamic-sticko(class=classNames)
+        ul.rlist.tab__nav.w-slide--list(data-mobile-toggle = "slide")
+            +nav()
+        +pane()
+
+

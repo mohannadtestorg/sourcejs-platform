@@ -1,0 +1,130 @@
+$themes: (
+        lanonc: (
+                color: $lanonc-jounral,
+                font-color: $white,
+                background: "../images/The-Lancet-Oncology.png",
+                headings: $lanonc-jounral,
+        ),
+        lanres: (
+                color: $lanres-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Respiratory-Medicine.png",
+                headings: $lanres-journal,
+        ),
+        lanpsy: (
+                color: $lanpsy-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Psychiatry.png",
+                headings:  $lanpsy-journal,
+        ),
+        langlo: (
+                color: $langlo-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Global-Health.png",
+                headings:  $langlo-journal,
+        ),
+        lanchi: (
+                color: $lanchi-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Child-Adolescent-Health.png",
+                headings:  $lanchi-journal,
+        ),
+        laninf: (
+                color: $laninf-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Infectious-Diseases.png",
+                headings:  $laninf-journal,
+        ),
+        lanhiv: (
+                color: $lanhiv-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-HIV.png",
+                headings:  $lanhiv-journal,
+        ),
+        lanhae: (
+                color: $lanhae-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Haematology.png",
+                headings:  $lanhae-journal,
+        ),
+        lancet: (
+                color: $lancet-journal,
+                font-color: $white,
+                background: "../images/The-Lancet.png",
+                headings:  $lancet-journal,
+        ),
+        laneur: (
+                color: $laneur-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Neurology.png",
+                headings:  $laneur-journal,
+        ),
+        landia: (
+                color: $landia-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Diabetes-Endocrinology.png",
+                headings:  $landia-journal,
+        ),
+        langas: (
+                color: $langas-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Gastroenterology-Hepatology.png",
+                headings:  $langas-journal,
+        ),
+        lanpub: (
+                color: $lanpub-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Public-Health.png",
+                headings:  $lanpub-journal,
+        ),
+        lanplh: (
+                color: $lanplh-journal,
+                font-color: $white,
+                background: "../images/The-Lancet-Planetary-Health.png",
+                headings:  $lanplh-journal,
+        ),
+        other: (
+                color: $primary-bg-color,
+                font-color: $white,
+                background: "../images/The-Lancet.png",
+                headings:  $headings-primary-color,
+        )
+) !default;
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    button {
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+    a {
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}
+
+.background-container {
+    @include themify($themes) {
+        color: themed('color');
+    }
+}

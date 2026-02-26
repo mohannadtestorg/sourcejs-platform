@@ -1,0 +1,38 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/map/map-article-tmpl.jade
+extends ../extended/ext-coolbar-tmpl.jade
+
+
+
+mixin articleBody()
+    block articleBody
+        -var showRefOfArticleBodyClass=""
+        if(data.item && data.item.serviceName && data.item.serviceName == "showEnhancedAbstract")
+            -showRefOfArticleBodyClass="show-references"
+
+        div.article__body.row(class=showRefOfArticleBodyClass)
+            div.col-md-12
+                if(data.item && data.item.htmlContent)
+                    | !{data.item.htmlContent}
+
+                if (data.item.supplHtml) && data.item.supplHtml != ''
+                    h2(class="article-section__title section__title" id="secSuppl") Supplemental data
+                    | !{data.item.supplHtml}
+
+                    if (data.item.formats && data.item.formats.fullText)
+                        p
+                            a(class="btn primary-blue-background-color" title="Back to the main article" href=data.item.formats.fullText)
+                                i.icon-arrow_l
+                                span  Back to the main article
+
+                else if data.item.supplContentList
+                    section.article-section__content.supplemental-material
+                        h2.article-section__title#supplemental Supplemental data
+                        ul.rlist
+                            each supItem, i in data.item.supplContentList
+                                li.supplemental-material__item
+                                    a(href=supItem.url)
+                                        span !{supItem.fileName}
+                                        i.icon-arrow_r
+
+        if (toolbox)
+            | !{toolBox}

@@ -1,0 +1,41 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage Reports widget
+        h3 Include template
+        +printJsCode('include /widgets/virtual-issues-list/templates/virtual-issues-list/virtual-issues-list-tmpl.jade')
+        h3 Data
+        p The following the JSON structure provided by the Front-end:
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "appearsLabel": true
+                }
+            },
+            "data": {
+                "virtualIssues": [
+                    {
+                        "link": "/toc/testjournal/1/1",
+                        "title": "Test VI 1"
+                    },
+                    {
+                        "link": "/toc/testjournal/1/1",
+                        "title": "Test VI 2"
+                    },
+                    {
+                        "link": "/toc/testjournal/1/1",
+                        "title": "Test VI 3"
+                    }
+                ]
+            }
+        })
+
+    section.source_section
+        h2 Examples
+
+        .source_example
+            | !{pb.render('virtual-issues-list', 'data.json', 'pericles')}

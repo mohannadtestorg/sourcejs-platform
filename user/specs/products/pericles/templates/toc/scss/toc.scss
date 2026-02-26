@@ -1,0 +1,91 @@
+
+.article-section {
+
+    &__content.short {
+        a {
+            color: $primary-light-text-color;
+            &.scrollableLink {
+                color: $wiley-blue-color;
+            }
+        }
+    }
+
+    &__header.graphical {
+        display: none;
+    }
+
+}
+
+.toc__section > a {
+    color: $wiley-text-color;
+    display: inline-block;
+    margin-left: 0;
+    padding: 14px 0 6px 0;
+}
+
+.publications-page-body {
+    margin-top: 17px;
+
+    .toc-go-section {
+        margin-bottom: 0;
+        position: relative;
+        border-top: 1px solid #ccc;
+
+        .toc__section {
+            padding: 0;
+        }
+    }
+
+    .toc__section i[class*=icon-] {
+        margin-right: 0;
+        font-size: 1.125rem;
+        vertical-align: middle;
+        font-weight: 100;
+        text-align: left;
+        padding: 0;
+
+    }
+
+    i.icon-toc.icon-close_thin {
+        font-size: 0.6rem;
+        padding-top: 8px;
+        min-height: 28px;
+    }
+}
+
+.card.cover-image-container {
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.cover-widget-section {
+    margin-bottom: 7px;
+    .card {
+        padding-bottom: 5px;
+    }
+
+    @include media('<desktop') {
+        margin-bottom: 1rem;
+    }
+}
+
+a.accessionId {
+    color: $wiley-blue-color;
+    display: inline;
+}
+
+.doi-access-wrapper {
+    .doi-access {
+        text-transform: capitalize;
+    }
+
+    &.pull-left {
+        margin-right: 10px;
+    }
+}
+
+.table-of-content {
+    h3 ~ .issue-item:first-of-type {
+        padding-top: 0;
+    }
+}

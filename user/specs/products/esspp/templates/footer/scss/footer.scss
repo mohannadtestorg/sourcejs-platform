@@ -1,0 +1,103 @@
+@mixin footer-link($color) {
+    color: $color;
+    font-weight: 600;
+    font-size: $small-font-size;
+}
+
+footer {
+    padding-top: 25px;
+    color: $ess-primary-text-color;
+    font-size: 1rem;
+
+    .logo {
+        margin: 5px 0 20px;
+        width: 95px;
+        display: block;
+    }
+
+    .footer {
+
+
+        &-bottom {
+            background: $standard-bg-color;
+
+            a,
+            .copyright {
+                @include footer-link($text-onDark);
+            }
+
+            .rlist--inline.separator li{
+                border-color: $white-color;
+                padding-right: 16px;
+                line-height: 12px;
+            }
+
+        }
+
+        &-top {
+            padding: 15px 0 10px 0;
+            background-color: $basic-bg-color;
+
+            a {
+                @include footer-link($ess-primary-text-color);
+
+                img {
+                    margin: 0 2px 0 0;
+                }
+            }
+        }
+
+        &--contact {
+
+            &__list {
+                padding: 10px 14px;
+                margin-bottom: 10px;
+
+                li {
+                    padding: 0 20px;
+                    font-size: 0.875rem;
+                    line-height: 1.35em;
+                }
+
+                a {
+                    font-weight: 300 !important;
+                    font-size: $smaller-font-size;
+                }
+            }
+        }
+    }
+
+    .contact {
+        &__address {
+            @include footer-link($ess-primary-text-color);
+            margin-top: 10px;
+        }
+        &__nav {
+            margin-top: 0;
+        }
+    }
+
+    i, a {
+        @include footer-link($ess-primary-text-color);
+    }
+
+    .border-top {
+        border-top-width: 1px;
+        border-color: $ess-primary-text-color;
+        color: $ess-primary-text-color;
+    }
+    .copyright {
+        @include media('>=tablet') {
+            float: right;
+            margin-top: 0;
+        }
+    }
+}
+.sitemap {
+    h5 {
+        font-size: .8125rem;
+        font-weight: bold;
+        margin-bottom: 11px;
+    }
+}
+

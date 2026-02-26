@@ -1,0 +1,196 @@
+.profile-pages {
+    .border-bottom, .separator td, .separator th {
+        border-color: $light-grey;
+    }
+    > .tab {
+        > .dropBlock {
+            a {
+                background: $tertiary-lighten-bg-color;
+                border-top: 1px solid #e7e7e7;
+                &:hover {
+                    background: #949494;
+                    color: $default-bg-color;
+                }
+            }
+        }
+        &--aside {
+            > .tab__nav {
+                background: $tertiary-lighten-bg-color;
+            }
+        }
+    }
+    &__heading {
+        background: $primary-bg-color;
+        color: $default-bg-color;
+    }
+    .tab .dropBlock > a {
+        font-size: 12px;
+        color: $primary-title-color;
+    }
+}
+
+.entitlemints-page {
+    p {
+        font-size: 12px;
+    }
+    label {
+        color: $profile-primary-color;
+    }
+    th {
+        color: $primary-light-text-color;
+    }
+    td {
+        color: $primary-light-text-color;
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+.account, .select-all {
+    &__sort {
+        color: $secondary-text-color;
+        .dropBlock__holder {
+            a {
+                &:hover {
+                    background: $secondary-text-color;
+                    color: $default-bg-color;
+                }
+            }
+        }
+    }
+}
+
+.my-account__cancle {
+    margin-left: 30px;
+    color: $profile-primary-color;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.profile-dark__btn {
+    padding: 10px 25px;
+    font-weight: normal;
+    background: $profile-primary-color;
+    font-size: 12px;
+    color: $default-bg-color;
+    @include media('<desktop') {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+}
+
+
+.account-tab {
+    margin-top: 40px;
+    &__nav:not(.js--open) {
+        a {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .active a {
+            background: $profile-primary-color;
+            color: $default-bg-color;
+            border-color: $profile-primary-color;
+        }
+        a {
+            border: 2px solid $profile-primary-color;
+            background: $default-bg-color;
+            color: $primary-title-color;
+            padding: 15px 8px;
+        }
+    }
+    &__error {
+        color: #FF4D18;
+    }
+    th {
+        color: #A2A2A2;
+    }
+}
+
+
+.btn {
+    &__transparent, &__transparent:hover {
+        border: 3px solid $profile-primary-color;
+        color: $profile-primary-color;
+        background: transparent;
+        font-size: 12px;
+    }
+    &-alert__transparent, &-alert__transparent:hover {
+        border-width: 1px;
+    }
+}
+
+@include media('<desktop') {
+    .btn.profile--table--btn {
+        width: auto;
+        margin-top: 18px;
+    }
+}
+
+@include media('>=desktop') {
+    .profile-pages {
+        .tab--aside {
+            > .tab__content {
+                padding-left: 40px;
+            }
+            > .tab__nav {
+
+                .active a {
+                    color: $primary-title-color;
+                    border-color: $profile-primary-color;
+                }
+                a {
+                    color: #9D9D9D;
+                }
+            }
+        }
+    }
+}
+
+.usageReports{
+    ol {
+        padding-left: 20px ;
+        li {
+            li {
+                span {
+                    line-height: 21px;
+                }
+            }
+        }
+    }
+}
+.profileMainDropZone{
+    input[type=submit]{
+        background: $secondary-bg-color;
+        color:$white;
+        font-weight: 400;
+    }
+}
+.co-branding .btn{
+    background: $secondary-bg-color;
+    color:$white;
+    font-size: .81rem;
+}
+#institutionMultiIpChange{
+    input[type=submit] ~ input[type=submit]{
+        font-weight: 400;
+        margin-left: 10px;
+        padding: 11px 16px;
+    }
+}
+.downloadHoldings{
+    border-color: $secondary-bg-color;
+    padding: 9px 15px;
+    color: $secondary-bg-color;
+    &:hover {
+        background: $secondary-bg-color;
+        color:$white;
+    }
+}
+.subscriptions-form{
+    .quick-search__button{
+        font-weight: 700;
+        background: $search-bg-color;
+    }
+}

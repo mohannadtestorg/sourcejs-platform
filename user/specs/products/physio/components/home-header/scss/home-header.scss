@@ -1,0 +1,19 @@
+@include media('>desktop') {
+    .home-page {
+        .home_header {
+            min-height: 490px;
+        }
+        .overlay {
+            min-height: 490px;
+        }
+    }
+}
+
+.home_header {
+    background-image: url(../images/home-bg.png);
+    background-size: cover;
+    position: relative;
+    @include media('>=tablet') {
+        min-height: 269px;
+    }
+}

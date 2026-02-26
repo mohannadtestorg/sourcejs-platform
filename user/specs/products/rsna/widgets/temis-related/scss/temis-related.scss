@@ -1,0 +1,20 @@
+.temis-related {
+    &__title {
+        color: $primary-link-color;
+        @include themify($themes) {
+            color: themed('color');
+        }
+        &:hover {
+            color: $primary-text-color;
+        }
+    }
+    &__more {
+        color: $primary-link-color;
+        @include themify($themes) {
+            color: themed('color');
+        }
+        &:hover {
+            color: $primary-text-color;
+        }
+    }
+}

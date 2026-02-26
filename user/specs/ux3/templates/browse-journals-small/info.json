@@ -1,0 +1,31 @@
+{
+    "title": "Browse small number of journals",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header": {
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "browseJournals": {
+            "$pug": {
+                "template": "../../widgets/browse-journals/templates/browse-journals/browse-journals-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/browse-journals/templates/data/journals.json"
+                }
+            }
+        },
+        "footer": {
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

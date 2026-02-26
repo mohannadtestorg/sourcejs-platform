@@ -1,0 +1,233 @@
+{
+    "title": "Slideshow",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Slideshow of podcasts",
+                "description": "This is unready as a component, it uses static data now. This components needs `has-numeric-pagination` class.",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "has-pagination",
+                                        "has-numeric-pagination"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/podcastsDemo.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Slideshow of cards - default 'slide effect' with background ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/slide.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Slideshow of cards - 'fade effect' ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/cards.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Slideshow of cards - 'fade effect' ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper":"true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/realDemo.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Slideshow Responsive ",
+                "description":"To make slider responsive please add `responsive-slider` class as wrapper and add attribute `data-responsive` with reponsive option ex: data-responsive='{\"xsMin\":{\"items\":1},\"smMin\":{\"items\":2},\"mdMin\":{\"items\":4}}' ",
+                "class":"responsive-slider",
+                "responsiveDate":"{\"xsMin\":{\"items\":1},\"smMin\":{\"items\":2},\"mdMin\":{\"items\":3}}",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/colored-slides.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Slideshow - Equal Height Slides ",
+                "description":"To make all slides same height please add class `equal-height-slides`.<br>Note:be sure the content of the slider item has height 100%. <br>please clear view to see the result.",
+                "class":"equal-height-slides",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/colored-slides.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            {
+                "title": "Slideshow Only on Mobile ",
+                "description":"To make slider only on mobile view please add class `viewport-slider` and data attribute `data-slider-vport='screen-sm'` ",
+                "vportData":"screen-sm",
+                "class":"viewport-slider",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "left-side-image",
+                                        "card--gutter"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/slideshow/templates/data/colored-slides.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

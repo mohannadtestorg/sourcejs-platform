@@ -1,0 +1,75 @@
+.table-of-content {
+  .book-item {
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $divider-color;
+
+    &__title {
+      color: $secondary-color;
+      margin-bottom: 0.5rem;
+    }
+    .loa li {
+      font-size: 0.875rem;
+      color: $secondary-text-color;
+      & > a {
+        color: $secondary-text-color;
+      }
+    }
+    .toc-item__footer {
+      > ul.toc-item__detail {
+        float: none;
+        font-size: 12px;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  .toc-item__detail {
+    font-size: 0.875rem;
+    color: $secondary-text-color;
+    span {
+      color: #000;
+    }
+    a {
+      color: $secondary-color;
+    }
+  }
+
+  .toc-item__footer {
+    a {
+      color: $secondary-color;
+    }
+    .accordion__control {
+      margin-bottom: 0;
+      transition: margin 0.2s;
+      &.js--open {
+        margin-bottom: 1rem;
+      }
+      .icon-section_arrow_d {
+        color: $secondary-color;
+        font-weight: bold;
+      }
+    }
+    .accordion__content {
+      background-color: $secondary-bg-color;
+    }
+  }
+}
+
+.access-icon {
+  font-weight: bold;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  i {
+    font-size: 1rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.book-page-ad {
+  margin: 2.5rem 0;
+  img {
+    width: 100%;
+  }
+}

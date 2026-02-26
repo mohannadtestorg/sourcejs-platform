@@ -1,0 +1,25 @@
+extends ../../../../../../ux3/widgets/article-tools/templates/article-tools/article-tools-tmpl
+
+block articletoolsList
+    li.article-tool(role="presentation")
+        a(href=url role="menuitem")
+            if tool == 'addFavorite'
+                i.icon-favorites(aria-hidden="true")
+            if tool == 'downloadCitation'
+                i.icon-export-icon(aria-hidden="true")
+            if tool == 'trackCitation'
+                i.icon-Icon_Track-citations(aria-hidden="true")
+            if tool == 'permissions'
+                i.icon-permissions-key(aria-hidden="true")
+            if tool == 'reprints'
+                i.icon-reprints(aria-hidden="true")
+            span !{label}
+
+
+block articletoolsMain
+    .relative
+        block articletoolsController
+            a.article-tools__ctrl(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls=thisWidget.id + "_Pop" role="button" id=thisWidget.id + "_Ctrl")
+                i.icon-Icon_Tools(aria-hidden="true")
+                span Tools
+        +tools()

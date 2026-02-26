@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/widgets/share/templates/share/share-tmpl
+
+block shareMain
+    .header-share
+        block shareController
+            a.w-slide__btn(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" data-slide-target= "#" + thisWidget.id + "_Pop" title="Share")
+                i.icon-Icon_Share(aria-hidden="true" title="Share")
+
+        block shareBlock
+            div.share__block.dropBlock__holder.fixed(data-db-target-of=thisWidget.id id=thisWidget.id + "_Pop")
+                | !{pb.renderDropzone(thisWidget, "shareBlock")}
+                +addThis()

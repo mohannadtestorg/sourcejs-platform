@@ -1,0 +1,41 @@
+extends ../../../../../../ux3/components/accordion/templates/accordion/accordion-tmpl.jade
+
+block accordionType
+    if type == 'tabbed' && (data.items)
+        block tabbed
+            ul.accordion-tabbed.rlist
+                each item, i in data.items
+                    if (item.class)
+                        li.accordion-tabbed__tab(class= item.class)
+                            +link(item, i)
+                            if !(item.url)
+                                .accordion-tabbed__content(id= thisWidget.id + i)
+                                    block accordionDropZone
+                                        | !{pb.renderDropzone(thisWidget, "accordionDropZone_" + thisWidget.id + i)}
+                    else
+                        li.accordion-tabbed__tab
+                            +link(item, i)
+                            if !(item.url)
+                                .accordion-tabbed__content(id= thisWidget.id + i)
+                                    block accordionDropZone
+                                        | !{pb.renderDropzone(thisWidget, "accordionDropZone_" + thisWidget.id + i)}
+
+    else if type == 'single' && (data.items)
+        each item, i in data.items
+            if(item.label)
+                a.accordion__control(href="#" title=item.label aria-expanded="false" aria-controls=thisWidget.id + i)
+                    span !{item.label}
+                    i.icon-section_arrow_d(aria-hidden="true")
+            if(item.content)
+                .accordion__content(id= thisWidget.id + i)
+                    p !{item.content}
+
+    else if type == 'subSection' && (data.items)
+        each item, i in data.items
+            if(item.label)
+                a.accordion__control.sub(href="#" title=item.label aria-expanded="false" aria-controls=thisWidget.id + i)
+                    i.icon-section_arrow_d(aria-hidden="true")
+                    span !{item.label}
+            if(item.content)
+                .accordion__content.bordered(id= thisWidget.id + i)
+                    | !{item.content}

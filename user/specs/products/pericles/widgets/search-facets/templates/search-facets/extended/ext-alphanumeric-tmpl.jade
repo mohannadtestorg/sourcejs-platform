@@ -1,0 +1,17 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-alphanumeric-tmpl.jade
+
+block alphaFacetBody
+    ul.rlist--inline
+        each item, l in data.values
+            li
+                if (item.link)
+                    if (item.used) && item.used == true
+                        a.alphanumeric-title.is--selected(href=item.link)
+                            | !{item.label}
+                    else
+                        a.alphanumeric-title(href=item.link)
+                            | !{item.label}
+                else
+                    if (item.disabled) && item.disabled == 'true'
+                        a.alphanumeric-title
+                            | !{item.label}

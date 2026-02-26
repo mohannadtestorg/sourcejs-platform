@@ -1,0 +1,143 @@
+.creative-work {
+    margin-bottom: 20px;
+
+    &__title {
+        /*margin-bottom: 18px;*/
+        overflow-y: hidden;
+        position: relative;
+        color: $creative-title-color;
+
+        &.min-height {
+            height: 4.2em;
+        }
+    }
+
+    &__img {
+        margin-bottom: 10px;
+    }
+
+    .parent-item {
+        font-size: 0.8125rem; // 13px
+    }
+
+    .coverDate {
+        //float: right;
+        padding-right: 5px;
+
+        &:after {
+            content: ",";
+        }
+    }
+
+    .loa {
+        overflow: hidden;
+        position: relative;
+        color: $creative-loa-color;
+    }
+
+    .loa-height {
+      height: 2.8em;
+    }
+    .parent-item {
+        color: $creative-color;
+    }
+
+    .epub {
+        color: $creative-color;
+        font-weight: 700;
+        font-size: .8125rem;
+        text-transform: uppercase;
+        float: left;
+        margin-right: 5px;
+    }
+
+    .meta {
+        overflow-y: hidden;
+        position: relative;
+        color: $creative-color;
+        font-weight: 700;
+        font-size: 0.8125rem;
+        text-transform: uppercase;
+
+        & > * + *:before {
+            display: inline;
+            content: ', ';
+        }
+    }
+
+
+    a {
+        &:hover {
+            color: inherit;
+            .creative-work__title {
+                color: $primary-link-color;
+            }
+        }
+    }
+
+    li & {
+        border-bottom: 1px solid $teaser-border-color;
+        padding-bottom: 20px;
+    }
+}
+
+[class*=card] {
+    .creative-work__title {
+        font-size: 1.5625rem; // 25px
+        height: 2.8em;
+
+        @include media('<tablet') {
+            font-size: 16px;
+            font-size: 1rem;
+        }
+    }
+
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        opacity: .5
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+@keyframes pulse {
+    0% {
+        opacity: .5
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+@-webkit-keyframes fade-slide-in {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+@keyframes fade-slide-in {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+
+

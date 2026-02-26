@@ -1,0 +1,22 @@
+if(data.perPageLinks)
+    div.per-page.separator-end
+        span.per-page__label per page:
+        ul.rlist--inline
+            li
+                - var classes = ""
+                if data.search && data.search.pageSize == 10
+                    - classes = "js--selected"
+                a(href= data.perPageLinks.pageSize10 class= classes) 10
+
+            li
+                - var classes = ""
+                if data.search && data.search.pageSize == 20
+                    - classes = "js--selected"
+                a(href= data.perPageLinks.pageSize20 class= classes) 20
+
+
+            li
+                - var classes = ""
+                if data.search && data.search.pageSize == 100
+                    - classes = "js--selected"
+                a(href=data.perPageLinks.pageSize100 class= classes) 100

@@ -1,0 +1,154 @@
+/***
+
+```
+<div class="a-banner-square">
+  <img src="http://placehold.dev.area17.com/image/300x250?bg=e2e2e2&fg=ff3300&text=banner">
+</div>
+```
+
+***/
+
+
+.a-banner-square {
+  position: relative;
+  z-index: 2;
+  padding-top: 22px;
+  background-color: $color__white;
+
+  @include breakpoint('xsmall') {
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    border-right: 0 none;
+    border-left: 0 none;
+  }
+}
+
+
+.a-banner-square::after {
+  @include f-caps--sm;
+  content: 'Advertisement';
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 8px;
+  color: $color__black--30;
+  text-align: center;
+
+  @include breakpoint('large+') {
+    top: 8px;
+  }
+}
+
+.a-banner-square > * {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+}
+
+/***
+
+variant: .a-banner--internal
+
+```
+<div class="a-banner-square a-banner--internal">
+  <img src="http://placehold.dev.area17.com/image/300x250?bg=ffffff&fg=ff3300&text=house%20ad">
+</div>
+```
+
+***/
+
+
+.a-banner--internal {
+  padding-top: 0;
+  padding-bottom: 2px;
+}
+
+.a-banner--internal::after {
+  content: none;
+  display: none;
+}
+
+/***
+
+variant: .a-banner--promo
+
+```
+<div class="a-banner-square a-banner--promo">
+  <img src="http://placehold.dev.area17.com/image/300x100?bg=e2e2e2&fg=ff3300&text=promo">
+</div>
+```
+
+***/
+
+
+.a-banner--promo {
+  padding-top: 0;
+}
+
+.a-banner--promo::after {
+  content: none;
+  display: none;
+}
+
+
+/***
+
+variant: .a-banner--multi-option
+
+```
+<div class="a-banner-square a-banner--multi-option">
+  <img src="http://placehold.dev.area17.com/image/300x600?bg=e2e2e2&fg=ff3300&text=multi%20option">
+</div>
+```
+
+***/
+
+.a-banner--multi-option {
+  display: none;
+
+  @include breakpoint('large+') {
+    display: block;
+  }
+}
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .a-banner-square {
+  margin-top: 24px;
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.o-col--secondary .o-cols-2\@medium .a-banner-square {
+  @include breakpoint('medium') {
+    margin-top: 0;
+  }
+}
+
+// #demo - toolkit
+
+#demo > .a-banner-square {
+  width: 320px;
+
+  & + .a-banner-square {
+    margin-top: 20px;
+  }
+}
+
+
+.a-banner-square, .a-banner--promo{
+  border: none;
+  .wrapped{
+    margin-left: auto;
+  }
+}
+

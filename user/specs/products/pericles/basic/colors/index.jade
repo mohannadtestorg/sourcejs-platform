@@ -1,0 +1,128 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/pericles/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+    script(type="text/javascript" src="/specs/ux3/basic/colors/js/palette.js")
+
+block content
+    .source_section
+        h2 Wiley color pallete
+        p we are including #[a(href="/specs/ux3/basic/colors/") UX3 color pallete ]
+
+    .source_section
+        h2 Pericles colors
+        markdown
+            p These colors have been created based on the original designs, and some have been changed based on Pericles requests in the new designs   <a href='https://jira.atypon.com/browse/LIT-191367' target="_blank">`LIT-191367`</a> <a href='https://jira.atypon.com/browse/LIT-189421' target="_blank">`LIT-189421`</a>    we mainly changed the blue and background gray colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.wiley-blue-color.block
+                    p $wiley-blue-color
+                li
+                    div.wiley-darkBlue-color.block
+                    p $wiley-darkBlue-color
+                li
+                    div.wiley-green-color.block
+                    p $wiley-green-color
+                li
+                    div.wiley-gradient-color.block
+                    p $wiley-gradient-color
+                li
+                    div.wiley-orange-color.block
+                    p $wiley-orange-bg-color
+                li
+                    div.wiley-orange-icons-color.block
+                    p $wiley-orange-icons-color
+                li
+                    div.wiley-gray-color.block
+                    p $wiley-gray-color
+                li
+                    div.wiley-lightGray-color.block
+                    p $wiley-lightGray-color
+                li
+                    div.wiley-extralightGray-color.block
+                    p $wiley-extralightGray-color
+                li
+                    div.wiley-gray-lighter-separator.block
+                    p $wiley-gray-lighter-separator
+                li
+                    div.wiley-gray.block
+                    p $wiley-gray
+                li
+                    div.wiley-gray-dark.block
+                    p $wiley-gray-dark
+
+                li
+                    div.wiley-green.block
+                    p $wiley-green
+                li
+                    div.wiley-red.block
+                    p $wiley-red
+                li
+                    div.wiley-open-access.block
+                    p $wiley-open-access
+                li
+                    div.wiley-free-access.block
+                    p $wiley-free-access
+                li
+                    div.tab-border.block
+                    p $tab-border
+                li
+                    div.disabled-blue.block
+                    p $disabled-blue
+                li
+                    div.agu-branding.block
+                    p $agu-branding
+
+    .source_section
+        h2 Pericles Text colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.wiley-text-color.block Aa
+                    p $wiley-text-color
+                li
+                    div.wiley-gray-text-color.block Aa
+                    p $wiley-gray-text-color
+                li
+                    div.wiley-typography-color.block Aa
+                    p $wiley-typography-color
+                li
+                    div.wiley-darkGray-text-color.block Aa
+                    p $wiley-darkGray-text-color
+                li
+                    div.forgot-password.block Aa
+                    p $forgot-password
+                li
+                    div.tab-active-text-color.primary-bg-color.block Aa
+                    p $tab-active-text-color
+
+    .source_section
+        h2 ux3 overwritten colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.secondary-bg-color.block
+                    p $secondary-bg-color
+                li
+                    div.tertiary-bg-color.block
+                    p $tertiary-bg-color
+                li
+                    div.section-border.block
+                    p $section-border
+                li
+                    div.separators-color.block
+                    p $separators-color
+            ul.rlist--inline.text-colors
+                li
+                    div.primary-text-color.block Aa
+                    p $primary-text-color
+                li
+                    div.primary-light-text-color.block Aa
+                    p $primary-light-text-color
+
+
+    | #{''}
+

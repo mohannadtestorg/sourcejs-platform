@@ -1,0 +1,108 @@
+
+.table-of-content{
+
+  margin-left: -15px;
+
+  @include media('<desktop'){
+    margin-top: -15px;
+  }
+  @include media('<tablet'){
+    margin-right: -15px;
+  }
+
+  .issue-item {
+
+    @include media('<desktop'){
+      padding-top: 0;
+    }
+
+    &__title{
+      font-family:  $secondary-font-family;;
+      color:$standard-color;
+      font-weight: 100;
+      margin-bottom: 0;
+    }
+
+    &:not(:first-child){
+      border-top: none;
+    }
+    &:last-child{
+      border-bottom: none;
+    }
+
+    .rlist--inline {
+      &.separator{
+        >li:not(:last-of-type){
+          border-color: $secondary-text-color;
+        }
+      }
+
+      &.loa {
+
+          margin: 0px 0 5px;
+          font-weight: 100;
+          font-size: 1rem;
+          color: $secondary-text-color;
+
+      }
+
+    }
+  }
+
+
+
+.toc-item  {
+  &__footer {
+    .toc-item {
+      &__detail{
+        float: none;
+        color: $secondary-text-color;
+        font-weight: 100;
+        font-size: 1rem;
+        margin-bottom: 5px;
+      }
+    }
+    i[class*=icon-]{
+      color: $journal-color;
+      margin-left: 0;
+      margin-right: 5px;
+    }
+
+    .accordion {
+      &__control{
+        color:$secondary-text-color;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+
+    &__detail{
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 1rem;
+
+      span{
+        color:$secondary-text-color;
+      }
+      .toc-label {
+        font-weight: 100;
+      }
+    }
+
+}
+  span.toc-label{
+    color: $journal-color;
+    margin-left: 10px;
+    font-weight: 600;
+    @include media('<phone'){
+      display: block;
+      margin: 5px 0px;
+    }
+
+    &.text-uppercase{
+      font-size: .875rem;
+    }
+  }
+}

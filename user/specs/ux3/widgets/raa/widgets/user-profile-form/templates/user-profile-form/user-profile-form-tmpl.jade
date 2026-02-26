@@ -1,0 +1,8 @@
+form.js__profileForm(action='/action/doUpdateAccount', method='post')
+    input(type='hidden', name='anti-forgery-token', value='66061b5f-db08-4eb1-ba42-f2e92c41720d')
+    input(type='hidden', name='menuTab', value='')
+    input(type='hidden', name='redirectUri', value='/?')
+    | !{pb.renderDropzone(thisWidget, "profileForm")}
+
+    .actions.float-left
+        input.btn--inverse.extra-border(type='submit', name='submit', value='Save', disabled='disabled')

@@ -1,0 +1,172 @@
+extends /specs/products/mal/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    .source_info
+        p We are showing the different image ratio sizes and their names. The template is used only for the logo image.
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use images template.
+        h3 Single Cover
+        +printJson({
+            "thisWidget": {
+                "id": "pbr5",
+                "properties": {
+                    "displayStyle": "singleCover",
+                    "actions": "linkToIssueOrBook"
+                }
+            },
+            "data": {
+                "single": {
+                    "coverImage": {
+                        "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png",
+                        "alt": "alo"
+                    },
+                    "linkURL": "http://nine-lts.literatumonline.com/toc/bio/9/4",
+                    "contentType": "Issue",
+                    "volume": "9",
+                    "issue": "4",
+                    "issueType": "IssueType{char=NORMAL, name='Normal'}",
+                    "coverDate": "Feb 2017",
+                    "serial": {
+                        "contentType": "Journal"
+                    }
+                }
+            },
+            "errors": []
+
+        })
+
+        h3 Cover Gallery
+        +printJson({
+            "thisWidget": {
+                "id": "pbr5",
+                "properties": {
+                    "display": "gallery",
+                    "clickAction": "details"
+                }
+            },
+            "data": {
+                "journal": {
+                    "gallery": [
+                        {
+                            "coverImage": {
+                                "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png",
+                                "alt": "alo"
+                            },
+                            "linkURL": "http://nine-lts.literatumonline.com/toc/bio/9/4",
+                            "contentType": "Issue",
+                            "volume": "9",
+                            "issue": "4",
+                            "issueType": "IssueType{char=NORMAL, name='Normal'}",
+                            "coverDate": "Feb 2017",
+                            "serial": {
+                                "contentType": "Journal"
+                            }
+                        },
+                        {
+
+                        },
+                        {
+
+                        },
+                        {
+
+                        }
+                    ]
+                }
+            },
+            "errors": []
+
+        })
+
+        h3 Most Recent Covers
+        +printJson({
+            "thisWidget": {
+                "id": "pbr5",
+                "properties": {
+                    "display": "recent",
+                    "clickAction": "details"
+                }
+            },
+            "data": {
+                "journal": {
+                    "recent": [
+                        {
+                            "coverImage": {
+                                "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png",
+                                "alt": "alo"
+                            },
+                            "linkURL": "http://nine-lts.literatumonline.com/toc/bio/9/4",
+                            "contentType": "Issue",
+                            "volume": "9",
+                            "issue": "4",
+                            "issueType": "IssueType{char=NORMAL, name='Normal'}",
+                            "coverDate": "Feb 2017",
+                            "serial": {
+                                "contentType": "Journal"
+                            }
+                        },
+                        {
+
+                        },
+                        {
+
+                        },
+                        {
+
+                        }
+                    ]
+                }
+            },
+            "errors": []
+
+        })
+
+        markdown
+            p Widget Properties
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `displayStyle`
+                        td Display Style, `singleCover`, `coverGallery`, `mostRecentCover`
+                    tr
+                        td `actions`
+                        td Cover Click Action, `nothing`, `showCoverDetails` : the details appear as popup using dropblock functionality, `showLargeCover` : Displays a larger, high-res version of the cover image using figure viewr functionality, `linkToIssueOrBook` , `linkToSeriesHome` : Link to a user-specified location
+
+
+            p Widget Properties
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `coverImage.src`
+                        td Cover image source path
+                    tr
+                        td `coverImage.alt`
+                        td Cover image alt attribute value
+                    tr
+                        td `linkURL`
+                        td Link to a user-specified location
+
+
+    section.source_section
+        h2 Basic image types
+
+        if (data.items)
+            each item , i in data.items
+                h3!= item.title
+                .source_example
+                    | !{item.body}
+    | #{''}

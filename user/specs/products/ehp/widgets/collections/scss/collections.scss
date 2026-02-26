@@ -1,0 +1,22 @@
+
+.collections {
+    @extend %make-media-object;
+    &__body {
+        @extend %make-media-object-body;
+    }
+    &__image {
+        @extend %make-media-object-element;
+        img {
+            max-width: 170px;
+        }
+        padding-bottom: $default-inner-padding-y;
+    }
+    &__title {
+        font-size: $h1-font-size;
+    }
+
+    // list and separate item style
+    &--list, &--itemWrapper {
+        @extend %media-object--list__style;
+    }
+}

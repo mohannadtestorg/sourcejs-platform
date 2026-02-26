@@ -1,0 +1,7 @@
+extends ../../../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl
+
+
+block slideShowFooter
+    if (thisWidget) && thisWidget.properties.MoreLink
+        a.more-widget-link(href=thisWidget.properties.moreLinkUrl) !{thisWidget.properties.moreLinkLable}
+

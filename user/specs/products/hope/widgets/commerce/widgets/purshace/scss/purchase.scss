@@ -1,0 +1,129 @@
+/* ========================================
+Purchase options container
+======================================== */
+
+.purchase-options-container {
+  border-top: $width-border-thin dashed $color-border-gray-light;
+  margin: $spacing-small 0px;
+  padding: $spacing-small 0px $spacing-small 0px;
+  border-bottom: $width-border-thin solid $color-border-gray-light;
+
+  .add-article-to-cart {
+    border: $width-border-thin solid $color-border-gray-light;
+
+    &__title {
+      @include media('<tablet') {
+        font-size: 0.875rem;
+      }
+    }
+
+    &__price {
+      border-left: $width-border-thin solid $color-border-gray-light;
+      @include media('<tablet') {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  header a {
+    margin: -1px 0px;
+  }
+
+  .add-journal-to-cart {
+    margin-bottom: $spacing-small;
+
+    header a {
+      background-color: $default-bg-color;
+
+      .title, .price {
+        width: auto;
+        border-left: none;
+      }
+
+    }
+
+    .journal-options-expanded {
+      margin-top: $spacing-small;
+      .content-access-section-header {
+        display: none;
+      }
+      .tab-nav {
+        display: none;
+      }
+    }
+  }
+
+  .purchase-items {
+    margin-bottom: $spacing-small;
+    header a {
+      color: $primary-darken-text-color;
+      //padding: $spacing-medium $spacing-large;
+    }
+  }
+
+  .addedMessage {
+    font-size: 0px;
+    margin: 0px;
+    flex-direction: row;
+
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+
+    .article-title {
+      padding: 16px;
+      background-color: $default-bg-color;
+      display: inline-block;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1rem;
+      width: 100%;
+      border: 3px solid $blog-color;
+
+      .icon-check {
+        font-size: 1.6rem;
+        vertical-align: middle;
+        margin-right: 10px;
+        color: $blog-color;
+      }
+
+      @include media("<tablet") {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .show-cart-link {
+      display: inline-block;
+      color: $default-bg-color;
+      padding: 10px;
+      margin: 0;
+      font-weight: 700;
+      font-size: 1rem;
+      background-color: $blog-color;
+      white-space: nowrap;
+      float: right;
+      @include media("<tablet") {
+        display: block;
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+    .article-title-content {
+      display: inline-flex;
+      float: left;
+      margin-top: 10px;
+      .text {
+        float: left;
+        margin-top: 0px;
+        @include media("<tablet") {
+          text-align: left;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+}
+
+

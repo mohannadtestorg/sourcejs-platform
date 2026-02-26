@@ -1,0 +1,21 @@
+.device-pairing
+    .device-pairing__add-instEmail
+            h5.title Access through your institution
+            div.description
+                p Please add your institution email address
+
+            if (data.pairingExistsError)
+                   div.error
+                       p This device has already been paired with institution: !{data.instName} using email: !{data.pairDeviceInstEmailAttr}
+
+            form(action='/action/pairDevice',method='post')
+                input.hidden(value='instEmailSelectedAction',name='action')
+                input.hidden(value=data.redirectUri,name='redirectUri')
+                input.hidden(value=data.profile,name='profile')
+
+                input.instEmailSelected-textbox(name='instEmailSelected', value='',type='text',placeholder='Enter email address at your university / workplace / institution')
+                .error.hidden please enter valid email
+
+                div.formButtons
+                    input.btn.confirmAddEmailButton(value='Continue',type='submit' disabled="disabled")
+

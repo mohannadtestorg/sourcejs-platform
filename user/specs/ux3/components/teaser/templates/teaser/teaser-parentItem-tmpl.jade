@@ -1,0 +1,54 @@
+include ../../../lazy-load/templates/lazy-load/lazy-load-tmpl.jade
+
+- var image = 'false';
+
+mixin meta(item)
+    block meta
+        div.parent-item
+            block metaTitle
+                if (item.group.serial.journalLink) && (item.group.serial.title)
+                    span.comma
+                        a(href=item.group.serial.journalLink) !{item.group.serial.title}
+
+                else if (item.group.serial.title)
+                    span.comma !{item.group.serial.title}
+
+            block volume
+                if (item.group.volume)
+                    span.comma Vol. #{item.group.volume}
+
+                if (item.group.issue)
+                    | No. #{item.group.issue}
+
+
+mixin teaser(item)
+    div.creative-work
+        .delayLoad
+            block teaserTitle
+                if (item.title)
+                    if (item.best)
+                        a(href=item.best)
+                            p.creative-work__title !{item.title}
+                    else
+                        p.creative-work__title !{item.title}
+
+            if (item.contribs)
+                | !{item.contribs}
+            +meta(item)
+
+        +loading(image)
+
+
+mixin render(items)
+    - var itemNo = items.length
+    if itemNo > 1
+        ul.rlist.lot
+            each item, l in items
+                li.grid-item
+                    +teaser(item)
+    else
+        each item, l in items
+            +teaser(item)
+
+if (data) && (data.items)
+    +render(data.items)

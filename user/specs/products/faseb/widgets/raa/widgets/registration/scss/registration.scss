@@ -1,0 +1,35 @@
+.registration-form {
+    .g-recaptcha {
+        clear: both;
+        margin-bottom: 25px;
+        margin-left: 15px;
+    }
+
+    .formDropZone {
+        margin: 0px -15px;
+
+        & + .actions {
+            .cancel {
+                @include media('<tablet') {
+                    padding: 9px 35px;
+                    margin-left: 10px;
+                }
+            }
+
+        }
+    }
+}
+
+@include media('>=tablet') {
+    .formDropZone {
+        & + .actions {
+            padding: 0px;
+        }
+    }
+
+    .login-info {
+        .input-group {
+            padding: 0px;
+        }
+    }
+}

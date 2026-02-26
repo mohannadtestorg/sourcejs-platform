@@ -1,0 +1,50 @@
+.institution {
+    color: $publication;
+    font-size: .75rem;
+    line-height: 1.5;
+    margin: 0;
+    border-right: 0;
+    &__name {
+        font-weight: normal;
+    }
+    @include media('>=desktop') {
+        padding: 7px 10px;
+        border-left: 1px solid $publication;
+        &__name {
+            display: inline-block;
+        }
+    }
+    &__name {
+        max-width: 200px;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+        text-overflow: ellipsis;
+    }
+}
+
+.institution-info-wrapper {
+    text-align: left;
+}
+.institutionListBlock{
+    .jcf-select-text{
+        > span{
+            padding-right: 10px;
+        }
+        &:after {
+            position: absolute;
+            right: 6px;
+            top: 35%;
+        }
+    }
+    .jcf-select{
+        min-width: 185px;
+    }
+}
+
+@include media('>=desktop', '<large') {
+    .institution__name {
+        width: 110px;
+    }
+}

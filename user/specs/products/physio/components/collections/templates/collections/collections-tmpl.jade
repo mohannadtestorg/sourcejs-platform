@@ -1,0 +1,14 @@
+//extends ../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl
+
+block locPrefix
+- data.loc.thisWidget = thisWidget;
+- var order = "ascending";
+- if (data.order == "descending") order = "descending"
+
+block loc
+    if (data.loc)
+        div(id=thisWidget.id data-grouptype=data.loc.groupType)
+            - var tabsData = {tabsData: data.loc};
+            block loitabs
+                div.collections
+                    | !{pb.render("collections", "collections/extended/ext-tabs", tabsData, 'physio')}

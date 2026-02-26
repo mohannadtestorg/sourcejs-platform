@@ -1,0 +1,158 @@
+.entitlemints-page
+    h3.profile__heading.border-bottom Redeem voucher
+
+    P Access tokens allow you to activate and access content online. If you have been issued an access token,
+        | please enter it here and click "submit"
+
+    label(for='addressName') Address name
+    input(id="addressName" type="text" placeholder="Select an address or add a new one")
+
+
+    label(for='accessToken') Access Token
+    .grid-md-2.row
+        .grid-item
+            input(id="accessToken" type="text" placeholder="Access Token")
+        .grid-item
+            block accessTokenButton
+                button.btn.profile-dark__btn Submit
+
+    h3.profile__heading.border-bottom Access entitlements
+
+    .tab.tab--flex.account-tab
+        ul.rlist.tab__nav.account-tab__nav
+            li.active
+                a(href="#pane-journal" aria-controls="#pane-journal" role="tab" data-toggle="tab" title="journal subscription" id="pane-journal-con")
+                    |JOURNALS SUBSCRIPTIONS
+            li
+                a(href="#pane-books" aria-controls="#pane-books" role="tab" data-toggle="tab" title="books" id="pane-book-con")
+                    | BOOKs
+            li
+                a(href="#pane-article" aria-controls="#pane-article" role="tab" data-toggle="tab" title="article/chapters" id="pane-article-con")
+                    |ARTICLES / CHAPTERS
+
+        block  tableTopBar
+            .border-bottom.clearfix
+                .pull-right
+                    div.account__sort.dropBlock
+                        a.inline-icon(href="#" data-db-target-for="sort" data-db-parent-of="sort" data-db-switch="rotate") Sort by:
+                            span.sort-by Expiration Date
+                            i.icon-section_arrow_d(aria-hidden="true")
+                        div.dropBlock__holder(data-db-target-of="sort")
+                            ul.rlist
+                                li
+                                    a(href="#") Lorem
+                                li
+                                    a(href="#") Ipsum
+                                li
+                                    a(href="#") Dolor
+
+        ul.rlist.tab__content
+            li(id="pane-journal" aria-labelledby="pane-journal-con" role="tabpanel" class="tab__pane active")
+                .table-responsive.separator
+                    table.expandable
+                        thead
+                            tr
+                                th Publication Title
+                                th Coverage
+                                th Access
+                                th Actions
+                        tbody
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage") 25 Feb 2016 - 28 Feb 2024
+                                td(data-thead="Access") Expiration date: 28 Feb 2024
+                                td(data-thead="Actions")
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage")
+                                td(data-thead="Access")
+                                td(data-thead="Actions")
+                                    button.btn.btn__transparent.btn--full-width Subscribe
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage") 25 Feb 2016 - 28 Feb 2024
+                                td(data-thead="Access")
+                                    span.account-tab__error End date: 01 Feb 2016
+                                    label Expired: 28 Feb 2024
+                                td(data-thead="Actions")
+                                    button.btn.btn__transparent.btn--full-width Renew
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage")
+                                td(data-thead="Access") Provided by <Institution name>
+                                td(data-thead="Actions")
+
+            li(id="pane-books" aria-labelledby="pane-books-con" role="tabpanel" class="tab__pane")
+                .table-responsive.separator
+                    table.expandable
+                        thead
+                            tr
+                                th Publication Title
+                                th Coverage
+                                th Access
+                                th
+                                  i.icon-Icon_Share
+                                th
+                                    i.icon-printer
+                                th
+                                    i.icon-Icon_Download
+                                th
+                                    i.icon-laptop
+                                th
+                                    i.icon-people
+                                th Actions
+                        tbody
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage") 25 Feb 2016 - 28 Feb 2024
+                                td(data-thead="Access") Expiration date: 28 Feb 2024
+                                td(data-thead="Share")
+                                    label.checkbox--primary
+                                        input(type='checkbox', name='' checked)
+                                        span.label-txt
+                                td(data-thead="Print")  -
+                                td(data-thead="Download")
+                                    label.checkbox--primary
+                                        input(type='checkbox', name='' checked)
+                                        span.label-txt
+                                td(data-thead="Screen")
+                                    label.checkbox--primary
+                                        input(type='checkbox', name='' checked)
+                                        span.label-txt
+                                td(data-thead="Check") -
+                                td(data-thead="Actions")
+
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage")
+                                td(data-thead="Access")
+                                td(data-thead="Share")
+                                    label.checkbox--primary
+                                        input(type='checkbox', name='' checked)
+                                        span.label-txt
+                                td(data-thead="Print") -
+                                td(data-thead="Download") -
+                                td(data-thead="Screen") -
+                                td(data-thead="Check") -
+                                td(data-thead="Actions")
+                                    button.btn.btn__transparent.btn--full-width Subscribe
+                            tr.expanded
+                                td(data-thead="Publication Title")
+                                    p Publication Title
+                                td(data-thead="Coverage") 25 Feb 2016 - 28 Feb 2024
+                                td(data-thead="Access")
+                                    span.account-tab__error End date: 01 Feb 2016
+                                    label Expired: 28 Feb 2024
+                                td(data-thead="Share")  -
+                                td(data-thead="Print") -
+                                td(data-thead="Download") -
+                                td(data-thead="Screen")
+                                td(data-thead="Check") -
+                                td(data-thead="Actions")
+                                    button.btn.btn__transparent.btn--full-width Renew

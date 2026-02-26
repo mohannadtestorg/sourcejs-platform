@@ -1,0 +1,74 @@
+.toc__latest-issue {
+    .section__header {
+        margin-bottom: 0;
+    }
+    .meta__body {
+        @include default-box-shadow();
+        padding: $default-inner-padding;
+        border-top-width: 0;
+        padding-top: 16px;
+        margin-bottom: 0;
+    }
+    .meta__info {
+        border-bottom: 1px solid $borders;
+        padding-bottom: 16px;
+    }
+}
+
+.toc {
+    &__section {
+        border-bottom-width: 1px;
+
+        > a {
+            margin-left: 0;
+        }
+    }
+
+    &-item__abstract {
+        background-color: $secondary-lighten-bg-color;
+    }
+
+    &__heading {
+        &.section__header {
+            color: $secondary-text-color;
+        }
+        &.to-section {
+            color: $primary-text-color;
+        }
+    }
+}
+
+.table-of-content {
+    a {
+        @include make-link();
+    }
+    .issue-item {
+        margin-top: 16px;
+        //padding-top: 0;
+        //margin-bottom: 15px;
+        //padding-bottom: 15px;
+        &:first-child {
+            padding-top: 0;
+        }
+        &:not(:first-child) {
+            //border-top: 1px solid $borders;
+        }
+    }
+}
+
+.corrections-container {
+
+    &__label {
+
+        &.accordion__control i,
+        &.accordion__control span {
+            color: $error-text-color;
+        }
+
+    }
+
+    &-body {
+
+        background: $secondary-lighten-bg-color;
+    }
+}

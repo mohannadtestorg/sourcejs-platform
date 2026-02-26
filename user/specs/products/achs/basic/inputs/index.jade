@@ -1,0 +1,85 @@
+extends /specs/products/achs/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Inputs
+
+        h3 Checkbox
+        .source_example
+            label.checkbox--primary
+                input(type="checkbox" name="checkbox0" checked="checked")
+                span Checkbox Text
+        h3 Checkbox(Disabled)
+        .source_example
+            label.checkbox--primary
+                input(type="checkbox" name="checkbox1" checked="checked" disabled="disabled")
+                span Checkbox Text
+        h3 Toggle Button
+        .source_example
+            label.checkbox--primary.checkbox_toggle
+                input(type="checkbox" name="checkbox2" checked="checked")
+                span
+        h3 Toggle Button(Disabled)
+        .source_example
+            label.checkbox--primary.checkbox_toggle
+                input(type="checkbox" name="checkbox2" checked="checked" disabled="disabled")
+                span
+        h3 Radio Button
+        .source_example
+            label.radio--primary
+                input(type="radio" name="radio0")
+                span Checkbox Text
+        h3 Checkbox(Disabled)
+        .source_example
+            label.radio--primary
+                input(type="radio" name="radio1" checked="checked" disabled="disabled")
+                span Checkbox Text
+        h3 Select
+        .source_example
+            select.jcf(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                option Lorem
+                option Ipsum
+                option Dolor
+        h3 Text Input
+        .source_example
+            input(type="text" placeholder="Text Input" value="")
+        h3 Text Input(Required)
+        .source_example
+            div.input.input_required
+                input(type="text" placeholder="Text Input" value="")
+        h3 Text Input(Error)
+        .source_example
+            div.input.input_error
+                input(type="text" placeholder="Text Input" value="")
+                span Welp something went wrong
+        h3 Text Input(Icon)
+        .source_example
+            div.input.input_icon.icon-search
+                input(type="text" placeholder="Text Input" value="")
+        h3 Text Input(Icon Boxed)
+        .source_example
+            div.input.input_icon_boxed.icon-check
+                input(type="text" placeholder="Text Input" value="")
+        h3 Text Input(Success)
+        .source_example
+            div.input.input_icon_boxed.input_success.icon-check
+                input(type="text" placeholder="Text Input" value="")
+
+        h3 Text Input(Error)
+        .source_example
+            div.input.input_error.input_icon_boxed.icon-check
+                input(type="text" placeholder="Text Input" value="")
+                span Welp something went wrong
+        h3 Text Area
+        .source_example
+            textarea( placeholder="Text Area")
+        h3 Text Area(Required)
+        .source_example
+            div.input.input_required
+                textarea( placeholder="Text Area")
+        h3 Text Area(Error)
+        .source_example
+            div.input.input_error
+                textarea( placeholder="Text Area")
+                span Welp something went wrong
+    | #{''}

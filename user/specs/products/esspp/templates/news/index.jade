@@ -1,0 +1,69 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 News Page
+    section.source_section
+        h2 News Page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                .container.static-page
+                    h5 News
+                    .row.static-page__content
+                        .col-sm-9.static-page__main-col
+
+                            article.news
+                                .news__header
+                                    | November 23 2017, Space Physics
+
+                                .news__content
+                                    h3 Headline Descriptive text of the specific news article published on teta date. Can be more detailed to fully describe the title. Headline Descriptive text of the specific news article published on teta date.
+                                    .news__authors Johanna Hurtubise, Diana Gorbet, Yehyah Hamandi and Lauren Sergio
+                                    .row
+                                        .col-xs-12.col-sm-2
+                                            img.news__img(src="https://placeimg.com/172/96/any")
+                                        .col-xs-12.col-md-10
+                                            p Each month, Communications brings readers in-depth stories of emerging areas of computer science, new trends in IT, and practical research applications. Industry leaders choose Communications to debate technology implications, public policies, engineering challenges, and market trends.
+
+                            article.news
+                                .news__header
+                                    | November 23 2017, Space Physics
+
+                                .news__content
+                                    h3 Headline Descriptive text of the specific news article published on teta date. Can be more detailed to fully describe the title. Headline Descriptive text of the specific news article published on teta date.
+                                    .news__authors Johanna Hurtubise, Diana Gorbet, Yehyah Hamandi and Lauren Sergio
+                                    .row
+                                        .col-xs-12.col-sm-2
+                                            img.news__img(src="https://placeimg.com/172/96/any")
+                                        .col-xs-12.col-md-10
+                                            p Each month, Communications brings readers in-depth stories of emerging areas of computer science, new trends in IT, and practical research applications. Industry leaders choose Communications to debate technology implications, public policies, engineering challenges, and market trends.
+
+                            article.news
+                                .news__header
+                                    | November 23 2017, Space Physics
+
+                                .news__content
+                                    h3 Headline Descriptive text of the specific news article published on teta date. Can be more detailed to fully describe the title. Headline Descriptive text of the specific news article published on teta date.
+                                    .news__authors Johanna Hurtubise, Diana Gorbet, Yehyah Hamandi and Lauren Sergio
+                                    .row
+                                        .col-xs-12.col-sm-2
+                                            img.news__img(src="https://placeimg.com/172/96/any")
+                                        .col-xs-12.col-md-10
+                                            p Each month, Communications brings readers in-depth stories of emerging areas of computer science, new trends in IT, and practical research applications. Industry leaders choose Communications to debate technology implications, public policies, engineering challenges, and market trends.
+
+
+
+                        .col-sm-3.static-page__aside
+                            | !{pb.render("newsletter", "newsletter/newsletter","aside-newsletter.json","esspp")}
+
+
+
+
+
+
+
+
+            | !{data.footer}
+    | #{''}

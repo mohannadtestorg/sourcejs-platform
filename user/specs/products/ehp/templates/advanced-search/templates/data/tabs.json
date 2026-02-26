@@ -1,0 +1,49 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "m1x"
+        },
+        "config": {
+            "type": "default",
+            "id": "m1x",
+            "hideEmpty": "false",
+            "vPort": "medium"
+        },
+        "data": {
+            "nav": [
+                {
+                    "text": "Advanced Options",
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/advanced-search/templates/advanced-search/advanced-search-tmpl.jade",
+                            "data": {
+                                "$ref": "advanced-search.json"
+                            }
+                        }
+
+                    }
+                },
+                {
+                    "text": "Search History",
+
+                    "content": "You do not have any saved searches"
+                    },
+                {
+                    "text": "Saved Searches",
+
+                    "content": {
+                        "$pug": {
+                            "template": "../../../../ux3/widgets/saved-searches/templates/saved-searches/saved-searches-tmpl.jade",
+                            "data": {
+                                "$ref": "saved-searched.json"
+                            }
+                        }
+
+                    }
+                }
+
+            ]
+        }
+    }
+
+}

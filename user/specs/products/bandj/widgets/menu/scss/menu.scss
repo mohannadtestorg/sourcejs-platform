@@ -1,0 +1,43 @@
+.menu-item {
+    span {
+        line-height: 1rem;
+    }
+}
+
+.main-nav {
+
+    &.menu--res {
+
+        .dropdown__menu {
+            &.sub-menu__opened {
+                @include themify($themes) {
+                    background-color: themed('color');
+                }
+            }
+        }
+
+        .dropdown {
+            &.menu-parent__opened {
+                @include themify($themes) {
+                    background-color: themed('color');
+                }
+            }
+        }
+
+        a[data-toggle="nav"] {
+            @include media('<tablet') {
+                padding: 13px 10px;
+            }
+
+            &.js--open {
+                @include themify($themes) {
+                    background-color: themed('color');
+                }
+            }
+
+        }
+    }
+}
+.w-slide {
+    z-index: 101;
+}

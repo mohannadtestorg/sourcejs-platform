@@ -1,0 +1,132 @@
+.issue-item {
+    padding: 20px 0 10px;
+    border-bottom: 1px solid $tab-border;
+
+    &:first-child {
+        padding: 0 0 10px;
+    }
+
+    .card & {
+        padding: 20px;
+        margin: 0 -20px;
+    }
+
+    &__title {
+        color: $wiley-blue-color;
+        line-height: 22px;
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+    }
+
+
+    .loa {
+        line-height: 22px;
+        color: $wiley-gray-text-color;
+
+        a {
+            color: $wiley-gray-text-color;
+        }
+
+        li {
+            span {
+                margin-right: 0;
+            }
+        }
+    }
+
+
+
+    &__details {
+        color: $wiley-typography-color;
+        line-height: 22px;
+
+        label {
+            margin: 0;
+            font-size: 0.875rem;
+            color: $wiley-gray-text-color;
+            display: inline-block;
+        }
+
+        li {
+            line-height: 0.875rem;
+            margin-right: 10px;
+            padding-right: 10px;
+
+            &:last-child {
+                margin-right: 0;
+                padding-right: 0;
+            }
+        }
+
+        &.rlist--inline.separator {
+            li {
+                    border-color: $wiley-gray-text-color;
+            }
+        }
+    }
+
+    .content-item-format-links {
+        font-weight: 600;
+
+        li {
+            border-color: $wiley-gray-text-color;
+        }
+    }
+
+    .doi-access-wrapper, .issue-item__title, .loa, &__details, .content-item-format-links {
+        margin: 10px 0;
+    }
+
+    .toc-item__abstract {
+        margin: 27px 0 10px;
+    }
+
+    .icon-mail_outline {
+        display: none;
+    }
+
+    .loa-authors-trunc {
+        + .rlist--inline {
+            li {
+                margin-right: 10px;
+                padding-right: 10px;
+                line-height: 14px;
+            }
+        }
+    }
+
+    .article-section__content, .article-section .biographies {
+        font-size: .875rem;
+    }
+
+}
+
+.abstract-preview {
+    &__visual {
+        img {
+
+            padding: 0;
+            width: auto;
+            max-width: 40%;
+            max-height: 400px;
+            margin: 0 10px 10px 0;
+            float: left;
+
+
+            @include media('<tablet') {
+                display: block;
+                float: none;
+                max-width: 100%;
+                margin: 0 auto 10px;
+
+            }
+
+
+        }
+    }
+
+}

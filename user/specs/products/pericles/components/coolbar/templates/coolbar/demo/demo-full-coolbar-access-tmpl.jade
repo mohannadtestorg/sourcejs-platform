@@ -1,0 +1,54 @@
+extends ../../../../../../../ux3/components/coolbar/templates/coolbar/coolbar-tmpl.jade
+
+
+// please don't use this template file, this file is for sourceJs usage only.
+block coolbarDropZone
+    style.
+        .source_example .coolBar .stickybar__wrapper {
+            position: static !important;
+            width: 100% !important;
+        }
+    .coolBar__section
+        a#article_Ctrl.coolBar__ctrl.hidden-lg(href='#', data-db-target-for='article', data-db-switch='icon-close_thin', aria-haspopup='true', aria-controls='article_Pop', role='button')
+            i.icon-abstract
+            span About
+        #article_Pop.coolBar__drop.fixed.rlist.dropBlock__holder(data-db-target-of='article', aria-labelledby='article_Ctrl', role='menu')
+            .transplant.showit(data-target='.article-row-right .tab__nav, .coolBar--download', data-remove='false', data-targetclass='hidden-xs hidden-sm', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+    .coolBar__section
+        a#sections_Ctrl.coolBar__ctrl(href='#', data-db-target-for='sections', data-db-switch='icon-close_thin', aria-haspopup='true', aria-controls='sections_Pop', role='button')
+            i.icon-list-unordered
+            span Sections
+        #sections_Pop.coolBar__drop.dropBlock__holder.rlist.fixed(data-db-target-of='sections', aria-labelledby='sections_Ctrl', role='menu')
+            ul.rlist.w-slide--list
+                li(role='menuitem')
+                    a.w-slide__hide(href='#d6283983')
+                        span Abstract
+                li(role='menuitem')
+                    a.w-slide__hide(href='#assep001-sec-0002-title')
+                        span 1 Basic Definitions
+                li(role='menuitem')
+                    a.w-slide__hide(href='#assep001-sec-0010-title')
+                        span
+                            | 2 Resolution
+                li(role='menuitem')
+                    a.w-slide__hide(href='#assep001-sec-0011-title')
+                        span 3 Modern Trends in Liquid Chromatography
+                li(role='menuitem')
+                    a.w-slide__hide(href='#assep001-sec-0015-title')
+                        span  4 Conclusions
+                li(role='menuitem')
+                    a.w-slide__hide(href='#references-section-1')
+                        span References
+
+
+block coolBarSecond
+    .coolBar__section.coolBar--download.PdfLink
+        a.coolBar__ctrl.pdf-download(href='/doi/pdf/10.1002/2016JA022889', title='Article PDF')
+            img(src='https://pericles.pericles-prod.literatumonline.com/products/pericles/releasedAssets/images/pdf-icon.png', alt='PDF')
+            | PDF
+
+    block coolBarToolsMenu
+        | !{pb.render("article-tools", "article-tools.json", 'pericles')}
+    block coolBarShareMenu
+        | !{pb.render("share", "share-addthis.json", 'pericles')}

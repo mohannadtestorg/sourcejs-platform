@@ -1,0 +1,189 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 List of issues page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200479' target="_blank">`LIT-200479`</a>
+
+    section.source_section
+        h2 List of issues page
+
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            h1.hidden  Journal list menu
+                            .pages-nav--sticky.pages-nav.hidden-lg
+                                .pages-nav--res
+                                    .container
+                                        ul.rlist--inline.pull-left
+                                            li
+                                                a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                    i.icon-toc(aria-hidden='true')
+                                                    span Journal
+                                                #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-1, #menu-item-main-menu-1-2, #menu-item--1, #menu-item--2, .journal-featured', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+                                                    a.dropdown__toggle(href='#', title='More from this journal')
+                                                        span More from this journal
+                                                    .transplant.showit(data-target='.journal-resources', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+                                            li
+                                                a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                                    i.article-img-icon
+                                                        img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/pericles/articles_1-1499257321163.png')
+                                                    span Articles
+                                                #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-3, #menu-item-main-menu-1-4, #menu-item--3', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(href='#', data-db-target-for='actions-list', data-db-switch='icon-close_thin')
+                                                    span Actions
+                                                    i.icon-chevron-down(aria-hidden='true')
+                                                #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                    h2.side-section-header.hiddenLabel--lg Tools
+                                                    .transplant.showit(data-target='.journal-actions-container li:nth-child(1), .journal-actions-container li:nth-child(2), .journal-actions-container li:nth-child(3), .journal-actions-container li:nth-child(4), .journal-actions-container li:nth-child(5), #subscribeLink', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+                                                    h2.side-section-header.hiddenLabel--lg Follow journal
+                                                    .transplant.showit(data-target='#alert-link, #facebook-link, #twitter-link, #most-recent-link, #most-read-link, #most-cited-link', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard(data-google-query-id='CLuXtaui-9kCFQWIdwod31EH8w')
+                                            script.
+                                                googletag.cmd.push 		( function () {
+                                                    googletag.display 	( 'advert-leaderboard' );
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                | <a href="/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Floi%2F1939005x&placeholderId=1015&productId=101018" target="_blank">
+                                                | <img src="http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&amp;sz=728x90&amp;tile=1&amp;c=$random">
+                                                | </a>
+                                            div(id='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_0__container__', style='border: 0pt none;')
+                                                iframe(id='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_0', title='3rd party ad content', name='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_0', width='728', height='90', scrolling='no', marginwidth='0', marginheight='0', frameborder='0', srcdoc='', style='border: 0px; vertical-align: bottom;')
+                            style(type='text/css').
+                                li.menu-item[aria-label="Accepted Articles"], .dropzone {
+                                    display: none;
+                                }
+
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            a(href='/journal/1939005x', title='Wiley Interdisciplinary Reviews: Systems Biology and Medicine homepage')
+                                                h1#journal-banner-text(style='margin: 0; font-size: 0') Wiley Interdisciplinary Reviews: Systems Biology and Medicine
+                                                img#journal-banner-image.journal-banner-image(alt='Wiley Interdisciplinary Reviews: Systems Biology and Medicine banner', src='//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/1939005x-1501384787687.jpg', style='margin-bottom: 15px; display: block;')
+                                            script.
+                                                var image = new Image();
+                                                image.onload = function() {
+                                                    // if the image exists
+                                                    document.getElementById("journal-banner-image").style.display = "block";
+                                                }
+                                                image.onerror = function() {
+                                                    // if the image does not exist
+                                                    document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                                    document.getElementById("journal-banner-text").style.fontSize = "22px";
+                                                }
+                                                image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/1939005x-1501384787687.jpg";
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+
+                            | !{pb.render('menu', data.menu, 'pericles',{"shared": {"model": {"config": {"wrapper": "true", "className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}}} )}
+
+                        .journal-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .gutterless.col-md-12
+                                        .main-content.col-md-8
+                                            | !{pb.render('list-of-issues-links', 'loi-data-new.json', 'pericles')}
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            .journal-sidebar(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    .journal-side-section.journal-actions-container
+                                                        h2.side-section-header.hidden-lg.hidden-md Tools
+                                                        ul.unordered-list-icons
+                                                            li#Browsefreesampleissue
+                                                                a(href='/toc/10.1002/(ISSN)1939-005X/free-sample')
+                                                                    i.icon-sample_issue(aria-hidden='true')
+                                                                    | Browse free sample issue
+                                                            li#Getcontentalerts
+                                                                a(href='/action/doUpdateAlertSettings?action=addJournal&journalCode=1939005x')
+                                                                    i.icon-alert(aria-hidden='true')
+                                                                    | Get content alerts
+                                                            li#Recommendtoalibrarian
+                                                                a(href='/action/recommendation?doi=10.1002/(ISSN)1939-005X')
+                                                                    i.icon-recommend(aria-hidden='true')
+                                                                    | Recommend to a librarian
+                                                    .journal-side-section
+                                                        ul.unordered-list-icons
+                                                            li
+                                                                a#subscribeLink(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=1939-005X&doi=10.1002/(ISSN)1939-005X')
+                                                                    i.icon-subscribe(aria-hidden='true')
+                                                                    | Subscribe to this journal
+                                                    .card--bordered.my-4.sidebar-society-logo(data-widget-def='UX3HTMLWidget', data-widget-id='5e6f26aa-d597-4688-9154-94c250dbfcf6')
+                                                        // Society Logos
+                                                        style.
+                                                            .sidebar-society-logo {
+                                                                display: none;
+                                                            }
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='d4c99a14-f731-4a95-ab2a-670b958c4c3c')
+                                                        h2.section__mainHeader--small
+                                                            | More from this journal
+                                                        .journal-side-section.journal-resources
+                                                            ul.unordered-bordered-list
+                                                                li#TopTenWSBMArticles
+                                                                    a(href='http://wires.wiley.com/WileyCDA/WiresCollection/id-24.html') Top Ten WSBM Articles
+                                                                li#GenomicsAnInterdisciplinaryView
+                                                                    a(href='http://wires.wiley.com/WileyCDA/WiresCollection/id-16.html') Genomics: An Interdisciplinary View
+                                                                li#NetworkBiology
+                                                                    a(href='http://wires.wiley.com/WileyCDA/WiresCollection/id-9.html') Network Biology
+                                                                li#EpigeneticsAnInterdisciplinaryView
+                                                                    a(href='http://wires.wiley.com/WileyCDA/WiresCollection/id-18.html') Epigenetics: An Interdisciplinary View
+                                                                li#ProteomicsAnInterdisciplinaryView
+                                                                    a(href='http://wires.wiley.com/WileyCDA/WiresCollection/id-44.html') Proteomics: An Interdisciplinary View
+                                                                li#VideoAbstracts
+                                                                    a(href='/page/journal/1939005x/homepage/video_abstracts.htm') Video Abstracts
+                                                    .pb-ad
+                                                        #advert-rail-1.advert.advert-rail(data-google-query-id='CLyXtaui-9kCFQWIdwod31EH8w', style='display: none;')
+                                                            script.
+                                                                googletag.cmd.push 		( function () {
+                                                                    googletag.display 	( 'advert-rail-1' );
+                                                                });
+                                                            // No JavaScript support is a call to an image
+                                                            noscript
+                                                                | <a href="/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Floi%2F1939005x&placeholderId=1014&productId=101018" target="_blank">
+                                                                | <img src="https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&amp;sz=160x600|160x320|160x160|120x600&amp;tile=2&amp;c=$random">
+                                                                | </a>
+                                                            div(id='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_1__container__', style='border: 0pt none;')
+                                                                iframe(id='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_1', title='3rd party ad content', name='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_1', width='300', height='250', scrolling='no', marginwidth='0', marginheight='0', frameborder='0', srcdoc='', style='border: 0px; vertical-align: bottom;')
+                                                    .pb-ad
+                                                        aside
+                                                            #advert-rail-2.advert.advert-rail(data-google-query-id='CL2Xtaui-9kCFQWIdwod31EH8w', style='display: none;')
+                                                                script.
+                                                                    googletag.cmd.push 		( function () {
+                                                                        googletag.display 	( 'advert-rail-2' );
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    | <a href="/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Floi%2F1939005x&placeholderId=1013&productId=101018" target="_blank">
+                                                                    | <img src="http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&amp;sz=160x600|160x320|160x160|120x600&amp;tile=2&amp;c=$random">
+                                                                    | </a>
+                                                                div(id='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_2__container__', style='border: 0pt none;')
+                                                                    iframe(id='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_2', title='3rd party ad content', name='google_ads_iframe_/2215/wly.cell.m.bio_000030/wires-system-bio-med_wsbm_2', width='300', height='250', scrolling='no', marginwidth='0', marginheight='0', frameborder='0', srcdoc='', style='border: 0px; vertical-align: bottom;')
+
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}
+

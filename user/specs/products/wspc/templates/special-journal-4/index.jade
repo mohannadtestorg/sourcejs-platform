@@ -1,0 +1,91 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content.journal-home
+                .meta-wrapper
+
+                .container
+                    | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<div class=\"card card--shadow card--gutter meta__body journal-banner\"><div class=\"meta__left-side left-side-image\"><a href=\"/action/showJournal?doi=10.1142%2Fjmrr&amp;publicationCode=jmrr\"><img src=\"https://wspc-x2258.ciplit.com//home/office-santaclara-cip/publisher/wspc-x2258/journals/covergifs/jmrr/cover.jpg\" alt=\"0 cover\"></a><h1 class=\"meta__title\"> <a href=\"/action/showJournal?doi=10.1142%2Fjmrr&amp;publicationCode=jmrr\">Journal of Medical Robotics Research</a></h1><div class=\"meta__info\"><span class=\"issn\">ISSN (print): 2424-905X</span><span>&nbsp;|&nbsp;</span><span class=\"eissn\">ISSN (online): 2424-9068</span> <div class=\"frequency\"></div> <div class=\"banner-note\"> </div> </div></div><div class=\"meta__right-side\"> <a href=\"https://mc04.manuscriptcentral.com/fm-jmrr\" class=\"btn btn--inverse\" target=\"blank\">Submit an article</a> <a href=\"/page/journal-order-form#/jmrr\" class=\"btn btn--inverse\">Subscribe</a> </div></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    | !{pb.render('list-of-issues', 'list-of-issues/demo/list-of-issues-demo', 'loi-decade.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    .row.separator
+                        .col-lg-9.col-md-12.col-sm-12.gutterless
+                            h3.journal-custom__top-heading
+                                a(href="#") Call for Papers on Interference Mitigation Techniques in Radio Astronomy
+                            div.journal-custom__news.section
+                                h3.section__header.border-bottom NEWS
+                                ul.rlist
+                                    li JAI welcomes a new editorial board member, Dr. Paola Amico (ESO). We look forward to working with her.
+                                    li We are pleased to announce that JAI has been indexed in the #{""}
+                                        a(href="#") Emerging Sources Citation Index (ESCI)
+                                        |  and Scopus.
+                                    li The authors of accepted articles can now upload supplementary files to our website, e.g. the corresponding research data. For more information, please refer to our submission guidelines.
+
+                                p The Journal of Astronomical Instrumentation (JAI) publishes papers describing instruments and components being proposed, developed, under construction and in use. JAI also publishes papers that describe facility operations, lessons learned in design, construction, and operation, algorithms and their implementations, and techniques, including calibration, that are fundamental elements of instrumentation. The journal focuses on astronomical instrumentation topics in all wavebands (Radio to Gamma-Ray) and includes the disciplines of Heliophysics, Space Weather, Lunar and Planetary Science, Exoplanet Exploration, and Astroparticle Observation (cosmic rays, cosmic neutrinos, etc.).
+                                    a(href="#") » Μore
+
+                                div.special-issue
+                                    h3
+                                        a(href="#") Special Issue: Scientific Balloon Technologies
+                                    div.item-content
+                                        div.item-content__text
+                                            | Scientific ballooning facilitates high quality science investigations across multiple disciplines, including astrophysics, planetary, and solar science. Though the payloads differ, there are commonalities in the technologies for the platform and operations. This special issue highlights these shared technologies, discussing their state of the art for specific payloads and balloon programs.
+                                        div.item-content__image
+                                            img(src="https://www.worldscientific.com/sda/1523/jai0602.jpg")
+
+                            div.journal-featured__list.section
+                                h3.section__header.border-bottom Featured Articles
+                                ul.rlist.lot
+                                    li.journal-featured__item
+                                        h3
+                                            a(href="#") Bifrost: A Python/C++ Framework for High-Throughput Stream Processing in Astronomy
+                                        span.meta Miles D. Cranmer, Benjamin R. Barsdell, Danny C. Price et al.
+                                        span.meta J. Astron. Instrum., 06 (2017) 1750007
+                                        div.item-content
+                                            div.item-content__text
+                                                | Bifrost combines a high-level Python interface with highly efficient reconfigurable data transport and a library of computing blocks for CPU and GPU processing. The framework is generalizable, but initially it emphasizes the needs of high-throughput radio astronomy pipelines, such as the ability to process data buffers as if they were continuous streams, the capacity to partition processing into distinct data sequences (e.g. separate observations), and the ability to extract specific intervals from buffered data. Computing blocks in the library are designed for applications such as interferometry, pulsar dedispersion and timing, and transient search pipelines.
+                                            div.item-content__image
+                                                img(src="https://www.worldscientific.com/sda/1523/S2251171717500076.jpg")
+                                    li.journal-featured__item
+                                        h3
+                                            a(href="#") Simulation and Testing of a Linear Array of Modified Four-Square Feed Antennas for the Tianlai Cylindrical Radio Telescope
+                                        span.meta Aleksander J. Cianciara, Christopher J. Anderson, Xuelei Chen et al.
+                                        span.meta J. Astron. Instrum., 06 (2017) 1750003
+                                        div.item-content
+                                            div.item-content__text
+                                                | A wide bandwidth, dual polarized, modified four-square antenna is presented as a feed antenna for radio astronomical measurements. A linear array of these antennas is used as a line-feed for cylindrical reflectors for Tianlai, a radio interferometer designed for 21 cm intensity mapping. Simulations of the feed antenna beam patterns and scattering parameters are compared to experimental results at multiple frequencies across the 650-1420MHz range. Simulations of the beam patterns of the combined feed array/reflector are presented as well.
+                                            div.item-content__image
+                                                img(src="https://www.worldscientific.com/sda/1523/S2251171717500039.jpg")
+
+
+                            | !{pb.render('top-content', 'data.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2 "], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "LATEST ARTICLES"}}}})}
+                            | !{pb.render('top-content', 'recommended.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Recomended"}}}})}
+                            | !{pb.render('top-content', 'recommended.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Most cited"}}}})}
+                            | !{pb.render('top-content', 'recommended.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Most read"}}}})}
+
+
+                        .col-lg-3.col-md-12.col-sm-12
+                            .row
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    h3.section__header.border-bottom newsletter
+                                    | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+                                    //mpu a
+                                    .mpu
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

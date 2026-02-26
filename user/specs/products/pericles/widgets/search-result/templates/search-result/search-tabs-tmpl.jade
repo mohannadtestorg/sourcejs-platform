@@ -1,0 +1,11 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-tabs-tmpl
+
+block articleTabLabel
+    a(class= classes href= data.widgetData.groupTabs.articlesChapters.link)
+        | Articles & Chapters
+        span &nbsp;(!{data.widgetData.groupTabs.articlesChapters.count})
+
+block publicationTabLabel
+    a(class= classes href=data.widgetData.groupTabs.journalTitle.link )
+        | Publications
+        span &nbsp;(!{data.widgetData.groupTabs.journalTitle.count})

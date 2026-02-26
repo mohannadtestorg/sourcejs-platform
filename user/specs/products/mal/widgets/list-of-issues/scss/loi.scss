@@ -1,0 +1,76 @@
+.loi {
+    padding: 0;
+    .parent-item {
+        color: $primary-title-color;
+        font-size: .9rem;
+        text-transform: capitalize;
+    }
+    .status {
+        font-size: .9rem;
+    }
+    &__list {
+        li {
+            &:hover{
+                border-bottom: 3px solid $dark-gray;
+            }
+        }
+        a {
+            font-weight: 400;
+            &:hover {
+                font-weight: bold;
+            }
+        }
+        .active {
+
+            &:hover{
+                border-bottom: 3px solid $primary-title-color;
+            }
+        }
+        .active {
+            border-bottom: 3px solid $primary-title-color;
+            span {
+                color: $primary-title-color;
+            }
+        }
+    }
+    .tab__pane:not(.nested-tab) {
+        background: white;
+    }
+    .tab {
+        background: $badge-type-bg-color;
+        &__nav {
+            background: white
+        }
+        &__content {
+            border-top: 2px solid $primary-border-color;
+            .loi-list__wrapper {
+                .tab__nav {
+                    background: $loi-bg-color;
+                }
+            }
+        }
+        &__content {
+            max-height: none;
+        }
+    }
+    &__issue{
+        border-bottom: 2px solid $primary-border-color;
+        padding-bottom: 5px;
+    }
+    .iPageRange {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .coverDate {
+        margin-right: 8px;
+        padding-right: 8px;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+    &__banner {
+        box-shadow: none;
+    }
+}
+[class*=loi__btn]{
+    padding: 19px 10px 18px;
+}

@@ -1,0 +1,133 @@
+{
+    "logo": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "true",
+                        "className": ["header__logo"]
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/images/templates/images/images-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "link": "/",
+                                            "src": "/specs/products/esspp/images/essoar-logo--small.jpg",
+                                            "alt": "logo"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "search": {
+        "$pug": {
+            "template": "../../widgets/quick-search/templates/quick-search/demo/demo-quick-search-tmpl.jade",
+            "data": {
+                "$ref": "../../../../../../ux3/widgets/quick-search/templates/data/quick-search.json"
+            }
+        }
+    },
+    "user": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/user-login-bar/templates/logged-out-panel/logged-out-panel.jade",
+                                "data": {
+                                    "$ref": "../../../../../../ux3/widgets/user-login-bar/templates/data/user-panel-logged-out.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "mainmenu": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/menu/templates/demo/demo-menu-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "vPort": "small"
+                                        }
+                                    },
+                                    "data": {
+                                        "id": "main0",
+                                        "list": [
+                                            {
+                                                "text": "Home",
+                                                "link": "/"
+                                            },
+                                            {
+                                                "text": "About Us",
+                                                "link": "/about"
+                                            },
+                                            {
+                                                "text": "Contact Us",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Submit",
+                                                "link": "/action/createDraft"
+                                            },
+                                            {
+                                                "text": "Author Dashboard",
+                                                "link": "/action/showAuthorDashboard"
+                                            },
+                                            {
+                                                "text": "Advisor Dashboard",
+                                                "link": "/action/showAdvisorDashboard"
+                                            }
+                                        ]
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "secondaryNavigation": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+            "data": {
+                "thisWidget": {
+                    "id":"submenu",
+                    "properties": {
+                        "render": "html",
+                        "html": ""
+                    }
+                }
+            }
+        }
+    }
+}

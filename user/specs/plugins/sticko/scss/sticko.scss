@@ -1,0 +1,25 @@
+.js--sticko {
+    position: fixed;
+    z-index: 2;
+    background: $default-bg-color;
+
+    &.js--open {
+        z-index: 3;
+    }
+}
+
+@include media('<desktop') {
+    .sticko--md.js--sticko  {
+        position: relative;
+    }
+}
+
+.sticko {
+    &.slide {
+        transform: translateX(-100vw);
+        -webkit-transform: translateX(-100vw);
+        -moz-transform: translateX(-100vw);
+        -ms-transform: translateX(-100vw);
+        -o-transform: translateX(-100vw);
+    }
+}

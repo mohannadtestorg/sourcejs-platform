@@ -1,0 +1,42 @@
+/***
+
+```
+<a href="#NEJMGroup" class="a-dropdown-prompt" data-behavior="NEJMGroupDDToggle">NEJM Group</a>
+```
+
+***/
+
+.a-dropdown-prompt {
+  display: block;
+  position: relative;
+  height: 38px;
+  padding: 0 32px 0 13px;
+  border: 0 none;
+  background: none;
+  color: $color__black;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 40px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.a-dropdown-prompt::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -1px;
+  border-width: 4px 4px 0;
+  border-style: solid;
+  border-color: $color__input-border transparent transparent;
+}
+
+.a-dropdown-prompt:hover::after {
+  border-color: $color__input-border--hover transparent transparent;
+}

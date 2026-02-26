@@ -1,0 +1,110 @@
+
+
+[class*=grid] {
+    .section__header {
+      @include themify($themes) {
+        color: themed('color');
+      }
+      font-weight: 400;
+    }
+}
+
+.more-link {
+border:1px solid $primary-border-color;
+padding: 10px;
+}
+
+
+.top-content-alt{
+  .creative-work{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    &__title {
+      color: $black;
+      height:auto;
+      margin-bottom: 5px;
+    }
+  }
+
+  .epubDate {
+    padding-left: 5px;
+  }
+  .published-date{
+    font-size: .875rem;
+  }
+}
+
+
+.top-content {
+
+  &__block {
+    margin: 35px 0 0;
+    .title {
+      font-weight: 500;
+      padding-bottom: 5px;
+      border-bottom: 5px solid $black;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color:$primary-text-color;
+    }
+
+    .creative-work {
+      border-bottom: none;
+      border-top: 2px solid $primary-border-color;
+      padding-top: 10px;
+      margin-bottom: 0px;
+      &__title {
+        font-size: 0.9375rem;
+      }
+    }
+
+    .top-content-alt {
+      margin-bottom: 35px;
+    }
+
+    &.right {
+      .top-content-alt {
+        margin-bottom: 0;
+      }
+    }
+    .two-column{
+      position: relative;
+      .bookInfo{
+        &__data{
+          .link{
+            display: block;
+            padding-bottom: 5px;
+          }
+          .see-all-holder{
+            margin-top: 27px;
+            .bottom-link{
+              position: absolute;
+              bottom: 1px;
+            }
+          }
+
+          @include media('<desktop'){
+            width: calc(100% - 200px);
+          }
+          @include media('<phone'){
+            width:55%;
+          }
+        }
+        &__image{
+          @include media('<desktop'){
+            width: 200px;
+          }
+
+          @include media('<phone'){
+            width: 45%;
+          }
+        }
+
+      }
+    }
+
+
+  }
+
+}

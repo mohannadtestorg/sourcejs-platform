@@ -1,0 +1,28 @@
+extends ../../../../../components/facet-date/templates/facet-date/facet-date-tmpl.jade
+
+block dateFacetFacet
+    | !{pb.render("search-facets", "search-facets/extended/ext-facet", {data: data})}
+
+
+block dateFacetList
+    | !{pb.render("search-facets", "search-facets/extended/ext-facet", {data: data})}
+
+block dateFacetTitle
+    a(href="#" title=data.title aria-controls="dateFacet" class="facet__ctrl accordion__control js--open")
+        h4.facet__title !{data.title}
+        i(aria-hidden="true" class="icon-section_arrow_d")
+
+block dateFacetSlider
+    if (data && data.title)
+        +dateFacetTitle()
+    div.facet__content.accordion__content.js--open(id="dateFacet")
+        +dateFacetSliderBody()
+
+block dateFacetMain
+    if (data) && (data.type)
+        div.facet.accordion
+            if (data) && (data.type) && data.type == "Year"
+                +dateFacetSlider()
+
+            if (data && data.type && data.type == "Ppub")
+                +dateFacetPpub()

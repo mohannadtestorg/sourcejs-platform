@@ -1,0 +1,175 @@
+extends /specs/products/marlin/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+
+    section.source_section
+        h2 Simple Tables
+
+        h3 Simple Table - Basic - No scroll
+        p This is a sample of table with no scroll
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/basic
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+
+        h3 Simple Table - Basic - with scroll
+        p This a sample of table with scroll
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-10.col-lg-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/basic
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+        h3 Simple Table - Stripe
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/basic-striped
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+        h3 Simple Table - Bordered
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/basic-bordered
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+        h3 Simple Table - Bolded, highlighted
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/basic-highlighted
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+
+    section.source_section
+        h2 Complex table - Complex Header
+
+        h3 Complex table
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/complex
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+
+
+        h3 Complex table - Complex body - Fixed header only
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        .fancyTable
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/original
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+        h3 Complex table - Double headings
+        .source_example(style='overflow: auto;max-height: 500px;')
+            .ux3
+                .container
+                    .col-md-6
+                        article
+                            p Between April 6, 2009, and Jan 3, 2012, we enrolled 452 patients (225 [50%] in the two chemotherapy-alone groups and 227 [50%] in the two chemotherapy plus bevacizumab groups; figure 1). On March 7, 2014, with 348 deaths, the prespecified 346 deaths had been exceeded. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                            .inline-table
+                                .inline-table__head
+                                    span.inline-table__label Table x
+                                    span.inline-table__title Health Care Utilization by Case/Control Statusa, first paragraph in caption
+                                .inline-table__caption
+                                    | The second paragraph onwards should be displayed beneath this in plain text. Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+                                include ./templates/samples/table-double-header
+                                ul.rlist--inline.download-links
+                                    p
+                                        a(href="tableURL", onclick="window.open('tableURL','_blank'); return false;")
+                                            | Open table in a new tab
+                                .inline-table__tail
+                                    .inline-table__legend Legend Explanatory text usually displayed below the main body of a Table. It normally explains aspects of how the Table data was gathered and put together.
+                                    .inline-table__footnote Footnote Describes footnote(s) relating to information in the table. Should be displayed in plain text after the legend. No functional requirements.
+                            p Patients were well matched for GOG performance status, ethnicity, histology, disease status, and in-field pelvic recurrences (table 1). Importantly, 337 (75%) of 452 patients had previously received platinum-based radiosensitising chemotherapy, and this proportion was also evenly distributed between those receiving the two chemotherapy regimens.
+
+
+
+    | #{''}

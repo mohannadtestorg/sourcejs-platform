@@ -1,0 +1,59 @@
+- var image = 'false';
+
+mixin loading(image)
+    block loading
+        .lazy-load
+            if (image == 'true')
+                .lazy-load__img
+            .lazy-load__text
+                .lazy-load__line
+                .lazy-load__line--80
+                .lazy-load__line
+                .lazy-load__line--70
+                .lazy-load__line--50
+
+mixin meta(item)
+    block meta
+        div.meta
+            if (item.group)
+                if (item.group.citationLine)
+                    | !{item.group.citationLine}
+                else
+                    | !{pb.render('parent-item', {data: item.group})}
+            if (item && item.epubDate)
+                | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}
+
+mixin teaser(item)
+    block teaser
+        div.creative-work
+            .delayLoad
+                block teaserAltmetric
+                if (item.title)
+                    if (item.best)
+                        a(href=item.best title=item.title)
+                            h5.creative-work__title !{item.title}
+                    else
+                        h5.creative-work__title !{item.title}
+
+                block authors
+                    if (item.contribs)
+                        | !{item.contribs}
+                +meta(item)
+
+            +loading(image)
+
+
+mixin render(items)
+    block teaserWrapper
+        - var itemNo = items.length
+        if itemNo > 1
+            ul.rlist.lot
+                each item, l in items
+                    li.grid-item
+                        +teaser(item)
+        else
+            each item, l in items
+                +teaser(item)
+
+if ((data) && (data.items))
+    +render(data.items)

@@ -1,0 +1,56 @@
+#64a4ca02-8be9-4edb-9495-121f2c62f121.widget.eCommerceCheckoutIdentityWidget.none.widget-none.widget-compact-all
+    .wrapped
+        .widget-body.body.body-none.body-compact-all
+            .checkoutList.scroll-focus
+                .header
+                    | Checkout
+                .checkout-expand
+                    .checkoutLogin.hidden
+                        .identity-info.hidden(data-notification='identity')
+                            p.errorMsgBox
+                        .errorMsgBox.hidden
+                            p.fail-para
+                                | Your email needs verification. Please go to your email account and follow the link.
+                            form(action='http://ascelibrary.org/action/doMailVerification', method='post')
+                                input.link(type='hidden', value='', name='email')
+                                input.link(type='submit', value='Resend >', name='verifyEmail')
+                            p
+                        form(action='/action/guestCheckout', method='post')
+                            .checkoutMethod
+                                a#returningUserLink.returningUser.btn(data-bind='showUserLogin', href='/action/showLogin')
+                                    | Returning user
+                            .checkoutMethod
+                                input(type="submit" class="btn" value="Continue as Guest")
+                            .checkoutMethod.clearfix
+                                a.newUser(data-bind='register', href='/action/registration?redirectUri=%2Faction%2FshowCart%3Fcheckout')
+                                    | If you are a new user please click here to register
+                    .frmLogin
+                        h3 Returning User
+                        .login-form
+                            .message.error
+                                | Your username or password is incorrect. Please try again.
+                            form(action='/action/doLogin', method='post')
+                                input(type='hidden', name='id', value='64a4ca02-8be9-4edb-9495-121f2c62f121')
+                                input(type='hidden', name='redirectUri', value='/action/showCart?checkout')
+                                input(type='hidden', name='popup', value='true')
+                                .input-group
+                                    .label
+                                        label(for='login') Username
+                                    input#login.login(type='text', name='login', value='', size='15' placeholder="Enter your email")
+                                    //.actions
+                                        a.link.show-request-username(href='/action/requestUsername') Forgot username?
+                                .input-group
+                                    .label
+                                        label(for='password') Password
+                                    input#password.password(type='password', name='password', value='', autocomplete='off' placeholder="Enter password")
+                                    span.password-eye-icon.icon-eye.hidden
+                                    .actions
+                                        a.link.show-request-reset-password(href='/action/requestResetPassword') Forgot password?
+                                //.remember
+                                    span.label Keep me logged in
+                                    .switch.small-switch
+                                        input#64a4ca02-8be9-4edb-9495-121f2c62f121-remember.cmn-toggle.cmn-toggle-round-flat(type='checkbox', name='remember', value='true')
+                                        label(for='64a4ca02-8be9-4edb-9495-121f2c62f121-remember')
+                                .actions.float-right
+                                    //a(data-bind='cancelLogin', href='/action/showCart') cancel
+                                    input.button(data-bind='userLogin', type='submit', name='submit', value='Sign In', title='Sign In')

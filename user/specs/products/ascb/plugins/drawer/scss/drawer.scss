@@ -1,0 +1,121 @@
+.drawer__nav{
+  @include themify($themes) {
+    background:themed('color');
+  }
+}
+
+.main-nav{
+  border:none;
+  float: left;
+  @include themify($themes) {
+    background:themed('color');
+  }
+
+  &.menu--res {
+
+    .dropdown {
+      &.hover, &:hover, &:focus {
+        background: transparent;
+      }
+    }
+
+    .drawer__nav {
+      background: $drawer-bg-color;
+    }
+
+    a[data-toggle=nav] {
+      &.js--open {
+        background: $drawer-bg-color;
+      }
+      @include media('>phone'){
+        height: 75px;
+        padding: 28px 10px;
+      }
+
+      @include media('<=phone'){
+        height: 61px;
+        padding: 18px 13px;
+      }
+    }
+
+    ul a {
+      font-style: normal;
+      font-weight: bold;
+      line-height: normal;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: $white;
+      margin: 0;
+      margin-top: 16px;
+      i {
+        margin-top:2px;
+        font-weight:bold;
+      }
+      &:hover,&:focus{
+        @include themify($themes) {
+          color:themed('color');
+        }
+      }
+    }
+
+    .dropdown__menu.sub-menu__opened {
+      background: $drawer-bg-color;
+      a {
+        font-style: normal;
+        font-weight: bold;
+        line-height: normal;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: $white;
+        margin: 0;
+        margin-top: 16px;
+        i {
+          margin-top:2px;
+          font-weight:bold;
+        }
+      }
+    }
+
+    .menu-header{
+      line-height: 20px;
+    }
+  }
+
+
+  &:not(.menu--res){
+    .dropdown{
+      &:hover,&:focus{
+        background: $white;
+        @include themify($themes) {
+          color:themed('color');
+        }
+        i {
+          @include themify($themes) {
+            color:themed('color');
+          }
+        }
+        >.dropdown__menu{
+          background: $white;
+          @include themify($themes) {
+            color:themed('color');
+          }
+          li a {
+            font-style: normal;
+            font-weight: normal;
+            line-height: normal;
+            font-size: 12px;
+            padding: 8px;
+            border-bottom: 1px solid $primary-border-color;
+          }
+        }
+      }
+    }
+
+
+  }
+
+}
+
+.dropdown__menu{
+  min-width: 226px;
+}

@@ -1,0 +1,72 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../../../variables/aliases/colors.yaml
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    primary-bg-color:
+      value: "{!BLUE_1}"
+    primary-btn-color:
+      value: "{!BLUE_1}"
+    headings-primary-color:
+      value: "{!BLUE_1}"
+    figure-viewer-active-color:
+      value: "{!BLUE_1}"
+    # JOURNAL CODE BRANDING COLORS
+    default-journal:
+      value: "{!BLUE_1}"
+    ajhg-journal:
+      value: "{!GREEN_1}"
+    bpj-journal:
+      value: "{!BLUE_3}"
+    molp-journal:
+      value: "{!GREEN_2}"
+    stemcr-journal:
+      value: "{!GRAY_1}"
+    isci-journal:
+      value: "{!BLUE_1}"
+    chember-journal:
+      value: "{!BLUE_1}"
+    joul-journal:
+      value: "{!BLUE_1}"
+    neuron-journal:
+      value: "{!BLUE_1}"
+    stem-journal:
+      value: "{!BLUE_1}"
+    asgct-journal:
+      value: "{!BLUE_1}"
+    lifesci-journal:
+      value: "{!BLUE_1}"
+    omtm-journal:
+      value: "{!GREEN_3}"
+    omtn-journal:
+      value: "{!GREEN_3}"
+    omto-journal:
+      value: "{!GREEN_3}"
+    ymthe-journal:
+      value: "{!GREEN_3}"
+    others-journals:
+      value: "{!GREEN_3}"
+    navigation-links-color:
+      value: "#ffffff"
+    navigation-links-hover-color:
+      value: "{!GRAY_4}"
+    article-header-head-1:
+      value: "#ffffff"

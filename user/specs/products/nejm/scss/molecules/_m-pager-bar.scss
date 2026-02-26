@@ -1,0 +1,120 @@
+/***
+
+```
+<nav class="m-pager-bar">
+  <ul class="m-pager-bar__links">
+    <li class="m-pager-bar__backward"><a href="#">Previous Issue</a></li>
+    <li class="m-pager-bar__note">Note <a href="#">link</a></li>
+    <li class="m-pager-bar__forward"><a href="#">Next Issue</a></li>
+  </ul>
+</nav>
+```
+
+***/
+/***
+
+```
+<nav class="m-pager-bar">
+  <ul class="m-pager-bar__links">
+    <li class="m-pager-bar__backward"><a href="#">Back to Article</a></li>
+  </ul>
+</nav>
+```
+
+***/
+
+.m-pager-bar {
+  @include background-fill;
+  position: relative;
+  z-index: 1;
+  background-color: $color__background;
+}
+
+.m-pager-bar + .m-pager-bar::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 0;
+  width: 100vw;
+  height: 1px;
+  margin-left: -50vw;
+  background-color: $color__rules;
+}
+
+.m-pager-bar__links {
+  @include sans-serif(12, 16, bold);
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.m-pager-bar__forward,
+.m-pager-bar__backward,
+.m-pager-bar__note {
+  flex: 0 0 auto;
+  padding-top: 13px;
+  padding-bottom: 11px;
+
+  @include breakpoint('small-') {
+    order: 1;
+    flex-grow: 1;
+  }
+}
+
+.m-pager-bar__forward {
+  text-align: right;
+}
+
+.m-pager-bar__note {
+  flex-grow: 1;
+  text-align: center;
+
+  @include breakpoint('small-') {
+    order: 0;
+    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: -1px;
+  }
+}
+
+.m-pager-bar a {
+  display: inline-block;
+  margin-top: -12px;
+  margin-bottom: -12px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: $color__text--headlines;
+}
+
+.m-pager-bar a:hover {
+  text-decoration: underline;
+}
+
+// CSS triangles
+
+.m-pager-bar__forward a::after,
+.m-pager-bar__backward a::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  vertical-align: middle;
+}
+
+.m-pager-bar__backward a::before {
+  margin-right: 6px;
+  border-width: 4px 5px 4px 0;
+  border-color: transparent darken($color__rules, 15%) transparent transparent;
+}
+
+.m-pager-bar__forward a::after {
+  margin-left: 6px;
+  border-width: 4px 0 4px 5px;
+  border-color: transparent transparent transparent darken($color__rules, 15%);
+}

@@ -1,0 +1,106 @@
+- var nestedListID = 0;
+- var liClass = '';
+- var itemNo = 0;
+
+mixin item(item, nestedList)
+    if (item.label)
+        if nestedList == true
+            i.icon-add_box.facet__toggle(aria-hidden="true")
+        span.facet__label !{item.label}
+    if (item.count)
+        span.facet__counter !{item.count}
+
+mixin facetInnerItem(item)
+    - var linkTitle = 'Facet item'
+    if (item.label)
+        - linkTitle = item.label
+
+    if (item.values)
+
+        block facetItem
+            if (item.link)
+                a(href=item.link title=linkTitle data-toggle='dropdown' class='dropdown__toggle' id='facetList-' + nestedListID)
+                    +item(item, true)
+            else
+                span(data-toggle='dropdown' class='dropdown__toggle' id='facetList-' + nestedListID)
+                    +item(item, true)
+            +facetUl(item, true)
+
+    else
+        if (item.link)
+            a(href=item.link title=linkTitle)
+                +item(item, false)
+
+mixin facetsList(data, nestedList)
+    if !nestedList
+        each item, l in data.values
+            if (l <= 4)
+                - liClass = '';
+            if (l <= 9 && l > 4)
+                - liClass = 'js--toggle';
+            if (l <= 9)
+                li(class=liClass)
+                    +facetInnerItem(item)
+    else
+        each item, l in data.values
+            li
+                +facetInnerItem(item)
+
+
+
+
+mixin facetUl(data, nestedList)
+
+    - itemNo = data.values.length;
+
+    if nestedList == true
+        block facetNestedItem
+            ul.rlist.facet-dropdown__menu(aria-labelledby='facetList-' + nestedListID  aria-hidden='true')
+                +facetsList(data, nestedList)
+            - nestedListID = nestedListID + 1
+    else
+        ul.rlist.facet__list
+            +facetsList(data, nestedList)
+
+
+        if (itemNo > 10)
+            .facet__select--hidden
+                select(name="facet" class="facet__select" data-placeholder="Search (" + (itemNo - 10) + ") more")
+                    each item, l in data.values
+                        if (l > 9)
+                            option(value=item.link)
+                                if (item.label)
+                                    span.facet__label !{item.label}
+                                if (item.count)
+                                    span.facet__counter  (!{item.count})
+
+
+mixin facetTitle()
+    block facetTitle
+        h4.facet__title !{data.title}
+
+if (data) && (data.type) && (data.type == 'Ppub')
+    block facetDateMain
+        if (data) && (data.title)
+            +facetTitle()
+        if (data) && (data.values)
+            +facetUl(data)
+else if (data) && (data.type) && data.type == 'Taxonomy'
+    block facetTaxMain
+        div.facet
+            if (data) && (data.section)
+                each item, i in data.section
+                    h4.facet__title !{item.title}
+                    if (item.values)
+                        div.facet__content
+                            +facetUl(item)
+
+else
+    block facetMain
+        div.facet
+            if (data) && (data.title)
+                +facetTitle()
+            if (data) && (data.values)
+                div.facet__content
+                    +facetUl(data)
+

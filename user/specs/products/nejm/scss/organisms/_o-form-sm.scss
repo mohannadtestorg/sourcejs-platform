@@ -1,0 +1,108 @@
+.o-form-sm {
+  position: relative;
+  padding: 64px 24px 24px;
+}
+
+.o-form-sm fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+
+.o-form-sm legend {
+  @include serif(21, 64, bold);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  float: left;
+  width: 100%;
+  height: 64px;
+  padding-top: 2px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid $color__rules;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    font-size: 24px;
+  }
+}
+
+.o-form-sm .a-error-msg {
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.o-form-sm__fields-list {
+  clear: both;
+  margin-top: 24px;
+}
+
+.o-form-sm__fields-list > li {
+  margin-top: 16px;
+}
+
+.o-form-sm input[type=text],
+.o-form-sm input[type=email],
+.o-form-sm .a-form-select {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.o-form-sm .a-form-hint {
+  margin-top: 8px;
+}
+
+.o-form-sm__prev-keywords {
+  @include f-blurb;
+  clear: both;
+  margin-top: 20px;
+}
+
+.o-form-sm__prev-keywords em {
+  color: $color__link-primary;
+  font-style: normal;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.o-form-sm__btns {
+  margin-top: 28px;
+}
+
+.o-form-sm__btns .btn {
+  vertical-align: top;
+}
+
+.o-form-sm__success-msg {
+  @extend %f-ui;
+  display: none;
+  clear: both;
+}
+
+.o-form-sm.s-success {
+
+  .o-form-sm__btns,
+  .o-form-sm__fields-list,
+  .o-form-sm__prev-keywords {
+    display: none;
+  }
+
+  .o-form-sm__success-msg {
+    display: block;
+  }
+}
+
+
+.o-form-sm {
+  textarea{
+    margin-top: 12px; 
+  }
+  .o-generic-modal &{
+    padding-top: 5px;
+  }
+}

@@ -1,0 +1,25 @@
+| !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+.pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+    // begin pagefulltext
+    .page-body.pagefulltext
+        div(data-pb-dropzone='main')
+            div
+            .profile-pages__heading.card(data-widget-def='ux3-layout-widget', data-widget-id='9ce29057-a88f-4b0f-a1ec-8a2349f23131')
+                .container
+                    .row
+                        div
+                            .col-md-6.gutterless
+                                h1.account-page__header
+                                    | My account
+                                div
+                            .col-md-6.gutterless
+            .container
+                .row
+                    .raaAccountInfo.gutterless--md.gutterless--sm.gutterless--xs.col-md-12.gutterless
+                        .gutterless--md.gutterless--sm.gutterless--xs.col-md-3
+                            | !{pb.render('profile-menu', 'data.json', 'pericles')}
+                        .main-content.gutterless--md.gutterless--sm.gutterless--xs.col-md-9
+                            | !{pb.render("favorites", "data.json", "pericles")}
+
+| !{pb.render('footer', 'pericles')}

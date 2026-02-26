@@ -1,0 +1,109 @@
+ol {
+    &:not([class^="rlist"]):not([class~="rlist"]) {
+        list-style: none;
+        padding-left: 20px;
+        counter-reset: li;
+
+        li {
+            counter-increment: li;
+            margin-bottom: 15px;
+            line-height: 1.75rem;
+            @include media('<desktop') {
+                line-height: 1.63rem;
+                margin-bottom: 10px;
+            }
+            &::before {
+                content: counter(li) ".";
+                color: $headings-primary-color;
+                display: inline-block;
+                width: 1em;
+                margin-left: -22px;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.rlist--bullets {
+    list-style: none;
+    padding-left: 20px;
+
+    li {
+        margin-bottom: 15px;
+        line-height: 1.75rem;
+
+        @include media('<desktop') {
+            line-height: 1.63rem;
+            margin-bottom: 10px;
+        }
+
+        &:before {
+            content: "•";
+            color: $headings-primary-color;
+            display: inline-block;
+            width: 20px;
+            margin-left: -20px;
+            font-size: 1.5rem;
+            height: 25px;
+            line-height: 21px;
+            vertical-align: middle;
+        }
+        & > div {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+.download-links {
+    margin-top: 20px;
+    a {
+        font-size: .875rem;
+        color: $primary-links-color;
+        padding-bottom: 3px;
+        border-bottom: 2px solid $generic-bottom-border;
+
+        @include media('>=tablet') {
+            font-size: 1rem;
+        }
+    }
+    &.rlist--inline.separator > li:not(:last-of-type) {
+        border-right: 0;
+    }
+    li:not(:first-child) {
+        &:before {
+            content: "|";
+            margin-right: 8px;
+            margin-left: 4px;
+            font-size: 0.9rem;
+            font-weight: 100;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+
+.inline-bullet-list {
+    li {
+        display: inline-block;
+        &:not(:last-child) {
+            &:after {
+                content: "•";
+                color: $inline-bullet-list;
+                display: inline-block;
+                width: 6px;
+                margin-left: 5px;
+                margin-right: 5px;
+                font-size: 1.25rem;
+                height: 18px;
+                line-height: 21px;
+                margin-bottom: 6px;
+                vertical-align: middle;
+            }
+        }
+    }
+    a {
+        //border-bottom: 2px solid $generic-bottom-border;
+        font-size: 1rem;
+    }
+}

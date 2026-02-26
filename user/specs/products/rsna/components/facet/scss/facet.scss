@@ -1,0 +1,64 @@
+.facet {
+    padding-bottom: 20px;
+    border-bottom: 1px solid $tertiary-border-color;
+
+    &s__title {
+        font-size: $default-font-size;
+        color: $primary-link-color;
+        margin-top: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+        text-transform: none;
+        font-size: $default-font-size;
+        color: $primary-link-color;
+    }
+
+    &__ctrl {
+        margin-bottom: 0px;
+
+        i[class*=icon-] {
+            color: $tertiary-darken-color;
+            font-size: 0.5rem;
+        }
+    }
+
+    &__content {
+        padding-top: 20px;
+    }
+
+    .show-more {
+        text-transform: none;
+        font-weight: bold;
+        color: $primary-link-color;
+        padding-top: 20px;
+    }
+
+    &__list {
+        font-size: $default-font-size;
+        font-weight: normal;
+
+        li {
+            padding-bottom: 0px;
+            padding-top: 20px;
+            &:first-child {
+                padding-top: 0px;
+            }
+        }
+
+        a {
+            transition: all 0.3s;
+            &:hover {
+                color: $primary-text-color;
+            }
+        }
+    }
+
+    &-dropdown__menu {
+        margin: 20px 0px 0px 30px;
+    }
+}

@@ -1,0 +1,33 @@
+- var ismultiple = false;
+- var name = data.name;
+- var uploaded = "0";
+
+if(data.isMultiple && data.isMultiple == "true")
+    - ismultiple = true
+    - name = data.name + "[]";
+
+if(data.uploaded)
+    - uploaded = data.uploaded
+
+if(AjaxWidgetData)
+    .uploader(data-doi=AjaxWidgetData.doi data-forgery=AjaxWidgetData.csrfToken data-uploadlink=AjaxWidgetData.uploadLink data-signature=AjaxWidgetData.signature )
+
+        .uploader__input-wrapper
+            .uploader__input
+                input.uploader__file(accept=data.accept type="file", name=name, id=data.name, data-multiple-caption="{count} files selected", multiple=ismultiple )
+                label(for=data.name)
+                    span.uploader__dragndrop #{data.labelText}
+                    span.link #{" "}#{data.labelLink}
+                .uploader__processing.hide File being uploaded and processed
+            .uploader__progress.hide
+
+            .uploader__message.error
+            if (data.name == "pdf.path")
+                input(type="hidden", name="pdf.path__validator", value=uploaded)
+                .uploader__validator.metadata-form__message.error.hidden(data-related-field="pdf.path__validator", aria-hidden="true") PDF is required.
+
+
+        if(data.uploaderButton == "true")
+            button.link.uploader__button(disabled) Upload File
+
+

@@ -1,0 +1,159 @@
+.article-table-content {
+    overflow: auto;
+    display: block;
+    border: 1px solid $tertiary-bg-color;
+    margin-bottom: 8px;
+    width: 100%;
+    table {
+        width: 100%;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+    thead {
+        background-color: #eee;
+    }
+    th, td {
+        padding: 14px;
+    }
+    th {
+        border: 1px solid $tertiary-bg-color;
+    }
+    th:first-child {
+        border-left: none;
+    }
+    th:last-child {
+        border-right: none;
+    }
+
+    .tableFooter{
+        margin: 0 8px;
+    }
+
+
+
+
+//    THIS IS FOR THE TABLE VIEWER JS
+
+
+    display: none;
+    &.table__viewer.in {
+        position: fixed;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        z-index: 9999999;
+        background: $primary-white !important;
+        margin: auto;
+        max-width: 96%;
+        overflow: auto;
+        max-height: 96%;
+        bottom: 0;
+        top: 0;
+        >.tableFooter {
+            background: $primary-white;
+            margin: 0px;
+            display: block;
+            padding: 8px;
+        }
+        caption, tbody {
+            background: $primary-white;
+            z-index: 9;
+        }
+        caption, td, th {
+            padding:8px;
+        }
+        &:after {
+            content: '';
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            background-color: $breadcrumb-bg;
+        }
+        caption {
+            position: relative;
+            .table__viewer__closer {
+                position: absolute;
+                right: 8px;
+                top: 0px;
+                bottom: 0px;
+                margin: auto;
+                height: 24px;
+            }
+        }
+    }
+}
+
+.table__viewer__opener {
+    float: left;
+    width: 100%;
+    background: $light-blue;
+    padding: 10px;
+    margin: 1em 0;
+    >a, >div {
+        width: auto;
+        display: table-cell;
+        padding: 0;
+        vertical-align: top;
+        p {
+            margin: 0;
+            margin-bottom: 4px;
+            line-height: 18px;
+        }
+    }
+    i.icon-table {
+        float: left;
+        font-size: 100px;
+        line-height: 70px;
+        margin-right: 10px;
+    }
+    a {
+        color: $primary-blue-color;
+        cursor: pointer;
+    }
+    strong {
+        p {
+            margin:0;
+        }
+    }
+}
+
+
+.article-section {
+
+    &__inline-figure {
+        margin: 65px 0;
+        figure {
+            margin: 0;
+            width: 80%;
+            float: right;
+        }
+        &:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        img {
+            margin-bottom: 25px;
+        }
+        figcaption {
+            font-size: 0.875rem;
+            line-height: 26px;
+            strong {
+                display: block;
+                font-size: 1.125rem;
+                color: $primary-bg-color;
+            }
+        }
+    }
+    &__table-footnotes {
+        padding: 14px;
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+    }
+}

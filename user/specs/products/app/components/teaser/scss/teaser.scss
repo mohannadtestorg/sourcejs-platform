@@ -1,0 +1,37 @@
+  .creative-work {
+    &__title {
+      color: $default-theme-color;
+      @include themify($themes) {
+        color: themed('color');
+      }
+    }
+
+    .loa {
+      color: $primary-text-color;
+    }
+
+    .meta {
+      color: $primary-text-color;
+    }
+
+  }
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  .flex-item{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: none;
+    flex: 0 50%;
+    @include media('<large') {
+      flex: 0 100%;
+    }
+    margin-bottom: 20px;
+    .creative-work{
+      height: 100%;
+      padding-bottom: 0;
+    }
+  }
+}

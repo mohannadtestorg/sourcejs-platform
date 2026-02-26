@@ -1,0 +1,51 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/readCube-pTop-sharing/templates/readCube-pTop-sharing/readCube-pTop-sharing-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use the widget.
+
+        +printJson({
+            "data": {
+                "windowTitle": "string",
+                "topPartText": "html",
+                "acceptText": "html",
+                "linkText": "html",
+                "ajaxLink": "pb/widgets/readCubeP2PUrl/10.1111/1365-2656.12450/"
+            }
+        })
+
+        p returned Ajax value will be json as bellow
+
+        +printJson({
+            "url": "http://"
+        })
+
+
+    section.source_section
+        h2 Example
+
+
+        h3 ReadCube pTop sharing - Demo
+        .source_example
+            | !{pb.render('readCube-pTop-sharing', 'readCube-pTop-sharing/demo/readCube-pTop-sharing', 'data.json', 'pericles')}
+
+        h3 ReadCube pTop sharing with addthis
+        .source_example
+            .coolBar
+                | !{pb.render('readCube-pTop-sharing', 'readCube-pTop-sharing/demo/share', 'demo.json', 'pericles')}
+
+
+
+    | #{''}
+

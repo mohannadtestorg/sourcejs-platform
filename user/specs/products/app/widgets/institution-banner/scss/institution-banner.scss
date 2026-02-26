@@ -1,0 +1,30 @@
+
+.institution {
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
+    color: $pol-header-quick-menu-text-color;
+    font-size: .625rem;
+    border-right: 0px;
+    padding:0 15px 0 0;
+
+    &__name {
+        padding-left: 0;
+        @include media('<desktop'){
+            display: block;
+        }
+    }
+
+    &__image{
+        max-height: 25px;
+        vertical-align: middle;
+        margin-right: 12px;
+        @include media('<desktop'){
+            display: none;
+        }
+    }
+    &-info-wrapper{
+        display: inline-block;
+    }
+
+}

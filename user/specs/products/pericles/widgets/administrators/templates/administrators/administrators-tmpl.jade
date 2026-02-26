@@ -1,0 +1,94 @@
+div.administratorsWidget
+
+    .card
+        block addAdministrator
+            h2.section__header Add an administrator
+            p You may assign or remove multiple administrators to have access to this administration area.
+
+            form(action='/action/updateInstitutionAdminManager' name="InstitutionAdmin_AdminManager" method='post')
+                input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+                input(type='hidden' name='add' value="true")
+
+                .clearfix
+                    .col-md-4.col-md-3.gutterless
+                        label(for="addAdmin") Send invitation to:
+                    .col-md-8.col-md-9.gutterless
+                        input(type='email' name='emailAddress' id="addAdmin")
+                        p.note Leave blank if there is only one IP address.
+                        if (data.success && data.success.message) && data.success.type == 'add'
+                            .infoBox
+                                i.icon-notice(aria-hidden="true")
+                                span.success= data.success.message
+                        if(data.email && data.email.error)
+                            .infoBox
+                                i.icon-notice(aria-hidden="true")
+                                span.error= data.email.error
+                .border-top.form-btn
+                    button.btn(type='submit' title=data.addButtonValue value=data.addButtonValue) SEND INVITATION
+
+    if data.admins
+        if data.admins != ''
+            .card
+                if (data.success && data.success.message) && data.success.type == 'remove'
+                    .infoBox
+                        i.icon-notice(aria-hidden="true")
+                        span.success= data.success.message
+
+                form(action='/action/updateInstitutionAdminManager' name="InstitutionAdmin_AdminManager" method='post')
+                    block daleteAdministrator
+                        h2.section__header Remove an administrator
+
+                        input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+                        ul.rlist
+                            each admin,i in data.admins
+                                - var name = (admin.firstName!='' && admin.lastName!='')? admin.firstName+' '+admin.lastName : admin.displayName
+                                - var id = admin.id != '' ? admin.id : 'admin' + i
+                                li
+                                    .input-group
+                                        label.checkbox--primary(class= data.individualUserId == id ? 'disabled' : '')
+                                            input(type="checkbox" id='chk_'+id name="adminUserIds" value=id  disabled= data.individualUserId == id ? true : false)
+                                            span.label-txt= name + ' (' + admin.email + ')'
+
+                        .border-top.form-btn
+                            input(type='hidden' name='remove' value='true')
+                            button.btn.js__removeAdmins(type='submit' name='remove' value=data.deleteButtonValue) REMOVE ADMINISTRATOR
+
+            .card
+                form(action='/action/updateInstitutionAdminManager' name="InstitutionAdmin_AdminManager" method='post')
+                    block emailList
+                        h2.section__header Receive administrator list by email
+                        p You may receive a list of administrator names and addresses for your records.
+
+                        .border-top.form-btn
+                            a.btn.email-addresses(href="/action/showInstitutionAdminManager?mail=true") SEND TO MY EMAIL
+
+    if data.recommendedLibrarian
+        .card
+            block forLibrarian
+                h2.section__header Recommended to your librarian
+
+                form(action='/action/instDesignatedContact' name="designateContact" id="designateContact" method='post')
+                    if(data.recommendedLibrarian.antiForgeryToken)
+                        input(type='hidden' name='anti-forgery-token' value=data.recommendedLibrarian.antiForgeryToken )
+                    input(type='hidden' name='add' value="true")
+
+                    .clearfix
+                        .row
+                            .col-md-3
+                                label Current contact:
+                            .col-md-9
+                                if data.recommendedLibrarian.addDesignateContactParam
+                                    p.currentContact= data.recommendedLibrarian.addDesignateContactParam
+                                else if data.recommendedLibrarian.institutionEmail
+                                    p.currentContact= data.recommendedLibrarian.institutionEmail
+                                else
+                                    p.currentContact None
+                        .row
+                            .col-md-3
+                                label(for="addLibrarian") Email:
+                            .col-md-9
+                                input(type='email' name='designatedContactEmail' id="addLibrarian")
+
+                    .border-top.form-btn
+                        - btn_label = data.value ? data.value : 'Add new contact'
+                        button.btn(type='submit' name='addDesignateContact' title=btn_label value=btn_label) ADD NEW CONTACT

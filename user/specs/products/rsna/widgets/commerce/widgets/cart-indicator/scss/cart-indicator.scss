@@ -1,0 +1,30 @@
+.cartLabel {
+    padding: 0px;
+    float: left;
+
+    .icon-shoppingcart {
+        font-size: $h3-font-size;
+        line-height: 36px;
+        float: left;
+
+        color: $primary-link-color;
+
+        @include media('<tablet') {
+            font-size: $icon-font-size;
+            line-height: normal;
+        }
+    }
+
+    .cartText {
+        font-size: $x-small-font-size;
+        line-height: 36px;
+        float: left;
+        padding-left: 10px;
+
+        color: $primary-link-color;
+
+        &:empty {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+
+div.user__profile__form
+    form(action="/action/doUpdateAccount" method="post")
+        input(type='hidden', name='anti-forgery-token', value=data.antiForgeryToken)
+        input(type='hidden', name='menuTab', value='AccountInfo')
+        input(type='hidden', name='redirectUri', value=data.redirectUri)
+        | !{pb.renderDropzone(thisWidget, "userProfileFormDropzone")}
+        fieldset
+            input(type="submit", value="#{data.submitLabel || 'Save Profile'}").user__profile__form--submit
+
+

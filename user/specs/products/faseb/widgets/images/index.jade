@@ -1,0 +1,36 @@
+extends /specs/products/faseb/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    .source_info
+        p We are showing the different image ratio sizes and their names. The template is used only for the logo image.
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/basic/images/templates/images/images-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use images template.
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "link": "#",
+                    "src": "/specs/ux3/releasedAssets/images/widgets/images/thumb-small.png",
+                    "alt": "thumb-small"
+                }
+            }
+
+        })
+        markdown
+
+
+    section.source_section
+        h2 Basic image types
+
+        if (data.items)
+            each item , i in data.items
+                h3!= item.title
+                .source_example
+                    | !{item.body}
+    | #{''}

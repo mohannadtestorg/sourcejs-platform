@@ -1,0 +1,283 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    # backgrounds
+    default-bg-color:
+      value: "{!WHITE}"
+    primary-bg-color:
+      value: "{!BLACK-01}"
+    primary-lighten-bg-color:
+      value: "{!GRAY_04}"
+    secondary-bg-color:
+      value: "{!GRAY_10}"
+    secondary-lighten-bg-color:
+      value: "{!WHITE_01}"
+    tertiary-bg-color:
+      value: "{!GRAY_06}"
+    tertiary-lighten-bg-color:
+      value: "{!WHITE_05}"
+    # text colors
+    primary-text-color:
+      value: "{!BLACK}"
+    primary-light-text-color:
+      value: "{!BLACK-01}"
+    primary-darken-text-color:
+      value: "{!GRAY_04}"
+    primary-dark-text-color:
+      value: "{!GRAY_13}"
+    disabled-links:
+      value: "{!GRAY_00}"
+    secondary-light-separator-color:
+      value: "{!GRAY_14}"
+    secondary-text-color:
+      value: "{!GRAY_05}"
+    secondary-lighten-text-color:
+      value: "{!GRAY_31}"
+    tertiary-text-color:
+      value: "{!GRAY_08}"
+    tertiary-darken-color:
+      value: "{!GRAY_07}"
+    text-onLight:
+      value: "{!BLACK}"
+    text-onDark:
+      value: "{!WHITE}"
+    note-text:
+      value: "{!GRAY_21}"
+    gray-label:
+      value: "{!GRAY_25}"
+    thead-color:
+      value: "{!GRAY_25}"
+    # Borders
+    secondary-border-color:
+      value: "{!GRAY_34}"
+    # buttons and links colors
+    primary-btn-color:
+      value: "$tertiary-bg-color"
+    primary-link-color:
+      value: "{!BLACK}"
+    hover-secondary-link-color:
+      value: "{!RED_01}"
+    # extra colors
+    separators-color:
+      value: "{!WHITE_04}"
+    header-separators-color:
+      value: "{!GRAY_00}"
+    social-login-separators-color:
+      value: "{!GRAY_03}"
+    search-bg-color:
+      value: "{!GRAY_09}"
+    warning:
+      value: "{!REd-03}"
+    # social media
+    facebook:
+      value: "{!BLUE_02}"
+    twitter:
+      value: "{!BLUE_03}"
+    googlePlus:
+      value: "{!RED_02}"
+    linkedin:
+      value: "{!BLUE_04}"
+    rss:
+      value: "{!ORANGE_01}"
+    # badges
+    badge-primary-bg-color:
+      value: "{!GREEN_01}"
+    badge-oa-bg-color:
+      value: "{!YELLOW_01}"
+    badge-fa-bg-color:
+      value: "{!YELLOW_01}"
+    badge-type-bg-color:
+      value: "{!GRAY_07}"
+    # figureviewer
+    white:
+      value: "{!WHITE}"
+    black:
+      value: "{!BLACK}"
+    grey:
+      value: "{!GRAY_09}"
+    light-grey:
+      value: "{!GRAY_10}"
+    darker-grey:
+      value: "{!GRAY_01}"
+    dark-grey:
+      value: "{!GRAY_02}"
+
+    borders:
+      value: "{!GRAY_00}"
+    primary-border-color:
+      value: "{!GRAY_00}"
+    #journal
+    meta-wrapper-bg:
+       value: "{!GRAY_00}"
+    meta-contrib-text:
+          value: "{!GRAY_29}"
+
+    # modal
+    modal-close-button-color:
+      value: "{!GRAY_20}"
+    modal-backdrop-color:
+      value: "{!GRAY_19_OPACITY}"
+    modal-content-bg:
+      value: "{!WHITE}"
+
+    # loi
+    loi-button-bg-color:
+      value: "{!GRAY_05}"
+    loi-banner-bg-color:
+      value: "{!GRAY_00}"
+    loi-banner-content-bg-color:
+      value: "{!GRAY_16}"
+    loi-banner-lighten-bg-color:
+      value: "{!GRAY_17}"
+    loi-banner-content-text-color:
+          value: "{!GRAY_18}"
+    loi-bg-color:
+      value: "{!WHITE_03}"
+    archive-button:
+      value: "{!GRAY_31}"
+
+    # quick search
+    refine-search-shadow-color:
+      value: "{!GRAY_05}"
+    # slider
+    slider-nav-bg-color:
+      value: "{!GRAY_08}"
+    slider-nav-hover-bg-color:
+      value: "{!GRAY_11}"
+    # dropzone
+    dropzone-bg-color:
+      value: "{!WHITE}"
+    dropzone-bg-hover-color:
+      value: "{!GRAY_12}"
+    dropzone-text-color:
+      value: "{!GRAY_07}"
+    dropzone-border-color:
+      value: "{!GRAY_09}"
+    #forms
+    label:
+      value: "{!GRAY_21}"
+    input-border:
+      value: "{!GRAY_22}"
+    checkbox-border:
+      value: "{!GRAY_25}"
+    input-placeholder-color:
+      value: "{!GRAY_24}"
+    light-gray-links:
+      value: "{!GRAY_26}"
+    button-bg:
+      value: "{!GRAY_23}"
+    footer-bg-color:
+      value: "{!GRAY_21}"
+
+    #Facets
+    facets-text:
+      value: "{!GRAY_27}"
+    facets-applied:
+      value: "{!GRAY_03}"
+    facets-disabled:
+      value: "{!GRAY_07}"
+
+    search-button:
+      value: "{!BLACK}"
+
+    #slide mobile
+    slide-bg-color:
+      value: "{!GRAY_00}"
+    slide-back-btn:
+      value: "{!GRAY_31}"
+
+    meta-bg-color:
+      value: "{!WHITE_02}"
+    footer-color:
+      value: "{!WHITE}"
+    menu-background:
+      value: "{!BLACK-01}"
+    profile-primary-color:
+      value: "{!GRAY_03}"
+    profile-secondary-color:
+      value: "{!GRAY_03}"
+    profile-tertiary-color:
+      value: "{!GRAY_25}"
+    teaser-text-color:
+      value: "{!BLACK}"
+    teaser-border-color:
+      value: "{!GRAY_08}"
+
+    account-color:
+      value: "{!GRAY_21}"
+
+    section-header-color:
+      value: "{!BLACK}"
+
+    creative-color:
+      value: "{!GRAY_31}"
+
+    creative-title-color:
+      value: "{!GRAY_27}"
+
+    creative-loa-color:
+      value: "{!GRAY_32}"
+
+    orcid-color:
+      value: "{!GREEN_02}"
+
+
+    #lazy-load
+    lazy-bg-color:
+      value: "{!GRAY_06}"
+
+    #search results
+    search-highligh-result:
+      value: "{!GRAY_17}"
+
+    #eCommerce
+    primary-commerce-color:
+      value: "{!BLACK}"
+    header-commerce-color:
+      value: "{!BLACK}"
+
+    #messages
+    success-message-text-color:
+      value: "{!GREEN_01}"
+    success-message-bg-color:
+      value: "{!GRAY_10}"
+    error-message-text-color:
+      value: "{!RED_01}"
+    error-message-bg-color:
+      value: "{!GRAY_10}"
+
+    #info text
+    info-text-color:
+      value: "{!GRAY_33}"
+
+    facet-bg-color:
+      value: "{!GRAY_00}"
+
+    #truncate
+    truncate-removed-items-bg-color:
+      value: "{!GRAY_09}"
+    truncate-removed-items-text-color:
+      value: "{!GRAY_03}"
+    truncate-removed-items-hover-bg-color:
+      value: "{!GRAY_08}"
+    truncate-removed-items-hover-text-color:
+      value: "{!BLACK}"

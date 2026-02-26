@@ -1,0 +1,16 @@
+extends ../../../../widgets/quick-search/templates/quick-search/quick-search-tmpl.jade
+
+block quickSearchWrapper
+    if (thisWidget.properties.displayQuickMenuButton == "true")
+        div.quick-search-wrapper
+            a.quick-search__item(href="#" title="search")
+                i(class=thisWidget.properties.quickMenuIcon aria-hidden="true")
+            div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+                +search()
+    else
+        div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+            +search()
+
+block advancedSearch
+    .col-md-2
+        a.pull-right.quick-search-advanced-link(href="#" title="Advanced Search") Advanced Search

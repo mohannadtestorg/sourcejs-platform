@@ -1,0 +1,15 @@
+
+mixin box()
+    if (data.icon)
+        div.tools-box__banner
+            i.tools-box__icon(class=data.icon aria-hidden="true")
+    div.tools-box__content
+        ul.rlist--inline.separator
+            each item, k in data.list
+                li.tools-box__item
+                    a.tab-link(data-tab=item.dataTab data-slide=item.dataSlide href=item.itemUrl title=item.text)
+                        | !{item.text}
+
+
+div.tools-box
+    +box()

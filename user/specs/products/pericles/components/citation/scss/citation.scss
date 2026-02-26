@@ -1,0 +1,416 @@
+.citation {
+    a {
+        color: $wiley-blue-color;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 0;
+        @include media('<desktop') {
+            font-size: 0.75rem;
+            display: inline-block;
+            font-weight: 600;
+
+            &:after {
+                content: "/";
+                margin: 0 3px;
+            }
+        }
+    }
+
+    &--logo {
+        display: inline-block;
+        margin: 5px 0;
+
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+
+    .volume-issue {
+        display: none;
+
+        @include media('<desktop') {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+    }
+
+    &__title {
+        color: $wiley-typography-color;
+        line-height: 30px;
+        margin: 10px 0 15px;
+        font-size: 1.375rem;
+
+        @include media('<desktop') {
+            font-size: 1.125rem;
+        }
+
+        &--second {
+            font-weight: normal;
+        }
+    }
+
+    &__subtitle {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+
+    .chapter-number {
+        float: left;
+        vertical-align: middle;
+
+        ~ .doi-access-container {
+
+            .doi-access-wrapper {
+                margin-left: 10px;
+                padding-left: 10px;
+                border-left: 1px solid $wiley-lightGray-color;
+            }
+        }
+
+    }
+
+    &-tips {
+        padding-left: 15px;
+    }
+
+    .bookSeries {
+        color: $wiley-gray-text-color;
+        margin-right: 3px;
+    }
+
+    .openUrl  {
+        line-height: 18px;
+        font-weight: 600;
+
+        ~ .openUrl {
+            margin-left: 10px;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+    }
+}
+
+.epub {
+    &-sections {
+        margin: 15px 0;
+        color: $wiley-gray-text-color;
+
+        @include media('<desktop') {
+            line-height: 1.5;
+        }
+
+    }
+
+    &-state {
+        color: $wiley-darkGray-text-color;
+    }
+
+    &-section {
+        opacity: 1;
+        display: inline-block;
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.15;
+
+        .publishedOnline-state {
+            margin-right: 3px;
+            color: $wiley-gray-text-color;
+        }
+
+        .publishedOnline-date {
+            color: $wiley-typography-color;
+            font-weight: 600;
+        }
+
+        > span {
+            display: inline-block;
+        }
+
+        @include media('<desktop') {
+            display: block;
+            margin-bottom: 5px;
+
+            .visible-xs {
+                display: inline !important;
+            }
+        }
+
+        @include media('>=desktop') {
+            & ~ &:before {
+                font-weight: 400;
+                content: "|";
+                margin-left: 5px;
+                margin-right: 5px;
+                display: inherit;
+                font-size: inherit;
+                line-height: inherit;
+            }
+        }
+    }
+    &-doi {
+        font-weight: 600;
+        word-wrap: break-word;
+    }
+}
+
+.epub-date, .pageRange {
+    color: $wiley-typography-color;
+    font-weight: 500;
+}
+
+.primary-heading {
+    color: $wiley-typography-color;
+    vertical-align: middle;
+
+    + .doi-access-wrapper {
+        margin-left: 9px;
+        padding-left: 9px;
+        border-left: 1px solid $wiley-lightGray-color;
+    }
+}
+
+.series-title {
+    font-size: 42px;
+    color: $wiley-green-color;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+
+.doi-access {
+
+    &-container {
+        margin: 10px 0;
+    }
+
+    &-wrapper {
+        display: inline-block;
+
+        @include media('<desktop') {
+
+            .icon-permissions {
+                display: inline-block;
+                font-size: 1.125rem;
+                margin-left: 13px;
+                border-left: 1px solid $wiley-lightGray-color;
+                padding-left: 15px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+            .access-icon {
+                display: inline-block;
+                margin-left: 5px;
+                padding-left: 5px;
+                padding-right: 0;
+                padding-top: 2px;
+                padding-bottom: 2px;
+            }
+
+            .icon-icon-lock_open {
+                margin-right: 0;
+            }
+
+        }
+
+        .access-type {
+            display: inline-block;
+        }
+
+        .access-icon {
+            font-size: 1.125rem;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+    }
+}
+
+article {
+    margin-bottom: 20px;
+    color: $wiley-typography-color;
+
+    [class*="loa-authors"] {
+        margin: 15px 0;
+    }
+
+    .author-name {
+        font-size: 0.875rem;
+        padding: 0;
+        line-height: 20px;
+        color: $wiley-blue-color;
+
+        span {
+            padding: 0;
+            margin: 0;
+        }
+
+        i {
+            margin: 0;
+            float: none;
+
+            &.icon-mail_outline {
+                margin-left: 3px;
+            }
+        }
+
+        .icon-section_arrow_d {
+            display: none;
+        }
+
+        &.js--open {
+            &.author-name {
+                border-bottom: 2px solid $wiley-blue-color;
+            }
+
+            i, span {
+                color: $wiley-blue-color;
+            }
+        }
+    }
+    .author-info.author-info {
+        position: absolute;
+        left: auto !important;
+        background: $white;
+        border: 1px solid $wiley-blue-color;
+        padding: 25px;
+        max-width: 360px;
+        width: 360px;
+        z-index: 3;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+        a[href^=mailto] {
+            padding-left: 5px;
+            display: inline-block;
+        }
+
+        @include media('<desktop') {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+    }
+    .accordion-tabbed__tab-mobile {
+
+        &:not(:last-child):after {
+            content: ",";
+            margin: 0 3px 0 -3px;
+            color: $wiley-blue-color;
+        }
+    }
+}
+
+.loa-wrapper {
+    .readmore {
+        font-size: 0.875rem;
+    }
+}
+
+.dList {
+    dt {
+        font-weight: 600;
+    }
+}
+
+.accordion-tabbed {
+    .accordion-tabbed__tab {
+        border-color: $wiley-gray-color;
+    }
+}
+
+.author-info {
+    p {
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    a {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: $wiley-blue-color;
+    }
+    .orcid-account {
+        i {
+            font-size: 1rem;
+            color: #333;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    }
+    .author-type {
+        text-transform: uppercase;
+    }
+    .bottom-info {
+        p {
+            margin-bottom: 3px;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+        }
+    }
+}
+
+.open-url {
+    font-size: 0.81rem;
+    margin-bottom: 8px;
+}
+
+.disclosures {
+    font-size: 0.875rem;
+    line-height: 22px;
+    color: $wiley-gray-text-color;
+    margin: 10px 0;
+
+    a {
+        cursor: pointer;
+    }
+
+    .less, .more {
+        i {
+            margin-left: 2px;
+            font-size: 0.375rem;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    }
+}
+
+.access-icon {
+    color: $wiley-typography-color;
+}
+
+.article-header__correspondence-to {
+    line-height: 22px;
+    margin: 10px 0;
+
+    a {
+        font-weight: 600;
+    }
+
+    i {
+        font-size: 18px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}
+
+.padding--bottom {
+    margin-bottom: 25px;
+}
+
+.moreInfoLink {
+    display: block;
+}

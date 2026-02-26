@@ -1,0 +1,37 @@
+.browse-journals{
+  &__search{
+    background-color: $gray-bg-color;
+    height: 250px;
+    display:flex;
+    align-items:center;
+    background-image: url("../images/browse-journals.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 100%;
+
+    .quick-search-alt{
+      margin-top: 5%;
+        max-width: 550px;
+      @include media('<desktop'){
+        margin: auto;
+      }
+
+    }
+  }
+
+  &__title{
+    font-size: 5rem;
+    line-height: 1em;
+    color: $text-onDark;
+    @include media('<desktop'){
+      font-size: 3rem;
+      margin: 0;
+      text-align: center;
+    }
+    @include media('<phone'){
+      font-size: 2rem;
+    }
+
+  }
+
+}

@@ -1,0 +1,7 @@
+@function get-hover-color ($color) {
+    @if $color == #FFF {
+        @return darken($color, 10%);
+    } @else {
+        @return lighten($color, 10%);
+    }
+}

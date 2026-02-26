@@ -1,0 +1,31 @@
+{
+    "title": "Request Username",
+    "templateData": {
+        "items": [
+            {
+                "title": "Request Username - reset",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/request-username/request-username-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/reset.json"
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Request Username - confirm",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/request-username/request-username-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/confirm.json"
+                        }
+                    }
+
+                }
+            }
+        ]
+    }
+}

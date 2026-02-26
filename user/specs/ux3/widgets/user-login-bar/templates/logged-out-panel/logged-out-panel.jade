@@ -1,0 +1,71 @@
+include ../../../../components/raa/templates/login/login-mixin
+include ../../../../components/raa/templates/registration/registration-mixin
+include ../../../../components/raa/templates/forget-pass/forget-pass-mixin
+include ../../../../components/raa/templates/forget-user/forget-user-mixin
+
+- if (model !== undefined) data = model.data;
+
+.userLoginBar
+    a.quick-menu__item.userLoginBar__controller(href="#" data-toggle="modal" data-target="#reg" title="Login")
+        if(data && data.controller)
+            block userIcon
+                i.block-icon.separator-end(class= data.controller.icon aria-hidden="true")
+            span.sign-in-label
+                | !{data.controller.text}
+
+    if(data && data.login)
+      .ux-modal-container
+          .modal.align-start(id="reg")
+              .modal__dialog
+                  .modal__header
+                      button(type="button" class="close" data-dismiss="modal")
+                          i.icon-close_thin(aria-hidden="true")
+                      if (data.login.logo)
+                          img(src="/specs/ux3/releasedAssets/images/logo.png")
+                      if (data.login.title)
+                          h2 !{data.login.title}
+                  .modal__body
+                      +login(data.login)
+
+
+    if(data && data.register)
+      .ux-modal-container
+          .modal.align-start(id="signup")
+              .modal__dialog
+                  .modal__header
+                      button(type="button" class="close" data-dismiss="modal")
+                          i.icon-close_thin(aria-hidden="true")
+                      if (data.register.logo)
+                          img(src="/specs/ux3/releasedAssets/images/logo.png")
+                      if (data.register.title)
+                          h2 !{data.register.title}
+                  .modal__body
+                      +register(data.register)
+
+    if(data && data.forgetPass)
+      .ux-modal-container
+          .modal.align-start(id="fPass")
+              .modal__dialog
+                  .modal__header
+                      button(type="button" class="close" data-dismiss="modal")
+                          i.icon-close_thin(aria-hidden="true")
+                      if (data.forgetPass.logo)
+                          img(src="/specs/ux3/releasedAssets/images/logo.png")
+                      if (data.forgetPass.title)
+                          h2 !{data.forgetPass.title}
+                  .modal__body
+                      +forgetPass(data.forgetPass)
+
+    if(data && data.forgetUser)
+      .ux-modal-container
+          .modal.align-start(id="fUser")
+              .modal__dialog
+                  .modal__header
+                      button(type="button" class="close" data-dismiss="modal")
+                          i.icon-close_thin(aria-hidden="true")
+                      if (data.forgetUser.logo)
+                          img(src="/specs/ux3/releasedAssets/images/logo.png")
+                      if (data.forgetUser.title)
+                          h2 !{data.forgetUser.title}
+                  .modal__body
+                      +forgetUser(data.forgetUser)

@@ -1,0 +1,68 @@
+{
+    "title": "Show Recommended",
+    "template": "doc",
+    "tag": [
+        "ready"
+    ],
+    "templateData": {
+        "items": [
+            {
+                "title": "Show Recommended - in home page",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "grid-md-2"
+                                    ]
+                                },
+                                "data": {
+                                    "title": "Recommended Articles",
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/show-recommended/templates/show-recommended/show-recommended-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/show-recommended/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Show Recommended - in article page",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "list-of-recommended"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/show-recommended/templates/show-recommended/show-recommended-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/show-recommended/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

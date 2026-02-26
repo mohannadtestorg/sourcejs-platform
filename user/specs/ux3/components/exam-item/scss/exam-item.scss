@@ -1,0 +1,118 @@
+.exam-item {
+
+    &__status {
+        font-size: $h6-font-size;
+        margin-bottom: 10px;
+
+        i {
+            font-size: $icon-font-size;
+            padding-right: 10px;
+            vertical-align: text-top;
+        }
+
+        &.status--complete {
+            i {
+                color: $success-message-text-color;
+            }
+        }
+
+        &.status--incomplete {
+            i {
+                color: $warning;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &__content {
+        width: calc(100% - 155px);
+        padding-right: 15px;
+
+        @include media('<tablet') {
+            width: 100%;
+            padding-right: 0px;
+        }
+    }
+
+    &__meta {
+        width: 155px;
+        font-size: $h6-font-size;
+
+        @include media('<tablet') {
+            width: 100%;
+            padding-top: 10px;
+        }
+    }
+
+    &__credit-hours,
+    &__published-date,
+    &__expires-date,
+    &__completed-date,
+    &__expired {
+        display: block;
+        margin-bottom: 5px;
+
+        span {
+            font-weight: bold;
+            padding-left: 3px;
+        }
+    }
+
+    &__expired {
+        color: $warning;
+        font-weight: bold;
+    }
+
+    &__title {
+        margin-bottom: 5px;
+
+        @include media('<tablet') {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__authors {
+        margin-bottom: 5px;
+        font-size: $h6-font-size;
+
+        a {
+            &:after {
+                content: ", ";
+            }
+            &:last-child:after {
+                content: "";
+            }
+        }
+
+        @include media('<tablet') {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__journal-title {
+        display: block;
+        font-size: $h6-font-size;
+        color: $secondary-text-color;
+        margin-bottom: 20px;
+
+        @include media('<tablet') {
+            margin-bottom: 0px;
+        }
+    }
+
+    &__link {
+        font-size: $small-font-size;
+        font-weight: 600;
+        clear: left;
+
+        a {
+            &:not(:last-child) {
+                padding-right: 15px;
+            }
+        }
+
+        @include media('<tablet') {
+            margin-top: 10px;
+        }
+    }
+}

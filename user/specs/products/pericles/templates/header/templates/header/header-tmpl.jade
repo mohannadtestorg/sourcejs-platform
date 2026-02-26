@@ -1,0 +1,50 @@
+style.
+    .source_example .pageHeader {
+        position: static !important;
+    }
+
+    .source_example .main-search-field-wrapper {
+        overflow: hidden !important;
+    }
+
+    .source_example .quick-search__button {
+        width: 46px;
+        margin-right: initial;
+    }
+
+
+.pageHeader
+    header.page-header
+        div(data-pb-dropzone='main')
+            .admin-message(data-widget-def='ux3-layout-widget', data-widget-id='bb5b5e2c-d3d6-4015-b586-eeade38f59d4')
+                .container
+                    .row
+                        div
+            div(data-widget-def='ux3-layout-widget', data-widget-id='30ea2902-1433-4cd6-aaf6-364a9b554139')
+                h1.hidden.accessibility-enabled
+                    | Wiley Online Library
+                .container
+                    .row
+                        .contents.col-md-12
+                            | !{pb.render('institution-banner', data.institBanner, 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "institution-wrapper-mobile hidden-lg padded-content"}}}})}
+
+                            .pull-left
+                                .logo-container.hidden-xs.hidden-sm.hidden-md(data-widget-def='ux3-general-image', data-widget-id='ff262197-0fb8-4973-aaa2-2fceba4b5a61')
+                                    a(href='/', title='Wiley Online Library')
+                                        img(alt='Wiley Online Library', src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/pericles/logo-header-1518778866647.png')
+                                .logo-container-mobile.hidden-lg.hidden-md.hidden-sm(data-widget-def='ux3-general-image', data-widget-id='e9a82a9c-7a8b-4398-b451-448fb2556cd3')
+                                    a(href='/', title='Wiley Online Library')
+                                        img(alt='Wiley Online Library', src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/pericles/mobilehublogo-1518781861020.png')
+
+                                | !{pb.render('institution-banner', data.institBanner, 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "institution-wrapper hidden-xs hidden-sm hidden-md institution--block"}}}})}
+
+                            .pull-right
+
+                                if (page == 'article')
+                                    | !{pb.render('quick-search', data.quickSearch, 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "header-quicksearch"}}}})}
+
+                                .login-bar-container(data-widget-def='literatumNavigationLoginBar', data-widget-id='d384ca92-7137-45d6-b3c2-78c9c0a98c2b')
+                                    .loginBar.login-open
+                                        a.show-login(href='/action/showLogin?uri=%2F')
+                                            span.icon-profile_empty
+                                            span.sign-in-label Login / Register

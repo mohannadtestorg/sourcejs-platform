@@ -1,0 +1,55 @@
+{
+    "title": "Search page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "socialLinks": {
+            "thisWidget": {
+                "id": "htmlAssetwrapper",
+                "properties": {
+                    "html":  "<ul class=\"social-links rlist rlist--inline\"> <li> <a href=\"#\" title=\"youtube\" class=\"social-links__item\"> <i class=\"icon-youtube\"></i> </a> </li> <li> <a href=\"#\" ttile=\"RSS\" class=\"social-links__item\"> <i class=\"icon-Rss\"></i> </a> </li> <li> <a href=\"#\" title=\"facebook\" class=\"social-links__item\"> <i class=\"icon-facebook\"></i> </a> </li> <li> <a href=\"#\" title=\"twitter\" class=\"social-links__item\"> <i class=\"icon-twitter\"></i> </a> </li> </ul>"
+                }
+            }
+        },
+        "quickSearch": {
+            "$pug": {
+                "template": "../../widgets/quick-search/templates/quick-search/quick-search-tmpl.jade",
+                "data": {
+                    "$ref": "templates/data/quick-search.json"
+                }
+            }
+        },
+        "facet":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/search-facets/templates/search-facets/search-facets-tmpl.jade",
+                "data": {
+                    "$ref": "templates/data/facet.json"
+                }
+            }
+        },
+        "searchresult": {
+            "$pug": {
+                "template": "../../widgets/search-result/templates/search-result/demo/demo-search-result-tmpl.jade",
+                "data": {
+                    "$ref": "templates/data/search.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

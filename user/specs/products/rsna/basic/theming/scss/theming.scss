@@ -1,0 +1,77 @@
+$themes: (
+    primary-theme: (
+        color: $primary,
+        background-color: $footer-bg-color,
+        header-second-row-bg-color: $primary-bg-color,
+        header-second-row-border-color: $default-border-color,
+        header-second-row-color: $text-onDark,
+        wslide-head-color: $text-onDark,
+        wslide-head-bg-color: $primary-bg-color,
+        meta-wrapper-bg-color: $primary-darken-bg-color,
+        meta-wrapper-bg-img: "",
+        legacy_icon: "../../images/legacy_icon_radiology.svg",
+        border: $text-onDark,
+    ),
+    jrnl-radiology: (
+        color: $radiology,
+        background-color: $radiology-secondary-bg-color,
+        header-second-row-bg-color: $radiology-secondary-bg-color,
+        header-second-row-border-color: $radiology,
+        header-second-row-color: $radiology,
+        wslide-head-color: $radiology,
+        wslide-head-bg-color: $radiology-secondary-bg-color,
+        meta-wrapper-bg-color: $radiology,
+        meta-wrapper-bg-img: "/pb-assets/images/backgrounds/bg-banner-radiology.png",
+        legacy_icon: "../../images/legacy_icon_radiology.svg",
+        border: $radiology,
+    ),
+    jrnl-radiographics: (
+        color: $radiographics,
+        background-color: $radiographics-secondary-bg-color,
+        header-second-row-bg-color: $radiographics-secondary-bg-color,
+        header-second-row-border-color: $radiographics,
+        header-second-row-color: $radiographics,
+        wslide-head-color: $radiographics,
+        wslide-head-bg-color: $radiographics-secondary-bg-color,
+        meta-wrapper-bg-color: $radiographics,
+        meta-wrapper-bg-img: "/pb-assets/images/backgrounds/bg-banner-radiographics.png",
+        legacy_icon: "../../images/legacy_icon_radiographics.svg",
+        border: $radiographics,
+    )
+) !default;
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    button {
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+    a {
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}

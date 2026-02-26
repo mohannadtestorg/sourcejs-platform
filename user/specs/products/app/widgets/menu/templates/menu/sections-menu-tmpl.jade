@@ -1,0 +1,121 @@
+- var dropDownId = 0;
+- var menuId = 0;
+- var viewPort = "";
+- var viewPortClass = "";
+-
+    if (thisWidget.properties && thisWidget.properties.vPort){
+    if (thisWidget.properties.vPort == "XSmall") {
+    viewPort = "screen-xs";
+    viewPortClass = 'hidden-xs';
+    viewPortInvertClass = 'hidden-md hidden-sm hidden-lg';
+    } else if (thisWidget.properties.vPort == "small") {
+    viewPort = "screen-sm";
+    viewPortClass = 'hidden-sm hidden-xs';
+    viewPortInvertClass = 'hidden-md hidden-lg';
+    } else if (thisWidget.properties.vPort == "medium") {
+    viewPort = "screen-md";
+    viewPortClass = 'hidden-md hidden-sm hidden-xs';
+    viewPortInvertClass = 'hidden-lg';
+    } else {
+    viewPort = "never";
+    viewPortClass = '';
+    viewPortInvertClass = 'hidden-md hidden-sm hidden-xs hidden-lg';
+    }
+    };
+
+mixin link(item)
+    if ( item.list)
+        - dropDownId = dropDownId + 1;
+    block menuDropdown
+        if (item.link) && (item.list)
+            block menuParentLink
+                a.dropdown__toggle(href=item.link title=item.text id=data.id + "-" + dropDownId data-toggle="dropdown")
+                    if (item.text)
+                        span !{item.text}
+                    block mainNavArrows
+                        i.icon-arrow_r.pull-right(aria-hidden="true" class=viewPortInvertClass)
+                        i.icon-section_arrow_d.pull-right(aria-hidden="true" class=viewPortClass)
+                +menu(item.list, true)
+        else if (item.link)
+            block MenuItemLink
+                a(href=item.link title=item.text target=item.target)
+                    if (item.text)
+                        span !{item.text}
+                    if (item.target) && item.target == "_blank"
+                        | &nbsp;
+                        i.icon-download-sitation(aria-hidden="true")
+        else if (item.list)
+            a.dropdown__toggle(href="#" title=item.text id=data.id + "-" + dropDownId data-toggle="dropdown" target=item.target)
+                if (item.text)
+                    span !{item.text}
+                block mainNavArrows2
+                    i.icon-arrow_r.pull-right(aria-hidden="true" class=viewPortInvertClass)
+                    i.icon-section_arrow_d.pull-right(aria-hidden="true" class=viewPortClass)
+            +menu(item.list, true)
+        else
+            if (item.text)
+                span !{item.text}
+
+
+mixin menuItem(list, nested)
+    each item, i in list
+
+        -var liClass = "menu-item";
+        if ( item.list)
+            //- dropDownId = dropDownId + 1;
+            - liClass = "dropdown menu-parent";
+        if item.current == "true"
+            - liClass = liClass + " is--current";
+
+
+        if (item.list)
+            if nested
+                li(class=liClass role="menuitem" aria-haspopup="true" tabindex="-1" aria-label=item.text )
+                    +link(item)
+            else
+                li(class=liClass role="menuitem" aria-haspopup="true" data-slide-clone="self" data-slide-target="#menu-item-"+(menuId+1)  aria-label=item.text id='menu-item-' + data.id + '-' + i)
+                    +link(item)
+        else
+            if nested
+                li(class=liClass role="menuitem" tabindex="-1" aria-label=item.text )
+                    +link(item)
+            else
+                li(class=liClass role="menuitem" aria-label=item.text id='menu-item-' + data.id + '-' + i)
+                    +link(item)
+
+
+
+
+mixin menu(list, nested)
+    -menuId = menuId+1;
+    if nested == true
+        if dropDownId > 1
+            ul.sections-menu__dropdown.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId id="menu-item-" + menuId class="level-" + dropDownId aria-hidden="true" role="menu")
+                - dropDownId = 0;
+                +menuItem(list, nested)
+        else
+            ul.sections-menu__dropdown.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId aria-hidden="true" id="menu-item-" + menuId role="menu")
+                +menuItem(list, nested)
+    else
+        ul.sections-menu.menubar.rlist--inline(role="menubar")
+            +menuItem(list, nested)
+            li.dropdown-more.hidden.dropdown.menu-parent(role='menuitem', aria-haspopup='true', aria-label='More')
+                a.dropdown__toggle(href='#', title='More', data-toggle='dropdown')
+                    span More
+                    i.icon-section_arrow_d.pull-right.hidden-sm.hidden-xs(aria-hidden='true')
+                ul.rlist.dropdown__menu(aria-labelledby='main0-1', aria-hidden='true', role='menu')
+
+
+div.sections-menu-container
+    a.hidden-md.hidden-lg.w-slide__btn(href="#"  data-slide-target="#psych-banner")
+
+        span.section-menu-opener sections
+    block mainNavContainer
+        nav#psych-banner.menu-sections-nav.main-nav.hidden-sm.hidden-xs.drawer__nav.gutterless.header-inline-menu(role="navigation" class=viewPortClass data-ctrl-res=viewPort)
+            +menu(data.list, false)
+
+block MenuDropZone
+    | !{pb.renderDropzone(thisWidget, "sectionMenuTools")}
+
+
+

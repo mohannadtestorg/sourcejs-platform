@@ -1,0 +1,54 @@
+.owl {
+    &-carousel {
+        z-index: 0;
+        padding: 0;
+    }
+
+    &-carousel &-nav {
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+        @include media('>phone') {
+            bottom: 10px;
+        }
+
+        [class*=owl-], [class*=owl-]:hover {
+            color: $default-content-color;
+            background: transparent!important;
+
+
+        }
+        i {
+            display: block;
+            font-size: 10px;
+            color: $primary-link-color;
+        }
+
+    }
+    &-carousel &-nav &-information {
+        display: inline-block;
+        font-size: 12px;
+        margin: 0 15px;
+        padding: 0;
+    }
+    &-carousel &-nav &-prev,
+    &-carousel &-nav &-next {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        margin: 0;
+        padding: 0;
+        border-radius: 100%;
+        border: 2px solid $hr-color;
+        &:hover {
+            border-color: $primary-link-color;
+        }
+    }
+}
+
+.slideshow {
+    background-color: $secondary-section-bg;
+}

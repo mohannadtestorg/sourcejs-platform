@@ -1,0 +1,14 @@
+.source_example
+    mixin trigger()
+        button.popover-toggle.icon-trash-can(title="Delete item")
+
+    mixin content()
+        .popover-content.card
+            p Are you sure you want to delete this item?
+            .border-top
+                button.popover-close NO, DON'T DELETE IT
+                button.btn(type="SUBMIT" name="delete") YES, DELETE IT
+
+    .popover
+        +trigger()
+        +content()

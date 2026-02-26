@@ -1,0 +1,314 @@
+.hubpage-menu {
+
+    background-color: $wiley-blue-color;
+
+    @include media('<desktop') {
+        background-color: transparent;
+        border-bottom: none;
+        position: fixed;
+        z-index: 10;
+        width: 100%;
+
+    }
+
+    li {
+        padding: 12px 0;
+
+        &:last-child a {
+            border-right: none;
+        }
+    }
+
+    a {
+        display: block;
+        text-transform: uppercase;
+        line-height: .75rem;
+        color: $white;
+        padding: 0;
+        font-weight: 600;
+        overflow: hidden;
+
+        @include media('>=desktop') {
+            border-right: 1px solid $white;
+            padding: 8px 20px;
+        }
+
+    }
+
+    .pull-left {
+        a {
+            border: none;
+            font-size: 0.75rem;
+
+            @include media('<desktop') {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    .pull-right {
+        a {
+            text-transform: none;
+            font-size: 0.75rem;
+        }
+    }
+
+    .menu-item {
+        a {
+            text-transform: none;
+        }
+
+        &s-container {
+            min-width: 717px;
+            -webkit-column-width: 336px;
+            -moz-column-width: 336px;
+            -ms-column-width: 336px;
+            column-width: 336px;
+            -webkit-column-gap: 0;
+            -moz-column-gap: 0;
+            -ms-column-gap: 0;
+            column-gap: 0;
+        }
+    }
+
+    nav {
+        box-shadow: none;
+        position: relative;
+        z-index:11;
+        @include media('<desktop') {
+            //position: absolute;
+
+            .icon-section_arrow_d {
+                display: none;
+            }
+        }
+    }
+
+    .dropdown {
+        position: static;
+
+        &.hover, &:hover, &:focus {
+            background-color: darken($wiley-blue-color, 7%);
+        }
+
+        &__menu {
+            border: 2px solid $wiley-blue-color;
+            left: 15px;
+            padding: 20px;
+            text-align: left;
+            box-sizing: border-box;
+            overflow-y: auto;
+            max-height: 600px;
+
+            li {
+                border-bottom: none;
+                padding: 6px 10px 6px 0;
+
+                &.hover, &:hover, &:focus {
+                    background-color: inherit;
+
+                    a {
+                        color: $wiley-blue-color;
+                    }
+                }
+            }
+
+            a {
+                font-size: 0.75rem;
+                color: $wiley-blue-color;
+                line-height: 1rem;
+                padding: 0;
+            }
+
+            ul {
+                margin-bottom: 10px;
+
+            }
+        }
+    }
+
+    p {
+        color: $wiley-typography-color;
+        margin: 0;
+        font-weight:600;
+    }
+
+    .doi-access-wrapper {
+        display: inline-block;
+    }
+
+    .icon-export_citation {
+        margin-left: 10px;
+        font-weight: bold;
+    }
+
+    &__burger {
+        display: inline-block;
+        padding: 0 15px 0 0;
+        vertical-align: middle;
+
+        i {
+            color: $wiley-gray;
+            font-size: 1.05rem;
+            font-weight: bold;
+        }
+
+        &.js--open {
+            position: relative;
+
+            span {
+                border-width: 10px;
+                border-color: transparent;
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-bottom-color: $wiley-blue-color;
+                display: inline-block;
+                position: absolute;
+                left: 50%;
+                margin-left: -17px;
+                top: 31px;
+            }
+        }
+    }
+
+    &__nav {
+
+        transition: all 0.5s;
+
+        @include media('<desktop') {
+            background-color: $wiley-blue-color;
+            left: 0;
+            overflow-y: scroll;
+            top: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 0;
+            padding: 0;
+            display: block;
+
+
+            li {
+                display: block;
+                padding: 18px 17px;
+
+                & ~ li {
+                    border-top: 1px solid lighten($wiley-blue-color, 7%);
+                }
+
+            }
+
+            a, .pull-right a {
+                text-transform: none;
+                font-size: 1.125rem;
+                line-height: 22px;
+                font-weight: 600;
+            }
+
+            > ul li {
+                &:nth-child(1) a:after, &:nth-child(2) a:after {
+                    content: "\e92b";
+                    display: inline-block;
+                    float: right;
+                    font-family: icomoon !important;
+                    speak: none;
+                    font-style: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    line-height: 20px;
+                    font-size: $small-font-size;
+                    font-weight: bolder;
+                }
+            }
+        }
+
+        &.js--open {
+            height: 100vh;
+
+            @include media('<desktop') {
+                padding-bottom: 110px;
+            }
+        }
+    }
+
+    .social-media {
+        a {
+            display: inline-block;
+            border: 0;
+            font-size: 1.8rem;
+            padding: 9px 8px;
+
+            @include media('<desktop') {
+                font-size: 1.5rem;
+            }
+
+        }
+
+        @include media('<desktop') {
+            padding: 8px 9px;
+        }
+    }
+
+    @include media('<desktop') {
+        .pull-left, .pull-right {
+            float: none;
+        }
+
+        .rlist--inline.pull-right {
+            border-top: 1px solid lighten($wiley-blue-color, 7%);
+            border-bottom: 1px solid lighten($wiley-blue-color, 7%);
+        }
+    }
+}
+
+.hubMenu-slide {
+    &.w-slide {
+        z-index: 12;
+        top: 99px;
+    }
+
+    .w-slide {
+        &_head {
+            background: $wiley-blue-color;
+            line-height: 57px;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        &__title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        &__content {
+            padding: 0;
+            padding-bottom: 99px;
+            margin-top: 57px;
+            background: $white;
+
+            li {
+               border-bottom: 1px solid $separators-color;
+                padding: 1rem 20px;
+            }
+            h6 {
+                padding: 1rem 20px 0;
+            }
+            .menu-items-container p {
+                padding: 1rem 20px;
+                margin: 0;
+                font-weight: 600;
+                font-size: 14px;
+            }
+        }
+
+        &__back {
+            text-transform: capitalize;
+        }
+    }
+}

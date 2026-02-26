@@ -1,0 +1,27 @@
+//| !{data.sections}
+#purchaseArea.purchaseArea
+    .row
+        .col-xs-12
+            h2 Access content
+            h4 American Heart Association Professional?
+            span.purchaseArea--label Log in with your <span class="red-text-color">Professional Heart Daily username and password</span>. Not an American Heart Association Professional? Continue below.
+        .col-xs-12.col-sm-8.col-md-6.login-form
+            form(action='/action/doLogin', method='post')
+                input(type='hidden', name='id', value='41450a30-869d-44e9-8fbe-b46fe27104af-login-40456093')
+                input(type='hidden', name='redirectUri', value='/doi/full/10.1061/%28ASCE%29AS.1943-5525.0000731')
+                input(type='hidden', name='popup', value='true')
+                .input-group.left-side-label
+                    label(for='login') Username
+                    input#login.login(type='text', name='login', value='', size='15')
+                .input-group.left-side-label
+                    label(for='password') Password
+                    input#password.password(type='password', name='password', value='', autocomplete='off')
+                .actions
+                    a(href='/action/requestResetPassword') Forgot password?
+                .submit
+                    input.btn.btn-sm(type='submit', name='submit', value='Log in')
+
+    .row
+        .col-xs-12
+            h4 Or Purchase
+            | !{pb.renderDropzone(thisWidget, "purchaseAccessDropZone")}

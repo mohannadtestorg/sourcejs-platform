@@ -1,0 +1,53 @@
+.loi {
+
+  .archive-label {
+    margin-bottom: 30px;
+    padding-left: 15px;
+  }
+
+  .parent-item {
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+  .tab__nav {
+    a {
+      color: $secondary-text-color;
+      font-weight: 500;
+
+    }
+
+  }
+  &__list {
+    .active {
+      @include themify($themes) {
+        border-color: themed('color');
+      }
+    }
+  }
+
+&-page{
+  .loi--res{
+    position: static;
+    display: block;
+  }
+
+  .section__header{
+    @include media('<large'){
+      padding-left: 10px;
+    }
+  }
+}
+
+  &__issue{
+    min-height: 60px;
+    margin-bottom: 15px;
+
+    .current{
+      font-size: .75rem;
+    }
+  }
+
+}
+
+

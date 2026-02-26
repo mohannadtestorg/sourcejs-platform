@@ -1,0 +1,18 @@
+﻿extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p The <strong>Footer</strong> template contains the following components:
+           | #[a(href="../../widgets/html/") Html widget],
+           | #[a(href="../../widgets/images/") Images widget],
+
+
+    section.source_section
+        h2 Footer
+        p If you want to use back to top feature for pages you must add this html to footer
+        p   `&lt; div class="back-to-top clearfix"&gt; &lt;i class="icon-arrow_u_p"&gt; &lt;/i&gt; &lt;/div&gt;`
+        p you can check back to top component  #[a(href="/specs/ux3/components/back-to-top/") here ]
+        .source_example.container
+            | !{data.footer}
+    | #{''}

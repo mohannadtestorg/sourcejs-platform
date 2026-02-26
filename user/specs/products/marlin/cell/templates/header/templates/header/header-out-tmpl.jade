@@ -1,0 +1,12 @@
+header.header.base.fixed
+    | !{pb.render("ad-placeholder", {data:{"ad":"<img src='http://via.placeholder.com/728x90/e8117f/ffffff?text=Ad+Placeholder'>","exists":true, "customClass":"adplaceholder--header js__adToHide"}})}
+    .header__wrapper.clearfix(data-db-parent-of="quickSearch")
+        .col-xs-6
+            block headerLogo
+                a.journal-logos(href="/" title="Go home")
+                    img(src='/specs/products/marlin/cell/releasedAssets/images/CellPress_blue.svg' alt='cell logo')
+        .col-xs-6
+            .header__nav.row
+                | !{pb.render("menu", "mainMenu.json")}
+                | !{pb.render("quick-search","demo/quick-search", "quick-search.json")}
+                | !{pb.render("profile-links", "profile-links-logged-out.json")}

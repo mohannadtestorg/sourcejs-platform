@@ -1,0 +1,55 @@
+{
+    "title": "Edit User Personal Message",
+    "templateData": {
+        "items": [
+            {
+                "title": "Unverified Email Message",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/edit-user-message/edit-user-message-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/userNotVerified.json"
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Social Login Message",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/edit-user-message/edit-user-message-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/noSocialLinks.json"
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "eCommerce Address Message",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/edit-user-message/edit-user-message-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/noEcommAddress.json"
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Professional Information Message",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/edit-user-message/edit-user-message-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/noProfessionalInfo.json"
+                        }
+                    }
+
+                }
+            }
+        ]
+    }
+}

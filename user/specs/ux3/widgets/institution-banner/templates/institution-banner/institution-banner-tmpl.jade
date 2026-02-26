@@ -1,0 +1,18 @@
+- if (model !== undefined) data = model.data;
+
+mixin institution()
+    if (data && data.image)
+        img.institution__image(src=data.image alt=data.institution)
+
+    div.institution-info-wrapper
+
+        if((data) && (data.introText) && (data.institution))
+            span.institution__intro !{data.introText}
+            span.institution__name !{data.institution}
+
+div.institution
+    if (data) && (data.itemUrl) && (data.institution)
+        a(href=data.itemUrl title=data.institution)
+            +institution()
+    else
+        +institution()

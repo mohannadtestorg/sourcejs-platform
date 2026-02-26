@@ -1,0 +1,44 @@
+{
+    "title": "Menu Navigation",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Main navigation",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/menu/templates/menu/menu-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/mainMenu.json"
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "Home navigation",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/menu/templates/menu/menu-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/mainMenu.json"
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "Home navigation - Nested menu",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/menu/templates/menu/menu-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/nestedMenu.json"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

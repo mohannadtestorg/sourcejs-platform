@@ -1,0 +1,20 @@
+-
+    var infoJson = {
+        "title": "Header",
+        "tag": [
+            "templates"
+        ],
+        "templateData": {
+            "var1": {
+                "$ref": "./other_concepts/siteNav.json"
+            },
+            "var2": {
+                "$pug": {
+                    "template": "../../molecules/nav/templates/nav/nav-tmpl.jade",
+                    "data": {
+                        "$ref": "./other_concepts/siteNav.json"
+                    }
+                }
+            }
+        }
+    }

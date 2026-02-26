@@ -1,0 +1,22 @@
+﻿extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Full Access
+        .source_example(style="max-width: 500px")
+            | !{pb.render('access-icon', 'access-icon/access-icon', 'full-access.json')}
+    section.source_section
+        h2 No Access
+        .source_example(style="max-width: 500px")
+            | !{pb.render('access-icon', 'access-icon/access-icon', 'no-access.json')}
+    section.source_section
+        h2 Open Access
+        .source_example(style="max-width: 500px")
+            | !{pb.render('access-icon', 'access-icon/access-icon', 'open-access.json')}
+    section.source_section
+        h2 Free Access
+        .source_example(style="max-width: 500px")
+            | !{pb.render('access-icon', 'access-icon/access-icon', 'free-access.json')}
+
+    | #{''}

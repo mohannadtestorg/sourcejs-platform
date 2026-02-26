@@ -1,0 +1,26 @@
+-
+    if (!title) title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    if (!text) text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis lorem vitae tempor vulputate. Sed a fermentum erat. Pellentesque a.";
+    if (!news) news = false;
+    if (!button) button = false;
+    if (butoon && !buttonType ) buttonType = "";
+    if (butoon && !buttonLabel ) buttonLabel = "Button";
+
+.hero-block
+    .container
+        .row
+            .col-xs-12.col-sm-12.col-md-12
+                | !{pb.render("header",{},"corp")}
+    .hero-block__inner
+        .container
+            .row
+                .col-xs-12.col-sm-8.col-md-8
+                    h1.hero-block__title
+                        | #{title}
+                    p.hero-block__content
+                        | #{text}
+                    - if (button)
+                        a.btn(href="#", title="", class="#{buttonType}")
+                            | #{buttonLabel}
+    - if (news)
+        | !{pb.render("skewed-block",{},"corp")}

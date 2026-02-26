@@ -1,0 +1,114 @@
+/***
+
+a-form-checkbox
+=============
+
+```
+<span class="a-form-checkbox">
+  <input type="checkbox" value="all" id="search_author_all" name="search_author_type">
+  <label for="search_author_all">All</label>
+</span>
+<span class="a-form-checkbox">
+  <input type="checkbox" value="all" id="cme" name="cme" checked>
+  <label for="cme">CME</label>
+</span>
+<span class="a-form-checkbox">
+  <input type="checkbox" value="all" id="cme" name="cme" disabled>
+  <label for="cme">CME</label>
+</span>
+<span class="a-form-checkbox">
+  <input type="checkbox" value="all" id="cme" name="cme">
+  <label for="cme" class="f-body">CME</label>
+</span>
+```
+
+
+***/
+
+.a-form-checkbox input[type=checkbox] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+  margin-left: -1px;
+  padding: 0;
+  border: 0 none;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+}
+
+.a-form-checkbox label {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  color: $color__text;
+  cursor: pointer;
+}
+
+.a-form-checkbox label:not([class*=f-]) {
+  @include f-ui;
+  &:hover{
+    font-weight: 700;
+  }
+}
+
+.a-form-checkbox label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color__input-border;
+  background-color: $color__white;
+}
+
+.a-form-checkbox label::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 12px;
+  border: 2px solid $color__black;
+  border-top: 0 none;
+  border-left: 0 none;
+  background-color: transparent;
+  opacity: 0;
+  transform: rotate(45deg) scale(.1);
+  transition: all .25s $bezier__bounce;
+}
+
+.a-form-checkbox label:hover::before {
+  border-color: $color__input-border--hover;
+}
+
+.a-form-checkbox input[type=checkbox]:checked + label::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+.a-form-checkbox input[type=checkbox]:disabled + label {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.a-form-checkbox input[type=checkbox]:focus + label::before {
+  border-color: $color__input-border--focus;
+}
+
+.a-form-checkbox label.f-body {
+  padding-left: 26px;
+}
+
+.a-form-checkbox label.f-body::before {
+  @include breakpoint('medium+') {
+    top: 6px;
+  }
+}
+
+.a-form-checkbox label.f-body::after {
+  @include breakpoint('medium+') {
+    top: 7px;
+  }
+}

@@ -1,0 +1,31 @@
+li.references__item {
+
+    .references__note {
+        .ref__number {
+            &:after {
+                content: '\21B5';
+                vertical-align: middle;
+                margin-right: 2px;
+            }
+        }
+        >span:not(.references__suffix) {
+            display: inline;
+            margin-left:4px;
+        }
+        span.references__source {
+            font-weight: bolder;
+            font-style: italic;
+        }
+        a:not(.ref__number), .ref-link-separator {
+            color: $primary-blue-color;
+        }
+        .references__suffix:not(:LAST-CHILD) {
+            margin-right: 4px;
+            &:after {
+                content: '|';
+                padding-left:4px;
+                color: $primary-blue-color;
+            }
+        }
+    }
+}

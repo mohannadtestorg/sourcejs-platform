@@ -1,0 +1,263 @@
+
+.quick-menu__item {
+  padding: 0 15px;
+  @include media('<tablet'){
+    padding: 0 10px;
+  }
+
+  & > span {
+    color: $pol-header-quick-menu-text-color;
+    @include media('>=tablet'){
+      display: inline-block;
+      padding-left: 5px;
+    }
+  }
+  i {
+    color: $pol-header-quick-menu-text-color;
+  }
+
+}
+
+.main-nav {
+  a[data-toggle="nav"] {
+    display: none;
+    color: $pol-header-quick-menu-text-color;
+  }
+}
+
+
+.header {
+  @include media('<desktop') {
+    border: none;
+  }
+
+  @include media('>=tablet') {
+    padding-right: 0;
+  }
+  @include media('<tablet') {
+    padding-right: 0px;
+  }
+
+
+  &.fixed{
+    &.hide-header{
+      .main-nav.menu--res {
+        a[data-toggle=nav]{
+          position: static;
+        }
+      }
+    }
+  }
+  .pull-right{
+    @include media('<tablet') {
+      padding-top: 5px;
+    }
+  }
+
+  &__border-top{
+    border-top: 1px solid  $header-separators-color;
+    padding-top: 1px;
+  }
+
+  &__quick-menu {
+    vertical-align: middle;
+    li {
+      span {
+        margin-left: 2px;
+      }
+
+      .icon-search{
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &__logo img {
+    max-height: 40px;
+  }
+
+  &--first-row {
+    height: 40px;
+    padding: 0 20px;
+    font-family: $menu-font-family;
+    @include media('<desktop') {
+      &.container {
+        padding: 0 15px;
+      }
+    }
+
+    @include media('<tablet') {
+      padding-right: 60px;
+      &.container {
+        padding-right: 60px;
+      }
+
+    }
+
+    &.container{
+      max-width: $max-container-size;
+      width: 100%;
+    }
+  }
+
+  &--second-row{
+    &.container{
+      max-width: $max-container-size;
+      width: 100%;
+    }
+  }
+
+  &__coolBar{
+      box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
+      .coolBar{
+        @include media('<desktop'){
+          display: none;
+        }
+
+        &__wrapper {
+          border-bottom: none;
+          @include media('<desktop'){
+            top: 60px!important;
+          }
+        }
+        &--res {
+          display: block;
+          border-bottom:none;
+        }
+        .loi__banner__right-side {
+          i {
+            color: $white;
+            padding-left: 5px;
+            @include media('<desktop') {
+              color: $text-onDark;
+            }
+            + span {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+    .loi{
+      &__banner{
+        margin: 0;
+        .coolBar{
+
+          &__wrapper{
+            @include media('>tablet') {
+              background:transparent;
+            }
+          }
+        }
+
+      }
+      .tab__pane:not(.nested-tab) {
+        padding-top: 20px;
+      }
+    }
+
+    .pull-right{
+      max-width: 100%;
+      padding: 0;
+    }
+    [data-db-target-of]{
+      box-shadow: none;
+    .loi{
+      box-shadow: 0 3px 7px rgba(0,0,0,.15);
+    }
+    }
+
+
+  }
+
+
+  &__login{
+    border-right: 1px solid  $header-separators-color;
+    border-left: 1px solid  $header-separators-color;
+    padding: 7px 0;
+    display: inline-block;
+    float: left;
+    @include media('<tablet'){
+      margin: -4px 0;
+    }
+  }
+  &__search{
+    padding-left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    @include media('<tablet'){
+      padding-left: 10px;
+    }
+  }
+  &__advanced-search{
+    display: inline-block;
+    vertical-align: middle;
+    border-left: 1px solid  $header-separators-color;
+    padding-left: 12px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    color: $pol-header-quick-menu-text-color;
+  }
+
+  .institution-wrapper{
+    display: inline-block;
+    @include media('<phone'){
+     display: none;
+    }
+  }
+
+  &__advertisement{
+    width: 100%;
+    background: white;
+    z-index: 1;
+    text-align: center;
+    padding:15px 0 10px;
+    transition:visibility .1s linear .5s,opacity .5s linear;
+    @include media('<desktop'){
+      display: none;
+    }
+  }
+  .header-share{
+    position: relative;
+    .addthis{
+      .at-icon-wrapper{
+        color: $white;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}
+
+
+.advertisement{
+  &__popup{
+    position: fixed;
+    top: 15px;
+    left:50%;
+    margin-left: -380px;
+    text-align: center;
+    z-index: 10;
+  }
+  &__close{
+    position: absolute;
+    right: 25px;
+    top: 8px;
+    cursor: pointer;
+    i{
+      font-size: .8rem;
+    }
+  }
+
+
+  &__hidden{
+    visibility:hidden;
+    opacity:0;
+  }
+
+
+}
+
+
+
+
+

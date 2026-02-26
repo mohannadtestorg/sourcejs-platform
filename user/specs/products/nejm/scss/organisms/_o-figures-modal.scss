@@ -1,0 +1,629 @@
+.o-figures-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: $color__white;
+}
+
+.o-figures-modal button {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  background-color: $color__white;
+  cursor: pointer;
+}
+
+.o-figures-modal__header {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 48px;
+  border-bottom: 1px solid $color__rules;
+  background-color: $color__white;
+
+  @include breakpoint('small+') {
+    height: 56px;
+  }
+}
+
+.o-figures-modal__nav,
+.o-figures-modal__tools {
+  position: absolute;
+  top: 0;
+}
+
+.o-figures-modal__nav {
+  left: 0;
+
+  .s-no-figures-modal-menu & {
+    display: none;
+  }
+}
+
+.o-figures-modal__tools {
+  right: 0;
+}
+
+.o-figures-modal__nav-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0;
+}
+
+.o-figures-modal__nav-item {
+  flex: 0 0 auto;
+}
+
+.o-figures-modal__nav-item .a-dropdown > button:after{
+  display: none;
+}
+
+
+.o-figures-modal__nav .o-figures-modal__nav-item {
+  border-right: 1px solid $color__rules;
+}
+
+.o-figures-modal__tools li:last-child {
+  border-left: 1px solid $color__rules;
+}
+
+.o-figures-modal__nav-link,
+.o-figures-modal .a-dropdown > button {
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 47px;
+  padding-right: 0;
+  border: 0 none;
+  background-color: $color__white;
+  color: $color__black;
+  cursor: pointer;
+
+  @include breakpoint('small+') {
+    width: 56px;
+    height: 55px;
+  }
+}
+
+.o-figures-modal .a-dropdown > button{
+  pointer-events: none;
+}
+.o-figures-modal__nav-link:hover {
+  color: $color__text--tertiary;
+}
+
+.o-figures-modal__nav-link svg,
+.o-figures-modal .a-dropdown > strong svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-right: auto;
+  margin-left: -12px;
+}
+
+.o-figures-modal__nav-link--prev {
+  transform: rotate(180deg);
+}
+
+.o-figures-modal .a-dropdown {
+  cursor: pointer;
+  border: 0 none;
+}
+
+.o-figures-modal .a-dropdown ul {
+  left: auto;
+  right: -1px;
+  top: calc(100% - 4px);
+  width: 200px;
+}
+
+.o-figures-modal__figure-img {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 48px;
+  bottom: 200px;
+  transition: bottom .25s ease-in-out;
+
+  .s-figcaption-collapsed &,
+  .s-figcaption-empty & {
+    bottom: 0;
+  }
+
+  .s-figcaption-empty & {
+    transition: none;
+  }
+
+  @include breakpoint('small+') {
+    top: 56px;
+  }
+
+  @include breakpoint('medium+') {
+    bottom: 252px;
+  }
+
+  @include breakpoint('large+') {
+    right: 436px;
+    bottom: 0;
+    transition: right .25s ease-in-out;
+
+    .s-figcaption-collapsed &,
+    .s-figcaption-empty & {
+      right: 0;
+    }
+
+    .s-figcaption-empty & {
+      transition: none;
+    }
+  }
+}
+
+.o-figures-modal__figure-img img {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  margin: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: 50% 50%;
+  transition: all .25s ease-in-out;
+}
+
+.o-figures-modal__figure-img img.s-draggable {
+  /* autoprefixer: off */
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.o-figures-modal__figure-img img.s-draggable.s-dragging {
+  /* autoprefixer: off */
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+.o-figures-modal__figcaption {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200px;
+  padding: 15px 16px 16px;
+  border-top: 1px solid $color__rules;
+  background-color: $color__background;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: bottom .25s ease-in-out;
+
+  .s-figcaption-collapsed &,
+  .s-figcaption-empty & {
+    bottom: -200px;
+  }
+
+  .s-figcaption-empty & {
+    display: none;
+  }
+
+  @include breakpoint('medium+') {
+    height: 252px;
+
+    .s-figcaption-collapsed &,
+    .s-figcaption-empty & {
+      bottom: -252px;
+    }
+  }
+
+  @include breakpoint('large+') {
+    left: auto;
+    padding-top: 56px;
+    width: 436px;
+    height: auto;
+    border-top: 0 none;
+    border-left: 1px solid $color__rules;
+    transition: right .25s ease-in-out;
+
+    .s-figcaption-collapsed &,
+    .s-figcaption-empty & {
+      right: -436px;
+      bottom: 0;
+    }
+  }
+}
+
+.o-figures-modal__figcaption strong.f-h11 {
+  color: $color__text--headlines;
+}
+
+
+.o-figures-modal .o-figures-modal__figcaption-toggle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 28px;
+  border: 0 none;
+  border-top: 1px solid $color__rules;
+  border-right: 1px solid $color__rules;
+  background-color: $color__white;
+  cursor: pointer;
+
+  @include breakpoint('large+') {
+    display: block;
+    left: auto;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: 28px;
+    height: 48px;
+    border: 0 none;
+    border-bottom: 1px solid $color__rules;
+    border-left: 1px solid $color__rules;
+  }
+}
+
+.o-figures-modal.s-figcaption-empty .o-figures-modal__figcaption-toggle {
+  display: none;
+}
+
+.o-figures-modal__figcaption-toggle::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -4px;
+  margin-left: -2px;
+  border-width: 4px 0 4px 4px;
+  border-style: solid;
+  border-color: transparent transparent transparent $color__black;
+  transform: rotate(90deg);
+  transition: transform .25s ease-in-out;
+
+  .s-figcaption-collapsed & {
+    transform: rotate(270deg);
+  }
+
+  @include breakpoint('large+') {
+    transform: rotate(360deg);
+
+    .s-figcaption-collapsed & {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.o-figures-modal__zoom {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
+.o-figures-modal__zoom ul {
+  margin-top: 0;
+}
+
+.o-figures-modal__zoom li {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.o-figures-modal__zoom button {
+  display: block;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  color: $color__black;
+  transform-origin: 50%;
+  cursor: pointer;
+}
+
+.o-figures-modal__zoom button:disabled {
+  color: $color__black--10;
+  cursor: default;
+}
+
+.no-touch .o-figures-modal__zoom button:not(:disabled):hover {
+  color: $color__black--25;
+}
+
+.o-figures-modal__zoom li:first-child button {
+  border-bottom: 1px solid $color__white;
+}
+
+.o-figures-modal__zoom svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+}
+
+
+.o-figures-modal__menu {
+  display: none;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 80px 20px;
+  background-color: $color__white;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @include breakpoint('medium+') {
+    padding: 80px 40px;
+  }
+
+  .o-figures-modal.s-menu-open & {
+    display: block;
+  }
+}
+
+
+.o-figures-modal .o-figures-modal__menu-close {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 56px;
+  height: 56px;
+  border-right: 1px solid $color__rules;
+  border-bottom: 1px solid $color__rules;
+  background-color: $color__white;
+  color: $color__black;
+}
+
+.o-figures-modal .o-figures-modal__menu-close:hover {
+  color: $color__black--25;
+}
+
+.o-figures-modal__menu-close svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+}
+
+.o-figures-modal__menu-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0;
+}
+
+.o-figures-modal__menu-item {
+  display: block;
+  position: relative;
+  flex: 0 0 auto;
+  width: 50%;
+  padding: 16px 16px 8px;
+  cursor: pointer;
+
+  @include breakpoint('small+') {
+    width: 33.3333%;
+  }
+
+  @include breakpoint('medium+') {
+    padding: 44px 44px 8px;
+  }
+
+  @include breakpoint('large+') {
+    width: 25%;
+  }
+}
+
+.o-figures-modal__menu-item.s-active::before,
+.o-figures-modal__menu-item:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid $color__rules;
+}
+
+.o-figures-modal__menu-item.s-active::before {
+  border-color: $color__black;
+}
+
+.o-figures-modal__menu-img-container {
+  display: block;
+  position: relative;
+}
+
+.o-figures-modal__menu-img-container::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.o-figures-modal__menu-img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.o-figures-modal__menu-img img {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.o-figures-modal__menu-title {
+  display: block;
+  margin-top: 16px;
+  color: $color__text--quaternary;
+  text-align: center;
+}
+
+// Figure viewer fixes
+.figure-viewer__hold__fig{
+  width: 100%;
+  height: 100%;
+}
+.o-figures-modal{
+  z-index: 10;
+  .m-figure-item__figcaption{
+    .f-h11, .f-caption--title{
+      @include f-h11;
+      display: inline;
+      color: $color__text--headlines;
+    }
+    // @fixme it is unclear why this code was necessary - it is not documented anywhere and added in different commit - which doesn't describe this
+    // removed because #MMSPB-4351
+    //.f-caption--title{
+    //  &:before{
+    //    content: " ";
+    //    display: inline-block;
+    //    width: 0.5em;
+    //  }
+    //}
+    .f-caption--title:first-child{
+      &:before{
+        display: none;
+      }
+    }
+  }
+  .o-figures-modal__figcaption-toggle{
+    display: block;
+  }
+}
+
+.o-figures-modal__menu-list{
+  .figure{
+    display: block;
+    position: relative;
+    flex: 0 0 auto;
+    width: 50%;
+    padding: 16px 16px 8px;
+    cursor: pointer;
+    text-align: center;
+
+    @include breakpoint('small+') {
+      width: 33.3333%;
+    }
+
+    @include breakpoint('medium+') {
+      padding: 44px 44px 8px;
+    }
+
+    @include breakpoint('large+') {
+      width: 25%;
+    }
+    &::before{
+      display: none;
+    }
+    &:hover::before {
+      display: block;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $color__rules;
+      background: transparent;
+      z-index: -1;
+    }
+    .m-cta__figure-img{
+      img{
+        transform: none;
+        position: relative;
+        transform-origin: center;
+        left: auto;
+        top: auto;
+        display: inline;
+      }
+    }
+    .a-subtitle{
+        display: none;
+    }
+    .m-figure-item__figcaption{
+      .f-caption{
+        @extend .o-figures-modal__menu-title;
+        font-weight: 400;
+        @extend .f-ui;
+        &:not(:first-child), &.f-caption--title{
+          display: none;
+        }
+      }
+    }
+    &.s-active::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $color__black;
+      display: block;
+      z-index: -1;
+      background: transparent;
+    }
+
+  }
+}
+.o-figures-modal__figure{
+  .o-figures-modal__figcaption-toggle{
+    &.show{
+      display: none;
+    }
+    .s-figcaption-collapsed &.show{
+        display: block;
+      }
+    .s-figcaption-collapsed &.hide{
+        display: none;
+      }
+    }
+  }
+
+.o-figures-modal__figure-img{
+  img{
+    max-height: 100%;
+    max-width: 100%;
+  }
+  figure{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.o-figures-modal__nav-item{
+  .at-icon-wrapper{
+    display: none;
+  }
+}
+

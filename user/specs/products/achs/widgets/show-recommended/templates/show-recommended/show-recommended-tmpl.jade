@@ -1,0 +1,15 @@
+div.show-recommended
+    if(thisWidget && thisWidget.properties && thisWidget.properties.title)
+        h5 !{thisWidget.properties.title}
+    if (data) && (data.items)
+        ul
+            each item, i in data.items
+                li
+                    if(item.group && item.group.serial && item.group.serial.title)
+                        if(item.group.serial.journalLink)
+                            h6
+                                a(href=item.group.serial.journalLink) !{item.group.serial.title}
+                        else
+                            h6  !{item.group.serial.title}
+                    if(item.title)
+                        p !{item.title}

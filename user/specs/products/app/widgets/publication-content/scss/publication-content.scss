@@ -1,0 +1,567 @@
+article {
+  .citation{
+    &__access{
+      &__type{
+        vertical-align: middle;
+      }
+    }
+  }
+  .tab{
+    @include media('>=tablet'){
+      z-index: 0;
+    }
+
+    &__content{
+      background:transparent;
+      border: 1px solid $primary-border-color;
+      border-top: none;
+    }
+
+
+&__nav{
+ li{
+   width: 25%;
+   a{
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+   }
+ }
+}}
+
+  .icon{
+
+    &-Icon_Section-menu{
+      font-size: .75rem;
+    }
+    &-Icon_About-Article{
+      @include media('<tablet'){
+        font-size: .9rem;
+      }
+    }
+  }
+
+  .coolBar__wrapper{
+    i{
+      @include media('>=tablet'){
+        font-size: .875rem;
+      }
+
+      padding-right: 4px;
+    }
+  }
+  .psych-article__content{
+    .article__tocHeading {
+      border-bottom: 4px solid;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+    .epub-section{
+      float: left;
+      margin-bottom: 20px;
+    }
+    .article-inline-share{
+      float: right;
+      padding-top: 10px;
+      @include media('<tablet'){
+        float: left;
+        display: block;
+        padding-bottom: 10px;
+        clear: left;
+      }
+    }
+  }
+
+  .psych__body {
+    clear: both;
+    border-top: 1px solid $primary-border-color;
+    padding-top: 0;
+    .abstractLine {
+      border-bottom: 1px solid;
+      border-color: $primary-border-color;
+      margin-bottom: 40px;
+      padding-bottom: 10px;
+      font-weight: bold;
+      p{
+        margin-top: 0;
+      }
+    }
+    .abstractSectionHeading {
+      display: none;
+    }
+    .sectionInfo {
+      .sectionJumpTo{
+        display: none;
+      }
+    }
+    .abstractKeywords{
+      display: none;
+    }
+
+    .anchorFig {
+      position: relative;
+      width: auto;
+      max-width: 350px;
+      margin: 0 20px 30px 0;
+      padding: 10px;
+      background: $default-theme-light-color;
+      text-align: center;
+      float: left;
+      @include media('<tablet'){
+        width: 100%!important;
+        max-width: 100%!important;
+      }
+      .caption {
+        text-align: left;
+        background-color: $default-theme-light-color;
+        overflow: hidden;
+        padding: 2px 5px 0;
+        color: $primary-text-color;
+        padding: 0;
+        text-align: left;
+      }
+      .attrib {
+        clear: left;
+        text-align: left;
+        position: absolute;
+        bottom: -1.5em;
+        left: 0;
+        font-size: 12px;
+        color:$default-theme-color;
+      }
+    }
+    .image-credit{
+      text-align: right;
+      font-size: 1rem;
+    }
+  }
+  h3.article-section__title{
+    color: $black!important;
+  }
+  .accordion-tabbed__tab-mobile {
+    .author-info {
+      z-index: 3;
+    }
+  }
+  .coolBar{
+    .book-chapter__updates {
+      display: none;
+    }
+  }
+}
+.article-inline-share{
+  &__item{
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    .at-icon-wrapper {
+      padding-right: 0;
+      margin-right: 0 !important;
+      margin-left: 10px;
+      padding-left: 4px;
+    }
+  }
+}
+
+.article {
+  &--res{
+    .article{
+      &__access{
+        float: right;
+      }
+    }
+    .citation__top__item{
+      &:not(:last-child):after {
+        content: " ";
+      }
+    }
+
+
+  }
+
+  &__body{
+    color: $black;
+    font-family: $article-font-family;
+    @include media('>phone') {
+      font-size: 1.1rem;
+      line-height: 1.8rem;
+    }
+    .body-ref-link{
+      color: $primary-text-color;
+      font-weight: 600;
+    }
+    .body-references ,.authorArticleInfoCon{
+      border-top: 1px solid;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-color: $primary-border-color;
+    }
+    .ext-link, .email {
+      color: $link-text-color;
+    }
+    @include media('<tablet'){
+      border-top: 1px solid $primary-border-color;
+      padding-top: 20px;
+    }
+    .sectionHeader,.Head{
+      color: #000;
+      font-family: PT Sans,sans-serif;
+    }
+    .sectionBar{
+      margin-bottom: 15px;
+      .sectionHeader{
+        width: calc(100% - 25px);
+      }
+      .contentJumpLinks,.sectionHeader{
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 10px;
+        margin-bottom: 0;
+      }
+    }
+    .quote {
+      margin: 15px 20px;
+      padding: 0 10px;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      font-style: italic;
+      text-indent: 0;
+      @include themify($themes) {
+        color:  themed('color');
+      }
+      &:after,&:before{
+        display: none;
+      }
+    }
+    .article-table-holder{
+      .article-table-content{
+        display: none;
+      }
+      &__opener{
+        width: 100%;
+        background: $pol-theme-light-color;
+        padding: 10px;
+        margin: 1em 0;
+        font-family: PT Sans,sans-serif;
+        .captionLabel{
+          font-weight: bold;
+        }
+        >a, >div {
+          width: auto;
+          display: table-cell;
+          padding: 0;
+          vertical-align: top;
+          p {
+            margin: 0;
+            margin-bottom: 4px;
+            line-height: 18px;
+          }
+        }
+        i.icon-table {
+          float: left;
+          font-size: 100px;
+          line-height: 70px;
+          margin-right: 10px;
+        }
+        a {
+          color: $link-text-color;
+          cursor: pointer;
+        }
+        strong {
+          p {
+            margin:0;
+          }
+        }
+        .APP-TableTitleText{
+          color: $black !important;
+          font-weight: 400;
+          font-size: 1.1rem;
+        }
+      }
+    }
+    .article-table-viewer{
+      display: none;
+      &__content{
+        margin: auto;
+        max-width: 87%;
+        max-height: 80%;
+        overflow: auto;
+        width: 100%;
+        color: #fff;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 100;
+        @include media('<large'){
+          max-width: 100%;
+          width:100%;
+          border: 0;
+          max-height: 100%;
+          height: 100%;
+        }
+        .APP-TableTitleText{
+          margin: 0;
+          background: $white;
+          color: $black;
+          padding: 10px;
+          position: relative;
+          @include media('<large'){
+            position: fixed;
+            left: 0;
+            top: 0;
+            right:0;
+            border-bottom: 1px solid $primary-border-color;
+            min-height: 74px;
+            padding-right: 28px;
+            font-size: .875rem;
+          }
+        }
+        .table__viewer__closer{
+          position: absolute;
+          right: 8px;
+          top: 10px;
+          margin: auto;
+          height: 24px;
+          font-size: 1rem;
+          color: $black;
+          z-index: 10;
+          @include media('<large') {
+            position: fixed;
+          }
+        }
+        table{
+          background: $white;
+          @include media('<large') {
+            margin-top: 32px;
+          }
+          thead{
+            box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);
+            background: transparent;
+            th{
+              border: 0;
+              border-top: 1px solid $primary-border-color;
+            }
+          }
+          tr{
+            border-bottom: 1px solid $primary-border-color;
+            &:nth-child(even){
+              background: $default-theme-light-color;
+            }
+            td{
+              font-size: .875rem;
+              padding-top: 4px;
+              padding-bottom: 4px;
+              color:$primary-text-color;
+            }
+            &:last-child{
+              border: 0;
+            }
+          }
+          td,th{
+            padding: 10px;
+          }
+        }
+        .Head{
+          font-size: 1rem;
+          color:$primary-text-color;
+        }
+      }
+      &__ctrl{
+        &__prev,&__next{
+          position: fixed;
+          top: 50%;
+          margin-top: -13px;
+          z-index: 9;
+          font-size: 26px;
+          font-size: 1.625rem;
+          padding: 20px;
+          @include media('<large'){
+            color: $black;
+          }
+        }
+        &__prev{
+          left: 49px;
+          color: $white;
+          @include media('<large'){
+            left:0;
+          }
+        }
+        &__next{
+          right: 49px;
+          color: $white;
+          @include media('<large'){
+            right:0;
+          }
+        }
+      }
+      &__wrapper{
+        background: $white;
+        color: $black;
+        padding: 10px;
+      }
+      &__overlay{
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background-color: rgba(0,0,0,.85);
+      }
+    }
+    a{
+      color: $link-text-color;
+    }
+    .tab-link{
+      color: $link-text-color;
+      font-weight: normal;
+    }
+    figcaption {
+      .accordion__control{
+        margin-left: 0;
+      }
+    }
+  }
+  &__inlineFigure{
+    border: 7px solid;
+    padding: 20px;
+    margin: 10px 0;
+    @include themify($themes) {
+      border-color:  themed('color');
+    }
+  }
+
+  &-section{
+    &__title{
+      font-family: $menu-font-family;
+      font-size: 1.4rem;
+      &.section__title{
+        font-size: 1.8rem;
+      }
+    }
+  }
+
+  &__access{
+    &__type{
+      .icon-lock_open,.open-access{
+        color: green;
+        font-size: 1rem;
+        +.citation__access__type{
+          color: green;
+          font-size: .875rem;
+        }
+      }
+      .icon-Icon_Permissions-Locked{
+        color: red;
+        font-size: 1rem;
+        +.citation__access__type{
+          color: red;
+          font-size: .875rem;
+        }
+      }
+
+      .open-access{
+        @include media('<tablet'){
+          display: none;
+        }
+      }
+
+    }
+  }
+
+  &__advertisement{
+    text-align: center;
+    min-height: 300px;
+    img{
+      margin-top: 15px;
+    }
+  }
+
+  &__cme{
+    font-weight: 700;
+    padding-left: 5px;
+
+  }
+  &__cc{
+    i{
+      font-size: 1rem;
+    }
+  }
+
+
+  &__concussion{
+    margin-bottom: 15px;
+  }
+
+  &__video{
+      margin: 10px 0 6px;
+  }
+}
+
+
+.loa-accordion {
+  font-size: 13px;
+  ~ .loa-toggle {
+    i[class*=icon-] {
+      font-size: .375rem;
+    }
+    &:hover, &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+  .related{
+    &__authors,&__publication,&__title{
+      color: $black;
+    }
+  }
+
+
+  .epub-section{
+    color: $black;
+    opacity: 1;
+
+    @include media('<tablet'){
+      margin-bottom: 25px;
+    }
+
+    &__item{
+      margin-bottom: 5px;
+    }
+    &__doi{
+      &__text{
+        color: $link-text-color;
+      }
+    }
+    &__citedBy{
+      &__value{
+      @include media('>=tablet'){
+        border: none;
+      }
+
+      }
+    }
+  }
+
+p.short-p + p{
+  margin-top: 0;
+}
+
+p.short-p{
+  margin-bottom: 0;
+}
+
+.w-slide__content{
+  .w-slide--list{
+    .book-chapter__updates{
+      display: none;
+    }
+  }
+}

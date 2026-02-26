@@ -1,0 +1,281 @@
+
+.o-curated-area {
+  position: relative;
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.o-curated-area + .o-curated-area {
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.o-col--keyline-top > .o-curated-area:first-child {
+  margin-top: 20px;
+}
+
+.a-subtitle + .o-curated-area,
+.o-curated-area.m-collapsible__content {
+  padding-top: 16px;
+
+  @include breakpoint('medium+') {
+    padding-top: 20px;
+  }
+}
+
+.m-intro-block + .o-curated-area {
+  margin-top: 24px;
+  padding-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 40px;
+
+    &.o-curated-area--no-keyline-top {
+      margin-top: 20px;
+    }
+  }
+}
+
+
+
+.o-curated-area__col {
+  position: relative;
+
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+  }
+}
+
+.o-curated-area__col:not(:first-child) {
+  margin-top: 20px;
+  padding-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+    margin-left: map-get($inner-gutters, medium);
+    padding-top: 0;
+  }
+
+  @include breakpoint('large+') {
+    margin-left: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-left: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-left: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-curated-area__col--2x {
+  @include breakpoint('medium+') {
+    flex-basis: colspan(2, medium);
+    width: colspan(2, medium);
+  }
+
+  @include breakpoint('large+') {
+    flex-basis: colspan(2, large);
+    width: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex-basis: colspan(2, xlarge);
+    width: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    flex-basis: colspan(2, xxlarge);
+    width: colspan(2, xxlarge);
+  }
+}
+
+.o-curated-area__col--3x {
+  @include breakpoint('medium+') {
+    flex-basis: colspan(3, medium);
+    width: colspan(3, medium);
+  }
+
+  @include breakpoint('large+') {
+    flex-basis: colspan(3, large);
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex-basis: colspan(3, xlarge);
+    width: colspan(3, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    flex-basis: colspan(3, xxlarge);
+    width: colspan(3, xxlarge);
+  }
+}
+
+.o-curated-area__col--4x {
+  @include breakpoint('medium+') {
+    flex-basis: colspan(4, medium);
+    width: colspan(4, medium);
+  }
+
+  @include breakpoint('large+') {
+    flex-basis: colspan(4, large);
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex-basis: colspan(4, xlarge);
+    width: colspan(4, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    flex-basis: colspan(4, xxlarge);
+    width: colspan(4, xxlarge);
+  }
+}
+
+.o-curated-area__col--5x {
+  @include breakpoint('medium+') {
+    flex-basis: colspan(5, medium);
+    width: colspan(5, medium);
+  }
+
+  @include breakpoint('large+') {
+    flex-basis: colspan(5, large);
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex-basis: colspan(5, xlarge);
+    width: colspan(5, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    flex-basis: colspan(5, xxlarge);
+    width: colspan(5, xxlarge);
+  }
+}
+
+.o-curated-area__col--6x {
+  @include breakpoint('medium+') {
+    flex-basis: colspan(6, medium);
+    width: colspan(6, medium);
+  }
+
+  @include breakpoint('large+') {
+    flex-basis: colspan(6, large);
+    width: colspan(6, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex-basis: colspan(6, xlarge);
+    width: colspan(6, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    flex-basis: colspan(6, xxlarge);
+    width: colspan(6, xxlarge);
+  }
+}
+
+.o-curated-area__col--8x {
+  @include breakpoint('medium+') {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
+
+.o-curated-area__col > *:first-child {
+  margin-top: 0;
+}
+
+.o-curated-area__col-items {
+  display: flex;
+  flex-flow: column;
+  min-height: 100%;
+  margin-top: 0;
+}
+
+.o-curated-area__col-items > *:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0 none;
+}
+
+.o-curated-area__col .a-subtitle ~ .o-curated-area__col-items {
+  min-height: auto;
+  margin-top: 20px;
+}
+
+
+// stretching things
+
+.o-curated-area__col-items .m-article {
+
+  @include breakpoint('medium+') {
+    flex: 1 0 auto;
+  }
+}
+
+// drawing the grid lines
+
+.o-curated-area + .o-curated-area:not(.o-curated-area--no-keyline-top)::before,
+.o-curated-area__col + .o-curated-area__col::before,
+.m-intro-block + .o-curated-area:not(.o-curated-area--no-keyline-top)::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.o-curated-area__col + .o-curated-area__col::before {
+  @include breakpoint('medium+') {
+    content: none;
+    display: none;
+  }
+}
+
+.o-curated-area--no-gridlines\@small\- .o-curated-area__col + .o-curated-area__col::before {
+  @include breakpoint('small-') {
+    content: none;
+    display: none;
+  }
+}
+
+.o-curated-area + .o-curated-area--no-border-top::before {
+  content: none;
+  display: none;
+}
+
+.o-curated-area__col:not(:last-child)::after {
+
+  @include breakpoint('medium+') {
+    content: '';
+    position: absolute;
+    right: map-get($inner-gutters, medium) / -2;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $color__rules;
+  }
+
+  @include breakpoint('large+') {
+    right: map-get($inner-gutters, large) / -2;
+  }
+
+  @include breakpoint('xlarge+') {
+    right: map-get($inner-gutters, xlarge) / -2;
+  }
+
+  @include breakpoint('xxlarge') {
+    right: map-get($inner-gutters, xxlarge) / -2;
+  }
+}

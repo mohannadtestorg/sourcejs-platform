@@ -1,0 +1,55 @@
+.holdingContainer
+    .card
+        h2.section__header Customer access report
+        | !{pb.renderDropzone(thisWidget, "customer-access-report-info")}
+        .holdingsAccordion.accordion
+            a.accordion__control(href='#' title='About institution holdings file' aria-expanded='false' aria-controls='holdingsInfoTab')
+                i.icon-notice
+                |  About the customer access report
+                i.icon-chevron-down
+            #holdingsInfoTab.accordion__content
+                | !{pb.renderDropzone(thisWidget, "about-institution-holdings")}
+
+        form(action='/action/showInstitutionAdminSubscriptionManager')
+            input(type='hidden' name='tsv' value='true')
+            .input-group
+                label.pl-6(for='customer-report') Select a recipient
+
+                .row
+                    .col-md-6
+                        label.radio--primary.withInput
+                            input(type='radio' name='customerEmail' value='CustomEmail' checked)
+                            span.label-txt
+                                input#customer-report(type='email' placeholder='example@example.com' name='emailAddresses')
+                    .col-md-6
+                        label.radio--primary
+                            input(type='radio' name='customerEmail' value='emails')
+                            span.label-txt All administrators of this organization
+            .actions.form-btn
+                button.btn.uppercase(type='submit') Customer Access Report
+
+
+    .card
+        h2.section__header KBART holdings file
+        | !{pb.renderDropzone(thisWidget, "KBART-report-info")}
+
+        form(action='/action/institutionAdmin')
+            input(type='hidden' name='iuid' value=data.institutionId)
+            input(type='hidden' name='page' value='sfxreport')
+            input(type='hidden' name='action' value='downloadHolding')
+            .input-group
+                label.pl-6(for='KBART-report') Select a recipient
+
+                .row
+                    .col-md-6
+                        label.radio--primary.withInput
+                            input(type='radio' name='KBARTEmail' value='CustomEmail' checked)
+                            span.label-txt
+                                input#KBART-report(type='email' placeholder='example@example.com' name='emailAddresses')
+                    .col-md-6
+                        label.radio--primary
+                            input(type='radio' name='KBARTEmail' value='emails')
+                            span.label-txt All administrators of this organization
+            .actions.form-btn
+                button.btn.uppercase(type='submit') KBART HOLDINGS FILE
+

@@ -1,0 +1,69 @@
+.coolBar {
+    &--res {
+        .coolBar {
+            &__wrapper {
+                background-color: $standard-bg-color;
+                width: 100% !important;
+            }
+
+            &__section, &__zone {
+                color: $text-onDark;
+            }
+
+            &__second {
+                float: right;
+            }
+        }
+
+        i {
+            color: $text-onDark;
+        }
+
+        .share__ctrl {
+            background: transparent;
+        }
+    }
+
+    &__wrapper {
+        padding: 10px 0;
+    }
+
+    &__second {
+        float: none;
+    }
+
+    [class*="__block"] {
+        a {
+            color: $primary-text-color;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    }
+
+    [class*=__ctrl] {
+        display: inline-block;
+        font-size: .875rem;
+        font-weight: normal;
+        padding: 10px 12px;
+
+        i + span {
+            margin-left: 0;
+        }
+    }
+
+    i {
+        font-size: .875rem;
+        & + span {
+            margin-left: 10px;
+        }
+    }
+
+    &__zone {
+        @include media('<desktop', '>=tablet') {
+            display: block;
+            width: 100%;
+        }
+    }
+}

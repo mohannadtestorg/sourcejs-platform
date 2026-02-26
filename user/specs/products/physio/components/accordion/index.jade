@@ -1,0 +1,63 @@
+﻿extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+
+    section.source_section
+        h2 Tabbed accordion (List of accordion tabs)
+        p  Following example demonstrates a list of accordion tabs.
+        markdown
+            p used `tabbed` as type
+            p and for the external link we used the `url`
+        .source_example(style="max-width: 500px")
+            | !{data.items[0].body}
+    | #{''}
+
+    section.source_section
+        h2 Single accordion examples
+
+        h3 Single accordion - fluid
+        p Following example demonstrates a fluid single accordion tab.
+        p This is the default single accordion style, no need for class addition.
+        markdown
+            p used `single` as type
+        .source_example(style="max-width: 500px")
+            | !{data.items[1].body}
+    section.source_section
+        h2 physio styles
+
+        h3 Single accordion - fluid
+        p Following example demonstrates a fluid single accordion tab.
+        markdown
+            p used `single` as type and add this class `accordion__box` as a container
+        .source_example(style="max-width: 500px")
+            div.accordion__box
+                | !{data.items[1].body}
+
+        h3 Single accordion - centered
+        p Following example demonstrates a centered single accordion tab.
+        markdown
+            p To have the following centered style, add `centered` class to the accordion wrapper.
+        .source_example(style="max-width: 500px")
+            | !{data.items[2].body}
+
+        h3 Single accordion - bordered
+        p Following example demonstrates a bordered single accordion tab.
+        markdown
+            p To have the following bordered style, add `bordered` class to the accordion wrapper.
+        .source_example(style="max-width: 500px")
+            | !{data.items[3].body}
+
+        h3 Subsection of accordion
+        p Following example demonstrates a sub section in a single accordion tab.
+
+        markdown
+            p To have the following subsection style please add a `subSection` as `type`.
+            p To have the left border style add a `border` class to the accordion wrapper.
+        .source_example(style="max-width: 500px")
+            section
+                h2.title Accordion title
+                div
+                    p Description text, autohrs, etc.
+                | !{data.items[4].body}
+    | #{''}

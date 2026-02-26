@@ -1,0 +1,46 @@
+﻿-var headerClasses= "";
+-var fixedClass="fixed";
+if(loiHeader)
+    -headerClasses="header-loi-exists activate-res";
+
+if(!journalHeader)
+    -headerClasses= "header-small";
+if(toggleHeaderOnScroll)
+    -headerClasses = headerClasses + " mob-toggle-header";
+
+
+if(advertisementHeader)
+    -fixedClass=""
+    .header__advertisement
+        .container
+            | !{advertisementHeader}
+
+header.header.base(data-db-parent-of="sb1" class=headerClasses + " " +fixedClass)
+        .header--first-row.responsive-menu-holder
+            .pull-left
+                | !{logo}
+            .drawer__nav
+                | !{mainmenu}
+            .pull-right
+                .institution-wrapper
+                    | !{institution}
+                .header__quick-menu
+                    .header__login
+                        | !{user}
+                    .header__search
+                        | !{search}
+                    .header__advanced-search.hidden-xs
+                        a(href="#") Advanced Search
+        if(journalHeader)
+            div(class="#{themeClass}").generic-site
+                .site-header
+                    .header--second-row
+                        | !{journalHeader}
+                        if(loiHeader)
+                            .container.responsive-menu-holder
+                                .header__coolBar.site-header__inline-menu
+                                    | !{loiHeader}
+                        if(headerBottomNav)
+                            .container.responsive-menu-holder
+                                .drawer__nav.site-header__inline-menu
+                                        | !{headerBottomNav}

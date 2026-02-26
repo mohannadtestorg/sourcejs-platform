@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+body {
+    color: #000;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-family: Open Sans, open-sans, sans-serif;
+}
+
+main.custom-page:before {
+    padding-top: 2rem;
+    content: '';
+    display: block;
+}
+
+a {
+    color: $primary-bg-color;
+}
+
+.main-nav {
+    &:not(.menu--res) {
+        border-bottom: none;
+        padding: 0 17px;
+        a {
+            color: #fff;
+            text-transform: capitalize;
+        }
+        .menu-parent {
+            //vertical-align: middle;
+            & > a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+            .dropdown__menu {
+                max-height: 450px;
+                overflow-y: auto;
+            }
+            li > a {
+                line-height: 1rem;
+                padding: 8px 9px;
+            }
+        }
+    }
+
+    &.menu--res {
+        .menu-header {
+            padding-left: 25px;
+            i {
+                top: 0;
+                padding: 0.875rem 0.7rem;
+            }
+        }
+        ul{
+            padding: 10px 0 22px;
+            a{
+                margin:0;
+            }
+        }
+
+        li{
+            padding: 10px 0;
+            &.dropdown {
+                a {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding:0;
+                    margin: 0;
+                    i {
+                        margin-left: auto;
+                    }
+                }
+                &:hover {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.dropdown__menu {
+    width: 250px;
+}
+
+.content {
+    padding-top: 60px;
+    padding-bottom: 6rem;
+    @include media(">=desktop") {
+        padding-top: 120px;
+    }
+}
+
+.section-separator {
+    margin-top: 2rem;
+}
+
+.w-slide_head {
+    background-color: $primary-bg-color;
+    color: #fff;
+    .w-slide__back, .w-slide__back i, .w-slide__title {
+        color: #fff;
+    }
+}
+
+.error.message {
+    border: none;
+    padding: 10px 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.border-bottom--dark {
+    @extend .border-bottom;
+    border-color: $separator-color;
+}
+
+// workaround to make 5 columns in a row
+@include media(">=desktop") {
+    .col-md-2_4 {
+        float: left;
+        width: (2.4/12) * 100%;
+    }
+}
+
+// Copied from BS4
+
+// Margin and Padding
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge((
+        0: 0,
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
+        5: ($spacer * 3)
+), $spacers);
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $length in $spacers {
+
+        .#{$abbrev}-#{$size} {
+            #{$prop}: $length !important;
+        }
+        .#{$abbrev}t-#{$size},
+        .#{$abbrev}y-#{$size} {
+            #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r-#{$size},
+        .#{$abbrev}x-#{$size} {
+            #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b-#{$size},
+        .#{$abbrev}y-#{$size} {
+            #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l-#{$size},
+        .#{$abbrev}x-#{$size} {
+            #{$prop}-left: $length !important;
+        }
+    }
+}
+
+// Some special margin utils
+.m-auto {
+    margin: auto !important;
+}
+
+.mt-auto,
+.my-auto {
+    margin-top: auto !important;
+}
+
+.mr-auto,
+.mx-auto {
+    margin-right: auto !important;
+}
+
+.mb-auto,
+.my-auto {
+    margin-bottom: auto !important;
+}
+
+.ml-auto,
+.mx-auto {
+    margin-left: auto !important;
+}

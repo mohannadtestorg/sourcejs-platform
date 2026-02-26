@@ -1,0 +1,16 @@
+.badge-type {
+  font-size: .875rem;
+  background: $secondary-lighten-bg-color;
+  padding: 5px 10px;
+  margin: 0 2px 4px;
+  display: inline-block;
+  @include themify($themes) {
+    background-color: themed('color2');
+  }
+  &:hover,&:focus{
+    @include themify($themes) {
+      background-color: rgba(themed('color'),.3);
+    }
+  }
+
+}

@@ -1,0 +1,104 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    default-bg-color:
+      value: '{!BACKGROUND_GRAY1}'
+    secondary-text-color:
+      value: '{!SECONDARY_GRAY}'
+    search-bg:
+      value: '{!GRAY_9}'
+    primary-text-color:
+      value: '{!PRIMARY_BLACK}'
+    primary-blue-color:
+      value: '{!PRIMARY_BLUE}'
+    primary-white:
+      value: '{!PRIMARY_WHITE}'
+    primary-red:
+      value: '{!PRIMARY_RED}'
+    primary-red-bg:
+      value: '{!PRIMARY_RED_BG}'
+    gray-2:
+      value: '{!GRAY_2}'
+    red-4:
+      value: '{!RED_4}'
+    red-5:
+      value: '{!RED_5}'
+    secondary-red:
+      value: '{!SECONDARY_RED}'
+    gray-background:
+      value: '{!GRAY_4}'
+    dark-gray:
+      value: '{!GRAY_8}'
+    light-orange:
+      value: '{!ORANGE_2}'
+    light-green:
+      value: '{!GREEN_4}'
+    light-blue:
+      value: '{!BLUE_6}'
+    light-red:
+      value: '{!RED_3}'
+    transparent:
+      value: '{!TRANSPARENT}'
+    primary-border:
+      value: '{!GRAY_6}'
+    secondary-border:
+      value: '{!GRAY_7}'
+    breadcrumb-bg:
+      value: '{!BLACK_3}'
+    publication:
+      value: '{!GRAY_5}'
+    aps-general:
+      value: '{!RED_PRIMARY1}'
+    apsselect:
+      value: '{!RED_PRIMARY1}'
+    ajpcell:
+      value: '{!RED_1}'
+    ajpendo:
+      value: '{!YELLOW_2}'
+    ajpgi:
+      value: '{!BLUE_2}'
+    ajpheart:
+      value: '{!GREEN_1}'
+    ajplegacy:
+      value: '{!TAN_1}'
+    ajplung:
+      value: '{!GREEN_2}'
+    ajpregu:
+      value: '{!BLUE_1}'
+    ajprenal:
+      value: '{!PURPLE}'
+    jappl:
+      value: '{!RED_2}'
+    jn:
+      value: '{!GRAY_8}'
+    physiolgenomics:
+      value: '{!ORANGE_1}'
+    advances:
+      value: '{!YELLOW_3}'
+    physrev:
+      value: '{!BLUE_3}'
+    physiologyonline:
+      value: '{!GREEN_3}'
+    secondary-link-red:
+        value: '{!SECONDARY_LINK_RED}'
+    orcid:
+        value: '{!GREEN_5}'

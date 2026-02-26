@@ -1,0 +1,56 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl.jade
+
+block mainNavBlock
+    div.main-nav
+        a(href="#" + data.id data-target=data.id data-toggle="nav" title="menu drawer")
+            block navIcons
+                i.icon-menu2(aria-hidden="true")
+                i.icon-close_thin(aria-hidden="true")
+        nav.drawer__nav.gutterless(role="navigation" id=data.id class=viewPortClass data-ctrl-res=viewPort)
+            a.menu-header(href='#' class=viewPortInvertClass) Home
+            +menu(data.list, false)
+
+block MenuDropZone
+
+block nestedLi
+    each item, i in list
+
+        -var liClass = "menu-item";
+        if ( item.list)
+            //- dropDownId = dropDownId + 1;
+            - liClass = "dropdown menu-parent";
+        if item.current == "true"
+            - liClass = liClass + " is--current";
+
+
+        if (item.list)
+            if nested
+                li(class=liClass+" col-md-4" role="menuitem" aria-haspopup="true" tabindex="-1" aria-label=item.text )
+                    +link(item)
+            else
+                li(class=liClass role="menuitem" aria-haspopup="true"  aria-label=item.text id='menu-item-' + data.id + '-' + i)
+                    +link(item)
+        else
+            if nested
+                li(class=liClass role="menuitem" tabindex="-1" aria-label=item.text )
+                    +link(item)
+            else
+                li(class=liClass role="menuitem" aria-label=item.text id='menu-item-' + data.id + '-' + i)
+                    +link(item)
+
+block nestedUl
+    if nested == true
+        if dropDownId > 1
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId class="level-" + dropDownId aria-hidden="true" role="menu")
+                - dropDownId = 0;
+                .container
+                    .row
+                        +menuItem(list, nested)
+        else
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId aria-hidden="true" role="menu")
+                .container
+                    .row
+                        +menuItem(list, nested)
+    else
+        ul#menubar.rlist--inline(role="menubar")
+            +menuItem(list, nested)

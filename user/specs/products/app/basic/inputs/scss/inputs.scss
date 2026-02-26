@@ -1,0 +1,40 @@
+.radio--primary{
+  input:checked{
+  ~span:before{
+    @include themify($themes) {
+      background-color: themed('color');
+      box-shadow: inset 0 0 0 0px themed('color'), inset 0 0 0 2px #fff;
+      border: 2px solid themed('color');
+    }
+  }
+  }
+
+}
+
+
+input, optgroup, select, textarea{
+  border-color: $black;
+}
+
+label{
+  color: $black;
+  font-size: .875rem;
+}
+
+.switch{
+
+  &.small-switch label, [type=checkbox]:not(:checked)+label:after{
+    @include themify($themes) {
+      background-color: themed('color');
+    }
+
+  }
+
+  .cmn-toggle{
+    &:checked+label{
+      @include themify($themes) {
+        background-color: themed('color');
+      }
+    }
+  }
+}

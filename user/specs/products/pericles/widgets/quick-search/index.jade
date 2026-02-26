@@ -1,0 +1,78 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl.jade')
+        p This template includes <a href="/specs/ux3/components/refine-search/">Refine search</a> template in <code>refineSearch</code> block.
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+        p The following example demonstrates Quick search form.
+
+
+        style.
+            .source_example .pageHeader {
+                position: static !important;
+            }
+
+            .source_example .main-search-field-wrapper {
+                overflow: hidden !important;
+            }
+
+            .source_example .quick-search__button {
+                width: 46px;
+                margin-right: initial;
+            }
+
+
+        h3 Default Quick search
+        markdown
+            p Styles and animation transition created based on <a href='https://jira.atypon.com/browse/LIT-191372' target="_blank">`LIT-191372`</a>
+        .source_example
+            .pageHeader
+                .container
+                    | !{pb.render('quick-search', 'quick-search-btn.json', 'pericles')}
+
+
+        h3 Expandable Quick search
+        markdown
+            p to expand the quick search by default add wrapper class `expanded--quickSearch`
+        .source_example
+            .pageHeader
+                .container
+                    | !{pb.render('quick-search', 'quick-search-btn.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["expanded--quickSearch"]}}}})}
+
+        h3 Home Quick search
+        markdown
+            p Styles changed based on <a href='https://jira.atypon.com/browse/LIT-189421' target="_blank">`LIT-189421`</a>
+        markdown
+            p we are using an alternative template `alt-quick-search` for home page add a wrapper class `homepage-search-wrapper`
+        .source_example
+            .homepage-search-container
+                .container
+                    .col-md-2
+                    .col-md-8
+                        | !{pb.render('quick-search', 'quick-search/alternative/alt-quick-search', 'quick-search.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["homepage-search-wrapper"]}}}})}
+                    .col-md-2
+    | #{''}
+
+    section.source_section
+        h2 Citation search
+        p In order to display this template make sure the following exists in data properties <code>showCitation: true</code> and use the alternative template `citation-search-tmpl`
+
+
+        .source_example
+            .container
+                | !{pb.render('quick-search', 'quick-search/citation-search', 'quick-search-citation.json', 'pericles')}
+    | #{''}
+
+

@@ -1,0 +1,22 @@
+extends /specs/products/mal/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    .source_info
+        p <strong>Card</strong> component can be used on different other components and widgets (eg. slider, newsletter).
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+    | #{''}
+
+    section.source_section
+        h2 journal html
+
+        h3 Subscribe box
+        .source_example
+            div
+                include ./templates/image-gallery.jade
+        | #{''}

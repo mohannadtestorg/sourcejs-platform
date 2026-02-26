@@ -1,0 +1,33 @@
+extends ../../../../components/issue-item/templates/issue-item/issue-item-tmpl.jade
+
+block formatLinks
+    .content-item-format-links
+        ul.rlist--inline.separator
+            if(item.abstractLink)
+                li
+                    a(href=item.abstractLink, title='Abstract') Abstract
+            if(item.fullTextLink)
+                li
+                    a(href=item.fullTextLink, title='Full text') Full text
+
+            if (item.epdf)
+                - pdfClass = 'pdfLink--is-hidden';
+                li.readcubeEPdfLink
+                    a(href=item.epdf, title='EPDF') PDF
+
+            if (item.pdfLink)
+                li(class=pdfClass )
+                    a(href=item.pdfLink, title='PDF') PDF
+
+            if(item.referencesLink)
+                li
+                    a(href=item.referencesLink, title='References') References
+            block requestPermission
+                if(item.permissions && thisWidget.properties.displayRightLink)
+                    li.request-permission-link
+                        a(href=item.permissions title="Request permissions") Request permissions
+
+
+block mainIssuesWrapper
+    .publication-list
+        +mainIssuesWrapper()

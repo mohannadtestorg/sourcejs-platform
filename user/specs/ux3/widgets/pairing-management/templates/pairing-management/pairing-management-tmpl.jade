@@ -1,0 +1,31 @@
+.pairing-management
+    span#pairingManagmentWidgetId.hidden !{thisWidget.id}
+    span.serviceNameHidden.hidden !{data.hiddenData.serviceName}
+    span.antiForgeryToken.hidden !{data.hiddenData.antiForgeryToken}
+
+    | !{pb.render("pairing-management", "pairing-filters", {data: data, thisWidget: thisWidget})}
+
+    | !{pb.render("pairing-management", "pairing-table-actions", {data: data, thisWidget: thisWidget})}
+    .pairedEmailsTableSection
+        .pairedEmailsTableWrapper
+            table.separator.pairedEmailsTable.expandable(role='grid')
+                thead
+                    tr(role='row')
+                        th
+
+                        th
+                            | Email Address
+                        th
+                            | Name
+                        th
+                            | Last Action On
+                        th
+                            | Pairing Permission
+                tbody
+                    block pairingTableRows
+
+
+    | !{pb.render("pairing-management", "pairing-pager", {data: data, thisWidget: thisWidget})}
+
+
+

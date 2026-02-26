@@ -1,0 +1,198 @@
+/***
+
+```
+<aside class="m-nejm-group-products m-nejm-group-products--career-center">
+  <svg class="icon--nejm-career-center" title="NEJM Career Center"><use xlink:href="#icon--nejm-career-center" /></svg>
+  <h3 class="m-nejm-group-products__color-band-title">Question of the Week</h3>
+  <ul class="m-widget-career-center__list">
+  </ul>
+</aside>
+```
+
+***/
+
+.m-nejm-group-products {
+  position: relative;
+  margin-top: 32px;
+  padding: 20px 16px;
+  background-color: $color__aside-bg--career-center;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.o-col--secondary .o-cols-2\@medium .m-nejm-group-products {
+  @include breakpoint('medium') {
+    margin-top: 0;
+  }
+}
+
+.m-nejm-group-products__logo  {
+  display: block;
+}
+
+.m-nejm-group-products__color-band-title {
+  @include f-h11;
+  margin: 16px -16px 0;
+  padding: 15px 16px 13px;
+  background-color: #00999a;
+  color: $color__white;
+
+  @include breakpoint('small+') {
+    margin-bottom: 0;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+
+.m-nejm-group-products__color-band-title + p {
+  margin-top: 16px;
+}
+
+.m-nejm-group-products__btns {
+  margin-top: 32px;
+}
+
+.m-widget-career-center__list {
+  display: block;
+  margin-top: 0;
+}
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .m-nejm-group-products {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+/***
+
+Career center variant: `m-nejm-group-products--career-center`
+
+```
+<aside class="m-nejm-group-products m-nejm-group-products--career-center">
+  <svg class="icon--nejm-career-center" title="NEJM Career Center"><use xlink:href="#icon--nejm-career-center" /></svg>
+  <ul class="m-widget-career-center__list">
+    <li class="a-job-item">
+      <a href="#" class="a-job-item__link">
+        <em class="a-job-item__type">Surgery</em> <br>
+        <strong class="a-job-item__title">Cardiothoracic Surgery in Buffalo</strong> <br>
+        <span class="a-job-item__location">Pennsylvania</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+```
+
+***/
+
+.m-nejm-group-products--career-center::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__accent;
+}
+
+.m-nejm-group-products--career-center .icon--nejm-career-center {
+  margin-top: -2px;
+}
+
+/***
+
+Knowledge+ variant: `m-nejm-group-products--knowledge`
+
+```
+<form class="m-nejm-group-products m-nejm-group-products--knowledge">
+  <svg class="icon--nejm-knowledge-plus" title="NEJM Knowledge Plus"><use xlink:href="#icon--nejm-knowledge-plus" /></svg>
+  <h3 class="m-nejm-group-products__color-band-title">Question of the Week</h3>
+  <p class="f-h11">Which one of the following sets of potential complications is most likely to be a concern in a 9-month-old boy who has had a large, blanchable pink patch on his face since birth in the distribution of the trigeminal nerve?</p>
+  <ol>
+    <li>
+      <span class="a-form-radio">
+        <input type="radio" value="answer_1" id="answer_1" name="question_of_the_week" checked>
+        <label for="answer_1">Glaucoma, visual-field defects, and seizures</label>
+      </span>
+    </li>
+    <li>
+      <span class="a-form-radio">
+        <input type="radio" value="answer_2" id="answer_2" name="question_of_the_week">
+        <label for="answer_2">Angiofibromas, hamartomas, and subependymal giant-cell tumors</label>
+      </span>
+    </li>
+  </ol>
+  <p>
+    <button class="a-btn a-btn--primary" type="submit">
+      Submit
+      <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+    </button>
+  </p>
+</form>
+```
+
+***/
+
+.m-nejm-group-products--knowledge::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: #00999a;
+}
+
+.m-nejm-group-products--knowledge ol {
+  position: relative;
+  padding-top: 4px;
+}
+
+.m-nejm-group-products--knowledge ol::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-nejm-group-products--knowledge ol li {
+  margin-top: 16px;
+}
+
+.m-nejm-group-products--knowledge .a-form-radio label {
+  @include f-related;
+}
+
+.m-nejm-group-products--knowledge .a-form-radio label::before,
+.m-nejm-group-products--knowledge .a-form-radio label::after {
+  top: 0;
+}
+
+.m-nejm-group-products--knowledge ol + p {
+  text-align: right;
+}

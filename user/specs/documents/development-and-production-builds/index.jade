@@ -1,0 +1,41 @@
+﻿h1 Development And Production JS Builds
+section.source_section
+    h2 Environments separation
+    p Sometimes you implement a JS functionality that is needed on production site but it doesn't work locally and you mimic this functionality locally to test it or demonstrate it such as ajax services requests.
+
+    h3 Development Environments
+    p The development environment (locally) is the environment in which changes to software are developed, most simply an individual developer's workstation. In other words your machine.
+
+    h3 Production Environments
+    p The production environment is also known as live, particularly for servers, as it is the environment that users directly interact with.
+
+    h3  How separation works?
+    markdown
+        p In UX3 we have two major JS files for inclusion:
+            ul
+                li
+                    span all.js
+                    p This file includes JS files to be imported to production environment and development environment, so any `import` in this file would be added to both environments' builds.
+                li
+                    span sourceJs.js
+                    p this file includes JS files to be imported only to <strong>development environment</strong> ( locally), so for example if you added `"import './somefile.js'` to our sourceJs.js file it will be part of development environment's builds but not the production's build.
+        p A gulp task will concat both files and generate "main.js" file, that file will be used in our build tasks.
+
+    h3 How does gulp differentiate if we are on production or development?
+    markdown
+        p By default all our builds will be considered as "development" builds unless you define environmental variable `NODE_ENV` and give it `"production"` as a value.
+
+    h4 How I can tell gulp that I want a production build
+    markdown
+        p
+            ul
+                li Stop gulp if it was running
+                li Run the following command on same terminal you use to run glup command: `export NODE_ENV=production`.
+                li Make sure that you have defined the environmental variable correctly by running: `echo $NODE_ENV` make sure the output is `produciton`
+                li Start gulp again
+
+section.source_section
+    h2 Example
+    p In publication content widget we have ajax services to generate the "figures" and "references" tabs content. We have added those services' urls to our yaml files to be transformed to javascript object and generate the "services-variables.js" file, we include "services-variables.js" in our "all.js" file since we need those values in our production build.
+    p To avoid the cross-origin HTTP request limitation we overridden the services urls and added those values to another yamle file that will generate "mimicked-services-variables.js" in our variables directory. We import "mimicked-services-variables.js" in "sourceJs.js"to be part of our local environment build without affecting the production build. In other words, those URL values will be overridden only locally.
+

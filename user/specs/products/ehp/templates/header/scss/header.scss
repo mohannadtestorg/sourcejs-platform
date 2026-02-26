@@ -1,0 +1,32 @@
+.header{
+
+  &__right{
+    padding:5px 0;
+  }
+
+  &__logo{
+    width: 400px;
+    @include media('<phone'){
+      width:200px;
+    }
+  }
+  &--first-row.container{
+    height: 75px;
+    padding: 10px;
+    max-width: $max-container-size;
+    @include media('<desktop'){
+      height: 60px;
+      padding: 15px 10px 0;
+      border-bottom: 1px solid $primary-border-color;
+    }
+  }
+
+  .open-access-img{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+    @include media('<desktop'){
+      display: none;
+    }
+  }
+}

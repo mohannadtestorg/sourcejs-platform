@@ -1,0 +1,10 @@
+.facet{
+  &__title{
+    color: $primary-darken-text-color;
+  }
+  &__list{
+    @include themify($themes) {
+      color:themed('color');
+    }
+  }
+}

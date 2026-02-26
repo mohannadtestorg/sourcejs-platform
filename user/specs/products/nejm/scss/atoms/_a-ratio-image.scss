@@ -1,0 +1,33 @@
+/***
+
+Defaults to a 3:2 image ratio. Used when ever you want an image ratio locked image area, often by extending something else. Uses mixin `ratio-image`
+
+```
+<div class="a-ratio-image">
+  <div class="a-ratio-image-container">
+    <img src="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg">
+  </div>
+</div>
+
+<div class="a-ratio-image">
+  <div class="a-ratio-image-container">
+    <img src="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg">
+  </div>
+  <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+</div>
+```
+
+***/
+
+.a-ratio-image {
+  @include ratio-image;
+}
+
+#demo > .a-ratio-image {
+  display: block;
+  width: 200px;
+
+  & + .a-ratio-image {
+    margin-top: 20px;
+  }
+}

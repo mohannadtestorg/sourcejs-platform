@@ -1,0 +1,11 @@
+extends ../../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade
+
+block volume
+    if (data) && (data.volume)
+        span.comma  Volume #{data.volume}
+
+    if (data) && (data.issue)
+        span.comma Issue #{data.issue}
+
+    if (data) && (data.pages)
+        | pp. #{data.pages}

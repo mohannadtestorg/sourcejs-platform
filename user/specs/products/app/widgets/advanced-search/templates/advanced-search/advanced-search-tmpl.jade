@@ -1,0 +1,15 @@
+extends ../../../../../../ux3/widgets/advanced-search/templates/advanced-search/advanced-search-tmpl
+
+
+block advancedSerachSuffix
+  -circleWithPlusiconClass="icon-circle-with-plus"
+
+block timeToPrefix
+    label.timeFrame-to__label To :
+
+block customRange Label
+    span.label-txt !{item.label} :
+
+
+block suffixAdvancedSearch
+    | !{pb.renderDropzone(thisWidget, "suffixAdvancedSearchDropZone")}

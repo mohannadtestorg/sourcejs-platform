@@ -1,0 +1,239 @@
+.search {
+  &-result {
+    &__xsl-body {
+      .search__item {
+
+        .issue-item{
+          margin-left: 30px;
+        }
+
+        &-checkbox{
+          position: relative;
+          top: 25px;
+        }
+
+
+        @include media('<tablet') {
+          display: block;
+          margin: 0 -15px;
+
+          &-checkbox{
+            display: none;
+          }
+
+          .issue-item{
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    &__info {
+      .left-bordered-label {
+        border-color: $highlight-color;
+      }
+      margin-bottom: 35px;
+      @include media('<tablet') {
+        margin-bottom: 0;
+      }
+      .hitsLength {
+        font-weight: bold;
+        padding-right: 5px;
+      }
+      .result__suffix {
+        padding-left: 5px;
+        font-weight: bold;
+      }
+    }
+
+    &__tabs {
+      font-size: .875rem;
+      background-color: $secondary-lighten-bg-color;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      border-color: $secondary-border-color;
+
+      @include media('<tablet') {
+        background-color: transparent;
+        border-top: none;
+        margin: 0 -30px;
+        padding: 0px;
+      }
+    }
+
+    &__nav {
+      display: inline-block;
+      padding: 12px 0;
+
+      &__item {
+        color: $link2-text-color;
+        text-transform: uppercase;
+        font-size: .875rem;
+        padding: 12px 15px;
+
+        &.active {
+          font-weight: 800;
+          border-bottom: 4px solid $link2-text-color;
+        }
+      }
+
+    }
+
+  }
+
+  &-showing-results {
+    padding: 12px;
+    span {
+      padding-right: 4px;
+    }
+    @include media('<tablet') {
+      float: none;
+      padding: 20px 30px;
+      margin: 3px -15px 0;
+      background-color: antiquewhite;
+      border-top: 1px solid $secondary-border-color;
+
+      .result__suffix {
+        display: none;
+
+      }
+    }
+  }
+
+  &__follow {
+    font-size: .875rem;
+    color: $link2-text-color;
+    padding-left: 15px;
+    &__label {
+      padding-left: 5px;
+    }
+  }
+
+  &__acm-full {
+    font-size: .875rem;
+    margin-top: 10px;
+    padding-left: 16px;
+    a {
+      padding-left: 5px;
+      color: $link2-text-color;
+
+      @include media('<tablet') {
+        padding: 0;
+        display: block;
+      }
+    }
+
+    @include media('<tablet') {
+      border-bottom: 1px solid $secondary-border-color;
+      padding: 20px 15px;
+      margin: 0 -30px
+    }
+  }
+
+  &__acm-results {
+    @include media('<tablet') {
+      border-bottom: 1px solid $secondary-border-color;
+      padding: 20px 15px;
+      margin: 0 -30px
+    }
+  }
+  &__bottom {
+    margin: 15px 0 10px;
+    border-bottom: 1px solid $secondary-border-color;
+    font-size: .875rem;
+
+    @include media('<tablet'){
+      margin: 15px -30px;
+      padding:0 15px;
+    }
+
+    &-left {
+      display: inline-block;
+
+      &__options{
+        .btn{
+          margin-left: 10px;
+          color:$secondary-text-color;
+          i{
+            padding-right: 3px;
+          }
+
+        }
+
+      }
+      @include media('<tablet') {
+        border-right: 1px solid $secondary-border-color;
+        width: 50%;
+        &__options{
+          display: none;
+        }
+      }
+      @include media('<phone') {
+        width: 35%
+      }
+    }
+
+    &-right {
+      display: inline-block;
+    }
+    .result__ctrl__filters{
+      padding-top: 5px;
+    }
+  }
+
+  &__sort {
+    float: right;
+    position: relative;
+    padding: 0 8px;
+
+    i {
+      font-size: .5rem;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    a {
+      padding: 5px 0 20px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    &__drop {
+      background: $default-bg-color;
+      border: 1px solid $secondary-border-color;
+      border-top: 3px solid;
+      padding: 10px 15px;
+      min-width: 100%;
+      font-size: .875rem;
+    }
+  }
+}
+
+.per-page {
+  display: inline-block;
+
+  @include media('<tablet') {
+    display: none;
+  }
+
+  &.separator-end {
+    border-right: 1px solid $secondary-border-color;
+    padding-right: 5px;
+  }
+
+  &__label {
+    padding: 5px 0;
+    display: inline-block;
+  }
+
+  a {
+    padding: 5px;
+    display: block;
+  }
+  ul {
+    float: right;
+    font-weight: 400;
+  }
+  .js--selected {
+    font-weight: 700;
+  }
+}

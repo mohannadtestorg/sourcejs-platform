@@ -1,0 +1,61 @@
+{
+    "title": "Publication List",
+    "template": "doc",
+    "tag": [
+        "ready"
+    ],
+    "templateData": {
+        "items": [
+            {
+                "title": "Publication List (One Item)",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/publication-list/publication-list-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Publication List",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/demo/demo-publication-list-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/publication-list/templates/data/publication-list.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

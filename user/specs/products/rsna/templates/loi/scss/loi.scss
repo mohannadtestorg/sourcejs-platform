@@ -1,0 +1,41 @@
+.loi__banner {
+    ul.tab__nav {
+        li.active {
+            a {
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+        }
+    }
+    .icon-legacy {
+        float: none;
+        display: inline-block;
+        width: 51px;
+        height: 16px;
+        margin-left: 15px;
+        margin-right: 0px;
+        background-image: url("../../images/legacy_icon_radiology.svg");
+
+        @include themify($themes) {
+            background-image: url(themed('legacy_icon'));
+        }
+    }
+    .legacy-definition{
+        margin-top: 40px;
+        &__text{
+            display: inline-block;
+            width: calc(100% - 75px);
+            vertical-align: text-top;
+            margin: 0;
+            padding-left: 10px;
+            font-size: .875rem;
+        }
+        .icon-legacy{
+            @include media('<tablet') {
+                margin-left: 0;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,19 @@
+extends ../../../../../../ux3/widgets/pd-editorial-category/templates/pd-editorial-category/pd-editorial-category-update-tmpl
+
+block catogoryDropbox
+    -var inputClass="primary__subject"
+    -var isThereError=false
+    if(data.inputs.uri.message && data.inputs.uri.message.text)
+        -isThereError=true
+        -inputClass=data.inputs.uri.message.type + "-input"
+
+
+    if(data.categories)
+        select.jcf.submission__select(class=inputClass name="editorial-category.uri", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+            option(value="") -- Select --
+            each item, l in data.categories
+                option(value=item.name, selected=data.inputs["uri"].value == item.name ? true : false )
+                    | #{item.label}
+
+    if(isThereError)
+        div(class=inputClass == "" ? "success" : data.inputs.uri.message.type ) !{data.inputs.uri.message.text}

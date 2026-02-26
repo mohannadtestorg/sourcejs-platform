@@ -1,0 +1,47 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Table Of Content page
+
+
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.toc
+                .container
+                    .row
+                        .col-xs-12.col-sm-8.col-md-9
+                            .row
+                                .col-xs-12
+                                    | !{data.meta}
+                                .col-xs-12
+                                    | !{data.toc}
+                                .col-xs-12
+                                    | !{data.pagination}
+
+                        .col-xs-12.col-sm-4.col-md-3
+                            .card
+                                h2.mb-1 Current Issue
+                                | !{data.current_issue}
+                            .card
+                                h2.mb-1 Podcast
+                                | !{data.podcasts}
+                            .card--danger
+                                h2 Submit your article CIRCULATION
+                                a(href="#" class="btn btn btn--inverse") Submit
+                            .hidden-xs.hidden-sm
+                                | !{data.advertisements[0]}
+                            .card
+                                h2.mb-1 Videocast
+                                | !{data.videocasts}
+
+
+            | !{data.footer}
+    | #{''}

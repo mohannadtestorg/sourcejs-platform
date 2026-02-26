@@ -1,0 +1,61 @@
+.citationFormats
+    .article-info
+        h4.border-bottom Download article citation data for:
+        article
+            .citation
+                h1.citation__title
+                    a(href="/doi/abs/10.1002/essoar.ac4b3cff0df0484f.fb38da27334f44eb.1") Article Title
+                .citation__section
+                    span.__semibold Authors
+                .citation__section
+                    span.author-name
+                        span Jonathan Pansieri
+                            span.ORCID-icon iD
+                            span.envelope(aria-hidden="true")
+                .citation__section
+                    span.__semibold Download Citation
+                p.citation-msg
+                    | If you have the appropriate software installed, you can download article citation data to the citation manager of your choice. Simply select your manager software from the list below and click on download.
+                    br
+                    br
+                    | For more information or tips please see 'Downloading to a citation manager' in the <a href="/help?context=citationDownload" class="help">Help menu</a>.
+
+
+    .citation-download
+
+        form.citation-form(action="/action/downloadCitation", name="frmCitmgr", method="post", target="_self")
+            input(type="hidden", name="doi", value="10.1002/essoar.ac4b3cff0df0484f.fb38da27334f44eb.1")
+            input(type="hidden", name="downloadFileName", value="esspp_essoar")
+            input(type="hidden", name="include", value="abs")
+
+            p.__semibold Format
+
+            .row.citation-form__fields.__separator
+                .col-md-10
+                    select.js__slcInclude(id="slct_format", name="format")
+                        option(value="", selected="selected") Please select one from the list
+                        option(value="ris") RIS (ProCite, Reference Manager)
+                        option(value="endnote") EndNote
+                        option(value="bibtex") BibTex
+                        option(value="medlars") Medlars
+                        option(value="refworks") RefWorks
+                .col-md-2
+                    .input-group
+                        label.checkbox--primary
+                            input#direct(type="checkbox")
+                            span.label-txt Direct import
+
+            footer.form-footer
+                button.btn(onclick="onCitMgrSubmit()", class="formbutton", type="submit", name="submit" )
+                    i.icon-Icon_Download(aria-hidden="true")
+                    | Download
+                a.link.downloadCitationTipsLink(href="/help?context=citationManager", onclick="popupHelp(this.href); return false;", title="Opens new window", target="_blank")
+                    | Tips on citation download
+
+script(type='text/javascript').
+    $(".js__slcInclude").on("change", function(e){
+        if ($(this).val() == 'refworks')
+            $('#direct').prop("checked", false);
+        $('#direct').prop("disabled", ($(this).val() == 'refworks'));
+    });
+    

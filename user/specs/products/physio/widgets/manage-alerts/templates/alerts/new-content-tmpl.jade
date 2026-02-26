@@ -1,0 +1,39 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/new-content-tmpl.jade
+
+block newContentAlertText
+    | !{pb.renderDropzone(thisWidget, item)}
+
+block alert__freq__type
+    input.hidden(name="alertType" value="ToC")
+
+block alert__freq
+
+block alertFormats
+    .alert__format
+        .input-group
+            label Choose an Email Format:
+            .input-group
+                -var checkboxText
+                if (data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.format != 'TEXT' && data.currentPerson.alerts.format != 'HTML')
+                    - checkboxText = 'TEXT'
+                else
+                    - checkboxText = data.currentPerson.alerts.format
+
+                label(class="radio--primary")
+                    input#alertFormat_text(type="radio" name="format" value="T" checked=checkboxText == 'TEXT')
+                    span(class="label-txt") Plain Text
+
+                label(class="radio--primary")
+                    input#alertFormat_html(type="radio" name="format" value="H" checked=checkboxText == 'HTML')
+                    span(class="label-txt") HTML
+
+block formButton
+    .form-btn
+        input(type="hidden" name="save" value="save")
+        input(type="hidden" name="referrer" value="/action/showPreferences?menuTab=Alerts")
+        button.btn(type='submit')  SUBMIT
+        button.btn--cancel(type='reset')  RESET
+
+block deleteButton
+    .form-btn
+        button.btn--inverse.extra-border(type="submit" id="removeJournal") Delete

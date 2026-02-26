@@ -1,0 +1,86 @@
+.eCommerceCheckoutAddToCartWidgetExpanded {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 30px;
+    left: 0;
+    z-index: 120000;
+    .close {
+        cursor: pointer; 
+        margin: 0 auto;
+    }
+    .overlay-fixed {
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $black;
+        opacity: 0.8;
+        overflow-x: hidden;
+    }
+    .add-journal-to-cart-container {
+        margin: 0 auto;
+        background: $white;
+        padding: 20px 50px 30px;
+        @include media('>=desktop') {
+            width: 600px;
+        }
+        @include media('<desktop') {
+            width: 100%;
+        }
+        .title {
+            line-height: 1;
+        }
+    }
+    .journal-options-expanded {
+        padding: 10px;
+        background: $secondary-bg-color;
+        margin-bottom: 10px;
+        .add-article-to-cart,
+        .itemAddedMsgBox {
+            background: $white;
+        }
+    }
+    .tab-nav {
+        list-style: none;
+        padding-left: 10px;
+        margin-top: 0;
+        a {
+            text-decoration: underline;
+            &.open {
+                color: $success-message-text-color;
+            }
+        }
+    }
+    .optionsContainer {
+        max-height: 500px;
+        overflow: auto;
+    }
+    .save-for-later-link {
+        font-weight: 500;
+    }
+    .icon-close_thin {
+        font-size: 14px;
+        float: right;
+        position: relative;
+        left: 25px;
+        color: $black;
+    }
+    .add-article-to-cart {
+        .icon {
+            display: block;
+        }
+    }
+    .add-article-to-cart__price {
+        width: 33%;
+    }
+    .CartBookTitle {
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .purchase-options-container {
+        padding: 15px 0;
+    }
+}

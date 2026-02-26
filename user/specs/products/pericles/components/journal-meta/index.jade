@@ -1,0 +1,52 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p HTML structure used in the Journal home page
+
+    section.source_section
+        h2 HTMLstructure
+        .source_example
+            .container
+                .journal-info-container.col-md-8
+                    div
+                        a(href='/journal/13480421', title='Microbiology and Immunology homepage')
+                            h1#journal-banner-text(style='margin: 0; font-size: 0') Microbiology and Immunology
+                            img#journal-banner-image.journal-banner-image(alt='Microbiology and Immunology banner', src='https://pericles.pericles-prod.literatumonline.com/pb-assets/journal-banners/13480421-1501384672277.jpg', style='margin-bottom: 15px; display: block;')
+                        script.
+                            var image = new Image();
+                            image.onload = function () {
+                                // if the image exists
+                                document.getElementById("journal-banner-image").style.display = "block";
+                            }
+                            image.onerror = function () {
+                                // if the image does not exist
+                                document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                document.getElementById("journal-banner-text").style.fontSize = "22px";
+                            }
+                            image.src = "/pb-assets/journal-banners/13480421-1501384672277.jpg";
+                    .info-block(data-widget-def='general-html', data-widget-id='d08b12af-2d1c-44ea-ae5f-87e80f701049')
+                        p Edited By: Yutaka Terao, Makoto Takeda and Kazuyoshi Kawakami
+                    .info-block(data-widget-def='graphQueryWidget', data-widget-id='6af4eaa8-4a17-4825-a32d-261438a24354')
+                        .info-block
+                            span.info_label Impact factor:
+                            span.info_value 1.706
+                        .info-block
+                            span.info_label
+                                | ISI Journal Citation Reports @ Ranking:
+                                | 2016:
+                            span.info_value 127/151 (Immunology)
+                        .info-block
+                            span.info_label
+                                | ISI Journal Citation Reports @ Ranking:
+                                | 2016:
+                            span.info_value 90/125 (Microbiology)
+                        .info-block
+                            span.info_label Online ISSN:
+                            span.info_value 1348-0421
+                    .info-block(data-widget-def='UX3HTMLWidget', data-widget-id='4a28f66d-aafb-4c5b-bb1e-6b8a1899631f')
+                        | © The Societies and John Wiley & Sons Australia, Ltd
+
+

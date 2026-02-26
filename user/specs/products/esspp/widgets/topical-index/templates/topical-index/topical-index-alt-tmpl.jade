@@ -1,0 +1,15 @@
+.topical-index
+    if(data.search.facet)
+        .row
+            each item, i in data.search.facet
+                .col-md-3.col-sm-6
+                    .topic.clearfix
+                        .topic__image
+                            if (item.tag.fields && item.tag.fields.length > 0 && item.tag.fields[0].value && item.tag.fields[0].type == 'IMAGE')
+                                img(src=item.tag.fields[0].value, width="296", height="192", alt=item.tag.label)
+                            else
+                                img(src="/specs/products/esspp/releasedAssets/images/blank.gif", width="296", height="192", alt=item.tag.label)
+
+                        .topic__header
+                            h4
+                                a(href=item.tag.link, title=item.tag.label) !{item.tag.label}

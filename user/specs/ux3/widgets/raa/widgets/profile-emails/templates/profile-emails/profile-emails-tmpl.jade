@@ -1,0 +1,32 @@
+
+section.emails-wrappers(data-count='1', data-max='5')
+    input(type='hidden', name='email.id', value='498177a5-d50b-4890-8445-7364186b51a8')
+    input(type='hidden', name='section', value='emails')
+    .popup.verification-confirmation.hidden
+        a.close(href='#')
+            i.icon-close_thin
+        .content
+            .success-template.hidden
+                h2 Congrats!
+                p A verification email has been sent to your email
+
+    .email.primary.reproducible__wrapper
+        .input-group
+            .label
+                label(for='email[0].value')
+                    | Email (Primary)
+                    span.required-marker *
+            input.value(id='email[0].value', type='text', name='email[0].value', value='rdissi@atypon.com', size='15')
+            .actions
+                a.link.show-change-password.pull-right(href='#') Change password
+        input(type='hidden', name='email[0].primary', value='true')
+        input(type='hidden', name='email[0].verified', value='true')
+
+    .reproducible
+        input.value(id='email[1].value', type='email', name='email[1].value', value='')
+        a.remove-ctrl-field(href="#" title="Remove search field")
+            i.icon-trash-can(aria-hidden="true")
+        a.add-ctrl-field(href="#" title="Add search field")
+            i.icon-circle-plus(aria-hidden="true")
+
+

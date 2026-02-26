@@ -1,0 +1,28 @@
+.text-minute{
+  font-size: .65rem;
+}
+
+.short-description{
+  font-size: $small-font-size;
+}
+
+.highlight{
+  color: $tertiary-text-color;
+}
+
+@include media('>tablet'){
+  .rwd-break{
+    display: none;
+  }
+}
+
+.featured{
+  padding-bottom: 2rem;
+  @include media('>tablet'){
+    padding-top: 5rem;
+  }
+
+  @include media ('<tablet'){
+    padding-top: 4rem;
+  }
+}

@@ -1,0 +1,209 @@
+.more-link {
+    clear: left;
+}
+
+.top-content {
+    position: relative;
+
+    .grid-item {
+        &:nth-child(odd) {
+            clear: left;
+        }
+    }
+
+    &-dropzone {
+        position: absolute;
+        top:-64px;
+        right: 15px;
+        min-width: 50px;
+        height: 22px;
+        text-align: right;
+
+        & > div {
+            width: 100%;
+            min-height: 22px;
+            line-height: normal;
+        }
+
+        &__links {
+            a.icon-filter_list {
+                display: none;
+                font-size: $h3-font-size;
+                color: $primary-link-color;
+                cursor: pointer;
+
+                @include media('<tablet') {
+                    display: inline-block;
+                    margin: -10px;
+                    padding: 10px;
+                }
+            }
+
+            &-list {
+                i {
+                    @include media('<tablet') {
+                        display: none;
+                    }
+                }
+            }
+
+            ul {
+                margin: 0px;
+                padding: 0px;
+                list-style: none;
+
+                @include media('<tablet') {
+                    display: none;
+                }
+            }
+
+            li {
+                display: inline-block;
+                margin: 0px;
+                padding: 0px;
+
+                &:after {
+                    content: "|";
+                    padding: 0px 10px;
+                }
+
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+            a {
+                color: $primary-link-color;
+                font-size: $default-font-size;
+
+                i {
+                    font-size: $x-small-font-size;
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+
+    &__dropblock {
+        font-size: $default-font-size;
+        a {
+            cursor: pointer;
+            color: $primary-link-color;
+            @include themify($themes) {
+                color: themed('color');
+            }
+            &.w-slide__btn {
+                span {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                color: $primary-link-hover-color;
+            }
+        }
+        span {
+            padding-right: 15px;
+
+            @include media('<tablet') {
+                display: none;
+            }
+        }
+        i.icon-section_arrow_d {
+            font-size: 0.5rem;
+            color: $secondary-lighten-text-color;
+            padding: 0px;
+
+            @include media('<tablet') {
+                display: none;
+            }
+        }
+
+        a.icon-filter_list {
+            font-size: $h3-font-size;
+            color: $primary-link-color;
+            padding: 0px;
+            display: none;
+            @include themify($themes) {
+                color: themed('color');
+            }
+
+            @include media('<tablet') {
+                display: inline-block;
+                padding: 10px;
+                margin: -10px;
+            }
+        }
+
+        .dropBlock__holder {
+            top: 44px;
+            right: 0px;
+            padding: 15px;
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 15px;
+
+            &:last-child {
+                margin-bottom: 0px;
+            }
+            i {
+                color: $primary-link-color;
+                font-size: $default-font-size;
+                vertical-align: text-bottom;
+
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+        }
+
+        &-list {
+            span {
+                padding: 0px 0px 0px 15px;
+            }
+        }
+    }
+
+    &__home {
+        margin-bottom: 10px;
+
+        .teaser__meta__date-label {
+            display: none;
+        }
+        .teaser__meta__date-val {
+            color: $primary-link-color;
+        }
+
+        .loa {
+            display: none;
+        }
+
+        img {
+            display: block;
+        }
+
+        p {
+            display: block;
+        }
+
+        .grid-item {
+            &:nth-child(odd) {
+                clear: none;
+            }
+        }
+    }
+
+    &__without-img {
+        img {
+            display: none;
+        }
+    }
+}

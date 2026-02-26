@@ -1,0 +1,89 @@
+/***
+
+Super loose columns, not on grid, 20px spacing between cols
+
+```
+<div class="o-generic-cols">
+  <div class="o-generic-cols__col">Col</div>
+  <div class="o-generic-cols__col">Col</div>
+</div>
+<div class="o-generic-cols">
+  <div class="o-generic-cols__col">Col</div>
+  <div class="o-generic-cols__col">Col</div>
+  <div class="o-generic-cols__col">Col</div>
+</div>
+<div class="o-generic-cols o-generic-cols--grid-lines">
+  <div class="o-generic-cols__col">Col</div>
+  <div class="o-generic-cols__col">Col</div>
+  <div class="o-generic-cols__col">Col</div>
+</div>
+```
+
+***/
+
+.o-generic-cols {
+
+  .o-generic-modal & {
+    margin-top: 20px;
+  }
+}
+
+.o-generic-cols__col {
+  position: relative;
+  margin-top: 20px;
+}
+
+.o-generic-cols--collapsed {
+  display: flex;
+  flex-flow: row wrap;
+  margin-right: 0;
+  margin-left: -20px;
+
+  .o-generic-cols__col {
+    flex: 0 0 auto;
+    padding-right: 0;
+    padding-left: 20px;
+  }
+}
+
+
+@include breakpoint('medium+') {
+
+  .o-generic-cols {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+
+  .o-generic-cols__col {
+    flex: 1;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .o-generic-cols--grid-lines .o-generic-cols__col {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .o-generic-cols--grid-lines .o-generic-cols__col:not(:first-child)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $color__rules;
+  }
+
+  .o-generic-cols--collapsed {
+    flex-flow: row wrap;
+    margin-right: 0;
+  }
+
+  .o-generic-cols--collapsed .o-generic-cols__col {
+    flex: 0 0 auto;
+    padding-right: 0;
+  }
+}

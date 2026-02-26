@@ -1,0 +1,59 @@
+.saved-searches {
+    th {
+        padding: 0 1em 1em 0;
+        font-weight: 600;
+
+        @include media('>=tablet'){
+            text-transform: uppercase;
+        }
+    }
+
+    td, th {
+        font-size: 13px;
+        color: $wiley-typography-color;
+    }
+
+    td{
+        font-weight: 400;
+        @include media('<tablet') {
+        &:first-child:before {           
+                 content: attr(data-thead)!important;
+            }
+            
+        &:last-child{
+            position: absolute;
+            top: 15px;
+            right: 0;
+
+            &:before{
+                content: '';
+            }
+        }    
+        }
+    }
+    
+    tr{
+        @include media('<tablet') {
+            position: relative;
+        }
+    }
+    
+
+    a {
+        font-size: $h6-font-size;
+        color: $wiley-blue-color;
+        &:hover, &:focus, &:active {color: $wiley-blue-color;}
+    }
+
+    .delete-item {
+        font-size: $h3-font-size;
+        color: $wiley-gray-color;
+        &:hover, &:focus, &:active {color: $wiley-blue-color;}
+    }
+    @include media('<tablet') {
+        .expandable .to_hide {
+            padding-top: 6px;
+        }
+    }
+
+}

@@ -1,0 +1,52 @@
+.purchaseArea {
+  background: $aha_transparent;
+  border: none;
+  padding: 0;
+  h2, h3, h4 {
+    margin: 8px 0;
+  }
+  &--label {
+    display: block;
+    color: $aha_black;
+    line-height:28px;
+    font-size:16px;
+    font-family:Helvetica, Arial, sans-serif;
+  }
+  .login-form {
+    font-family:HelveticaNeueCondensedBold, Arial, sans-serif;
+    font-size: 14px;
+    .input-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include media('<tablet') {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      input {
+        margin: 0;
+        width: 100%;
+      }
+      &:last-of-type {
+        margin-bottom:4px;
+      }
+    }
+    label {
+      &:after {
+        content: ' * ';
+        color: $aha_red;
+      }
+    }
+    .actions {
+      font-size: 12px;
+      text-align: right;
+      margin-bottom: 25px;
+      a {
+        color: $aha_red;
+      }
+    }
+    .submit {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.cover-image{
+  &__image{
+   &.hasDetails{
+     @include media('>=tablet'){
+       display: inline-block;
+       padding-right: 10px;
+       width:135px;
+     }
+     display: none;
+
+   }
+  }
+  &__details{
+    @include media('>=tablet') {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - 135px);
+    }
+  }
+}

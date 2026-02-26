@@ -1,0 +1,39 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+
+
+block quickSearch
+    .tab.clearfix
+        .col-sm-10.col-xs-11.gutterless.quick-search__options
+            ul.rlist.tab__content
+                each item, i in data.dropdown
+                    if (item.dataSearchIn == 'default')
+                        +anywhereSearch(item, i)
+
+
+
+
+block quickSearchWrapper
+    if (thisWidget.properties.displayQuickMenuButton == "true")
+        div.quick-search-wrapper
+            a.quick-search__item(href="#" title="search")
+                i(class="icon-Icon_Search" aria-hidden="true")
+            div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+                +search()
+
+
+    else
+        div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+            +search()
+
+
+
+
+
+block anywhereSearch
+    if(thisWidget.properties)
+        form(action="/action/doSearch" name=item.dataSearchIn+"QuickSearch" method="get" title="Quick Search")
+            .input-group(class="option-" + index)
+                input.autocomplete(type="search" name="AllField" placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+            +btnSearch()
+            a.hidden.visible-xs.quick-search__advanced-link(href="#") Advanced Search

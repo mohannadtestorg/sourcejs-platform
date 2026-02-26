@@ -1,0 +1,199 @@
+block basicMetadataPrefix
+    -var isReadonly=false
+
+
+mixin addInput(name,value,placeholder,classes,maxChars,isDatePiker)
+    if(isReadonly)
+        span.readonly !{value}
+    else
+        if(maxChars)
+            .js-counter
+                input(class=classes id=name, name=name, type="text", placeholder=placeholder, value=value, data-maxchars=maxChars)
+                .warning
+                    span.js-counter__output null
+                    | #{" "} characters left
+        else if(isDatePiker)
+            input(data-date-format='dd-MM-yy' data-alt-field-name='basic-metadata.poster-first-presented-date'  class=classes id=name, name=name, type="text", placeholder=placeholder, value=value)
+        else
+            input(class=classes id=name, name=name, type="text", placeholder=placeholder, value=value)
+
+
+mixin addLabel(forInput,text,tooltipTitle,tooltipText, isOptional)
+    if(isReadonly)
+        label.__nomargin !{text}
+    else
+        label(for=forInput) !{text}
+            if (isOptional)
+                +optionalLabel()
+            if (tooltipTitle || tooltipText)
+                | !{pb.render('tooltip', { data: { "type": "icon", "title": tooltipTitle, "text": tooltipText } })}
+
+
+mixin addTextArea(name,value,placeholder,jsonFieldName, maxChars)
+    -var inputClass=""
+    -var isThereError=false
+    if(data.inputs[jsonFieldName].message && data.inputs[jsonFieldName].message.text)
+        -isThereError=true
+        -inputClass=data.inputs[jsonFieldName].message.type + "-input"
+
+    if(isReadonly)
+        span.readonly !{value}
+    else
+        if(maxChars)
+            .js-counter
+                textarea.js-counter__input(id=name, name=name, cols="20" rows="10", data-maxchars=maxChars,class=inputClass)
+                    | #{value}
+                .warning
+                    span.js-counter__output null
+                    | #{" "} characters left
+        else
+            textarea(id=name, name=name, cols="20" rows="10",class=inputClass)
+                | #{value}
+        if(isThereError)
+            div(class=inputClass == "" ? "success" :data.inputs[jsonFieldName].message.type) !{data.inputs[jsonFieldName].message.text}
+
+mixin optionalLabel()
+    if(!isReadonly)
+        span.__optional #{" "}(Optional)
+
+mixin message(relatedField)
+    .metadata-form__message.error.hidden(data-related-field=relatedField, aria-hidden="true") Field is required.
+
+
+
+.basic-metadata.submission-info
+    if(isReadonly==false)
+        input(type="hidden" name="basic-metadata.id",value=thisWidget.id)
+
+    .input-group.left-side-label
+        label Content type
+        .radio-group
+            label.radio.radio--primary
+                input(disabled=isReadonly type="radio", name="basic-metadata.type", value="preprint", checked=data.inputs.type.value == "preprint" ? true : false)
+                span.label-txt Preprint: Select to submit an article or manuscript that has not previously been published.
+
+            label.radio.radio--primary
+                input(disabled=isReadonly type="radio", name="basic-metadata.type", value="poster", checked=data.inputs.type.value == "poster" ? true : false)
+                span.label-txt Poster: Select to submit a poster from a conference or meeting.
+
+            +message("basic-metadata.type")
+
+    -var posterClass="hidden"
+    if(data.inputs.type.value == "poster")
+        -posterClass=""
+
+    .poster(class=posterClass)
+        //POSTER ONLY
+        block meetings
+            if (data && data.meetings)
+                .input-group.left-side-label
+                    +addLabel("basic-metadata.poster-meeting","Meeting Name","Meeting Name", "If the meeting that you presented your poster is not included in this list, please contact support@essoar.org. Meetings are selected and approved by the advisory board.")
+                    .left-side-content
+                        select.jcf.submission__select.basic-metadata__meeting-name(name="basic-metadata.poster-meeting", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                            option(value="") -- Select --
+                            each item, l in data.meetings
+                                option(data-meeting-date=item.date, data-meeting-location=item.location, value=item.name, selected=data.inputs["poster-meeting"].value == item.name ? true : false )
+                                    | #{item.label}
+                        +message("basic-metadata.poster-meeting")
+
+                .hidden.meeting-additional-information
+                    .input-group.left-side-label
+                        label Meeting Location
+                        .left-side-content
+                            div.meeting-additional-information__location
+                    .input-group.left-side-label
+                        label Meeting Date
+                        .left-side-content
+                            div.meeting-additional-information__date
+
+
+
+
+                .hidden.meetings-options
+                    each item, l in data.meetings
+                        if(item.years)
+                            each year, x in item.years
+                                div(data-meeting = item.name value= year.name) !{year.label}
+
+        //POSTER ONLY
+        .input-group.left-side-label
+            +addLabel("basic-metadata.poster-session-id","Poster Session", false, false, true)
+            .left-side-content
+                +addInput("basic-metadata.poster-session-id",data.inputs["poster-session-id"].value,"Free text")
+                +message("basic-metadata.poster-session-id")
+
+        //POSTER ONLY
+        .input-group.left-side-label
+            +addLabel("basic-metadata.poster-id","Poster Identifier", false, false, true)
+            .left-side-content
+                +addInput("basic-metadata.poster-id",data.inputs["poster-id"].value,"Free text")
+                +message("basic-metadata.poster-id")
+
+        //POSTER ONLY
+        .input-group.left-side-label
+            +addLabel("basic-metadata.poster-first-presented-date","Date first presented", false, false, false)
+            .left-side-content
+                +addInput("basic-metadata.poster-first-presented-date-ui",data.inputs["poster-first-presented-date"].value,"Date Picker" ,"datepicker",null,true)
+                input(class='hidden' id="basic-metadata.poster-first-presented-date", name="basic-metadata.poster-first-presented-date", type="text")
+                +message("basic-metadata.poster-first-presented-date-ui")
+
+    .input-group.left-side-label
+        +addLabel("basic-metadata.title","Title")
+        .left-side-content
+            +addInput("basic-metadata.title",data.inputs.title.value,"Please enter your title (Maximum 300 characters)", "js-counter__input", 300)
+            +message("basic-metadata.title")
+
+    .input-group.left-side-label
+        +addLabel("basic-metadata.abstract","Abstract")
+        .left-side-content
+            +addTextArea("basic-metadata.abstract",data.inputs.abstract.value,"Please enter your abstract (Maximum 3000 characters)","abstract", 3000)
+            +message("basic-metadata.abstract")
+
+
+    block License
+        .input-group.left-side-label
+            +addLabel("basic-metadata.license", "License", "License", "ESSOAr offers four different licenses. Please select the license you would like to assign to your content. For further information see the FAQs. The non-exclusive license limits additional uses beyond posting the content on ESSOAr.")
+
+            .left-side-content
+                -var inputClass=""
+                -var isThereError=false
+                if(data.inputs.license.message && data.inputs.license.message.text)
+                    -isThereError=true
+                    -inputClass=data.inputs.license.message.type+"-input"
+
+                select.jcf.submission__select(class=inputClass,id="basic-metadata.license", name="basic-metadata.license", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    option(value="") -- Select --
+                    option(value="essoar", selected=data.inputs["license"].value == "essoar" ? true : false )
+                        | Non-exclusive license
+                    option(value="cc-by", selected=data.inputs["license"].value == "cc-by" ? true : false )
+                        | Creative Commons Attribution 4.0 International (CC BY 4.0)
+                    option(value="cc-by-nc", selected=data.inputs["license"].value == "cc-by-nc" ? true : false )
+                        | Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+                    option(value="cc-by-nc-nd", selected=data.inputs["license"].value == "cc-by-nc-nd" ? true : false )
+                        | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+
+                +message("basic-metadata.license")
+                if(isThereError)
+                    div(class=inputClass == "" ? "success" :data.inputs.license.message.type) !{data.inputs.license.message.text}
+
+
+    - var preprintClass="hidden"
+    if(data.inputs.type.value == "preprint")
+        - preprintClass=""
+
+    .preprint(class=preprintClass)
+        .input-group.left-side-label
+            - var journalLabel = "";
+            if (data.inputs["preprint-submitted-to"].value && data.journals)
+                each item, l in data.journals
+                    if (data.inputs["preprint-submitted-to"].value == item.name)
+                        - journalLabel=item.label;
+
+            +addLabel("basic-metadata.preprint-submitted-to", "Submitted to", "Submitted to", "If you have already submitted your preprint to a journal, please select it from the available list. If you do not see the journal listed, please select \“Other.\” You can also add or edit the journal later.",true)
+            .left-side-content
+                block journals
+                    input.ux3-autocomplete(data-url=data.journalSearchLink, placeholder="Search Journal...", value=journalLabel)
+                    input(type="hidden", name="basic-metadata.preprint-submitted-to", id="basic-metadata.preprint-submitted-to", value=data.inputs["preprint-submitted-to"].value)
+
+
+

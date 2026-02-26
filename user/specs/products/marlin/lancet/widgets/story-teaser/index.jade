@@ -1,0 +1,33 @@
+extends /specs/products/marlin/lancet/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section.source_section__open.__loaded
+        h2 Commission
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            | !{data.commission}
+
+    section.source_section.source_section__open.__loaded
+        h2 Series
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            | !{data.series}
+    section.source_section.source_section__open.__loaded
+        h2 Series
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            | !{data.quiz}
+
+    | #{''}

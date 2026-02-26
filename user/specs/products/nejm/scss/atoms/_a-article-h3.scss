@@ -1,0 +1,21 @@
+/***
+
+Default - removes spacing at top of next sibling (if its a `.f-body`, `.f-body--sm` or `.a-list` - body copy type things)
+
+```
+<h2 class="a-article-h3 f-h6">Source Information</h2>
+<p class="f-body">Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.</p>
+```
+
+***/
+
+.a-article-h3 {
+  margin-top: 24px;
+  color: $color__text--headlines;
+}
+
+.a-article-h3 + .f-body,
+.a-article-h3 + .f-body--sm,
+.a-article-h3 + .a-list {
+  margin-top: 0;
+}

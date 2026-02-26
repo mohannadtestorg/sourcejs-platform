@@ -1,0 +1,53 @@
+.personal-information {
+    margin-top: 15px;
+}
+
+
+@include media('>=tablet') {
+    .personal-information {
+        .input-group {
+            width: 50%;
+            float: left;
+            padding: 0 5px;
+        }
+    }
+    .login-info {
+        clear: both;
+        .input-group {
+            padding: 0 5px;
+        }
+    }
+
+    .formDropZone {
+        .phone,
+        .edit {
+            padding: 0 5px;
+        }
+        & + .actions {
+            padding: 0 5px;
+            .cancel {
+                padding: 9px 35px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .professional-information {
+        .input-group {
+            width: 33%;
+            float: left;
+            padding: 0 5px;
+        }
+    }
+
+    .taxonomies {
+        clear: both;
+    }
+
+    .marketable {
+        padding: 0 5px;
+    }
+}
+.notified-group{
+    color: $primary-link-color;
+}

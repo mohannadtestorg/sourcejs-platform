@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Condensed:400,500,600,700');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $default-font-family;
+    color: $primary-text-color;
+    font-size: 16px;
+    line-height: 1.428;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-link-color;
+    transition: color 0.3s;
+    outline: none;
+
+    &:hover {
+        color: $secondary-text-color;
+    }
+}
+
+main.content {
+    padding-bottom: 60px;
+
+    margin-top: $header-lg-height;
+
+    @include media('<tablet') {
+        margin-top: $header-sm-height;
+    }
+
+}
+
+.container_scaled-down {
+    padding-left: 70px;
+    padding-right: 70px;
+
+    @include media('<tablet') {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.acs_inVisible {
+    visibility: hidden;
+}

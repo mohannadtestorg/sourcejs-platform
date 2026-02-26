@@ -1,0 +1,323 @@
+form(action='#')
+    h2.a-subtitle COUNTER Reports July 2010 &ndash; Present
+
+    h3.f-h6.a-emphasis Delivery Via Email
+
+    p.m-deflist__intro.f-body--sm
+        | NEJM.org usage statistics are provided in COUNTER Release 4 format. Reports are available 2&ndash;14 days after the close of eatch month (for previous month&apos;s data) via email delivery.
+
+    h4.a-subtitle.a-subtitle--alt.a-subtitle--subtle 1. Select Time
+
+    .m-deflist
+        dl.m-deflist__dl
+            dt
+                span.a-form-radio
+                    input#yearOnlyRadioOption(type='radio', name='yearOnly', value='true', checked='')
+
+                    label(for='yearOnlyRadioOption') Select year
+
+            dd
+                .m-deflist__select
+                    span.a-form-select
+                        select#year.year(name='year')
+                            option(value='2017') 2017
+
+                            option(value='2016') 2016
+
+                            option(value='2015') 2015
+
+                            option(value='2014') 2014
+
+                            option(value='2013') 2013
+
+                            option(value='2012') 2012
+
+                            option(value='2011') 2011
+
+                            option(value='2010') 2010
+
+        dl.m-deflist__dl.m-deflist__dl--sep
+            dt
+                span.a-form-radio
+                    input#monthRange(type='radio', name='yearOnly', value='false')
+
+                    label(for='monthRange') Select Range
+
+            dd
+                label.m-deflist__select-label(for='startMonthId') From
+
+                .m-deflist__select
+                    span.a-form-select
+                        select#startMonthId.year(name='startMonth')
+                            option(value='1') January
+
+                            option(value='2') February
+
+                            option(value='3') March
+
+                            option(value='4') April
+
+                            option(value='5') May
+
+                            option(value='6') June
+
+                            option(value='7') July
+
+                            option(value='8') August
+
+                            option(value='9') September
+
+                            option(value='10') October
+
+                            option(value='11') November
+
+                            option(value='12') December
+
+                .m-deflist__select
+                    span.a-form-select
+                        select#startYear.year(name='startYear')
+                            option(value='2017') 2017
+
+                            option(value='2016') 2016
+
+                            option(value='2015') 2015
+
+                            option(value='2014') 2014
+
+                            option(value='2013') 2013
+
+                            option(value='2012') 2012
+
+                            option(value='2011') 2011
+
+                            option(value='2010') 2010
+
+                label.m-deflist__select-label(for='endMonthId') To
+
+                .m-deflist__select
+                    span.a-form-select
+                        select#endMonthId.year(name='endMonth')
+                            option(value='1') January
+
+                            option(value='2') February
+
+                            option(value='3') March
+
+                            option(value='4') April
+
+                            option(value='5') May
+
+                            option(value='6') June
+
+                            option(value='7') July
+
+                            option(value='8') August
+
+                            option(value='9') September
+
+                            option(value='10') October
+
+                            option(value='11') November
+
+                            option(value='12') December
+
+                .m-deflist__select
+                    span.a-form-select
+                        select#endYear.year(name='endYear')
+                            option(value='2017') 2017
+
+                            option(value='2016') 2016
+
+                            option(value='2015') 2015
+
+                            option(value='2014') 2014
+
+                            option(value='2013') 2013
+
+                            option(value='2012') 2012
+
+                            option(value='2011') 2011
+
+                            option(value='2010') 2010
+
+    h4.a-subtitle.a-subtitle--alt.a-subtitle--subtle 2. Select Reports
+
+    .m-deflist
+        ul.m-deflist__ul.m-deflist__ul--spaced
+            li
+                span.a-form-checkbox
+                    input#counterIdsAll(type='checkbox', name='counterIdsAll', value='all', data-behavior='SelectAllCheckboxes', data-checkboxes='counterIds')
+
+                    label(for='counterIdsAll')
+                        strong Select all reports
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsjournal1(type='checkbox', name='counterIds', value='journal1')
+
+                    label(for='counterIdsjournal1')
+                        strong Journal Report 1
+                        br
+                        |                   Number of Successful Full-Text Article Requests by Month and Journal
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsjournal1GOA(type='checkbox', name='counterIds', value='journal1GOA')
+
+                    label(for='counterIdsjournal1GOA')
+                        strong Journal Report 1 GOA
+                        br
+                        |                   Number of Successful Gold Open Access Full-Text Article Requests by Month and Journal
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsjournal1a(type='checkbox', name='counterIds', value='journal1a')
+
+                    label(for='counterIdsjournal1a')
+                        strong Journal Report 1a
+                        br
+                        |                   Number of Successful Full-Text Article Requests from an Archive by Month and Journal
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsjournal2(type='checkbox', name='counterIds', value='journal2')
+
+                    label(for='counterIdsjournal2')
+                        strong Journal Report 2
+                        br
+                        |                   Turnaways by Month and Journal
+
+        ul.m-deflist__ul.m-deflist__ul--spaced
+            li
+                span.a-form-checkbox
+                    input#counterIdsjournal3(type='checkbox', name='counterIds', value='journal3')
+
+                    label(for='counterIdsjournal3')
+                        strong Journal Report 3
+                        br
+                        |                   Number of Successful Item Requests and Turnaways by Month, Journal and Page Type
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsjournal5(type='checkbox', name='counterIds', value='journal5')
+
+                    label(for='counterIdsjournal5')
+                        strong Journal Report 5
+                        br
+                        |                   Number of Successful Full-Text Article Requests by Year-of-Publication (YOP) and Journal
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsplatform1(type='checkbox', name='counterIds', value='platform1')
+
+                    label(for='counterIdsplatform1')
+                        strong Platform Report 1
+                        br
+                        |                   Total Searches, Result Clicks and Record Views by Month and Platform
+
+            li
+                span.a-form-checkbox
+                    input#counterIdsconsortium1(type='checkbox', name='counterIds', value='consortium1')
+
+                    label(for='counterIdsconsortium1')
+                        strong Consortium Report 1
+                        br
+                        |                   Number of successful full-text journal article or book chapter requests by month
+
+    h4.a-subtitle.a-subtitle--alt.a-subtitle--subtle 3. Select File Formats
+
+    .m-deflist
+        dl.m-deflist__dl
+            dt Select the file format(s) you would like the report(s) to be in.
+
+            dd
+                span.a-form-checkbox
+                    input#format_XML(type='checkbox', value='xml', name='format')
+
+                    label(for='format_XML') XML
+
+                span.a-form-checkbox
+                    input#format_HTML(type='checkbox', value='html', name='format', checked='')
+
+                    label(for='format_HTML') HTML
+
+                span.a-form-checkbox
+                    input#format_tsv(type='checkbox', value='tsv', name='format')
+
+                    label(for='format_tsv') Tab Deliminated
+
+    h4.a-subtitle.a-subtitle--alt.a-subtitle--subtle 4. Email Reports
+
+    p.m-deflist__intro.f-body--sm
+        | The reports you have selected will be sent to you automatically when you press submit. Designate additional recipients using the field below.
+
+    .m-deflist
+        dl.m-deflist__dl
+            dt
+                label(for='emailAddresses') Email Address(es)
+
+            dd
+                textarea(name='emailAddresses', rows='4') isaac@area17.com
+
+                em.m-deflist__notes Separate multiple email addresses with a comma.
+
+    .m-deflist__action
+        p.f-ui
+            a(href='/templates/help-with-IP-address.php', data-behavior='OpenInModal') Help with Usage Reports
+
+        button.a-btn(type='submit')
+            | Submit
+            svg.icon--arrow(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+    h2.a-subtitle Report Retrieval Via SUSHI
+
+    p.m-deflist__intro.f-body--sm
+        | If your organization operates a SUSHI client, you may use it to retrieve COUNTER reports from this platform.
+
+    .m-deflist
+        dl.m-deflist__dl
+            dt Host SUSHI request URL
+
+            dd http://www.nejm.org/api/soap/analytics/SushiService
+
+            dt User Requestor ID
+
+            dd isaac@area17.com
+
+            dt User CustomerReference ID
+
+            dd IP00007
+
+    .m-deflist__action
+        p.f-ui
+            a(href='/templates/help-with-sushi.php', data-behavior='OpenInModal') Help with SUSHI
+
+h2.a-subtitle Reports January 2005 &ndash; June 2010
+
+p.m-deflist__intro.f-body--sm
+    | Reports from 2005 to June 2010 are available only in tab-delimited format. The .zip file(s) below contain one tab delimited file for each year of data.
+
+.m-deflist
+    dl.m-deflist__dl
+        dt Package of NEJM Reports
+
+        dd
+            a(href='zip/IP00007.zip', download='') IP00007.zip
+
+.m-deflist__action
+    p.f-ui
+        a(href='/templates/help-with-IP-address.php', data-behavior='OpenInModal') Help with Older Reports
+
+h2.a-subtitle Email Notifications
+
+form(action='#')
+    .m-deflist
+        span.a-form-checkbox
+            input#counterEnabled(type='checkbox', name='counterEnabled', value='true')
+
+            label(for='counterEnabled')
+                | Receive an email notification when COUNTER usage data for the current month has been processed and is ready for reporting.
+
+    .m-deflist__action.m-deflist__action--closer
+        button.a-btn.a-btn--simple(type='submit') Save Changes

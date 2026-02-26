@@ -1,0 +1,18 @@
+.sortable {
+    cursor: pointer;
+}
+
+.sorted {
+    &-asc, &-desc {
+        &:after {
+            content: " ▾";
+            vertical-align: text-top;
+        }
+    }
+
+    &-desc {
+        &:after {
+            content: " ▴";
+        }
+    }
+}

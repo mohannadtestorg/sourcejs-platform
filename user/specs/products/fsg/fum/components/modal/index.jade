@@ -1,0 +1,57 @@
+extends /specs/products/fsg/fum/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+        include /specs/page-structure/helpers/print-html-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/modal/templates/modal/modal-tmpl.jade')
+        h3 Modal data
+        markdown
+            p The following data structure must exist to be able to use Modal template.
+        +printJson({
+            "data": {
+                "id": "id-of-the-modal",
+                "title": "Modal First",
+                "content": "denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+            }
+        })
+
+        markdown
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `title`
+                        td Modal title
+                    tr
+                        td `content`
+                        td  Modal content could be dropzone
+
+        h3 Data for the modal toggle button
+        +printHtmlCode('<button type="button" data-toggle="modal" data-target="#id-of-the-modal" class="btn">Modal</button>')
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        .source_example
+            button(type="button" class="btn" data-toggle="modal" data-target=data.items[0].btn) Modal
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        markdown
+            p In this example we added `full-width` class to the modal container, to take the full page style with gray background.
+        .source_example
+            button(type="button" class="btn" data-toggle="modal" data-target=data.items[1].btn) Modal
+            | !{data.items[1].body}
+
+    | #{''}

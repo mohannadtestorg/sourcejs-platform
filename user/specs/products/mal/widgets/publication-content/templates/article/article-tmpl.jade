@@ -1,0 +1,8 @@
+include ../../../../../../ux3/widgets/publication-content/templates/article/map/map-article-tmpl.jade
+extends ../../../../../../ux3/widgets/publication-content/templates/article/article-tmpl.jade
+
+block includeCitation
+    include ./extended/ext-citation-tmpl
+    +epub()
+block includeTabs
+    include ../article/extended/ext-tabs-tmpl

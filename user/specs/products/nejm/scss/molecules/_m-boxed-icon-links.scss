@@ -1,0 +1,62 @@
+/***
+
+```
+<ul class="m-boxed-icon-links">
+  <li><a href="#"><svg class="icon--facebook" aria-label="Facebook"><use xlink:href="#icon--facebook" /></svg></a></li>
+  <li><a href="#"><svg class="icon--twitter" aria-label="Twitter"><use xlink:href="#icon--twitter" /></svg></a></li>
+  <li><a href="#"><svg class="icon--linkedin" aria-label="LinkedIn"><use xlink:href="#icon--linkedin" /></svg></a></li>
+  <li><a href="#"><svg class="icon--more" aria-label="More share options"><use xlink:href="#icon--more" /></svg></a></li>
+</ul>
+```
+
+***/
+
+.m-boxed-icon-links {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.m-boxed-icon-links > li {
+  flex: 0 0 auto;
+}
+
+.m-boxed-icon-links > li:not(:first-child) {
+  margin-left: -1px;
+}
+
+.m-boxed-icon-links button,
+.m-boxed-icon-links a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid $color__rules;
+  border-radius: 0;
+  background-color: transparent;
+  color: $color__black;
+  line-height: 40px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+.m-boxed-icon-links button:hover,
+.m-boxed-icon-links a:hover {
+  color: $color__text--tertiary;
+}
+
+.m-boxed-icon-linksbutton svg,
+.m-boxed-icon-links a svg {
+  height: 40px;
+  vertical-align: top;
+}
+
+// -------------------------------------
+// `.m-boxed-icon-links` inside of `.m-title-options-block`
+//
+
+.m-title-options-block .m-boxed-icon-links {
+  margin-top: -8px;
+}

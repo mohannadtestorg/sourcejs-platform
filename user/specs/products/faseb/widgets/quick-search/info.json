@@ -1,0 +1,33 @@
+{
+    "title": "Quick search",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Quick search",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/demo/quick-search-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/quick-search.json"
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Quick search Menu",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/demo/quick-search-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/quick-search-menu.json"
+                        }
+                    }
+
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,82 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Go to section
+
+    .source_info
+        markdown
+            p Go to section functionality links between link "href anchor" and its related content section that's having an id value equal to the href value .
+            p We have it two ways
+            ul
+                li 1. Scrolling the page with animation to the related content section
+                li 2. Displaying the content inside a popup "footNotePopup"
+
+            small note: it also works with accordion, it will open the target wrapper "accordion__content" and scroll to the section
+
+    section.source_section
+        h2 Scrolling behavior
+        markdown
+            p Use HTMl Classes to control the animated scroll functionality
+
+
+        h3 scrollableLink
+
+        markdown
+            p Adding `scrollableLink` class to any anchor element will make these anchors evaluate the animated scroll functionality.
+            p <a href="/specs/products/pericles/templates/article/?clarify=true&tpl=clear&sections=1.3" target="_blank"> example</a>
+
+        code.src-html.source_visible.source_example
+            | <a href='#section-id' class='scrollableLink'> GO TO SECTION </a>
+            | <div id="section-id"></div>
+
+
+        h3 scrollableLinks
+
+        markdown
+            p Adding `scrollableLinks` class to any element anchors wrapper will make these anchors evaluate the animated scroll functionality.
+
+        code.src-html.source_visible.source_example
+            | <div class="scrollableLinks">
+            |   <a href="#section-id"></a>
+            | </div>
+            | <div id="section-id"></div>
+
+
+        h3 go to section block "special case" used in toc page
+
+        markdown
+            p Adding `data-db-target-of='sections'` attribute to any element anchors wrapper will make these anchors evaluate the animated scroll functionality.
+            p <a href="/specs/products/pericles/templates/toc?clarify=true&tpl=clear&sections=1.1" target="_blank"> example</a>
+
+
+        code.src-html.source_visible.source_example
+            | <a href='#' data-db-target-for='sections' data-db-switch='icon-close_thin' title='Go To Sections'> GO TO SECTION </a>
+            | <div id="sections">
+            |   <a href="#section-id"></a>
+            | </div>
+            | <div id="section-id"></div>
+
+    section.source_section
+        h2 footNotePopup behavior
+        markdown
+            p Use HTMl Classes to control the popup functionality
+
+        markdown
+            p Adding `noteLink scrollableLink` classes to any anchor element to have the popup functionality
+
+        code.src-html.source_visible.source_example
+            | <a href='#note-id' class='noteLink scrollableLink'> note </a>
+            | <div id="note-id"></div>
+
+
+        .source_example
+            a.noteLink.scrollableLink(title='Link to note', href='#note-0002', target='_self') click on me
+            div#note-0002
+                | Tariff Rate Quotas: Quantities inside a quota are charged lower import duty rates,
+                | Tariff Rate Quotas: Quantities inside a quota are charged lower import duty rates,
+                | Tariff Rate Quotas: Quantities inside a quota are charged lower import duty rates,
+                | than those outside.
+
+
+    | #{''}

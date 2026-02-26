@@ -1,0 +1,213 @@
+{
+    "logo": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "true",
+                        "className": ["header__logo"]
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/images/templates/images/images-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "link": "/",
+                                            "src": "/specs/products/app/templates/header/images/pol.png",
+                                            "alt": "logo"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "journalHeader":{
+      "$pug": {
+        "template": "../../templates/site-header/templates/site-header/site-header-tmpl.jade",
+        "data": {
+          "$ref": "../../../../templates/site-header/templates/data/site-header.json"
+        }
+      }
+    },
+    "institution": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/institution-banner/templates/institution-banner/institution-banner-tmpl.jade",
+                                "data": {
+                                    "model": {
+                                        "data": {
+                                            "itemUrl": "#",
+                                            "institution": "Atypon Institution",
+                                            "introText": "brought to you by",
+                                            "image":"/specs/products/app/templates/header/images/johns.png"
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "search": {
+        "$pug": {
+            "template": "../../widgets/quick-search/templates/quick-search/quick-search-tmpl.jade",
+            "data": {
+                "$ref": "../../../../../../ux3/widgets/quick-search/templates/data/quick-search-menu.json"
+            }
+        }
+    },
+    "cart": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+            "data": {
+                "thisWidget": {
+                    "id":"shoppingCart1",
+                    "properties": {
+                        "render": "html",
+                        "html": "<a href=\"/user/cart\" class=\"quick-menu__item\" title=\"My Cart\"><i class=\"icon-shopping_cart\" aria-hidden=\"true\"></i><span>My Cart</span></a>"
+                    }
+                }
+            }
+        }
+    },
+    "user": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../app/widgets/user-login-bar/templates/logged-out-panel/logged-out-panel.jade",
+                                "data": {
+                                    "$ref": "../../../../../../ux3/widgets/user-login-bar/templates/data/user-panel-logged-out.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "mainmenu": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "true",
+                        "className": ["res-menu-nav"]
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../widgets/menu/templates/demo/demo-menu-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "vPort": "small"
+                                        }
+                                    },
+                                    "data": {
+                                        "id": "main0",
+                                        "list": [
+                                            {
+                                                "text": "DSM Library",
+                                                "link": "#",
+                                                "current": "true"
+                                            },
+                                            {
+                                                "text": "Books",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Collections",
+                                                "link": "#",
+                                                "list": [
+                                                    {
+                                                        "text": "Psychotherapy Library",
+                                                        "link": "#",
+                                                        "current": "true"
+                                                    },
+                                                    {
+                                                        "text": "eBooks",
+                                                        "link": "#",
+                                                        "current": "true"
+                                                    }]
+                                            },
+                                            {
+                                                "text": "Journals",
+                                                "link": "#",
+                                                "list": [
+                                                    {
+                                                        "text": "Journal 1",
+                                                        "link": "#",
+                                                        "current": "true"
+                                                    },
+                                                    {
+                                                        "text": "Journal 2",
+                                                        "link": "#",
+                                                        "current": "true"
+                                                    }]
+                                            },
+                                            {
+                                                "text": "News",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "APA Guidelines",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Patient Education",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "International",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "CME  ",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "My POL",
+                                                "link": "#"
+                                            }
+                                        ]
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

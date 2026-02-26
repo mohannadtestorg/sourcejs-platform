@@ -1,0 +1,37 @@
+footer(class="#{journalClass}")
+        if(psychNav)
+            .psych-top-nav
+                .container
+                    .col-sm-4
+                        h3 PSYCHIATRIC NEWS
+
+                    .col-lg-7.col-lg-offset-1.col-md-8.col-sm-8
+                        nav.psych-top-nav__items
+                            | !{psychNav}
+
+
+        .footer-top
+
+            .container
+                .row
+                    .col-sm-4
+                        div.logo
+                            | !{logo}
+                        div
+
+                                | !{contact}
+                    .col-lg-7.col-lg-offset-1.sitemap.hidden-xs.hidden-sm.col-md-8.col-sm-8
+                        .col-sm-4
+                            | !{sitemapF}
+                        .col-sm-4
+                            | !{sitemapS}
+                        .col-sm-4
+                            | !{sitemapT}
+
+        .footer-bottom.text-onDark
+            .container
+                .row
+                    .col-sm-6
+                        | !{nav}
+                    .col-sm-6
+                        | !{copyright}

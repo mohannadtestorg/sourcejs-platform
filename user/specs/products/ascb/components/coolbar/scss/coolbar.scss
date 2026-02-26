@@ -1,0 +1,35 @@
+.coolBar{
+    &__section,i{
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+ &__drop, [class*=__block]{
+    @include themify($themes) {
+      background-color: themed('color');
+    }
+    i{
+      color: white;
+    }
+  }
+
+  &__wrapper{
+    border-bottom-color: $primary-border-color ;
+ @include media('<tablet'){
+   .coolBar{
+     &__section,&__ctrl{
+       color: white;
+       i{
+         color: white;
+       }
+     }
+   }
+   @include themify($themes) {
+     background-color: themed('color');
+   }
+ }
+
+  }
+
+
+}

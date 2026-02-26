@@ -1,0 +1,42 @@
+| !{pb.render("hero-block","hero-block/hero-block",{"title":"Find out how we helped improve CBS Interactives publishing strategy", "text":"I'm an explainer line that supports the above statement with hard working copy. This should clarify the message of the hero. ", "button":true, "buttonLabel":"View Case Study", "news":false },"corp")}
+
+
+section.section
+    .container
+        .section__header
+            .row
+                .col-xs-12.col-sm-12.col-md-7
+                    h2 A headline about the different case studies from Atypon
+                    p
+                        | I'm an explainer line that supports the above statement with hard working copy.
+                        | This should clarify what this section is communicating.
+        .section__content
+            .row.filters-bar
+                .col-xs-12.col-sm-12.col-md-12
+                    | !{pb.render("drop-block", "drop-block/drop-block-3", {"label":"Publisher Type", "id":"dropdown1"}, "corp")}
+                    | !{pb.render("drop-block", "drop-block/drop-block-3", {"label":"Publisher Size", "id":"dropdown2"}, "corp")}
+            .row
+                .col-xs-12.col-sm-6.col-md-4
+                    | !{pb.render("cards", "cards/card", {}, "corp")}
+                .col-xs-12.col-sm-6.col-md-4
+                    | !{pb.render("cards", "cards/card", {}, "corp")}
+                .col-xs-12.col-sm-6.col-md-4
+                    | !{pb.render("cards", "cards/card", {}, "corp")}
+                .col-xs-12.col-sm-6.col-md-4
+                    | !{pb.render("cards", "cards/card", {}, "corp")}
+                .col-xs-12.col-sm-6.col-md-4
+                    | !{pb.render("cards", "cards/card", {}, "corp")}
+                .col-xs-12.col-sm-6.col-md-4
+                    | !{pb.render("cards", "cards/card", {}, "corp")}
+
+// Simplified Statistics - start
+| !{pb.render("stats", "stats/simple-stats", {}, "corp")}
+
+
+// Call to Action - start
+| !{pb.render("call-to-action",{},"corp")}
+// Call to Action - end
+
+// Footer - start
+| !{pb.render("footer",{},"corp")}
+// Footer - end

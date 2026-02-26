@@ -1,0 +1,36 @@
+html:not(.s-compact-menu).s-nav-sticky {
+  @include breakpoint('large+') {
+    .g-nav,
+    .g-search {
+      position: fixed !important;
+      top: 0 !important;
+      left: 50% !important;
+      right: 50% !important;
+      width: 100vw !important;
+      margin-right: -50vw !important;
+      margin-left: -50vw !important;
+    }
+
+    .g-nav__primary {
+      padding-left: 50px;
+    }
+
+    .g-search {
+      top: 56px !important;
+    }
+
+    .g-nav__primary-item--logo {
+      z-index: 0;
+      opacity: 1;
+    }
+  }
+
+  @include breakpoint('xxlarge') {
+    .g-nav__primary,
+    .g-search form {
+      width: map-get($main-col-widths, xxlarge);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

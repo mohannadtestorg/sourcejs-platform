@@ -1,0 +1,33 @@
+/***
+Letter response:
+```
+<div class="m-letter-response">
+  <div class="m-letter-response__label">
+    <span class="f-caps">Reponse</span>
+  </div>
+  <div class="f-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate velit atque veniam sunt, aperiam iusto, quis sapiente repudiandae non nobis accusamus in facere voluptas consectetur, praesentium, ex a. Porro, quidem.</div>
+</div>
+```
+***/
+
+.m-letter-response {
+  border: 1px solid $color__black--10;
+  position: relative;
+  padding: 15px;
+  @include breakpoint('medium+') {
+    padding: 30px;
+  }
+
+  margin-top: 40px;
+}
+
+.m-letter-response__label {
+  position: absolute;
+  background-color: white;
+  padding: 0 10px;
+  top: -12px;
+  left: calc(15px - 10px);
+  @include breakpoint('medium+') {
+    left: calc(30px - 10px);
+  }
+}

@@ -1,0 +1,35 @@
+.card {
+    &--shadow {
+        margin-top: 0px;
+        padding: 8px;
+        box-shadow: 0 0px 10px 0 rgba(0,0,0,0.4);
+        @include themify($themes) {
+            background-color: themed('background-color');
+        }
+    }
+
+    .left-side-image {
+        img {
+            margin-bottom: 0;
+            width: 170px;
+            padding-right: 15px;
+        }
+
+        & > a {
+            & ~  .meta__title {
+                @include media('>=desktop') {
+                    padding-left: 0px;
+                    margin-left: 170px;
+                }
+            }
+
+            & ~ .meta__info {
+                @include media('>=desktop') {
+                    padding-left: 0px;
+                    margin-left: 170px;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,295 @@
+.search{
+
+  &__item{
+    span.gray{
+      color: $default-theme-color;
+    }
+
+    .meta{
+
+      &__book-authors{
+        .rlist--inline{
+          color: $default-theme-color;
+        }
+      }
+
+      &__header{
+        margin-bottom: 5px;
+      }
+
+      &__title{
+        margin-bottom: 15px;
+      }
+      &__access{
+        float: right;
+        color: green;
+        font-weight: 500;
+        .icon-lock_outline{
+          color: red;
+          &+span{
+            color: red;
+          }
+        }
+      }
+      &__type{
+        font-weight: 500;
+        @include themify($themes) {
+          background-color: themed('color2');
+          padding: 2px 10px;
+        }
+      }
+      &__details{
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+      &__details{
+        .meta__title{
+          color: $black;
+        }
+      }
+      &__keywords{
+        margin-top: 8px;
+        .keywords-list{
+          display: inline;
+          padding-left: 4px;
+          .keyword-title{
+            @include themify($themes) {
+              color: themed('color');
+            }
+          }
+        }
+
+      }
+
+      &__authors{
+        color: $black;
+        margin-bottom: 8px;
+      }
+      &__info{
+        font-size: .875rem;
+        margin-bottom: 0;
+        .accordion{
+          &.book-search-abstract{
+            .accordion__content{
+              margin-bottom: 8px;
+            }
+          }
+          i{
+            float: left;
+            font-size: 6px;
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+
+    .item__image{
+      width: 205px;
+      @include media('<large'){
+        display: block;
+
+      }
+      @include media('<tablet'){
+        width: 100px;
+      }
+      +.item__body{
+          width: calc(100% - 205px);
+          @include media('<tablet'){
+            width: calc(100% - 100px)
+          }
+
+      }
+    }
+    .item__image + .item__body{
+      @include media('>=desktop') {
+        min-height: 276px;
+      }
+    }
+    .item{
+      &__body{
+        height: 100%;
+        padding-bottom: 10px;
+      }
+    }
+    img{
+      max-height: 255px;
+    }
+    .article-section__title{
+      color: $black;
+      font-size: 1.375rem;
+    }
+    .accordion{
+      margin-top:8px;
+      &__control{
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__filters{
+    .facets{
+      &__title--main{
+        text-transform: none;
+        font-size: 1rem;}
+
+    }
+  }
+  &-result{
+
+    &--tile{
+      @include media('>=large'){
+        .item{
+          &__image{
+            width: 182px;
+            +div.item__body{
+              width: calc(100% - 182px );
+            }
+          }
+
+        }
+      }
+      .item__image + .item__body{
+        @include media('>=desktop') {
+          min-height: 276px;
+        }
+        @include media('>=large') {
+          min-height: 241px;
+        }
+      }
+      .book-search-abstract{
+        @include media('>=large') {
+          display: none;
+        }
+      }
+
+    }
+
+    &__meta {
+
+      .tab__nav a {
+        padding: 10px;
+      }
+
+      &__top{
+        font-size: 1rem;
+      }
+
+    }
+    &__follow{
+      @include media('<phone'){
+        padding: 0px 8px;
+        font-size: .775rem;
+      }
+      i{
+        font-size: 18px;
+      }
+    }
+
+    &__nav{
+      font-weight: 600;
+      @include media('<tablet'){
+        margin: 0 -15px;
+      }
+
+      .active{
+        @include themify($themes) {
+          color: themed('color');
+          border-color:themed('color') ;
+        }
+      }
+    }
+
+
+  }
+  &__bottom{
+    @include media('<tablet'){
+      padding: 10px;
+    }
+  }
+  &__follow{
+    &__item{
+      ~.search__follow__item{
+        @include media('<phone'){
+          margin-left: 5px;
+        }
+      }
+    }
+
+  }
+
+  &__sort{
+    float: left;
+    @include media('<tablet'){
+      float: right;
+    }
+    a{
+      padding: 0;
+    }
+  }
+
+}
+
+.doSearch {
+  .result__ctrl__filters{
+    @include media('<tablet'){
+      border:none;
+      width: auto;
+    }
+
+    ~.search__sort{
+      border-left:1px solid $primary-border-color;
+      margin: 20px 0;
+      @include media('<tablet'){
+        margin: 6px 0;
+      }
+    }
+
+  }
+}
+
+
+
+.per-page.separator-end{
+  border:none;
+}
+
+.jcf-range-frequencies__slice{
+  @include themify($themes) {
+    background-color: themed('color');
+  }
+}
+.psych-search-item{
+  @include media('<tablet') {
+    border-bottom: 2px solid $primary-border-color;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+  &__image{
+    display: inline-block;
+    width: 137px;
+  }
+  &__info{
+    display: inline-block;
+    width: calc(100% - 137px);
+    vertical-align: top;
+    @include media('>=tablet') {
+      border-bottom: 1px solid $primary-border-color;
+      margin-bottom: 20px;
+      padding-bottom: 6px;
+    }
+  }
+  &__title{
+    color: $primary-text-color;
+    font-size: 15px;
+  }
+  &__date{
+    color:$default-theme-color;
+    padding-bottom: 12px;
+    display: block;
+  }
+  &__author{
+    color:$default-theme-color;
+  }
+}
+.psych-search {
+  padding-top: 20px;
+}

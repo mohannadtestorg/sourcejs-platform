@@ -1,0 +1,30 @@
+- var maxNo = data.properties.numberOfSearchesToDisplay;
+
+div.search-history.separator.expandable(data-queries=maxNo)
+    if !data.searches || data.searches.length == 0
+        if (data.noSearchesMessage)
+            p.empty-search-history !{data.noSearchesMessage}
+        else
+            p.empty-search-history You do not have search history
+    else
+        table(border='0', cellpadding='2', cellspacing='2', width='100%', summary='')
+            tbody
+                tr
+                    block SearchHistoryHeaders
+                        th.search-history.savedResult
+                            | Search name
+                        th.search-history.savedResult
+                            | Searched On
+                        th.search-history.savedResult
+            if data.searches
+                each item, l in data.searches
+                    if (l <= maxNo - 1)
+                        tr
+                            block SearchHistoryRows
+                                td.search-history.savedResult.to_hide.unlabeled(data-thead="Search name")
+                                    | !{item.searchName}
+                                td.search-history.savedResult.to_hide(data-thead="Searched On")
+                                    | !{item.searchedOn}
+                                td.search-history.savedResult.unlabeled.action
+                                    a.search-historyLink.btn.table__action(href=item.runUrl , title="Run")
+                                       | Run

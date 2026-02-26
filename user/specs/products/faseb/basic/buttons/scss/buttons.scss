@@ -1,0 +1,18 @@
+.btn {
+    &--journal-meta {
+        padding: 17px 15px;
+        float: right;
+
+        @include media('<tablet') {
+            float: none;
+        }
+
+        ~ .btn {
+            margin-top: 10px;
+            @include media('<tablet') {
+                margin-top: 0;
+                float: right;
+            }
+        }
+    }
+}

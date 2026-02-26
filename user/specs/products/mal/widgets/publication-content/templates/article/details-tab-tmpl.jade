@@ -1,0 +1,34 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/details-tab-tmpl
+
+block detailsTabTopSectionsCopyright
+    if (original.item && original.item.copyright)
+        section.section
+            strong.section__title Information
+            .section__body
+                p !{original.item.copyright}
+        hr.section__separator
+    if(original.item.type && original.item.type== "article")
+        div.citation__meta
+            if(original.item)
+                strong.label To cite this article:
+                div.article-data
+                    if(original.item.citedByAuthors)
+                        span.author !{original.item.citedByAuthors}.
+                    if(original.item.series.titles.title)
+                        span.journal-title !{original.item.series.titles.title}.
+                    if(original.item.group.coverDate)
+                        span.cover-date !{original.item.group.coverDate}.
+                    if(original.item.group.isFuture && original.item.group.isFuture == "false")
+                        span.aop ahead of print
+                    else if(original.item.pageRange)
+                        span.page-range !{original.item.pageRange}.
+                    if(original.item.ids && original.item.ids.doi && original.item.ids.doi.value)
+                        a(href="https://doi.org/"+ original.item.ids.doi.value , class="doi-link") http://doi.org/!{original.item.ids.doi.value}
+                if(original.item.license && original.item.license.type && original.item.license.type == "open-access")
+                    i.icon.icon-cc_large2
+                if(original.item.dates)
+                    ul.rlist.history
+                        each item, i in original.item.dates
+                            li
+                                strong !{item.lable}
+                                span !{item.dateString}

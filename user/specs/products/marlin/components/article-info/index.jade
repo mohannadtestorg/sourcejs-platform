@@ -1,0 +1,17 @@
+extends /specs/products/marlin/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Example
+        .source_example.source_visible
+            .ux3
+                article
+                    .container
+                        .row
+                            .col-sm-2
+                            .col-sm-7
+                                | !{pb.render("article-info")}
+    | #{''}

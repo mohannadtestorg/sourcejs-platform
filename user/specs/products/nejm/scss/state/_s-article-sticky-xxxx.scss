@@ -1,0 +1,85 @@
+// // -------------------------------------
+// // handles article sticky points fixed and bottom
+// //
+
+.s-article-sticky-fixed {
+
+  .m-simple-tabs--sticky {
+    top: 0;
+    transition-timing-function: $bezier--ease-out-circ;
+  }
+
+  .m-article-tools {
+    @include breakpoint('medium-') {
+      bottom: 0;
+    }
+
+    @include breakpoint('large+') {
+      position: fixed;
+      left: 50%;
+      top: 80px;
+      margin-left: calc((100vw / -2) + #{map-get($outer-gutters, large)});
+    }
+
+    @include breakpoint('xlarge+') {
+      margin-left: calc((100vw / -2) + #{map-get($outer-gutters, xlarge)});
+    }
+
+    @include breakpoint('xxlarge') {
+      margin-left: calc( #{map-get($main-col-widths, xxlarge) / -2} );
+    }
+  }
+
+  .g-search {
+    position: fixed;
+    top: -18px;
+
+    @include breakpoint('xxlarge') {
+      left: 50%;
+      margin-left: map-get($main-col-widths, xxlarge) / -2;
+    }
+  }
+
+  &.s-search-active .g-search {
+    top: 55px;
+  }
+
+  &.s-search-active .g-mask {
+    z-index: 2;
+    top: 0;
+  }
+
+  .m-sticky-promo-blank {
+    @include breakpoint('medium-') {
+      bottom: 56px;
+    }
+  }
+}
+
+.s-article-sticky-bottom {
+
+  .m-article-tools {
+    @include breakpoint('large+') {
+      position: absolute;
+      left: 0;
+      top: auto;
+      bottom: 0;
+    }
+  }
+}
+
+.s-article-sticky-fixed.s-scroll-direction-up {
+
+  .a-sticky-top-link {
+    bottom: 64px;
+
+    @include breakpoint('medium+') {
+      bottom: 84px;
+      transition-timing-function: $bezier--ease-out-circ;
+    }
+
+    @include breakpoint('large+') {
+      bottom: 30px;
+    }
+  }
+}

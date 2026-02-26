@@ -1,0 +1,10 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl
+
+
+
+block menuSuffix
+    li.dropdown-more.hidden.dropdown.menu-parent(role='menuitem', aria-haspopup='true', aria-label='More')
+        a.dropdown__toggle(href='#', title='More', data-toggle='dropdown')
+            span More
+            i.icon-section_arrow_d.pull-right.hidden-sm.hidden-xs(aria-hidden='true')
+        ul.rlist.dropdown__menu(aria-labelledby='main0-1', aria-hidden='true', role='menu')

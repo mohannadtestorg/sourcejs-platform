@@ -1,0 +1,24 @@
+.pagination{
+  margin-top: 50px;
+
+  &__list {
+    a{
+      @include media('<phone'){
+        padding: 0 10px;
+      }
+      &.active{
+        text-decoration: none;
+
+      }
+    }
+
+  }
+
+  &__btn--prev,&__btn--next{
+    vertical-align: sub;
+
+    &::after,&::before{
+      font-weight: 800;
+    }
+  }
+}

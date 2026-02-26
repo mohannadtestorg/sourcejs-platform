@@ -1,0 +1,67 @@
+block displayControls
+    if (thisWidget && thisWidget.properties)
+        - showExamTitle = thisWidget.properties.showExamTitle ? thisWidget.properties.showExamTitle : ""
+        - showRelatedArticle = thisWidget.properties.showRelatedArticle ? thisWidget.properties.showRelatedArticle : ""
+        - showDisclosure = thisWidget.properties.showDisclosure ? thisWidget.properties.showDisclosure : ""
+
+block labels
+    - title = "Disclosure"
+
+if (data && data.exam)
+    - exam = data.exam
+    //- We only support one related article per exam. Could extend at some point to support any number.
+    if (showRelatedArticle == "true" && exam.related[0] && exam.related[0].content[0])
+        - related = exam.related[0].content[0]
+
+
+    div.exam-disclosure
+        //- TODO - refactor this into a component that is shared with the Show Exam widget. Reusing Show Exam classes for now.
+        block exam-title
+            if (exam.title && showExamTitle == "true")
+                h1.show-exam__title
+                    | !{exam.title}
+                | !{pb.renderDropzone(thisWidget, "examDisclosureDropzone")}
+
+        
+        block exam-related-article
+            //- Only show the disclosure title if you're also showing the disclosure or related article.
+            if (showDisclosure == "true" || showRelatedArticle == "true")
+                h3.section__header.border-bottom
+                    | !{title}
+            
+            //- Only show if widget property is selected.
+            if (related && showRelatedArticle == "true")
+                div.exam-disclosure__related.show-exam__article
+                    if (related.title)
+                        h5.show-exam__article-title
+                            if (related.link)
+                                a(href=related.link) !{related.title}
+                            else
+                                | !{related.title}
+                    if (related.authors)
+                        div.show-exam__article-authors
+                            | !{related.authors}
+                    div.show-exam__article-meta
+                        if (related.group.serial.title)
+                            span
+                                if (related.group.serial.link)
+                                    a(href=related.group.serial.link) !{related.group.serial.title}
+                                else
+                                    | !{related.group.serial.title}
+                        if (related.group.citationLine)
+                            span
+                                if (related.group.link)
+                                    a(href=related.group.link) !{related.group.citationLine}
+                                else
+                                    | !{related.group.citationLine}
+                        if (related.group.coverDate)
+                            span !{related.group.coverDate}
+
+        //- TODO - Refactor into a component shared with the Exam Agreement widget
+        block exam-disclosure
+            //- Only show if widget property is selected
+            if (exam.disclosure && showDisclosure == "true")
+                div.exam-disclosure__disclosure
+                    | !{exam.disclosure}
+                block examAgreementDropZone
+                    | !{pb.renderDropzone(thisWidget, "examAgreementDropZone")}

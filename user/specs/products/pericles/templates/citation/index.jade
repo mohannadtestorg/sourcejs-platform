@@ -1,0 +1,127 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Download Citation page
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200484' target="_blank">`LIT-200484`</a>
+    section.source_section
+        h2 Download Citation page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+            .pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                        .profile-pages__heading.card.card--light-shadow(data-widget-def='ux3-layout-widget', data-widget-id='60b76d5f-6df6-4ca5-b045-117f7bfecd88')
+                            .container
+                                .row
+                                    div
+                                        .col-md-12(data-widget-def='UX3HTMLWidget', data-widget-id='96e6dcb5-c61b-418f-b0d8-8f5ee296d8af')
+                                            h3 Citation
+                        .container
+                            .row
+                                div
+                                    .citation-content.col-md-8
+                                        .card
+                                            h4 Cite the following article
+                                            .citation__item.article-section__abstract
+                                                span.article__type Regular Article
+                                                span.doi-access-wrapper
+                                                    .doi-access-wrapper
+                                                        .full-access.access-type
+                                                            i.icon-icon-lock_open(aria-hidden='true')
+                                                            .doi-access
+                                                                .doi-access.hidden-xs.hidden-sm.hidden-md(tabindex='0') Full Access
+                                                a.issue-item__title(href='/doi/abs/10.1002/jgra.50121')
+                                                    | Citation for:
+                                                    | Electron fluxes and pitch‐angle distributions at dipolarization fronts: THEMIS multipoint
+                                                    | observations
+                                                ul.rlist--inline.loa.comma.loa-authors-trunc(style='float: none; position: static; list-style:none;')
+                                                    li
+                                                        span A. Runov
+                                                    li
+                                                        span V. Angelopoulos
+                                                    li
+                                                        span C. Gabrielse
+                                                    li
+                                                        span X.‐Z. Zhou
+                                                    li
+                                                        span D. Turner
+                                                    li
+                                                        span F. Plaschke
+                                                .epub-sections
+                                                    .epub-section
+                                                        span.epub-state First published: 
+                                                        span.epub-date 22 January 2013
+                                                    .epub-section
+                                                        a.epub-doi(href='https://doi.org/10.1002/jgra.50121') https://doi.org/10.1002/jgra.50121
+                                        .card
+                                            h4 How to cite
+                                            div
+                                                | Runov,
+                                                text
+                                                | A.,
+                                                text
+                                                | V.
+                                                |       Angelopoulos,
+                                                text
+                                                | C.
+                                                |       Gabrielse,
+                                                text
+                                                | X.‐Z.
+                                                |       Zhou,
+                                                text
+                                                | D.
+                                                |       Turner, and
+                                                text
+                                                | F.
+                                                |       Plaschke (
+                                                span.pubYear 2013
+                                                | ),
+                                                span.articleTitle
+                                                    | Electron fluxes and pitch‐angle distributions at dipolarization fronts: THEMIS multipoint
+                                                    | observations
+                                                | ,
+                                                i J. Geophys. Res. Space Physics
+                                                | ,
+                                                span.vol 118
+                                                | , 744–755, doi:
+                                                a.accessionId(target='_blank', href='https://doi.org/10.1002/jgra.50121', title='Link to external resource: 10.1002/jgra.50121') 10.1002/jgra.50121
+                                                | .
+                                        .card(data-widget-def='downloadCitationsWidget', data-widget-id='dc7b5451-38d9-411b-bbe1-c3142dec6d21')
+                                            | !{pb.render('download-citations', 'pericles')}
+                                    .col-md-4
+                                        #rich-text-86932c5d-ef40-42d1-bc9a-78925bb5310c.pb-rich-text(style='overflow: auto;')
+                                            #rich-text-86932c5d-ef40-42d1-bc9a-78925bb5310c.pb-rich-text.citation-right-side
+                                                h4 Tips on download citation
+                                                p
+                                                    | This feature enables you to download the bibliographic information (also called citation data, header data, or metadata) for the articles on our site.
+                                                h6.no-bottom-space Citation manager file format
+                                                p.no-top-space
+                                                    | Use the radio buttons to choose how to format the bibliographic data you're harvesting. Several citation manager formats are available, including EndNote and BibTex.
+                                                h6.no-bottom-space Type of import
+                                                p.no-top-space
+                                                    | If you have citation management software installed on your computer your Web browser should be able to import metadata directly into your reference database.
+                                                ul.rlist
+                                                    li
+                                                        span(style='text-decoration: underline;') Direct Import:
+                                                        |  When the Direct Import option is selected (the default state), a dialogue box will give you the option to Save or Open the downloaded citation data. Choosing Open will either launch your citation manager or give you a choice of applications with which to use the metadata. The Save option saves the file locally for later use.
+                                                    li
+                                                        span(style='text-decoration: underline;') Indirect Import:
+                                                        |  When the Indirect Import option is selected, the metadata is displayed and may be copied and pasted as needed.
+                // end pagefulltext
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+
+    | #{''}

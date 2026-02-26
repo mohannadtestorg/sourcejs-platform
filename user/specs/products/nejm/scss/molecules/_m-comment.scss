@@ -1,0 +1,190 @@
+/***
+
+Normal comment:
+
+```
+<div class="m-comment">
+  <div class="m-comment__meta">
+    <p class="f-body--sm">
+      <a href="comment_author_1" data-behavior="ShowPopupTip" data-popup-content-ids="comment_author_2">Frank Giambatista, MD <svg class="icon--triangle"><use xlink:href="#icon--triangle"></use></svg></a> <br>
+      Dec 20, 2016
+    </p>
+    <div class="m-popup-tip-content" id="comment_author_2">
+      <p class="f-body--xs"><strong>Frank Giambatista, MD</strong> <br>Physician, Internal Medicine <br> Disclosures: None <br><em>Boston, Ma</em></p>
+    </div>
+  </div>
+  <div class="m-comment__body">
+    <p class="m-comment__title f-body--sm"><strong>Voluptatem possimus quos rerum</strong></p>
+    <p class="f-body--sm">Sit amet, consectetur adipisicing elit. Et fugit, cupiditate, a necessitatibus repellendus optio pariatur architecto culpa amet! Animi provident tempore necessitatibus repudiandae incidunt officia, ipsam quas magnam ab. Lorem ipsum dolor sit amet, consectetur adipisicing delectus doloremque id, fugiat accusamus nam mollitia, voluptatem possimus quos rerum, animi. Fuga reprehenderit, enim magni magnam fugit, deserunt culpa! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi unde optio delectus maxime quasi ab est tempore reiciendis quisquam, tempora magni quos.</p>
+  </div>
+</div>
+```
+
+***/
+
+/***
+
+Featured comment:
+
+```
+<div class="m-comment">
+  <div class="m-comment__meta">
+    <p class="f-body--sm">
+      <a href="comment_author_1" data-behavior="ShowPopupTip" data-popup-content-ids="comment_author_1">Terry Hannan Giambatista Gorhdo, FRACP <svg class="icon--triangle"><use xlink:href="#icon--triangle"></use></svg></a> <br>
+      Dec 20, 2016
+    </p>
+    <div class="m-popup-tip-content" id="comment_author_1">
+      <p class="f-body--xs"><strong>Terry Hannan Giambatista Gorhdo, FRACP</strong> <br>Physician, Internal Medicine <br> Disclosures: None <br><em>Boston, Ma</em></p>
+    </div>
+  </div>
+  <div class="m-comment__body">
+    <p class="m-comment__title f-body--sm"><strong>Towards a more personalized and safe approach to AF patients</strong></p>
+    <p class="f-body--sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fugit, cupiditate, a necessitatibus repellendus optio pariatur architecto culpa amet! Animi provident tempore necessitatibus repudiandae incidunt officia, ipsam quas magnam ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga a delectus doloremque id, fugiat accusamus nam mollitia, voluptatem possimus quos rerum, animi. Fuga reprehenderit, enim magni magnam fugit, deserunt culpa! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi unde optio delectus maxime quasi ab est tempore reiciendis quisquam, tempora magni quos. Quasi a, quis dignissimos dolorum nihil eius?</p>
+
+    <div class="m-boxed-text">
+      <p class="m-comment__title f-body--sm"><strong>Editor’s Comment</strong></p>
+      <p class="f-body--sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <p class="f-body--sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores reiciendis sed magni velit quisquam voluptatum soluta, voluptatibus libero dolore quas eaque quo, nostrum provident veritatis! Fugit, distinctio ut earum id.</p>
+      <p class="f-body--sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo omnis exercitationem, minima commodi explicabo facilis fuga voluptates debitis sit repudiandae beatae suscipit quasi nulla architecto ab autem expedita at! Vitae.</p>
+    </div>
+  </div>
+
+  <svg class="icon--feature" aria-hidden="true"><use xlink:href="#icon--feature"></use></svg>
+</div>
+```
+***/
+
+.m-comment {
+  position: relative;
+  margin-top: 16px;
+  padding-top: 12px;
+
+  @include breakpoint('medium+') {
+    padding-top: 16px;
+  }
+
+  @include breakpoint('large+') {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}
+
+.m-comment::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-comment .icon--feature {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: $color__accent;
+}
+
+.m-comment__meta {
+
+  @include breakpoint('large+') {
+    flex: 0 0 auto;
+    width: colspan(2, large);
+    margin-right: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(2, xlarge);
+    margin-right: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(2, xxlarge);
+    margin-right: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.m-comment__body {
+  margin-top: 20px;
+
+  @include breakpoint('large+') {
+    flex: 1 1 auto;
+    width: auto;
+    margin-top: 0;
+  }
+}
+
+.m-comment__meta *:first-child,
+.m-comment__body *:first-child {
+  margin-top: 0;
+}
+
+
+.m-comment a[data-behavior*="ShowPopupTip"] {
+  display: inline-block;
+  position: relative;
+  padding-right: 16px;
+  color: $color__text--headlines;
+  font-weight: 700;
+}
+
+.m-comment a[data-behavior*="ShowPopupTip"]:hover {
+  text-decoration: none;
+}
+
+.m-comment a[data-behavior*="ShowPopupTip"] svg {
+  position: absolute;
+  right: 0;
+  top: 8px;
+  color: $color__input-border;
+}
+
+.m-comment a[data-behavior*="ShowPopupTip"]:hover svg {
+  color: $color__input-border--hover;
+}
+
+.m-comment a[data-behavior*="ShowPopupTip"]:focus svg {
+  color: $color__input-border--focus;
+}
+
+.m-comment .f-body--sm {
+  padding-right: 25px;
+}
+
+.m-comment__title {
+
+  .m-comment--featured & {
+    padding-right: 25px;
+  }
+
+  & + * {
+    margin-top: 0;
+  }
+}
+
+.m-comment__title strong {
+  color: $color__text--headlines;
+}
+
+.m-comment .m-boxed-text {
+  position: relative;
+}
+
+.m-comment .m-boxed-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-comment{
+  .m-comment__body{
+    .f-body--sm:not(.m-comment__title){
+      white-space: pre-wrap;
+    }
+  }
+}

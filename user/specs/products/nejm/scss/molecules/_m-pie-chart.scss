@@ -1,0 +1,66 @@
+/***
+
+```
+<div class="m-pie-chart" data-behavior="PieChart">
+  <svg class="m-pie-chart__chart" viewBox="-1 -1 2 2" data-piechart-chart></svg>
+  <ul class="m-pie-chart__key f-body--sm" data-piechart-key>
+    <li data-piechart-item><em class="m-pie-chart__key-value" data-piechart-value>7</em> <b class="m-pie-chart__key-label" data-piechart-label>North America</b></li>
+    <li data-piechart-item><em class="m-pie-chart__key-value" data-piechart-value>5</em> <b class="m-pie-chart__key-label" data-piechart-label>Europe</b></li>
+    <li data-piechart-item><em class="m-pie-chart__key-value" data-piechart-value>2</em> <b class="m-pie-chart__key-label" data-piechart-label>Australia</b></li>
+    <li data-piechart-item><em class="m-pie-chart__key-value" data-piechart-value>2</em> <b class="m-pie-chart__key-label" data-piechart-label>Asia</b></li>
+  </ul>
+</div>
+```
+
+***/
+
+.m-pie-chart {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  margin-top: 20px;
+
+  .o-generic-cols__col & {
+    margin-top: 0;
+  }
+}
+
+
+.m-pie-chart__chart {
+  flex: 0 0 auto;
+  width: 104px;
+  transform: rotate(-90deg); // to start the pie at 12 o'clock
+}
+
+.m-pie-chart__chart .s-hover {
+  fill: $color__blue--darker;
+}
+
+.m-pie-chart__key {
+  flex: 0 0 auto;
+  width: calc(100% - 124px);
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+.m-pie-chart__key > li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.m-pie-chart__key-value {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  color: $color__text--headlines;
+}
+
+.m-pie-chart__key-label {
+  color: $color__text--tertiary;
+}
+
+.m-pie-chart__key .s-hover .m-pie-chart__key-label {
+  color: $color__text--headlines;
+  font-weight: 600;
+}

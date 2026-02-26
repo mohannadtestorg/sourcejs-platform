@@ -1,0 +1,101 @@
+.m-subscribe {
+  background-color: $color__accent;
+  color: $color__white;
+
+  height: 48px;
+  @include breakpoint('medium+') {
+    height: 96px;
+  }
+}
+
+.m-subscribe__text {
+  position: absolute;
+  left: map-get($outer-gutters, xsmall);
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @include breakpoint('small+') {
+    left: map-get($outer-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    left: map-get($outer-gutters, medium);
+    right: 210px;
+  }
+
+  @include breakpoint('large+') {
+    left: 20px;
+    right: 200px;
+  }
+}
+
+.m-subscribe__title {
+  @include serif(17, 24);
+  margin-top: 0;
+
+  @include breakpoint('small+') {
+    font-size: 17.5px;
+  }
+
+  @include breakpoint('medium+') {
+    font-size: 24px;
+    letter-spacing: -.005em;
+    line-height: 28px;
+  }
+}
+
+.m-subscribe__title a {
+  @include text-underline(.85em, $color__white, $color__accent);
+  color: $color__white;
+  text-decoration: none;
+}
+
+.m-subscribe__title a:hover {
+  opacity: .8;
+}
+
+.m-subscribe__by-line {
+  @include f-caps;
+  display: none;
+  margin-top: 4px;
+
+  @include breakpoint('medium+') {
+    display: block;
+  }
+}
+
+.m-subscribe__btn {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  width: 160px;
+  background-color: $color__black;
+  color: $color__white;
+  transform: translateY(-50%);
+
+  @include breakpoint('small-') {
+    right: map-get($outer-gutters, small);
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    padding-right: 0;
+    padding-left: 0;
+    font: 0/0 a;
+  }
+
+  @include breakpoint('xsmall') {
+    right: map-get($outer-gutters, xsmall);
+  }
+
+  &:hover {
+    background-color: $color__black--90;
+  }
+}
+
+.m-subscribe__btn .icon--arrow,
+.m-subscribe__btn:hover .icon--arrow {
+  @include breakpoint('small-') {
+    right: 4px;
+  }
+}

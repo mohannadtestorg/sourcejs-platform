@@ -1,0 +1,69 @@
+{
+    "thisWidget": {
+        "properties": {
+            "id": "6587",
+            "icon": "icon-search",
+            "text": "",
+            "numOfHistoryItems":"3",
+            "numOfPublicationTitles":"3",
+            "numOfTopics":"3",
+            "numOfContributors":"3",
+            "maxWords":"7",
+            "maxChars":"40",
+            "showCitation": false,
+            "quickMenuLabel":"",
+            "quickMenuIcon":"icon-search",
+            "displayQuickMenuButton": "true",
+            "linkTitlesToPublicationPages": true,
+            "placeHolderText" : "Search publications, articles, keywords, etc."
+        }
+    },
+    "data": {
+        "advancedSearchUrl": "/search/advanced",
+        "dropdown": [
+            {
+                "label": "Anywhere",
+                "dataSearchIn": "default",
+                "placeholder": " Enter words / phrases / DOI / ISBN / keywords / authors / etc"
+            },
+            {
+                "label": "Citation",
+                "value": "citation",
+                "dataSearchIn": "citation",
+                "publication": {
+                    "placeholder": "Journal"
+                },
+                "year": {
+                    "placeholder": "Year"
+                },
+                "volume": {
+                    "placeholder": "Volume"
+                },
+                "issue": {
+                    "placeholder": "Issue"
+                },
+                "page": {
+                    "placeholder": "Page"
+                }
+
+            },
+            {
+                "label": "This Journal",
+                "value": "ajrcmb",
+                "dataSearchIn": "thisJournal",
+                "placeholder": " Enter words / phrases / DOI / ISBN / keywords / authors / etc",
+                "id": "thisJournal",
+                "selected": true
+            }
+        ],
+        "submit": {
+            "label": "",
+            "icon": "icon-search"
+        },
+        "props":{
+          "maxWords": "7",
+          "maxChars": "40"
+        },
+        "selectName": "seriesKey"
+    }
+}

@@ -1,0 +1,75 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/facet-date/templates/facet-date/facet-date-tmpl.jade')
+        h3 Data
+            +printJson({
+                "title": "Publication Date",
+                "style": "facet",
+                "values": [
+                    {
+                        "label": "Last Year",
+                        "link": "#",
+                        "count": 208
+                    },
+                    {
+                        "label": "Last 6 Months",
+                        "link": "#",
+                        "count": 57
+                    },
+                    {
+                        "label": "Last 3 Months",
+                        "link": "#",
+                        "count": 35
+                    },
+                    {
+                        "label": "Last Month",
+                        "link": "#",
+                        "count": 7
+                    }
+                ],
+                "maxDate": "2017",
+                "minDate": "2000"
+            })
+
+
+        markdown
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `style`
+                        td Date facet style, `facet` `slider` `list`
+                    tr
+                        td `maxDate` `minDate`
+                        td available for `slider` and `list`
+
+    | #{''}
+
+
+
+    section.source_section
+        h2!= data.items[0].title
+        .source_example
+            | !{data.items[0].body}
+
+    section.source_section
+        h2!= data.items[1].title
+        .source_example
+            | !{data.items[1].body}
+
+    section.source_section
+        h2!= data.items[2].title
+        .source_example
+            | !{data.items[2].body}
+    | #{''}
+

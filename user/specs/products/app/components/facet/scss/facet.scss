@@ -1,0 +1,18 @@
+.facet{
+  &__title{
+    text-transform: none;
+    font-size: 1rem;
+
+  }
+  &__label,&__counter{
+    @include themify($themes) {
+      color: themed('color');
+    }
+    font-weight: 500;
+    font-size: 1rem;
+  }
+  @include media('<tablet'){
+    margin-right:-15px;
+    margin-left:-15px;
+  }
+}

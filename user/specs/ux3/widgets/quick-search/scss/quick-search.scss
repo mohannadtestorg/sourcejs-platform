@@ -1,0 +1,313 @@
+.quick-search {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    @include media('<desktop') {
+        .gutterless {
+            padding: 0 15px;
+        }
+    }
+
+    input {
+        background: transparent;
+        border-color: $primary-bg-color;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+    }
+
+    .tab__nav a {
+        border-bottom: none;
+    }
+
+    @include media('<desktop') {
+        padding-top: 10px;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    .js--open[data-db-target-for] {
+        i:before {
+            display: inline-block;
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+    }
+
+    .dropBlock {
+        font-size: 0.875rem;
+
+        > a {
+            border: 1px solid $primary-bg-color;
+        }
+        a {
+            display: block;
+            padding: 12px 0 12px 12px;
+            background: transparent;
+            font-weight: 600;
+            line-height: 11px;
+        }
+
+        i {
+            font-size: 0.5rem;
+            padding: 3px 15px;
+            margin: 0;
+            color: $primary-bg-color;
+        }
+    }
+
+    .dropblock--tab {
+        @include media('<tablet') {
+            display: none;
+        }
+        position: absolute;
+        width: 100% !important;
+        box-shadow: 0px 0px 5px $secondary-text-color;
+
+        li {
+            display: block;
+            margin: 0;
+            &.active {
+                display: none;
+            }
+            &:not(.active) {
+                margin-bottom: 0;
+            }
+        }
+
+        a {
+            font-size: 0.875rem;
+            padding: 13px 12px;;
+            border-top: none;
+        }
+    }
+
+    .tab__pane {
+        padding: 0;
+    }
+
+    .input-group {
+        margin-bottom: 0;
+        @include media('<desktop') {
+            padding: 10px 0;
+        }
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    }
+
+    :-ms-input-placeholder {
+        color: $secondary-lighten-text-color;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    :-moz-placeholder {
+        color: $secondary-lighten-text-color;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    ::-webkit-input-placeholder {
+        color: $secondary-lighten-text-color;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    ::-moz-placeholder {
+        color: $secondary-lighten-text-color;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    &__button {
+        position: absolute;
+        right: 16px;
+        background: transparent;
+        padding: 9px;
+        color: $search-button;
+        height: 36px;
+        max-height: 36px;
+
+        span {
+            display: none;
+        }
+
+        @include media('>=desktop') {
+            top: 1px;
+        }
+
+        @include media('<desktop') {
+            bottom: 11px;
+        }
+    }
+
+    &__ctrl__refine,
+    &__ctrl__refine--hide {
+        font-size: 0.875rem;
+    }
+
+    .container {
+        @include media('<desktop') {
+            padding: 0 14px;
+        }
+    }
+
+    @include media('<desktop') {
+        .quick-search-pane__anywhere input[type=search] {
+            padding-right: 40px;
+            max-height: 38px;
+        }
+    }
+
+    /*magicSuggest*/
+
+    .ms-ctn, .ms-ctn-focus, .ms-sel-ctn {
+        padding: 0;
+    }
+    .ms-sel-ctn {
+        overflow: hidden;
+    }
+    .ms-ctn-focus {
+        box-shadow: none;
+        border: none;
+    }
+
+    .ms-trigger {
+        display: none;
+    }
+
+    .ms-ctn .ms-sel-ctn {
+        margin: 0;
+    }
+
+    .ms-res-ctn.dropdown-menu {
+        //background: transparent;
+    }
+    :-moz-placeholder {
+        color: $secondary-lighten-text-color;
+    }
+    :-ms-input-placeholder {
+        color: $secondary-lighten-text-color;
+    }
+    ::-webkit-input-placeholder {
+        color: $secondary-lighten-text-color;
+    }
+
+    &__dropBlock {
+        background: #e0e0e0;
+
+        .quick-search__button {
+            background: $search-bg-color;
+        }
+    }
+    .swipe__wrapper {
+        .scroll {
+            padding: 0;
+            position: relative;
+        }
+        &:after, :before {
+            background: transparent;
+        }
+    }
+
+    .dropzone {
+        min-height: 38px;
+    }
+
+    .quick-search-advanced-link {
+        line-height: 38px;
+        font-size: 0.9375rem;
+
+        &:hover, &:focus {
+            font-weight: bold;
+        }
+    }
+    .icon-close_thin {
+        &:before {
+            content: ' ';
+        }
+    }
+}
+
+.option-citation {
+    @include media('<desktop') {
+        border-bottom: 1px solid $primary-bg-color;
+    }
+
+    input {
+        float: left;
+        margin-right: 1.33%;
+        margin-bottom: 0;
+
+        @include media('<desktop') {
+            width: 32%;
+            margin-bottom: 10px;
+
+            &:first-child {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            &:nth-child(4) {
+                margin-right: 0;
+            }
+        }
+
+        @include media('>=desktop') {
+            width: 10%;
+
+            &:first-child {
+                width: 48%;
+            }
+        }
+
+    }
+    .ms-ctn {
+        float: left;
+        width: 100%;
+
+        @include media('>=desktop') {
+            max-width: 48%;
+            margin-right: 1.33%;
+        }
+        .ms-sel-ctn {
+            @include media('<desktop') {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+.quickSearchRegion.dark {
+    background: $search-bg-color;
+
+    .quick-search__button {
+        background: $search-bg-color;
+    }
+}
+
+// jquery ui-auto complete related css
+.ui-autocomplete {
+    z-index: 999999999;
+    background: #fff;
+    list-style: none;
+    padding: 10px;
+    outline: 0;
+    .ui-menu-item {
+        margin-bottom: 5px;
+    }
+    .single_highlight_class {
+        font-weight: bold;
+    }
+}
+
+.ui-menu .ui-menu-item a.ui-state-focus, .ui-menu .ui-menu-item a.ui-state-active {
+    font-weight: normal;
+    margin: -1px
+}

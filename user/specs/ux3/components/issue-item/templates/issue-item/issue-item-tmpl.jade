@@ -1,0 +1,111 @@
+- var hlevel = 2
+
+mixin item(item)
+    if (item.icon)
+        i(class=item.icon aria-hidden="true")
+    if (item.text)
+        if (item.markup)
+             #{item.markup}
+                | !{item.text}
+        else
+            | !{item.text}
+
+
+mixin issue(issue)
+    div.issue-item
+        if (issue.type)
+            span.badge-type
+                | !{issue.type}
+        if (issue.date)
+            div.issue-item__date !{issue.date}
+        if (issue.itemUrl)
+            a.issue-item__title(href=issue.itemUrl)
+                if (issue.title)
+                    h4 !{issue.title}
+        | !{pb.render('loa', {data: issue})}
+
+        if (issue.meta)
+            div.issue-item__meta
+                if (issue.meta.date)
+                    if (issue.meta.dateUrl)
+                        a(href=issue.meta.dateUrl title=issue.meta.date)
+                            | !{issue.meta.date}
+                    else
+                        | !{issue.meta.date}
+
+                    if (issue.meta.name)
+                        if (issue.meta.nameUrl)
+                            a(href=issue.meta.nameUrl title=issue.meta.name)
+                                | !{issue.meta.name}
+                        else
+                            | !{issue.meta.name}
+
+        if (issue.more)
+            div.accordion
+                a.accordion__control(href="#")
+                    | Read more
+                    i.icon-section_arrow_d(aria-hidden="true")
+                div.accordion__content
+                    | !{issue.more}
+
+                    //- Options information
+                    if (issue.options)
+                        ul.rlist--inline.issue-item__options
+                            each option, l in issue.options
+                                li
+                                    if (option.itemUrl)
+                                        a(href=option.itemur title=option.text)
+                                            +item(option)
+                                    else
+                                        +item(option)
+
+
+        else
+            //- Options information
+            if (issue.options)
+                ul.rlist--inline.issue-item__options
+                    each option, l in issue.options
+                        li
+                            if (option.itemUrl)
+                                a(href=option.itemur title=option.text)
+                                    +item(option)
+                            else
+                                +item(option)
+
+
+mixin group(data)
+    - hlevel = hlevel + 1
+    - var headlevel = "h"+hlevel
+    each group, l in data
+        if (group.header)
+            div.sub-group
+                #{headlevel}.sub-heading !{group.header}
+                if (group.group)
+                    +group(group.group)
+                else if (group.items)
+                    div.sub-group
+
+                        - var itemNo = group.items.length
+                        if itemNo > 1
+                            ul.rlist.separator.issue-items
+                                each issue, l in group.items
+                                    li
+                                        +issue(issue)
+                        else
+                            each issue, l in group.items
+                                +issue(issue)
+
+
+if (data.group)
+    +group(data.group)
+else
+    - var itemNo = data.items.length
+    if itemNo > 1
+        ul.rlist.separator.issue-items
+            each issue, l in data.items
+                li
+                    +issue(issue)
+    else
+        each issue, l in data.items
+            +issue(issue)
+

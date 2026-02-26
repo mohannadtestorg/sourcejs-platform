@@ -1,0 +1,34 @@
+{
+    "title": "Article tools",
+    "template": "doc",
+    "tag": ["components"],
+    "clearview": true,
+    "templateData": {
+        "items": [
+            {
+                "title": "article-tools",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/article-tools/article-tools-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/content.json"
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "article-tools - unorder",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/article-tools/article-tools-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/logged-out-content.json"
+                        }
+                    }
+                }
+
+            }
+        ]
+    }
+}

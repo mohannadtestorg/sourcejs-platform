@@ -1,0 +1,102 @@
+button, [type="submit"], [type="button"], .btn, .button {
+
+    .psychnews-theme &{
+      color: $black;
+    }
+
+    background-color: $default-theme-color;
+    @include themify($themes) {
+        background: themed('color');
+    }
+
+    &[disabled], &.disabled, &:disabled {
+
+        &:hover,
+        &:focus {
+            @include themify($themes) {
+                background: themed('color');
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        @include themify($themes) {
+            background: lighten(themed('color'), 5%);
+        }
+    }
+}
+
+.btn, .button {
+    &--full-width {
+        width: 100%;
+    }
+
+    &--inverse {
+
+
+        @include themify($themes) {
+            border: 1px solid themed('color');
+            color: themed('color');
+            background: transparent;
+        }
+
+        &:hover,
+        &:focus {
+            color: $text-onDark;
+            @include themify($themes) {
+                background: themed('color');
+            }
+        }
+
+
+      &[disabled]{
+        &:hover,
+        &:focus {
+          @include themify($themes) {
+            color: themed('color');
+            background: transparent;
+          }
+
+        }
+      }
+    }
+
+    &--cancel {
+        @include themify($themes) {
+            background-color: transparent;
+            color: $profile-primary-color;
+            font-size: 1rem;
+            font-weight: normal;
+            &:hover,
+            &:focus {
+                color: darken($profile-primary-color, 20%);
+                background-color: transparent;
+            }
+        }
+
+    }
+
+    &--journal-meta {
+        font-size: 0.9rem;
+        font-weight: normal;
+
+        @include media('<tablet') {
+            min-width: 130px;
+        }
+    }
+}
+
+.btn.btn__transparent{
+    background: transparent;
+    border-width: 1px;  &:hover,
+    &:focus {
+        color: $white;
+    }
+}
+.link {
+    color: $link-text-color;
+    cursor: pointer;
+}
+

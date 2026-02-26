@@ -1,0 +1,114 @@
+
+mixin table()
+    if (data.headings)
+        thead
+            tr
+                if (config) && (config.sortable)
+                    th
+                if (config) && (config.checkbox)
+                    th.table__mark
+                each heading, h in data.headings
+                    th !{heading.content}
+                if (data.actions)
+                    each button, buttonIndex in data.actions
+                        th.unlabeled
+                if (config) && (config.editable)
+                    th
+
+    if (data.rows)
+        tbody
+            each row, r in data.rows
+                - var rowClass = ""
+                if (row.hidden)
+                    - rowClass = "hidden"
+                if (config) && (config.sortable)
+                    - rowClass = "sortable-row"
+                if (config) && (config.sortable) && (row.hidden)
+                        - rowClass = "hidden sortable-row"
+
+                tr.expanded(class=rowClass)
+                    if (row.cols)
+                        if (config) && (config.sortable)
+                            td
+                                if (row.sortable)
+                                    .btn--handle
+                                        i.icon-menu2
+
+                        if (config) && (config.checkbox)
+                            td.table__mark
+                                label.checkbox--primary
+                                    - var id = (row.ch_id) ? row.ch_id : "check-" + r
+                                    - var name = (row.ch_name) ? row.ch_name : "table"
+                                    - var value = (row.ch_value) ? row.ch_value : r
+                                    input.jcf(type="checkbox" id=id name=name value=value)
+                        each col, c in row.cols
+                            if (data.headings)
+                                if c != 0 && (config) && (config.expandable)
+
+                                    if (data.actions && c >= is_action_td)
+                                        td.action.unlabeled
+
+                                            - var rowNum = row.cols.length
+
+                                            - var action = data.actions[c+1-rowNum+1].content
+                                            a.btn.table__action(title= action href=col.content)
+                                                | !{action}
+                                    else
+
+                                        - var headingsNum = data.headings.length
+
+                                        if headingsNum > 1
+                                            td.to_hide(data-thead=data.headings[c].content class=(data.actions) ? 'unlabeled ' : '')
+                                                | !{col.content}
+                                        else
+                                            td.to_hide(data-thead=data.headings.content class=(data.actions) ? 'unlabeled ' : '')
+                                                | !{col.content}
+
+
+                                else
+                                    if data.actions
+                                        - var dataNum = data.actions.length
+
+                                    - var rowNum = row.cols.length
+
+                                    - var actions_length = (data.actions) ? dataNum : 0
+                                    - var is_action_td = rowNum - actions_length
+                                    if (data.actions && c >= is_action_td )
+                                        td.action.unlabeled
+                                            - var action = data.actions[c+1-rowNum+1].content
+                                            a.btn.table__action(title= action href=col.content)
+                                                | !{action}
+                                    else
+
+                                        -var headingsNum = data.headings.length
+
+                                        if headingsNum > 1
+                                            td(data-thead=data.headings[c].content,
+                                            class= (data.actions) ? 'unlabeled ' : '')
+                                                |!{col.content}
+                                                if c == 0 && (config) && (config.expandable) && config.expandable
+                                                    a.table__control__button(href="#" title="Expand row")
+                                                        i.icon-arrow_u_p(aria-hidden="true")
+                                                        i.icon-arrow_d_n(aria-hidden="true")
+                                        else
+                                            td(data-thead=data.headings.content,
+                                            class= (data.actions) ? 'unlabeled ' : '')
+                                                | !{col.content}
+                                                if c == 0 && (config) && (config.expandable) && config.expandable
+                                                    a.table__control__button(href="#" title="Expand row")
+                                                        i.icon-arrow_u_p(aria-hidden="true")
+                                                        i.icon-arrow_d_n(aria-hidden="true")
+
+
+
+.table-responsive
+    -var tableClass=""
+    if (config) && (config.expandable)
+        -tableClass="expandable"
+    if (config) && (config.sortable)
+        -tableClass="sortable-table"
+    if (config) && (config.expandable)  && (config.sortable)
+        -tableClass="expandable sortable-table"
+
+    table(class=tableClass)
+          +table()

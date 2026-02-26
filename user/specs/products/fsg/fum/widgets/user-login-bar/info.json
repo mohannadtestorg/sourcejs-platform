@@ -1,0 +1,52 @@
+{
+    "title": "Navigation login Bar",
+    "tag": ["unready"],
+    "templateData": {
+        "loggedIn":{
+            "$pug": {
+                "template": "../../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../../ux3/widgets/user-login-bar/templates/logged-in-panel/logged-in-panel.jade",
+                                    "data": {
+                                        "$ref": "../../../../../ux3/widgets/user-login-bar/templates/data/user-panel-logged-in.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "loggedOut":{
+            "$pug": {
+                "template": "../../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../../ux3/widgets/user-login-bar/templates/logged-out-panel/logged-out-panel.jade",
+                                    "data": {
+                                        "$ref": "../../../../../ux3/widgets/user-login-bar/templates/data/user-panel-logged-out.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

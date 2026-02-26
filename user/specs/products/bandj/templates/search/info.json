@@ -1,0 +1,46 @@
+{
+    "title": "Search page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../../../../ux3/templates/header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "quickSearch": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/templates/search/templates/data/quick-search.json"
+                }
+            }
+        },
+        "facet":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/search-facets/templates/search-facets/search-facets-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/templates/search/templates/data/facet.json"
+                }
+            }
+        },
+        "searchresult": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl.jade",
+                "data": {
+                    "$ref": "../../../../ux3/templates/search/templates/data/search.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../../../../ux3/templates/footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

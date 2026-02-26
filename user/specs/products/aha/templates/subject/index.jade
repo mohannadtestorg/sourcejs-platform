@@ -1,0 +1,38 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                .container
+                    .row.subject__page
+                        .col-sm-4.col-md-3
+                            .card
+                                h2.mb-1 Current Issue
+                                | !{data.current_issue}
+                            .hidden-sm.hidden-md.hidden-lg
+                                | !{data.meta}
+                            #filter.hidden-xs.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                            .hidden-xs
+                                | !{data.related_collections}
+                                | !{data.submit_article_box}
+                        .col-sm-8.col-md-9
+                            .hidden-xs
+                                | !{data.meta}
+                            | !{data.searchresult}
+                            .hidden-sm.hidden-md.hidden-lg
+                                | !{data.related_collections}
+                                | !{data.submit_article_box}
+
+
+
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,201 @@
+{
+    "title": "Journal home page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "breadcrumbs":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["hidden-sm","hidden-xs"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/breadcrumbs/templates/breadcrumbs/breadcrumbs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/breadcrumbs/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "slideshow":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/slideshow/templates/data/image-with-text-slides.json"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        },
+        "articles":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-lg-2", "grid-md-1"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/multi-search/templates/multi-search/multi-search-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/multi-search/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "mostViewed":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/top-content/templates/demo/demo-without-dropzone-top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/top-content/data/data-journal-home.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "mostCited":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/top-content/templates/demo/demo-without-dropzone-top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/top-content/data/data-journal-home.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "Ad":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"pb-ad\"><a href=\"#\"><img src=\"/specs/products/rsna/images/ad.svg\"></a></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "video":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"podcasts-video\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/0h5QfV0dJ8o\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe><span>Listen to our new Podcast on Radiology</span></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

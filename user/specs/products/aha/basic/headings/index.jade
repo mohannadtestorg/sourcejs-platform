@@ -1,0 +1,72 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    section.source_section
+        h2 Default headings
+
+        markdown
+            p From h1 to h6
+        .source_example
+            h1 H1 - Condensed Bold, 28px, line height normal
+            h2 H2 - Condensed Bold, 24px, line height normal
+            h3 H3 - Condensed Bold, 20px, line height normal
+            h4 H4 - Condensed Bold, 18px, line height normal
+            h5 H5 - Condensed Bold, 14px, line height normal
+            h6 H6 - Condensed Bold, 12px, line height normal
+    section.source_section
+        h2 Default font size
+        markdown
+            p In the example below we have the normal text
+        .source_example
+            p Lorem ipsum
+        markdown
+            p In the example below we have added `primary-text-size` class & `header-section-text` for header .
+        .source_example
+            p.primary-text-size Resources text
+            p.header-section-text Call for papers title
+            p.capitalize Lorem ipsum
+
+    section.source_section
+        h2 Heading styles
+
+        h3 Section header
+        markdown
+            p In the example below we have added `section__header` class.
+        .source_example
+            h2.section__header Latest Articles
+        markdown
+            p In the example below we have added `primary-heading-size` class.
+        .source_example
+            h2.primary-heading-size Latest Articles
+
+        h3 Page header
+        markdown
+            p In the example below we have added `page__header` class.
+        .source_example
+            h2.page__header Latest Articles
+
+        h3 With top Border
+        markdown
+            p In the example below we have added `border-top` class.
+        .source_example
+            h3.border-top Latest Articles
+
+        h3 With bottom Border
+        markdown
+            p In the example below we have added `border-bottom` class.
+        .source_example
+            h3.border-bottom Latest Articles
+
+    section.source_section
+        h2 Blockquote
+
+        markdown
+            p In the example below we have added `quote` class.
+        .source_example
+            blockquote.quote
+                | Concussions have become a critical public health issue, resulting in a substantial increase in research. As a clinician searching for the most up-to-date information, Concussion can serve as the go-to journal.
+
+
+
+    | #{''}

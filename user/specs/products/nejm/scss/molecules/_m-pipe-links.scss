@@ -1,0 +1,43 @@
+/***
+
+```
+<ul class="m-pipe-links">
+  <li><a href="#">View Exam</a></li>
+  <li><a href="#">View Certificate</a></li>
+</ul>
+```
+
+***/
+
+.m-pipe-links {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 20px;
+
+}
+
+.m-pipe-links li {
+  flex: 0 0 auto;
+  text-indent: 0;
+}
+
+.m-pipe-links li:not(:first-child) {
+  margin-left: 10px;
+  padding-left: 9px;
+  border-left: 1px solid $color__rules;
+}
+
+.m-pipe-links a {
+  color: $color__link-primary;
+}
+
+.m-pipe-links a:hover {
+  text-decoration: underline;
+}
+
+.m-pipe-links .s-active a,
+.m-pipe-links .s-active a:hover {
+  color: $color__text--quaternary;
+  text-decoration: none;
+  cursor: default;
+}

@@ -1,0 +1,101 @@
+extends ../../../../../../../ux3/components/tabs/templates/tabs/tabs-tmpl.jade
+block tabsPrefix
+    - var dataOld = tabsData;
+    - var thisWidget = tabsData.thisWidget;
+    - var data = tabsData;
+    - var tabNumber = 0;
+    - var extra = (collapsible == false ? "-1" : "");
+
+block tabsLinks
+    a(href="#pane-" + thisWidget.id + l+ "-" + tabNumber + extra aria-controls="#pane-" + thisWidget.id + l + "-" + tabNumber + extra role="tab" data-toggle="tab" data-expand=item.label title=item.label id="pane-" + thisWidget.id + l + "-" + tabNumber + "con" + extra)
+        +item(item)
+
+block tabsPanes
+    if(data.content)
+        ul.rlist.tab__content(role="tablist")
+            each item, I in data.content
+                if (item.content)
+                    li.tab__pane.nested-tab(id="pane-" + thisWidget.id + I+ "-" + tabNumber + extra aria-labelledby="pane-" + thisWidget.id + I + "-" + tabNumber + "con" + extra role="tab")
+                        - data = item;
+                        - var currentTabNumber = tabNumber;
+                        - tabNumber = tabNumber + I;
+                        +tabs()
+                        - data = dataOld;
+                        - tabNumber = currentTabNumber;
+                else
+                    li.tab__pane(id="pane-" + thisWidget.id + I + "-" + tabNumber + extra aria-labelledby="pane-" + thisWidget.id + I + "-" + tabNumber + "con" + extra role="tab")
+                        block tabsArchiveLabel
+                        if (item.volumes)
+                            +loi(item.volumes, true,I )
+                        else
+                            +loi(item.issues, false,I)
+block tabsMain
+    div.loi.tab
+        - tabNumber++;
+        ul.rlist.loi__list.tab__nav.swipe__list
+            +nav()
+        +pane()
+
+block tabsNav
+    - var l = 0;
+    if (data) && (data.content)
+        each item, k in data.content
+            li
+                +link(item,l)
+                - l++;
+
+block tabsItem
+    if (item.icon)
+        i(class=item.icon aria-hidden="true")
+    if (item.text)
+        span !{item.text}
+    else if (item.label)
+        span !{item.label}
+    else if (item.year)
+        span !{item.year}
+    else if (item.volume)
+        span !{item.volume}
+
+mixin loi(items, flag ,issueIndex)
+    block loIssues
+        if (items)
+            ul.rlist.row
+                block firstLoiIssue
+                if (flag)
+                    each volume, v in items
+                        +issues(volume.issues, volume)
+                else
+                    +issues(items, null)
+
+mixin issues(itemo, volume)
+  block issuesMixin
+    if (itemo)
+        each item, l in itemo
+            li.col-md-4
+                div.loi__issue
+                    block IssueState
+                       .clearfix
+                           if (item.isLegacy)
+                                 i.icon-ic_history_black_24px
+                           if (item.access)
+                               .loi__access
+                                   if item.access == 'FREE_ACCESS'
+                                       | FREE
+                                   else if item.access == 'OPEN_ACCESS'
+                                       | OPEN ACCESS
+                    if (volume && volume.VolNo && !item.volume)
+                        - item.volume = volume.VolNo;
+                    if ((item.volume) || (item.issue))
+                        block tabsparent
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item})}
+                    block issueTitle
+                      if (item.title)
+                          h6 !{item.title}
+                    block currentProgressIssue
+                       if (item.isCurrent)
+                           div.status.current CURRENT ISSUE
+                       else if (item.inProgress)
+                           div.status.inporgress IN PROGRESS
+                    block pageRange
+                        if (item.pageRange)
+                            div.iPageRange pp.!{item.pageRange}

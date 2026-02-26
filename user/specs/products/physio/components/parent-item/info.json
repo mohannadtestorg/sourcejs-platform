@@ -1,0 +1,69 @@
+{
+    "title": "Parent item",
+    "template": "doc",
+    "tag": ["components"],
+    "templates": {
+        "default": "parent-item",
+        "alternative": {
+            "parent-item-article": {
+                "name": "Article Parent Item",
+                "path": "parent-item-article",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "All data provided",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade",
+                        "data": {
+                            "data": {
+                                "title": "FACETS",
+                                "volume": 2,
+                                "issue": 5
+                            }
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "No issue number",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade",
+                        "data": {
+                            "data": {
+                                "title": "FACETS",
+                                "volume": 2
+                            }
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "Compact rendering",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade",
+                        "data": {
+                            "config": {
+                                "display": "compact"
+                            },
+                            "data": {
+                                "title": "FACETS",
+                                "volume": 2,
+                                "issue": 5
+                            }
+                        }
+                    }
+                }
+
+            }
+        ]
+    }
+}

@@ -1,0 +1,119 @@
+html {
+    font-size: 14px;
+
+    @include media('>=phone') {
+        font-size: 16px;
+    }
+    @include media('>=desktop') {
+        font-size: 18px;
+    }
+}
+
+body {
+    line-height: $default-line-height;
+}
+
+p {
+    font-size: $default-font-size;
+    line-height: $default-line-height;
+    color: $default-content-color;
+}
+
+a {
+    color: $primary-link-color;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color: $secondary-link-color;
+        text-decoration: none;
+        outline: 0;
+
+    }
+}
+.__center {
+    text-align: center;
+}
+.__left {
+    text-align: left;
+}
+
+.section--bg {
+    background-color: $secondary-section-bg;
+}
+
+.section {
+    padding-top: 37px;
+    padding-bottom: 48px;
+
+    @include media('>=phone') {
+        padding-top: 50px;
+        padding-bottom: 60px;
+    }
+    @include media('>=desktop') {
+        padding-top: 90px;
+        padding-bottom: 120px;
+    }
+
+    &__header {
+        text-align: left;
+        text-transform: none;
+        margin-bottom: 0;
+
+        h2{
+            margin-bottom: 0;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__anotation {
+        text-align: left;
+        @include media('>phone') {
+            text-align: center;
+        }
+    }
+    &__content {
+        margin-top: 16px;
+        @include media('>phone') {
+            margin-top: 32px;
+        }
+        @include media('>desktop') {
+            margin-top: 70px;
+        }
+    }
+    &__footer {
+        @include media('>phone') {
+            text-align: center;
+        }
+    }
+    &__content + &__footer {
+        margin-top: 24px;
+        @include media('>phone') {
+            margin-top: 38px;
+        }
+        @include media('>desktop') {
+            margin-top: 70px;
+        }
+    }
+}
+
+.veil {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255,255,255,.75);
+}
+
+.hr {
+    height: 1px;
+    width: 100%;
+    margin: 3rem 0 3rem;
+    background: $hr-color;
+
+    hr {
+        display: none;
+    }
+}

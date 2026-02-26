@@ -1,0 +1,8 @@
+div.collections-list
+    h2 AJP-Regulatory Collections
+    ul.rlist
+        each item, k in data.loc.content
+            each items, l in item.content
+                li
+                    a(href="#")
+                        | !{items.label}

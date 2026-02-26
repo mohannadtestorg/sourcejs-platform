@@ -1,0 +1,28 @@
+mixin slotLicenseContent()
+    block slotLicenseMessage
+        if (data.message)
+            p !{data.message}
+
+    block slotLicenseAction
+        if (data.showLogin)
+            .clearfix
+                a.linkBtn.float-right(href='#') GO TO LOGIN
+
+block slotLicenseConsumption
+    if (data )
+        if (data.enable)
+            .slotLicenseConsumption
+                block slotLicenseTitle
+                    h4.normal__header Article Select access
+
+                if (data.confirm)
+                    form(action=data.confirm method='post' name="slotLicenseConsumption")
+                        input(type="hidden" name="doi" value=data.inputs.doi)
+                        input(type="hidden" name="code" value=data.inputs.code)
+                        input(type="hidden" name="licenseId" value=data.inputs.licenseId)
+                        input(type="hidden" name="beforeDenialPageUrl" value=data.inputs.beforeDenialPageUrl)
+                        +slotLicenseContent()
+                        .clearfix
+                            input.float-right.btn--orange(type="submit" value="CONFIRM")
+                else
+                   +slotLicenseContent()

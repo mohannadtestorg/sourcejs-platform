@@ -1,0 +1,46 @@
+mixin prev(link)
+    a.content-navigation__btn--pre(href=link title="Previous " + contentType)
+        span ⟵
+        span Previous
+        span !{contentType}
+
+
+mixin next(link)
+    a.content-navigation__btn--next(href=link title="Next " + contentType)
+        span Next
+        span !{contentType}
+        span ⟶
+
+
+
+
+if(data && data.content && data.content.type )
+    -var contentType= data.content.type
+    -var previousURL=''
+    -var nextURL=''
+    case contentType
+        when "Article"
+        when "Chapter"
+        when "Digital Object Pub"
+            if (data.content.previous)
+               -previousURL=data.content.previous.itemUrl
+            if (data.content.next)
+                -nextURL=data.content.next.itemUrl
+        when "Issue"
+            if (data.content.previous)
+                -previousURL=data.content.previous.tocUrl
+            if (data.content.next)
+                -nextURL=data.content.next.tocUrl
+        when "Book"
+            if (data.content.previous)
+                -previousURL=data.content.previous.bookUrl
+            if (data.content.next)
+                -nextURL=data.content.next.bookUrl
+
+
+    div.content-navigation.clearfix
+        +prev(previousURL)
+        +next(nextURL)
+
+
+

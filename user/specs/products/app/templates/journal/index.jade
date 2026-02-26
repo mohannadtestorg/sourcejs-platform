@@ -1,0 +1,88 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{data.header}
+
+            main.content.journal-home
+                .meta-wrapper
+
+                .container
+
+                    | !{data.meta}
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.articles}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            | !{data.nl}
+
+                            //mpu ad
+                            .mpu
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.news}
+
+                    .row.separator--extra
+
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.Recommended}
+                            | !{data.cited}
+                            | !{data.read}
+
+                        .col-md-4.col-sm-5
+                            | !{data.tweets}
+
+            | !{data.footer}
+    | #{''}
+
+
+
+    section.source_section
+        h2 AJP Journal Home page
+        markdown
+        .source_example
+            | !{data.ajpHeader}
+            main.ajp-theme.content.journal-home
+                .meta-wrapper
+
+                .container
+
+                    | !{data.ajpMeta}
+
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.articles}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            | !{data.nl}
+
+                            //mpu ad
+                            .mpu
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.news}
+
+                    .row.separator--extra
+
+                        .col-md-8.col-sm-7.gutterless
+                            | !{data.Recommended}
+                            | !{data.cited}
+                            | !{data.read}
+
+                        .col-md-4.col-sm-5
+                            | !{data.tweets}
+
+            | !{data.ajpFooter}
+    | #{''}

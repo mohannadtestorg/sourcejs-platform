@@ -1,0 +1,16 @@
+extends ../../../../../../ux3/widgets/saved-searches/templates/saved-searches/saved-searches-tmpl
+
+block savedSearchesCols
+    each content, index in search
+        if(col_cnt == 1)
+            continue
+        else if (col_cnt == 2)
+            if (data.properties && data.properties.displaySavedOn )
+                - cols.push({"content": content})
+        else if (col_cnt == 3)
+            if (data.properties && data.properties.displayLastRunOn )
+                - cols.push({"content": content})
+        else
+            if content
+                - cols.push({"content": content})
+        - col_cnt++

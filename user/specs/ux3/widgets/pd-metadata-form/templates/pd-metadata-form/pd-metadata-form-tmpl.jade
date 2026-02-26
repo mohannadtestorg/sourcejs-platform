@@ -1,0 +1,28 @@
+.container
+    .draft-form
+        h4.border-bottom Submission Info
+        form#draftForm(method="post", enctype="multipart/form-data")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="index", value=data.index)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            input(type="hidden", name="signature", value=data.signature)
+
+            .row.clearfix
+                .col-md-9.gutterless
+                    .col-md-12
+                        | !{pb.renderDropzone(thisWidget,"draftFormDropZone1")}
+
+            | !{pb.renderDropzone(thisWidget,"draftFormDropZone2")}
+
+            .row
+                .col-md-12
+                    hr.separator.clearfix
+
+                    .actions.pull-right
+                        button(data-action=data.cancelLink).btn--cancel Cancel
+                        if (data.isReview)
+                            button(data-redirect=data.editLink).btn.btn--inverse Back to Edit
+                            button(data-action=data.submitLink) Submit
+                        else
+                            button(data-action=data.saveLink).btn.btn--inverse Save as Draft
+                            button#draft-form__submit(data-action=data.submitLink) Review and Submit

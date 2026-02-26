@@ -1,0 +1,52 @@
+mixin catogoriesDropbox()
+    block catogoriesDropbox
+        if(data.categories)
+            block inputClass
+                -var inputClass=""
+                -var isThereError=false
+                if(data.inputs.uris.message && data.inputs.uris.message.text)
+                    -isThereError=true
+                    -inputClass=data.inputs.uris.message.type + "-input"
+
+            select.jcf.submission__select(class=inputClass multiple name="search-categories.uris", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                - var values = data.inputs["uris"].value;
+                each item, l in data.categories
+                    - var selected = false;
+                    - selected = values.indexOf(item.name) > -1;
+                    if (selected)
+                        option(value=item.name, id=item.name selected)
+                            | #{item.label}
+                    else
+                        option(value=item.name, id=item.name)
+                            | #{item.label}
+                    if (item.children && item.children.length > 0)
+                        optgroup(data-parent-id=item.name)
+                            each child, l in item.children
+                                - var selected = false;
+                                - selected = values.indexOf(child.name) > -1;
+                                if (selected)
+                                    option(value=child.name, data-parent-id=item.name, selected)
+                                        | !{child.label}
+                                else
+                                    option(value=child.name, data-parent-id=item.name)
+                                        | !{child.label}
+
+        if(isThereError)
+            div(class=inputClass == "" ? "success" :data.inputs.uris.message.type) !{data.inputs.uris.message.text}
+
+mixin message(relatedField)
+    .metadata-form__message.error.hidden(data-related-field=relatedField, aria-hidden="true") Field is required.
+
+
+.categories-widget.submission-info
+    block hiddenInputs
+        input(type="hidden" value=thisWidget.id name="search-categories.id")
+    .input-group.left-side-label.__top
+        label Taxonomy Tags
+            block tooltip
+                | !{pb.render('tooltip', {data: {"type":"icon","title":"Taxonomy Tags", "text":"Select as many additional keyword terms as you would like to describe your work. These will help discovery of your work and aid in searching and browsing and alerts. Selecting a daughter term will automatically include the parent taxonomic term."}})}
+
+
+        div.left-side-content
+            +catogoriesDropbox()
+            +message("search-categories.uris")

@@ -1,0 +1,46 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/membership-access-code/templates/membership-access-code/membership-access-code-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use Membership Access Code template.
+        +printJson({
+            "data": {
+                "form": {
+                    "accessCode": {
+                        "value": "q",
+                        "name": "MembershipAccessCodeBean.accessCode",
+                        "required": true,
+                        "hidden": false
+                    },
+                    "membershipNo": {
+                        "value": "q",
+                        "name": "MembershipAccessCodeBean.membershipNo",
+                        "required": true,
+                        "hidden": false
+                    },
+                    "tokenDomain": {
+                        "value": "default domain",
+                        "name": "MembershipAccessCodeBean.tokenDomain",
+                        "required": true,
+                        "hidden": true
+                    }
+                },
+                "formMsg": "Access token is not found",
+                "tokenDomain": "default domain",
+                "societyDescription": "The American Society of Human Genetics"
+            }
+        })
+
+
+    section.source_section
+        h2 Examples
+        h3 Membership Access Code
+        .source_example
+            | !{pb.render('membership-access-code', 'data.json', 'pericles')}
+

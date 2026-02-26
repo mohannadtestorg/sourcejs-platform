@@ -1,0 +1,62 @@
+| !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+.pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+    // begin pagefulltext
+    .page-body.pagefulltext
+        div(data-pb-dropzone='main')
+            div
+            .profile-pages__heading.card.card--light-shadow(data-widget-def='ux3-layout-widget', data-widget-id='9ce29057-a88f-4b0f-a1ec-8a2349f23131')
+                .container
+                    .row
+                        div
+                            .col-md-6.gutterless
+                                h1.account-page__header
+                                    | Institutional administration
+                                div
+                            .col-md-6.gutterless
+                                .clearfix.institutionListBlock
+                                    .pull-right
+                                        .pull-left.profile-main__label
+                                            label You are managing:
+                                        .pull-right
+                                            select#institutionList.jcf
+                                                option(value='#') Select
+                                                option(value='https://pericles.pericles-prod.literatumonline.com/action/institutionAccessEntitlements?institutionUserId=3702', selected='') Wiley Institution
+                                                option(value='https://pericles.pericles-prod.literatumonline.com/action/institutionAccessEntitlements?institutionUserId=520') Atypon Institution
+
+            .container
+                .row
+                    .raaAccountInfo.gutterless--md.gutterless--sm.gutterless--xs.col-md-12.gutterless
+                        .gutterless--md.gutterless--sm.gutterless--xs.col-md-3
+                            | !{pb.render('profile-menu', 'data.json', 'pericles')}
+                        .main-content.gutterless--md.gutterless--sm.gutterless--xs.col-md-9
+                            .card(data-widget-def='ux3-layout-widget', data-widget-id='2fcbaf42-0d46-4200-b6ab-2ea69c8b5598')
+                                div
+                                    h2.section__header
+                                        | WOL Bookstore
+                                    .sub
+                                        p
+                                            | Are you responsible for ordering online books, journal backfiles or electronic Reference Works for your Institutional Library?
+                                            br
+                                            br
+                                            | Presenting Wiley Online Library Bookstore – the fastest, easiest way for you to place orders, and provide access quickly to Wiley content for your patrons.
+                                            br
+                                            br
+                                            | The Bookstore is provided exclusively for the use of Institutional Librarians/Admins who handle their Institution’s orders.
+                                            br
+                                            br
+                                            | If you or a colleague need to place an urgent order for online book, backfile or reference work content that your faculty, students and patrons need access to, the Bookstore is the easiest option to use.
+                                            br
+                                            br
+                                            | Contact Us - if you have any problems or questions you can still easily contact your Wiley Online Library support team at: eal@wiley.com
+                                            br
+                                            br
+                                            | Why not get started today - visit
+                                            a(href='https://wolbookstore.wiley.com') the WOL Bookstore
+                                            |  and get signed up today.
+                                    a.more-widget-link(href='#', title='#')
+                                        | Visit Bookstore
+                                        i.icon-arrow_r(style='font-size: 10px; vertical-align: middle; margin-left: 8px; display: inline-block; font-weight: 600;')
+
+
+| !{pb.render('footer', 'pericles')}

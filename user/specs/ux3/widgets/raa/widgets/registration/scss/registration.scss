@@ -1,0 +1,46 @@
+.personal-information {
+    margin-top: 15px;
+}
+
+
+@include media('>=tablet') {
+    .login-info {
+        clear: both;
+        .input-group {
+            padding: 0 5px;
+        }
+    }
+
+    .formDropZone {
+        .edit {
+            padding: 0 5px;
+        }
+        & + .actions {
+            padding: 0 5px;
+            .cancel {
+                padding: 9px 35px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .taxonomies {
+        clear: both;
+    }
+
+    .marketable,.terms-section {
+        padding: 0 5px;
+        .terms-message {
+            p {
+                &:first-child {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+.notified-group{
+    position: relative;
+    color: $info-text-color;
+    padding-right: 45px;
+}

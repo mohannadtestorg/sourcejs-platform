@@ -1,0 +1,77 @@
+mixin errorMsg(error)
+    if (error)
+        .infoBox
+            i.icon-notice(aria-hidden="true")
+            span.error_msg= error
+
+.linkResolverWidget
+    block link_resolver
+        .link_resolver_form.card
+            - var form = data.updateForm
+            if(form)
+                - var url = form.baseUrl
+                - var text = form.openUrlText
+
+            form(action='/action/institutionAdminSfxUpdate' method='post' name="InstitutionAdmin_Sfx" id='linkResolverRemoveImage')
+                input(type='hidden' name='anti-forgery-token' value='!{data.token}')
+                input(type='hidden' name='remove' value='true')
+
+            form(action='/action/institutionAdminSfxUpdate' method='post' name="InstitutionAdmin_Sfx" id='linkResolverUpdate')
+                input(name='updateUrl' type='hidden' value='true')
+                input(type='hidden' name='anti-forgery-token' value=data.token)
+                input(type='hidden' name='update' value='true')
+
+                if (url)
+                    block baseURL
+                        .baseUrl
+                            if (url.label)
+                                h2.section__header= url.label
+                            else
+                                h2.section__header Base URL
+
+                            input(name='baseUrl' size='15' value=url.value ? url.value : 'N/A')
+                            +errorMsg(url.errorMsg)
+
+                    block baseURLText
+                        .border-top
+                            if (text.label)
+                                h2.section__header= text.label
+                            else
+                                h2.section__header Text label
+
+                            label(for='txt_baseUrl') OpenURL base URL
+                            input#txt_baseUrl(name='baseTextLabel' value=text.value ? text.value : 'OpenURL')
+                            +errorMsg(text.errorMsg)
+
+                    block baseURLImage
+                        .border-top
+                            h2.section__header Button
+
+                            - var image = form.currentButtonImage
+                            label OpenURL button image
+                            if image && image.imageUrl
+                                img(src= image.imageUrl alt='' align='middle')
+                                div.removeURLImage
+                                    button.remove(form="linkResolverRemoveImage" type='submit')
+                                        i.icon-close_thin(aria-hidden="true")
+                                        span= form.removeButtonLabel ? form.removeButtonLabel : 'Remove'
+                            else
+                                p.noImage No image uploaded
+
+                            .uploadImageButton
+                                - var buttonlabel= 'Upload New Image:2'
+                                if(form.uploadImageButtonLabel)
+                                    - buttonlabel= form.uploadImageButtonLabel
+                                label(for='imagebutton')= buttonlabel
+                                input#imagebutton.jcf(type='file' name='sfxImage' size="30")
+                                | !{pb.renderDropzone(thisWidget, "relatedDropZone")}
+
+            .border-top.form-btn
+                if (url && url.value)
+                    form(action='/action/institutionAdminSfxUpdate' method='post' name="InstitutionAdmin_Sfx")
+                        input(type='hidden' name='anti-forgery-token' value='!{data.token}')
+                        - var disableLabel = data.disableButtonLabel ? data.disableButtonLabel : "Disable OpenURL linking 2"
+                        input#disableButton(type='submit' name='disable' value=disableLabel class='btn')
+
+                if(form )
+                    input(type='submit' form="linkResolverUpdate" class='btn' value=form.submitButtonLabel)

@@ -1,0 +1,183 @@
+{
+    "title": "Cover image",
+    "template": "doc",
+    "tag": ["ready"],
+    "templates": {
+        "default": "cover-image",
+        "alternative": {
+            "cover-image-gallery": {
+                "name": "Cover Image Gallery",
+                "path": "cover-image-gallery",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Single with link",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/single-cover-image.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Single with Details - dropblock",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["dropBlock"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/dropblock.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Single with Details - Figure",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/figure.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Single with Details",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/single-cover-image-metadata.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "List of Covers",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/gallery.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of Covers given block grid classes",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["grid-md-4 grid-sm-2 grid-xs-1"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/gallery.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

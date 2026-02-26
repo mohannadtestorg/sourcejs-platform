@@ -1,0 +1,74 @@
+article.o-article-body(data-behavior='HandleAnchorLinks')
+
+    header.m-article-header.m-article-header--alt
+      p.m-article-header__type.f-h14
+        a(href='#') Perspective
+      h1.m-article-header__title.f-h1 Health Promotion and the State
+      ul.m-article-header__authors.f-ui
+        li James H. Ware, Ph.D.
+        li , David Harrington, Ph.D.
+        li , Pharm.D.
+        li and Robert M. Califf, M.D.
+    .o-article-body__content(data-behavior='StickyArticleComponents')
+        .o-colset-1-2
+          .o-col.o-col--primary
+            include ../../../../widgets/media-center/alert/templates/alert-tmpl
+          .o-col.o-col--secondary
+            include ../../../../widgets/media-center/sidebar/templates/sidebar-tmpl
+            h2.a-subtitle Points of Contact
+            p.f-body--sm
+              | Keith Wailoo 
+              br
+              em Author
+              br
+              a(href='mailto:kwailoo@princeton.edu', data-behavior='MaskEmail', data-user='kwailoo', data-domain='princeton.edu') kwailoo@princeton.edu
+
+    nav.m-simple-tabs.m-simple-tabs--sticky
+      ul.m-simple-tabs__links
+        li.s-active
+          a(href='/templates/article.php') Article
+        li
+          a(href='/templates/figures.php') Figures/Media
+        li.m-simple-tabs__action
+          a(href='#nav', data-behavior='SearchToggle', aria-label='Search', title='Search')
+            svg.icon--search(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--search')
+            svg.icon--close(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+        li.m-simple-tabs__action
+          a(href='#nav', data-behavior='NavPrimaryToggle', aria-label='Menu', title='Menu')
+            svg.icon--menu(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--menu')
+            svg.icon--close(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+    button.a-sticky-top-link(data-behavior='TopLink')
+      svg.icon--arrow
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+    ul.m-article-tools(data-behavior='ArticleTools', data-article-tools='')
+      li.m-article-tools__nav-item(class='u-hide@medium-')
+        a(href='#', data-behavior='ToolTip', data-tooltip='Download PDF', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge')
+          svg.icon--download(aria-label='Download PDF')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--download')
+      li.m-article-tools__nav-item(class='u-hide@xsmall')
+        a(href='#', data-behavior='ToolTip', data-tooltip='Permissions', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge')
+          svg.icon--permissions(aria-label='Permissions')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--permissions')
+      li.m-article-tools__nav-item.m-article-tools__nav-item--more
+        button(data-behavior='ToolTip', data-tooltip='More', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge', data-article-tool-subnav-toggle='')
+          svg.icon--more(aria-label='More article tools')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--more')
+          span.f-caps More
+        .m-article-tools__subnav
+          ul.m-article-tools__subnav-list.f-ui
+            li(class='u-hide@large+')
+              a(href='#') Download PDF
+            li(class='u-hide@small+')
+              a(href='#') Permissions
+            li
+              a(href='#') Download citation
+            li
+              a(href='/templates/article-alerts.php', data-behavior='OpenInModal', data-modal-class='narrow') Article Alert
+            li
+              a(href='#') Download Slides
+            li
+              a(href='#') Submit a letter

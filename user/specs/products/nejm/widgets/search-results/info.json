@@ -1,0 +1,33 @@
+{
+    "title": "Search Results",
+    "template": "doc",
+    "tag": ["templates"],
+    "templateData": {
+        "searchResults": {
+            "$pug": {
+                "template": "./templates/search-results-tmpl.jade",
+                "data": {
+                    "content": "test",
+                    "results": 100
+                }
+            }
+        },
+        "noSearchResults": {
+            "$pug": {
+                "template": "./templates/search-results-tmpl.jade",
+                "data": {
+                    "results": 0
+                }
+            }
+        },
+        "figuresSearchResults": {
+            "$pug": {
+                "template": "./templates/search-results-figures-tmpl.jade",
+                "data": {
+                    "results": 100
+                }
+            }
+        }
+
+    }
+}

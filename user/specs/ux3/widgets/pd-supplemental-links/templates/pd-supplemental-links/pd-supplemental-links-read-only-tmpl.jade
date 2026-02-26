@@ -1,0 +1,27 @@
+extends ./pd-supplemental-links-update-tmpl
+
+block linksTd
+
+block actions
+
+block submissionLinks
+        .supplemental-links
+                 h4.border-bottom Add Supplemental Files
+
+                 .table-responsive.table-actions
+                     table(class='expandable separator ')
+                         thead
+                             tr
+                                 th Description
+                                 th URL (DOI preferred)
+                                 th Content Type
+
+                         tbody
+                                if (data.forms)
+                                    each row, r in data.forms
+                                        +row(r,row)
+
+
+
+
+

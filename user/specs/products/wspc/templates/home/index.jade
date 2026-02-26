@@ -1,0 +1,104 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Home page
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+
+            | !{pb.render("header", "header/demo/header", 'header.json')}
+            main.content.with-bg
+                .top-image
+                .container
+                    | !{pb.render('slideshow', 'slideshow/demo/slideshow-demo', 'cards.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card card--extra-gutter", "card--shadow", "slideshow-wrapper"]}}}})}
+
+                    .row.separator
+                        .col-lg-9.col-md-12.col-sm-12.gutterless
+                            .row.grid-sm-1
+                                .col-md-6.col-sm-12
+                                    h3.section__header.border-bottom New Titles
+                                    .grid-item
+                                        .creative-work.left-side-image.teaser-titles
+                                            .delayLoad.d-flex
+                                                .teaser-left
+                                                    a(href='/action/showJournal?doi=10.1061%2Fjccee5' title='Elaboration and Applications of Metal-Organic Frameworks')
+                                                        img.creative-work__img(src='/specs/products/wspc/releasedAssets/images/home-new-titles.jpeg', alt='Elaboration and Applications of Metal-Organic Frameworks', title='Elaboration and Applications of Metal-Organic Frameworks')
+                                                .teaser-right
+                                                    a(href='/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527' title='Elaboration and Applications of Metal-Organic Frameworks')
+                                                        h3.min-height Elaboration and Applications of Metal-Organic Frameworks
+                                                    .teaser-editors
+                                                        span.teaser-loa-prop Edited by:
+                                                        ul.rlist--inline.loa.comma.loa-height
+                                                            li
+                                                                a(href='#')
+                                                                    span Nick Gayeski
+                                                            li
+                                                                a(href='#')
+                                                                    span George Pess
+
+                                                    a.more-link(href="#") More
+                                                        i.icon-arrow_r
+
+                                .col-md-6.col-sm-12
+                                    h3.section__header.border-bottom New Reviews
+                                    .grid-item
+                                        .creative-work.left-side-image.teaser-review
+                                            .delayLoad.d-flex
+                                                .teaser-left
+                                                    a(href='/action/showJournal?doi=10.1061%2Fjccee5', title='Elaboration and Applications of Metal-Organic Frameworks')
+                                                        img.creative-work__img(src='/specs/products/wspc/releasedAssets/images/home-new-reviews.jpeg', alt='Elaboration and Applications of Metal-Organic Frameworks', title='Elaboration and Applications of Metal-Organic Frameworks')
+                                                .teaser-right
+                                                    a(href='/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527', title='Elaboration and Applications of Metal-Organic Frameworks')
+                                                        h3.min-height Financing Universal Access to Healthcare
+                                                    .review-content
+                                                        p A Comparative Review of Landmark Legislative Health Reforms in the OECD
+                                                        span by Alexander S Preker
+
+                                                    a.more-link(href="#") More
+                                                        i.icon-arrow_r
+
+
+                                .col-md-12.news-section
+                                    h3.section__header.border-bottom News
+                                    .grid-item
+                                        ul.news-list
+                                            li.news-list__item
+                                                a(href="#") Neither Utopia nor Dystopia. Launch of new book that discusses the future of work, education and healthcare
+                                            li.news-list__item
+                                                a(href="#") World Scientific Presents SG50 Titles to Consul-General in Shanghai
+                                            li.news-list__item
+                                                a(href="#") Kiasu-nomics — the Singaporean approach in managing finances and life
+
+                                        a.btn.btn--inverse(href="#") View more
+
+                            | !{pb.render('top-content', 'most-x-grid.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "LATEST ARTICLES"}}}})}
+
+                        .col-lg-3.col-md-12.col-sm-12
+                            .row
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    h3.section__header.border-bottom newsletter
+                                    | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+                                    //mpu a
+                                    .mpu
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    //| !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+                .container
+                    .row.separator
+                        .col-md-12.gutterless
+                            | !{pb.render('cover-image', 'cover.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-5 grid-xs-margin--extra"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "JOURNALS"}}}})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+
+    | #{''}
+    

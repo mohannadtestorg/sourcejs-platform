@@ -1,0 +1,29 @@
+.pagination {
+  margin: 25px 0 100px;
+  &__list {
+    a {
+      color: #000;
+      font-weight: 100;
+      &.active {
+        color: $secondary-color;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+  &__btn--next, &__btn--prev {
+    font-weight: 800;
+    color: $secondary-color;
+    &.disabled {
+      color: $badge-bg-color;
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+  &__btn--next:after {
+    content: "\e901";
+  }
+  &__btn--prev:before {
+    content: "\e900";
+  }
+}

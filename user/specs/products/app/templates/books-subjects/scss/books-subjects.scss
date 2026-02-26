@@ -1,0 +1,35 @@
+.books-subjects{
+  @include media('>=tablet') {
+  margin-top: 25px;
+
+  }
+
+  .facets__title{
+    display: none;
+  }
+
+  .search{
+    &__filters{
+      @include media('>=tablet') {
+        margin: -15px 0 0;
+      }
+      padding-top: 20px;
+    }
+    &-result{
+      &__books{
+        @include media('>=tablet') {
+          margin: 0 -15px 0;
+        }
+      }
+      &__meta{
+        font-size: 1rem;
+        @include media('>=tablet'){
+          margin: 0;
+        }
+      }
+
+    }
+
+  }
+
+}

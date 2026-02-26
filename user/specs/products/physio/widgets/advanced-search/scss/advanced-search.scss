@@ -1,0 +1,65 @@
+.time-frame {
+    &.dateFilterSelect{
+        label {
+            width : 110px;
+            text-align: left;
+            margin-right: 6px;
+        }
+    }
+    .timeFrame-to{
+        label {
+            text-align: right;
+        }
+    }
+    .jcf-select {
+        margin: 5px 1%;
+    }
+}
+.timeFrame-to {
+    display: block;
+    clear: both;
+    margin-top: 10px;
+}
+
+
+.search-history {
+    .icon-delete_filled{
+        font-size: 24px;
+        color: $primary-blue-color;
+    }
+    th{
+        color: $primary-text-color;
+        font-weight: 900;
+    }
+    td, th {
+        padding:.8em;
+        vertical-align: top;
+        text-align: center;
+        &:first-child {
+            padding-left: 0;
+            text-align: left;
+        }
+        &:last-child {
+            padding-right: 0;
+            text-align: right;
+        }
+    }
+
+    a{
+        color: $primary-blue-color;
+        font-size: 16px;
+    }
+    tbody{
+        td{
+            font-weight: 400;
+        }
+    }
+}
+@include media('<tablet') {
+    .time-frame {
+        &.dateFilterSelect label{
+            text-align: left;
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,115 @@
+.header {
+
+    @include media('>=tablet') {
+        padding-right: 0;
+    }
+
+    .main-nav, .dropdown__menu {
+        @include media('>=tablet') {
+            background: $standard-bg-color;
+        }
+    }
+
+    &--first-row {
+        padding:  0;
+        margin-right: -$grid-gutter-width;
+        @include media('>=desktop') {
+            margin-right: -$grid-gutter-width/2;
+        }
+
+        & > div {
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @include media('>=tablet') {
+                height: 75px;
+            }
+
+            .pull-left {
+                float: none;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            .pull-right {
+                float: none;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-right: 60px;
+                @include media('>=tablet') {
+                    margin-right: 0;
+                }
+            }
+
+            &.container {
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+    &__logo {
+        display: block;
+        margin: 0 16px 0 0;
+        width: 103px;
+        @include media('<tablet') {
+            margin-left: 10px;
+        }
+    }
+
+    .myaccount-link {
+        border-left: 1px solid $primary-border-color;
+        padding: 10px 0 14px 10px;
+        display: flex;
+        align-items: center;
+        &__user-name {
+            max-width: 135px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .ORCID-icon {
+            margin: 0 0 0 10px;
+        }
+    }
+
+    &__splitter {
+        display: inline-block;
+        height: 40px;
+        border-left: 1px solid $primary-border-color;
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+    &__quick-menu {
+        display: flex;
+        align-items: center;
+    }
+
+    i, [class^="icon-"] {
+        color: $standard-bg-color;
+    }
+    .sign-up {
+        background-color: $standard-bg-color;
+    }
+
+    .loginBar {
+    }
+
+    &__search, &__login {
+        display: inline-block;
+        float: left;
+    }
+
+    .main-nav.menu--res a[data-toggle=nav] {
+        padding: 15px 20px;
+    }
+}

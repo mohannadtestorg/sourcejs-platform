@@ -1,0 +1,352 @@
+.page-body.pagefulltext
+    div(data-pb-dropzone='main')
+        .container
+            .row.row-md.gutterless
+                .col-md-1-1
+                    .discussionModeration
+                        h1.title Moderate Comments
+                        form#commentSearch(action='/action/discussionModeration', name='commentSearch', method='post')
+
+                            .input-group
+                                label.a-label(for='discussionTitle') Discussion title
+                                input#discussionTitle(type='text', name='discussionTitle')
+
+                            .input-group
+                                label.a-label(for='discussionDoi') DOI
+                                input#discussionDoi(type='text', name='discussionDoi')
+
+                            .input-group
+                                label.a-label(for='commenter') Submitted by
+                                input#commenter(title='Email', type='text', name='commenter')
+
+                            .input-group
+                                label.a-label(for='approver') Approved by
+                                input#approver(title='Email', type='text', name='approver')
+
+                            .input-group
+                                label.a-label(for='status') Status
+                                select#status(name='status')
+                                    option(value='') All Statuses
+                                    option(value='REJECTED') Rejected
+                                    option(value='NOT_RECOMMENDED') Not Recommended
+                                    option(value='PENDING_MODERATION') Pending Moderation
+                                    option(value='RECOMMENDED') Recommended
+                                    option(value='APPROVED') Approved
+
+                            .input-group
+                                label.a-label(for='startDate') Submitted between
+                                input#startDate.XCalendar.between(title='yyyy-MM-dd HH:mm:ss', type='text', name='startDate')
+                                label.and(for='endDate') And
+                                input#endDate.XCalendar.between(title='yyyy-MM-dd HH:mm:ss', type='text', name='endDate')
+
+                            .submit
+                                input#searchButton.a-btn(type='submit', name='searchButton', value='Search')
+                                input#downloadButton.a-btn.downloadTSV(type='submit', name='downloadButton', value='Download')
+
+                            input#search(type='hidden', name='search', value='')
+                            input#download(type='hidden', name='download', value='')
+                            input#startRow(type='hidden', name='startRow', value='1')
+                            input#pageSize(type='hidden', name='pageSize', value='20')
+                            #commentSearchResult
+                                .pagination
+                                    .pages 1–20 of 15044
+                                    .navigation
+                                        a(href='javascript:commentSearchResultPage(21)') Next
+                                        span.separator |
+                                        a(href='javascript:commentSearchResultPage(15041)') Last
+                                table.a-table.f-ui(summary='results')
+                                    thead
+                                        tr
+                                            th Discussion
+                                            th Commenter
+                                            th Submitted On
+                                            th Comment
+                                            th Status
+                                            th Approved By
+                                    tfoot
+                                        tr
+                                            td(colspan='4')
+                                            td
+                                                input.a-btn.apply(type='submit', name='update', value='Apply changes')
+                                            td
+                                    tbody
+                                        tr
+                                            td Berger CLDE -- Management of Septic Shock (NEJMclde1705277_discussion_1)
+                                            td babuhmaidan@atypon.com
+                                            td(title='2018-03-07 12:00:00') 2018-03-07
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMclde1705277_discussion_1.1520433733456') test
+                                            td
+                                                select(name='state10.1056/NEJMclde1705277_discussion_1.1520433733456', id='state10.1056/NEJMclde1705277_discussion_1.1520433733456')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Berger CLDE -- Management of Septic Shock (NEJMclde1705277_discussion_1)
+                                            td test321@gmail.com
+                                            td(title='2018-02-26 12:00:00') 2018-02-26
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMclde1705277_discussion_1.1519647922485') tes
+                                            td
+                                                select(name='state10.1056/NEJMclde1705277_discussion_1.1519647922485', id='state10.1056/NEJMclde1705277_discussion_1.1519647922485')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td test123@gmail.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510126706565') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510126706565', id='state10.1056/NEJMra1603773_discussion_1.1510126706565')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td lkawar+12@atypon.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510136820249') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510136820249', id='state10.1056/NEJMra1603773_discussion_1.1510136820249')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td lkawar+30@atypon.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510136895778') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510136895778', id='state10.1056/NEJMra1603773_discussion_1.1510136895778')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td babuhmaidan@atypon.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510125170161') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510125170161', id='state10.1056/NEJMra1603773_discussion_1.1510125170161')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td lkawar+11@atypon.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510146493797') 11111111111111
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510146493797', id='state10.1056/NEJMra1603773_discussion_1.1510146493797')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td test123@gmail.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510137027347') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510137027347', id='state10.1056/NEJMra1603773_discussion_1.1510137027347')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td test123@gmail.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510133873655') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510133873655', id='state10.1056/NEJMra1603773_discussion_1.1510133873655')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td lkawar+11@atypon.com
+                                            td(title='2017-11-08 12:00:00') 2017-11-08
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510136738184') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510136738184', id='state10.1056/NEJMra1603773_discussion_1.1510136738184')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td lkawar+30@atypon.com
+                                            td(title='2017-11-07 12:00:00') 2017-11-07
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510068828171') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510068828171', id='state10.1056/NEJMra1603773_discussion_1.1510068828171')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td lkawar+155@atypon.com
+                                            td(title='2017-11-07 12:00:00') 2017-11-07
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510068116492') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510068116492', id='state10.1056/NEJMra1603773_discussion_1.1510068116492')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td test123@gmail.com
+                                            td(title='2017-11-07 12:00:00') 2017-11-07
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1510068519700') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1510068519700', id='state10.1056/NEJMra1603773_discussion_1.1510068519700')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td mqabani@atypon.com
+                                            td(title='2017-10-30 12:00:00') 2017-10-30
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1509362984602') test 3
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1509362984602', id='state10.1056/NEJMra1603773_discussion_1.1509362984602')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td mqabani@atypon.com
+                                            td(title='2017-10-30 12:00:00') 2017-10-30
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1509363598151') test 4
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1509363598151', id='state10.1056/NEJMra1603773_discussion_1.1509363598151')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td mqabani@atypon.com
+                                            td(title='2017-10-30 12:00:00') 2017-10-30
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1509366154256') test 44
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1509366154256', id='state10.1056/NEJMra1603773_discussion_1.1509366154256')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td mqabani@atypon.com
+                                            td(title='2017-10-30 12:00:00') 2017-10-30
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1509362855708') test
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1509362855708', id='state10.1056/NEJMra1603773_discussion_1.1509362855708')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td mqabani@atypon.com
+                                            td(title='2017-10-30 12:00:00') 2017-10-30
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1509363422896') test 3
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1509363422896', id='state10.1056/NEJMra1603773_discussion_1.1509363422896')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Grady RA -- Informed Consent (NEJMra1603773_discussion_1)
+                                            td mqabani@atypon.com
+                                            td(title='2017-07-27 12:00:00') 2017-07-27
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMra1603773_discussion_1.1501152711741') 555555555
+                                            td
+                                                select(name='state10.1056/NEJMra1603773_discussion_1.1501152711741', id='state10.1056/NEJMra1603773_discussion_1.1501152711741')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td
+                                        tr
+                                            td Berger CLDE -- Management of Septic Shock (NEJMclde1705277_discussion_1)
+                                            td intensivist1972@gmail.com
+                                            td(title='2017-07-27 12:00:00') 2017-07-27
+                                            td
+                                                a(href='/action/discussionModerationEditComment?commentSearchId=jf26m219&doi=10.1056%2FNEJMclde1705277_discussion_1.1501204726420') Resuscitation target should be individualized as per clinical status
+                                            td
+                                                select(name='state10.1056/NEJMclde1705277_discussion_1.1501204726420', id='state10.1056/NEJMclde1705277_discussion_1.1501204726420')
+                                                    option(value='REJECTED') REJECTED
+                                                    option(value='NOT_RECOMMENDED') NOT_RECOMMENDED
+                                                    option(value='PENDING_MODERATION', selected='selected') PENDING_MODERATION
+                                                    option(value='RECOMMENDED') RECOMMENDED
+                                                    option(value='APPROVED') APPROVED
+                                            td

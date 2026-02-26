@@ -1,0 +1,75 @@
+include ../article/map/map-article-tmpl.jade
+
+
+
+
+mixin articleRow()
+    block contentClasses
+        -var contentClasses="col-sm-8 col-md-8 article__content"
+
+    block sidebarClasses
+        -var sidebarClasses="col-sm-4 hidden-xs hidden-sm sticko__parent"
+
+    block articleRow
+        .row
+            div(class=contentClasses)
+                //+articleHEeader()
+                //+articleCitation()
+                block includeCitation
+                    include ../article/extended/ext-citation-tmpl
+                    +epub()
+                block includeCoolbar
+                    .scroll-to-target
+                        include ../article/extended/ext-coolbar-demo-tmpl
+                +articleBody()
+
+            block tabsContainer
+                div(class=sidebarClasses)
+                    block socialLinkDropZone
+                    //+articleTab()
+                    block includeTabs
+                        include ../article/extended/ext-tabs-tmpl
+
+mixin article()
+    block article
+        main.content
+            if(data.item)
+                if(data.item.mathJax && data.item.mathJax.enabled)
+                    article.container(data-figures=data.item.figures data-references=data.item.references data-enable-mathjax=data.item.mathJax.enabled)
+                        +articleRow()
+                else
+                    article.container(data-figures=data.item.figures data-references=data.item.references)
+                        +articleRow()
+
+mixin epub()
+    if(data.item)
+        .epub-section
+            if (data.item.ePubDate)
+                block ePubDate
+                    span.epub-section__item
+                        span.epub-section__state Published Online:
+                        span.epub-section__date !{data.item.ePubDate}
+            block ePubDoi
+                if(data.item.ids.doi.canDisplay)
+                    span.epub-section__item
+                        if(data.item.ids && data.item.ids.doi && data.item.ids.doi.value)
+                            a.epub-section__doi__text(href= "https://doi.org/" + data.item.ids.doi.value) https://doi.org/!{data.item.ids.doi.value}
+            block ePubCitedby
+                if(data.item.citations && data.item.citations != "")
+                    span.epub-section__item.epub-section__citedBy
+                        span.epub-section__citedBy__label Cited by:
+                        span.epub-section__citedBy__value !{data.item.citations}
+        block ePubOtherSections
+            // other '.epub-section' blocks should go here (see ESSPP)
+
+
+
++article()
+
+script.
+    var articleRef = document.querySelector('.article__body:not(.show-references) .article__references');
+    if (articleRef) { articleRef.style.display = "none"; }
+
+
+
+include ../../../../components/figure-viewer/templates/figure-viewer/figure-viewer-tmpl.jade

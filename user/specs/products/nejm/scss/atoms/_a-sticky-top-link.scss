@@ -1,0 +1,52 @@
+/***
+
+```
+<button class="a-sticky-top-link" data-behavior="TopLink"><svg class="icon--arrow"><use xlink:href="#icon--arrow"></use></svg></button>
+```
+
+***/
+
+.a-sticky-top-link {
+  display: none;
+  position: fixed;
+  z-index: 2;
+  right: 8px;
+  bottom: -48px;
+  width: 48px;
+  height: 48px;
+  border: 0 none;
+  border-radius: 50%;
+  background-color: $color__white;
+  color: $color__black;
+  box-shadow: 0 1px 3px 0 $color__rules, 0 1px 3px 0 $color__rules;
+  cursor: pointer;
+  transition: bottom .25s linear;
+
+  @include breakpoint('medium+') {
+    display: block;
+    right: 30px;
+  }
+
+  @include breakpoint('large+') {
+    z-index: 3;
+    bottom: -52px;
+    width: 52px;
+    height: 52px;
+    transition: bottom .25s $bezier--ease-in-circ;
+  }
+}
+
+.a-sticky-top-link:hover {
+  color: $color__text--tertiary;
+}
+
+.a-sticky-top-link .icon--arrow {
+  transform: rotate(-90deg);
+  transition: transform .1s $bezier--ease-in-circ;
+}
+
+#demo .a-sticky-top-link {
+  position: relative;
+  right: 0;
+  bottom: 0;
+}

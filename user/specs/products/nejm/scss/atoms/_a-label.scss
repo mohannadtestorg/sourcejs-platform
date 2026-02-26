@@ -1,0 +1,33 @@
+/***
+
+```
+<label class="a-label" for="field">Keywords</label>
+<label class="a-label" for="field">Comment <i class="a-label__rhs-hint">1200 characters remaining</i></label>
+```
+
+***/
+
+.a-label {
+  display: block;
+}
+
+.a-label:not([class*=f-]) {
+  @include f-blurb;
+}
+
+.a-label.f-ui {
+  font-weight: 700;
+}
+
+.a-label__rhs-hint {
+  @include f-author;
+  float: right;
+  margin-top: -2px;
+  font-style: normal;
+  color: $color__text--tertiary;
+
+  @include breakpoint('xxlarge') {
+    display: block;
+    float: none;
+  }
+}

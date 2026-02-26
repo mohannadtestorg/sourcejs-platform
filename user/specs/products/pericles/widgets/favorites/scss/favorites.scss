@@ -1,0 +1,118 @@
+.favoriteShortlist {
+    .table__details {
+        color: $wiley-gray;
+        font-size: 0.75rem;
+    }
+
+    .tab__content {
+        a {
+            color: $wiley-typography-color;
+            font-size: $h6-font-size;
+            font-weight: 400;
+        }
+    }
+
+    td {
+        vertical-align: top;
+    }
+
+    tr {
+        font-weight: 400;
+    }
+
+    tr:last-of-type td {
+        border-bottom: 0;
+    }
+
+    th:not(:last-of-type){
+        width: 230px;
+        font-weight: 600;
+        color: $wiley-typography-color;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+    }
+
+    .table__mark {
+        display: none;
+    }
+
+    .delete-item {
+        padding-top: 0;
+        font-size: $h3-font-size;
+        color: $wiley-gray-color;
+        background-color: transparent;
+        &:hover, &:focus, &:active {color: $wiley-blue-color;}
+    }
+
+    [name="favoritePublicationsForm"] {
+        th:nth-of-type(2),
+        th:nth-of-type(3),
+        td:nth-of-type(3),
+        td:nth-of-type(4) {display: none !important;}
+
+        thead {border-bottom: 1px solid $separators-color;}
+        th:first-of-type {width: calc(100% - 50px);}
+    }
+
+    @include media('<tablet') {
+        tbody tr {
+            display: block;
+            position: relative;
+            padding: 1.8em 0;
+            border-bottom: 1px solid $separators-color;
+        }
+
+        td {
+            padding: 0;
+            border: 0;
+            max-width: calc(100% - 60px);
+            font-size: 0.75rem;
+
+            &:last-of-type {
+                position: absolute;
+                top: 1.8rem;
+                right: 0;
+            }
+            &:not(:last-of-type):not(:first-of-type) {
+                display: block;
+
+                &:before {
+                    content: attr(data-thead) ":  ";
+                    display: block;
+                    color: $wiley-gray;
+                    font-size: 0.75rem;
+                    font-weight: 400;
+                    margin: 0;
+                }
+                &:after {
+                    clear: both;
+                    content: '';
+                    display: block;
+                    margin-bottom: 4px;
+                }
+            }
+
+            &[data-thead="Publication Date"]:before {
+                float: left;
+                margin-right: 4px;
+            }
+        }
+
+        th {
+            display: none;
+        }
+
+        .tab__content a {
+            line-height: 1;
+        }
+    }
+
+    .section__separator {
+        margin-bottom: 0;
+        margin-top: 24px;
+    }
+
+    .pagination {
+        margin-top: 24px;
+    }
+}

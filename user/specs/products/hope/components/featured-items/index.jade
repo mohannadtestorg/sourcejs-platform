@@ -1,0 +1,36 @@
+﻿extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p The <strong>Teaser</strong> component contains the following components: #[a(href="../parent-item/") Parent item], #[a(href="../loa/") List of authors]
+        p The <strong>Teaser</strong> component is included in the following widgets: #[a(href="../../widgets/most-x/") Most - X widget]
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        h4 Default
+        +printJsCode('include /specs/ux3/components/teaser/templates/teaser/teaser-tmpl.jade')
+        h4 Home page
+        +printJsCode('include /specs/ux3/components/teaser/templates/teaser/teaser-home-tmpl.jade')
+        h4 Featured
+        +printJsCode('include /specs/ux3/components/teaser/templates/teaser/teaser-featured-tmpl.jade')
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        markdown
+            p for the bellow example we are using top-conent widget and the shared widget property to add a wrapper with `featuredCard`, `featuredCard--dark` and `journal` classes that will give the card style, and we added "most recent" as title with `div` as mark up in widget property.
+
+        .source_example
+            | !{data.items[1].body}
+    | #{''}

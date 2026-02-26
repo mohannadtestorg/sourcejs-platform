@@ -1,0 +1,84 @@
+
+block slideShowPrefix
+
+if (data.widget && data.widget.items)
+    - var items = (data.widget.items)
+else
+    - var items = "1";
+
+if (data.widget && data.widget.responsive)
+    - var responsive = (data.widget.responsive)
+else
+    - var responsive = "";
+
+
+if (data.widget && data.widget.autoplay)
+    - var autoplay = (data.widget.autoplay)
+else
+    - var autoplay = false;
+
+if autoplay
+    - autoplay = "true";
+else
+    - autoplay = "false";
+
+if (data.widget && data.widget.speed)
+    - var speed = (data.widget.speed)
+else
+    - var speed = 250;
+
+if (data.widget && data.widget.animation)
+    - var animation = (data.widget.animation)
+else
+    - var animation = "slide";
+
+
+if (data.widget && data.widget.indicators)
+    - var indicators = (data.widget.indicators)
+else
+    - var indicators = false;
+
+if indicators
+    - indicators = "true";
+else
+    - indicators = "false";
+
+if (data.widget && data.widget.arrow)
+    - var arrow = (data.widget.arrow)
+else
+    - var arrow = false;
+
+if arrow
+    - arrow = "true";
+else
+    - arrow = "false";
+
+if (data.widget && data.widget.controls)
+    - var controls = (data.widget.controls)
+else
+    - var controls = false;
+
+if controls
+    - controls = "true";
+else
+    - controls = "false";
+
+if (data.widget && data.widget.navContainer)
+    -var navContainer= (data.widget.navContainer)
+else
+    -var navContainer= 'false';
+
+
+
+
+if (data.widget && data.widget.slides)
+    block slideShow
+        .slideShow
+            div.owl-carousel(data-items=items data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=indicators data-arrow=arrow data-controls=controls navContainer=navContainer)
+                each item, k in data.widget.slides
+                    block slideShowDropZone
+                        div.slide-item
+                            | !{pb.renderDropzone(thisWidget, item)}
+            block slideShowFooter
+
+block slideShowSuffix

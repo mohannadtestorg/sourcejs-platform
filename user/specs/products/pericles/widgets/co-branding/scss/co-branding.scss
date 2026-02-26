@@ -1,0 +1,58 @@
+.co-branding {
+    section {
+        margin-top: 0;
+    }
+
+    label {
+        font-size: 0.75rem;
+    }
+
+    .btn {
+        background: $wiley-blue-color;
+        color: $white;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .uploadImage {
+        margin-top: 32px;
+    }
+
+    .note {
+        margin-bottom: 24px;
+    }
+    .noImage {
+        max-width: 225px;
+        height: 45px;
+    }
+
+    [for="cobrandText"], [for="institutionUrl"] {
+        @include media('>=desktop') {
+            margin-top: 15px;
+        }
+
+    }
+
+}
+
+.institutional-branding .sub {
+    margin-bottom: 2px;
+}
+
+.card ~ .institutionalBranding {
+    margin-top: 1em;
+}
+
+.error:not(.label) {
+    margin: 13px 0;
+}
+
+.infoBox .error,
+.infoBox .success {
+    margin: 0;
+}
+
+label.error:not(.label) {
+    margin-top: 0;
+}

@@ -1,0 +1,80 @@
+div.niHeader
+    if(data && data.content)
+        div.container.container_scaled-down
+            div.row
+                div.col-xs-12.niHeader_content
+                    div.niHeader_left.pull-left
+                        div.niHeader_covers.pull-left
+                            div.niHeader_covers-lg.pull-left
+                                if(data.content.coverImage && data.content.coverImage.src)
+                                    img(src=data.content.coverImage.src, alt="")
+                                if(data.content.doi)
+                                    input(type="hidden", name="niHeader_doi", value=data.content.doi)
+                            div.niHeader_covers-sm.pull-left
+                                if(data.content.smallCoverImages)
+                                    each src, i in data.content.smallCoverImages
+                                        img(src=src, alt="", data-loc=i)
+                        div.niHeader_about.pull-left
+                            div.niHeader_about-meta
+                                if(data.content.date)
+                                    span !{data.content.date}
+                                if(data.content.volume && data.content.issue)
+                                    span Volume !{data.content.volume}, Issue !{data.content.issue}
+                                if(data.content.pages)
+                                    span Pages !{data.content.pages}
+                                if(data.content.previous && data.content.previous.link)
+                                    a.niHeader_about-prev.icon-angle-left(href=data.content.previous.link, title="Previous issue")
+                                else
+                                    i.niHeader_about-prev.icon-angle-left
+                                if(data.content.next && data.content.next.link)
+                                    a.niHeader_about-next.icon-angle-right(href=data.content.next.link, title="Next issue")
+                                else
+                                    i.niHeader_about-next.icon-angle-right
+                            div.niHeader_about-caption
+                                if(data.content.coverImage && data.content.coverImage.caption)
+                                    h6 About the Cover:
+                                    div !{data.content.coverImage.caption}
+                            div.niHeader_about-links
+                                a(href="#", title="Download cover") Download Cover
+
+                        div.niHeader_in-issue.pull-left
+                            h6 In this issue:
+                            ul
+                            block niHeaderDropzone
+                                | !{pb.renderDropzone(thisWidget, "niHeaderDropzone")}
+
+                    div.niHeader_right.pull-right
+                        a(href="/journal/${journal.code}")
+                            img(src="/covergifs/${journal.code}/title.gif", alt="${journal.title}")
+                        ul
+                            if(data.content.previous && data.content.previous.link)
+                                li
+                                    a.niHeader_prev(href=data.content.previous.link, title="Previous issue")
+                                        i.icon-angle-left
+                                        | PREVIOUS ISSUE
+                            if(data.content.next && data.content.next.link)
+                                li
+                                    a.niHeader_next(href=data.content.next.link, title="Next issue")
+                                        i.icon-angle-right
+                                        | NEXT ISSUE
+                            li
+                                a(href="/loi/accacs", title="View all issues") VIEW ALL ISSUES
+                            if(data.content.serial && data.content.serial.aopIssue && data.content.serial.aopIssue.link)
+                                li
+                                    a(href=data.content.serial.aopIssue.link, title="ASAPs") ASAPs
+                            if(data.content.serial && data.content.serial.jaIssue && data.content.serial.jaIssue.link)
+                                li
+                                    a(href=data.content.serial.jaIssue.link, title="JAMs") JAMs
+
+                        a.button_primary_2(href="/action/showLogin")
+                            i.icon-send
+                            span Get e-Alerts
+                        a.button_primary_2(href="https://acsparagonplus.acs.org/psweb/loginForm?code=1000")
+                            i.icon-file-text
+                            span Submit Manuscript
+
+div.container.container_scaled-down
+    div.row
+        div.col-xs-12
+            div.niHeader_divider
+

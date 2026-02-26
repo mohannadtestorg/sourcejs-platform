@@ -1,0 +1,71 @@
+$themes: (
+        bjj-journal: (
+                color: $journal-bg-color-bjj,
+                color2:$journal-bg-color-bjj-secondary,
+        ),
+        bjr-journal: (
+                color: $journal-bg-color-bjr,
+                color2:$journal-bg-color-bjr-secondary,
+        ),
+        bj360-journal: (
+                color: $journal-bg-color-bj360,
+                color2: $journal-bg-color-bj360-secondary,
+        ),
+        jco-journal: (
+                color: $journal-bg-color-jco,
+                color2: $journal-bg-color-jco-secondary,
+        ),
+        eor-journal: (
+                color: $journal-bg-color-efort,
+                color2: $journal-bg-color-efort-secondary,
+        ),
+        procs-journal: (
+                color: $journal-bg-color-procs,
+                color2: $journal-bg-color-procs-secondary,
+        )
+) !default;
+
+
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    @include themify($themes) {
+        color: themed('color');
+    }
+
+    &.light{
+        @include themify($themes) {
+            color: themed('color2');
+        }
+    }
+}
+
+.theme-background {
+    @include themify($themes) {
+        background-color: themed('color');
+    }
+    &.light{
+        @include themify($themes) {
+            background-color: themed('color2');
+        }
+    }
+}

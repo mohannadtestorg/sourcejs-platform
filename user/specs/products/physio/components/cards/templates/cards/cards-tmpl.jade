@@ -1,0 +1,11 @@
+div.card.card--shadow
+    if card.header
+        .card-header
+            | !{card.header}
+    if card.body
+        .cardbody
+            each item, l in card.body.topContent.data.items
+                div.card-box
+                    h6 !{card.body.topContent.data.items[l].title}
+                    span.meta !{card.body.topContent.data.items[l].epubDate}
+                    span.meta !{card.body.topContent.data.items[l].group.serial.title}

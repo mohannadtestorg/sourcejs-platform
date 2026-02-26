@@ -1,0 +1,244 @@
+.issue-item {
+    margin: 40px 20px 0px 20px;
+    padding: 40px 0px 0px 0px;
+    border-top: 2px solid $light-fourth-border-color;
+
+    @include media('<tablet') {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    &_img {
+        width: 40%;
+        border-top: 4px solid $tertiary-third-border-color;
+        float: right;
+        padding-top: 58px;
+        text-align: center;
+
+        & > img {
+            max-width: 100%;
+            max-height: 240px;
+        }
+
+        @include media('<tablet') {
+            width: 100%;
+            float: none;
+            padding-top: 0px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &_jour-logo {
+        padding-top: 10px;
+        text-align: right;
+
+        img {
+            max-height: 50px;
+            max-width: 100%;
+        }
+    }
+
+    &_metadata {
+        width: 60%;
+        padding-right: 20px;
+
+        @include media('<tablet') {
+            width: 100%;
+            padding-right: 0px;
+        }
+    }
+
+    &_title {
+        font-size: $medium-4-font-size;
+        font-weight: 500;
+
+        a {
+            color: $primary-text-color;
+
+            &:hover {
+                color: $tertiary-seventh-text-color;
+            }
+        }
+    }
+
+    &_loa {
+        list-style: none;
+        padding: 0px;
+        margin: 0px 0px 15px 0px;
+        font-size: $medium-font-size;
+
+        li {
+            padding: 0px;
+            margin: 0px;
+            display: inline-block;
+
+            &:after {
+                content: ",";
+                padding-right: 5px;
+            }
+
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    content: "and";
+                    padding-right: 5px;
+                }
+            }
+
+            &:first-child {
+                &:before {
+                    display: none;
+                }
+                &:after {
+                    content: " ";
+                }
+            }
+        }
+
+        a {
+            color: $primary-text-color;
+
+            &:hover {
+                color: $tertiary-seventh-text-color;
+            }
+        }
+
+        span {
+            display: none;
+        }
+    }
+
+    &_info {
+        font-size: $xsmall-font-size;
+        margin-bottom: 15px;
+    }
+
+    &_pubdate, &_doi {
+        display: block;
+
+        span {
+            font-weight: bold;
+            padding-right: 3px;
+        }
+
+        a {
+            color: $primary-text-color;
+
+            &:hover {
+                color: $tertiary-seventh-text-color ;
+            }
+        }
+    }
+
+    &_buttons-list {
+        list-style: none;
+        padding: 0px;
+        margin: 0px 0px 10px 0px;
+
+        li {
+            padding: 0px;
+            margin: 0px 10px 10px 0px;
+            display: inline-block;
+            vertical-align: top;
+
+            &:last-child {
+                margin: 0px 0px 10px 0px;
+            }
+
+            & > a , & > span {
+                display: inline-block;
+            }
+
+            & > a {
+                padding: 0px 20px;
+                background-color: $light-seventh-bg-color;
+                font-family: $secondary-font-family;
+                color: $primary-text-color;
+                font-size: $small-font-size;
+                font-weight: bold;
+                display: inline-block;
+                vertical-align: bottom;
+
+
+                i {
+                    vertical-align: middle;
+                    line-height: 28px;
+                    font-size: $default-font-size;
+                    color: $tertiary-seventh-text-color;
+                    padding-right: 7px;
+                }
+
+                span {
+                    vertical-align: middle;
+                    line-height: 28px;
+                }
+            }
+
+            a.issue-item_open-url {
+                background-color: transparent;
+                padding: 0px;
+
+                img {
+                    max-height: 28px;
+                }
+            }
+        }
+    }
+
+    &_access {
+        border: 1px solid $primary-bg-color;
+        color: $primary-bg-color;
+        line-height: 26px;
+        padding: 0px 20px;
+        font-family: $secondary-font-family;
+        min-width: 170px;
+        vertical-align: bottom;
+        font-size: $small-font-size;
+        text-align: center;
+        font-weight: bold;
+
+        &:before {
+            font-size: $icon-font-size;
+            font-family: icomoon;
+            padding-right: 10px;
+            content: "\f10c";
+            vertical-align: top;
+            line-height: 26px;
+        }
+
+        span {
+            vertical-align: top;
+            line-height: 26px;
+        }
+
+        &.issue-item_open-access {
+            border: 1px solid $tertiary-fifth-bg-color;
+            color: $tertiary-eighth-text-color;
+
+            &:before {
+                content: "\f10c";
+            }
+        }
+
+        &.issue-item_token-access {
+            border: 1px solid $tertiary-third-border-color;
+            color: $tertiary-fifth-text-color;
+
+            &:before {
+                content: "\f111";
+            }
+        }
+
+        &.issue-item_institutional-access {
+            border: 1px solid $primary-bg-color;
+            color: $primary-bg-color;
+
+            &:before {
+                content: "\f10c";
+            }
+        }
+    }
+}

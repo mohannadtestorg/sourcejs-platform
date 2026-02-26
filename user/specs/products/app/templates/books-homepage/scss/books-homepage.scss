@@ -1,0 +1,208 @@
+.books-homepage{
+  margin-top: 30px;
+
+  .font-weight-light{
+    @include media('<tablet'){
+      font-weight: 500;
+    }
+  }
+}
+
+.book-of-month{
+  .bookInfo{
+    &__title{
+      margin-bottom: 40px;
+    }
+    &__image{
+      max-width: 200px;
+    }
+
+  }
+}
+.newsletter__wrapper{
+
+  margin-top: 15px;
+  h5{
+    color: $ajp-theme-color;
+  }
+  .newsletter{
+    color: $text-onDark;
+
+    h2{
+      color: $text-onDark;
+    }
+  }
+  .card--dark{
+    @include media('<desktop','>=phone'){
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  button{
+     background-color: $white;
+      color: $rose-text-color;
+    &:hover,&:focus{
+      background-color: $white;
+    }
+  }
+}
+
+
+
+@mixin two-column-book{
+  .bookInfo,.cover-image{
+    &:before,&:after{
+      content: " ";
+      display: table;
+      clear: both;
+    }
+
+    &__image{
+      display: inline-block;
+      width:50%;
+      float:left;
+    }
+    &__data,&__details{
+      display: inline-block;
+      width:48%;
+      padding-left:15px;
+    }
+    &__about{
+      display: inline-block;
+    }
+    &__summary,.book__edition{
+      display: none;
+    }
+  }
+
+
+}
+
+.two-column,.books-main-slider .owl-item.first{
+  @include two-column-book;
+
+}
+
+
+.books-main-slider {
+  .book__title{
+        h6{
+          font-size: 1rem;
+        }
+    }
+
+
+  .owl-item{
+    @include media('>=large'){
+      &.first{
+        .bookInfo,.cover-image{
+          margin: 0 -160px 0 0 ;
+        }
+
+        +.active{
+          .bookInfo,.cover-image{
+            margin: 0 -80px 0 120px;
+          }
+        }
+      }
+
+      .bookInfo,.cover-image{
+        margin: 0 -20px 0 60px;
+        &__image{
+          width: 60%;
+          margin: auto;
+          margin-bottom: 5px;
+        }
+        &__data,&__details{
+          width: 60%;
+          margin: auto;
+        }
+      }
+    }
+
+    @include media('<large'){
+      @include two-column-book;
+      .bookInfo,  .cover-image{
+        margin: 0 ;
+        }
+      &.first{
+        .cover-image{
+          &__image{
+            width: 45%;
+          }
+        }
+      }
+
+
+    }
+  }
+
+
+  @include media('>=large'){
+
+    .bookInfo {
+      &__title,&__authors {
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  @include media('<tablet'){
+    .slide-item{
+      margin: 0;
+    }
+
+    .owl-carousel {
+      padding:0;
+      .owl-nav{
+        [class*=owl-]{
+          display: none;
+        }
+      }
+    }
+   .owl-stage-outer  .owl-item{
+
+
+      .bookInfo, .cover-image{
+        margin: 0;
+        &__image{
+          display: block;
+          margin: auto;
+          width: 60%;
+          float: none;
+          margin-top: 30px;
+          img{
+            margin: auto;
+          }
+
+        }
+        &__data,&__details{
+          width:100%;
+        }
+        &__about{
+          display: block;
+          margin-top: 35px;
+        }
+        &__summary,.book__edition{
+          display: none;
+
+        }
+        &__title{
+          margin: 30px 0 15px 0;
+          color: $dsm-theme-color;
+        }
+        .book__title{
+          margin: 30px 0 15px 0;
+          h6{
+            color: $dsm-theme-color;
+          }
+        }
+
+      }
+    }
+
+  }
+
+}

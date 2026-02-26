@@ -1,0 +1,74 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl
+
+
+
+
+block tileIcon
+    i.icon-two-rows-and-three-columns-layout
+
+
+block currentIssueTitle
+
+
+
+block searchResultPager
+    include ./pager-tmpl
+
+block searchItemViews
+    if (item.content.isbn)
+        div.meta__isbn
+            span ISBN:
+            span.gray !{item.content.isbn}
+
+    div.meta__keywords
+        if (item.content.tags && item.content.tags.length)
+            span.keywords-label Topics:
+            ul.rlist--inline.comma.keywords-list(title="list of keywords")
+                each i in item.content.tags
+                    li
+                        a.keyword-title(href=i.link) !{i.label}
+
+block refineSearch
+    a.hidden-sm.hidden-xs.search-result__refine.advanced-search__ctrl(href="#" data-slide-target="#advancedSearch" )
+        span refine search
+        i(class="icon-section_arrow_d" aria-hidden="true")
+    a.hidden-lg.hidden-md.search-result__refine.advanced-search__ctrl.w-slide__btn(href="#" data-slide-target="#advancedSearch" )
+        span refine search
+        i(class="icon-section_arrow_d" aria-hidden="true")
+
+
+block searchItemCoverImage
+    if (item.type == "105") || (item.type == "102")
+        if(item.content)
+            if (item.content.coverImage)
+                div.item__image
+                    a(href=url title="go to " + item.content.title)
+                        img(src=item.content.coverImage.src title="cover Image of " + item.content.title )
+            else if (item.content.latestIssue && item.content.latestIssue.coverImage)
+                div.item__image
+                    a(href=url title="go to " + item.content.title)
+                        img(src=item.content.latestIssue.coverImage.src title="cover Image of " + item.content.title )
+            else
+                block searchItemDefaultCoverImage
+                    div.item__image
+                        a(href=url title="go to " + item.content.title)
+                            div.item__default__image
+                                i.item__default__icon.icon-sort(aria-hidden="true")
+    if (item.type == "106")
+        if(item.content)
+            if (item.content.latestBook && item.content.latestBook.coverImage)
+                div.item__image
+                    a(href=url title="go to " + item.content.title)
+                        img(src=item.content.latestBook.coverImage.src title="cover Image of " + item.content.title )
+            else
+                div.item__image
+                    a(href=url title="go to " + item.content.title)
+                        div.item__default__image
+                            i.item__default__icon.icon-sort(aria-hidden="true")
+block searchListClasses
+  -var listClasses=searchlistClass ;
+
+block searchItemAbstractLabel
+    a(href="#" class="accordion__control" title="show Description")
+        span Description
+        i.icon-section_arrow_d(aria-hidden="true")

@@ -1,0 +1,40 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+block citationTitleSuffix
+
+block citationAuthors
+    div.citation__section
+        span.__semibold Authors
+        span.citation__top__item.article__access
+            if(original.item && original.item.license)
+                block citationLicense
+                    span.article__access__type
+                        if (original.item.license.type == "open-access")
+                           span.citation__access__type--open !{original.item.license.type}
+                        else
+                           span.citation__access__type--lock !{original.item.license.type}
+
+                if (original.item.license['cc-type'])
+                    if (original.item.license['cc-type'] == "cc-by")
+                        span.article__cc
+                            i.citation__top__item.icon-cc_large2
+                else
+                    if original.item.license.type == "open-access"
+                        span.article__cc
+                            i.citation__top__item.icon-cc_large2
+
+
+    div.citation__section
+        | !{data.authors}
+
+block citation__access
+
+block citation__tocHeading
+    | !{pb.renderDropzone(thisWidget, "breadcrumbs")}
+    if (original.item.latestVersionDoi)
+        div.article__version
+            .note.note--dark-yellow ! You are viewing an older version
+            a.link(href="https://doi.org/#{original.item.latestVersionDoi}" title="Go to new version") Go to new version
+    if(original.item.articleType)
+        .article__type  !{original.item.articleType}
+

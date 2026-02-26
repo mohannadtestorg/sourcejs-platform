@@ -1,0 +1,50 @@
+/***
+
+```
+<h3 class="a-generic-title f-h1">Generic Title</h3>
+<h2 class="a-generic-title">
+  <em class="a-generic-title__block f-h6">Points of Contact for</em> <br>
+  <b class="a-generic-title__block f-h3">March 2, 2017 Vol. 376 No. 9</b>
+</h2>
+```
+
+***/
+
+.a-generic-title {
+  color: $color__text--headlines;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &.f-body--sm {
+    color: $color__text;
+  }
+}
+
+.a-generic-title + p.f-ui {
+  margin-top: 12px;
+  color: $color__text--quaternary;
+}
+
+.m-article--single + .a-generic-title {
+  margin-top: 28px;
+}
+
+.a-generic-title__block {
+  display: block;
+}
+
+.a-generic-title svg {
+  display: inline;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+.a-generic-title__block + br {
+  display: none;
+}
+
+.a-generic-title__block ~ .a-generic-title__block {
+  margin-top: 4px;
+}

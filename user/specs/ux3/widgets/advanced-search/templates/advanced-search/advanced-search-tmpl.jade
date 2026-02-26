@@ -1,0 +1,228 @@
+- var numOfTerms = 0;
+- var months = {"months": ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"]};
+- var circleWithPlusiconClass="icon-circle-plus"
+block advancedSerachSuffix
+
+
+mixin searchInSetFileds()
+    each field, i in data.searchIn
+        -var number = i+1
+        .searchIn--field.input-group
+            label.is-accessible(for='searchArea' + i) Select search in area
+            select.jcf(id='searchArea' + i datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                -var labelName = field.label
+                if(data.searchInDropdown)
+                    each label, k in data.searchInDropdown
+                        if (labelName == label.value)
+                            - labelName = label.label
+                option(value=field.searchField) !{labelName}
+
+                if(data.searchInDropdown)
+                    each item, l in data.searchInDropdown
+                        if item.value != field.searchField
+                            if(item.label )
+                                option(value=item.value) !{item.label}
+            label.is-accessible(for='text' + i) Search Term
+            input(id='text' + i type="text" placeholder="Enter Search term" value=field.searchTerm )
+
+            a.add-ctrl-field(href="#" title="Add search field" class= i != 0 ? 'hidden' : '')
+                i(class=circleWithPlusiconClass aria-hidden="true")
+            a.remove-ctrl-field(href="#" title="Remove search field" class= i == 0 ? 'hidden' : '')
+                i.icon-x_btnclose(aria-hidden="true")
+
+mixin searchInFileds()
+    while numOfTerms < data.numOfDefaultSearchTerms
+        - numOfTerms++;
+        .searchIn--field.input-group
+            label.is-accessible(for='searchArea' + (numOfTerms + 1)) Select search in area
+            block searchInFiledsSelect
+                select.jcf(id='searchArea' + (numOfTerms + 1) datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    if(data.searchInDropdown)
+                        each item, i in data.searchInDropdown
+                            if(item.label)
+                                option(value=item.value) !{item.label}
+            label.is-accessible(for='text' + (numOfTerms + 1)) Search Term
+            input(id='text' + (numOfTerms + 1) type="text" placeholder="Enter Search term" )
+
+            a.add-ctrl-field.hidden(href="#" title="Add search field")
+                i(class=circleWithPlusiconClass aria-hidden="true")
+            a.remove-ctrl-field(href="#" title="Remove search field")
+                i.icon-x_btnclose(aria-hidden="true")
+
+mixin searchIn()
+    block advancedSearchInMixin
+        if (data.searchIn)
+            +searchInSetFileds()
+        +searchInFileds()
+
+
+
+mixin searchFilters()
+    -
+        var publicationDateFilter = 'anyDate';
+        var publicationDateStaticRange = '';
+        var beforeYear = '';
+        var beforeMonth = '';
+        var afterYear = '';
+        var afterMonth = '';
+        var filters = {};
+        if (data.appliedFilters && data.appliedFilters.length) {
+            for (var i = 0; i < data.appliedFilters.length; i++) {
+                if (data.appliedFilters[i].Ppub) {
+                    publicationDateFilter = 'staticRange';
+                    publicationDateStaticRange = data.appliedFilters[i].Ppub;
+                } else if (data.appliedFilters[i].BeforeYear || data.appliedFilters[i].BeforeMonth || data.appliedFilters[i].AfterYear || data.appliedFilters[i].AfterMonth) {
+                    publicationDateFilter = 'customRange';
+                    if (data.appliedFilters[i].BeforeYear) {
+                        beforeYear = data.appliedFilters[i].BeforeYear;
+                    }
+                    if (data.appliedFilters[i].BeforeMonth) {
+                        beforeMonth = data.appliedFilters[i].BeforeMonth;
+                    }
+                    if (data.appliedFilters[i].AfterYear) {
+                        afterYear = data.appliedFilters[i].AfterYear;
+                    }
+                    if (data.appliedFilters[i].AfterMonth) {
+                        afterMonth = data.appliedFilters[i].AfterMonth;
+                    }
+                } else if (data.appliedFilters[i].filterKey) {
+                    if (!filters[data.appliedFilters[i].filterKey]) {
+                        filters[data.appliedFilters[i].filterKey] = [];
+                    }
+                    filters[data.appliedFilters[i].filterKey].push({
+                        'label': data.appliedFilters[i].displayValue,
+                        'value': data.appliedFilters[i].filterValue
+                    });
+                }
+            }
+        }
+
+
+    each item, i in data.filters
+        if i == 'publicationDate'
+            .input-group.left-side-label.filter-date
+                block pubDateLabel
+                    if(item.label)
+                        label(for=i) !{item.label}
+                input(type='hidden' value='AfterYear')
+                input(type='hidden' value='BeforeYear')
+                div(id=i)
+                    if(item.radioButtons)
+                        each radio, key in item.radioButtons
+                            each item, i in radio
+                                .input-group.time-frame
+                                    label.radio--primary(for=i)
+                                        block publicationDate
+                                            input(id=i type='radio' name='Ppub' value="" checked=i == publicationDateFilter)
+                                        if(item.label)
+                                            if i == 'staticRange'
+                                                block staticRange Label
+                                                    span.label-txt !{item.label}
+                                            else
+                                                span.label-txt !{item.label}
+
+                                    if i == 'staticRange'
+                                        label.is-accessible(for='staticRangeSelect') Select static range
+                                        block staticRangeSelectBlock
+                                            select#staticRangeSelect.inline.jcf.staticRange(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="Ppub" value="")
+                                                block staticRangeBlock
+                                                    option(value='') Select
+                                                    if(item.staticRangeDropdown)
+                                                        each option, i in item.staticRangeDropdown
+                                                            if(option.label)
+                                                                option(value=option.value selected=option.value == publicationDateStaticRange) !{option.label}
+                    block rangeDate
+                        if (item.timeFrame)
+                            - var item = item.timeFrame
+                            .input-group.time-frame.dateFilterSelect
+                                label.radio--primary(for='customRange')
+                                    input#customRange(type='radio' name='Ppub' value="" checked=publicationDateFilter == 'customRange')
+                                    block customRange Label
+                                       span.label-txt !{item.label}
+                                label.is-accessible(for='fromMonth') Select starting month
+                                select#fromMonth.inline.jcf.month-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="AfterMonth")
+                                    option(value='') Month
+                                    if(months && months.months)
+                                        each month, i in months.months
+                                            option(value=i+1 selected=afterMonth == (i+1)) !{month}
+                                label.is-accessible(for='fromYear') Select starting year
+                                select#fromYear.inline.jcf.year-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="AfterYear")
+                                    option(value='') Year
+                                    if(item.afterYear && item.afterYear.fromDropDown)
+                                        each year, i in item.afterYear.fromDropDown
+                                            option(value=year selected=afterYear == year) !{year}
+                                div.timeFrame-to
+                                    block timeToPrefix
+                                    label.is-accessible(for='toMonth') Select ending month
+                                    select#toMonth.inline.jcf.month-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="BeforeMonth")
+                                        option(value='') Month
+                                        if(months && months.months)
+                                            each month, i in months.months
+                                                option(value=i+1 selected=beforeMonth == (i+1)) !{month}
+                                    label.is-accessible(for='toYear') Select ending year
+                                    select#toYear.inline.jcf.year-range(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' name="BeforeYear")
+                                        option(value='') Year
+                                        if(item.beforeYear && item.beforeYear.fromDropDown)
+                                            each year, i in item.beforeYear.fromDropDown
+                                                option(value=year selected=beforeYear == year) !{year}
+
+        else
+            block advancedSearchInputs
+                .input-group.left-side-label.searchIn--field
+                    if(item.label)
+                        label(for=item["data-id"]) !{item.label}
+                    if i == 'ConceptID'
+                        input(type='hidden' name='ConceptID')
+                    input.magicsuggest.search-term(id=item["data-id"] type='text' name=item["data-id"] placeholder=item.placeholder data-auto-complete-target=item["data-auto-complete-target"] data-auto-complete-within=item["data-auto-complete-within"] data-values=filters[i] ? JSON.stringify(filters[i]) : '')
+
+
+mixin advancedFilters()
+    .accordion
+        a.accordion__control(href='#', title='Advanced', aria-controls='adv')
+            span Advanced
+            i.icon-section_arrow_d(aria-hidden='true')
+        #adv.accordion__content(style='display: none;')
+            each advancedFilter, key in data.advancedFilters
+                if (advancedFilter.earlycite)
+                    .input-group
+                        label.checkbox--primary(for='earlyCite')
+                            input#earlyCite_hidden(type='hidden' name='earlycite' value='' disabled)
+                            input#earlyCite(type='checkbox' name='earlycite' value=advancedFilter.earlycite.value checked)
+                            span.label-txt include Articles in !{advancedFilter.earlycite.label}
+
+
+                if (advancedFilter.accessFilterRadioButtons)
+                    each radio, i in advancedFilter.accessFilterRadioButtons
+                        .input-group
+                            label.radio--primary(for='contentType'+i)
+                                input(id='contentType'+i type='radio' name=radio.id == 'openAccess' ? 'openAccess' : 'access' value=radio.value checked=i == 0 ? true : false)
+                                span.label-txt !{radio.label}
+
+form.advanced-search(action="/action/doSearch" id="frmSearch" name="frmSearch" class="frmSearch clearfix" method="get")
+    if (data.searchInDropdown)
+        block advancedSearchInContainer
+            .advanced-search--searchIn
+                block advancedSearchIn
+                    +searchIn()
+
+    if (data.filters)
+        .advanced-search--filters
+            block advancedSearchFilters
+                +searchFilters()
+
+    if (data.advancedFilters)
+        - var enablefilters = data.advancedFilters.length
+        if !enablefilters && enablefilters != 0
+            - enablefilters = data.advancedFilters.size()
+        if enablefilters > 0
+            .advanced-search--advancedFilters
+                block advancedSearchAdvancedFilters
+                    +advancedFilters()
+    block advancedSearchReferenceFields
+
+
+    block searchBtnBlock
+        button.btn.pull-right(type='submit') Search
+
+
+block suffixAdvancedSearch

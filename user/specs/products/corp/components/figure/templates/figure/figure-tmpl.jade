@@ -1,0 +1,9 @@
+-
+    if (!captionText) captionText = "";
+    if (!url) url = "https://placeimg.com/672/379/tech";
+
+figure.figure
+    img(src="#{url}", alt="#{title}").figure__image
+    if (captionText)
+        figcaption.figure__caption
+            | #{captionText}

@@ -1,0 +1,81 @@
+button, [type=submit], [type=button], .btn, .button {
+  @include themify($themes) {
+    background-color: themed('color');
+  }
+}
+.btn {
+  padding: 12px 18px;
+  line-height: normal;
+  text-align: center;
+  outline:none;
+  box-shadow: none;
+  @include themify($themes) {
+    background-color: themed('color');
+  }
+
+
+  &.btn--primary {
+
+    border: 1px solid $primary-bg-color;
+    color: $primary-bg-color;
+    @include themify($themes) {
+      color: themed('color');
+      border: 1px solid themed('color');
+      background-color: transparent;
+    }
+    &:hover, &:active {
+      border: 1px solid $primary-bg-color;
+      color: $primary-bg-color;
+      @include themify($themes) {
+        color: themed('color');
+        border: 1px solid themed('color');
+      }
+    }
+  }
+
+
+  &--journal-meta {
+    font-weight: normal;
+  }
+
+
+  &[disabled], &[disabled]:hover {
+    background: $primary-border-color;
+    color: $white;
+    box-shadow: none;
+    opacity: 1;
+    cursor: not-allowed;
+  }
+}
+
+.btn--inverse {
+  @include themify($themes) {
+    background-color: transparent;
+    color: themed('color');
+    border: 1px solid themed('color');
+  }
+
+
+}
+.btn--cancel{
+  @include themify($themes) {
+    background-color: transparent;
+  }
+  &:hover,&:focus{
+    text-decoration: underline;
+  }
+
+}
+
+.btn--inverse {
+  @include themify($themes) {
+    background-color: transparent;
+    color: themed('color');
+    border: 1px solid themed('color');
+  }
+}
+
+
+.header .btn {
+  min-width: initial;
+}

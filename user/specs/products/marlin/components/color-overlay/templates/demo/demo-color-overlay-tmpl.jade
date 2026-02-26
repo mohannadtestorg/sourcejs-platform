@@ -1,0 +1,8 @@
+extends ../color-overlay/color-overlay-tmpl
+block colorOerlayDropZone
+    //script.
+    //    console.log(!{JSON.stringify(data.articleToolsData)})
+    | !{pb.render("article-tools", { data: data.articleToolsData.data})}
+
+block colorOerlayNavigationDropZone
+    | !{pb.render("content-navigation", "content.json")}

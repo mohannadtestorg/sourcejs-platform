@@ -1,0 +1,66 @@
+/* ============================================
+Checkout Identity Widget
+============================================ */
+.eCommerceCheckoutIdentityWidget {
+    margin-bottom: $spacing-x-large;
+    margin-top: $spacing-x-large;
+
+    .header {
+        margin-top: 0px;
+    }
+
+    .checkoutLogin form .checkoutMethod {
+        margin: 0;
+        &:last-child {
+            margin: $spacing-small $spacing-large 0 $spacing-small;
+            @include media("<tablet") {
+                margin: $spacing-small $spacing-large 0 0;
+            }
+            a {
+                color: $standard-color;
+            }
+        }
+
+        input[type="submit"], a {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+/* ============================================
+Checkout Summary Widget
+============================================ */
+.eCommerceCheckoutSummaryWidget {
+    margin-bottom: $spacing-x-large;
+
+    .header {
+        margin: 0px;
+    }
+
+    .orderSummary {
+        color: $secondary-text-color;
+        line-height: 2.5;
+
+        div {
+            padding: 0px $spacing-small;
+            border-top: $width-border-thin dashed $color-border-gray-lighter;
+
+            &:first-child {
+                border-top: none;
+            }
+            &:last-child {
+                border-top-style: solid;
+                color: $standard-color;
+                font-weight: 700;
+            }
+            &:nth-child(even) {
+                background-color: $secondary-lighten-bg-color;
+            }
+
+
+        }
+    }
+}

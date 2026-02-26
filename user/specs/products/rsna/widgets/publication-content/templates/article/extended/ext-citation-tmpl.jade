@@ -1,0 +1,10 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+block citation__access
+    | !{pb.render('access-icon', 'access-icon/access-icon', {"data":{"access":original.item.access,"license":original.item.license}})}
+
+block articleCorrections
+
+block append citationTocHeading
+    if(original.item.headings)
+        label !{original.item.headings.secondary}

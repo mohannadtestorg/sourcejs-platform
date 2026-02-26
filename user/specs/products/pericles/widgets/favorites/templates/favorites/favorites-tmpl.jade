@@ -1,0 +1,89 @@
+extends ../../../../../../ux3/widgets/favorites/templates/favorites/favorites-tmpl.jade
+
+
+block tablePrefix
+    - tableData = {"headings":[], "actions":[], "rows":[]}
+    - config = {"checkbox": true,"expandable": false}
+
+block tableHead
+    - var headings = [{"content": "Article Title"},{"content": "Publication"},{"content": "Publication Date"},{"content": ""}]
+    - tableData.headings = headings
+
+block tableBody
+    +tableArticle(source)
+
+
+block favoritesSort
+    .alert__sort.input-group.left-side-label
+        label
+            i.icon-Icons_Sorting(aria-hidden="true")
+            | Sorted by:
+        select#slct_sortBy.sortOptions.jcf(name="sortBy")
+            - var list = [{'title':'Publication date','value':'EPUB_DATE'},{'title':'Citation','value':'SERIAL_TITLE'}, {'title':'Article Title','value':'ITEM_TITLE'}]
+            each item in list
+                option.js__favSort(value=item.value,selected=data.sortBy == item.value ? "true" : undefined) !{item.title}
+
+block tableBodyExtra
+    - cols.push({"content": '<button class="icon-trash-can delete-item" title="Delete favorite"></button>'})
+
+
+block pagerangeFav
+    if favorite.group && favorite.pageRange && favorite.pageRange != ''
+        - publication = publication + ', pp. ' + favorite.pageRange
+    else if favorite.group && favorite.group.pageRange && favorite.group.pageRange != ''
+        - publication = publication + ', pp. ' + favorite.group.pageRange
+
+mixin pageItems(x)
+    if x == 1
+        - aClass = "active"
+    else if pages > 7 && x >= 7 && x != pages
+        - aClass = "hidden"
+    else
+        - aClass = ""
+    li
+        a(href="#" data-target-page=x title=x class=aClass ) !{x}
+
+    if x < pages
+        +pageItems(x + 1)
+
+block favMainWrapper
+    .favoriteShortlist.separator
+        .card
+
+            h2.section__header Favorite articles / chapters
+            if data.favorites && data.favorites.items && data.favorites.items != ''
+                form(action='/personalize/removeFavoriteArticle' name="favoriteArticlesForm" method='post')
+                    .section__separator
+                        +favorites_sort()
+                    .js-pages
+                        +favorites_table(data)
+
+                    input(type="hidden" name="href" value="")
+                    input(type="hidden" name="currentUrl" value="")
+
+                    noscript
+                        input(type="submit" value="delete")
+            else
+                p You do not have any Favorites.
+
+        - var pageSize = 3
+        - var numberOfFavorites = data.favorites.items.length
+        - var rest = numberOfFavorites % pageSize
+        - var pages = (numberOfFavorites - rest) / pageSize
+        if rest > 0
+            - pages++
+
+        if pages > 1
+            .pagination.js-pager
+                if pages > 7
+                    span
+                        a.pagination__btn--prev(href="#" title='Previous Page')
+                ul.rlist--inline.pagination__list
+                    - var x = 1
+                    +pageItems(x)
+
+                if  pages > 7
+                    span
+                        a.pagination__btn--next(href="#" title='Next page')
+
+    

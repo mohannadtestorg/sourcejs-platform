@@ -1,0 +1,171 @@
+.do {
+  &-full {
+    &__box {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      flex-direction:row;
+      @include media('<tablet') {
+        flex-direction:column;
+      }
+    }
+    &__image {
+      margin-bottom: 15px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+
+    &__label {
+      font-size: 2.65rem;
+      font-family: $secondary-font-family;
+      margin-bottom: 28px;
+      margin-top: 30px;
+      color: $standard-color;
+      @include media('<tablet') {
+        margin-top: 40px;
+        margin-bottom: 15px;
+      }
+    }
+    &__cover {
+      margin-right: 20px;
+      flex: 0 0 100px;
+      max-width: 100px;
+      overflow: hidden;
+      display: flex;
+      justify-content: flex-end;
+      img {
+        max-width: none;
+        height: 100px;
+      }
+    }
+    &__cover + &__body {
+      flex: 1;
+      width: 100%;
+    }
+    &__title {
+      font-size: 1.4rem;
+      font-family: $secondary-font-family;
+      font-weight: normal;
+      color: $standard-color;
+      margin-bottom: 5px;
+    }
+    &__head & {
+      margin-top: 0;
+    }
+    &__authors {
+      color: $secondary-text-color;
+      font-size: 0.75rem;
+    }
+    &__date {
+      font-weight: bold;
+      margin-right: 5px;
+      color: $secondary-text-color;
+    }
+    &__access {
+      color: $journal-color;
+      font-weight: 500;
+    }
+    &__details {
+      font-size: 0.88rem;
+      margin-top: 4px;
+      margin-bottom: 6px;
+    }
+    &__player {
+      &__title {
+        font-size: 0.75rem;
+        color: $secondary-text-color;
+        font-weight: bold;
+      }
+      @include media('>=large') {
+        float: right;
+        &__title {
+          border-left: 1px solid $secondary-text-color;
+          padding-left: 8px;
+          padding-right: 2px;
+        }
+      }
+      @include media('<large') {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    &__coolBar {
+      @include media('>=tablet') {
+        margin-top: 15px;
+      }
+    }
+    &__description {
+      .accordion__control {
+        color: $secondary-text-color;
+        font-size: 0.79rem;
+        font-weight: bold;
+        @include media('>=large') {
+          margin-top: 9px;
+        }
+
+        i[class*=icon-] {
+          margin-left: 0;
+          margin-right: 4px;
+          font-size: 0.4rem;
+          font-weight: bold;
+        }
+      }
+      .accordion__content {
+        padding: 15px;
+        margin-bottom: 15px;
+        background: $primary-lighten-bg-color;
+      }
+      @include media('<tablet') {
+        margin-top: 15px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+  &-cited-doi {
+    display: block;
+  }
+}
+
+.do-full__player .jwplayer {
+  display: inline-block;
+  vertical-align: top;
+  @include media('<tablet') {
+    display: block;
+  }
+}
+
+.events__player {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.jw-skin-bekle {
+  .jw-rail {
+    background: $secondary-text-color;
+
+  }
+  .jw-icon-playback {
+    @include media('<tablet') {
+      padding-left: 0;
+      text-align: left;
+    }
+  }
+  .jw-controlbar {
+    @include media('<tablet') {
+      padding-left: 0;
+      &-right-group {
+        display: none;
+      }
+    }
+  }
+
+}
+
+.loa.comma {
+  li:not(:last-child) a {
+    float: left;
+  }
+}
+

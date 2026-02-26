@@ -1,0 +1,37 @@
+mixin catogoryDropbox()
+  block catogoryDropbox
+    -var inputClass=""
+    -var isThereError=false
+    if(data.inputs.uri.message && data.inputs.uri.message.text)
+        -isThereError=true
+        -inputClass=data.inputs.uri.message.type + "-input"
+
+
+    if(data.categories)
+        select.jcf.submission__select(class=inputClass name="editorial-category.uri", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+            option(value="") -- Select --
+            each item, l in data.categories
+                option(value=item.name, selected=data.inputs["uri"].value == item.name ? true : false )
+                    | #{item.label}
+
+    if(isThereError)
+        div(class=inputClass == "" ? "success" :data.inputs.uri.message.type ) !{data.inputs.uri.message.text}
+
+mixin message(relatedField)
+    .metadata-form__message.error.hidden(data-related-field=relatedField, aria-hidden="true") Field is required.
+
+
+
+
+.category-widget.submission-info
+   block hiddenInputs
+       input(type="hidden" value=thisWidget.id name="editorial-category.id")
+   .input-group.left-side-label.__top
+       label Primary Subject Category
+          block tooltip
+             | !{pb.render('tooltip', {data: {"type": "icon","title": "Primary Subject Category", "text": "You must select 1 primary subject category term for your submission. This category will be used to organize content on the home page and help editorial screening." } })}
+
+
+       div.left-side-content
+          +catogoryDropbox()
+          +message("editorial-category.uri")

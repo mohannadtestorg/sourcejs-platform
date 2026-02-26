@@ -1,0 +1,85 @@
+.main-nav, .dropdown__menu, .dropdown:hover {
+    background-color: $primary-bg-color;
+    @include themify($themes) {
+        background-color: themed('color');
+    }
+}
+
+.header {
+
+    &__logo {
+        img {
+            width: 235px;
+        }
+        @include media('<desktop') {
+            margin-left: 0;
+            display: block;
+
+            img {
+                height: 60px;
+                width: 110px;
+                max-height: 60px;
+            }
+        }
+    }
+
+    &__quick-menu {
+        @include media('<desktop') {
+            float: right;
+        }
+    }
+
+    &--first-row {
+        @include media('<desktop') {
+            &.container {
+                padding: 12px 40px 12px 12px;
+            }
+        }
+    }
+
+}
+
+.eor-journal {
+    .header__logo {
+        img {
+            width: 400px;
+        }
+        @include media('<desktop') {
+            img {
+                height: 28px;
+                width: 235px;
+            }
+        }
+    }
+}
+.jco-journal {
+    .header__logo {
+        img {
+            width: 400px;
+        }
+        @include media('<desktop') {
+            img {
+                width: 197px;
+            }
+        }
+    }
+}
+
+.newsitemessage {
+    font-size: 12px;
+    text-align: right;
+    a {
+        color: $primary-bg-color;
+        @include themify($themes) {
+            color: themed('color');
+        }
+        @include media('<desktop') {
+            white-space: nowrap;
+        }
+    }
+    span {
+        @include media('<desktop') {
+            white-space: nowrap;
+        }
+    }
+}

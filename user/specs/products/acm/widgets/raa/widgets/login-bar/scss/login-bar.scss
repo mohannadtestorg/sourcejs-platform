@@ -1,0 +1,106 @@
+.loginBar {
+
+  .sign-in-label, .profile-text {
+    color: $light-blue-text-color;
+    font-weight: 700;
+    display: block;
+    @include media('<tablet') {
+      display: none;
+    }
+  }
+
+  .icon-userprofile, .icon-person_outline,.icon-profile_empty,.icon-person {
+    color: $text-onDark;
+    font-size: 1.75rem;
+    padding:0;
+    @include media('>=tablet') {
+      display: none;
+    }
+  }
+
+  &.dropBlock{
+    @include media('>=tablet') {
+      margin: -22px 0;
+    }
+  }
+
+  &__dropBlock__holder{
+    @include media('>=tablet') {
+      display: inline-block;
+      position: static;
+
+      .register-link{
+        padding:23px 0 22px 15px;
+        margin-left: 12px;
+        border-left: 1px solid $primary-border-color;
+      }
+
+    }
+    @include media('<tablet') {
+      top: 65px;
+      left: 0;
+      right: 0;
+      background: $primary-bg-color;
+
+      li{
+        font-size: 1rem;
+        display: block;
+        padding:15px 25px;
+        border-top: 1px solid  $primary-border-color;
+      }
+      .register-link a{
+        padding: 0;
+        font-weight: 500;
+        font-size: 1rem;
+        background: transparent;
+      }
+
+      .sign-in-label{
+        font-weight: 500;
+        color:$text-onDark;
+        display: block;
+      }
+    }
+
+
+  }
+
+}
+
+.navigation-login-dropdown-container{
+  font-size: .875rem;
+  left: auto;
+  right: -14px;
+  top: 40px;
+  position: absolute;
+  text-align: left;
+  color: $text-onLight;
+  box-shadow: 0 3px 7px rgba(0,0,0,.15);
+  z-index: 2;
+  background: $white;
+  min-width: 200px;
+  @include media('<tablet'){
+    font-size: 1rem;
+    top: 65px;
+    left: 0px;
+    right: 0;
+    background-color: $primary-bg-color;
+    color: $text-onDark;
+  }
+
+  ul{
+    list-style: none;
+    padding: 0;
+    li{
+      padding:15px 25px;
+      margin: 0;
+      border-top: 1px solid $secondary-border-color;
+      @include media('<tablet'){
+        border-top: 1px solid $primary-border-color;
+      }
+      &:last-child{
+        color: $light-pink-text-color;
+      }
+    }
+  }
+}

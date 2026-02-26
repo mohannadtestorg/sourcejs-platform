@@ -1,0 +1,18 @@
+-var tooltipClasses=""
+
+if(data.type=="icon")
+    -tooltipClasses="circled-sign circled-sign--help"
+
+span.tooltip
+    a.w-slide__btn(class=tooltipClasses, href="#", data-slide-target="#"+data.id)
+        span !{data.outertext}
+    .tooltip__body(id=data.id)
+        .tooltip__title
+            h5 !{data.title}
+        .tooltip__text
+            p !{data.text}
+
+
+
+
+

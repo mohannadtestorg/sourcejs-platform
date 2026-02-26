@@ -1,0 +1,13 @@
+extends ../../../../../../ux3/widgets/advanced-search/templates/advanced-search/advanced-search-tmpl
+
+block advancedSearchInputs
+    if(i == "publication")
+        .input-group.left-side-label
+            input.publication-type__label(hidden value='' name='')
+            label(for='TypePublication') Type of publication
+            select.jcf.publication-type__select(id='TypePublication' datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                option(value='' param='') All publications types
+
+                each pb, j in item
+                    if(pb.label)
+                        option(value=pb.value param=pb.param) !{pb.label}

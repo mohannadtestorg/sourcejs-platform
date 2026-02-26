@@ -1,0 +1,22 @@
+
+-var extraClass=""
+
+if data && data.isSmall=="false"
+    -extraClass="container"
+
+
+.support-images
+  div.support-images__wrapper(class=extraClass)
+       a(href="#")
+           img(src="/specs/products/esspp/templates/header/images/ams.png")
+       a(href="#")
+           img(src="/specs/products/esspp/templates/header/images/gsa.png")
+       a(href="#")
+           img(src="/specs/products/esspp/templates/header/images/ugm.png")
+       a(href="#")
+           img(src="/specs/products/esspp/templates/header/images/egu.png")
+       a(href="#")
+           img(src="/specs/products/esspp/templates/header/images/MSA.png")
+
+       if(data && data.isSmall=="false")
+           div.support-images__text Accelerating discovery, building community

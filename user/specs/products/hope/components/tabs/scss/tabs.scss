@@ -1,0 +1,61 @@
+.tab {
+  &__nav{
+    background-color: $standard-color;
+
+    a {
+      color: $tertiary-text-color;
+      text-transform: uppercase;
+      border-bottom:none;
+      font-weight: 600;
+      font-size: 1.1em;
+      font-family:  $secondary-font-family;
+      padding: 8px  5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+
+
+      @include media('<large'){
+        padding: 8px 2px;
+        font-size: 1em;
+      }
+
+      @include media('<desktop'){
+        font-size: 0.86em;
+      }
+      @include media('<tablet'){
+        text-transform: capitalize;
+        font-family: $default-font-family;
+      }
+
+      i{
+        color: $text-onDark;
+      }
+    }
+
+    .active a {
+      border-bottom:none;
+      font-weight: 600;
+      color: $text-onDark;
+
+      @include media('<tablet'){
+        color: $standard-color;
+      }
+
+      i{
+        color: $text-onDark;
+      }
+
+    }
+
+  }
+  .dropBlock {
+    > a {
+      background: transparent;
+    }
+  }
+
+}
+
+

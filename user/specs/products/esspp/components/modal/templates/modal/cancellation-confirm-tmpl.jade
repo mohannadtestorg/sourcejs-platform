@@ -1,0 +1,13 @@
+.ux-modal-container
+    div.modal(id=data.id)
+        div.modal__dialog
+            if (data.title)
+                div.modal__header
+                    h4 !{data.title}
+            div.modal__body
+                if (data.content)
+                    | !{data.content}
+
+            .modal__footer
+                button.link.btn--cancel Yes
+                button.btn(data-dismiss="modal") No

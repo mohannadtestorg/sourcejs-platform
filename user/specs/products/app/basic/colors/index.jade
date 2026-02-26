@@ -1,0 +1,226 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/app/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+
+block content
+    .source_section
+        h2 ux3 color pallete
+        p we are including #[a(href="/specs/ux3/basic/colors/") UX3 color pallete ]
+
+    .source_section
+        h2 Background colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.yellow-bg-color.block
+                        div.theme-background
+                    p $yellow-bg-color
+                li
+                    div.yellow-bg-secondary-color.block
+                        div.theme-background.light
+                    p $yellow-bg-secondary-color
+                li
+                    div.yellow-bg-dark-color.block
+                        div.theme-background.light
+                    p $yellow-bg-dark-color
+
+
+
+    .source_section
+        h2 Themed Background colors
+        .source_example.colors-palette
+                ul.rlist--inline.bg-colors
+                    li
+                        div.ajp-theme
+                          div.theme-background.block
+                        p $ajp-theme-color
+                    li
+                        div.ajp-theme
+                            div.theme-background.light.block
+                        p $ajp-theme-light-color
+                    li
+                        div.ajprj-theme
+                            div.theme-background.block
+                        p $ajprj-theme-color
+                    li
+                        div.ajprj-theme
+                            div.theme-background.light.block
+                        p $ajprj-theme-light-color
+                    li
+                        div.apt-theme
+                            div.theme-background.block
+                        p $apt-theme-color
+                    li
+                        div.apt-theme
+                            div.theme-background.light.block
+                        p $apt-theme-light-color
+                    li
+                        div.ps-theme
+                            div.theme-background.block
+                        p $ps-theme-color
+                    li
+                        div.ps-theme
+                            div.theme-background.light.block
+                        p $ps-theme-light-color
+                    li
+                        div.neuro-theme
+                            div.theme-background.block
+                        p $neuro-theme-color
+                    li
+                        div.neuro-theme
+                            div.theme-background.light.block
+                        p $neuro-theme-light-color
+
+                    li
+                        div.pol-theme
+                            div.theme-background.block
+                        p $pol-theme-color
+                    li
+                        div.pol-theme
+                            div.theme-background.light.block
+                        p $pol-theme-light-color
+                    li
+                        div.prcp-theme
+                            div.theme-background.block
+                        p $prcp-theme-color
+                    li
+                        div.prcp-theme
+                            div.theme-background.light.block
+                        p $prcp-theme-light-color
+
+                    li
+                        div.dsm-theme
+                            div.theme-background.block
+                        p $dsm-theme-color
+                    li
+                        div.dsm-theme
+                            div.theme-background.light.block
+                        p $dsm-theme-light-color
+
+                    li
+                        div.focus-theme
+                            div.theme-background.block
+                        p $focus-theme-color
+                    li
+                        div.focus-theme
+                            div.theme-background.light.block
+                        p $focus-theme-light-color
+
+                    li
+                        div.pl-theme
+                            div.theme-background.block
+                        p $pl-theme-color
+
+                    li
+                        div.pl-theme
+                            div.theme-background.light.block
+                        p $pl-theme-light-color
+                    li
+                        div.ebooks-theme
+                            div.theme-background.block
+                        p $ebooks-theme-color
+                    li
+                        div.ebooks-theme
+                            div.theme-background.light.block
+                        p $ebooks-theme-light-color
+                    li
+                        div.default-theme
+                            div.theme-background.block
+                        p $default-theme-color
+                    li
+                        div.default-theme
+                            div.theme-background.light.block
+                        p $default-theme-light-color
+                    li
+                        div.psychnews-theme
+                            div.theme-background.block
+                        p $psychnews-theme-color
+
+    | #{''}
+    .source_section
+        h2 Themed Text colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.ajp-theme
+                        div.theme-color.block Aa
+
+                    p $ajp-theme-color
+
+                li
+                    div.dsm-theme
+                        div.theme-color.block Aa
+                    p $dsm-theme-color
+
+                li
+                    div.pl-theme
+                        div.theme-color.block Aa
+                    p $pl-theme-color
+
+                li
+                    div.ebooks-theme
+                        div.theme-color.block Aa
+                    p $ebooks-theme-color
+
+                li
+                    div.default-theme
+                        div.theme-color.block Aa
+                    p $default-theme-color
+                li
+                    div.primary-text-color
+                        div.theme-color.block Aa
+                    p $primary-text-color
+                li
+                    div.link
+                        div.block Aa
+                    p $link-text-color
+
+
+
+
+
+    | #{''}
+
+
+    .source_section
+        h2 Colors of News
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.news-green.block Aa
+                    p $pys-news-green-color
+                li
+                    div.news-red.block Aa
+                    p $pys-news-red-color
+                li
+                    div.news-blue.block Aa
+                    p $pys-news-blue-color
+                li
+                    div.news-orange.block Aa
+                    p $pys-news-orange-color
+                li
+                    div.news-dark-orange.block Aa
+                    p $pys-news-dark-orange-color
+                li
+                    div.news-purple.block Aa
+                    p $pys-news-purple-color
+                li
+                    div.news-dark-purple.block Aa
+                    p $pys-news-dark-purple-color
+
+
+    .source_section
+        h2 border colors
+        .source_example.colors-palette
+            ul.rlist--inline.border-colors
+                li
+                    div.primary-border-color ______
+                    p $primary-border-color
+                li
+                    div.secondary-border-color _______
+                    p $secondary-border-color
+
+    | #{''}
+

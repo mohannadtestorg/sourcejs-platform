@@ -1,0 +1,11 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/details-tab-tmpl
+
+block detailsTabTopSectionsCopyright
+    if (original.item && original.item.copyright)
+        section.section
+            strong.section__title Information
+            .section__body
+                p !{original.item.copyright}
+                if (original.item && original.item.license && original.item.license.statement)
+                    p !{original.item.license.statement}
+        hr.section__separator

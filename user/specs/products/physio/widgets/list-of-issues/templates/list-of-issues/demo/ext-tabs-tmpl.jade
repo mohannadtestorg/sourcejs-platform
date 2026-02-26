@@ -1,0 +1,12 @@
+extends ../extended/ext-tabs-tmpl
+
+block firstLoiIssue
+    if issueIndex == 0 && tabNumber <= 1
+        if(originaldata.nav && originaldata.nav.aop)
+            li.col-md-4
+                div.loi__issue.first
+                    .article-in-press
+                        a(title="Articles In Press",href="#")
+                            span Articles
+                            span In
+                            span Press

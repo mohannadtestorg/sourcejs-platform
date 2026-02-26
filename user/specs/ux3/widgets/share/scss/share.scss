@@ -1,0 +1,40 @@
+.share {
+    &__ctrl {
+        @include media('>=tablet') {
+            font-size: 0.88rem;
+            line-height: 0.88rem;
+        }
+        span {
+            margin-left: 10px;
+        }
+    }
+    &__block {
+        padding: 15px;
+        min-width: 250px;
+        background: $white;
+        li {
+            margin-bottom: 15px;
+        }
+    }
+}
+
+
+.addthis.addthis {
+    a, [class*="addthis_button"], .at-resp-share-element .at-share-btn {
+        display: block;
+        width: 100%;
+        //color: $primary-text-color;
+        margin-bottom: 0;
+        line-height: 14px;
+    }
+    .at-icon-wrapper {
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: top;
+    }
+    i {
+        font-size: 1.25rem; // 20
+        color: inherit;
+    }
+
+}

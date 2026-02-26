@@ -1,0 +1,34 @@
+extends ../../../../../../../ux3/components/coolbar/templates/coolbar/coolbar-tmpl.jade
+
+// please don't use this template file, this file is for sourceJs usage only.
+block coolbarDropZone
+    style.
+        .source_example .coolBar .stickybar__wrapper {
+            position: static !important;
+            width: 100% !important;
+        }
+    .coolBar__section
+        a#article_Ctrl.coolBar__ctrl.hidden-lg(href='#', data-db-target-for='article', data-db-switch='icon-close_thin', aria-haspopup='true', aria-controls='article_Pop', role='button')
+            i.icon-abstract
+            span About
+        #article_Pop.coolBar__drop.fixed.rlist.dropBlock__holder(data-db-target-of='article', aria-labelledby='article_Ctrl', role='menu')
+            .transplant.showit(data-target='.article-row-right .tab__nav, .coolBar--download', data-remove='false', data-targetclass='hidden-xs hidden-sm', data-toggle='transplant', data-direction='from', data-transplant='self')
+
+    .coolBar__section.coolBar--accessDenail
+        a#access_Ctrl.coolBar__ctrl.hidden-lg(href='#', data-db-target-for='access', data-db-switch='icon-close_thin', aria-haspopup='true', aria-controls='access_Pop', role='button')
+            i.icon-icon-lock_open
+            span Access
+        #access_Pop.coolBar__drop.dropBlock__holder.rlist.fixed(data-db-target-of='access', aria-labelledby='access_Ctrl', role='menu')
+            .transplant.showit(data-target='#pane-pcw-access .accessDenial--tab', data-remove='false', data-targetclass='hidden-xs hidden-sm', data-toggle='transplant', data-direction='from')
+
+
+block coolBarSecond
+    .coolBar__section.coolBar--download.PdfLink
+        a.coolBar__ctrl.pdf-download(href='/doi/pdf/10.1002/2016JA022889', title='Article PDF')
+            img(src='https://pericles.pericles-prod.literatumonline.com/products/pericles/releasedAssets/images/pdf-icon.png', alt='PDF')
+            | PDF
+
+    block coolBarToolsMenu
+        | !{pb.render("article-tools", "article-tools.json", 'pericles')}
+    block coolBarShareMenu
+        | !{pb.render("share", "share-addthis.json", 'pericles')}

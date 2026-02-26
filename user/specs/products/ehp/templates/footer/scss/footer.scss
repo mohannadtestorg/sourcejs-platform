@@ -1,0 +1,86 @@
+.footer {
+  border-top: 1px solid $primary-darken-text-color;
+  padding: 0;
+  margin-top: 50px;
+
+  &__logo{
+    width: 200px;
+  }
+
+  &-top {
+    padding: 20px 0 8px;
+
+    h5 {
+      font-size: .875rem;
+    }
+
+    background-color: $default-bg-color;
+    color: $primary-link-color;
+    .border-top {
+      border-color: $primary-link-color;
+    }
+    a {
+      color: $secondary-text-color;
+    }
+
+    .sitemap{
+      li{
+        padding: 1px 0;
+      }
+    }
+
+
+    .rlist, .contact__address {
+      color: $secondary-text-color;
+      font-size: .75rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .contact{
+      margin-top: -5px;
+    }
+
+    .icon-facebook{
+      color: $facebook-bg-color;
+      font-size: 1.4rem;
+    }
+
+    .icon-twitter{
+      color: $twitter-bg-color;
+      vertical-align: text-bottom;
+      font-size: 1.3rem;
+    }
+  }
+
+  &-bottom {
+    font-weight: 600;
+    .rlist--inline.separator > li:not(:last-of-type) {
+      border-right: 1px solid $white;
+      padding-right: 15px;
+    }
+
+    .copyright{
+      @include media('>=tablet'){
+        float: right;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &--contact__list{
+    border-width: 1px;
+    margin-bottom: 12px;
+    padding: 12px 0;
+    a{
+      color: $primary-link-color;
+    }
+    &.rlist--inline.separator>li{
+      border-color:$primary-darken-text-color;
+      @include media('<desktop','>=tablet'){
+          padding: 0 8px;
+      }
+    }
+  }
+
+}

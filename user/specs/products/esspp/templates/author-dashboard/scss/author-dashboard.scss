@@ -1,0 +1,23 @@
+.dashboard__aside .sticko__child .col-xs-12 {
+    padding-right: 0;
+}
+.content--author-dashboard {
+    padding-top: 171px;
+    .w-slide__content {
+        padding-left: $gutter-size/2;
+        padding-right: $gutter-size/2;
+        margin-top: 20px;
+    }
+    & .pd-action-bar {
+        @include media('>=phone') {
+            margin-top: -20px;
+        }
+    }
+    & .dashboard-main {
+        & .pd-action-bar {
+            @include media('>=phone') {
+                margin-top: 90px;
+            }
+        }
+    }
+}

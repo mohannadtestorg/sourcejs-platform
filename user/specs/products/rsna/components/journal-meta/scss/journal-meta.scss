@@ -1,0 +1,75 @@
+.meta {
+    &__body {
+        h1 {
+            line-height: normal;
+        }
+
+        .btn {
+            font-weight: normal;
+            &:hover {
+                color: $text-onDark;
+            }
+        }
+
+        &.card {
+            @include media('<tablet') {
+                margin-top: 15px;
+            }
+        }
+    }
+    &__title {
+        color: $primary-link-color;
+        padding-left: 8px;
+        @include media('<tablet') {
+            padding-left: 0px;
+        }
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    &__info {
+        color: $secondary-text-color;
+        font-size: $h6-font-size;
+        margin-bottom: 8px;
+        padding-left: 8px;
+        @include media('<tablet') {
+            padding-left: 0px;
+        }
+    }
+    &__left-side {
+        @include media('>=tablet') {
+            width: calc(100% - 250px);
+        }
+
+        &.left-side-image {
+            .meta__info {
+                @include media('>=desktop') {
+                    margin-left: 0px;
+                }
+            }
+
+        }
+    }
+
+    &__right-side {
+        margin-bottom: 8px;
+        padding: 0 8px 0 15px;
+        @include media('<tablet') {
+            margin-top: 30px;
+            margin-bottom: 0px;
+            padding: 0px;
+            width: 100%;
+        }
+        @include media('>=tablet') {
+            width: 250px;
+        }
+
+        a ~ a {
+            @include media('<tablet') {
+                float: right;
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Article page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200481' target="_blank">`LIT-200481`</a>, <a href='https://jira.atypon.com/browse/LIT-189423' target="_blank">`LIT-189423`</a> and <a href='https://jira.atypon.com/browse/LIT-190547' target="_blank">`LIT-190547`</a>
+
+    section.source_section
+        h2 Article page
+
+        h3 Abstract page
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .pageBody
+                .pages-nav--sticky.pages-nav.hidden-lg
+                    .pages-nav--res
+                        .container
+                .container
+                    | !{pb.render('publication-content', 'demo/article', {data : data.abst.data, coolbar : 'abst' }, 'pericles')}
+                    .sticko__parent.sticko-ads
+                        .sticko__md
+                            .pb-ad
+                                a(href='/action/clickThrough?id=1270&url=%2Falerts&loc=%2F&placeholderId=1008&productId=1252', target='_blank')
+                                    img(src='https://www.future-science.com/sda/1270/Email-Alerts.jpg')
+                                a(href='/action/clickThrough?id=1270&url=%2Falerts&loc=%2F&placeholderId=1008&productId=1252', target='_blank')
+                                    img(src='https://www.future-science.com/sda/1270/Email-Alerts.jpg')
+
+
+            | !{pb.render('footer', 'pericles')}
+
+
+        h3 Full page - no access
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .pageBody
+                .pages-nav--sticky.pages-nav.hidden-lg
+                    .pages-nav--res
+                        .container
+                .container
+                    | !{pb.render("access-denial", "access-denial/demo/access-denial", {data : data.noAccess.data, coolbar : 'noaccess' }, "pericles")}
+                    .sticko__parent.sticko-ads
+                        .sticko__md
+                            .pb-ad
+                                a(href='/action/clickThrough?id=1270&url=%2Falerts&loc=%2F&placeholderId=1008&productId=1252', target='_blank')
+                                    img(src='https://www.future-science.com/sda/1270/Email-Alerts.jpg')
+                                a(href='/action/clickThrough?id=1270&url=%2Falerts&loc=%2F&placeholderId=1008&productId=1252', target='_blank')
+                                    img(src='https://www.future-science.com/sda/1270/Email-Alerts.jpg')
+
+
+            | !{pb.render('footer', 'pericles')}
+
+        h3 Full page - access
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .pageBody
+                .pages-nav--sticky.pages-nav.hidden-lg
+                    .pages-nav--res
+                        .container
+                .container
+                    | !{pb.render('publication-content', 'demo/article', {data : data.full.data, coolbar : 'full' }, 'pericles')}
+                    .sticko__parent.sticko-ads
+                        .sticko__md
+                            .pb-ad
+                                a(href='/action/clickThrough?id=1270&url=%2Falerts&loc=%2F&placeholderId=1008&productId=1252', target='_blank')
+                                    img(src='https://www.future-science.com/sda/1270/Email-Alerts.jpg')
+                                a(href='/action/clickThrough?id=1270&url=%2Falerts&loc=%2F&placeholderId=1008&productId=1252', target='_blank')
+                                    img(src='https://www.future-science.com/sda/1270/Email-Alerts.jpg')
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}

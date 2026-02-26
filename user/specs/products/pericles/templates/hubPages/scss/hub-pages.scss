@@ -1,0 +1,434 @@
+
+.card {
+    ~ .card {
+        margin-top: 1rem;
+    }
+}
+@include media("<tablet") {
+    .hub-page-body .profile-pages__heading.card {
+        padding: 20px 0;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.side-section {
+    &-header {
+        font-size: $h6-font-size;
+        font-weight: 600;
+        padding: 11px 16px;
+
+        background: $secondary-bg-color;
+
+        .secondary-bg-color & {
+            background: $white;
+        }
+
+    }
+
+    &-content {
+        padding-left: 0.75rem;
+    }
+}
+
+.hub-main-content {
+    padding-top: 17px;
+
+    .journal-news {
+        h5 {
+            a {
+                color: $primary-light-text-color;
+            }
+        }
+    }
+
+    .topicalIndex {
+        color: $wiley-blue-color;
+
+        a {
+            color: $wiley-blue-color;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    }
+
+    .general-rss-feed-reader {
+        h4 {
+            margin-bottom: 22px;
+        }
+        .title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .titleHR {
+            display: none;
+        }
+    }
+
+    .card.books-section-wrapper {
+        margin-bottom: 0;
+        border-bottom: 1px solid $tertiary-bg-color;
+        border-color: $tertiary-bg-color;
+        padding-bottom: 5px;
+
+        + div {
+            margin-top: 0;
+        }
+
+        @include media('<tablet') {
+            border: 0;
+            + div {
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+.listOfPublications {
+    @extend .rlist;
+    @extend .separator;
+    font-size: 0.75rem;
+
+    a {
+        font-size: 1rem;
+        color: $wiley-blue-color;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: inline-block;
+
+    }
+
+    .content {
+        a {
+            font-size: 0.75rem;
+            color: $wiley-text-color;
+        }
+    }
+
+    .card & {
+        > li ~ li {
+            margin: 0 -20px;
+            margin-top: 15px;
+            padding: 0 20px;
+            padding-top: 15px;
+        }
+    }
+}
+
+.border-top {
+    border-top-width: 1px;
+    border-color: $tertiary-bg-color;
+    margin-top: 20px;
+    padding-top: 25px;
+    @extend .clearfix;
+
+    .card & {
+        margin: 0 -20px;
+    }
+
+    &.padded {
+        padding: 20px;
+    }
+}
+
+.list-of-book-series {
+    -webkit-column-width: 336px;
+    -moz-column-width: 336px;
+    -ms-column-width: 336px;
+    column-width: 293px;
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
+    -ms-column-gap: 0;
+    column-gap: 0;
+    text-align: left;
+    box-sizing: border-box;
+
+    h6 {
+        font-weight: 500;
+
+        ~ ul {
+            margin: 0 0 10px 20px;
+        }
+    }
+
+    li {
+        margin: 5px 0;
+    }
+
+    a {
+        color: $wiley-blue-color;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+        line-height: 1.1rem;
+        display: inline-block;
+    }
+
+
+    @include media('<=tablet') {
+        .topic:nth-child(n+14) {
+            display: none;
+        }
+    }
+}
+
+.hub-footer {
+
+    li {
+        line-height: 14px;
+    }
+
+    a {
+        color: $info-text-color;
+    }
+
+    .collapsible-menu {
+        @include media('<desktop') {
+            border-bottom: 1px solid $wiley-gray-color;
+        }
+
+        &-header {
+
+            color: $info-text-color;
+            font-weight: 600;
+            font-size: 0.75rem;
+            margin: 20px 0;
+
+            @include media('>=desktop') {
+                display: none;
+            }
+
+        }
+
+        &-body {
+            li {
+                margin-bottom: 4px;
+
+                a {
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        &.js--open {
+            .collapsible-menu-header {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .footer-social-media {
+        margin-bottom: 25px;
+        font-size: 0.75rem;
+
+        a {
+            vertical-align: bottom;
+            ~ a {
+                margin-left: 1rem;
+
+                @include media('<desktop') {
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        i {
+            font-size: 25px;
+            color: $wiley-gray-color;
+
+            @include media('<desktop') {
+                font-size: 28px;
+            }
+
+        }
+
+        .email {
+            width: 25px;
+            height: 25px;
+            background-color: $wiley-gray-color;
+            text-align: center;
+            border-radius: 50%;
+            display: inline-block;
+
+            @include media('<desktop') {
+                width: 28px;
+                height: 28px;
+            }
+
+            i {
+                color: $white;
+                font-size: 0.875rem;
+                line-height: 25px;
+
+                @include media('<desktop') {
+                    font-size: 1rem;
+                    line-height: 27px;
+                }
+            }
+        }
+
+    }
+
+    .hub-copyright {
+        font-size: 0.75rem;
+
+        @include media('<desktop') {
+            margin-top: 32px;
+        }
+    }
+
+    .powered-by {
+        a {
+            color: $wiley-blue-color;
+        }
+    }
+
+    &-logo {
+        width: 104px;
+
+        @include media('>=desktop') {
+            margin-bottom: 75px;
+        }
+
+    }
+
+    @include media('<desktop') {
+        .footer-social-media {
+            float: left;
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 33px;
+        }
+    }
+
+}
+
+.page-footer {
+    .powered-by {
+        font-size: 0.75rem;
+        color: $white;
+
+        @include media('<desktop') {
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: $white;
+        }
+    }
+}
+
+.hub-first-footer {
+    background: $secondary-bg-color;
+    padding: 41px 0;
+    z-index: 2;
+    position: relative;
+
+    @include media('<tablet') {
+        padding: 33px 0 29px 0;
+    }
+
+    .hub-links {
+        font-weight: 600;
+
+        @include media('<tablet') {
+            margin-bottom: 15px;
+        }
+
+        li {
+            a {
+                color: $wiley-blue-color;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+            }
+
+            @include media('<desktop') {
+                margin-bottom: 15px;
+            }
+        }
+
+        @include media('<desktop') {
+            margin-bottom: 43px;
+        }
+    }
+}
+
+.hub-journal-bar {
+    .main-nav {
+        background-color: $white;
+        box-shadow: 0 0 4px rgba(0,0,0,.32);
+
+        a {
+            font-size: 0.75rem;
+            font-weight: 600;
+            line-height: 20px;
+            color: $agu-branding;
+            border-right-color: $tertiary-bg-color;
+        }
+
+        .social-links a {
+            font-size: 1.55rem;
+            line-height: 20px;
+
+            i:not([class$="-round"]) {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                background: $agu-branding;
+                display: inline-block;
+                text-align: center;
+                font-size: 0.875rem;
+                line-height: 25px;
+                color: $white;
+                margin: 4px 0;
+            }
+        }
+
+        .dropdown i[class*=_arrow] {
+            color: inherit;
+            padding: 6px 0 6px 3px;
+        }
+        .dropdown:hover {
+            background-color: $wiley-blue-color;
+            & > a {
+                color: $white;
+                border-right-color: $wiley-blue-color;
+            }
+        }
+    }
+}
+
+[class*='grid-'] {
+    > h4 {
+        margin-left: 15px;
+    }
+}
+
+.form-btn {
+    border-top: 1px solid $tertiary-bg-color;
+    padding: 24px 20px 4px;
+    //margin: 0 -20px; it effects search page style
+    text-align: right;
+}
+
+.noImage {
+    max-width: 220px;
+    padding: 14px;
+
+    border: 2px dashed $wiley-gray-color;
+    border-radius: 4px;
+
+    text-align: center;
+    color: $wiley-gray;
+}
+
+.hub-page-body {
+    article {
+        margin-top: 15px;
+    }
+}

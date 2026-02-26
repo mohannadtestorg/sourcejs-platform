@@ -1,0 +1,76 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/demo/article-tmpl
+
+
+block articleBodyClasses
+    -var articleBodyClasses='article__body'
+    if(data.item.type == "chapter" && data.showDeltaView==true)
+        -articleBodyClasses = articleBodyClasses + " show-updates"
+
+
+block contentClasses
+    -var contentClasses="col-sm-8 col-md-8 col-lg-9 article__content"
+    if(data.item.type == "chapter")
+        -contentClasses=contentClasses+ " book-chapter"
+
+block tabsContainer
+    .col-sm-4.col-md-4.col-lg-3.hidden-xs.hidden-sm.sticko__parent
+        .article__advertisement
+            a(href="#" title="adv")
+                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+        include ../article/extended/ext-tabs-tmpl
+
+
+block includeCitation
+    if(data.item.type == "chapter")
+        .book-chapter__nav.clearfix.border-bottom
+            .pull-left
+                a.link(href="#" title="Back to table contents") Back to table contents
+            .pull-right
+                | !{nav}
+
+    include ../article/extended/ext-citation-demo-tmpl
+    +epub()
+
+block includeCoolbar
+    .scroll-to-target
+        include ../article/extended/ext-coolbar-demo-tmpl
+
+
+block ePubCitedby
+    if(data.item.type == "chapter")
+        if(data.item.series && data.item.series.titles )
+            span.epub-section__item.epub-section__bookSeries
+                span.epub-section__bookSeries__label.bold Book Series:
+                span.epub-section__bookSeries__value !{data.item.series.titles.title}
+
+    else if(data.item.citations && data.item.citations != "")
+            span.epub-section__item.epub-section__citedBy
+                span.epub-section__citedBy__label Cited by:
+                span.epub-section__citedBy__value !{data.item.citations}
+
+
+block article
+        if(data.item)
+            if(data.item.mathJax && data.item.mathJax.enabled)
+                article.container(data-figures=data.item.figures data-references=data.item.references data-enable-mathjax=data.item.mathJax.enabled)
+                    +articleRow()
+            else
+                article.container(data-figures=data.item.figures data-references=data.item.references)
+                    +articleRow()
+
+
+block articleContentSuffix
+    | !{pb.renderDropzone(thisWidget, "accessDenialDropZone")}
+
+    .article-table-viewer
+        .article-table-viewer__content
+            .article-table-viewer__ctrl
+                a.article-table-viewer__ctrl__prev(title='Previous Table', href='#' data-nav="prev")
+                    span.icon-arrow_l
+                a.article-table-viewer__ctrl__next(title='Next Table', href='#' data-nav="next")
+                    span.icon-arrow_r
+            a.table__viewer__closer(href="#")
+                i.icon-close_thin
+            .article-table-viewer__wrapper
+        .article-table-viewer__overlay
+

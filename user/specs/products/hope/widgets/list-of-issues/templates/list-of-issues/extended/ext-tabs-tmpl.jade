@@ -1,0 +1,47 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+
+block issuesMixin
+        if (itemo)
+            each item, l in itemo
+                li.col-md-4
+                    div.loi__issue
+                        if item.url
+                           a(href=item.url)
+                               if ((item.volume) || (item.issue))
+                                   if (item.coverDate)
+                                       span.coverDate !{item.coverDate}
+                               if (volume && volume.VolNo && !item.volume)
+                                   - item.volume = volume.VolNo;
+                               if (item.title)
+                                   h6 !{item.title}
+
+                               span.loi__volumeContainer
+                                   if ((item.volume) || (item.issue))
+                                       if (item.volume)
+                                           span.comma Vol #{item.volume}.
+                                       if (item.issue)
+                                           span
+                                               |   No #{item.issue}
+                                   if (item.pageRange)
+                                       span.iPageRange : !{item.pageRange}
+
+                        else
+                            if ((item.volume) || (item.issue))
+                                if (item.coverDate)
+                                    span.coverDate !{item.coverDate}
+                            if (volume && volume.VolNo && !item.volume)
+                                - item.volume = volume.VolNo;
+                            if (item.title)
+                                h6 !{item.title}
+                            if ((item.volume) || (item.issue))
+                                if (item.volume)
+                                    span.comma Vol #{item.volume}.
+                                if (item.issue)
+                                    span
+                                        |   No #{item.issue}
+                            if (item.pageRange)
+                                span.iPageRange : !{item.pageRange}
+
+
+

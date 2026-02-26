@@ -1,0 +1,65 @@
+/***
+
+
+***/
+
+.m-form-basic {
+}
+
+.m-form-basic__fieldset {
+  margin-top: 20px;
+}
+
+.m-form-basic__fieldset:not(:first-child) {
+  margin-top: 24px;
+  padding-top: 23px;
+  border-top: 1px solid $color__rules;
+}
+
+.m-form-basic__legend {
+  display: block;
+  float: left;
+  width: 100%;
+  padding-bottom: 20px;
+}
+
+.m-form-basic__legend + * {
+  clear: both;
+}
+
+.m-form-basic__legend + .f-hint {
+  margin-top: -20px;
+}
+
+.m-form-basic__items .m-form-basic__item {
+  margin-top: 8px;
+}
+
+.m-form-basic__action {
+  text-align: right;
+
+  @include breakpoint('xsmall') {
+    text-align: center;
+
+    .a-btn {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+
+.m-form-basic__items--inline {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.m-form-basic__items--inline .m-form-basic__item {
+  flex: 0 0 auto;
+  margin-top: 0;
+  margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}

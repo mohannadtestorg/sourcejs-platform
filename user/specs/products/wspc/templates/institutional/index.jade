@@ -1,0 +1,24 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Institutional page
+    .source_info
+
+
+
+    section.source_section
+        h2 Institutional page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header", 'header.json')}
+            main.content.institutional-profile
+                .profile-pages__heading.hidden-sm.hidden-xs
+                    h3 Institutional
+                | !{pb.render('institutional',{"shared": {"model": {"config": {"wrapper": "true", "className": ["profile-pages"]}}}})}
+            .clearfix
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

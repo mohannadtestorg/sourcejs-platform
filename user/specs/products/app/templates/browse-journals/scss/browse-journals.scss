@@ -1,0 +1,67 @@
+.browse-journals-page{
+
+  .grid-sm-2{
+    margin: 0 -15px;
+  }
+
+    .lot{
+
+      @include media('<tablet'){
+       display:none;
+      }
+    }
+
+   .creative-work__title{
+     color: $primary-text-color;
+     margin-bottom: 0;
+   }
+   .loa {
+     margin: 0;
+   }
+
+   .section{
+     font-family: $secondary-font-family;
+     padding: 32px 0 20px;
+
+     &:first-child{
+       margin-top: 15px;
+     }
+
+     &:nth-child(even){
+       @include themify($themes) {
+         background: themed('color2');
+       }
+     }
+   }
+
+   &__bottom{
+     .other-links{
+       padding-top: 16px;
+       font-family: $secondary-font-family;
+       border-top: 2px solid $primary-border-color;
+
+
+       [class^="col-"]{
+         @include media('<tablet'){
+           margin-bottom: 40px;
+         }
+       }
+
+       img{
+         margin-top: 10px;
+         width: 60%;
+       }
+     }
+
+     .discover-more {
+       margin: 16px 0;
+       color:$ajp-theme-color;
+     }
+
+   }
+  .rlist{
+    .creative-work{
+      border-bottom: 1px solid $primary-border-color;
+    }
+  }
+}

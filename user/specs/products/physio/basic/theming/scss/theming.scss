@@ -1,0 +1,85 @@
+$themes: (
+        ajpcell: (
+                color: $ajpcell,
+        ),
+        ajpendo: (
+                color: $ajpendo,
+        ),
+        ajpgi: (
+                color: $ajpgi,
+        ),
+        ajpheart: (
+                color: $ajpheart,
+        ),
+        ajplegacy: (
+                color: $ajplegacy,
+        ),
+        ajplung: (
+                color: $ajplung,
+        ),
+        ajpregu: (
+                color: $ajpregu,
+        ),
+        ajprenal: (
+                color: $ajprenal,
+        ),
+        apsselect: (
+                color: $apsselect,
+        ),
+        jappl: (
+                color: $jappl,
+        ),
+        jn: (
+                color: $jn,
+        ),
+        physiolgenomics: (
+                color: $physiolgenomics,
+        ),
+        advances: (
+                color: $advances,
+        ),
+        physiologyonline: (
+                color: $physiologyonline,
+        ),
+        physrev: (
+                color: $physrev,
+        )
+) !default;
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    button {
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+    a {
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}
+
+.background-container {
+    @include themify($themes) {
+        color: themed('color');
+    }
+}

@@ -1,0 +1,13 @@
+extends ../../../../../components/alphanumeric/templates/alphanumeric/alphanumeric-tmpl.jade
+
+block alphaFacetMain
+    if data.title || data.values
+        div.facet.accordion
+            if (data.title)
+                a(href="#" title="Alphanumeric Filter" aria-controls="alphaFace" class="facet__ctrl accordion__control js--open")
+                    +title()
+                    i(aria-hidden="true" class="icon-section_arrow_d")
+
+            if (data.values)
+                div.facet__content.accordion__content.js--open(id="alphaFace")
+                    +body()

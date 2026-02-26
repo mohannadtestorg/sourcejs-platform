@@ -1,0 +1,40 @@
+.glossary {
+    $this: &;
+    line-height: 1.75rem;
+
+    &__term {
+        font-size: $dt-font-size;
+        font-weight: bold;
+    }
+
+    &__description {
+        font-size: $dd-font-size;
+        margin: 0 0 1rem 0;
+    }
+
+    &__list {
+        margin: 20px 0;
+
+        &--bullets{
+            #{$this}__term {
+                position: relative;
+                padding-left: 25px;
+
+                &:before {
+                    content: '●';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-15px);
+                    color: $headings-primary-color;
+                }
+            }
+            #{$this}__description {
+                padding-left: 25px;
+            }
+
+        }
+    }
+
+
+}

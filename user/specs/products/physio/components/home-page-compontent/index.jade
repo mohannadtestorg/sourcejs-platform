@@ -1,0 +1,23 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        h2 Usage
+
+    | #{''}
+
+    section.source_section
+        h2 Home Templates
+
+        h3 Home Templates
+        .source_example
+            include ./templates/home-resources-tmpl
+        .source_example
+            include ./templates/home-covers-tmpl
+        h3 Editor in chief
+        .source_example
+            div.ajpheart.home-page
+                include ./templates/home-APSselect-tmpl
+    | #{''}

@@ -1,0 +1,34 @@
+extends ./pd-supplemental-files-update-tmpl
+
+block FilesTd1
+    | !{pb.render("supplemental-content-type", {data: {"value": row[jsonFieldName].value}})}
+
+block FilesTd2
+    td-text !{row[jsonFieldName].value}
+
+block FilesTd3
+
+block ErrorMessage
+
+block actions
+
+block  supplementalFiles
+     .supplemental-files
+          h4.border-bottom Add Supplemental Files
+          .table-responsive.table-actions
+              table(class='expandable separator ')
+                  thead
+                      tr
+                          th Description
+                          th File Name
+                          th File Type
+
+                  tbody
+                         if (data.forms)
+                             each row, r in data.forms
+                                 +row(r,row)
+
+
+
+
+

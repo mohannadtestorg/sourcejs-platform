@@ -1,0 +1,48 @@
+.temis-related {
+    font-size: $h6-font-size;
+    &__list {
+        & > li {
+            border-bottom: 1px solid $primary-border-color;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    &__contribs {
+        padding-bottom: 10px;
+        color: $secondary-text-color;
+        li {
+            display: inline-block;
+        }
+
+        &-list {
+            li {
+                &:after {
+                    content: ",";
+                    padding-right: 5px;
+                }
+
+                &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    &__meta {
+        color: $secondary-text-color;
+        font-weight: bold;
+
+        span {
+            &:after {
+                content: ", ";
+            }
+
+            &:last-child {
+                &:after {
+                    display: none;
+                }
+            }
+        }
+    }
+}

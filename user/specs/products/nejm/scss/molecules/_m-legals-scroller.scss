@@ -1,0 +1,120 @@
+/***
+
+```
+<div class="m-legals-scroller">
+  <h2 class="a-article-h3 a-centered f-h6">To continue your account will be debited one exam.</h2>
+  <p class="a-centered f-body--sm">Available Weekly CME Exams: <strong>12</strong></p>
+  <div class="m-legals-scroller__scrolling-area">
+    <p class="f-body--sm">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p class="f-body--sm">Suspendisse hendrerit nec sem commodo scelerisque. Nullam elit ante, consectetur at quam a, ultricies blandit sapien. Donec auctor leo ante. Mauris in nulla cursus sem sodales egestas at nec dui. Sed congue, ante vel luctus ullamcorper, eros enim tincidunt nulla, vel rutrum lacus orci lobortis lacus. Sed nec mi lectus. Ut fringilla semper massa, vitae tristique velit vehicula sit amet. Sed cursus odio vitae nisl fermentum aliquet. Integer maximus mollis diam vitae pretium. Integer auctor nec felis ut semper. Sed nec enim risus. Pellentesque molestie arcu sed erat egestas dapibus vehicula vel nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+    <p class="f-body--sm">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc.</p>
+    <p class="f-body--sm">Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.</p>
+  </div>
+</div>
+```
+
+***/
+
+.m-legals-scroller {
+}
+
+.m-legals-scroller__scrolling-area {
+  @extend %styled-scrollbars;
+  display: block;
+  margin-top: 20px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-top: 1px solid $color__rules;
+  border-bottom: 1px solid $color__rules;
+  overflow-y: auto;
+
+  @include breakpoint('medium+') {
+    padding-right: 12px;
+    padding-left: 12px;
+    border-right: 1px solid $color__rules;
+    border-left: 1px solid $color__rules;
+  }
+
+  #content > .o-generic-modal & {
+    padding-right: 0;
+    padding-left: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+}
+
+@media print {
+  .m-legals-scroller__scrolling-area {
+    padding-right: 0;
+    padding-left: 0;
+    border-right: 0;
+    border-left: 0;
+    overflow: auto;
+  }
+}
+
+.m-legals-scroller__scrolling-area > *:first-child,
+.m-legals-scroller__header > *:first-child {
+  margin-top: 0;
+}
+
+.m-legals-scroller__header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color__rules;
+}
+
+.m-legals-scroller__type {
+  color: $color__accent;
+  text-align: center;
+}
+
+.m-legals-scroller__title {
+  color: $color__text--headlines;
+  text-align: center;
+
+  .m-legals-scroller__type + & {
+    margin-top: 4px;
+  }
+}
+
+.m-legals-scroller__subtitle {
+  color: $color__text--headlines;
+}
+
+.m-legals-scroller__subtitle + * {
+  margin-top: 0;
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// inside .o-generic-modal
+//
+
+.o-generic-modal .m-legals-scroller {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+}
+
+.o-generic-modal .m-legals-scroller > * {
+  flex: 0 0 auto;
+}
+
+.o-generic-modal .m-legals-scroller > .m-legals-scroller__scrolling-area {
+  flex: 1 1 auto;
+}
+
+@media print {
+  .o-generic-modal .m-legals-scroller {
+    display: block;
+    height: auto;
+  }
+
+  .o-generic-modal .m-legals-scroller > * {
+    flex: none;
+  }
+
+  .o-generic-modal .m-legals-scroller > .m-legals-scroller__scrolling-area {
+    flex: none;
+  }
+}

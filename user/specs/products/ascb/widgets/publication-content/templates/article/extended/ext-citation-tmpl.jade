@@ -1,0 +1,14 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+block citationTocHeading
+    .citation__top
+        block citation__tocHeading
+            span.article__breadcrumbs
+                | !{pb.renderDropzone(thisWidget, "breadcrumbs")}
+            span.citation__top__item.article__tocHeading !{data.tocHeading}
+        block citation__access
+            | !{pb.render('access-icon', 'access-icon/access-icon', {"data":{"access":original.item.access,"license":original.item.license}})}
+
+    if(original.item.titles && original.item.titles.seriesTitle)
+        .citation__seriesTitle
+            | !{original.item.titles.seriesTitle}

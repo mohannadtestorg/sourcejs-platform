@@ -1,0 +1,146 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+
+    section.source_section
+        h2 List variations
+
+        h3 Ordered list
+        .source_example
+            ol
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+        h3 Ordered alpha list
+        .source_example
+            ol.upper-alpha
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+
+        h3 Unstyled list
+        markdown
+            p In the example below we've used the default class `rlist`.
+        .source_example
+            ul.rlist
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+        h3 Inline list
+        markdown
+            p In the example below we've used `rlist--inline`.
+        .source_example
+            ul.rlist--inline
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+        h3 Inline seperated list
+        markdown
+            p In the example below we've used `rlist--inline` and `separator`.
+        .source_example
+            ul.rlist--inline.separator
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+        h3 List with separator - bottom
+        markdown
+            p adding `separator` class to `rlist` list will add separator between items "to the bottom of each item".
+        .source_example
+            ul.rlist.separator
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+
+        h3 Unordered list with blue bullets
+        markdown
+            p In the example below we've used the default class `unordered-list`.
+        .source_example
+            ul.rlist.unordered-list
+                li Nick Gayeski
+                li George Pess
+                li Tim Beechie
+
+        h3 Unordered bordered list with blue bullets
+        markdown
+            p In the example below we've used the default class `unordered-bordered-list`.
+        .source_example
+            ul.rlist.unordered-bordered-list
+                li
+                    a Nick Gayeski
+                li
+                    a George Pess
+                li
+                    a Tim Beechie
+
+
+        h3 Unordered bordered list with blue bullets
+        markdown
+            p In the example below we've used the default class `unordered-list-icons`.
+        .source_example
+            ul.rlist.unordered-list-icons
+                li
+                    a
+                        i(aria-hidden='true' class='icon-notice')
+                        | Submit an article
+                li
+                    a
+                        i(aria-hidden='true' class='icon-notice')
+                        | Browse free sample issue
+                li
+                    a
+                        i(aria-hidden='true' class='icon-notice')
+                        | Get content alerts
+                li
+                    a
+                        i(aria-hidden='true' class='icon-notice')
+                        | Subscribe to this journal
+                Li
+                    a
+                        i(aria-hidden='true' class='icon-notice')
+                        | Recommend to a librarian
+
+        h3 Unordered list with border on the left used on home page
+        markdown
+            p In the example below we've used the default class `list--bordered-left`.
+        .source_example
+            ul.rlist.list--bordered-left
+                li
+                    a(href="#")
+                        | Submit an article
+                li
+                    a
+                        | Browse free sample issue
+                li
+                    a
+                        | Get content alerts
+                li
+                    a
+                        | Subscribe to this journal
+                Li
+                    a
+                        | Recommend to a librarian
+        h3 expandable-list
+        markdown
+            p In the example below we've used `separated-list` class to add a borders above and below the list
+        .source_example
+            ul.rlist
+                li
+                    div.expandable-list
+                        a.expandable-list__toggle(href='#' data-toggle='dropdown' id="pane-1")
+                            i.icon-add_box(aria-hidden="true")
+                            | list
+                        ul.rlist.expandable-list__body( aria-hidden='true' aria-labelledby="pane-1")
+                            li reem
+                            li majid
+                            li ali
+
+                li George Pess
+                li Tim Beechie
+
+    | #{''}

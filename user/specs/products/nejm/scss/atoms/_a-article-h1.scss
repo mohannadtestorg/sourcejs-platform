@@ -1,0 +1,82 @@
+/***
+
+```
+<h2 class="a-article-h1 f-h3">Source Information</h2>
+```
+
+***/
+
+.a-article-h1 {
+  position: relative;
+  margin-top: 48px;
+  color: $color__text--headlines;
+
+  &:first-child {
+    margin-top: 28px;
+  }
+}
+
+.o-col--primary > .m-article-meta:first-child + .a-article-h1 {
+  margin-top: 28px;
+}
+
+.a-article-h1--underline {
+
+  @include breakpoint('medium+') {
+    padding-bottom: 23px;
+    border-bottom: 1px solid $color__rules;
+  }
+}
+
+.a-article-h1__count {
+  color: $color__text--quaternary;
+  font-style: normal;
+}
+
+.a-article-h1 .icon--chevron {
+  position: absolute;
+  right: 0;
+  top: 3px;
+  transform: rotate(450deg);
+  transform-origin: 50%;
+  transition: transform .25s $bezier--ease-out-circ;
+}
+
+.a-article-h1--separator .icon--chevron {
+  top: 3px + 23px;
+}
+
+.s-open .a-article-h1 .icon--chevron {
+  transform: rotate(270deg);
+}
+
+.a-article-h1--allopened {
+  border-bottom: 0 none;
+}
+
+.o-article-body__section--collapsible .a-article-h1--allopened {
+  border-bottom: 1px solid $color__rules;
+}
+
+.o-article-body__section--collapsible.s-open .a-article-h1--allopened {
+  border-bottom: 0 none;
+}
+
+
+.a-article-h1[data-behavior*=CollapsibleArea] {
+  cursor: pointer;
+}
+
+.a-article-h1[data-behavior*=CollapsibleArea]:focus {
+  outline-color: Highlight;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+// WebKit gets its native focus styles.
+@media (-webkit-min-device-pixel-ratio:0) {
+  .a-article-h1[data-behavior*=CollapsibleArea]:focus {
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+  }
+}

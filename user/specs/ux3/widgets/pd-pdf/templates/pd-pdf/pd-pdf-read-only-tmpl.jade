@@ -1,0 +1,12 @@
+-var uploaderData={"name":"pdf.path","labelLink":"Select one","labelText":"Drag and drop new PDF File","uploaderButton":"true"}
+
+.row
+    .col-md-12
+        h4.border-bottom Add Preprint/Poster PDF
+
+        if(data.inputs && data.inputs.file && data.inputs.file.value != "")
+            | File Name : !{data.inputs.file.value}
+        else
+            | No pdf file uploaded
+
+

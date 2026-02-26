@@ -1,0 +1,19 @@
+textarea.proxy_code(readonly=true)
+    | &lt;%
+    | Dim objHttp
+    | Set objHttp = Server.CreateObject("Microsoft.XMLHTTP")
+    | ' Note how the return URL is encoded below
+    | objHttp.Open "GET", "http://#{data.wwwhost}/tps/requestticket?ru=#{data.formFields.journalUrl}&amp;debug=true&amp;domain=#{data.formFields.domain},False
+    | objHttp.Send
+    | If objHttp.Status = 200 Then
+    |   ' Uncomment to view response
+    |   'Response.Write(objHttp.ResponseText)
+    |   'Response.Write("&lt;p&gt;&lt;A href=" &amp; objHttp.ResponseText &amp; "&gt;click here to follow this url&lt;/a&gt;")
+    |   ' Following line redirects, comment out to debug a problem, and uncomment the above two lines
+    |   Response.Write("&lt;HTML&gt;&lt;HEAD&gt;&lt;META HTTP-EQUIV=""Refresh"" CONTENT=""0; URL=" &amp; objHttp.ResponseText &amp; """&gt;&lt;/HEAD&gt;&lt;/HTML&gt;")
+    | Else
+    |   Response.Write(objHttp.Status &amp; objHttp.StatusText)
+    |   Response.Write(objHttp.ResponseText)
+    | End If
+    | Set objHttp = Nothing
+    | %&gt;

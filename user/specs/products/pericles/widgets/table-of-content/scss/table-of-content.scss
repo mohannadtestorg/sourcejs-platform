@@ -1,0 +1,53 @@
+// moved from publication-contents.scss
+.table-of-content {
+    .issue-items-container > .issue-item ~ .issue-item {
+        margin-top: 0;
+    }
+
+    h3.toc__heading {
+        padding-left: 10px;
+        border-left: 5px solid $wiley-green-color;
+    }
+
+    h4.toc__heading {
+        margin-bottom: 0;
+    }
+
+    .issue-item.issue-item {
+        border-top: none;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+    .issue-items-container ~ .issue-items-container {
+        margin-top: 0.5rem;
+    }
+}
+
+.menuBook--tab {
+    li {
+        margin: 0;
+
+        a {
+            border-bottom: none;
+        }
+
+        span {
+            line-height: 12px;
+        }
+    }
+}
+
+.toc-item__abstract {
+    display: block;
+    border-left: 4px solid $wiley-lightGray-color;
+    padding: 0;
+    padding-left: 10px;
+    background: $white;
+
+    h2 {
+        font-size: 0.75rem;
+    }
+}
+

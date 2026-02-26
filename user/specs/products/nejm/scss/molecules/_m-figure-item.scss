@@ -1,0 +1,92 @@
+/***
+
+```
+<li class="m-figure-item" id="figure1" data-behavior="ShowFigureModal" data-figure-id="figure1">
+  <em class="m-figure-item__type f-h11">Figure 1.</em>
+  <b class="m-figure-item__title f-ui">Nam luctus, tortor eget porttitor facilisis.</b>
+  <figure class="m-figure-item__figure">
+    <div class="m-figure-item__figure-img">
+      <img srcset="http://placehold.dev.area17.com/image/800x800?bg=e2e2e2&fg=ff3300&text=figure" sizes="(min-width: 1480px) 800px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 7), (min-width: 1024px) calc(((100vw - 390px) / 12) * 7), (min-width: 768px) calc(((100vw - 270px) / 8) * 7), (min-width: 480px) calc(100vw - 40px), calc(100vw - 32px)" width="300" height="400">
+      <svg class="icon--fullscreen"><use xlink:href="#icon--fullscreen"></use></svg>
+    </div>
+    <figcaption class="m-figure-item__figcaption f-caption">Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.</figcaption>
+  </figure>
+</li>
+```
+
+***/
+
+.m-figure-item {
+  display: block;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.m-figure-item:not(:first-child) {
+  margin-top: 28px;
+  padding-top: 16px;
+}
+
+.m-figure-item:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-figure-item__type {
+  float: left;
+  margin-right: .5em;
+  color: $color__text--headlines;
+}
+
+.m-figure-item__title {
+  display: block;
+  color: $color__text--quaternary;
+}
+
+.m-figure-item__figure {
+  display: block;
+  margin-top: 12px;
+}
+
+.m-figure-item__figure-img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.m-figure-item__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.m-figure-item__figure .icon--fullscreen {
+  display: none;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  border: 4px solid $color__black;
+  background-color: $color__black;
+  color: $color__white;
+}
+
+.m-figure-item__figure:hover .icon--fullscreen {
+  display: block;
+}
+
+.m-figure-item__figcaption {
+  margin-top: 16px;
+  color: $color__text--tertiary;
+}

@@ -1,0 +1,55 @@
+.figure-viewer {
+    .figure-extra {
+        display: none;
+    }
+
+    &__cent__right {
+        padding-right: 20px;
+
+    }
+
+    &__hold__figcap {
+        overflow: auto;
+        height: 100%;
+        padding-bottom: 100px;
+        max-height: 70vh ;
+
+    }
+
+    &__label__zoom {
+        font-size: 1.375rem;
+        float: none;
+        margin-right: 10px;
+        margin-left: 0;
+    }
+
+    &__top__left {
+        height: 26px;
+    }
+
+    @include media('<phone') {
+        &__ctrl__close {
+            font-size: 1.25rem;
+        }
+        &__ctrl__browse {
+
+            margin-right: 20px;
+        }
+
+        .zoomSlider {
+            width: 93px;
+
+        }
+    }
+
+    .figureLink {
+        color: lighten($wiley-blue-color, 50%);
+    }
+
+}
+
+figcaption {
+    .w-slide & {
+        border-bottom: 0;
+    }
+}

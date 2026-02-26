@@ -1,0 +1,84 @@
+{
+    "title": "Teaser (Creative work)",
+    "template": "doc",
+    "tag": ["components"],
+    "templates": {
+        "default": "teaser",
+        "alternative": {
+            "teaser-news": {
+                "name": "News",
+                "path": "teaser-news",
+                "deprecated": false
+            },
+            "teaser-publication-list-slider": {
+                "name": "Publication List Slider",
+                "path": "teaser-publication-list-slider",
+                "deprecated": false
+            },
+            "teaser-publication-list-thumbnails": {
+                "name": "Publication List Thumbnails",
+                "path": "teaser-publication-list-thumbnails",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Creative work with description",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/creative-work.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Creative work without description",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/creative-work-no-meta.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Creative work with image",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/creative-work-with-image.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of Creative works",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/creative-work-list.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of Creative works - With image",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/creative-work-with-image-list.json"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

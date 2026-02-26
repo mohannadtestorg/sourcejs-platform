@@ -1,0 +1,9 @@
+extends ../../../../../../ux3/widgets/show-exam/templates/show-exam/show-exam-tmpl.jade
+
+block credit-options
+    if (exam.maxCreditHours)
+        ul.rlist--inline
+            li.input-group
+                label.radio--primary
+                    input(type="radio" name="credit" value=1 checked=true)
+                    span 1 Hour

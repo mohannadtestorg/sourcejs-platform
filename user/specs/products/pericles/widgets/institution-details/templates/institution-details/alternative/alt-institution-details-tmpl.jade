@@ -1,0 +1,124 @@
+mixin errorMsg(error)
+    if (error)
+        .infoBox
+            i.icon-notice(aria-hidden="true")
+            span.error_msg= error
+
+mixin institutinalFormlabel(field,label)
+    if field
+        label(for=field.name)= label
+            if field.required == true
+                span= ' *'
+
+mixin institutinalFormField(field,placeholder,type, required,isSelect)
+    if field
+        if isSelect == 'countries'
+            select.jcf.countrySelect(id=field.name name=field.name hidden=field.hidden required=required)
+                option(value='-1') SELECT YOUR COUNTRY OR LOCATION
+                each country in data.countries
+                    option(value=country.id class=country.states ? 'hasStates':'' selected=country.id==field.value)= country.name
+        else if isSelect == 'terms'
+            input(id='acceptTerms' name='InstitutionDetailsBean.acceptTerms' type=type hidden=field.hidden placeholder=placeholder required=required)
+        else
+            input(id=field.name name=field.name type=type hidden=field.hidden value=field.value placeholder=placeholder required=required)
+        +errorMsg(field.message)
+
+if (data.ErrorMsg)
+    .infoBox
+        i.icon-notice(aria-hidden="true")
+        span.error !{data.ErrorMsg}
+if (data.SuccessMsg)
+    .infoBox
+        i.icon-notice(aria-hidden="true")
+        span.success !{data.SuccessMsg}
+
+.card.institutionAdmin
+    block adminActivateAccount
+        h4.section__header Activate your account
+        p.margin-bottom Activate your accountPlease provide your contact details and accept the Terms of License Agreement to activate your account. This information will only be used to contact you with information about Wiley Online Library and your account. It will not be used or marketing or sold/released to any other company.
+        hr.border-top
+
+    if data.form
+        - var form = data.form
+        form(action=data.action name="institutionDetails" class="institutionalProfileActivation institutionDetails" method='post')
+            input(type="hidden" name="InstitutionDetailsBean.institutionUserId" value=data.institutionUserId)
+
+            block adminDetails
+                h4.section__header Administrator Details
+                .row
+                    .col-md-6
+                        +institutinalFormlabel(form.firstName, 'First name')
+                        +institutinalFormField(form.firstName, 'ex. John', 'text', true)
+
+                        +institutinalFormlabel(form.email, 'Email')
+                        +institutinalFormField(form.email, 'ex. example@example.com', 'email', true)
+
+                    .col-md-6
+                        +institutinalFormlabel(form.lastName, 'Last name')
+                        +institutinalFormField(form.lastName, 'ex. Doe', 'text', true)
+
+                hr.border-top
+
+            block adminInstitutionDetails
+                h4.section__header Institution Details
+
+                .row
+                    .col-md-6
+                        label Customer name
+                        if  data.displayName
+                            span= data.displayName
+                        label.margin-top Customer ID
+                        if  data.customerNumber
+                            span= data.customerNumber
+                    .col-md-6.margin-top.padding-top
+                        +institutinalFormlabel(form.phone, 'Phone')
+                        +institutinalFormField(form.phone, 'ex. +141591726354', 'tel', true)
+
+                .row.margin-top
+                    .col-md-6
+                        +institutinalFormlabel(form.address1, 'Address line 1')
+                        +institutinalFormField(form.address1, 'ex. 123 High ST, ', 'text', false)
+
+                        +institutinalFormlabel(form.city, 'City/Town')
+                        +institutinalFormField(form.city, 'ex. London')
+
+                        +institutinalFormlabel(form.country, 'Country/Location', 'countries', false)
+                        +institutinalFormField(form.country, '', 'text', 'countries')
+
+                    .col-md-6
+                        +institutinalFormlabel(form.address2, 'Address line 2')
+                        +institutinalFormField(form.address2, 'ex. 123 High ST, ', 'text', false)
+
+                        -var hasStates = false
+                        each country in data.countries
+                            if country.states
+                                .stateContainer(class=form.country.value != country.id ? 'hidden' : '')
+                                    +institutinalFormlabel(form.state, 'State/Province')
+                                    select.jcf.stateSelect(id='country' + country.id)
+                                        option(value='-1') SELECT YOUR STATE OR PROVINCE
+                                        each state in country.states
+                                            option(value=state selected=form.state.value == state)= state
+                            if form.country.value == country.id && country.states
+                                - hasStates=true
+                        .stateContainer.noStates.hidden
+                            if (hasStates)
+                                - form.state.name = 'InstitutionDetailsBean.state'
+                                - form.state.value = ''
+                            +institutinalFormField(form.state, 'ex. Greater London', 'hidden', false)
+
+                        +institutinalFormlabel(form.zipCode, 'Post/Zip code')
+                        +institutinalFormField(form.zipCode, 'ex. xxxxxx', 'text', false)
+
+                hr.border-top
+
+            block adminAcceptTerms
+                .input-group
+                    label.checkbox--primary
+                        +institutinalFormField(form.acceptTerms, '', 'checkbox', false , 'terms')
+                        span.label-txt.acceptTermsDropZone1(data-pb-dropzone="acceptTermsDropZone1")
+                            | !{pb.renderDropzone(thisWidget, "acceptTermsDropZone1")}
+
+            block adminButtons
+                .form-btn
+                    p.small-txt.float-left * Marks a required field
+                    button.btn#activateAccountBtn(type='submit' name='submit' value='submit') ACTIVATE ACCOUNT

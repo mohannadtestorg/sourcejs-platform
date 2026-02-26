@@ -1,0 +1,63 @@
+{
+    "title": "List of issues",
+    "template": "doc",
+    "tag": ["pbWidgets"],
+    "templateData": {
+        "items": [
+
+            {
+                "title": "List of issues",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/list-of-issues/templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/list-of-issues/templates/data/loi-data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "List of issues - Decade",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/list-of-issues/templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/list-of-issues/templates/data/loi-decade.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

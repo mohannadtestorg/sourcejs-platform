@@ -1,0 +1,34 @@
+
+.audio-player(class='js-audio-player')
+    audio(preload='', controls='controls')
+        source(src='https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', type='audio/mpeg')
+        |           Your browser does not support the audio element.
+
+    .audio-player__progress(data-audio-player-progress='')
+        input.audio-player__range(type='range', min='0', max='100', value='0')
+        span.audio-player__tocomplete
+        span.audio-player__done(data-audio-player-done='')
+
+    .audio-player__control
+        .audio-player__control-track
+            button.audio-player__step-fw(data-audio-player-step-fw='')
+                i.icon-step-backward(aria-hidden='true')
+            button.audio-player__play(data-audio-player-play='')
+                i.icon-play(aria-hidden='true')
+                i.icon-pause(aria-hidden='true')
+            button.audio-player__step-bw(data-audio-player-step-bw='')
+                i.icon-step-forward(aria-hidden='true')
+
+        .audio-player__control-volume
+            button.audio-player__volume(data-audio-player-volume='')
+                i.icon-volume-off(aria-hidden='true')
+                i.icon-volume-up(aria-hidden='true')
+            if data.volumeSlider
+                .audio-player__volume-slider(data-audio-player-volume-slider='')
+                    input.audio-player__range(type='range', min='0', max='100', value='100')
+                    span.audio-player__tocomplete
+
+        .audio-player__track-time
+            span.audio-player__current(data-audio-player-current='') 00:00
+            | /
+            span.audio-player__duration(data-audio-player-duration='') 10:24

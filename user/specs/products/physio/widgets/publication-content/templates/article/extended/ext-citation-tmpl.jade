@@ -1,0 +1,42 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+block citationPrefix
+    if(data.item)
+        - var original = data;
+        - var citationData = {"title": data.item.titles.primary,"authors": data.item.contribsFull, "tocHeading": data.item.headings.primary};
+        - data = citationData;
+
+block citationTocHeading
+    .citation__top
+        span.citation__top__item.article__access
+                if (original.item.license.type == "open-access")
+                    i.citation__access__icon.icon-permissions
+                else if (original.item.access == "FREE_ACCESS" )
+                    i.citation__access__icon.icon-lock_open
+                else if (original.item.access == "FULL_ACCESS" )
+                    i.citation__access__icon.icon-lock_open
+                else
+                    i.citation__access__icon.icon-Icon_Permissions-Locked
+            if (original.item.license.ccType)
+                if (original.item.license.ccType == "cc-by")
+                    span.article__cc
+                        i.citation__top__item.icon-cc_large2
+            else
+                if original.item.license.type == "open-access"
+                    span.article__cc
+                        i.citation__top__item.icon-cc_large2
+            span.article__breadcrumbs
+                | !{pb.renderDropzone(thisWidget, "breadcrumbs")}
+                span.citation__top__item.article__tocHeading !{data.tocHeading}
+                if(original.item && original.item.titles.seriesTitle)
+                    span.citation__top__item.article__tocHeading
+                        | !{original.item.titles.seriesTitle}
+
+block citationTitleSuffix
+    if(original.item.titles && original.item.titles.subtitle)
+        .citation__subtitle
+            | !{original.item.titles.subtitle}
+
+
+block citationAuthors
+    | !{data.authors}

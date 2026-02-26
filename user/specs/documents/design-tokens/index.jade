@@ -1,0 +1,35 @@
+﻿extends /specs/page-structure/layout.jade
+
+h1 Design Tokens
+block content
+    section.source_section
+        h2 Design Tokens
+        p Design tokens are visual design “basic” for building a design for our components. Specifically, they’re named entities that store visual design attributes, such as pixel values for margins and spacing, font sizes and families, or hex values for colors. Tokens are a terrific way to centralize the low-level values, which we then use to compose the styles that make up the design of our component.
+        p We capture the essential values of our visual design into named tokens. Define the token values once and reuse them throughout our components SCSS resources. Tokens make it easy to ensure that our design is consistent, and even easier to update it as our designs evolve.
+
+        h3 Why design tokens
+        p Every design system offers options. For example, colors can scale from black through neutrals to white. Each neutral — identified via a HEX code like #2B303B — can be stored and made available in a variable WHITE-20, for use in a preprocessor like Sass.
+        p Variables take the mystery out of obscure values. But they don’t bridge the gap between naming and use. But using Aliases would centralize and propagate our values as tokens to any product, designer or developer adopting the system, in easy-to-use, predictable formats. Hundreds of tokens can become readable, intentional, and traceable decisions woven into a portfolio’s or enterprise’s products.
+        p Instead of assigning some value to variables and use those variables across our SCSS code we define aliases to hold our shared values.
+        h4 Scenario
+        p let say in your designs you have dark blue background
+        code.src-yaml.source_visible.source_example
+            | $some-background: #3b5998
+        p You noticed that same color is used as font color in other components as well. so you did the following:
+        code.src-yaml.source_visible.source_example
+            | $component-font-color: $dark-background
+        p During the implementation you have received some design changes to change that background color to be dark red. Changing your "$some-background" value will cause side effects and unneeded changes in other components. Using aliases would make it so easy in such cases. So, instead of making changes to the variables value, you map your variables to another alias that holds your needed value as the following:
+        code.src-yaml.source_visible.source_example
+            | # aliases.yaml
+            | RED_01: "#8b0000"
+            | BLUE_01: "#3b5998"
+        code.src-yaml.source_visible.source_example
+            | # variables.yaml
+            | some-background:
+            |   value: "{!RED_01}"
+            | component-font-color:
+            |   value: "{!BLUE_01}"
+        code.src-yaml.source_visible.source_example
+            | # auto generated variables.scss
+            | $some-background: #3b5998
+            | $component-font-color: "#3b5998"

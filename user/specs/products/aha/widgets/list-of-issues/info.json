@@ -1,0 +1,37 @@
+{
+    "title": "List of issues",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+
+            {
+                "title": "List of issues",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/loi-data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        ]
+    }
+}

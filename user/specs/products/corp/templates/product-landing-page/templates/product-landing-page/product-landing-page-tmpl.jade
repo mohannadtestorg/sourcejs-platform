@@ -1,0 +1,30 @@
+| !{pb.render("hero-block",{"news": false},"corp")}
+
+// Articles - start
+section.section
+    .container
+        | !{pb.render("articles","articles/article-preview-img-right",{},"corp")}
+        | !{pb.render("articles","articles/article-preview-img-left",{},"corp")}
+        | !{pb.render("articles","articles/article-preview-img-right",{},"corp")}
+        | !{pb.render("articles","articles/article-preview-img-left",{},"corp")}
+        | !{pb.render("articles","articles/article-preview-img-right",{},"corp")}
+//Articles - end
+
+// What's new at Atypon - slideshow - start
+section.section.section--bg
+    .container
+        .row.section__header
+            .col-md-12.__center
+                h2 What's new at Atypon?
+        .row.section__content
+                .col-md-12
+                    | !{pb.render("slideshow", {}, "corp")}
+// What's new at Atypon - slideshow - end
+
+// Call to Action - start
+| !{pb.render("call-to-action",{},"corp")}
+// Call to Action - end
+
+// Footer - start
+| !{pb.render("footer",{},"corp")}
+// Footer - end

@@ -1,0 +1,15 @@
+.refs {
+    counter-reset: refCounter;
+    position: relative;
+    .ref {
+        padding-left: 2rem;
+
+        &:before {
+            counter-increment: refCounter;
+            content: counter(refCounter)".";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+    }
+}

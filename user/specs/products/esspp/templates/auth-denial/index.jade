@@ -1,0 +1,42 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Authorization Denial
+    section.source_section
+        h2 Authorization Denial
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.content--author-dashboard
+                .container
+                    .row
+                        .col-xs-12
+                            .center-block
+                                button.btn(type="button", data-toggle="modal", data-target="#modalAuthDenial") Deny
+
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sit amet sagittis nisl. Vivamus dictum tristique sapien, ac efficitur sem viverra euismod. Duis ultricies venenatis diam feugiat malesuada. Donec a pretium tellus. Nulla consequat orci in vestibulum euismod. Ut elementum pharetra lacinia. Curabitur id leo id nisl aliquam gravida. Quisque mattis maximus eros. Donec condimentum quam eget dignissim maximus. Vivamus id ante gravida, volutpat lectus gravida, porta sem. Aliquam varius luctus justo, porta posuere nibh tincidunt quis. Ut purus eros, lobortis eu odio sed, interdum pharetra lacus. Integer tempus augue erat, id feugiat nisi tincidunt id. Nullam ac sodales sapien.
+                            p Duis aliquam urna sit amet ornare facilisis. Curabitur ultrices metus sit amet lorem fermentum ultrices. Duis eget ligula mollis, ultricies risus sed, cursus sapien. Praesent eget metus et ipsum euismod porta. Suspendisse euismod facilisis sem, et vehicula velit elementum a. Suspendisse egestas, dolor condimentum ultricies eleifend, libero nunc sodales lorem, mollis rhoncus arcu lacus sed purus. Phasellus non fringilla tellus. Aenean sit amet est pulvinar, interdum nunc id, tempus lectus. Donec non tellus vel nisl varius laoreet tempor vitae arcu. Phasellus sed interdum sem.
+                            p Mauris justo tortor, ultricies non libero in, pharetra scelerisque eros. Nunc felis nulla, ultrices ut mauris eget, faucibus semper nulla. In sagittis malesuada ipsum, et elementum neque. Sed nisi turpis, tempor eget feugiat ac, eleifend nec libero. Suspendisse vitae vehicula eros. Proin quam nunc, congue auctor eros eu, suscipit gravida sapien. Etiam cursus metus nec ante fermentum porttitor. Fusce tempus ac purus sit amet bibendum.
+                            p Cras cursus hendrerit dui, et feugiat quam consectetur at. Aenean sed libero congue, ultrices dolor molestie, consectetur diam. Praesent et tellus pulvinar, iaculis eros ut, euismod odio. Pellentesque vel erat maximus, porta ante non, rutrum nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse odio nunc, lobortis sed eleifend eu, facilisis vitae ipsum. Maecenas a lectus vestibulum, ultricies nulla tempor, dignissim risus. Aliquam erat volutpat. Morbi quis quam gravida elit bibendum pulvinar ut vitae lacus. Curabitur sed porttitor justo. Proin consectetur malesuada congue. Sed condimentum commodo libero, ut ornare nibh placerat eu. Phasellus tincidunt, ex nec consectetur tristique, ex enim semper felis, id feugiat elit arcu ac lorem. Integer tincidunt suscipit velit, non vulputate justo tincidunt ac. Maecenas molestie blandit felis quis sodales. Phasellus ut dolor id leo molestie consectetur.
+                            p Nam ac purus elit. Nullam egestas non tellus euismod ornare. Fusce dignissim lacus eu purus ullamcorper, in hendrerit nibh fermentum. Suspendisse consequat eleifend elit, nec placerat neque dapibus eget. In vitae interdum velit. Morbi sem ante, pulvinar eu turpis non, ultrices egestas metus. Nunc in gravida est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ac tortor nisi. Aliquam eu neque non ipsum sagittis convallis. Nam semper nisl vel urna sagittis efficitur. Duis ut justo id ex ultricies sagittis. Nulla at quam et eros pellentesque facilisis sit amet eget augue. Maecenas egestas lacus nec auctor eleifend. Etiam vel bibendum nisi, a ullamcorper urna. Nulla facilisi.
+
+                .ux-modal-container
+                    #modalAuthDenial.modal(role="dialog")
+                        .modal__dialog.modal__dialog--w600
+                            .modal__body
+                                p
+                                    strong ESSOAr collects your iD from ORCID for use in our systems to:
+                                ul
+                                    li Streamline the sign up / log in process – so you don’t have to remember one more user name and password!
+                                    li Reduce time form-filling.
+                                p You must be signed into your account with your ORCID credentials to submit content to ESSOAr, or to access your Author or Advisor Dashboard.
+                                p In the future, we can also push your affiliation with ESSOAr to your ORCID record. You may later revoke permissions on your account settings page, if you choose.
+                                p If you don’t connect your ORCID iD with ESSOAr, you will not be able to proceed.
+
+                            .modal__footer
+                                button.btn--cancel(data-action="#") Cancel
+                                button.btn(data-dismiss="modal") Authorize
+            | !{data.footer}
+    | #{''}

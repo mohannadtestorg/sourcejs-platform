@@ -1,0 +1,28 @@
+
+mixin title()
+    h4.facet__title !{data.title}
+
+mixin body()
+    each item, l in data.values
+
+        if (item.link)
+            if (item.used) && item.used == true
+                a.alphanumeric-title.is--selected(href=item.link title=item.label)
+                    | !{item.label}
+            else
+                a.alphanumeric-title(href=item.link title=item.label)
+                    | !{item.label}
+        else
+            if (item.disabled) && item.disabled == 'true'
+                a.alphanumeric-title(title=item.label)
+                    | !{item.label}
+
+
+block alphaFacetMain
+    div.facet
+        if (data.title)
+            +title()
+
+        if (data.values)
+            div.facet__content
+                +body()

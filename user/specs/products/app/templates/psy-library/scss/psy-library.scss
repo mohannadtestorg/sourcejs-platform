@@ -1,0 +1,47 @@
+.new-book-tag{
+  color: $focus-theme-color;
+  font-size: .75rem;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  width: 80%;
+  text-align: center;
+  &--static{
+    position: static;
+    width: auto;
+  }
+}
+
+
+
+.books-container{
+  .cover-image{
+    padding-top: 20px;
+    &__image{
+      margin: auto;
+      margin-bottom: 5px;
+      text-align: center;
+      @include media('<large','>=tablet'){
+        width: 85%;
+      }
+    }
+    .book{
+      &__basic-info{
+        min-height: 145px;
+      }
+      &__edition{
+        position: absolute;
+        bottom: 0;
+      }
+      &__title{
+        h6{ // TODO: use truncate() instead of -webkit-line-clamp
+          overflow: hidden;
+          line-height: 20px;
+          max-height: 80px;
+        }
+      }
+    }
+
+  }
+
+}

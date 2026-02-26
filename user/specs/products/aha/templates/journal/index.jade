@@ -1,0 +1,80 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{data.header}
+            main.content
+                .container
+
+                    .row
+                        .col-xs-12.col-sm-8.col-lg-9
+                            | !{data.slider}
+                        .col-xs-12.col-sm-4.col-lg-3
+                            .card
+                                h2.mb-1 Current Issue
+                                | !{data.current_issue}
+
+                    .row
+                        .col-xs-12.col-sm-8.col-lg-9
+                            h2 Published Ahead of Print
+                            | !{data.published_aop}
+                            a(href="#" class="btn btn-sm btn--primary mb-3") See all
+                        .col-xs-12.col-sm-4.col-lg-3
+                            .row
+                                .col-xs-12
+                                    .pb-2
+                                        | !{data.advertisements[0]}
+                                .col-xs-12
+                                    .card.border
+                                        h2.mb-1 Featured
+                                        | !{data.featured_article}
+
+                    .row
+                        .col-xs-12.col-md-8.col-lg-9
+                            .row
+                                .col-xs-12
+                                    .card--dark
+                                       | !{data.joining_box}
+                                .col-xs-12
+                                    | !{data.tabs}
+                                    a(href="#" class="btn btn-sm btn--primary mb-3") See all
+
+                        .col-xs-12.col-sm-5.col-md-4.col-lg-3
+                            .row
+                                .col-xs-12
+                                    .card--danger
+                                        h2 Submit your article CIRCULATION
+                                        a(href="#" class="btn btn btn--inverse") Submit
+                                .col-xs-12
+                                    .card
+                                        h2 Videocasts
+                                        | !{data.videocasts}
+
+                        .col-xs-12.col-sm-7.col-md-6.col-lg-12
+                            | !{data.publication_list}
+
+                        .col-xs-12.col-sm-7.col-md-6.pt-3
+                            h2 On My Mind
+                            | !{data.on_my_mind}
+                            a(href="#" class="btn btn-sm btn--primary mb-3") See more
+
+                        .col-xs-12.col-sm-5.col-md-4.col-lg-3.pt-3
+                            | !{data.tweets}
+
+                        .col-xs-12.col-sm-12.col-md-8.col-lg-3.pt-3
+                            .row
+                                .col-xs-12.col-sm-6.col-md-6.col-lg-12
+                                    | !{data.advertisements[1]}
+                                | !{data.connect_via_social_network}
+
+            | !{data.footer}
+    | #{''}

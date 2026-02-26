@@ -1,0 +1,47 @@
+div.creative-work
+    block teaserImage
+        .creative-work__image
+            if (item.category && item.category.length > 0)
+                - var notCovered = true
+                each cat, i in item.category
+                    if (cat.fields && notCovered)
+                        each field, j in cat.fields
+                            if (field.type == "IMAGE" && field.name == "cover")
+                                - notCovered = false
+                                img(src=field.value title=item.tocHeading)
+
+    .delayLoad
+        if (item.category)
+            div.creative-work__header
+                if (item.category && item.category[0])
+                    if (item.category[0].link && item.category[0].label)
+                        a(href=item.category[0].link title=item.category[0].label) !{item.category[0].label}
+                    else if (item.category[0].label)
+                        | !{item.category[0].label}
+
+        if (item.title)
+            .creative-work__title
+                if (item.link)
+                    a(href=item.link, title=item.title)
+                        | !{item.title}
+                else
+                    | !{item.title}
+
+        if (item.authors)
+            div.teaser__label Authors
+            | !{item.authors}
+        if (item.journal)
+            | #{' '}
+            div.teaser__label Published in
+            each journal, k in item.journal
+                div.teaser__serial-title
+                    if (journal.uri)
+                        a(href=journal.uri, title=journal.label) #{journal.label}
+                    else
+                        | #{journal.label}
+
+        .teaser__tail
+            block teaserTail
+                if (item.doi)
+                    .altmetric-embed(data-badge-type="donut", data-doi=item.doi)
+

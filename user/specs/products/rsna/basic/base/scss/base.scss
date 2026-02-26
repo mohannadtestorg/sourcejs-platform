@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+/* every link except breadcrumbs*/
+a:not(.article__tocHeading) {
+    transition: color 0.3s;
+    color: $primary;
+    @include themify($themes) {
+        color: themed('color');
+    }
+    &:hover {
+        color: $primary-link-hover-color;
+    }
+
+}
+
+aside {
+    @include media('<tablet') {
+        margin-top: 30px;
+    }
+}
+
+main {
+    &.content {
+        padding-top: 150px;
+
+        @include media('<tablet') {
+            padding-top: 120px;
+        }
+    }
+}
+
+.content {
+    padding-top: 150px;
+
+    @include media('<tablet') {
+        padding-top: 120px;
+    }
+}
+
+.row.separator {
+    margin-right: -15px;
+    margin-left: -15px;
+    /*
+    @include media('<tablet') {
+
+    }*/
+}
+
+.static-pages {
+    font-size: $h6-font-size;
+}
+
+[class*=grid-xlg-], [class*=grid-lg-], [class*=grid-md-], [class*=grid-sm-], [class*=grid-xs-] {
+    margin: 0px -15px;
+}
+
+.pb-ad {
+    margin-bottom: 20px;
+    display: block;
+    height: auto;
+    text-align: center;
+
+    &-title {
+        font-size: $x-small-font-size;
+        font-weight: normal;
+        text-align: center;
+        margin-bottom: 6px;
+        color: $primary-link-hover-color;
+    }
+
+    &>div {
+        margin: 0px auto;
+    }
+}
+
+
+.border-bottom {
+    padding-bottom: 20px;
+    border-bottom-width: 2px;
+}
+
+.podcasts-video {
+    margin-bottom: 20px;
+    iframe {
+        width: 100%;
+        height: auto;
+        background-color: $secondary-bg-color;
+
+        @include themify($themes) {
+            background-color: themed('background-color');
+        }
+    }
+}
+
+.w-slide {
+    &_head {
+        .w-slide__back {
+            text-transform: capitalize;
+            color: $text-onDark;
+    
+            @include themify($themes) {
+                color: themed('color');
+            }
+            i {
+                color: $tertiary-darken-color;
+            }
+        }
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+        background-color: $primary-bg-color;
+        color: $text-onDark;
+
+        @include themify($themes) {
+            background-color: themed('wslide-head-bg-color');
+            color: themed('wslide-head-color');
+        }
+    }
+
+    &__title {
+        &.js--open {
+            color: $text-onDark;
+
+            @include themify($themes) {
+                color: themed('wslide-head-color');
+            }
+        }
+    }
+
+    
+
+    &__content {
+
+        .w-slide__content {
+            padding: 55px 15px 15px 15px;
+            font-size: $h6-font-size;
+
+            .section__separator {
+                margin: 15px 0px;
+            }
+        }
+
+        .w-slide--list {
+            a {
+                color: $primary-link-color;
+                font-weight: normal;
+                padding: 7px 15px;
+
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+            i.at-icon-wrapper {
+                margin-right: 0px;
+                vertical-align: middle;
+            }
+            i {
+                color: $primary-link-color;
+                padding-right: 20px;
+                vertical-align: middle;
+                font-size: $h3-font-size;
+
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+
+            i+span {
+                color: $primary-link-color;
+                margin-left: 0px;
+                margin-right: 0px;
+
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+        }
+
+        & > ul {
+            margin: 15px 0px 0px 0px;
+            padding: 0px;
+            list-style: none;
+
+            & > li {
+                padding: 10px 15px;
+                font-size: $h6-font-size;
+                font-weight: normal;
+                border-top: 1px solid $secondary-light-border-color;
+
+                a {
+                    color: $primary-link-color;
+                    @include themify($themes) {
+                        color: themed('color');
+                    }
+                }
+
+                &:last-child {
+                    border-bottom: 1px solid $secondary-light-border-color;
+
+                    a {
+                        border-bottom: none;
+                    }
+                }
+            }
+            li.menu-parent {
+                & > a {
+                    position: relative;
+                    display: block;
+                    &:after {
+                        position: absolute;
+                        right: 0px;
+                        content: "\e603";
+                        font-family: icomoon;
+                        font-size: $x-small-font-size;
+                        transition: transform 0.3s;
+                    }
+                }
+                &.hover {
+                    ul {
+                        display: block;
+                    }
+
+                    & > a {
+                        &:after {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                @include media('>phone') {
+                    &:hover {
+                        ul {
+                            display: block;
+                        }
+
+                        & > a {
+                            &:after {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+            ul {
+                list-style: none;
+                padding: 0px;
+                margin: 0px;
+                display: none;
+
+                li {
+                    padding-top: 10px;
+                }
+            }
+        }
+
+        .separator {
+            & > li ~ li {
+                border-top: 1px solid $secondary-light-border-color;
+            }
+
+            & > li {
+                padding: 17px 15px;
+            }
+        }
+
+        i {
+
+        }
+
+
+
+
+    }
+}
+
+.static-pages {
+    .tab__nav {
+        a {
+            font-size: $h6-font-size;
+        }
+
+        li.active {
+            a {
+                @include themify($themes) {
+                    color: themed('color');
+                }
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+main.content {
+    a.read-less {
+        font-size: 0px;
+        padding-left: 10px;
+
+        &:before {
+            content: "Show fewer authors";
+            font-size: $small-font-size;
+        }
+    }
+
+    a.read-more {
+        font-size: 0px;
+
+        &:before {
+            content: "... Show all authors";
+            font-size: $small-font-size;
+        }
+    }
+}
+
+.jump-target a[name], .jump-target a[id]{
+    display: block;
+    padding-top: 151px;
+    margin-top: -151px;
+    -webkit-background-clip: content-box;
+    background-clip: content-box;
+}

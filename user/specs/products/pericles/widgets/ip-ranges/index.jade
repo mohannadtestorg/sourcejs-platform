@@ -1,0 +1,64 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 IP Ranges widget
+        h3 Include template
+        +printJsCode('include /specs/products/pericles/ip-ranges/templates/ip-ranges/ip-ranges-tmpl.jade')
+        h3 Data
+        p The following the JSON structure provided by the Front-end:
+        +printJson({
+            "multiIPRangeEnabled": true,
+            "mail": {
+                "userEmail": "hhusban@atypon.com"
+            },
+            "multiIpInfoLink": "/action/showIdentities",
+            "ipInfo": "127.0.0.1",
+            "antiForgeryToken": "3977110d-94d6-425e-b2f5-b0d301c032d5",
+            "records": [
+                {
+                    "ipRangeUserDisplayName": "005.009.236.140:005.009.236.140",
+                    "ipRangeUserDescription": "ACID Test (Atypon)"
+                },
+                {
+                    "ipRangeUserDisplayName": "010.000.000.000:010.255.255.255",
+                    "ipRangeUserDescription": "Atypon Athens - DSL"
+                },
+                {
+                    "ipRangeUserDisplayName": "172.016.000.000:172.031.255.255",
+                    "ipRangeUserDescription": "Atypon, Inc. - Intelletrace T3"
+                }
+            ],
+            "addSectionTitle": "Add new IP range(s)",
+            "updateSectionTitle": "Update or delete existing IP range(s)",
+            "ipRangesTitle": "IP Ranges",
+            "ipRangesInfo": "For your information, the IP address of your current internet connection is: <strong>5.9.236.140</strong>",
+            "descLabel": "Description",
+            "ipRangeLabel": "IP range",
+            "agreementNote": "Please remember: Only the sites covered by the agreement are authorized to access this online subscription.",
+            "identityLink": "Show the IP Ranges",
+            "identityNote": "{0} and identities currently assigned to me through this connection.",
+            "mailLink": "Email me",
+            "mailNote": "{0} my IP addresses for my records.",
+            "afterRegNote": "\u003cb\u003eAfter finishing your Institution IP setup, click \u0027Done\u0027 below.\u003c/b\u003e",
+            "afterRegBtnSrc": "",
+            "afterRegBtnAlt": "Done",
+            "ipChangeExLabel": "Examples:",
+            "ipChangeEx1": "101.23.*.*",
+            "ipChangeEx2": "128.23.12.*",
+            "ipChangeEx3": "132.10.30-40.*",
+            "ipChangeEx4": "112.12.11.15:112.12.12.36",
+            "ipChangeForceLabel": "Ignore conflicts",
+            "ipChangeInfo": "",
+            "ipChangeUpdateLabel": "SUMBIT CHANGES",
+            "ipChangeDeleteLabel": "YES, DELETE IT",
+            "ipChangeUpdateChecked": "SUBMIT CHANGES",
+            "ipChangeDeleteChecked": "Delete checked"
+        })
+
+        .source_example
+            | !{pb.render("ip-ranges", "data.json", "pericles")}
+    | #{''}

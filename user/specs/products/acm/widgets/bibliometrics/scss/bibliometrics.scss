@@ -1,0 +1,62 @@
+.bibliometrics {
+  position: relative;
+  color: $text-onDark;
+  font-size: 1.125rem;
+  margin: 15px 0 25px;
+
+  .owl{
+    &-carousel {
+      @include media('>=tablet') {
+        display: table;
+        width: 100%;
+      }
+      padding: 0;
+    }
+
+    &-dots{
+      position: absolute;
+      bottom: 5px;
+      width: 100%;
+    }
+
+  }
+
+  .slide-item {
+    @include media('>=tablet') {
+      display: table-cell;
+    }
+  }
+
+  &__count {
+    font-family: $tertiary-font-family;
+    font-size: 2.25rem
+  }
+  &__block {
+    text-align: center;
+    padding: 80px 30px 20px;
+
+    @include media('<tablet') {
+      padding: 45px 30px;
+      height: 100%;
+    }
+  }
+  &__title {
+    font-family: $tertiary-font-family;
+  }
+
+  &__main-title {
+    padding-top: 30px;
+    position: absolute;
+    border-left: 8px solid $text-onDark;
+    padding-left: 6px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    font-style: italic;
+    left: 8%;
+    z-index: 2;
+
+    @include media('<tablet') {
+      padding-top: 10px;
+    }
+  }
+}

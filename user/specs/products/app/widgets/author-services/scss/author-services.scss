@@ -1,0 +1,34 @@
+.author-services{
+  .main-title{
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+  .sub-title{
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+  &__history{
+    a {
+      color: $link-text-color;
+      &:hover{
+        color:inherit;
+      }
+    }
+  }
+  &__Journal {
+    display: inline-block;
+    &:after{
+      content: ':';
+      padding-right: 4px;
+      padding-left: 2px;
+    }
+    .volume-data {
+      padding-left: 3px;
+    }
+  }
+  &__details{
+    display: inline;
+  }
+}

@@ -1,0 +1,219 @@
+.quick-search {
+    padding: 0 15px;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    .header & {
+        border-right: 1px solid $publication;
+        @include media('>=large') {
+            padding: 0 19px;
+        }
+
+    }
+    .header__quick-menu &-advanced-link {
+        line-height: 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        &:hover,
+        &:focus {
+            font-weight: 700;
+        }
+    }
+    .dropBlock {
+        a {
+            background: $primary-red-bg;
+            color: white;
+            padding: 6px 7px 10px;
+            font-size: 12px;
+            text-align: center;
+            border-color: $primary-red-bg;
+        }
+        i {
+            font-size: 0.4rem;
+            padding: 3px 0;
+            margin: 0;
+            color: $primary-white;
+        }
+    }
+    input {
+        background: $default-bg-color;
+        padding: 0;
+        padding-left: 30px;
+        font-size: 12px;
+        &::-webkit-input-placeholder {
+            font-size: 12px;
+            font-weight: 400;
+        }
+        border-color: $white;
+    }
+    .quick-search__button {
+        padding: 8px;
+        left: 0;
+        right: auto;
+        background: transparent;
+    }
+    .col-md-8 {
+        @include media('>=tablet') {
+            padding: 0;
+        }
+    }
+    &__item {
+        display: none;
+        padding: 0 15px;
+        color: $primary-white;
+        &:hover, &:active {
+            color: $primary-white;
+        }
+        @include media('<tablet') {
+            display: block;
+        }
+    }
+    .dropblock--tab {
+        box-shadow: none;
+    }
+    .quick-search-advanced-link {
+        line-height: 15px;
+        font-size: 12px;
+    }
+}
+
+.quickSearchRegion {
+    .quick-search {
+        padding: 0 15px;
+        margin-top: 24px;
+        box-shadow: none;
+        .dropBlock {
+            a {
+                color: $primary-text-color;
+                background: $primary-white;
+                padding: 16px 17px 15px;
+                text-align: left;
+                margin-right: 16px;
+                border: 2px solid $primary-border;
+                @include media('>=phone', '<desktop') {
+                    padding: 10px 17px;
+                }
+                @include media('<tablet') {
+                    margin-right: 0;
+                    margin-top: 10px;
+                }
+            }
+            i {
+                font-size: 0.4rem;
+                padding: 3px 0;
+                margin: 0;
+                float: none;
+                margin-left: 5px;
+                color: $aps-general;
+                position: static;
+            }
+        }
+        .dropblock--tab {
+            background: $primary-white;
+        }
+        input {
+            background: $default-bg-color;
+            padding: 12px 10px;
+            max-height: 50px;
+            font-size: 1rem;
+            border: 2px solid $primary-border;
+            background: $primary-white;
+            &::-webkit-input-placeholder {
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+        .quick-search__button {
+            left: auto;
+            right: 5px;
+            top: 5px;
+            color: $secondary-text-color;
+            font-size: 1.2rem;
+            @include media('<tablet') {
+                right: 15px;
+                top: 10px;
+            }
+        }
+    }
+}
+
+@include media('<desktop') {
+    .header {
+        .quick-search {
+            display: none;
+            position: absolute;
+            right: 0;
+            left: 0;
+            background: $primary-white;
+            padding: 20px;
+            box-shadow: 0 5px 4px -4px rgba(0, 0, 0, .32);
+            margin-top: 21px;
+        }
+    }
+    .quick-search {
+        .input-group {
+            @include media('>=tablet') {
+                padding: 8px 0px;
+            }
+        }
+        .quickSearchRegion & {
+            display: block;
+            position: relative;
+            right: auto;
+            left: auto;
+            padding: 0;
+        }
+        .dropBlock {
+            a {
+                background: $primary-white;
+                color: $primary-text-color;
+                text-align: left;
+            }
+            i {
+                color: $primary-red-bg;
+            }
+            & > a {
+                border: 1px solid $default-bg-color;
+            }
+        }
+        input {
+            background: $primary-white;
+            padding-left: 0;
+            border-color: $default-bg-color;
+            padding: 0px;
+            height: 28px;
+        }
+        .quick-search {
+            &__button {
+                right: 0;
+                left: auto;
+                bottom: 8px;
+                top: 8px;
+            }
+        }
+    }
+    .header {
+        .quick-search {
+            .col-md-2 {
+                width: 100%;
+                padding: 0;
+            }
+            .col-md-8 {
+                width: 100%;
+            }
+            .quick-search-pane__anywhere input[type=search] {
+                max-height: 32px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+
+@include media('<=tablet') {
+    .quick-search {
+        .quick-search-pane__anywhere input[type=search] {
+            padding-left: 5px;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+extends ../../../../../../ux3/widgets/advanced-search/templates/advanced-search/advanced-search-tmpl
+
+
+block advancedSearchInContainer
+    .input-group.left-side-label
+        label.search-within-label Search Within
+        .advanced-search--searchIn
+            block advancedSearchIn
+                +searchIn()
+block searchBtnBlock
+    .advanced-search__buttons
+        a.advanced-search__link(href="/search/advanced").pull-left Advanced Search
+        button.btn.pull-right(type='submit') Search
+        a.advanced-search__clear(href="#").pull-right Clear
+

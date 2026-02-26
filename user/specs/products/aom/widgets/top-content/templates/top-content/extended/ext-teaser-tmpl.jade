@@ -1,0 +1,13 @@
+extends ../../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+
+
+block meta
+    div.meta
+        if (item.group)
+            if (item.group.citationLine)
+                | !{item.group.citationLine}
+            else
+                | !{pb.render('top-content','top-content/extended/ext-parent-item', {data: item.group},'aom')}
+        if (item && item.epubDate)
+            | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}
+

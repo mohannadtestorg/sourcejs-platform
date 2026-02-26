@@ -1,0 +1,40 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+block quickSearchWrapper
+    if (thisWidget.properties.displayQuickMenuButton == "true")
+
+        div.quick-search-wrapper
+            a.quick-search__item(href="#" title="search")
+                i(class=thisWidget.properties.quickMenuIcon aria-hidden="true")
+            div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+                +search()
+
+
+    else
+        div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+            +search()
+block quickSearch
+    .tab.clearfix
+        h1 Search
+
+        .col-md-2.col-sm-3
+            ul.rlist.tab__nav.dropblock--tab
+                if(data.dropdown)
+                    each item, i in data.dropdown
+                        li
+                            if(thisWidget.properties && item.label)
+                                a(href="#pane-"+thisWidget.properties.id + i aria-controls="#pane-" + i role="tab" data-toggle="tab" title=item.label id="pane-"+thisWidget.properties.id + i + "-con" aria-expanded="false") !{item.label}
+        .col-md-8.col-sm-7
+            ul.rlist.tab__content
+                each item, i in data.dropdown
+                    +checkCurrentSearchTerm()
+                    if (item.dataSearchIn == 'default')
+                        +anywhereSearch(item, i)
+                    else if (item.dataSearchIn == 'thisJournal')
+                        +journalSearch(item, i)
+                    else if (item.dataSearchIn == 'citation')
+                        +citationSearch(item, i)
+                    -currentSearchTermFilled=true
+        block advancedSearch
+            .col-md-2.col-sm-2
+                | !{pb.renderDropzone(thisWidget, "TestDropZone")}

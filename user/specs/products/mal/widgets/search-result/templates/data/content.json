@@ -1,0 +1,392 @@
+{
+    "thisWidget": {
+        "properties": {
+            "relevancy" : true,
+            "relevancyLabel" : "Relevance",
+            "Ppub" : true,
+            "PpubLabel" : "Date",
+            "downloaded" : true,
+            "downloadedLabel" : "Most Downloaded",
+            "cited" : true,
+            "citedLabel" : "Most Cited"
+        }
+    },
+    "config": {
+        "headingLevel": 4,
+        "save": {
+            "value": "true",
+            "itemUrl": "#"
+        },
+        "rss": {
+            "value": "true",
+            "itemUrl": "#"
+        }
+    },
+    "data": {
+        "serviceName":"doSearch",
+        "searchParams": "AllField=test&target=default&queryID=8%2F234802273&AfterYear=1964&BeforeYear=2015",
+        "widgetData": {
+            "textForNoResults": "Your search did not return any results.",
+            "refineSearch": {
+                "numOfDefaultSearchTerms": "1",
+                "searchInDropdown": [
+                    {
+                        "label": "Anywhere",
+                        "value": "AllField"
+                    },
+                    {
+                        "label": "Title",
+                        "value": "PubTitle"
+                    },
+                    {
+                        "label": "Author",
+                        "value": "Contrib"
+                    },
+                    {
+                        "label": "Keywords",
+                        "value": "Keyword"
+                    },
+                    {
+                        "label": "Abstract",
+                        "value": "Abstract"
+                    }
+                ],
+                "searchIn": [
+                    {
+                        "searchTerm": "test",
+                        "searchField": "AllField"
+                    }
+                ],
+                "filters": {
+                    "ConceptID": {
+                        "label": "Topic",
+                        "placeholder": "e.g. Genetic Anomalies",
+                        "data-id": "ConceptID",
+                        "data-auto-complete-target": "topic"
+                    },
+                    "publication": {
+                        "label": "Published in",
+                        "placeholder": "e.g. Journal of Theoritical Biology",
+                        "data-auto-complete-target": "Title"
+                    },
+                    "publicationDate": {
+                        "label": "Publication Date",
+                        "placeholder": "e.g. 2001-2005 or 11-2004",
+                        "radioButtons": [
+                            {
+                                "anyDate": {
+                                    "label": "All dates"
+                                }
+                            },
+                            {
+                                "staticRange": {
+                                    "label": "Last",
+                                    "staticRangeDropdown": [
+                                        {
+                                            "value": "20170309-20170409",
+                                            "label": "month"
+                                        },
+                                        {
+                                            "value": "20161009-20170409",
+                                            "label": "6 months"
+                                        },
+                                        {
+                                            "value": "20160409-20170409",
+                                            "label": "year"
+                                        }
+                                    ]
+                                }
+                            }
+                        ],
+                        "timeFrame": {
+                            "label": "Custom range",
+                            "afterYear": {
+                                "label": "From",
+                                "fromDropDown": [
+                                    "2016",
+                                    "2015",
+                                    "2014",
+                                    "2013",
+                                    "2012",
+                                    "2011",
+                                    "2010",
+                                    "2009",
+                                    "2008",
+                                    "2007",
+                                    "2006",
+                                    "2005",
+                                    "2004",
+                                    "2003",
+                                    "2002",
+                                    "2001",
+                                    "2000"
+                                ]
+                            },
+                            "beforeYear": {
+                                "label": "From",
+                                "fromDropDown": [
+                                    "2016",
+                                    "2015",
+                                    "2014",
+                                    "2013",
+                                    "2012",
+                                    "2011",
+                                    "2010",
+                                    "2009",
+                                    "2008",
+                                    "2007",
+                                    "2006",
+                                    "2005",
+                                    "2004",
+                                    "2003",
+                                    "2002",
+                                    "2001",
+                                    "2000"
+                                ]
+                            }
+                        }
+                    }
+                }
+
+            },
+            "groupTabs": {
+                "articlesChapters": {
+                    "count": "2700937",
+                    "active": "false",
+                    "enabled": "true",
+                    "link":"#"
+                },
+                "digitalObjectSearch": {
+                    "active": "true",
+                    "enabled": "true",
+                    "link":"#"
+                },
+                "story": {
+                    "active": "true",
+                    "enabled": "true",
+                    "link":"#"
+                },
+                "titleSearch": {
+                    "active": "true",
+                    "enabled": "true",
+                    "link":"#"
+                }
+            },
+            "sortLinks": {
+                "displayAsDropdownList": true,
+                "relevancy": {
+                    "selected": true,
+                    "relevancyLabel": "Relevance"
+                },
+                "Earliest": {
+                    "selected": false
+                },
+                "downloaded": {
+                    "selected": false,
+                    "downloadedLabel": "Most Downloaded"
+                },
+                "cited": {
+                    "selected": false,
+                    "citedLabel": "Most cited"
+                }
+            },
+            "displayAccessIcon": {
+                "displayFreeAccess": true,
+                "displayFullAccess": true,
+                "displayOpenAccess": true,
+                "displayNoAccess": true
+            },
+            "previewOptions": {
+                "displaySeeMore": true,
+                "previewNavEnabled": true
+            },
+            "dropZone": {
+                "dropZones10": {
+                    "enabled": true,
+                    "label": "Dropzone10"
+                },
+                "dropZones20": {
+                    "enabled": true,
+                    "label": "Dropzone20"
+                },
+                "dropZones50": {
+                    "enabled": true,
+                    "label": "Dropzone50"
+                },
+                "dropZones100": {
+                    "enabled": true,
+                    "label": "Dropzone100"
+                }
+            },
+            "searchHistory": {
+                "searchHistoryItemsNumber": 5,
+                "noSessionSearchMsg": "You do not have any past searches"
+            },
+            "savedSearch": {
+                "savedSearchItemsNumber": 5,
+                "noSavedSearchMsg": "You do not have any saved searches"
+            }
+        },
+        "search": {
+            "hitsLength": 68862,
+            "startPage": 0,
+            "pageSize": 20,
+            "dataLength": 20,
+            "searchFeed": {
+                "linkHref": "/action/showFeed?ui=0&mi=78999w&type=search&feed=rss&query=%2526AllField%253Dtest%2526target%253Ddefault",
+                "linkTitle": "RSS Feed"
+            },
+            "results": [
+                {
+                    "type": "102",
+                    "content": {
+                        "type": "Journal",
+                        "doi": " https://doi.org/10.1089/ve.2017.0090",
+                        "access": "full",
+                        "title": "Future Science OA",
+                        "description": "An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamish River in Puget Sound, Washington, USA, was employed to estimate the number of age-1 steelhead parr that could have produced the estimated adult return of 69 000 in 1895. We then divided the estimated parr numbers by the estimated area of steelhead rearing habitat in the Stillaguamish River basin in 1895 and under current conditions to estimate density of rearing steelhead then and now. Scaled to estimates of total wetted area of tributary and mainstem shallow shoreline habitat, our historic estimates averaged 0.39–0.49 parr·m−2, and ranged from 0.24 to 0.7 parr·m−2. These values are significantly greater than current densities in the Stillaguamish (mainstem average: 0.15 parr·m−2, tributaries: 0.07 parr·m−2), but well within the range of recent estimates of steelhead parr rearing densities in high-quality habitats. Our results indicate that modest improvement in the capacity of mainstem and tributary rearing habitat in Puget Sound rivers will yield large recovery benefits if realized in a large proportion of the area of river basins currently accessible to steelhead.",
+                        "journalUrl": "/link/to/journal",
+                        "journalTitle": "AJP - Renal Physiology",
+                        "contribs": "<ul class=\"meta__authors loa rlist--inline comma\" title=\"list of authors\"> <li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li><li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li></ul>",
+                        "views": {
+                            "abst":"/link/to/abstract",
+                            "full": "/link/to/full",
+                            "pdf": "/link/to/pdf",
+                            "References": "/link/to/References"
+                        },
+                        "latestIssue": {
+                            "volume": "Volume 23",
+                            "issue": "Issue 2",
+                            "coverDate": "2013 DEC 01",
+                            "tocUrl": "#"
+                        }
+                    }
+                },
+                {
+                    "type": "102",
+                    "content": {
+                        "type": "Journal",
+                        "doi": " https://doi.org/10.1089/ve.2017.0090",
+                        "access": "full",
+                        "title": "Et Harum Quidem",
+                        "description": "An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamish River in Puget Sound, Washington, USA, was employed to estimate the number of age-1 steelhead parr that could have produced the estimated adult return of 69 000 in 1895. We then divided the estimated parr numbers by the estimated area of steelhead rearing habitat in the Stillaguamish River basin in 1895 and under current conditions to estimate density of rearing steelhead then and now. Scaled to estimates of total wetted area of tributary and mainstem shallow shoreline habitat, our historic estimates averaged 0.39–0.49 parr·m−2, and ranged from 0.24 to 0.7 parr·m−2. These values are significantly greater than current densities in the Stillaguamish (mainstem average: 0.15 parr·m−2, tributaries: 0.07 parr·m−2), but well within the range of recent estimates of steelhead parr rearing densities in high-quality habitats. Our results indicate that modest improvement in the capacity of mainstem and tributary rearing habitat in Puget Sound rivers will yield large recovery benefits if realized in a large proportion of the area of river basins currently accessible to steelhead.",
+                        "journalUrl": "/link/to/journal",
+                        "journalTitle": "AJP - Renal Physiology",
+                        "contribs": "<ul class=\"meta__authors loa rlist--inline comma\" title=\"list of authors\"> <li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li></ul>",
+                        "views": {
+                            "abst":"/link/to/abstract",
+                            "full": "/link/to/full",
+                            "pdf": "/link/to/pdf",
+                            "References": "/link/to/References"
+                        },
+                        "latestIssue": {
+                            "volume": "Volume 23",
+                            "issue": "Issue 2",
+                            "coverDate": "2013 DEC 01",
+                            "tocUrl": "#"
+                        }
+                    }
+                },
+                {
+                    "type": "102",
+                    "content": {
+                        "type": "Journal",
+                        "doi": " https://doi.org/10.1089/ve.2017.0090",
+                        "access": "full",
+                        "title": "The King-Devick test of rapid number naming for concussion detection: meta-analysis and systematic review of the literature",
+                        "journalUrl": "/link/to/journal",
+                        "journalTitle": "AJP - Renal Physiology",
+                        "contribs": "<ul class=\"meta__authors loa rlist--inline comma\" title=\"list of authors\"> <li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li></ul>",
+                        "views": {
+                            "abst":"/link/to/abstract",
+                            "full": "/link/to/full",
+                            "pdf": "/link/to/pdf",
+                            "References": "/link/to/References"
+                        },
+                        "latestIssue": {
+                            "volume": "Volume 23",
+                            "issue": "Issue 2",
+                            "coverDate": "2013 DEC 01",
+                            "tocUrl": "#"
+                        }
+                    }
+                },
+                {
+                    "type": "102",
+                    "content": {
+                        "type": "Journal",
+                        "doi": " https://doi.org/10.1089/ve.2017.0090",
+                        "access": "full",
+                        "title": "Erratum",
+                        "description": "An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamish River in Puget Sound, Washington, USA, was employed to estimate the number of age-1 steelhead parr that could have produced the estimated adult return of 69 000 in 1895. We then divided the estimated parr numbers by the estimated area of steelhead rearing habitat in the Stillaguamish River basin in 1895 and under current conditions to estimate density of rearing steelhead then and now. Scaled to estimates of total wetted area of tributary and mainstem shallow shoreline habitat, our historic estimates averaged 0.39–0.49 parr·m−2, and ranged from 0.24 to 0.7 parr·m−2. These values are significantly greater than current densities in the Stillaguamish (mainstem average: 0.15 parr·m−2, tributaries: 0.07 parr·m−2), but well within the range of recent estimates of steelhead parr rearing densities in high-quality habitats. Our results indicate that modest improvement in the capacity of mainstem and tributary rearing habitat in Puget Sound rivers will yield large recovery benefits if realized in a large proportion of the area of river basins currently accessible to steelhead.",
+                        "journalUrl": "/link/to/journal",
+                        "journalTitle": "AJP - Renal Physiology",
+                        "contribs": "<ul class=\"meta__authors loa rlist--inline comma\" title=\"list of authors\"> <li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li></ul>",
+                        "views": {
+                            "abst":"/link/to/abstract",
+                            "full": "/link/to/full",
+                            "pdf": "/link/to/pdf",
+                            "References": "/link/to/References"
+                        },
+                        "latestIssue": {
+                            "volume": "Volume 23",
+                            "issue": "Issue 2",
+                            "coverDate": "2013 DEC 01",
+                            "tocUrl": "#"
+                        }
+                    }
+                },
+                {
+                    "type": "102",
+                    "content": {
+                        "type": "Journal",
+                        "doi": " https://doi.org/10.1089/ve.2017.0090",
+                        "access": "full",
+                        "title": "Future Science OA",
+                        "description": "An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamish River in Puget Sound, Washington, USA, was employed to estimate the number of age-1 steelhead parr that could have produced the estimated adult return of 69 000 in 1895. We then divided the estimated parr numbers by the estimated area of steelhead rearing habitat in the Stillaguamish River basin in 1895 and under current conditions to estimate density of rearing steelhead then and now. Scaled to estimates of total wetted area of tributary and mainstem shallow shoreline habitat, our historic estimates averaged 0.39–0.49 parr·m−2, and ranged from 0.24 to 0.7 parr·m−2. These values are significantly greater than current densities in the Stillaguamish (mainstem average: 0.15 parr·m−2, tributaries: 0.07 parr·m−2), but well within the range of recent estimates of steelhead parr rearing densities in high-quality habitats. Our results indicate that modest improvement in the capacity of mainstem and tributary rearing habitat in Puget Sound rivers will yield large recovery benefits if realized in a large proportion of the area of river basins currently accessible to steelhead.",
+                        "journalUrl": "/link/to/journal",
+                        "journalTitle": "AJP - Renal Physiology",
+                        "contribs": "<ul class=\"meta__authors loa rlist--inline comma\" title=\"list of authors\"> <li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li></ul>",
+                        "views": {
+                            "abst":"/link/to/abstract",
+                            "full": "/link/to/full",
+                            "pdf": "/link/to/pdf",
+                            "References": "/link/to/References"
+                        },
+                        "latestIssue": {
+                            "volume": "Volume 23",
+                            "issue": "Issue 2",
+                            "coverDate": "2013 DEC 01",
+                            "tocUrl": "#"
+                        }
+                    }
+                },
+                {
+                    "type": "102",
+                    "content": {
+                        "type": "Journal",
+                        "doi": " https://doi.org/10.1089/ve.2017.0090",
+                        "access": "full",
+                        "title": "Book Chapter Title",
+                        "description": "An age-structured life-cycle model of steelhead (Oncorhynchus mykiss) for the Stillaguamish River in Puget Sound, Washington, USA, was employed to estimate the number of age-1 steelhead parr that could have produced the estimated adult return of 69 000 in 1895. We then divided the estimated parr numbers by the estimated area of steelhead rearing habitat in the Stillaguamish River basin in 1895 and under current conditions to estimate density of rearing steelhead then and now. Scaled to estimates of total wetted area of tributary and mainstem shallow shoreline habitat, our historic estimates averaged 0.39–0.49 parr·m−2, and ranged from 0.24 to 0.7 parr·m−2. These values are significantly greater than current densities in the Stillaguamish (mainstem average: 0.15 parr·m−2, tributaries: 0.07 parr·m−2), but well within the range of recent estimates of steelhead parr rearing densities in high-quality habitats. Our results indicate that modest improvement in the capacity of mainstem and tributary rearing habitat in Puget Sound rivers will yield large recovery benefits if realized in a large proportion of the area of river basins currently accessible to steelhead.",
+                        "journalUrl": "/link/to/journal",
+                        "journalTitle": "AJP - Renal Physiology",
+                        "contribs": "<ul class=\"meta__authors loa rlist--inline comma\" title=\"list of authors\"> <li><a href=\"#\">Peter Schrenk</a></li><li><a href=\"#\">Henry Smith</a></li> <li><a href=\"#\">Samantha Letrin</a></li> <li><a href=\"#\">Dallas Luanver</a></li></ul>",
+                        "views": {
+                            "abst":"/link/to/abstract",
+                            "full": "/link/to/full",
+                            "pdf": "/link/to/pdf",
+                            "References": "/link/to/References"
+                        },
+                        "latestIssue": {
+                            "volume": "Volume 23",
+                            "issue": "Issue 2",
+                            "coverDate": "2013 DEC 01",
+                            "tocUrl": "#"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

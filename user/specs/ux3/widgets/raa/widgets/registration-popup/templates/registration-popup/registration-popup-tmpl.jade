@@ -1,0 +1,16 @@
+.popup.registration-popup.hidden
+    a.close(href='#')
+        i.icon-close_thin
+    .content
+        h2 Create a new account
+        form.registration-form(action='https://ux3-prod.literatumonline.com/action/registration', method='post')
+            input(type='hidden', name='redirectUri', value='/')
+            .input-group
+                .label
+                    label(for='4e824763-0b45-4b53-bcb3-79723a798efa.email') Email
+                input.email(id='4e824763-0b45-4b53-bcb3-79723a798efa.email', type='text', name='email', value='', size='15')
+            .submit
+                input.button.submit.primary(type='submit', value='Register')
+        .center
+            a.show-login(href='https://ux3-prod.literatumonline.com/action/showLogin')
+                | Returning user

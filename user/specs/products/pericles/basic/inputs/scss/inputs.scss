@@ -1,0 +1,173 @@
+@mixin placeholder ($font-size: 0.875rem, $font-weight: 300, $font-style:normal, $color: $wiley-gray-color) {
+    ::-webkit-input-placeholder {
+        font-size: $font-size;
+        font-weight: $font-weight;
+        font-style: $font-style;
+        color: $color;
+        opacity: 1 !important;
+    }
+    ::-moz-placeholder {
+        font-size: $font-size;
+        font-weight: $font-weight;
+        font-style: $font-style;
+        color: $color;
+        opacity: 1 !important;
+    }
+    :-moz-placeholder {
+        font-size: $font-size;
+        font-weight: $font-weight;
+        font-style: $font-style;
+        color: $color;
+        opacity: 1 !important;
+    }
+    :-ms-input-placeholder {
+        font-size: $font-size;
+        font-weight: $font-weight;
+        font-style: $font-style;
+        opacity: 1 !important;
+    }
+}
+
+.radio--primary,
+.checkbox--primary,
+.checkbox--secondary {
+
+    input[type=checkbox],
+    input:not([name='emailAddresses']) {
+        display: inherit;
+        left: -999em;
+        position: absolute;
+    }
+}
+
+.radio--primary:not(.jcf),
+.radio--secondary:not(.jcf),
+.checkbox--primary:not(.jcf) {
+    span:before {
+        border: 0;
+        box-shadow: 0 0 0 2px $section-border;
+        width: 14px;
+        height: 14px;
+        background-color: transparent;
+        margin-left: 2px;
+    }
+
+    input:checked ~ span:before {
+        background-color: $wiley-blue-color;
+        box-shadow: 0 0 0 2px $wiley-blue-color;
+    }
+
+    input:focus:checked~span:before,
+    input:focus~span:before {
+        box-shadow: 0 0 10px $wiley-blue-color, 0 0 0 2px $wiley-gray;
+    }
+}
+
+.radio--secondary:not(.jcf) {
+    span:before {
+        float: none;
+        vertical-align: middle;
+    }
+}
+
+.checkbox--secondary:not(.jcf) {
+    input:focus:checked~span:before,
+    input:focus~span:before {
+        box-shadow: 0 0 10px $wiley-blue-color;
+    }
+}
+
+
+.radio--primary:not(.jcf) {
+    span:before {
+        border: 2px solid $white;
+    }
+
+    &.withInput {
+        input[type=text] {
+            display: inline-block;
+            width: calc(100% - 30px);
+        }
+        span:before {
+            top: 9px;
+            position: relative;
+        }
+    }
+}
+
+.checkbox--primary:not(.jcf) {
+    span {
+        display: inline-block;
+    }
+    span:before {
+        border-radius: 1px;
+    }
+}
+
+.checkbox--secondary:not(.jcf) {
+    span {
+        &:before {
+            width: 40px;
+            background-color: transparent;
+            border-radius: 8px;
+            border: 1px solid $profile-tertiary-color;
+        }
+        &:after {
+            right: 22px;
+            background-color: $wiley-blue-color;
+        }
+    }
+    input:checked ~ span:before {
+        background-color: lighten($wiley-blue-color, 50%);
+    }
+}
+
+input, optgroup, select, textarea {
+    padding: 13px 8px;
+    border-color: $wiley-gray-color;
+    border-radius: 2px;
+    max-height: 44px;
+    color: $info-text-color;
+}
+
+input {
+    ~ .infoBox {
+        margin-top: 10px;
+    }
+}
+
+select {
+    font-size: 12px;
+    font-weight: 500;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding-right: 35px;
+    background-image: url(../images/keyboard_arrow_down.svg);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) 50%;
+    background-size: 18px;
+    font-family: $default-font-family;
+}
+
+option {
+    font-size: 14px;
+}
+
+
+
+@include placeholder();
+
+label {
+    font-size: 13px;
+    font-weight: 400;
+    color: $wiley-typography-color;
+}
+
+form {
+    @include placeholder();
+}
+
+input[type="file"] {
+    padding: 10px 8px;
+}

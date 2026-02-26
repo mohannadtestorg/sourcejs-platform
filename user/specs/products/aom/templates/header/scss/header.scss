@@ -1,0 +1,48 @@
+.main-nav, .dropdown__menu, .dropdown:hover {
+  background-color: $primary-bg-color;
+  @include themify($themes) {
+    background-color: themed('color2');
+  }
+}
+
+.header {
+  &__logo {
+    display: inline-block;
+  }
+  &__quick-menu {
+    white-space:unset;
+    @include media('<desktop') {
+      float: right;
+    }
+  }
+}
+
+.loginBar {
+  text-align: center;
+  padding: 0 15px;
+  ul {
+    width: 224px;
+    max-width: 224px;
+    padding-top:16px;
+    padding-bottom:16px;
+    background-color: $white;
+  }
+  li {
+    padding: 13px 16px;
+    &:hover {
+      background-color: $primary-bg-color;
+      @include themify($themes) {
+        background-color: themed('color2');
+      }
+      a{
+        color: $white;
+        cursor:pointer ;
+      }
+    }
+  }
+  &__dropBlock{
+    &__holder{
+    right:0;
+    }
+  }
+}

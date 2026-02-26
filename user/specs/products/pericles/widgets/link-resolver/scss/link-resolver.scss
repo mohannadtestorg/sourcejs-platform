@@ -1,0 +1,70 @@
+.linkResolverWidget .card {
+    input {margin-bottom: 0;}
+
+    .form-btn {
+        .btn {
+            width: auto;
+            text-transform: uppercase;
+            margin-left: 10px;
+        }
+
+        form {
+            display: inline-block;
+
+            @include media('<phone') {
+                margin: 0 0 10px;
+            }
+        }
+    }
+
+    .border-top {
+        padding: 20px 20px 0;
+        margin-top: 20px;
+    }
+
+    .uploadImageButton {margin-top: 32px;}
+}
+
+.card + .linkResolverWidget {margin-top: 1em;}
+
+.removeURLImage {
+    display: inline-flex;
+    align-items: flex-end;
+
+    &:before {
+        display: inline-block;
+        content: '|';
+        color: $primary-light-text-color;
+        margin: 0 16px;
+    }
+
+    .remove {
+        background: transparent;
+        color: $wiley-gray;
+        font-size: 0.75rem;
+        padding: 0;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        float: none;
+
+        i {
+            font-size: 0.5rem;
+            line-height: 14px;
+            width: 14px;
+            margin-right: 8px;
+
+            &:before {
+                border: 1px solid $wiley-gray;
+                padding: 3px;
+                border-radius: 50%;
+            }
+        }
+
+        &:hover, &:active, &:focus {
+            span {
+                text-decoration: underline;
+            }
+        }
+    }
+}

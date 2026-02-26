@@ -1,0 +1,30 @@
+.cartLabel {
+    padding: 0px 0px 0px 24px;
+
+    .icon-shoppingcart {
+        color: $primary-link-color;
+        font-size: $icon-font-size;
+        line-height: 1em;
+        margin-bottom: 0px;
+        display: block;
+    }
+
+    .cartText {
+        display: block;
+        font-size: $xx-small-font-size;
+        margin-top: 10px;
+        color: $primary-link-color;
+    }
+}
+
+@include media('<tablet') {
+    .cartLabel {
+        .icon-shoppingcart {
+            line-height: 29px;
+        }
+
+        .cartText {
+            display: none;
+        }
+    }
+}

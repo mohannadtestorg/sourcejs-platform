@@ -1,0 +1,50 @@
+| !{pb.render("hero-block",{"news": false},"corp")}
+
+section.section
+    .container
+        .row
+            .col-xs-12.col-sm-12.col-md-12
+                | !{pb.render("articles","articles/article-detail-no-img",{},"corp")}
+        .hr
+            hr
+
+        .row.cards-holder
+            .col-xs-12.col-sm-12.col-md-4.hidden-xs
+                aside
+                    article.article__feature
+                        h3 Related Case Studies
+                        p This copy should introduce the features that fall under Content Maagement. This subheading will work to lead users into any relevant feature cards below.
+
+            .col-xs-12.col-sm-12.col-md-8
+                .row
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards","cards/card",{},"corp")}
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards","cards/card",{},"corp")}
+
+        .hr
+            hr
+
+        .row.cards-holder
+            .col-xs-12.col-sm-12.col-md-4.hidden-xs
+                aside
+                    article.article__feature
+                        h3 Available Collateral
+                        p Take a look at download some of our collateral for Digital Objects.
+
+            .col-xs-12.col-sm-12.col-md-8
+                .row
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards", "cards/card-bg", {}, "corp")}
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards", "cards/card-bg", {}, "corp")}
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards", "cards/card-bg", {}, "corp")}
+                    .col-xs-12.col-sm-6.col-md-6
+                        | !{pb.render("cards", "cards/card-bg", {}, "corp")}
+
+
+
+| !{pb.render("call-to-action",{},"corp")}
+
+| !{pb.render("footer",{},"corp")}

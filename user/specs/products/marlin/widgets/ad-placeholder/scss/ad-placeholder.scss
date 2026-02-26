@@ -1,0 +1,126 @@
+.adplaceholder {
+    position: relative;
+    margin-top:  20px;
+
+    &__content {
+        position: relative;
+        max-width: 100%;
+    }
+
+    &__text {
+        font-size:.65rem;
+        text-transform: uppercase;
+
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+
+    &--header,
+    &--footer {
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+        margin-top: 0;
+        background-color: $ad-background;
+
+        &.widget {
+            margin: 0;
+
+            & .widget-body {
+                padding: 0;
+            }
+        }
+
+        .pb-ad {
+            display: table;
+            height: auto;
+            margin: 0;
+        }
+
+        iframe {
+            margin: 10px 0;
+        }
+
+        .adplaceholder__content {
+            text-align: center;
+            padding: 0 ($grid-gutter-width/2);
+        }
+
+        .adplaceholder__text {
+            display: none;
+            @include media('>=tablet') {
+                display: block;
+                position: absolute;
+                left: 0;
+                transform-origin: top right;
+                transform: translateX(-100%) rotate(270deg);
+            }
+        }
+
+        .adplaceholder__ad {
+            margin-left: 12px;
+        }
+    }
+
+    &--300x600 {
+        display: none;
+        @media (min-width: $screen-sm) and (min-height: $height-sm) {
+            display: block;
+            img {
+                max-width: 300px;
+                height: 250px;
+            }
+        }
+        @media (min-width: $screen-sm) and (min-height: $height-md) {
+            display: block;
+            img {
+                max-width: 300px;
+                height: 600px;
+            }
+        }
+    }
+    &__transplant{
+        text-align: center;
+        .pb-ad {
+            display: block!important;
+            height: auto;
+        }
+        .adplaceholders {
+            position: static;
+        }
+        .adplaceholder--300x600 {
+            display: block;
+            max-width: 300px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    // refer to LIT-212027 for more details
+    div.horizontalAdContainer {
+        height: auto !important;
+    }
+    .horizontalAdLabelContainer,
+    .horizontalAd {
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+}
+
+.adplaceholders{
+    position: absolute;
+    right: ($grid-gutter-width/2);
+    z-index: 99;
+
+    &.js--sticky {
+        position: fixed;
+        &--btm {
+            position: absolute;
+            bottom: 0;
+            top: auto;
+        }
+    }
+}

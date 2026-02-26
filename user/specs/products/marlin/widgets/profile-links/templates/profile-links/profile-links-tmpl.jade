@@ -1,0 +1,33 @@
+mixin printDefaultLinks()
+    if (data.subscribe && thisWidget.properties.displaySubscribe == "true")
+        li.profile-links__subscribe
+            a(href=data.subscribe.URL title=thisWidget.properties.subscribeTooltip, tabindex="4") !{data.subscribe.label}
+    if (data.claim && thisWidget.properties && thisWidget.properties.activateLicenseLabel)
+        li.profile-links__claim
+            a(href=data.claim.URL, title=thisWidget.properties.claimTooltip, tabindex="5") !{thisWidget.properties.activateLicenseLabel}
+
+ul.rlist.rlist--inline.profile-links
+    if (data.person && data.person.firstName && data.person.lastName )
+        +printDefaultLinks()
+        li.profile-links__user-list
+            div.dropBlock.profile-links__user-list__wrapper
+                a.profile-links__username(href='#', data-db-target-for='usermenu', tabindex="6")
+                    span
+                        | !{data.person.firstName}
+                        | #{" "} !{data.person.lastName}
+                    i.icon-gizmo-person(aria-hidden="true" title= "My account")
+                .dropBlock__holder.profile-links__user-list__holder(data-db-target-of='usermenu')
+                    ul.rlist
+                        each link, i in data.accountLinks
+                                li
+                                    a(href=link.URL title=link.label) !{link.label}
+    else
+        if (data.login && data.login.URL)
+            li
+                a(href=data.login.URL, title=thisWidget.properties.loginTooltip, tabindex="2") !{thisWidget.properties.signInLabel}
+        if (data.register)
+            li
+                a(href=data.register.URL, title=thisWidget.properties.registerTooltip, tabindex="3") !{data.register.label}
+        +printDefaultLinks()
+
+        

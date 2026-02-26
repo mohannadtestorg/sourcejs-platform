@@ -1,0 +1,48 @@
+extends  ../../../../../../ux3/widgets/multi-search/templates/multi-search/multi-search-tmpl
+
+
+
+block multiSearchClasses
+    -var DOItemclasses="clearfix item";
+    -var listclasses="rlist search-result__body items-results";
+    -var articleItemclasses="featuredCard__item";
+    -var moreLinkclasses="featuredCard__tale";
+    - var itemNo = data.items.length
+    if itemNo > 0
+       if(data.items[0].type == "Article")
+          -listclasses="rlist featuredCard__body"
+
+
+block meta
+    div.featuredCard__details
+        if (item.group)
+          .featuredCard__citation
+            if (item.group.citationLine)
+                | !{item.group.citationLine}
+            else
+                | !{pb.render('parent-item', {data: item.group})}
+          if (item.group.coverDate)
+            span.featuredCard__date
+              | !{item.group.coverDate}
+          else
+            span.featuredCard__date
+              | !{item.epubDate}
+        if (item.contribs)
+            div.featuredCard__authors !{item.contribs}
+
+
+block teaser
+    div.featuredCard__item
+        .delayLoad
+            if (item.title)
+                if (item.best)
+                    a.featuredCard__title(href=item.best title=item.title)
+                        h5 !{item.title}
+                else
+                    h5.featuredCard__title !{item.title}
+
+
+            +meta(item)
+
+        +loading(image)
+

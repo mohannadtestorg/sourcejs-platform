@@ -1,0 +1,856 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200307' target="_blank">`LIT-200307`</a>
+            small note: this content is static HTML
+
+    section.source_section
+        h2 HUB home page
+        .source_example
+            .pageHeader(data-widget-def='pageHeader', data-widget-id='62175478-b98a-43d5-90f2-1f2045ac1a7e')
+                header.page-header
+                    div(data-pb-dropzone='main')
+                        .container
+                            .row
+                                .contents.agupubs-header.col-md-12
+                                    .institution-wrapper-mobile.hidden-lg.padded-content(data-widget-def='UX3InstitutionBanner', data-widget-id='4d1f2e23-571a-4b27-8ab7-e7cd8ca15964')
+                                        .institution
+                                            .institution-info-wrapper
+                                                span.institution__intro Access by
+                                                span.institution__name Atypon Institution
+                                    .pull-left
+                                        .logo-container.hidden-xs.hidden-sm.hidden-md(data-widget-def='ux3-general-image', data-widget-id='9aa0a24d-3526-425f-a71d-1ac706d77d5a')
+                                            a(href='/', title='AGU Publications')
+                                                img(alt='AGU Publications', src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/logo-header-1517329776760.png')
+                                        .logo-container-mobile.hidden-lg.hidden-md.hidden-sm(data-widget-def='ux3-general-image', data-widget-id='ff262197-0fb8-4973-aaa2-2fceba4b5a61')
+                                            a(href='/', title='AGU Publications')
+                                                img(alt='AGU Publications', src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/logo-header-1517329776760.png')
+                                        .institution-wrapper.hidden-xs.hidden-sm.hidden-md.institution--block(data-widget-def='UX3InstitutionBanner', data-widget-id='14d0e2f8-27d3-42d0-a477-72015e14e818')
+                                            .institution
+                                                .institution-info-wrapper
+                                                    span.institution__intro Access by
+                                                    span.institution__name Atypon Institution
+                                    .pull-right
+                                        .header-quicksearch(data-widget-def='UX3QuickSearchWidget', data-widget-id='48175bb0-0f70-46e6-bb89-7e2781fdb8e4')
+                                            .quick-search-wrapper
+                                                a.quick-search__item(href='#', title='search')
+                                                    i.icon-search(aria-hidden='true')
+                                                    span.quick-search__item__arrow
+                                                .quick-search.quickSearchFormContainer(data-linkto-page='false')
+                                                    .main-search-field-wrapper
+                                                        input.fakeQSInput(type='search', placeholder='Search', value='')
+                                                        form(action='/action/doSearch', name='QuickSearch', method='get', title='Quick Search')
+                                                            .input-group.option-1
+                                                                label.hiddenLabel(for='searchField1') Search term
+                                                                input#searchField1.autocomplete.actualQSInput(type='search', name='AllField', placeholder='Search', onfocus='this.value = this.value;', data-auto-complete-max-words='7', data-auto-complete-max-chars='32', data-contributors-conf='3', data-topics-conf='3', data-publication-titles-conf='3', data-history-items-conf='3', value='')
+                                                                .search-options-wrapper
+                                                                    a.advanced(href='https://agupubs.pericles-prod.literatumonline.com/search/advanced', title='')   Advanced Search
+                                                                    a.citation(href='/search/advanced#citation', title='')   Citation Search
+                                                            button.btn.quick-search__button.icon-search(type='submit', title='Search')
+                                                                span Search
+                                        .login-bar-container(data-widget-def='literatumNavigationLoginBar', data-widget-id='d384ca92-7137-45d6-b3c2-78c9c0a98c2b')
+                                            .loginBar.login-open
+                                                a.show-login(href='/action/showLogin?uri=%2F')
+                                                    span.icon-profile_empty
+                                                    span.sign-in-label Login / Register
+                                        a.hubpage-menu__burger.hidden-lg(href='#main1', title='menu drawer', data-db-switch='icon-close_thin', data-db-target-for='hub-menu')
+                                            i.icon-menu2(aria-hidden='true')
+                                            span
+                        .hubpage-menu
+                            nav.container.hubpage-menu__nav.visible-lg.dropBlock__holder(role='navigation', data-db-target-of='hub-menu')
+                                ul.pull-left.rlist--inline
+                                    li.dropdown.menu-parent
+                                        a#main1-1.dropdown__toggle.w-slide__btn(target='_blank', href='#', title='Journals', data-toggle='dropdown', data-slide-target='#hubMain-sub-1')
+                                            span Journals
+                                            i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+                                        #hubMain-sub-1.dropdown__menu(aria-labelledby='main1-1', aria-hidden='true', role='menu')
+                                            .menu-items-container
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Earths Future')
+                                                        a(href='/journal/23284277', title="Earth's Future")
+                                                            span Earth's Future
+                                                            .doi-access-wrapper
+                                                                .access-type.open-access
+                                                                    i.icon-lock_open(aria-hidden='true')
+                                                                    .doi-access Open access
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth and Space Science')
+                                                        a(href='/journal/23335084', title='Earth and Space Science')
+                                                            span Earth and Space Science
+                                                            .doi-access-wrapper
+                                                                .access-type.open-access
+                                                                    i.icon-lock_open(aria-hidden='true')
+                                                                    .doi-access Open access
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry, Geophysics, Geosystems')
+                                                        a(href='/journal/15252027', title='Geochemistry, Geophysics, Geosystems')
+                                                            span Geochemistry, Geophysics, Geosystems
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='GeoHealth')
+                                                        a(href='/journal/24711403', title='GeoHealth')
+                                                            span GeoHealth
+                                                            .doi-access-wrapper
+                                                                .access-type.open-access
+                                                                    i.icon-lock_open(aria-hidden='true')
+                                                                    .doi-access Open access
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysical Research Letters')
+                                                        a(href='/journal/19448007', title='Geophysical Research Letters')
+                                                            span Geophysical Research Letters
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Global Biogeochemical Cycles')
+                                                        a(href='/journal/19449224', title='Global Biogeochemical Cycles')
+                                                            span Global Biogeochemical Cycles
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                                        a(href='/journal/19422466', title='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                                            span Journal of Advances in Modeling Earth Systems (JAMES)
+                                                            .doi-access-wrapper
+                                                                .access-type.open-access
+                                                                    i.icon-lock_open(aria-hidden='true')
+                                                                    .doi-access Open access
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography and Paleoclimatology')
+                                                        a(href='/journal/19449186', title='Paleoceanography and Paleoclimatology')
+                                                            span Paleoceanography and Paleoclimatology
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Radio Science')
+                                                        a(href='/journal/1944799x', title='Radio Science')
+                                                            span Radio Science
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Reviews of Geophysics')
+                                                        a(href='/journal/19449208', title='Reviews of Geophysics')
+                                                            span Reviews of Geophysics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather')
+                                                        a(href='/journal/15427390', title='Space Weather')
+                                                            span Space Weather
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather Quarterly')
+                                                        a(href='/journal/23254432', title='Space Weather Quarterly')
+                                                            span Space Weather Quarterly
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Tectonics')
+                                                        a(href='/journal/19449194', title='Tectonics')
+                                                            span Tectonics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Water Resources Research')
+                                                        a(href='/journal/19447973', title='Water Resources Research')
+                                                            span Water Resources Research
+                                                div
+                                                    p Eos
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org')
+                                                            a(target='_blank', href='https://eos.org', title='Eos.org')
+                                                                span Eos.org
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org Eos Archives (1920-2014)')
+                                                            a(href='/journal/23249250', title='Eos.org Eos Archives (1920-2014)')
+                                                                span Eos.org Eos Archives (1920-2014)
+                                                div
+                                                    p Journal of Geophysical Research
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheres')
+                                                            a(href='/journal/21698996', title='Atmospheres')
+                                                                span Atmospheres
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Biogeosciences')
+                                                            a(href='/journal/21698961', title='Biogeosciences')
+                                                                span Biogeosciences
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Surface')
+                                                            a(href='/journal/21699011', title='Earth Surface')
+                                                                span Earth Surface
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Oceans')
+                                                            a(href='/journal/21699291', title='Oceans')
+                                                                span Oceans
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Planets')
+                                                            a(href='/journal/21699100', title='Planets')
+                                                                span Planets
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Solid Earth')
+                                                            a(href='/journal/21699356', title='Solid Earth')
+                                                                span Solid Earth
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Physics')
+                                                            a(href='/journal/21699402', title='Space Physics')
+                                                                span Space Physics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Journal of Geophysical Research (1896-1977)')
+                                                            a(href='/journal/21562202', title='Journal of Geophysical Research (1896-1977)')
+                                                                span Journal of Geophysical Research (1896-1977)
+                                                div
+                                                    p Partnered Journals
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Chinese Journal of Geophysics (2000-2018)')
+                                                            a(href='/journal/23260440', title='Chinese Journal of Geophysics (2000-2018)')
+                                                                span Chinese Journal of Geophysics (2000-2018)
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Interactions')
+                                                            a(target='_blank', href='http://www.earthinteractions.org', title='Earth Interactions')
+                                                                span Earth Interactions
+                                                                i.icon-export_citation
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth and Planetary Physics')
+                                                            a(href='/journal/20963955', title='Earth and Planetary Physics')
+                                                                span Earth and Planetary Physics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysics')
+                                                            a(target='_blank', href='http://library.seg.org/journal/gpysa7', title='Geophysics')
+                                                                span Geophysics
+                                                                i.icon-export_citation
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='International Journal of Geomagnetism and Aeronomy')
+                                                            a(target='_blank', href='http://elpub.wdcb.ru/journals/ijga', title='International Journal of Geomagnetism and Aeronomy')
+                                                                span International Journal of Geomagnetism and Aeronomy
+                                                                i.icon-export_citation
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Interpretation')
+                                                            a(target='_blank', href='http://library.seg.org/journal/inteio', title='Interpretation')
+                                                                span Interpretation
+                                                                i.icon-export_citation
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Nonlinear Processes in Geophysics')
+                                                            a(target='_blank', href='http://www.nonlinear-processes-in-geophysics.net', title='Nonlinear Processes in Geophysics')
+                                                                span Nonlinear Processes in Geophysics
+                                                                i.icon-export_citation
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='The Leading Edge')
+                                                            a(target='_blank', href='http://seg.org/Publications/The-Leading-Edge', title='The Leading Edge')
+                                                                span The Leading Edge
+                                                                i.icon-export_citation
+                                    li.dropdown.menu-parent
+                                        a#main1-2.dropdown__toggle.w-slide__btn(href='#', title='Topics', data-toggle='dropdown', data-slide-target='#hubMain-sub-2')
+                                            span Topics
+                                            i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+                                        #hubMain-sub-2.dropdown__menu(aria-labelledby='main1-2', aria-hidden='true', role='menu')
+                                            .menu-items-container
+                                                p Atmospheric Composition
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheric Composition and Structure')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/04ade3cf-2dba-30ce-863b-d9d67f96012a', title='Atmospheric Composition and Structure')
+                                                            span Atmospheric Composition and Structure
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheric Processes')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/b67d499c-f736-3919-a2d4-5e48b9610c07', title='Atmospheric Processes')
+                                                            span Atmospheric Processes
+                                                p Biogeosciences
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Biogeosciences')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/4a75c07e-8776-33ce-8757-773d19c55d82', title='Biogeosciences')
+                                                            span Biogeosciences
+                                                p Education
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Education')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/e0dbad18-d41b-37f0-872b-bc2940f169be', title='Education')
+                                                            span Education
+                                                p Engineering and Applied Geophysics
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Electromagnetics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/047c4646-965a-3338-9963-b785272a7ee1', title='Electromagnetics')
+                                                            span Electromagnetics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Radio Science')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/e2465fa8-0b0d-3aa6-b31a-db6386e6c378', title='Radio Science')
+                                                            span Radio Science
+                                                p Geochemistry, Mineralogy, Volcanology
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/2647d1a0-787b-3094-8401-0baeeb9417e5', title='Geochemistry')
+                                                            span Geochemistry
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochronology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/8fbb95ae-bec5-3c08-afe0-f6030010f422', title='Geochronology')
+                                                            span Geochronology
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Information Related to Geologic Time')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/9fde41d9-736d-395e-b6ea-564121a0183b', title='Information Related to Geologic Time')
+                                                            span Information Related to Geologic Time
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Mineral Physics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/a4c3343f-8da3-3248-888b-26239c126fb7', title='Mineral Physics')
+                                                            span Mineral Physics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Mineralogy and Petrology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/2163bbbe-b158-372d-b5ef-0e03e7a20e2c', title='Mineralogy and Petrology')
+                                                            span Mineralogy and Petrology
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Volcanology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/ce9c5924-9be7-32fe-b181-93879fc9d03c', title='Volcanology')
+                                                            span Volcanology
+                                                p Geology and Geophysics
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Exploration Geophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/0458cf9e-97b1-3e32-ad5f-8543635dab65', title='Exploration Geophysics')
+                                                            span Exploration Geophysics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Geodesy and Gravity')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/6ba4071c-a190-3bbb-9f37-9dae836fab06', title='Geodesy and Gravity')
+                                                            span Geodesy and Gravity
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Geomagnetism and Paleomagnetism')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/42a39b45-6bd0-3c7f-860c-ccdf90a87955', title='Geomagnetism and Paleomagnetism')
+                                                            span Geomagnetism and Paleomagnetism
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='History of Geophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/910273e0-3605-35ea-9af8-c5c1db9dcdf9', title='History of Geophysics')
+                                                            span History of Geophysics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Marine Geology and Geophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/52b22739-ac37-3130-9f35-3190bc8cacad', title='Marine Geology and Geophysics')
+                                                            span Marine Geology and Geophysics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Physical Properties of Rocks')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/ca3dbcf1-9052-3ce7-8a9c-d0685207a43e', title='Physical Properties of Rocks')
+                                                            span Physical Properties of Rocks
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Seismology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/6e64e83d-5a5b-3fb4-9315-b2f5eff2d803', title='Seismology')
+                                                            span Seismology
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Structural Geology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/c4830235-f9be-3500-820c-6da47727f19f', title='Structural Geology')
+                                                            span Structural Geology
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Tectonophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/6221141d-cacb-363f-9dac-51558cb65bd2', title='Tectonophysics')
+                                                            span Tectonophysics
+                                                p Global Change
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Global Change')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/8bbab78d-1851-38ce-aebb-d5081d7a64a1', title='Global Change')
+                                                            span Global Change
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/a7f0ceaa-0767-3738-a27c-587bbc95b268', title='Paleoceanography')
+                                                            span Paleoceanography
+                                                p Hydrology, Cryosphere and Earth Surface
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Cryosphere')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/31753692-4890-3c64-bdcf-685938743085', title='Cryosphere')
+                                                            span Cryosphere
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Hydrology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/65e440c3-7c1c-3c8a-98a5-8f657c07b60b', title='Hydrology')
+                                                            span Hydrology
+                                                p Mathematical Geophysics
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Computational Geophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/fc050816-bf8d-3af4-ac91-ed6da62b6e3d', title='Computational Geophysics')
+                                                            span Computational Geophysics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Informatics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/352e1e37-c7b8-3609-8d36-e9d6f17930de', title='Informatics')
+                                                            span Informatics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Mathematical Geophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/b7735ff1-8528-3c28-a487-d9d898433017', title='Mathematical Geophysics')
+                                                            span Mathematical Geophysics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Nonlinear Geophysics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/ff5fcf6d-0e76-3c6f-aadc-009b70c83b36', title='Nonlinear Geophysics')
+                                                            span Nonlinear Geophysics
+                                                p Natural Hazards
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Natural Hazards')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/69d98904-af28-381f-a4d4-8d2b4cb93c78', title='Natural Hazards')
+                                                            span Natural Hazards
+                                                p Ocean Science
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Biological and Chemical Oceanography')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/cd93da19-2242-3ce0-b419-c33a5214cae6', title='Biological and Chemical Oceanography')
+                                                            span Biological and Chemical Oceanography
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='General Oceanography')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/f7a5b827-7df7-32fe-ad57-fed1fc503df9', title='General Oceanography')
+                                                            span General Oceanography
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Physical Oceanography')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/34c5b638-57d6-3a36-9aad-109b86a6b043', title='Physical Oceanography')
+                                                            span Physical Oceanography
+                                                p Planetary Science
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Interplanetary Physics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/531b2d37-0613-3567-af0e-40ffc8867f98', title='Interplanetary Physics')
+                                                            span Interplanetary Physics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Astrobiology')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/efbb14e6-01fc-3504-a8b7-1b590a738502', title='Astrobiology')
+                                                            span Astrobiology
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Comets and Small Bodies')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/98a21daa-d9c4-3722-90b2-efe9b5d40e2d', title='Comets and Small Bodies')
+                                                            span Comets and Small Bodies
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Fluid Planets')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/07293311-161e-3b3d-af53-2c46d889f412', title='Fluid Planets')
+                                                            span Fluid Planets
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Solar Systems Objects')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/23ae236f-a690-39ae-8a91-8c661e5cb309', title='Solar Systems Objects')
+                                                            span Solar Systems Objects
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Solid Surface Planets')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/c4143191-5137-3ebb-be99-b023fb592004', title='Solid Surface Planets')
+                                                            span Solid Surface Planets
+                                                p Policy and Funding
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Policy Sciences')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/054f471e-b56c-3318-8624-6b75d0070bd8', title='Policy Sciences')
+                                                            span Policy Sciences
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Public Issues')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/4d3f0aa2-c0a4-3e1b-9611-554319f52c19', title='Public Issues')
+                                                            span Public Issues
+                                                p Space Sciences and Space Physics
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Ionosphere')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/07d7e873-62b4-3e8c-9f10-ec6b5177c301', title='Ionosphere')
+                                                            span Ionosphere
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Magnetospheric Physics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/3e983e9e-a139-3399-8e27-b7ea592f8b70', title='Magnetospheric Physics')
+                                                            span Magnetospheric Physics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Solar Physics, Astrophysics and Astronomy')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/c83e32a9-948b-3fef-8055-f49358bac3a4', title='Solar Physics, Astrophysics and Astronomy')
+                                                            span Solar Physics, Astrophysics and Astronomy
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Plasma Physics')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/88b148ac-931e-3db4-99db-b545efce709b', title='Space Plasma Physics')
+                                                            span Space Plasma Physics
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather')
+                                                        a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/e72f674d-20e3-3d2a-a44a-3d2fb7fde83c', title='Space Weather')
+                                                            span Space Weather
+                                    li
+                                        a(href='/hub/books') Books
+                                    li.dropdown.menu-parent
+                                        a#main1-3.dropdown__toggle.w-slide__btn(href='#', title='EOS', data-toggle='dropdown', data-slide-target='#hubMain-sub-3')
+                                            span EOS
+                                            i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+                                        #hubMain-sub-3.dropdown__menu(aria-labelledby='main1-3', aria-hidden='true', role='menu')
+                                            .menu-items-container
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org')
+                                                        a(href='http://www.eos.org', target='_blank', title='Eos.org')
+                                                            span Eos.org
+                                                ul.rlist
+                                                    li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org Eos Archives (1920-2014)')
+                                                        a(href='/journal/23249250', title='Eos.org Eos Archives (1920-2014)')
+                                                            span Eos.org Eos Archives (1920-2014)
+                                .pull-right
+                                    .social-media.pull-left.visible-lg
+                                        a(target='_blank', href='https://about.agu.org/get-social/')
+                                            i.icon-facebook-round
+                                        a(target='_blank', href='https://about.agu.org/get-social/')
+                                            i.icon-twitter-round
+                                    ul.rlist--inline.pull-right
+                                        li
+                                            a(target='_blank', href='http://membership.agu.org') Membership
+                                        li
+                                            a(target='_blank', href='http://www.agu.org') AGU.org
+                                    .social-media.hiddenLabel--lg
+                                        a(target='_blank', href='https://about.agu.org/get-social/')
+                                            i.icon-facebook-round
+                                        a(target='_blank', href='https://about.agu.org/get-social/')
+                                            i.icon-twitter-round
+                        div
+
+
+
+            .pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        .hub-main-content(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .agu-hub.col-md-12
+                                        .row(data-widget-def='ux3-layout-widget', data-widget-id='074bf9f4-e287-432e-9ac5-b898bb3b994c')
+                                            .col-sm-8
+                                                .slideShow
+                                                    .owl-carousel(data-items='1', data-responsive='', data-speed='1000', data-autoplay='true', data-animation='slide', data-indicators='true', data-arrow='false', data-controls='false')
+                                                        .slide-item
+                                                            #rich-text-963f4712-f9fe-465f-abb8-16099ec21c49.pb-rich-text(style='overflow: auto;')
+                                                                p
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/Homepage%20Carousel/326505_1000x500_WEB-READY_logo1.jpg', width='500', height='250', alt='AGU', style='display: block; margin-left: auto; margin-right: auto;')
+                                                        .slide-item
+                                                            #rich-text-9a1bbd2e-2495-4011-9770-270a3cc82977.pb-rich-text(style='overflow: auto;')
+                                                                p
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/Homepage%20Carousel/326505_1000x500_WEB-READY_Strong.jpg', width='500', height='250', alt='Why publish with AGU information', style='display: block; margin-left: auto; margin-right: auto;')
+                                                        .slide-item
+                                                            #rich-text-5d7e10d2-54eb-48ee-9d81-ce561bf242e9.pb-rich-text(style='overflow: auto;')
+                                                                p
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/Homepage%20Carousel/326505_1000x500_WEB-READY_High.jpg', width='500', height='250', alt='Why publish with AGU information', style='display: block; margin-left: auto; margin-right: auto;')
+                                                        .slide-item
+                                                            #rich-text-67da7ab3-b363-46ed-86bd-d9c6603130af.pb-rich-text(style='overflow: auto;')
+                                                                p
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/Homepage%20Carousel/326505_1000x500_WEB-READY_Global.jpg', width='500', height='250', alt='Why publish with AGU information', style='display: block; margin-left: auto; margin-right: auto;')
+                                                        .slide-item
+                                                            #rich-text-d8c406d0-b325-4389-baad-9f2333c759c7.pb-rich-text(style='overflow: auto;')
+                                                                p
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/Homepage%20Carousel/326505_1000x500_WEB-READY_Fast.jpg', width='500', height='250', alt='Why publish with AGU information', style='display: block; margin-left: auto; margin-right: auto;')
+                                                div(data-widget-def='ux3-layout-widget', data-widget-id='27e93c25-7d95-4f35-bf0d-1346d7b06a33')
+                                                    div
+                                                        #rich-text-ec4ab256-18bc-494c-8812-2211a908d9a2.pb-rich-text(style='overflow: auto;')
+                                                            h5.side-section-header Journals
+                                                            ul
+                                                                li
+                                                                    a(href='/journal/23284277') Earth's Future
+                                                                    .doi-access-wrapper
+                                                                        .access-type.open-access
+                                                                            i.icon-lock_open(aria-hidden='true')
+                                                                            .doi-access Open access
+                                                                li
+                                                                    a(href='/journal/23335084') Earth and Space Science
+                                                                    .doi-access-wrapper
+                                                                        .access-type.open-access
+                                                                            i.icon-lock_open(aria-hidden='true')
+                                                                            .doi-access Open access
+                                                                li
+                                                                    a(href='/journal/15252027') Geochemistry, Geophysics, Geosystems
+                                                                li
+                                                                    a(title='GeoHealth', href='/journal/24711403') GeoHealth
+                                                                    .doi-access-wrapper
+                                                                        .access-type.open-access
+                                                                            i.icon-lock_open(aria-hidden='true')
+                                                                            .doi-access Open access
+                                                                li
+                                                                    a(href='/journal/19448007') Geophysical Research Letters
+                                                                li
+                                                                    a(href='/journal/19449224') Global Biogeochemical Cycles
+                                                                li
+                                                                    a(href='/journal/19422466') Journal of Advances in Modeling Earth Systems (JAMES)
+                                                                    .doi-access-wrapper
+                                                                        .access-type.open-access
+                                                                            i.icon-lock_open(aria-hidden='true')
+                                                                            .doi-access Open access
+                                                                li
+                                                                    a(href='/journal/19449186') Paleoceanography and Paleoclimatology
+                                                                li
+                                                                    a(href='/journal/1944799X') Radio Science
+                                                                li
+                                                                    a(href='/journal/19449208') Reviews of Geophysics
+                                                                li
+                                                                    a(href='/journal/15427390') Space Weather
+                                                                li
+                                                                    a(href='/journal/23254432') Space Weather Quarterly
+                                                                li
+                                                                    a(href='/journal/19449194') Tectonics
+                                                                li
+                                                                    a(href='/journal/19447973') Water Resources Research
+                                                            h6 Journal of Geophysical Research
+                                                            div
+                                                                ul
+                                                                    li
+                                                                        a(href='/journal/21698996') Atmospheres
+                                                                    li
+                                                                        a(href='/journal/21698961') Biogeosciences
+                                                                    li
+                                                                        a(href='/journal/21699011') Earth Surface
+                                                                    li
+                                                                        a(href='/journal/21699291') Oceans
+                                                                    li
+                                                                        a(href='/journal/21699100') Planets
+                                                                    li
+                                                                        a(href='/journal/21699356') Solid Earth
+                                                                    li
+                                                                        a(href='/journal/21699402') Space Physics
+                                                                    li
+                                                                        a(href='/journal/21562202') Journal of Geophysical Research (1896-1977)
+                                                                h5.side-section-header Eos
+                                                                ul
+                                                                    li
+                                                                        a(href='http://www.eos.org/') Eos.org
+                                                                    li
+                                                                        a(href='/journal/23249250') Eos Archives (1920-2014)
+                                                                h5.side-section-header Partnered Journals
+                                                                ul
+                                                                    li
+                                                                        a(href='/journal/23260440', target='_self') Chinese Journal of Geophysics (2000-2018)
+                                                                    li
+                                                                        a(title='Earth Interactions', href='http://www.earthinteractions.org/', target='_blank', rel='noopener')
+                                                                            | Earth Interactions
+                                                                            i.icon-export_citation
+                                                                        .doi-access-wrapper
+                                                                            .access-type.open-access
+                                                                                i.icon-lock_open(aria-hidden='true')
+                                                                                .doi-access Open access
+                                                                    li
+                                                                        .doi-access
+                                                                            a(href='https://agupubs.onlinelibrary.wiley.com/journal/20963955', target='_self') Earth and Planetary Physics
+                                                                    li
+                                                                        a(title='Geophysics', href='http://library.seg.org/journal/gpysa7', target='_blank', rel='noopener')
+                                                                            | Geophysics
+                                                                            i.icon-export_citation
+                                                                    li
+                                                                        a(title='International Journal of Geomagnetism and Aeronomy', href='http://elpub.wdcb.ru/journals/ijga/', target='_blank', rel='noopener')
+                                                                            | International Journal of Geomagnetism and Aeronomy
+                                                                            i.icon-export_citation
+                                                                    li
+                                                                        a(title='Interpretation  ', href='http://library.seg.org/journal/inteio', target='_blank', rel='noopener')
+                                                                            | Interpretation
+                                                                            i.icon-export_citation
+                                                                    li
+                                                                        a(title='Nonlinear Processes in Geophysics', href='http://www.nonlinear-processes-in-geophysics.net/', target='_blank', rel='noopener')
+                                                                            | Nonlinear Processes in Geophysics
+                                                                            i.icon-export_citation
+                                                                    li
+                                                                        a(title='The Leading Edge', href='http://seg.org/Publications/The-Leading-Edge', target='_blank', rel='noopener')
+                                                                            | The Leading Edge
+                                                                            i.icon-export_citation
+                                                .mt-4(data-widget-def='general-rich-text', data-widget-id='37f0ae43-f2f0-4464-a6c6-1cf5e886364d')
+                                                    h2.side-section-header
+                                                        | Browse Books
+                                                    #rich-text-37f0ae43-f2f0-4464-a6c6-1cf5e886364d.pb-rich-text(style='overflow: auto;')
+                                                        ul
+                                                            li
+                                                                a(href='/series/5064') Geophysical Monograph Series [1956-present]
+                                                            li
+                                                                a(href='/series/5070') Special Publications
+                                                                a(href='/series/5064')  [1965-present]
+                                                            li
+                                                                a(href='/hub/earth_science_series') Earth Science Series [2014-present]
+                                                            li
+                                                                a(href='/series/5056') AGU Reference Shelf [1995-2000]
+                                                            li
+                                                                a(href='/series/5057') Antarctic Research Series [1964-2003]
+                                                            li
+                                                                a(href='/series/5058') Coastal and Estuarine Sciences [1981-1987]
+                                                            li
+                                                                a(href='/series/5059') Coastal and Estuarine Studies [1989-2006]
+                                                            li
+                                                                a(href='/series/5086') Collected Reprint Series [1972-2009]
+                                                            li
+                                                                a(href='/series/5060') Computational Seismology and Geodynamics [1992-2008]
+                                                            li
+                                                                a(href='/series/5061') Field Trip Guidebooks [1989]
+                                                            li
+                                                                a(href='/series/5062') Geodynamics Series [1980-2003]
+                                                            li
+                                                                a(href='/series/5065') Global Geoscience Transects [1991-1993]
+                                                            li
+                                                                a(href='/series/5066') History of Geophysics [1984-1997]
+                                                            li
+                                                                a(href='/series/5067') Lecture Notes on Coastal and Estuarine Studies [1978-1989]
+                                                            li
+                                                                a(href='/series/5068') Maurice Ewing Series [1977-1986]
+                                                            li
+                                                                a(href='/series/5069') Short Courses in Geology [1989]
+                                                            li
+                                                                a(href='/series/5071') Water Resources Monograph Series [1971-2010]
+                                                            li
+                                                                a(href='/series/5072') Water Science and Application Series [1999-2004]
+                                                div
+                                                    .mt-4(data-widget-def='general-rich-text', data-widget-id='688cb62e-3049-4929-b7f2-cd3339b1ab30')
+                                                        #rich-text-688cb62e-3049-4929-b7f2-cd3339b1ab30.pb-rich-text(style='overflow: auto;')
+                                                            h2.side-section-header Recently Published
+                                                    .creative-work.left-side-image(data-widget-def='UX3SlideShow', data-widget-id='b3408987-cc5f-4eaf-bd38-54ea2fed5bba')
+                                                        .slideShow
+                                                            .owl-carousel(data-items='1', data-responsive='', data-speed='1000', data-autoplay='true', data-animation='slide', data-indicators='true', data-arrow='true', data-controls='false')
+                                                                .slide-item
+                                                                    .creative-work.left-side-image(data-widget-def='ux3-general-image', data-widget-id='5cbba355-bb35-4e17-b7e3-4741be51b683')
+                                                                        a(href='https://agupubs.pericles-prod.literatumonline.com/doi/book/10.1002/9781119227250', title='')
+                                                                            img(alt='', src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/books/Book Covers/Microstructural Cover-1517432660500.jpg')
+                                                                    #rich-text-c9d082fe-c1b2-48f8-a57c-beb62ae895bc.pb-rich-text(style='overflow: auto;')
+                                                                        h3
+                                                                            a(href='https://agupubs.pericles-prod.literatumonline.com/doi/book/10.1002/9781119227250', target='_blank') Microstructural Geochronology: Planetary Records Down to Atom Scale
+                                                                        p
+                                                                            | Editor(s): Desmond E. Moser, Fernando Corfu, James R. Darling, Steven M. Reddy, Kimberly Tait
+                                                                        p December 2017
+                                            .col-sm-4
+                                                div
+                                                    .mt-4.mb-4(data-widget-def='UX3HTMLWidget', data-widget-id='7a6900b0-ade5-486c-833f-28a6c9e987f5')
+                                                        style.
+                                                            .journal-actions-container .rlist li a {
+                                                                padding: 9px 0;
+                                                                display: block;
+                                                                font-weight: 600;
+                                                            }
+
+                                                            .journal-actions-container .unordered-list-icons li a {
+                                                                padding: 10px 15px;
+                                                            }
+
+                                                            .journal-actions-container .unordered-list-icons li i[class*=icon-] {
+                                                                width: 16px;
+                                                            }
+                                                        h2.side-section-header Publish with AGU Publications
+                                                        .side-section-content.mb-4
+                                                            div
+                                                                | AGU Publications journals span a wide range of subjects. AGU Publications editors welcome contributions from authors throughout the world.
+                                                            .journal-actions-container.m-1
+                                                                ul.unordered-list-icons
+                                                                    li
+                                                                        a(href='http://publications.agu.org/author-resource-center/submissions/', title='AGU Submissions')
+                                                                            i.icon-submit_article(aria-hidden='true')
+                                                                            | Submit an article
+                                                                    li
+                                                                        a(href='http://publications.agu.org/author-resource-center/', title='Author Resources')
+                                                                            i.icon-sample_issue(aria-hidden='true')
+                                                                            | Author Resources
+                                                    div(data-widget-def='UX3HTMLWidget', data-widget-id='433295c9-b544-4a89-bc02-286562c005d9')
+                                                        h2.side-section-header
+                                                            | More Information
+                                                        ul.unordered-list-textlinks
+                                                            li
+                                                                a(href='http://publications.agu.org/author-resource-center/') Author Resources
+                                                            li
+                                                                a(href='http://publications.agu.org/publications-contacts/') Contact AGU Publications
+                                                            li
+                                                                a(href='http://publications.agu.org/journals/editors/editor-search/') Editor Searches
+                                                            li
+                                                                a(href='http://sites.agu.org/media-kits/') Advertising and Sponsorship
+                                                            li
+                                                                a(href='http://publications.agu.org/author-resource-center/publication-policies/') Publication Policies
+                                                            li
+                                                                a(href='http://ethics.agu.org/') Scientific Ethics
+                                                            li
+                                                                a(href='http://publications.agu.org/author-resource-center/submissions/') Submit a Paper
+                                                            li
+                                                                a(href='http://publications.agu.org/author-resource-center/usage-permissions/#repository') Usage Permissions
+                                                    div
+                                                        .pb-ad
+                                                            #advert-rail-1.advert.advert-rail
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-1');
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    a(href='/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2F&placeholderId=1014&productId=101018', target='_blank')
+                                                                        img(src='https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                                    .mt-4.mb-4(data-widget-def='general-rich-text', data-widget-id='b970fb34-f519-48e5-a004-1698f476caf9')
+                                                        h2.side-section-header
+                                                            | Stay Connected to EOS
+                                                        #rich-text-b970fb34-f519-48e5-a004-1698f476caf9.pb-rich-text(style='overflow: auto;')
+                                                            p
+                                                                a(href='https://agupubs.pericles-prod.literatumonline.com/loi/23249250', target='_blank')
+                                                                    strong Access Eos Archive Issues
+                                                            p
+                                                                | Issues from 1997-2014 are freely available to the public. Older issues are available through AGU membership or through an institutional subscription.
+                                                    .my-4(data-widget-def='general-rich-text', data-widget-id='0fbddf9d-7d41-4341-8aa4-02db83451212')
+                                                        h2.side-section-header
+                                                            | Download the Multi-journal App
+                                                        #rich-text-0fbddf9d-7d41-4341-8aa4-02db83451212.pb-rich-text(style='overflow: auto;')
+                                                            p
+                                                                a(href='https://goo.gl/Zs1Kef', target='_blank')
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/App%20Icons/Apple%20Store%20Logo.jpg', width='188', height='62', alt='Apple App Store', style='display: block; margin-left: auto; margin-right: auto;')
+                                                            p
+                                                                a(href='https://goo.gl/aZ9rAc', target='_blank')
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/App%20Icons/Google%20Play%20Image.jpg', width='182', height='62', alt='Google Play Store', style='display: block; margin-left: auto; margin-right: auto;')
+                                                            p
+                                                                a(href='https://goo.gl/rBK7Y7', target='_blank')
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/App%20Icons/360Android%20w%20nam.JPG', width='176', height='61', style='display: block; margin-left: auto; margin-right: auto;')
+                                                    div
+                                                        .pb-ad
+                                                            aside
+                                                                #advert-rail-2.advert.advert-rail
+                                                                    script.
+                                                                        googletag.cmd.push(function () {
+                                                                            googletag.display('advert-rail-2');
+                                                                        });
+                                                                    // No JavaScript support is a call to an image
+                                                                    noscript
+                                                                        a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2F&placeholderId=1013&productId=101018', target='_blank')
+                                                                            img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                                    .my-4(data-widget-def='general-rich-text', data-widget-id='f9d96c04-135b-4a6d-ab0a-fbbfa3a1dd57')
+                                                        h2.side-section-header
+                                                            | New AGU Publications Site
+                                                        #rich-text-f9d96c04-135b-4a6d-ab0a-fbbfa3a1dd57.pb-rich-text(style='overflow: auto;')
+                                                            p
+                                                                | We want to hear from you! Please share your feedback and help us to continually improve our site.
+                                                            ul.unordered-list-icons
+                                                                li
+                                                                    a(href='https://wiley.qualtrics.com/jfe/form/SV_42Qywt0yECz4xbD', target='_blank')
+                                                                        i.icon-ic_mail_solid(aria-hidden='true')
+                                                                        | Share Feedback
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='06897655-f641-444b-9050-03e8d940252d')
+                                                        h2.side-section-header
+                                                            | AGU Career Center
+                                                        .journal-side-section
+                                                            p
+                                                                iframe#mdgxWidgetiFrame(src='https://findajob.agu.org/widget/jobs/;i=14', style='width: 100%; border: 0; height: 600px; background: 0;', frameborder='0')
+                                                    .mt-4.mb-4(data-widget-def='UX3HTMLWidget', data-widget-id='1f79f1bd-6f37-45a4-bdc9-333690e1a227')
+                                                        h2.side-section-header
+                                                            | Stay Connected
+                                                        style.
+                                                            .article {
+                                                                margin: 0;
+                                                                padding: 0;
+                                                                border: 0;
+                                                                outline: 0;
+                                                                font-size: 100%;
+                                                                vertical-align: baseline;
+                                                                background: 0 0;
+                                                            }
+
+                                                            .jhp-widget__stay-connected ul {
+                                                                margin: 0;
+                                                                padding: 0;
+                                                                list-style: none;
+                                                            }
+
+                                                            .jhp-widget__stay-connected li {
+                                                                clear: both;
+                                                                line-height: 36px;
+                                                                min-height: 2.7692307692em;
+                                                                padding: .5384615385em 0;
+                                                            }
+
+                                                            .jhp-widget__stay-connected .icon {
+                                                                margin-bottom: .6923076923em;
+                                                            }
+
+                                                            .icon--facebook, .icon--sign-up, .icon--twitter {
+                                                                float: left;
+                                                                margin-right: .7692307692em;
+                                                            }
+
+
+
+
+                                                            .jhp-widget__stay-connected .sign-up-text {
+                                                                font-size: .9230769231em;
+                                                                line-height: 1.1em;
+                                                                margin-bottom: 0;
+                                                            }
+
+
+                                                        section.jhp-widget.jhp-widget--border
+                                                            article.jhp-widget__stay-connected.social-icons(style='padding: 0 10px 0 10px')
+                                                                ul
+                                                                    li.agu-sign-up
+                                                                        a(href='http://onlinelibrary.wiley.com/agu/alertmanager/load')
+                                                                            i.icon-hubs-envelope-icon
+                                                                            | Sign up for AGU email alerts
+                                                                    li.agu-twitter
+                                                                        a(href='http://about.agu.org/get-social/')
+                                                                            i.icon-twitter2.hubs-icon-twitter-n-icon
+                                                                            | Follow AGU on Twitter
+                                                                    li.agu-facebook
+                                                                        a(href='http://about.agu.org/get-social/')
+                                                                            i.icon-facebook.icon-rectangualr
+                                                                            | Like AGU on Facebook
+                // end pagefulltext
+
+            .footer-sections.padded-content.hub-footer.hub-first-footer(data-widget-def='ux3-layout-widget', data-widget-id='efb69c87-9ba0-4904-93cf-43e770aee16e')
+                .container
+                    .row
+                        .contents.agupubs-header
+                            .container
+                                .row
+                                    .col-xs-3
+                                        p
+                                        p
+                                            span(style="color: #2e4872; font-family: 'Open Sans', Arial, Helvetica, 'Lucida Sans Unicode', sans-serif; font-size: 13px; font-weight: bold; text-decoration-line: underline;")
+                                                a(href='#') Back to Top
+                                    .col-xs-3
+                                    .col-xs-3
+                                    .col-xs-3
+                            div(data-widget-def='ux3-layout-widget', data-widget-id='cae47753-902f-4371-98d0-422ea9741270')
+                                .container
+                                    .row
+                                        .col-md-3
+                                            .hub-footer-logo(data-widget-def='ux3-general-image', data-widget-id='cdd2cb52-dd6b-403e-bac5-424c44c43d67')
+                                                img(alt='AGU Publications Logo', src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/logo-footer-1516373369757.png')
+                                            .footer-social-media
+                                                a(title='Facebook', target='_blank', href='https://about.agu.org/get-social/')
+                                                    i.icon-facebook-round(aria-hidden='true', title='Facebook')
+                                                a(title='Twitter', target='_blank', href='https://about.agu.org/get-social/')
+                                                    i.icon-twitter-round(aria-hidden='true', title='Twitter')
+                                                a.email(title='Email', href='mailto:publications@agu.org')
+                                                    i.icon-ic_mail_solid(aria-hidden='true', title='Email')
+                                            .hub-copyright.hidden-xs.hidden-sm.hidden-md
+                                                | © 2018 American Geophysical Union
+                                        .col-md-3
+                                            .hub-links(data-widget-def='general-html', data-widget-id='2c559261-a434-444d-8836-b1967ce4a89e')
+                                                ul.rlist
+                                                    li
+                                                        a(href='#') PUBLICATIONS
+                                                    li
+                                                        a(href='#') AGU Publications.ORG
+                                                    li
+                                                        a(href='#') AGU Publications MEMBERSHIP
+                                        .col-md-3
+                                            .collapsible-menu
+                                                h4.collapsible-menu-header(data-bind='toggle')
+                                                    | RESOURCES
+                                                    i.icon-chevron-down
+                                                ul.rlist.collapsible-menu-body
+                                                    li
+                                                        a(href='http://publications.agu.org/author-resource-center/', target='_blank') Author Resources
+                                                    li
+                                                        a(href='http://publications.agu.org/publications-contacts/', target='_blank') Contact AGU
+                                                    li
+                                                        a(href='http://publications.agu.org/journals/editors/editor-search/', target='_blank') Editor Searches
+                                                    li
+                                                        a(href='http://olabout.wiley.com/WileyCDA/Section/id-404513.html', target='_blank') Librarian Resources
+                                                    li
+                                                        a(href='http://sites.agu.org/media-kits/', target='_blank') Media Kits
+                                        .col-md-3
+                                            .collapsible-menu
+                                                h4.collapsible-menu-header(data-bind='toggle')
+                                                    | PUBLICATION INFO
+                                                    i.icon-chevron-down
+                                                ul.rlist.collapsible-menu-body
+                                                    li
+                                                        a(href='http://publications.agu.org/publication-award/', target='_blank') Publication Award
+                                                    li
+                                                        a(href='http://publications.agu.org/author-resource-center/publication-policies/', target='_blank') Publication Policies
+                                                    li
+                                                        a(href='http://ethics.agu.org/', target='_blank') Scientific Ethics
+                                                    li
+                                                        a(href='http://publications.agu.org/author-resource-center/submissions/', target='_blank') Submit a paper
+                                                    li
+                                                        a(href='http://publications.agu.org/author-resource-center/usage-permissions/#repository', target='_blank') Usage Permissions
+                            .col-md-12
+                                .hub-copyright.visible-xs.visible-sm.visible-md
+                                    | © 2017 American Geophysical Union
+
+            | !{pb.render('footer','pericles')}

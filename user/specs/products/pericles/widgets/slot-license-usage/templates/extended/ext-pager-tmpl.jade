@@ -1,0 +1,87 @@
+
+- var newurl = ""
+mixin removeParam(key, sourceURL)
+    - var rtn = sourceURL.split("?")[0]
+    - var param
+    - var params_arr = []
+    - var queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : ""
+    if queryString !== ""
+        -    params_arr = queryString.split("&");
+        -    for (var i = params_arr.length - 1; i >= 0; i -= 1) {
+        -        param = params_arr[i].split("=")[0];
+        -        if (param === key) {
+        -            params_arr.splice(i, 1);
+        -        }
+        -    }
+        -    rtn = rtn + "?" + params_arr.join("&");
+        -    newurl = rtn
+- var  temp = data.actionUrl
+
+if(data.content)
+    - var pages = data.content.pages
+    - var rest = data.content.hitsLength % data.content.pageSize
+    if rest > 0
+        - pages++
+
+
+mixin pageItem(i, pages)
+    -var pageId = i - 1;
+    -var n = 6 - data.content.startPage;
+    -var m = data.content.startPage - (pages - 5);
+    if i < pages
+        if data.content.startPage < 4
+            if  i >= (data.content.startPage - 1) && i <= (data.content.startPage + n)
+                li
+                    +removeParam("startPage",temp)
+                    a(href= newurl + "&startPage=" + pageId, title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+
+        else if data.content.startPage > (pages - 4)
+            if  i >= (data.content.startPage - m) && i <= pages
+                li
+                    +removeParam("startPage",temp)
+                    a(href= newurl + "&startPage=" + pageId, title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+                - m++;
+        else
+            if  i >= data.content.startPage   && i <= (data.content.startPage + 2)
+                li
+                    +removeParam("startPage",temp)
+                    a(href= newurl + "&startPage=" + pageId, title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+
+    if i < (data.content.startPage + 5)
+        +pageItem(i+1, pages)
+
+.pagination
+    - var nextPageId = data.content.startPage +1;
+    - var prevPageId = data.content.startPage -1;
+
+    if prevPageId >= 0
+        span
+            - var prevPageId = data.content.startPage -1;
+            +removeParam("startPage",temp)
+            a.pagination__btn--prev(href= newurl + "&startPage=" + prevPageId, title='Previous Page' aria-label="Previous page link")
+    ul.rlist--inline.pagination__list
+        - var i = 1
+        - var pageId = i - 1;
+        if pages > 1
+            li
+                +removeParam("startPage",temp)
+                a(href= newurl + "&startPage=" + pageId, title=i, class=i == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+            if data.content.startPage >= 4 && data.content.startPage <= (pages - 4)
+                li
+                    a ...
+            - var i = data.content.startPage - 4
+            if i < 2
+                -i = 2
+            +pageItem(i, pages)
+            if data.content.startPage >= 4 && data.content.startPage <= (pages - 4)
+                li
+                    a ...
+            li
+                +removeParam("startPage",temp)
+                a(href= newurl + "&startPage=" + (pages-1), title=pages , class=pages  == data.content.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{pages }
+
+    if nextPageId < pages
+        span
+            - var nextPageId = data.content.startPage +1;
+            +removeParam("startPage",temp)
+            a.pagination__btn--next(href= newurl + "&startPage=" + nextPageId, title='Next page' aria-label="Next page link")

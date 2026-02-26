@@ -1,0 +1,10 @@
+.header {
+    background-color: $default-journal;
+    @include  themify($themes) {
+        background: themed('color');
+        color: themed('font-color');
+    }
+    svg,path {
+        fill: $white;
+    }
+}

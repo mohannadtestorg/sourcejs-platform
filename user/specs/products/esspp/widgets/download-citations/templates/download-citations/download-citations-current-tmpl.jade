@@ -1,0 +1,55 @@
+.citationFormats
+    .article-info
+        .articleList
+            .sectionTitle Download article citation data for:
+            .art_title
+                a(href="/doi/abs/10.1002/essoar.ac4b3cff0df0484f.fb38da27334f44eb.1") LIT-197092
+            .author
+                span.contrib
+                    | 0000-0002-7970-8786
+                    .authorName
+                        | Marek Vidtman
+                    | mvidtman@atypon.com
+            hr
+    .citation-download
+        p.citation-msg
+            | If you have the appropriate software installed, you can download article citation data to the citation manager of your choice. Simply select your manager software from the list below and click on download. <br>
+            | For more information or tips please see 'Downloading to a citation manager' in the <a href="/help?context=citationDownload" class="help">Help menu</a>.
+
+        form.citation-form(action="/action/downloadCitation", name="frmCitmgr", method="post", target="_self")
+            input(type="hidden", name="doi", value="10.1002/essoar.ac4b3cff0df0484f.fb38da27334f44eb.1")
+            input(type="hidden", name="downloadFileName", value="esspp_essoar")
+            input(type="hidden", name="include", value="abs")
+
+            fieldset.format-select
+                label(for="slct_format")
+                    | Format
+
+                .select-container
+                    select.js__slcInclude(id="slct_format", name="format")
+                        option(value="", selected="selected") Please select one from the list
+                        option(value="ris") RIS (ProCite, Reference Manager)
+                        option(value="endnote") EndNote
+                        option(value="bibtex") BibTex
+                        option(value="medlars") Medlars
+                        option(value="refworks") RefWorks
+
+            label.label-direct(for="direct")
+                input(id="direct", type="checkbox", name="direct", value="", checked="checked")
+                span.round-check
+                    span.check
+
+                | Direct import
+
+
+            footer.form-footer
+                input(onclick="onCitMgrSubmit()", class="formbutton", type="submit", name="submit", value="Download")
+                a(href="/help?context=citationManager", onclick="popupHelp(this.href); return false;", class="link downloadCitationTipsLink", title="Opens new window", target="_blank")
+                    | Tips on citation download
+
+script(type='text/javascript').
+    $(".js__slcInclude").on("change", function(e){
+        if ($(this).val() == 'refworks')
+            $('#direct').prop("checked", false);
+        $('#direct').prop("disabled", ($(this).val() == 'refworks'));
+    });

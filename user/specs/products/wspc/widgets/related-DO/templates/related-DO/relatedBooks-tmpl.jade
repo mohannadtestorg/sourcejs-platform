@@ -1,0 +1,9 @@
+.books__slider.responsiveSlider5-3-2-1
+    if(data.DoRelations || data.DoRelations.length !=0)
+        each item , i in data.DoRelations
+            if( item.customPopulation && item.customPopulation.relatedBooks && item.customPopulation.relatedBooks.items || item.customPopulation.relatedBooks.items.length != 0)
+                each offer , i in item.customPopulation.relatedBooks.items
+                    a.books__slider__item(href=offer.doi)
+                        img(src=offer.coverImage , class="cover-image")
+                        h3
+                            | !{offer.title}

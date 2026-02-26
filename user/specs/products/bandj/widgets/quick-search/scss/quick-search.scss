@@ -1,0 +1,62 @@
+.quick-menu__item {
+    .block-icon {
+        ~ span {
+            @include media('<desktop') {
+                display: none;
+            }
+        }
+    }
+}
+
+.quick-search {
+
+    input {
+        @include themify($themes) {
+            border-color: themed('color');
+        }
+    }
+
+    .dropBlock {
+        > a {
+            @include themify($themes) {
+                border-color: themed('color');
+            }
+        }
+        i {
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+    }
+
+    .quick-search__button {
+        color: $primary-bg-color;
+        @include themify($themes) {
+            color: $white;
+        }
+    }
+
+    @include media('<desktop') {
+        .tab__pane {
+            .input-group {
+                input {
+                    margin-bottom: 5px;
+                }
+            }
+
+            &.quick-search-pane__anywhere {
+                .input-group {
+                    input {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.quicksearch-wrapper {
+    [data-db-target-of] {
+        z-index: 3;
+    }
+}

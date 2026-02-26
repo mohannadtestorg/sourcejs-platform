@@ -1,0 +1,82 @@
+
+.page-footer {
+
+    .collapsible-menu-header {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .collapsible-menu.js--open {
+        .collapsible-menu {
+            &-header {
+                margin-bottom: 5px;
+            }
+
+            &-body {
+                margin-bottom: 10px;
+            }
+        }
+
+    }
+
+    a {
+        color: $white
+    }
+
+    li ~ li {
+        @include media('>=desktop') {
+            margin-top: 15px;
+        }
+
+    }
+}
+
+.main-footer {
+    background: $wiley-darkBlue-color;
+    color: $white;
+    padding: 40px 0 35px;
+    font-size: 1rem;
+    font-weight: 300;
+    z-index: 2;
+    position: relative;
+}
+
+.copyright {
+    .copyright {
+        padding-top: 8px;
+    }
+
+    &-container {
+        font-size: 0.75rem;
+        margin-top: 55px;
+        color: $white;
+
+        a {
+            color: $white
+        }
+
+    }
+}
+
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    bottom: 5%;
+    background: $wiley-gray-color;
+    border-radius: 100%;
+    z-index: 9999;
+    box-shadow: 0 0 5px 0 $wiley-gray-color;
+
+    &:hover {
+        background: $wiley-orange-color;
+    }
+    i {
+        font-size: 1.2rem;
+        &:before {
+            transform: rotate(-90deg);
+            padding: 13px;
+            color: $white;
+        }
+    }
+}

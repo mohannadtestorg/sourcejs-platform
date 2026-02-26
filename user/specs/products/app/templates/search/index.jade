@@ -1,0 +1,127 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Article page Tab1
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.ajp-theme
+                .quickSearchRegion.dark
+                    .container
+                        .row
+                            div.col-lg-12.clearfix
+                                | !{data.quickSearch}
+
+                .container
+                    .row
+                        .col-sm-4.col-lg-3
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                        .col-sm-8.col-lg-9
+                            | !{data.searchresult}
+
+
+
+            | !{data.footer}
+    | #{''}
+
+
+    section.source_section
+        h2 Search Books page Tabs2
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.ajp-theme
+                .quickSearchRegion.dark
+                    .container
+                        .row
+                            div.col-lg-12.clearfix
+                                | !{data.quickSearch}
+
+                .container
+                    .row
+                        .col-sm-4.col-lg-3
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                        .col-sm-8.col-lg-9
+                            | !{data.searchresult2}
+
+
+
+            | !{data.footer}
+    | #{''}
+
+    section.source_section
+        h2 Search Psychiatric News
+        markdown
+        code.src-html
+        .source_example
+            | !{data.psychHeader}
+            main.content
+                .container.psych-search-page
+                    .col-lg-9.col-md-8
+                        .row
+                            .col-sm-12
+                                h1.psych-border-title CLINICAL & RESEARCH
+                                .subscribe-banner
+                                    img(src="http://placehold.it/1410x120" alt="placeholder text" title="placeholder text")
+                                    .subscribe-banner__info
+                                        h2.subscribe-banner__title.pull-left “placeholder text”
+                                        a.subscribe-banner__btn.pull-right(href="#" title="Subscribe")  Subscribe
+                        .row
+                            .col-sm-12.psych-search
+                                | !{data.searchresult3}
+                    .col-lg-3.col-md-4
+                        .advertisement.center.border-bottom.margin-bottom-15
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+
+                        h5.font-weight-light.border-bottom RECENT ISSUE
+                        .book-of-month.two-column
+                            | !{data.RecentIssue}
+
+
+
+                        .advertisement.border-bottom
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/templates/home/images/pol-news.jpg")
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel iaculis diam. Mauris ultricies gravida libero, sed eleifend neque scelerisque fermentum. Ut blandit ipsum nec purus consectetur
+                            p
+                                a(href="#" title="Read this week's newsletter").link Read this week's newsletter
+
+                        .advertisement.border-bottom
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/templates/home/images/pol-news.jpg")
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel iaculis diam. Mauris ultricies gravida libero, sed eleifend neque scelerisque fermentum. Ut blandit ipsum nec purus consectetur
+                            p
+                                a(href="#" title="Read this week's newsletter").link Read this week's newsletter
+                        .advertisement.border-bottom.margin-bottom-15
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/templates/home/images/pol-news.jpg")
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel iaculis diam. Mauris ultricies gravida libero, sed eleifend neque scelerisque fermentum. Ut blandit ipsum nec purus consectetur
+                            p
+                                a(href="#" title="Read this week's newsletter").link Read this week's newsletter
+
+
+                        h5.font-weight-light.border-bottom FROM THE PRESIDENT
+                        .book-of-month.two-column
+                            | !{data.RecentIssue}
+                        .border-bottom
+                            | !{data.topContent2}
+
+                        .advertisement.center
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+
+
+            | !{data.psychFooter}
+    | #{''}

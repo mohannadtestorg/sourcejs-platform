@@ -1,0 +1,33 @@
+.pagination {
+    margin-top: 20px;
+
+    @include media('<tablet') {
+        margin-top: 20px;
+    }
+
+    &__list {
+        a {
+            &.active {
+                text-decoration: none;
+                color: $primary-link-color;
+            }
+        }
+    }
+
+    a {
+        padding: 0px 16px;
+    }
+
+    &__btn {
+        &--next {
+            &:after {
+                padding-left: 0px;
+            }
+        }
+        &--prev {
+            &:before {
+                padding-right: 0px;
+            }
+        }
+    }
+}

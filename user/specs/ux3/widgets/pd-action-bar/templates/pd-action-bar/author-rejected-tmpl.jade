@@ -1,0 +1,23 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        if(data && data.comment)
+            .note.note--yellow.border
+                h5 Comments
+                p !{data.comment}
+        // Hidden based on https://jira.atypon.com/browse/LIT-202438
+        //form(action="#", method="post")
+        //    input(type="hidden", name="doi", value=data.doi)
+        //    input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+        //    button.btn.btn--submit.btn--inverse(type="button", data-toggle="modal", data-target="#modalReinstate") Reinstate
+        //
+        //    .ux-modal-container
+        //        #modalReinstate.modal(role="dialog")
+        //            .modal__dialog
+        //                .modal__body
+        //                    | Do you want to reinstate this submission?
+        //
+        //                .modal__footer
+        //                    button.btn--cancel(data-dismiss="modal") Cancel
+        //                    button.btn(data-action=data.reinstateRejectedSubmissionLink) Reinstate
+
+

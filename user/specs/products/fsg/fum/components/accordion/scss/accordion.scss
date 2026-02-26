@@ -1,0 +1,119 @@
+.accordion--bordered {
+  .accordion__content {
+    border-left: 2px solid $separators-color;
+    padding-left: 0.5em;
+  }
+}
+
+.accordion {
+    &__content {
+        width: 100%;
+        clear: both;
+
+        &.bordered {
+            border-left: 2px solid $separators-color;
+            padding-left: 0.5rem;
+        }
+    }
+
+    &__control {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        margin-bottom: 15px;
+        font-size: 1.125rem; // 18px
+        font-weight: bold;
+
+        i[class*=icon-] {
+            font-size: 0.625rem;
+            margin-top: 8px;
+            margin-left: 10px;
+        }
+
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+            color: lighten($primary-text-color, 10%);
+        }
+
+        &__text {
+            float: left;
+        }
+
+        &.js--open {
+            i.icon-section_arrow_d:before {
+                content: "\e60c"
+            }
+        }
+
+        &.bordered {
+            border-bottom: 2px solid $separators-color;
+            padding-bottom: 0.5em;
+        }
+
+        &.sub {
+            color: $tertiary-text-color;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+    }
+
+    &-tabbed {
+        font-size: 0.875rem;
+
+        &__tab {
+
+            &:not(:first-child) {
+                border-top: 1px solid;
+            }
+
+            &:first-child {
+                .accordion-tabbed__tab__control {
+                    padding-top: 0;
+                }
+            }
+        }
+
+        &__control {
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            padding: 10px 0;
+            cursor: pointer;
+            color: $primary-darken-text-color;
+
+            &:hover, &:focus, &:active {
+                text-decoration: none;
+                color: $primary-text-color;
+            }
+
+            .opened & {
+                cursor: default;
+            }
+        }
+
+        &__content {
+            border-style: solid;
+            border-width: 1px 0 0;
+            border-color: $separators-color;
+            padding: 10px 0;
+        }
+    }
+    &--centered {
+        text-align: center;
+        a {
+            margin: 0 auto 14px;
+            width: auto;
+        }
+        i {
+            float: none;
+            display: inline-block;
+        }
+        .accordion__content {
+          padding-bottom: 15px;
+        }
+    }
+
+    &__control[aria-expanded='true'] + &__content {
+        display: block;
+    }
+}

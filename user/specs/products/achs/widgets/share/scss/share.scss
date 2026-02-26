@@ -1,0 +1,84 @@
+.share {
+    &__ctrl {
+        color: $tertiary-third-text-color;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        border:1px solid $primary-border-color;
+        transition: all 0.3s;
+
+        &:hover {
+            color: $secondary-sixth-text-color;
+            border:1px solid $secondary-sixth-text-color;
+
+            @include media('<tablet') {
+                color: $tertiary-third-text-color;
+                border:1px solid $primary-border-color;
+            }
+        }
+
+        &.js--open {
+            color: $secondary-sixth-text-color;
+            border:1px solid $secondary-sixth-text-color;
+        }
+
+        span {
+            display: none;
+        }
+
+        i {
+            font-size: $icon-font-size;
+            display: block;
+            line-height: 35px;
+            text-align: center;
+            padding-right: 3px;
+
+            &.icon-close_thin {
+                padding-right: 0px;
+                margin-top: -1px;
+            }
+        }
+    }
+
+    &__block {
+        margin-top: 10px;
+        padding: 20px;
+        width: 200px;
+        background-color: $default-bg-color;
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        li {
+            padding: 0px;
+            margin: 10px 0px 0px 0px;
+
+            &:first-child {
+                margin-top: 0px;
+            }
+
+            a {
+                line-height: $icon-font-size;
+
+                &:hover {
+                    color: $primary-text-color;
+                }
+            }
+        }
+
+
+
+        i {
+            display: inline-block;
+            font-size: $icon-font-size;
+            width: 25px;
+            text-align: center;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+    }
+}

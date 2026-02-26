@@ -1,0 +1,37 @@
+mixin prev(link, isDisabled)
+    a.btn.btn-sm.btn--primary.content-navigation__btn--pre(href=link title="Previous" class=isDisabled ? "disabled" : "")
+        span Previous
+
+mixin next(link, isDisabled)
+    a.btn.btn-sm.btn--primary.content-navigation__btn--next(href=link title="Next" class=isDisabled ? "disabled" : "")
+        span Next
+div.content-navigation.clearfix
+    if (data.content.previous)
+        case data.content.type
+            when "Article"
+            when "Chapter"
+            when "Digital Object Pub"
+                +prev(data.content.previous.itemUrl, false)
+            when "Issue"
+                +prev(data.content.previous.tocUrl, false)
+            when "Book"
+                +prev(data.content.previous.bookUrl, false)
+    else
+        +prev("#", true)
+
+    block contentNavigationDropZone
+        div.content-navigation__extra
+            | !{pb.renderDropzone(thisWidget, "navigation-dropzone")}
+
+    if (data.content.next)
+        case data.content.type
+            when "Article"
+            when "Chapter"
+            when "Digital Object Pub"
+                +next(data.content.next.itemUrl, false)
+            when "Issue"
+                +next(data.content.next.tocUrl, false)
+            when "Book"
+                +next(data.content.next.bookUrl, false)
+    else
+        +next("#", true)

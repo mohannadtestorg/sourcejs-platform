@@ -1,0 +1,103 @@
+button, [type=submit], [type=button], .btn, .button {
+    background: $aha_transparent;
+    border:none;
+}
+.btn {
+    padding: 8px 16px;
+    //text-transform: capitalize;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+    font-family: HelveticaNeueCondensedBold, Arial, sans-serif;
+    outline:none;
+    box-shadow: 0 0 10px $aha_lighten_grey;
+    border: none;
+
+    &-sm {
+        font-weight: normal;
+        //padding: 5px 10px;
+        font-size: 18px;
+        font-family: HelveticaNeueCondensedBold, Arial, sans-serif;
+    }
+
+    background: $aha_green;
+    color: $aha_white;
+
+    @include media('>=tablet') {
+        min-width:150px;
+    }
+    &:hover {
+        background: $aha_green;
+    }
+    &:active {
+        background: $aha_darken_green;
+    }
+
+
+    &.btn--inverse {
+        background: $aha_white;
+        color: $aha_green;
+        &:active {
+            color: $aha_darken_green;
+        }
+    }
+
+    &.btn--danger {
+        background: $aha_red;
+        &:active {
+            background: $aha_black;
+        }
+    }
+
+    &.btn--cancel {
+        background: $aha_transparent;
+        color: $aha_black;
+        box-shadow: none;
+        &.btn-muted {
+            color: $aha_darken_grey;
+        }
+    }
+
+    &.btn-outline {
+        background: $aha_transparent;
+        border: 2px solid $aha_black;
+        color: $aha_black;
+        &:hover {
+            border-color: $aha_red;
+            background: $aha_red;
+            color: $aha_white;
+        }
+        &:active {
+            border-color: $aha_black;
+            background: $aha_black;
+            color: $aha_white;
+        }
+        &[disabled], &[disabled]:hover {
+            background: $aha_transparent;
+            border-color: $aha_grey;
+            box-shadow: none;
+            color: $aha_darken_grey;
+            opacity: 1;
+            cursor: not-allowed;
+        }
+    }
+
+
+    &[disabled], &[disabled]:hover {
+        background: $aha_lighten_grey;
+        color: $aha_lighten_black;
+        box-shadow: none;
+        opacity: 1;
+        cursor: not-allowed;
+    }
+
+
+    i {
+        color: inherit;
+    }
+}
+
+.header .btn {
+    min-width: initial;
+    text-transform: initial;
+}

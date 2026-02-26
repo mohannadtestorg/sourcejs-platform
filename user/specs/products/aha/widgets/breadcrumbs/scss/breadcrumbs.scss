@@ -1,0 +1,40 @@
+.article {
+    &__breadcrumbs {
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+        text-overflow: ellipsis;
+        display: block;
+        max-resolution: 0;
+        a {
+            color: $aha_red;
+        }
+        a:not(:first-child):before {
+            display: inline-block;
+            content: "\e625";
+            position: relative;
+            left: 0;
+            margin: 0 6px;
+            font-size: 10px;
+            font-family: icomoon!important;
+            speak: none;
+            font-style: normal;
+            font-weight: 800;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            color: $aha_black;
+        }
+        .article__title {
+            display: inline-block;
+            color: $aha_black;
+            white-space: nowrap;
+            width: initial;
+            overflow: visible;
+            text-overflow: initial;
+        }
+    }
+}

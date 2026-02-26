@@ -1,0 +1,112 @@
+
+mixin coverImage(cover, link, alt)
+    div.cover-image__image
+        a(href=link title=alt)
+            img(src=cover.coverImage.src alt=altValue)
+
+
+mixin cover(cover)
+    if thisWidget.properties.actions == 'linkToIssueOrBook' || thisWidget.properties.actions == 'linkToLatestIssue'
+        block coverImageIssueOrBookLink
+            if (cover.type)
+                case cover.type
+                    when 'Issue'
+                        - altValue = "View Table of Contents for " + cover.serial.title + " volume "+cover.volume+" issue "+ cover.issue;
+                        - linkUrl = cover.tocUrl;
+
+                    when 'Book'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookUrl;
+
+
+                    when 'Journal'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.latestIssue.tocUrl ;
+
+
+                    when 'BookSeries'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.latestBook.bookUrl ;
+                +coverImage(cover, linkUrl, altValue)
+
+
+
+    else if thisWidget.properties.actions == 'linkToSeriesHome'
+        block coverImageSeriesLink
+            if (cover.type)
+                case cover.type
+                    when 'Issue'
+                        - altValue = "View Table of Contents for " + cover.serial.title + " volume "+cover.volume+" issue "+ cover.issue;
+                        - linkUrl = cover.serial.journalUrl;
+
+                    when 'Book'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookUrl;
+
+                    when 'Journal'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.journalUrl;
+
+                    when 'BookSeries'
+                        - altValue = "View Table of Contents for "+cover.title;
+                        - linkUrl = cover.bookSeriesURL;
+                +coverImage(cover, linkUrl, altValue)
+    else
+        div.cover-image__image
+            img(src=cover.coverImage.src alt=cover.serial.serialTitle + " cover image")
+
+
+mixin virtualCover(cover, link, date)
+    if (cover.title)
+        a(href=link)
+            h2.cover-image__title !{cover.title}
+
+    if (cover.virtual_issue_tags)
+        each virtual, l in cover.virtual_issue_tags
+            .cover-image__category-label
+                a(href=virtual.link) !{virtual.label}
+
+    if (date)
+        .cover-image__date
+            label First published:&nbsp;
+            span !{date}
+
+    if (cover.lastModifiedDate)
+        .cover-image__date
+            label Last updated:&nbsp;
+            span !{cover.lastModifiedDate}
+
+    if (cover.editors)
+        .cover-image__editors
+            label Issue Edited by:&nbsp;
+            span !{cover.editors}
+
+    if (cover.coverImage)
+        +cover(cover)
+
+    if (cover.coverImage) && (cover.coverImage.caption)
+        p.cover-image__desc !{cover.coverImage.caption}
+
+    if (cover.description)
+        p.cover-image__desc !{cover.description}
+
+if (data) && (data.single)
+    - covers = data.single
+
+    each cover, l in covers
+        case cover.type
+            when 'Issue'
+                +virtualCover(cover, cover.tocUrl, cover.coverDate)
+
+            when 'Book'
+                +virtualCover(cover, cover.bookUrl, cover.coverDate)
+
+            when 'Journal'
+                +virtualCover(cover, cover.journalUrl, cover.latestIssue.coverDate)
+
+            when 'BookSeries'
+                +virtualCover(cover, cover.latestBook.bookUrl, cover.latestBook.coverDate)
+
+    if thisWidget.properties.MoreLink
+        a.more-widget-link(href=thisWidget.properties.moreLinkUrl) !{thisWidget.properties.moreLinkLable}
+

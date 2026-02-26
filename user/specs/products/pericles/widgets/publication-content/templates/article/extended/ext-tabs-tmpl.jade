@@ -1,0 +1,61 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-tabs-tmpl.jade
+
+
+block tabsPrefix
+    - var original = data;
+    - var fakeId = "pcw";
+    - var config = {"type":"flex","effect": "slide","vPort":"xsmall"};
+
+    - var tabsData = {"nav":[]};
+
+    if original.item.isAccessDenial
+        - tabsData.nav.push({"text": "Access","icon": "icon-icon-lock_open","content": "","class": "access"})
+    else if original.item.type == "chapter" && data.item.series.code != "mrwseries"
+        if original.item.hasAccessToReferences
+            - tabsData.nav.push({"text": "References","icon": "icon-chain","content": "","class": "references"})
+    else
+        if original.item.hasAccessToFigures
+            - tabsData.nav.push({"text": "Figures","icon": "icon-multi-figure","content": "","class": "figures"})
+
+        if original.item.hasAccessToReferences
+            - tabsData.nav.push({"text": "References","icon": "icon-chain","content": "","class": "references"})
+
+    - tabsData.nav.push({"text": "Related","icon": "icon-related-circles-extend-button","class": "related","content": ""})
+    - tabsData.nav.push({"text": "Information","icon": "icon-Icon_Information","class": "details","content": ""})
+
+    - data = tabsData;
+
+
+block tabsLinks
+    a.article-row-right__tabLinks.w-slide__btn(data-slide-clone="self" class= item.class+"-tab" href="#pane-" + fakeId + "-" + item.class aria-controls="#pane-"+ fakeId + "-" + item.class role="tab" data-toggle="tab" id="pane-" + fakeId + "-" + item.class + "con" data-slide-target="#pane-" + fakeId + "-" + item.class)
+        +item(item)
+
+block tabsPanes
+    ul.rlist.tab__content.sticko__child(role="tablist")
+        - var i = 0
+        each item, I in data.nav
+                li.tab__pane.article-row-right__panes(id="pane-"+ fakeId + "-" + item.class class=item.class == 'related' || item.class == 'access' ? '' : 'empty' aria-labelledby="pane-"+ fakeId + "-" + item.class + "con" role="tab")
+                    if  item.class == 'related'
+                        if (original.item.isPbEditMode == true)
+                            | !{pb.renderDropzone(thisWidget, "relatedTabDropZone")}
+
+                    else if  item.class == 'access'
+                        block accessDenialTab
+                            | !{pb.renderDropzone(thisWidget, "accessTabDropZone")}
+
+                    else if  item.class == 'details'
+                        if (original.item.infoTabContent)
+                            | !{original.item.infoTabContent}
+                        else
+                            | !{item.content}
+                    else
+                        | !{item.content}
+            - i++
+        li.tab__spinner
+            img(src="/ux3/widgets/publication-content/images/spinner.gif" id="spinner" style="width: 100%" alt="")
+
+block tabsMain
+    div.tab.tab--slide.tab--flex.sticko__md.tabs--xs.dynamic-sticko(class=classNames)
+        ul.rlist.tab__nav.w-slide--list(data-mobile-toggle = "slide")
+            +nav()
+        +pane()

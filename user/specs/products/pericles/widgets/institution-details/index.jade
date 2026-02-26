@@ -1,0 +1,102 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Institution Details widget
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/favorites/templates/institution-details/institution-details-tmpl.jade')
+        h3 Data
+        p The following the JSON structure provided by the Front-end:
+        +printJson({
+            "data": {
+                "action": "/action/showInstitutionDetails",
+                "countries": [
+                    {
+                        "name": "United States",
+                        "id": 225,
+                        "states": [
+                            "ALABAMA",
+                            "ALASKA",
+                            "AMERICAN_SAMOA",
+                            "ARIZONA"
+                        ]
+                    },
+                    {
+                        "name": "Zimbabwe",
+                        "id": 239
+                    }
+                ],
+                "displayName": "KVGH Pingtung Branch",
+                "customerNumber": "123",
+                "form": {
+                    "country": {
+                        "value": 208,
+                        "name": "country",
+                        "required": false,
+                        "hidden": false
+                    },
+                    "zipCode": {
+                        "name": "zipCode",
+                        "required": false,
+                        "hidden": false
+                    },
+                    "phone": {
+                        "name": "phone",
+                        "required": true,
+                        "hidden": false,
+                        "message": "Is Missing"
+                    },
+                    "address2": {
+                        "name": "address2",
+                        "required": false,
+                        "hidden": false
+                    },
+                    "city": {
+                        "name": "city",
+                        "required": false,
+                        "hidden": false
+                    },
+                    "address1": {
+                        "name": "address1",
+                        "required": false,
+                        "hidden": false
+                    },
+                    "state": {
+                        "name": "state",
+                        "required": false,
+                        "hidden": false
+                    }, "firstName": {
+                        "value": "Mohammad",
+                        "required": true,
+                        "hidden": false
+                    }, "lastName": {
+                        "value": "Hamdan",
+                        "required": true,
+                        "hidden": false
+                    }, "acceptTerms": {
+                        "value": true,
+                        "required": true,
+                        "hidden": false
+                    }
+                },
+                "institutionUserId": "4810"
+            }
+        })
+
+    section.source_section
+        h2 Examples
+
+        h3 Institution Details
+        .source_example
+            | !{pb.render('institution-details', 'data.json', 'pericles')}
+
+
+        h3 Institution Admin Activation
+        markdown
+            p we are using the alternative widget `alt-institution-details` in the example bellow
+        .source_example
+            | !{pb.render('institution-details', 'institution-details/alternative/alt-institution-details', 'data.json', 'pericles')}
+    | #{''}

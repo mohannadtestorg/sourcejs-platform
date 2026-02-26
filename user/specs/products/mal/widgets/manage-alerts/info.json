@@ -1,0 +1,34 @@
+{
+    "title": "Manage Alerts",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Manage Alerts ",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/manage-alerts/manage-alerts-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/data.json"
+                        }
+                    }
+
+                }
+
+            },
+            {
+                "title": "Manage all Alerts ",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/manage-alerts/templates/manage-alerts/manage-alerts-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/widgets/manage-alerts/templates/data/data-all.json"
+                        }
+                    }
+
+                }
+
+            }
+        ]
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "title": "Publication navbar",
+    "tag": ["htmlStructure"],
+    "templateData": {
+        "items": [
+            {
+                "title": "List of issues",
+                "body": {
+                    "$pug": {
+                        "template": "../../widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../widgets/list-of-issues/templates/data/loi-data-new.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

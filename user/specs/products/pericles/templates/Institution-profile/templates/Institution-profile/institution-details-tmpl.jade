@@ -1,0 +1,108 @@
+| !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+.pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+    // begin pagefulltext
+    .page-body.pagefulltext
+        div(data-pb-dropzone='main')
+            div
+            .profile-pages__heading.card.card--light-shadow(data-widget-def='ux3-layout-widget', data-widget-id='9ce29057-a88f-4b0f-a1ec-8a2349f23131')
+                .container
+                    .row
+                        div
+                            .col-md-6.gutterless
+                                h1.account-page__header
+                                    | Institutional administration
+                                div
+                            .col-md-6.gutterless
+                                .clearfix.institutionListBlock
+                                    .pull-right
+                                        .pull-left.profile-main__label
+                                            label You are managing:
+                                        .pull-right
+                                            select#institutionList.jcf
+                                                option(value='#') Select
+                                                option(value='https://pericles.pericles-prod.literatumonline.com/action/institutionAccessEntitlements?institutionUserId=3702', selected='') Wiley Institution
+                                                option(value='https://pericles.pericles-prod.literatumonline.com/action/institutionAccessEntitlements?institutionUserId=520') Atypon Institution
+
+            .container
+                .row
+                    .raaAccountInfo.gutterless--md.gutterless--sm.gutterless--xs.col-md-12.gutterless
+                        .gutterless--md.gutterless--sm.gutterless--xs.col-md-3
+                            | !{pb.render('profile-menu', 'data.json', 'pericles')}
+                        .main-content.gutterless--md.gutterless--sm.gutterless--xs.col-md-9
+                            .card(data-widget-def='general-rich-text', data-widget-id='717190eb-6f1e-4462-a0c1-13b912927e83')
+                                h2.section__header
+                                    | Welcome
+                                #rich-text-717190eb-6f1e-4462-a0c1-13b912927e83.pb-rich-text(style='overflow: auto;')
+                                    p
+                                        | Welcome to the new administration area for Wiley Online Library. If you cannot find what you're looking for or have any questions, please contact your account representative or our
+                                        strong
+                                            a(href='http://wiley.force.com/Interface/ContactJournalCustomerServices_V2', target='_blank') Customer Services
+                                        |  team.
+                            .card.institutionDetails
+                                h2.section__header Institutional information
+                                .row
+                                    .col-md-6
+                                        label Customer name
+                                        span Wiley Institution
+                                    .col-md-6
+                                        label Customer ID
+                                        span wiley-institution
+                                form.institutionDetails(action='/action/showInstitutionDetails', name='institutionDetails', method='post')
+                                    input(type='hidden', name='InstitutionDetailsBean.institutionUserId')
+                                    .row
+                                        .col-md-6
+                                            label(for='InstitutionDetailsBean.phone')
+                                                | Phone
+                                                span  *
+                                            input(id='InstitutionDetailsBean.phone', name='InstitutionDetailsBean.phone', type='tel', required='', placeholder='ex. +141591726354')
+                                    .row
+                                        .col-md-6
+                                            label(for='InstitutionDetailsBean.address1') Address line 1
+                                            input(id='InstitutionDetailsBean.address1', name='InstitutionDetailsBean.address1', type='text', placeholder='ex. 123 High ST, ')
+                                        .col-md-6
+                                            label(for='InstitutionDetailsBean.address2') Address line 2
+                                            input(id='InstitutionDetailsBean.address2', name='InstitutionDetailsBean.address2', type='text', placeholder='ex. 123 High ST, ')
+                                    .row
+                                        .col-md-6
+                                            label(for='InstitutionDetailsBean.city') City/Town
+                                            input(id='InstitutionDetailsBean.city', name='InstitutionDetailsBean.city', type='text', placeholder='ex. London')
+                                        .col-md-6
+                                            .stateContainer.hidden
+                                                label(for='InstitutionDetailsBean.state') State/Province
+                                                select#country38.jcf.stateSelect(disabled='disabled')
+                                                    option(value='-1') SELECT YOUR STATE OR PROVINCE
+                                                    option(value='ALBERTA') ALBERTA
+
+                                            .stateContainer.hidden
+                                                label(for='InstitutionDetailsBean.state') State/Province
+                                                select#country225.jcf.stateSelect(disabled='disabled')
+                                                    option(value='-1') SELECT YOUR STATE OR PROVINCE
+                                                    option(value='ALABAMA') ALABAMA
+
+                                            .stateContainer.noStates.hidden
+                                                input(id='InstitutionDetailsBean.state', name='InstitutionDetailsBean.state', type='hidden', placeholder='ex. Greater London', value='')
+                                    .row
+                                        .col-md-6
+                                            label(for='InstitutionDetailsBean.country') Country/Location
+                                            select.jcf.countrySelect(id='InstitutionDetailsBean.country', name='InstitutionDetailsBean.country')
+                                                option(value='-1') SELECT YOUR COUNTRY OR LOCATION
+                                                option(value='1') Afghanistan
+
+                                        .col-md-6
+                                            label(for='InstitutionDetailsBean.zipCode') Post/Zip code
+                                            input(id='InstitutionDetailsBean.zipCode', name='InstitutionDetailsBean.zipCode', type='text', placeholder='ex. xxxxxx')
+                                    .form-btn
+                                        p.small-txt.float-left * Marks a required field
+                                        button.btn.btn--inverse(type='submit', name='submitType', value='cancel', disabled='') DISCARD CHANGES
+                                        button.btn(type='submit', name='submit', value='submit') UPDATE
+                            .card(data-widget-def='general-rich-text', data-widget-id='b884f5a4-3f77-4335-b973-9352050a1afa')
+                                h2.section__header
+                                    | Administrator information
+                                #rich-text-b884f5a4-3f77-4335-b973-9352050a1afa.pb-rich-text(style='overflow: auto;')
+                                    p
+                                        | Please go to your
+                                        a(href='/action/showPreferences?menuTab=AccountInfo', title='User profile') user profile
+                                        |  page to update your administrator name, email address or password.
+
+| !{pb.render('footer', 'pericles')}

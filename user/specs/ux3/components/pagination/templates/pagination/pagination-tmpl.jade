@@ -1,0 +1,22 @@
+
+
+div.pagination
+    span.pagination__btn--prev
+        if (data.prevButton) && (data.prevButton.itemUrl)
+            a(href=data.prevButton.itemUrl title="Previous") Previous
+        else
+            span Previous
+
+    ul.rlist--inline.pagination__list
+        each item, l in data.pager
+            li
+                if (item.active) && item.active == 'true'
+                    a(href=item.itemUrl class="active" title=item.text) !{item.text}
+                else
+                    a(href=item.itemUrl title=item.text) !{item.text}
+
+    span.pagination__btn--next
+        if (data.nextButton) && (data.nextButton.itemUrl)
+            a(href=data.nextButton.itemUrl title="Next") Next
+        else
+            span Next

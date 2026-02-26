@@ -1,0 +1,11 @@
+extends ./slideshow-tmpl
+
+block slideShow
+    .thumbnails-teaser.card.clearfix
+        .viewport-slider(data-slider-vport="screen-xs")
+            .slideShow
+                .owl-carousel(data-items=items data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=indicators data-arrow=arrow data-controls=controls)
+                    each item, k in data.widget.slides
+                        block slideShowDropZone
+                            .grid-item
+                                | !{pb.renderDropzone(thisWidget, item)}

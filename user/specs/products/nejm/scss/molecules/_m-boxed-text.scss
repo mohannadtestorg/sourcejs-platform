@@ -1,0 +1,166 @@
+/***
+
+Basic:
+
+```
+<div class="m-boxed-text">
+<h2 class="a-article-h2 a-article-h2--proud f-h12">Header level 2</h2>
+  <p class="f-body--sm">Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.</p>
+</div>
+```
+
+***/
+/***
+
+Variant `m-boxed-text--intro` - follows `.m-simple-tabs` in article body
+
+```
+<div class="m-boxed-text m-boxed-text--intro">
+  <p class="f-body--sm">Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.</p>
+</div>
+```
+
+***/
+/***
+
+Variant `m-boxed-text--key-clinical-points`, has an `id` of `section_key_clinical_points` so can be linked to and reveal the box.
+
+```
+<div class="m-boxed-text m-boxed-text--key-clinical-points" id="section_key_clinical_points">
+  <h2 class="a-article-h2 f-h12">Header level 2</h2>
+  <h3 class="a-article-h3 f-h6">Header level 3</h3>
+  <ul class="a-list f-body">
+    <li>Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.</li>
+    <li>Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.</li>
+    <li>Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa.</li>
+  </ul>
+</div>
+```
+
+***/
+/***
+
+Variant `m-boxed-text--positioned-title`
+
+```
+<div class="m-boxed-text m-boxed-text--positioned-title">
+  <h2 class="a-article-h2 f-h12">Header level 2</h2>
+  <p class="f-body">Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius.
+  </p>
+  <p class="f-body">Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc.</p>
+  <p class="f-body">Donec dapibus ornare augue<br> <a href="#">placerat orci rhoncus</a></p>
+  <p class="f-body"><em>Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim</em></p>
+</div>
+```
+
+***/
+/***
+
+Variant `m-boxed-text--correct`
+
+```
+<div class="m-boxed-text m-boxed-text--correct">
+  <p class="a-article-h2 f-h12">Correct!</p>
+  <p class="f-body--sm">Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.</p>
+</div>
+```
+
+***/
+/***
+
+Variant `m-boxed-text--incorrect`
+
+```
+<div class="m-boxed-text m-boxed-text--incorrect">
+  <p class="a-article-h2 f-h12">Try Again.</p>
+  <p class="f-body--sm">Phasellus feugiat vel erat non luctus.</p>
+</div>
+```
+
+***/
+
+.m-boxed-text {
+  margin-top: 32px;
+  padding: 16px;
+  background-color: $color__background--badge;
+
+  @include breakpoint('medium+') {
+    padding: 20px;
+  }
+
+  @include breakpoint('large+') {
+    padding: 28px;
+  }
+}
+
+.o-col--primary > .m-boxed-text:first-child,
+.m-boxed-text > *:first-child {
+  margin-top: 0;
+}
+
+
+// -------------------------------------
+// Variant `m-boxed-text--key-clinical-points`
+//
+
+.m-boxed-text--key-clinical-points {
+  background-color: $color__background--widget;
+}
+
+.m-boxed-text--key-clinical-points .a-article-h3 + * {
+  margin-top: 0;
+}
+
+// -------------------------------------
+// Variant `m-boxed-text--intro`
+//
+
+.m-simple-tabs + .m-boxed-text--intro {
+  margin-top: 0;
+}
+
+// -------------------------------------
+// Variant `m-boxed-text--positioned-title`
+//
+
+.m-boxed-text--positioned-title {
+  position: relative;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  border: 1px solid $color__rules;
+  background-color: transparent;
+}
+
+.m-boxed-text--positioned-title > .a-article-h2:first-child {
+  position: absolute;
+  left: 20px;
+  top: -12px;
+  margin-top: 0;
+  padding-right: 8px;
+  padding-left: 8px;
+  background-color: $color__white;
+
+  @include breakpoint('small+') {
+    top: -16px;
+  }
+}
+
+// -------------------------------------
+// Variant `m-boxed-text--correct`
+// Variant `m-boxed-text--incorrect`
+//
+
+.m-boxed-text--correct,
+.m-boxed-text--incorrect {
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: transparent;
+}
+
+.m-boxed-text--correct {
+  border-left: 2px solid $color__correct-border;
+}
+
+.m-boxed-text--incorrect {
+  border-left: 2px solid $color__incorrect-border;
+}

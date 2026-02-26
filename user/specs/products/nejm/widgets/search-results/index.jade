@@ -1,0 +1,18 @@
+﻿extends /specs/products/nejm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Search Results
+
+        h3 Search Results (default)
+        .source_example.source_visible
+            | !{data.searchResults}
+
+
+        h3 No Search Results
+        .source_example.source_visible
+            | !{data.noSearchResults}
+
+        h3 Search Results (figures)
+        .source_example.source_visible
+            | !{data.figuresSearchResults}

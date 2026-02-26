@@ -1,0 +1,60 @@
+.purchaseAreaLists{
+    .add-journal-to-cart {
+        &:hover .add-to-cart-msg:not(.added){
+            margin-bottom: 10px;
+            padding: 4px 0;
+        }
+    }
+    @include media('<desktop') {
+        .title , .add-article-to-cart__price{
+            font-size: .8rem;
+        }
+    }
+}
+.eCommerceCheckoutSavedForLaterItemsWidget {
+    .purchaseArea {
+        z-index: 5;
+    }
+}
+.purchase-options-container {
+    padding: 15px 0;
+    .add-article-to-cart {
+        border-color: $secondary-bg-color;
+        &__price {
+            border-left: 1px solid $secondary-border-color;
+        }
+    }
+    .add-journal-to-cart {
+        header {
+            .add-to-cart-msg {
+                span {
+                    margin-right: 0.5rem;
+                }
+            }
+            &:hover .add-to-cart-msg {
+                display: block;
+            }
+        }
+    }
+    .addedMessage {
+        .article-title {
+            @include media('<tablet') {
+                flex: 1;
+                font-size: 14px;
+                .article-title-content {
+                    margin-right: 0;
+                }
+            }
+            .icon-check {
+                color: $secondary-bg-color;
+                margin-right: 0.5rem;
+                flex: 0;
+                font-size: 1.2rem;
+                vertical-align: middle;
+            }
+            .text{
+                vertical-align: middle;
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+/***
+
+```
+<p class="a-error-msg">
+ <svg class="icon--alert" aria-hidden="true"><use xlink:href="#icon--alert" /></svg>
+  Please include description
+</p>
+```
+
+***/
+
+.a-error-msg {
+  @include f-ui;
+  display: block;
+  position: relative;
+  padding: 9px 12px 8px 40px;
+  background-color: $color__error-bg;
+  color: $color__error;
+
+  @include breakpoint('small+') {
+    padding-top: 8px;
+  }
+}
+
+.a-error-msg svg {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+}

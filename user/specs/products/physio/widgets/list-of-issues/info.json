@@ -1,0 +1,121 @@
+{
+    "title": "List of issues",
+    "template": "doc",
+    "tag": ["ready"],
+    "templates": {
+        "default": "list-of-issues",
+        "alternative": {
+            "ext-no-volume-list-of-issues": {
+                "name": "No Volume Number",
+                "path": "ext-no-volume-list-of-issues",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "List of issues",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/loi-data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "List of issues - Decade",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/loi-decade-withQS2.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of issues - Decade not collapsible",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/loi-decade-uncollapsible.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Issue list  - Ajax",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/issue-list.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

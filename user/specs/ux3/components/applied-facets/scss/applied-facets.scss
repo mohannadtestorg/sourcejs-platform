@@ -1,0 +1,47 @@
+.facet {
+
+    &__list--applied {
+
+        li {
+            color: $text-onDark;
+            padding: 10px;
+            background-color: $facets-applied;
+            border: 1px solid $facets-applied; // So the size matches pinned filter
+            font-size: 0.75rem; // 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            margin-right: 5px;
+
+            &.pinned-filter { // LIT-199917 - Temporary styling until UX updates designs
+                color: $primary-text-color;
+                background-color: lighten($facets-applied, 60%);
+                border: 1px solid lighten($facets-applied, 30%);
+            }
+
+            i {
+                font-size: 0.5rem;
+                margin-left: 12px;
+                color: $text-onDark;
+                cursor: pointer;
+
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+        }
+    }
+
+    .clear {
+        text-align: right;
+        display: block;
+        font-size: 0.625rem; // 10px
+        font-weight: normal;
+        margin-top: 20px;
+
+        @include media('<tablet') {
+            margin-top: 36px;
+        }
+    }
+}

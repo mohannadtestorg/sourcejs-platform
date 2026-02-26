@@ -1,0 +1,15 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Datepicker
+        h3 Example
+
+        .source_example
+            .input-group
+                label(for="datepicker") Datepicker
+                input.datepicker(type="text", id="datepicker", value="2017-10-13")
+    | #{''}

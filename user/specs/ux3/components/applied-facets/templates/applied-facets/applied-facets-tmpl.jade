@@ -1,0 +1,40 @@
+mixin item(item)
+    //- Show the facet label if it exists. Otherwise show a default label so the facet is never empty
+    if (item.label && item.label != "")
+        span(title=item.label) !{item.label}
+    else
+        span(title="Unknown facet") Unknown Facet
+
+    //- If the facet is not pinned and has a link, show an icon to allow the user to remove the facet
+    if (!item.pinnedFilter && item.link && item.link != "")
+        a(href=item.link title="Remove filter")
+            i.icon-tools_close(aria-hidden="true")
+
+mixin title()
+    block appliedFacetTilte
+        h4.facet__title Filters Applied
+
+mixin body()
+    block appliedFacets
+        if (data) && (data.appliedFacets)
+            ul.rlist--inline.facet__list--applied
+                each item, l in data.appliedFacets
+                    //- Facets applied through a similarity search (authors, keywords) are not removable and will be flagged as pinned. This check applies a class that can be styled separately for pinned filters.
+                    if (item.pinnedFilter)
+                        li(class="pinned-filter")
+                            +item(item)
+                    else
+                        li
+                            +item(item)
+        block clearFilters
+           span.clear
+               a.search__filters__ctrl__reset(href="#" title="Clear all") Clear all
+
+
+
+block appliedFacetMain
+    div.facet
+        +title
+        div.facet__content
+            +body
+

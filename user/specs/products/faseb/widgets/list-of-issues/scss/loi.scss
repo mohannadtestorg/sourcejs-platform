@@ -1,0 +1,224 @@
+.dropBlock-loi__holder {
+    display: block;
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.loi__banner {
+    box-shadow: none;
+    font-weight: normal;
+    background-color: $default-bg-color;
+
+    @include media('<tablet') {
+        margin: 0px -15px;
+    }
+
+    .coolBar__wrapper {
+        border-bottom: none;
+        padding: 0px;
+    }
+
+    .section__header {
+        margin-bottom: 0px;
+    }
+}
+
+.loi__banner-list {
+    display: none;
+}
+
+// =========================================== //
+
+.loi {
+    background-color: transparent;
+    padding: 0px;
+
+    @include media('>=large') {
+        .col-lg-4:nth-child(3n+1) {
+            clear: left;
+        }
+    }
+    @include media('<large') {
+        .col-md-6:nth-child(2n+1) {
+            clear: left;
+        }
+        .col-md-6:nth-child(3n+1):after {
+            clear: right;
+        }
+    }
+
+    &-list__wrapper {
+        margin: 0px;
+        max-width: none;
+        background-color: $default-bg-color;
+        border-bottom: 2px solid $tertiary-border-color;
+
+        @include media('<tablet') {
+            background-color: $secondary-bg-color;
+            margin: 0px 15px;
+            border-bottom: 1px solid $tertiary-border-color;
+        }
+    }
+
+    ul.loi__list {
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+        direction: ltr;
+
+        a {
+            padding: 20px 0px 16px;
+            margin: 0px 20px;
+        }
+    }
+
+    .scroll {
+        padding: 0px;
+        margin: 0px;
+        direction: ltr;
+    }
+
+    &__list {
+
+        a {
+            color: $secondary-text-color;
+            line-height: 24px;
+        }
+        span {
+            font-size: $h6-font-size;
+        }
+
+        .active {
+            border-bottom: none;
+            a {
+                color: $primary-link-color;
+                border-bottom: 4px solid $primary-bg-color;
+            }
+        }
+
+    }
+
+
+    .tab__content {
+        border-top: none;
+        overflow-x: visible;
+        overflow-y: visible;
+
+        @include media('>=tablet') {
+            max-height: none;
+        }
+
+        .loi {
+            [class*="loi__btn"][class*="prev"], [class*="loi__btn"][class*="next"] {
+                background: $secondary-bg-color;
+            }
+        }
+
+        .tab__content {
+            border-top: none;
+            overflow-x: visible;
+            overflow-y: visible;
+            background-color: $default-bg-color;
+
+            @include media('<tablet') {
+                padding: 0px;
+            }
+        }
+
+
+
+        .loi-list__wrapper {
+            border-bottom: 1px solid $tertiary-border-color;
+            background-color: $secondary-bg-color;
+            @include media('<tablet') {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .archive-label {
+        color: $text-onLight;
+        font-size: $default-font-size;
+        padding: 0px 15px 30px 15px;
+    }
+
+    .tab__pane {
+        &:not(.nested-tab) {
+            padding-top: 25px;
+            margin: 0px -15px;
+
+            @include media('<tablet') {
+                margin: 0px;
+            }
+        }
+    }
+
+    .date, .parent-item {
+        color: $primary-link-color;
+        font-size: $default-font-size;
+    }
+
+    .parent-item {
+        margin: 3px 0px;
+        text-transform: none;
+
+        .comma {
+            margin: 0px 5px 0px 0px ;
+
+            &:after {
+                content: "";
+                margin: 0px;
+            }
+        }
+    }
+    .coverDate {
+        border-right: 2px solid $tertiary-border-color;
+        margin-right: 10px;
+        padding-right: 10px;
+        text-transform: none;
+    }
+    &__access {
+        color: $primary-text-color;
+    }
+
+    &__issue {
+        margin-bottom: 30px;
+
+        h6 {
+            color: $primary-text-color;
+        }
+    }
+
+    .iPageRange {
+        font-size: $h6-font-size;
+        color: $secondary-text-color;
+    }
+}
+
+[class*="loi__btn"] {
+    padding: 0px 10px;
+    bottom: 0px;
+    line-height: 60px;
+
+    i {
+        color: $primary-link-color;
+    }
+
+    &.inactive {
+        i {
+            color: $primary-lighten-bg-color;
+            opacity: 1;
+        }
+    }
+}
+
+[class*="loi__btn"][class*="prev"], [class*="loi__btn"][class*="next"] {
+    background: $default-bg-color;
+    box-shadow:none;
+    padding: 0 12px;
+
+    @include media('<tablet') {
+        background: $secondary-bg-color;
+    }
+}

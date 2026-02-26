@@ -1,0 +1,96 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl
+
+
+block searchResultTop
+    .search-result__info
+        div.search__acm-results
+            if data.search && data.search.hitsLength >= 0
+                span.left-bordered-label
+                    span.hitsLength !{data.search.hitsLength}
+                    span Results for:
+                if(data.widgetData && data.widgetData.refineSearch && data.widgetData.refineSearch.searchIn && data.widgetData.refineSearch.searchIn.length && data.widgetData.refineSearch.searchIn[0].searchTerm)
+                    span.result__suffix !{data.widgetData.refineSearch.searchIn[0].searchTerm}
+
+                span.search__follow
+                        a#saveSearchTriggerButton.search__follow__icon(href='#saveSearchDialog', role='button', data-toggle='modal', data-target='#saveSearchDialog', aria-label='Click here to save your search', title='Save Search')
+                            i.icon-heart-o(aria-hidden="true")
+                            span.search__follow__label Save Search
+
+                        span.hidden.error.saveSearchMsg
+                            | Failed to save your search, try again later
+                        span.hidden.success.saveSearchMsg
+                            | Search has been saved
+                            a(href='/search/saved')  (Edit)
+                +saveSearchDialog()
+
+
+        div.search__acm-full
+           span Searched The ACM Full-Text Collection:
+           a(href="#" title="Expand your search to The ACM Guide to Computing Literature") Expand your search to The ACM Guide to Computing Literature
+
+    .search-result__tabs
+        if (data.widgetData && data.widgetData.groupTabs && data.serviceName == "doSearch")
+            | !{pb.render("search-result", "search-result/search-tabs", {data: data, thisWidget: thisWidget})}
+
+        if (data.serviceName == "doSearch")
+            div.pull-right.search-showing-results
+                if data.search.hitsLength > 0
+                    span.result__current Showing
+                        span  !{resultFrom} - !{resultTo}
+                    span.result__sep of
+                    if(data.search)
+                        span.result__count !{data.search.hitsLength}
+                    -var tabs= data.widgetData.groupTabs
+                    if(tabs.articlesChapters && tabs.articlesChapters.active == "true")
+                            span.result__suffix !{tabs.articlesChapters.label}
+                    else if(tabs.videos && tabs.videos.active == "true")
+                        span.result__suffix !{tabs.videos.label}
+                else
+                    span.result__current Showing
+                        span  0 - 0
+                    span.result__sep of
+                    span.result__count 0
+
+
+
+
+block searchResultTopShowPublications
+    .search__bottom.clearfix
+        .search__bottom-left
+            .search__bottom-left__options
+                .item-results__checkbox
+                    label.checkbox--primary
+                        input(type="checkbox" name="markall")
+                        span
+
+                .item-results__buttons
+                    a.btn.light.export-citation(href="#" title="Export Citations")
+                      i.icon-export
+                      span Export Citations
+
+                    a.btn.light.save-to-binder(href="#" title="Save to Binder")
+                        i.icon-add-folder
+                        span Save to Binder
+                .item-results__msg
+                    span Nothing Selected
+
+
+            if (data.serviceName == "doSearch")
+                a(href = "#" class="visible-xs visible-sm w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                    i(class="icon-filter_list inline-icon" aria-hidden="true")
+                    span Filters
+
+        .pull-right.search__bottom-right
+            if data.search && data.search.hitsLength > 0
+                | !{pb.render("search-result", "search-result/per-page", {data: data, thisWidget: thisWidget})}
+            if (data.widgetData && data.widgetData.sortLinks)
+                | !{pb.render("search-result", "search-result/sort-options", {data: data, thisWidget: thisWidget})}
+
+
+
+
+
+
+
+block resultsListClassesXSLT
+    - var ulClasses = "search-result__xsl-body  items-results rlist--inline "

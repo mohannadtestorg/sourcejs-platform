@@ -1,0 +1,60 @@
+block refineSearchPrefix
+mixin refineForm()
+    form.refineSearch
+        .refineSearch__content
+            .refineSearch__top
+                .refineSearch__title Advanced search
+                a.refineSearch__ctrl__history(href=data.historyLink.itemUrl title="Search history") Search history
+                a.refineSearch__ctrl__saved(href=data.savedLink.itemUrl title="Saved searches") Saved searches
+            .refineSearch__texts
+                .refineSearch__row.clearfix
+                    select.jcf.refineSearch__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                        each item, i in data.options
+                            option !{item.text}
+                    input.refineSearch__text(type="text" placeholder="Text input")
+                    a.refineSearch__ctrl__add(href="#" title="Add search field")
+                        i.icon-add2.block-icon(aria-hidden="true")
+                    a.refineSearch__ctrl__remove.hidden(href="#" title="Remove search field")
+                        i.icon-x_btnclose.block-icon(aria-hidden="true")
+
+
+
+            .refineSearch__date.clearfix
+                strong.refineSearch__date__title PUBLICATION DATE
+                label.refineSearch__date__all.radio--primary(for="all")
+                    input(type="radio" id="all" name="test" value="1")
+                    span.label-text ALl dates
+                label.refineSearch__date__last.radio--primary(for="last")
+                    input(type="radio" id="last" name="test" value="2")
+                    span.label-text Last
+                select.jcf.refineSearch__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    each item, i in data.options
+                        option !{item.text}
+                label.refineSearch__date__custom.radio--primary(for="custom")
+                    input(type="radio" id="custom" name="test" value="3")
+                    span.label-text Custom range
+                select.jcf.refineSearch__month(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    each item, i in data.months
+                        block refineSearchMonths
+                            option !{item.text}
+                select.jcf.refineSearch__year(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    each item, i in data.years
+                        block refineSearchYears
+                            option !{item.text}
+                span.refineSearch__sep to
+                select.jcf.refineSearch__month(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    each item, i in data.months
+                        block refineSearchMonths
+                            option !{item.text}
+                select.jcf.refineSearch__year(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    each item, i in data.years
+                        block refineSearchYears
+                            option !{item.text}
+
+            .refineSearch__ctrl
+                button.btn.refineSearch__button Search
+
+block refineSearchMain
+    .refineRegion
+        +refineForm()
+block refineSearchSuffix

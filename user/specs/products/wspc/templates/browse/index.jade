@@ -1,0 +1,25 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Publication Browse page
+    section.source_section
+        h2 Publication Browse page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content
+                .container
+                    .row.title__primary__margin
+                        .col-sm-12
+                            h1.browse__title Journals
+                        .col-sm-3
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                | !{pb.render("search-facets", "browse-facet.json")}
+                        .col-sm-9
+                            | !{pb.render("search-result", "search-result/search-result", "browse-search.json")}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+
+    | #{''}

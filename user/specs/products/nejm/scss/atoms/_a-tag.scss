@@ -1,0 +1,41 @@
+/***
+
+```
+<a href="#" class="a-tag">Viral Infections</a>
+<a href="#" class="a-tag s-active">Viral Infections</a>
+```
+
+***/
+
+
+.a-tag {
+  @extend %f-tag;
+  display: inline-block;
+  height: auto;
+  min-height: 32px;
+  margin-bottom: 0;
+  padding-right: 12px;
+  padding-left: 12px;
+  border: 1px solid $color__background;
+  border-radius: 16px;
+  background-color: $color__background;
+  color: $color__text--tertiary;
+  font-size: 11px;
+  line-height: 31px;
+}
+
+
+.a-tag + .a-tag {
+  margin-right: 8px;
+}
+
+.a-tag.s-active,
+.a-tag:hover {
+  border-color: $color__input-border--hover;
+  background-color: $color__white;
+  color: $color__text--tertiary;
+}
+
+.a-tag__num {
+  color:$color__input-border--hover;
+}

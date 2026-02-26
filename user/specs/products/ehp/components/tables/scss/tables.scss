@@ -1,0 +1,19 @@
+table {
+
+    th {
+        color: $table-head-color;
+    }
+
+}
+
+.table {
+    &-stripped {
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: $table-bg-color-accent;
+                }
+            }
+        }
+    }
+}

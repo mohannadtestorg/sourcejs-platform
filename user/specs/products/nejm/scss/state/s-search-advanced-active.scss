@@ -1,0 +1,48 @@
+/*
+
+On large screens, the search bar has an advanced search drop down
+These styles "show" this drop down when the JS adds .g-search-advanced.active to the document element.
+
+*/
+
+.s-search-advanced-active {
+
+  .g-search__fieldset-advanced {
+    left: auto;
+    top: calc(100% + 1px);
+    width: auto;
+    height: auto;
+    padding: 19px 20px;
+    overflow: visible;
+    opacity: 1;
+
+    @include breakpoint('medium+') {
+      right: map-get($outer-gutters, medium) + 48px;
+    }
+
+    @include breakpoint('large+') {
+      right: map-get($outer-gutters, large) + 48px;
+    }
+
+    @include breakpoint('xlarge+') {
+      right: map-get($outer-gutters, xlarge) + 48px;
+    }
+
+    @include breakpoint('xxlarge') {
+      right: 48px;
+    }
+  }
+
+  .g-search__advanced-link a .icon--plus {
+    display: none;
+  }
+
+  .g-search__advanced-link a .icon--minus {
+    display: inline;
+  }
+
+  .g-search__suggestions {
+    display: none;
+  }
+
+}

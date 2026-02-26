@@ -1,0 +1,94 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Psychiatric News
+    .source_info
+
+
+    section.source_section
+        h2 Psychiatric News
+        markdown
+        .source_example
+            | !{data.header}
+            main.content
+                .container.psych-news.page-top-margin
+                    .col-lg-9.col-md-8
+                        .row
+                            .col-sm-12
+                                .psych-mainstory
+                                    a(href="#" title="Digital Advertising Is Effective Tool for Engaging People on Early Psychosis")
+                                        img(src="../templates/psychiatric-news/images/psych-mainstory.png" alt="Digital Advertising Is Effective Tool for Engaging People on Early Psychosis" title="Digital Advertising Is Effective Tool for Engaging People on Early Psychosis")
+                                    a(href="#" title="Digital Advertising Is Effective Tool for Engaging People on Early Psychosis")
+                                        h1.psych-mainstory__title Digital Advertising Is Effective Tool for Engaging People on Early Psychosis
+                                    p.psych-mainstory__summary A search engine–based advertising campaign targeting people who may be experiencing early psychosis symptoms proved effective at bringing users to a website where they could obtain more information about the disorder.
+                                    span.psych-mainstory__author Nick Zagorski
+                                    time.psych-mainstory__time | August 30, 2017
+
+                        .row
+                            .col-lg-4.news-green.margin-bottom-50
+                               | !{data.psychNews}
+                            .col-lg-4.news-green.margin-bottom-50
+                               | !{data.psychNews}
+                            .col-lg-4.news-red.margin-bottom-50
+                               | !{data.psychNews}
+                        .row
+                            .col-lg-4.news-orange.margin-bottom-50
+                               | !{data.psychNews}
+                            .col-lg-4.news-purple.margin-bottom-50
+                               | !{data.psychNews}
+                            .col-lg-4.news-dark-purple.margin-bottom-50
+                               | !{data.psychNews}
+                        .row
+                            .col-lg-4.news-orange.margin-bottom-50
+                               | !{data.psychNews}
+                    .col-lg-3.col-md-4
+                        .advertisement.center.border-bottom.margin-bottom-15
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+
+                        h5.font-weight-light.border-bottom RECENT ISSUE
+                        .book-of-month.two-column
+                            | !{data.RecentIssue}
+
+
+
+                        .advertisement.border-bottom
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/templates/home/images/pol-news.jpg")
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel iaculis diam. Mauris ultricies gravida libero, sed eleifend neque scelerisque fermentum. Ut blandit ipsum nec purus consectetur
+                            p
+                                a(href="#" title="Read this week's newsletter").link Read this week's newsletter
+
+                        .advertisement.border-bottom
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/templates/home/images/pol-news.jpg")
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel iaculis diam. Mauris ultricies gravida libero, sed eleifend neque scelerisque fermentum. Ut blandit ipsum nec purus consectetur
+                            p
+                                a(href="#" title="Read this week's newsletter").link Read this week's newsletter
+                        .advertisement.border-bottom.margin-bottom-15
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/templates/home/images/pol-news.jpg")
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel iaculis diam. Mauris ultricies gravida libero, sed eleifend neque scelerisque fermentum. Ut blandit ipsum nec purus consectetur
+                            p
+                                a(href="#" title="Read this week's newsletter").link Read this week's newsletter
+
+
+                        h5.font-weight-light.border-bottom.blue-heading FROM THE PRESIDENT
+                        .book-of-month.two-column
+                            | !{data.RecentIssue}
+                        .right-area-top-content
+                            | !{data.topContent2}
+                            | !{data.topContent2}
+                            | !{data.topContent2}
+                            | !{data.topContent2}
+                            | !{data.topContent2}
+
+
+                        .advertisement.center
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+            | !{data.footer}
+    | #{''}

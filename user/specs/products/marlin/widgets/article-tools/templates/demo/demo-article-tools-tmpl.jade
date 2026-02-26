@@ -1,0 +1,6 @@
+extends ../article-tools/article-tools-tmpl
+
+
+block articleTools-dropzone
+    li.article-tools__item
+        | !{pb.render("share", { data: share.model.data, thisWidget: share.thisWidget})}

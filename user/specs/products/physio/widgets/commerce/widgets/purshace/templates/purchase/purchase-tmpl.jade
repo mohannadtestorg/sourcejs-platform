@@ -1,0 +1,54 @@
+a#purchaseLink.purchaseAreaList_expand.active(data-bind='expandSection', href='#purchasePanel') Purchase
+a.save-for-later-link(data-bind='saveItem', data-doi='10.1152/ajpregu.00055.2017', href='/action/saveItem?doi=10.1152/ajpregu.00055.2017')
+    | Save for later
+a.saved-go-cart.hidden(href='/action/showCart')
+    span.icon-cart-icon-material
+    |  Item saved, go to cart
+.purchaseAreaList_expanded(id='#purchasePanel')
+    .purchase-options-container
+        .purchaseMessage.hidden(data-item='PSA-OFFER-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-39')
+            p.errorMsgBox
+        .add-journal-to-cart
+            header
+                a.add-article-to-cart(data-bind='addItem', data-key='PSA-OFFER-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-39', data-entity='PSA-OFFER-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-39', href='/action/addToCart?id=PSA-OFFER-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-39')
+                    span.add-article-to-cart__title.title
+                        | PSA Offer
+                    span.add-article-to-cart__price.price $20.00
+                    span.add-to-cart-msg
+                        span.icon-Icon_Cart
+                        |                                         Add to cart
+                .purchaseMessage.hidden.info(data-item='PSA-OFFER-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-39')
+                    p
+            .addedMessage.hidden(data-item='PSA-OFFER-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-39')
+                span.article-title
+                    span.article-title-content
+                        span.icon-check
+                        span.text
+                            | PSA Offer
+                a.show-cart-link(href='https://physio-prod.literatumonline.com/action/showCart')
+                    span.text
+                        | Checkout
+        .purchaseMessage.hidden(data-item='APS-PPV-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-36')
+            p.errorMsgBox
+        .add-journal-to-cart
+            header
+                a.add-article-to-cart(data-bind='addItem', data-key='APS-PPV-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-36', data-entity='APS-PPV-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-36', href='/action/addToCart?id=APS-PPV-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-36')
+                    span.add-article-to-cart__title.title
+                        | Purchase this article
+                    span.add-article-to-cart__price.price $25.00
+                    span.add-to-cart-msg
+                        span.icon-Icon_Cart
+                        |                                         Add to cart
+                .purchaseMessage.hidden.info(data-item='APS-PPV-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-36')
+                    p
+            .addedMessage.hidden(data-item='APS-PPV-ELECTRONIC-USD-10.1152/AJPREGU.00055.2017-36')
+                span.article-title
+                    span.article-title-content
+                        span.icon-check
+                        span.text
+                            | Purchase this article
+                a.show-cart-link(href='https://physio-prod.literatumonline.com/action/showCart')
+                    span.text
+                        | Checkout
+        .savedItem-info.hidden
+            p

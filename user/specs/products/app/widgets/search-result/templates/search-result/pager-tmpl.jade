@@ -1,0 +1,25 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/pager-tmpl
+
+
+
+block pagerNumbers
+    if( i > 0)
+        if data.search && i >= data.search.startPage - 1 && i <= data.search.startPage + 5
+            - counter = counter + 1;
+            li
+                if  i == data.search.startPage + 1
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a.active(href= newurl, title=i) !{i}
+                else
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a(href= newurl + "&startPage=", title=i) !{i}
+        else if data.search && data.search.startPage >= 0 && data.search.startPage < 5 && i >= 6 && i < 8
+            - counter = counter + 1;
+            li
+                - newurl = pb.updateParam(temp,"startPage",pageId)
+                - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                a(href= newurl, title=i) !{i}
+    if i < pages && counter < 7
+        +callBack(i+1, pages)

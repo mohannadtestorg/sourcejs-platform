@@ -1,0 +1,16 @@
+extends ../../../../../../ux3/widgets/article-tools/templates/article-tools/article-tools-tmpl
+
+
+block articletoolsController
+    span.article-tools.hidden-sm.hidden-xs
+        a.btn.btn--gray(href=data.urls.downloadCitation)
+            span Download Citations
+
+        a.btn.btn--gray(href=data.urls.trackCitation)
+            span Track Citations
+
+        a.btn.btn--gray(href=data.urls.addFavorite)
+            span Add To Favorites
+
+    a.article-tools__ctrl.w-slide__btn.hidden-lg.hidden-md(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls=thisWidget.id + "_Pop" role="button" id=thisWidget.id + "_Ctrl" data-slide-target= "#" + thisWidget.id + "_Pop")
+        i.icon-Icon_Tools(aria-hidden="true")

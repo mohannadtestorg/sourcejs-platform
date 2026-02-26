@@ -1,0 +1,20 @@
+div(widget-def='verifyPhonePopup', widget-id='b945c8b6-74c9-41b1-9836-29d99930357f')
+    .top-drawer.verify-phone-drawer
+        .content
+            .form
+                h2 Verify Phone
+                form(action='/action/verifyPhoneNumber', method='post')
+                    input(type='hidden', name='submit', value='submit')
+                    .message.error
+                    .input-group
+                        .label
+                            label(for='b945c8b6-74c9-41b1-9836-29d99930357f-code') Enter the verification code
+                        input#b945c8b6-74c9-41b1-9836-29d99930357f-code.verificationCode(type='text', name='verificationCode', value='', size='15')
+                    input.button.primary.submit(type='submit', value='Submit', disabled='disabled')
+                .center
+                    a.cancel(href='#') Cancel
+            .success-template.hidden
+                h2 Congrats!
+                p Your Phone has been verified
+                .center
+                    a.button.primary.submit(href='/action/showPreferences') close

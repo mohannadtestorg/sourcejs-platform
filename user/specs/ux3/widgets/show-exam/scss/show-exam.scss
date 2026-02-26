@@ -1,0 +1,263 @@
+.show-exam {
+    &__title {
+        font-size: 2rem;
+    }
+    &__subTitle {
+        margin-top: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid $secondary-border-color;
+        margin-bottom: 25px;
+    }
+
+    &__article {
+        border-bottom: 1px solid $secondary-border-color;
+        padding-bottom: 25px;
+
+        &-title {
+            margin-bottom: 5px;
+        }
+        &-authors {
+            margin-bottom: 5px;
+
+            a {
+                &:after {
+                    content: ", ";
+                }
+
+                &:last-child:after {
+                    content: "";
+                }
+            }
+        }
+        &-meta {
+            font-size: $h6-font-size;
+            span {
+                &:after {
+                    content: "|";
+                    display: inline-block;
+                    margin: 0px 5px;
+                }
+
+                &:last-child:after {
+                    content: "";
+                    margin: 0px;
+                }
+            }
+        }
+    }
+
+    &__message {
+        border: 2px solid $secondary-border-color;
+        padding: 20px;
+        font-size: $h6-font-size;
+        font-weight: 600;
+        margin-top: 25px;
+
+        i {
+            font-size: $icon-font-size;
+            float: left;
+            vertical-align: text-top;
+        }
+
+        &-success {
+            i {
+                color: $success-message-text-color;
+            }
+
+            span {
+                padding-left: 30px;
+                display: block;
+            }
+        }
+
+        &-fail {
+            i {
+                color: $warning;
+            }
+
+            span {
+                padding-left: 30px;
+                display: block;
+            }
+        }
+    }
+
+    &__questions {
+        ol {
+            margin: 0px;
+            padding: 0px;
+            list-style-position: inside;
+        }
+        & > ol {
+            list-style-type: decimal;
+            font-size: $h6-font-size;
+            font-weight: bold;
+        }
+
+        &-item {
+            margin-top: 25px;
+            h6 {
+                display: inline;
+            }
+
+            ol {
+                list-style-type: upper-alpha;
+                font-weight: normal;
+                margin-top: 15px;
+            }
+
+            &-radio-list {
+                li:before {
+                    border-radius: 50%;
+                }
+            }
+
+            &-checkbox-list {
+                li:before {
+                    border-radius: 2px;
+                }
+            }
+
+            li {
+                padding-left: 30px;
+                position: relative;
+                min-height: 20px;
+                margin-bottom: 8px;
+
+                &:before {
+                    content: " ";
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid $primary-bg-color;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    font-family: icomoon;
+                    text-align: center;
+                    color: $text-onDark;
+                }
+
+                &.show-exam__questions-item-correct {
+                    background-color: $meta-bg-color;
+                    padding-left: 30px;
+                    &:before {
+                        content: "\e607";
+                        background-color: $success-message-text-color;
+                        border-color: $success-message-text-color;
+                        font-size: $h6-font-size;
+                        line-height: 16px;
+                        display: block;
+                    }
+
+                    .label-txt {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+
+                &.show-exam__questions-item-incorrect {
+                    background-color: $meta-bg-color;
+                    padding-left: 30px;
+                    &:before {
+                        content: "\e626";
+                        background-color: $warning;
+                        border-color: $warning;
+                        font-size: $small-font-size;
+                        line-height: 18px;
+                        display: block;
+                    }
+
+                    .label-txt {
+                        &:before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-form {
+            li {
+                padding-left: 0px;
+                &:before {
+                    display: none;
+                }
+
+                ol {
+                    list-style: none;
+                }
+            }
+
+            label {
+                font-size: $h6-font-size;
+                color: $primary-text-color;
+                font-weight: normal;
+            }
+
+            textarea {
+                margin-top: 10px;
+            }
+
+            button {
+                width: 250px;
+            }
+        }
+    }
+
+    &__certificate {
+        padding: 15px;
+        border: 2px solid $primary-bg-color;
+        margin-top: 25px;
+
+        &-title {
+            font-size: 2.75rem;
+            margin-bottom: 25px;
+        }
+        &-link {
+            font-weight: 600;
+            i {
+                font-size: $small-font-size;
+                font-weight: bold;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    &__credit {
+        padding: 15px;
+        border: 2px solid $primary-bg-color;
+        margin-top: 25px;
+        margin-bottom: 25px;
+
+        &-title {
+            margin-bottom: 25px;
+        }
+        .input-group {
+            margin: 0px 20px 0px 0px;
+        }
+    }
+
+    .checkbox--primary {
+        span:before {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid $primary-bg-color;
+            text-align: center;
+            border-radius: 2px;
+            margin-top: 0px;
+        }
+    }
+
+    .radio--primary {
+        span:before {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid $primary-bg-color;
+            margin-top: 0px;
+        }
+    }
+}

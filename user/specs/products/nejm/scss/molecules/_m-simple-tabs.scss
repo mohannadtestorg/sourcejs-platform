@@ -1,0 +1,229 @@
+/***
+
+Tab links have an optional `em` to show secondary tab info such as a number of results.
+The tabs note is also optional and doesn't display on small/medium screens.
+
+```
+<nav class="m-simple-tabs">
+  <ul class="m-simple-tabs__links">
+    <li><a href="#">Articles</a></li>
+    <li class="s-active"><a href="#">Multimedia <em>48</em></a></li>
+  </ul>
+  <p class="m-simple-tabs__note">Showing 1-20 of 48 Multimedia</p>
+</nav>
+```
+
+***/
+
+.m-simple-tabs {
+  position: relative;
+  border-top: 1px solid $color__rules;
+  border-bottom: 1px solid $color__rules;
+
+  @include breakpoint('large+') {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+}
+
+.m-simple-tabs__links {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  @include breakpoint('small+') {
+    //overflow-x: visible;
+    //overflow-y: visible;
+    //-webkit-overflow-scrolling: auto;
+  }
+
+  @include breakpoint('large+') {
+    flex: 1;
+  }
+}
+
+.m-simple-tabs__links > li {
+  flex: 1 0 auto;
+  max-width: 50%;
+
+  @include breakpoint('medium+') {
+    flex-grow: 0;
+    max-width: none;
+  }
+}
+
+.m-simple-tabs__links > .m-simple-tabs__action {
+  display: none;
+  text-align: right;
+
+  @include breakpoint('medium+') {
+    display: block;
+    flex-grow: 1;
+  }
+}
+
+.m-simple-tabs__links > .m-simple-tabs__action ~ .m-simple-tabs__action {
+  @include breakpoint('medium+') {
+    flex-grow: 0;
+  }
+}
+
+.m-simple-tabs__links a {
+  @include sans-serif(16, 54, bold);
+  display: block;
+  position: relative;
+  height: 54px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: $color__text--headlines;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.m-simple-tabs__links .s-em a {
+  color:$color__accent;
+}
+
+.m-simple-tabs__links a:hover {
+  color: $color__accent;
+}
+
+.m-simple-tabs__links .s-active a,
+.m-simple-tabs__links .s-active a:hover {
+  height: 54px;
+  border-bottom: 2px solid $color__accent;
+  color: $color__text--headlines;
+}
+
+.m-simple-tabs__links .m-simple-tabs__action a {
+  display: inline-block;
+}
+
+.m-simple-tabs__links svg {
+  vertical-align: middle;
+}
+
+.m-simple-tabs__links .icon--close {
+  display: none;
+}
+
+.m-simple-tabs__links em {
+  color: $color__text--quaternary;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.m-simple-tabs__note {
+  @include sans-serif(16, 54);
+  margin-top: 0;
+  border-top: 1px solid $color__rules;
+  color: $color__text--quaternary;
+
+  @include breakpoint('large+') {
+    flex: 0 0 auto;
+    margin-left: 20px;
+    border-top: 0 none;
+  }
+}
+
+.m-simple-tabs__note:only-child {
+  border-top: 0 none;
+}
+
+.m-simple-tabs__note .a-dropdown {
+  display: block;
+  margin-top: 24px;
+
+  &:last-child {
+    margin-bottom: -1px;
+  }
+
+  @include breakpoint('large+') {
+    display: block;
+    height: 54px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0 none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@include breakpoint('large+') {
+  .m-simple-tabs__note .a-dropdown > em,
+  .m-simple-tabs__note .a-dropdown > strong {
+    height: 54px;
+    padding-right: 13px;
+    padding-left: 0;
+    color: $color__link-primary;
+    line-height: 54px;
+  }
+
+  .m-simple-tabs__note .a-dropdown:hover > em,
+  .m-simple-tabs__note .a-dropdown:hover > strong {
+    text-decoration: underline;
+  }
+
+  .m-simple-tabs__note .a-dropdown > em::after,
+  .m-simple-tabs__note .a-dropdown > strong::after {
+    right: 0;
+  }
+
+  .m-simple-tabs__note .a-dropdown > ul {
+    top: calc(100% + 4px);
+  }
+}
+
+// -------------------------------------
+// sticky variant inside article detail page
+//
+
+.m-simple-tabs--sticky {
+  position: fixed;
+  display: block;
+  z-index: 0;
+  visibility: hidden;
+  left: 0;
+  right: 0;
+  top: -100%;
+  background-color: $color__white;
+  transition: top .25s $bezier--ease-in-circ;
+
+  @include breakpoint('large+') {
+    // display: block;
+    z-index: 5;
+    visibility: visible;
+  }
+}
+
+
+.m-simple-tabs--sticky .m-simple-tabs__links {
+  @extend %container;
+}
+
+// -------------------------------------
+// `m-simple-tabs` after a `m-article-meta`
+//
+
+.m-article-meta + .m-simple-tabs {
+  margin-top: 20px;
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+// -------------------------------------
+// `m-simple-tabs` after a `a-subtitle`
+//
+
+.a-subtitle + .m-simple-tabs {
+  padding-top: 1px;
+  border-top: 0 none;
+}
+

@@ -1,0 +1,1 @@
+import '../publication-content/js/publication-content.js';

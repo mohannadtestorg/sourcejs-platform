@@ -1,0 +1,36 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Author Dashboard
+
+    p.source_info
+        |The Institutional login page template contains the following components: Header, Footer...
+
+    section.source_section
+        h2 Author Dashboard
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+
+            main.content.content--author-dashboard
+                .container
+                    .row
+                        .col-xs-12.col-sm-3
+                            | !{data.submissionList}
+
+
+                        .col-xs-12.col-sm-9.hidden-xs
+                            #dashboardMain.dashboard-main
+                                .row
+                                    .col-xs-12
+                                        | !{data.actionBar}
+                                .row
+                                    .col-xs-12
+                                        | !{data.articleView}
+
+
+            | !{data.footer}
+    | #{''}
+

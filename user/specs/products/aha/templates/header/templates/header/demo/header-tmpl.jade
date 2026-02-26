@@ -1,0 +1,56 @@
+header.header.base
+    .container.header--advertisment.hidden-xs.hidden-sm.hidden-md
+        .row
+            .col-xs-12.col-sm-10.col-md-8.col-sm-offset-1.col-md-offset-2
+                img(src='/specs/products/aha/images/top_advertisement.png')
+    .container-fluid.header--first-row
+        .container
+            ul.rlist--inline.navbar--top--links.pull-left
+                li
+                    a(href="#" title="Volunteer") Volunteer
+                li
+                    a(href="#" title="Warning Signs") Warning signs
+
+
+            ul.rlist--inline.pull-right
+                li.hidden-xs
+                    | !{search}
+                li.buttons
+                    button(class="btn btn--danger" title="donate") Donate
+
+    .container-fluid.header--second-row
+        .container.hidden-xs.hidden-sm.hidden-md
+            .pull-left.logo__container
+                | !{logo}
+            .pull-right.actions__container
+                .header__quick-menu
+                    p.username__placeholder Hello Guest
+                    ul.rlist--inline
+                        li
+                            a(href="#" title="My Alerts" class="btn btn-outline my__alert__btn") MY ALERTS
+                        li
+                            a(href="#" title="Sign In" class="btn btn-outline signin__btn") SIGN IN
+                        li
+                            a(href="#" title="Join" class="btn btn-outline join__btn") JOIN
+
+                    ul.rlist--inline
+                        li
+                            a(href="#" title="Submit your article" class="btn submit__article__btn") Submit your article
+                        li.pull-right
+                            ul.rlist--inline.share__links
+                                li
+                                    a.addthis_button_twitter(href="#")
+                                        i(aria-hidden="true").icon-twitter
+                                li
+                                    a.addthis_button_facebook(href="#")
+                                        i(aria-hidden="true").icon-facebook
+
+
+        .container.hidden-lg
+            .pull-left.logo__container
+                | !{logo_mobile}
+            .pull-right.actions__container.hidden-md.hidden-lg
+                | !{search}
+
+    .primary-bg-color.text-onDark.drawer__nav
+        | !{mainmenu}

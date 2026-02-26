@@ -1,0 +1,33 @@
+{
+    "title": "User Profile Form",
+    "tag": ["unready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "User Profile Form",
+                "body": {
+                    "$pug": {
+                        "template": "../../widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/user-profile-form/user-profile-form-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/user-profile-form.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

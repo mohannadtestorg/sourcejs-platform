@@ -1,0 +1,45 @@
+{
+    "title": "Sidebar Region",
+    "template": "doc",
+    "tag": ["components"],
+    "templates": {
+        "default": "sidebar-region",
+        "alternative": {
+            "sidebar-region-all": {
+                "name": "Sidebar Region - All",
+                "path": "sidebar-region-all",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "sidebar ",
+                "body": [
+                    {
+                        "$pug": {
+                            "template": "./templates/sidebar-region/sidebar-region-tmpl.jade",
+                            "data": {
+                                "$ref": "./templates/data/data.json"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "title": "sidebar show all items ",
+                "body": [
+                    {
+                        "$pug": {
+                            "template": "./templates/sidebar-region/sidebar-region-all-tmpl.jade",
+                            "data": {
+                                "$ref": "./templates/data/data.json"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

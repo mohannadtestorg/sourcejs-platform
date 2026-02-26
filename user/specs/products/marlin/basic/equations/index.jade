@@ -1,0 +1,16 @@
+extends /specs/products/marlin/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+
+    section.source_section
+        h2 equations
+
+        h3 Ordered list
+        .source_example
+            .ux3
+                article(data-enable-mathjax="true")
+                    - var equ = "<div class=\"math-formula\"><span class=\"equationTd\"><math id=\"M2\" overflow=\"scroll\" altimg=\"eq-00002.gif\"><mrow><msup><mi>K</mi><mrow><mi>D</mi><mi>O</mi><mi>F</mi></mrow> </msup><mo>=</mo><munderover><mstyle mathsize=\"140%\" displaystyle=\"true\"><mo>∑</mo></mstyle><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow> <mrow><mo>#</mo><mi>M</mi><mi>T</mi><mi>U</mi></mrow> </munderover><msubsup><mi>K</mi><mi>i</mi><mrow><mi>M</mi><mi>T</mi><mi>U</mi></mrow> </msubsup><mo>⋅</mo><msubsup><mi>r</mi><mi>i</mi><mn>2</mn></msubsup><mo>+</mo><mfrac><mrow><mo>∂</mo><msub><mi>r</mi><mi>i</mi></msub></mrow> <mrow><mo>∂</mo><msup><mi>θ</mi><mrow><mi>D</mi><mi>O</mi><mi>F</mi></mrow> </msup></mrow> </mfrac><mo>⋅</mo><msubsup><mi>F</mi><mi>i</mi><mrow><mi>M</mi><mi>T</mi><mi>U</mi></mrow> </msubsup></mrow> </math></span><span class=\"formulaLabel\">(2)</span></div>"
+                    !{equ}
+
+
+    | #{''}

@@ -1,0 +1,35 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 Mobile slide
+
+    p Mobile slide effect, creating off-screen slide panel functionality.
+    p
+        strong Note:
+        | this functionality usually used for hidden containers on mobile, you can see a demo on #[a(href="../../ux3/components/tabs/") Tab component]
+    section.source_section
+        h2 Getting Started
+        markdown
+            p In your document, include a link with class `w-slide__btn` to toggle any container hold the id of `data-slide-target` attribute
+        code.src-html.source_visible
+            a.w-slide__btn(href="#" data-slide-target="id") test
+                div(id="id")
+                    p tab111 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element.
+                        | Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap
+
+    section.source_section
+        h2 Demo
+        p please activate the clear view with mobile viewport to see the examples bellow.
+        .source_example
+            a.w-slide__btn(href="#" data-slide-target="#id") test
+
+            div(id="id")
+                p tab111 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element.
+                    | Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap
+
+            a.w-slide__btn(href="#" data-slide-target="#id1") test
+
+            div(id="id1")
+                p tab111 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element.
+                    | Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap
+    | #{''}

@@ -1,0 +1,35 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p Source info...
+
+    section.source_section
+        h2 Featured Case Study Card
+        .source_example.source_visible
+            | !{data.items[0].body}
+    | #{''}
+
+    section.source_section
+        h2 Featured Case Study Card
+        .source_example.source_visible
+            section.section
+                .container
+                    .row.section__header
+                        .col-md-12.__center
+                            h2
+                                | Featured Case Studies
+                    .row.section__anotation
+                        .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.__center
+                            p
+                                | I'm an explainer line that supports the above statement with hard working copy. This should clarify what this section is communicating.
+                    .row.section__content
+                        each item, l in data.items
+                            .col-md-6.col-sm-6
+                                | !{item.body}
+                    .row.section__footer
+                        .col-md-8.col-md-offset-2.col-sm-8.col-sm-offset-2.col-xs-12.__center
+                            a(href="#").btn
+                                | View More Case Studies
+    | #{''}

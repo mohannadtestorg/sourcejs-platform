@@ -1,0 +1,49 @@
+.quick-search
+    .dropBlock
+        a.search-drawer(href="#", title="Search", data-db-target-for="quickSearch", tabindex=10)
+            i.icon-search(aria-hidden="true")
+        .dropBlock__holder.quick-search__holder(data-db-target-of="quickSearch")
+            .tab.row.clearfix.quick-search__wrapper
+                a.quick-search__ctrl.quick-search__close.hidden-xs.hidden-sm(href='#')
+                    i.icon-tools_close
+                block autoCompleteServerURL
+                form(action=data.quickSearchURL, name='quickSearchBar', method='get', title='Quick Search', onSubmit="return validateQuickSearchForm();")
+                    div.clearfix
+                        .col-sm-5.col-md-6.col-lg-7
+                            input(type='hidden', name='searchType', value='quick')
+                            .input-group.quick-search__searchbar
+                                block autoCompleteInput
+                                    input(type='text', name='searchText', placeholder='Search for...')
+                            button.btn.quick-search__button.icon-search(type='submit', title='Search')
+                                span
+                        if ((!data.searchScope && thisWidget.properties.journalSearch == "true") || (data.dropdown && thisWidget.properties.displayPreFilterDropDown == "true"))
+                            .col-sm-4.col-md-4.col-lg-3
+                                if data.dropdown && thisWidget.properties.displayPreFilterDropDown == "true"
+                                    select.quick-search__dropdown
+                                        each item, i in data.dropdown
+                                            if i === 0
+                                                option(value=item.value selected="selected") !{item.label}
+                                            else
+                                                option(value=item.value) !{item.label}
+                                .quick-search__scope-options.clearfix
+                                    if (!data.searchScope && thisWidget.properties.journalSearch == "true")
+                                        label(for='searchScopeSeries', title="This Journal")
+                                            span This Journal
+                                            input#searchScopeSeries(type='radio', name='searchScope', title="This Journal",value='series', checked='checked')
+                                        label(for='searchScopeFullSite',title=thisWidget.properties.sitePartitionLbl)
+                                            span !{thisWidget.properties.sitePartitionLbl}
+                                            input#searchScopeFullSite(type='radio', name='searchScope', value='fullSite', title=thisWidget.properties.sitePartitionLbl)
+                                    else
+                                        input(type='hidden', name='searchScope', value=data.searchScope)
+                                    input(type='hidden', name='occurrences', value=data.dropdown[0].value)
+                                    if data.journalCode
+                                        input(type='hidden', name='journalCode', value=data.journalCode)
+                                    if data.journalIssn
+                                        input(type='hidden', name='seriesISSNFltraddfilter', value=data.journalIssn)
+                        if data.searchScope
+                            input(type='hidden', name='searchScope', value='fullSite')
+                            input(type='hidden', name='occurrences', value='all')
+                        if thisWidget.properties.displayAdvancedSearch == "true"
+                            .col-sm-3.col-md-2.col-lg-2
+                                .quick-search__advanced-region
+                                    a.quick-search__advanced-link(href=data.advancedSearchURL, title="Advanced search") Advanced Search

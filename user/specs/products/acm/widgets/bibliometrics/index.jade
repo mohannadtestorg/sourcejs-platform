@@ -1,0 +1,49 @@
+extends /specs/products/acm/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    .source_info
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/bibliometrics/templates/bibliometrics/bibliometrics-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use bibliometrics template.
+
+        +printJson({
+            "data": {
+                "tags": [
+                    {
+                        "title": "Algorithm",
+                        "link": "#"
+                    },
+                    {
+                        "title": "Formal methods",
+                        "link": "#"
+                    },
+                    {
+                        "title": "validation verification",
+                        "link": "#"
+                    },
+                    {
+                        "title": "software behavioral model",
+                        "link": "#"
+                    }
+                ]
+
+            },
+            "errors": []
+        })
+
+
+    section.source_section
+
+
+        h3 Bibliometrics
+        .source_example
+            | !{pb.render('bibliometrics', 'data.json')}
+
+
+    | #{''}

@@ -1,0 +1,48 @@
+/***
+
+.o-colset-1-2-2
+=============
+
+Creates a responsive column set:
+
+* xsmall: 1 column
+* small, medium: 2 column
+* large, xlarge, xxlarge: 2 columns
+
+Columns are 50% width large+.
+
+```
+<div class="o-colset-1-2">
+  <div class="o-col">Col 1</div>
+  <div class="o-col">Col 2</div>
+</div>
+```
+***/
+
+$column__listing-1-2-2-col: (
+  xsmall: 6,
+  small: 3,
+  medium: 4,
+  large: 6,
+  xlarge: 6,
+  xxlarge: 6
+);
+
+.o-colset-1-2-2 {
+  @include columns-container-flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+  margin-right: -2px;
+}
+
+.o-colset-1-2-2 > .o-col {
+  @include column-flex($column__listing-1-2-2-col);
+}
+
+
+// for the toolkit:
+div > #a17 .o-colset-1-2-2 > .o-col {
+  margin-top: 5px;
+  background-color: #eee;
+}

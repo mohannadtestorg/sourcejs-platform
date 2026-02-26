@@ -1,0 +1,20 @@
+header.header.base.fixed
+    .container.auto-hide-primary-bar
+        .row
+            .col-xs-12
+                .pb-ad
+                    a(href='#')
+                        img(src='http://placeimg.com/728/90/tech')
+
+    .auto-hide-secondary-bar(data-db-parent-of="sb1").fixed
+        .container.header--first-row
+            .pull-left
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/ux3/releasedAssets/images/logo.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo"]}}}})}
+            .pull-right
+                .header__quick-menu
+                    ul.rlist--inline
+                        li
+                            | !{pb.render('quick-search', 'quick-search-menu.json')}
+
+        .primary-bg-color.text-onDark.drawer__nav
+            | !{pb.render('menu', 'demo/demo-menu', {"thisWidget": {"properties": {"vPort": "medium"}}, "data": {"id": "main0", "list": [{"text": "Journals", "link": "#", "current": "true"}, {"text": "Books", "link": "#"}, {"text": "Proceedings", "link": "#"}, {"text": "Blog", "link": "#"}]}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}

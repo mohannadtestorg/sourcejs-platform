@@ -1,0 +1,22 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+block issuesMixin
+    if (itemo)
+        each item, l in itemo
+            li.col-md-12(data-cover-date=item.coverGroupDate)
+                div.loi__issue
+                    if (volume && volume.VolNo && !item.volume)
+                        - item.volume = volume.VolNo;
+                    if ((item.volume) || (item.issue))
+                        block tabsparent
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item})}
+
+block loIssues
+    if (items)
+        ul.row(data-issues-group-by="month")
+            block firstLoiIssue
+            if (flag)
+                each volume, v in items
+                    +issues(volume.issues, volume)
+            else
+                +issues(items, null)

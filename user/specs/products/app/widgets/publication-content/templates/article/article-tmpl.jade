@@ -1,0 +1,62 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/article-tmpl
+
+block articleBodyClasses
+    -var articleBodyClasses='article__body'
+    if(data.item.type == "chapter" && data.showDeltaView==true)
+        -articleBodyClasses = articleBodyClasses + " show-updates"
+
+block contentClasses
+    -var contentClasses="col-sm-8 col-md-8 col-lg-9 article__content"
+    if(data.item.type == "chapter")
+       -contentClasses=contentClasses + " book-chapter"
+
+block tabsContainer
+    .col-sm-4.col-md-4.col-lg-3.hidden-xs.hidden-sm.sticko__parent
+        | !{pb.renderDropzone(thisWidget, "articleAdvertisement")}
+        include ../article/extended/ext-tabs-tmpl
+
+
+block includeCitation
+    if(data.item.type == "chapter")
+        | !{pb.renderDropzone(thisWidget, "articleNavigationDropZone")}
+    include ../article/extended/ext-citation-tmpl
+    +epub()
+
+block includeCoolbar
+    .scroll-to-target
+        include ../article/extended/ext-coolbar-tmpl
+
+block ePubDate
+    if(data.item.type == "article")
+        span.epub-section__item
+            span.epub-section__state Published Online:
+            span.epub-section__date !{data.item.ePubDate}
+block ePubCitedby
+    if(data.item.type == "article" && data.item.citations && data.item.citations != "")
+        span.epub-section__item.epub-section__citedBy
+            span.epub-section__citedBy__label Cited by:
+            span.epub-section__citedBy__value !{data.item.citations}
+
+block article
+        if(data.item)
+            if(data.item.mathJax && data.item.mathJax.enabled)
+                article.container(data-figures=data.item.figures data-references=data.item.references data-enable-mathjax=data.item.mathJax.enabled)
+                    +articleRow()
+            else
+                article.container(data-figures=data.item.figures data-references=data.item.references)
+                    +articleRow()
+
+block articleContentSuffix
+    | !{pb.renderDropzone(thisWidget, "accessDenialDropZone")}
+
+    .article-table-viewer
+        .article-table-viewer__content
+            .article-table-viewer__ctrl
+                a.article-table-viewer__ctrl__prev(title='Previous Table', href='#' data-nav="prev")
+                    span.icon-arrow_l
+                a.article-table-viewer__ctrl__next(title='Next Table', href='#' data-nav="next")
+                    span.icon-arrow_r
+            a.table__viewer__closer(href="#")
+                i.icon-close_thin
+            .article-table-viewer__wrapper
+        .article-table-viewer__overlay

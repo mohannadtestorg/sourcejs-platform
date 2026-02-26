@@ -1,0 +1,53 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p Styles changed based on <a href='https://jira.atypon.com/browse/LIT-201345' target="_blank">`LIT-201345`</a>
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/products/pericles/widgets/mrw-toc/templates/mrw-toc/mrw-toc-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use table-of-content template.
+        +printJson({
+            "data": {
+                "series": {
+                    "groups": [
+                        {
+                            "coverImage": {
+                                "src": "/cms/attachment/904901/3540802/9781119198543.cover.gif",
+                                "caption": "alo"
+                            },
+                            "access": "full",
+                            "title": "1",
+                            "volume": "1",
+                            "pubDate": "5-6-1990",
+                            "titleLink": "http://pericles.rdissi.atypon.com:18080/doi/book/10.1002/9781119198543",
+                            "about": "http://pericles.rdissi.atypon.com:18080/doi/abs/10.1002/9781119198543"
+                        }
+                    ]
+                }
+            },
+            "errors": []
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        .source_example
+            .container
+                .mrw-toc-accordion
+                    | !{pb.render('mrw-toc', 'demo/mrw-toc', 'data.json', 'pericles')}
+    | #{''}
+
+
+

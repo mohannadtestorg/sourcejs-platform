@@ -1,0 +1,35 @@
+.share {
+    &__ctrl {
+        display: inline-flex!important;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+
+        .icon-section_arrow_d {
+            font-size: .4rem;
+        }
+    }
+
+    &__block {
+        left: 0;
+        z-index: 3;
+        &.dropBlock__holder {
+            background-color: $default-bg-color;
+        }
+    }
+}
+
+
+.addthis.addthis {
+    a, [class*="addthis_button"], .at-resp-share-element .at-share-btn {
+        display: flex;
+        align-items: center;
+        margin: 1px 0;
+    }
+}
+

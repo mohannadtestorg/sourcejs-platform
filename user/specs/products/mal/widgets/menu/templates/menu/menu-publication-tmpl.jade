@@ -1,0 +1,78 @@
+//extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl.jade
+mixin link(item)
+    if ( item.list)
+        - dropDownId = dropDownId + 1;
+    block menuDropdown
+        if (item.link) && (item.list)
+            a.dropdown__toggle(href=item.link title=item.text id=data.id + "-" + dropDownId data-toggle="dropdown" ,  data-slide-target='.menu-parent-' + data.id + '-' + 1 , data-db-target-for='menu-parent-' + data.id + '-' + 1)
+                if (item.text)
+                    span !{item.text}
+                block mainNavArrows
+                    i.icon-arrow_r.pull-right(aria-hidden="true" class=viewPortInvertClass)
+                    i.icon-section_arrow_d.pull-right(aria-hidden="true" class=viewPortClass)
+            +menu(item.list, true)
+        else if (item.link)
+            block MenuItemLink
+                a(href=item.link title=item.text target=item.target)
+                    if (item.text)
+                        span !{item.text}
+                    if (item.target) && item.target == "_blank"
+                        | &nbsp;
+                        i.icon-download-sitation(aria-hidden="true")
+        else if (item.list)
+            a.dropdown__toggle(href="#" title=item.text id=data.id + "-" + dropDownId data-toggle="dropdown" target=item.target)
+                if (item.text)
+                    span !{item.text}
+                block mainNavArrows2
+                    i.icon-arrow_r.pull-right(aria-hidden="true" class=viewPortInvertClass)
+                    i.icon-section_arrow_d.pull-right(aria-hidden="true" class=viewPortClass)
+            +menu(item.list, true)
+        else
+            if (item.text)
+                span !{item.text}
+mixin menuItem(list, nested)
+    each item, i in list
+        -var liClass = "menu-item";
+        if ( item.list)
+            //- dropDownId = dropDownId + 1;
+            - liClass = "dropdown menu-parent";
+        if item.current == "true"
+            - liClass = liClass + " is--current";
+        if (item.list)
+            if nested
+                li(class=liClass role="menuitem" aria-haspopup="true" tabindex="-1" aria-label=item.text )
+                    +link(item)
+            else
+                li(class=liClass role="menuitem" aria-haspopup="true"  aria-label=item.text id='menu-item-' + data.id + '-' + i)
+                    +link(item)
+        else
+            if nested
+                li(class=liClass role="menuitem" tabindex="-1" aria-label=item.text )
+                    +link(item)
+            else
+                li(class=liClass role="menuitem" aria-label=item.text id='menu-item-' + data.id + '-' + i)
+                    +link(item)
+mixin menu(list, nested)
+    if nested == true
+        if dropDownId > 1
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId class="level-" + dropDownId aria-hidden="true" role="menu" , class='menu-parent-' + data.id + '-' + 1)
+                - dropDownId = 0;
+                +menuItem(list, nested)
+        else
+            ul.rlist.dropdown__menu(aria-labelledby=data.id + "-" + dropDownId aria-hidden="true" role="menu" , class='menu-parent-' + data.id + '-' + 1)
+                +menuItem(list, nested)
+    else
+        ul#menubar.rlist--inline(role="menubar")
+            +menuItem(list, nested)
+            block menuSuffix
+block mainNavBlock
+    .publication-menu-container
+        div.main-nav
+            a(href="#" + data.id data-target=data.id title="menu drawer" , data-slide-target=".publication" , class="hidden-md hidden-lg w-slide__btn")
+                block navIcons
+                    i.icon-menu2(aria-hidden="true")
+                    span journal menu
+            block mainNavContainer
+                nav.drawer__nav.publication.container.gutterless(role="navigation" id=data.id  )
+                    +menu(data.list, false)
+block MenuDropZone

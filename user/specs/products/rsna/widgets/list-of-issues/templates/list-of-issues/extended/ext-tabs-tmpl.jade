@@ -1,0 +1,18 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+block IssueState
+block extraVars
+    - var hasLegacy = false;
+block loIssuesSuffix
+    if(hasLegacy)
+        .legacy-definition
+            i(class="icon-legacy")
+            p.legacy-definition__text
+                |The Radiology Legacy Collection is a searchable electronic archive of Radiology issues from 1923 to 2008. The Collection is free to RSNA members and available for institutional purchase. Become a
+                a(href="http://www.rsna.org/Become_A_Member.aspx") &nbsp; member
+                |&nbsp; or &nbsp;
+                a(href="https://www2.rsna.org/timssnet/subscriptions/subprice08.cfm") purchase.
+        -hasLegacy = false;
+block issuesMixinSuffix
+    if(item.isLegacy && !hasLegacy)
+        -hasLegacy =true;

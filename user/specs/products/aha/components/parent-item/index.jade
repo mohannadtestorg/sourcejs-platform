@@ -1,0 +1,90 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+markdown
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `display`
+                        td Style of parent item
+                    tr
+                        td `title`
+                        td  Issue type
+                    tr
+                        td `volume`
+                        td  Isssue volume
+                    tr
+                        td `issue`
+                        td  Isssue number
+
+block content
+    .source_info
+        p The <strong>Parent item</strong> component is included in the following components: #[a(href="../citation/") Citation], #[a(href="../../teaser/") Creative work]
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Parent item template.
+        +printJson({
+            "config":{
+                "display": "compact"
+            },
+            "data": {
+                "title": "FACETS",
+                "volume": 2,
+                "issue": 5
+            }
+        })
+
+
+        markdown
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `display`
+                        td Style of parent item
+                    tr
+                        td `title`
+                        td  Issue type
+                    tr
+                        td `volume`
+                        td  Isssue volume
+                    tr
+                        td `issue`
+                        td  Isssue number
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        p In this example we pass full data object (title, volume number, issue number).
+        .source_example
+            | !{data.items[0].body}
+
+
+        h3!= data.items[1].title
+        p In this example we omitted the issue number.
+        .source_example
+            | !{data.items[1].body}
+
+        h3!= data.items[2].title
+        p In this example we used the <code>config</code> object to render compact version of the component.
+        .source_example
+            | !{data.items[2].body}
+
+    | #{''}

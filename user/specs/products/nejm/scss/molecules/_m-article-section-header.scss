@@ -1,0 +1,52 @@
+/***
+
+```
+<header class="m-article-section-header">
+  <p class="m-article-section-header__type f-caps">Case Vignette</p>
+  <h2 class="m-article-section-header__title f-h3">A Man Considering the Use of E-Cigarettes</h2>
+  <p class="m-article-section-header__subtitle f-h9">Praesent cursus diam ac risus eleifend.</p>
+</header>
+```
+
+***/
+/***
+
+```
+<header class="m-article-section-header">
+  <h3 class="m-article-section-header__title f-h6">1. Recommend Trying E-Cigarettes for Smoking Cessation</h3>
+  <p class="m-article-section-header__subtitle f-h9">Ut fringilla semper massa, vitae tristique velit vehicula sit amet</p>
+</header>
+```
+
+***/
+
+.m-article-section-header {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .m-inline-tabs__tab &,
+  .m-inline-tabs__tab &:first-child {
+    margin-top: 28px;
+  }
+}
+
+.m-article-section-header__type {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-article-section-header__title {
+  margin-top: 0;
+  color: $color__text--headlines;
+
+  .m-article-section-header__type + & {
+    margin-top: 12px;
+  }
+}
+
+.m-article-section-header__subtitle {
+  margin-top: 4px;
+}

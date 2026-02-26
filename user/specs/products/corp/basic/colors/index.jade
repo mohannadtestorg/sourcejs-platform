@@ -1,0 +1,75 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    iinclude /specs/products/corp/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+
+block content
+    //.source_section
+    //    h2 Basic color pallete
+    //    p we are including #[a(href="/specs/ux3/basic/colors/") UX3 color pallete ]
+
+    .source_section
+        h2 Colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.atypon-blue.block
+                    p #336d96
+                li
+                    div.atypon-red.block
+                    p #f04e49
+                li
+                    div.atypon-gray-dark.block
+                    p #3f4359
+                li
+                    div.atypon-gray.block
+                    p #6f7283
+                li
+                    div.atypon-gray-light.block
+                    p #9f9fa5
+                li
+                    div.atypon-gray-lightest.block
+                    p #f4f4f4
+
+    | #{''}
+    .source_section
+        h2 Supporting Colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.atypon-blue-light.block
+                    p #e1e9f0
+                li
+                    div.atypon-blue-lightest.block
+                    p #f5f7fa
+                li
+                    div.atypon-red-light.block
+                    p #fde5e4
+                li
+                    div.atypon-red-lightest.block
+                    p #fefef6
+                li
+                    div.atypon-green.block
+                    p #33976a
+                li
+                    div.atypon-green-light.block
+                    p #e1f0e9
+
+
+    | #{''}
+    .source_section
+        h2 Text Colors
+        .source_example.colors-palette
+            ul.rlist--inline.border-colors
+                li
+                    div.primary-text-color.block Aa
+                    p $primary-text-color
+                li
+                    div.secondary-text-color.block Aa
+                    p $secondary-text-color
+                li
+                    div.tertiary-text-color.block Aa
+                    p $tertiary-text-color
+    | #{''}
+

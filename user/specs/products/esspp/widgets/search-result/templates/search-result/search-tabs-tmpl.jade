@@ -1,0 +1,10 @@
+div.search-result__nav
+
+    if (data) && (data.widgetData) && (data.widgetData.groupTabs)
+        each tab, i in data.widgetData.groupTabs
+            if (tab && tab.enabled == "true")
+                - var classes = "search-result__nav__item"
+                if tab.active == "true"
+                    - classes = "search-result__nav__item active"
+
+                a(class= classes href=tab.link ) !{tab.label} (!{tab.count})

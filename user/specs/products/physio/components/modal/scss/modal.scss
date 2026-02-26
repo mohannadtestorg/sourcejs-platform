@@ -1,0 +1,114 @@
+.ux-modal-container {
+    .modal {
+        background: rgba(31, 31, 31, .5);
+        &__dialog {
+            border-radius: 0;
+            max-height: 90%;
+            overflow-y: auto;
+            @include media('>=large') {
+                width: 780px;
+            }
+            @include media('>=desktop', '<large') {
+                width: 65%;
+            }
+            @include media('>=tablet', '<desktop') {
+                width: 85%;
+            }
+        }
+    }
+}
+
+.cover-image {
+    .modal {
+        h2 {
+            text-align: left;
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .journal-name {
+            color: $gray-2;
+            display: block;
+            font-weight: 900;
+        }
+        .article-link {
+            color: $primary-blue-color;
+            display: block;
+            font-weight: 400;
+            text-transform: initial;
+        }
+    }
+}
+
+.cover-image__image {
+    .ux-modal-container {
+        .modal__body {
+            max-height: 90%;
+            top: 20px;
+        }
+    }
+}
+
+.close {
+    color: $primary-blue-color;
+    opacity: 1;
+}
+
+.modal {
+    .about-cover {
+        color: $dark-gray;
+        font-weight: 400;
+        margin: 0;
+    }
+    .cover-image__image {
+        width: 210px;
+        margin-top: 0;
+        display: inline-block;
+        vertical-align: top;
+        float: left;
+        margin-right: 15px;
+        img {
+            max-height: 280px;
+            width: 100%;
+        }
+        @include media('<tablet') {
+            display: block;
+            float: none;
+        }
+        .ux-modal-container {
+            .modal__dialog {
+                max-height: 90%;
+            }
+        }
+        a {
+            font-size: 12px;
+            color: $primary-blue-color;
+            display: block;
+        }
+    }
+    .cover-image__details {
+        font-size: 12px;
+        display: flex;
+        p {
+            color: $dark-gray;
+            font-weight: 400;
+            margin: 5px 0;
+        }
+    }
+    .coverDate, .pages {
+        font-weight: 400;
+        color: $gray-2;
+    }
+    .pages {
+        &:before {
+            content: ":";
+            padding: 0 3px;
+        }
+    }
+    h4, h3 {
+        color: $primary-text-color;
+    }
+    h3{
+        margin-bottom: 7px;
+    }
+}

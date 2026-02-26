@@ -1,0 +1,11 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block coverDetails
+    if details
+        div.cover-image__details.card.m-0
+            h2
+                if cover.serial.title
+                    | !{cover.serial.title}
+                else if cover.serial.serialTitle
+                    | !{cover.serial.serialTitle}
+            a.btn.btn-sm.btn-primary(href=cover.tocUrl) Current issue

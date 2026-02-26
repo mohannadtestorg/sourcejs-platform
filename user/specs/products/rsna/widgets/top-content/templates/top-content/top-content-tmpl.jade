@@ -1,0 +1,11 @@
+extends ../../../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl
+
+block topContentBody
+    div.top-content
+        block topContentDropzone
+            div.top-content-dropzone
+                | !{pb.renderDropzone(thisWidget, "topContentDropzone")}
+
+        if (data.items)
+            block teaserBlock
+                | !{pb.render('teaser', {data: data})}

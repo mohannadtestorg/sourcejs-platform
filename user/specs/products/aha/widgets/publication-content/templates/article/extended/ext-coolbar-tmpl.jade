@@ -1,0 +1,17 @@
+.stickybar.coolBar.article-sections
+    ul.rlist.coolBar__first.hidden-lg(data-cb-group="Article" data-cb-group-icon="icon-toc")
+        li
+            a.coolBar__ctrl(href="#")
+                i(class="icon-abstract" aria-hidden="true")
+                span About
+        li.scroll-to-target
+            a.coolBar__ctrl(href="#" data-db-target-for="sections_mobile" id="sections_mobile_ctrl" data-db-switch="icon-close_thin" aria-controls="sections_mobile_pop")
+                i(class="icon-sections" aria-hidden="true")
+                span Sections
+            div.coolBar__drop.transplant(data-db-target-of="sections_mobile" aria-labelledby="sections_mobile_ctrl" id="sections_mobile_pop" data-target='#sections ul' data-remove='false'  data-toggle='transplant' data-direction='from' data-transplant='self')
+
+    ul.rlist.coolBar__first(data-cb-group="Article" data-cb-group-icon="icon-toc")
+        | !{pb.renderDropzone(thisWidget, 'coolbarDropZone')}
+    #sections.hidden-xs.hidden-sm
+        h2.toc__heading.section__header Jump to
+        ul.sections__drop.rlist

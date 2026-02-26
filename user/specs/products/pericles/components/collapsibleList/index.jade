@@ -1,0 +1,31 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p Collapsible lists are normal lists that will have toggle functionality on small screens, the header will transform to be the controller, while the list will be content
+        p you can find this Collapsible lists mainly in footer and home page
+        small note: reduce the window size to observe the functionality
+
+
+    section.source_section
+        h2 Collapsible List Example
+
+        .source_example
+            .container
+                .collapsible-menu
+                    h3.collapsible-menu-header(data-bind='toggle') Librarians
+                        span.icon.icon-chevron-down
+                    ul.collapsible-menu-body
+                        li
+                            a(href='#') Item 1
+                        li
+                            a(href='#') Item 2
+                        li
+                            a(href='#') Item 3
+                        li
+                            a(href='#') Item 4
+                        li
+                            a(href='#') Item 5
+
+    | #{''}

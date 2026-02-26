@@ -1,0 +1,30 @@
+extends ../../../../../../ux3/templates/my-account/templates/my-account/professional-information-tmpl
+
+block profInfoContent
+    .row
+        .col-md-12
+            form
+                .grid-md-2.row
+                    .grid-item
+                        label Disipline
+                        select.jcf
+                            option Lorem
+                            option Ipsum
+                            option Dolor
+
+                    .grid-item
+                        label Specialization
+                        select.jcf
+                            option Lorem
+                            option Ipsum
+                            option Dolor
+
+                label(for='organization') Organization
+                input(id="organization" type="text" placeholder="Type your organization")
+
+                label(for='position') Position
+                input(id="position" type="text" placeholder="Type your position")
+
+                .form-btn
+                    button.btn.profile-dark__btn Save Address
+                    a(href="#").my-account__cancle Cancle

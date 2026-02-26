@@ -1,0 +1,23 @@
+each item, l in data.items
+    div.featured__container(class= item.group.serial.code)
+        block cover
+            if (item.group.coverImage)
+                div.featured__cover
+                    img(src=item.group.coverImage.src)
+        div.info-container
+            div.featured__date
+                i.icon-date
+                | !{item.epubDate}
+            div.featured__title
+                a(href=item.best)
+                    | !{item.title}
+            div.featured__journal-name
+                a(href=item.group.serial.journalLink)
+                    | !{item.group.serial.title}
+            div.featured__abstract
+                a(href=item.best)
+                    | !{item.abstract}
+            div.featured__journal-name.featured__summary
+                | !{item.summary}
+                a.read-more-link(href=item.best)
+                    | Read more

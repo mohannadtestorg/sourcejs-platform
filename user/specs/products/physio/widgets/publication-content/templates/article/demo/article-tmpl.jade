@@ -1,0 +1,20 @@
+extends ../article-tmpl.jade
+include ../map/map-article-tmpl.jade
+
+block articleRow
+    .row
+        .col-sm-8.col-md-8.article__content
+            //+articleHEeader()
+            //+articleCitation()
+            include ../extended/ext-citation-tmpl
+            +epub()
+            +articleAccordions(original)
+            //+articleCoolbar()
+            include ../extended/ext-coolbar-tmpl
+            div
+                +articleBody()
+            | !{pb.render("content-navigation" , "demo/demo-content-navigation" , navigator , "physio" )}
+
+        .col-sm-4.hidden-xs.hidden-sm.sticko__parent.article-row-right.gutterless
+            //+articleTab()
+            include ./ext-tabs-tmpl

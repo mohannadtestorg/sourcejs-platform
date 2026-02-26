@@ -1,0 +1,64 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+block coverImage
+    block defaultImageNothing
+        if (cover.coverImage && cover.coverImage.src)
+            div(class=imageClass)
+                if(cover.coverImage && cover.coverImage.src && cover.serial && cover.serial.serialTitle)
+                    img(src=cover.coverImage.src alt=cover.serial.serialTitle + " cover image")
+                else
+                    img(src="/products/physio/images/article_default_cover.svg" alt=cover.serial.serialTitle + " cover image")
+        else
+            div(class=imageClass)
+                img(src="/products/physio/images/article_default_cover.svg" alt=cover.serial.serialTitle + " cover image")
+
+    +coverDetails(cover)
+
+block coverImageDetails
+    if (cover.coverImage && cover.coverImage.src)
+        div.cover-with-details
+            div(class=imageClass)
+                if(cover.serial && cover.serial.serialTitle)
+                    if (cover.coverImage.caption)
+                        a(href="#" title="View details for " + cover.serial.serialTitle + " cover image" data-toggle="modal" data-target="#cover-"+ thisWidget.id)
+                            if(cover.coverImage && cover.coverImage.src)
+                                img(src=cover.coverImage.src alt="View details for " + cover.serial.serialTitle + " cover image")
+                                div.cover-image__hover
+                                    h3 Read about the cover
+                    else
+                        if(cover.coverImage && cover.coverImage.src)
+                            img(src=cover.coverImage.src alt="View details for " + cover.serial.serialTitle + " cover image")
+            | !{pb.render('parent-item','parent-item/parent-item-article', {data: cover}, 'physio')}
+        if (cover.coverImage.caption)
+            .ux-modal-container
+                div.modal(id="cover-"+ thisWidget.id)
+                    .modal__dialog
+                        .modal__header
+                            button.close(type='button', data-dismiss='modal')
+                                i.icon-close_thin(aria-hidden='true')
+                            h2 About the cover
+                        .modal__body
+                            div(class=imageClass)
+                                img(src=cover.coverImage.src alt="View details for " + cover.serial.serialTitle + " cover image")
+                                if (cover.largeCoverImage)
+                                    a(href="#" , data-toggle="modal" data-target="#large-"+ thisWidget.id)
+                                        span View large image
+                                    div(class=imageClass)
+                                        .ux-modal-container
+                                            div.modal(id="large-"+ thisWidget.id)
+                                                .modal__dialog
+                                                    .modal__header
+                                                        button.close(type='button', data-dismiss='modal')
+                                                            i.icon-close_thin(aria-hidden='true')
+                                                    .modal__body
+                                                        img(src=cover.largeCoverImage.src alt="View details for " + cover.serial.serialTitle + " cover image")
+                            .cover-image__details
+                                .parent-item
+                                    h3 cover image
+                                    span.journal-name !{cover.serial.serialTitle}
+                                    span.coverDate !{cover.coverDate}
+                                    if (cover) && (cover.fPage) &&(cover.lPage)
+                                        span.pages !{cover.fPage} - !{cover.lPage}
+                                    else if(cover && cover.pages)
+                                        span.pages !{cover.pages}
+                                    p.about-cover
+                                        | !{cover.coverImage.caption}

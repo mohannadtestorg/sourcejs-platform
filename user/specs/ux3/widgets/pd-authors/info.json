@@ -1,0 +1,62 @@
+{
+    "title": "Authors",
+    "template": "doc",
+    "tag": ["pdc"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Authors - Update",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/pd-authors/pd-authors-update-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Authors - Readonly",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/pd-authors/pd-authors-read-only-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

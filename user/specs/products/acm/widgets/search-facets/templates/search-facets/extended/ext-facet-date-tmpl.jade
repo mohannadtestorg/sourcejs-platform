@@ -1,0 +1,12 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-facet-date-tmpl
+
+block dateFacetSlider
+    .colored-block
+        .colored-block__title.clearfix
+            if (data && data.title)
+                h4  !{data.title}
+        .colored-block__content
+            div.facet__content
+                +dateFacetSliderBody()
+            .colored-block__dash
+

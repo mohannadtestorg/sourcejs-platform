@@ -1,0 +1,84 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 Home page
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+        h2 Usage
+        p Use json file to render Home page info
+        +printJson({
+        })
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            .container.announcements-container.hidden-xs
+                | !{data.announcements}
+            main.content
+                .container
+                    .row
+                        .col-xs-12.col-lg-9
+                            .row-fluid
+                                .col-xs-12
+                                    | !{data.slider}
+                            .row
+                                .col-xs-12.col-sm-7.col-md-8
+                                    h2 Featured Article
+                                    | !{data.featured_articles}
+                                .col-xs-12.col-sm-5.col-md-4
+                                    .card.call_for_papers
+                                        h2 Call for Papers
+                                        | !{data.call_for_papers}
+                            .row
+                                .col-xs-12
+                                    .card--dark
+                                        | !{data.joining_box}
+                        .col-xs-12.col-lg-3
+                            .row
+                                .col-md-4.col-lg-12.pb-3.hidden-xs.hidden-sm
+                                    | !{data.advertisements[0]}
+                                .col-md-8.col-lg-12
+                                    .card.pb-2
+                                        h2 Science News
+                                        .row
+                                            | !{data.science_news}
+                .container
+                    .row
+                        .col-xs-12
+                            h2 AHA Current Issue
+                    | !{data.covers_gallery}
+
+                .container
+                    .row
+                        .col-xs-12.col-md-6.col-lg-12.pt-3.gutterless
+                            .card.m-0
+                                h2 Multimedia
+                                | !{data.multimedia}
+
+                        .col-xs-12.col-sm-7.col-md-6.pt-3
+                            h2 What's happening at AHA/ASA
+
+                            each list, title in data.events
+                                h4.border-bottom
+                                  | Events for !{title}
+                                div
+                                  | !{list}
+                            a(href="#" class="btn btn-sm btn--primary mb-3") See more
+
+                        .col-xs-12.col-sm-5.col-md-4.col-lg-3.pt-3
+                            | !{data.tweets}
+
+                        .col-xs-12.col-sm-12.col-md-8.col-lg-3.pt-3
+                          .row
+                              .col-xs-12.col-sm-6.col-md-6.col-lg-12
+                                  | !{data.advertisements[1]}
+                              | !{data.connect_via_social_network}
+
+
+
+            | !{data.footer}
+    | #{''}

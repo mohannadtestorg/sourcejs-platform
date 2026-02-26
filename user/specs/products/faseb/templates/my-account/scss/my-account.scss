@@ -1,0 +1,455 @@
+.profile-pages {
+    position: relative;
+
+    .table-responsive {
+        margin-bottom: 0px;
+    }
+
+    .border-bottom, .separator td, .separator th {
+        border-color: $primary-border-color;
+    }
+
+    > .tab {
+        &--aside {
+            > .tab__nav {
+                background: transparent;
+                padding: 25px 15px;
+                width: 345px;
+
+
+                &:before {
+                    content: " ";
+                    width: 345px;
+                    height: 1000%;
+                    background: $secondary-bg-color;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    display: block;
+                    z-index: -1;
+
+                    @include media('<desktop') {
+                        width: 240px;
+                    }
+
+                    @include media('<tablet') {
+                        display: none;
+                    }
+                }
+
+                @include media('<desktop') {
+                    width: 240px;
+                }
+
+                li {
+                    margin: 0px;
+
+                    &.active {
+                        a {
+                            color: $primary-link-color;
+                            border-color: $secondary-border-color;
+                        }
+                    }
+                }
+
+                a {
+                    padding: 15px 0px 15px 15px;
+                    border-left: 8px solid transparent;
+                    color: $secondary-text-color;
+                    font-size: $h6-font-size;
+                    font-weight: 600;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        color: $primary-link-color;
+                    }
+
+                    span {
+                        line-height: normal;
+                    }
+                }
+            }
+
+
+
+            > .tab__content {
+                width: calc(100% - 345px);
+                padding: 25px 15px 0px 20px;
+
+                @include media('<desktop') {
+                    width: calc(100% - 240px);
+                }
+
+                @include media('<tablet') {
+                    padding: 25px 15px 0px 15px;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+
+                .tab__pane {
+                    padding-top: 0px;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                    margin-bottom: 20px;
+                }
+
+                p {
+                    color: $secondary-text-color;
+                }
+            }
+        }
+    }
+
+    .tab.tab--res {
+        > .dropBlock {
+            margin-left: 0px;
+            margin-right: 0px;
+            padding: 15px;
+            background-color: $secondary-bg-color;
+            margin-top: -10px;
+            /*
+            position: fixed;
+            width: 100%;
+            top: 59px;
+            z-index: 1;*/
+
+            > a {
+                background-color: transparent;
+                color: $primary-link-color;
+                font-weight: bold;
+                padding-bottom: 0px;
+                padding-top: 0px;
+                border-top: none;
+
+                &:hover {
+                    background-color: transparent;
+                    color: $primary-link-color;
+                }
+
+            }
+
+            .tab__nav {
+                background-color: $secondary-bg-color;
+                box-shadow: none;
+
+                a {
+                    padding: 15px;
+                    text-align: left;
+                    background-color: $secondary-bg-color;
+                    color: $secondary-text-color;
+                    font-size: $h6-font-size;
+                    font-weight: normal;
+                    border-top: 1px solid $default-border-color;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+
+    .profile-dark__btn, .btn  {
+        font-size: $default-font-size;
+        font-weight: 600;
+        padding: 15px 30px;
+        border: 1px solid $secondary-border-color;
+        color: $primary-link-color;
+        background-color: $default-bg-color;
+
+        &:hover {
+            background-color: $primary-bg-color;
+            color: $text-onDark;
+        }
+
+        &.btn_thin {
+            padding: 11px 30px;
+        }
+    }
+
+    .my-account__cancle {
+        font-size: $default-font-size;
+        font-weight: 600;
+        padding: 12px 30px;
+        margin-left: 10px;
+        border: 1px solid $secondary-border-color;
+
+        &:hover {
+            background-color: $primary-bg-color;
+            color: $text-onDark;
+        }
+    }
+
+    .tab .dropBlock > a {
+        padding: 15px 0px 15px 0px;
+        color: $primary-text-color;
+        font-weight: normal;
+        font-size: $h6-font-size;
+
+        i {
+            color: $primary-link-color;
+            font-size: 0.5rem;
+            margin-left: 8px;
+            padding: 0px;
+            transition: all 0.3s;
+        }
+    }
+
+    .account-tab__nav {
+        margin-bottom: 10px;
+    }
+
+    .select-all__action {
+        list-style: none;
+        padding: 0px;
+        display: inline-block;
+
+        > li {
+            display: inline-block;
+        }
+
+        .select-all__checkbox {
+            font-size: $h6-font-size;
+        }
+    }
+
+    .state:disabled {
+        display: none;
+    }
+}
+
+.account, .select-all {
+    &__sort {
+        .dropBlock__holder {
+            a {
+                border-top: 1px solid $primary-border-color;
+                padding: 10px;
+
+                &:hover {
+                    background: $secondary-lighten-bg-color;
+                    color: $primary-link-color;
+                }
+            }
+        }
+    }
+}
+
+.account {
+    &__sort {
+        .sort-by {
+            margin: 0px 0px 0px 15px;
+        }
+    }
+}
+
+.select-all {
+    &__sort {
+        width: 200px;
+        margin: 0px 0px 0px 15px;
+
+        .sort-by {
+            margin: 0px;
+        }
+    }
+}
+
+.address-block {
+    margin-bottom: 20px;
+
+    i {
+        color: $primary-link-color;
+        padding-left: 10px;
+        font-size: $icon-font-size;
+        cursor: pointer;
+    }
+
+    .add-new-address {
+        font-size: $default-font-size;
+        color: $primary-link-color;
+
+        i {
+            padding-right: 10px;
+        }
+    }
+}
+
+.account-tab {
+    margin-top: 0px;
+
+    &__nav:not(.js--open) {
+        a {
+            @include media('<tablet') {
+                padding: 15px 5px;
+            }
+        }
+    }
+
+    th {
+        color: $primary-text-color;
+        padding-top: 45px;
+        padding-bottom: 15px;
+    }
+
+    td {
+        color: $secondary-text-color;
+
+        label {
+            margin-top: 13px;
+            margin-bottom: 0px;
+        }
+
+        label.checkbox--primary {
+            margin-top: 0px;
+        }
+    }
+}
+
+.content-alert-form {
+    h6 {
+        margin-top: 45px;
+    }
+}
+
+.profile-dark__btn {
+    @include media('<desktop') {
+        width: auto;
+        margin-bottom: 20px;
+    }
+}
+
+.citationFormats {
+    td, th {
+        vertical-align: top;
+        padding: 1.8em 1em 1.8em 0;
+    }
+
+    th label{
+        font-size: $default-font-size;
+        margin: 0px;
+    }
+
+    td.submit {
+        padding-right: 0px;
+        padding-bottom: 0px;
+        border-bottom: 0px;
+    }
+
+    label {
+        display: inline-block;
+        margin-top: 0px;
+    }
+
+    input {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+
+}
+
+
+.profile-menu {
+    background-color: transparent;
+}
+
+
+
+/* ===========================================================
+Prod site
+=========================================================== */
+.profile-menu {
+    padding: 25px 0;
+
+    &:before {
+        content: " ";
+        width: 100%;
+        height: 1000%;
+        background: $secondary-bg-color;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+        z-index: -1;
+
+        @include media('<tablet') {
+            display: none;
+        }
+    }
+
+    .rlist:nth-child(2):not(:empty) {
+        padding-top: 0px;
+        margin-top: 0px;
+        border-top: 1px solid $tertiary-border-color;
+    }
+
+    .rlist a {
+        padding: 15px 0 15px 15px;
+        border-left: 8px solid transparent;
+        color: $secondary-text-color;
+        font-size: $h6-font-size;
+        font-weight: 600;
+        transition: all .3s;
+    }
+    .rlist a:hover {
+        color: $primary-link-color;
+        transition: all 0.3s;
+    }
+
+    .rlist a.active {
+        color: $primary-link-color;
+        border-left-color: $secondary-border-color;
+    }
+
+    .rlist a span {
+        line-height: normal;
+    }
+}
+
+.profile-menu--dropBlock {
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: $secondary-bg-color;
+    margin-top: -10px;
+    > a {
+        padding: 15px;
+        color: #0e5f9d;
+        font-weight: 700;
+        border-top: none;
+        background-color: $secondary-bg-color;
+        font-size: $h6-font-size;
+    }
+
+    i {
+        color: $primary-link-color;
+        font-size: 0.5rem;
+    }
+
+    a:hover {
+        background: $secondary-bg-color;
+        color: $primary-link-color;
+        font-weight: bold;
+    }
+
+    .profile-menu {
+        background-color: $secondary-bg-color;
+        padding: 0px;
+        box-shadow: none;
+
+        a {
+            font-size: $h6-font-size;
+            font-weight: normal;
+            background-color: transparent;
+            border-left: none;
+            border-top: 1px solid $default-border-color;
+        }
+
+
+    }
+}
+
+.profileMain {
+    margin-top: 25px;
+
+    .tab.tab--res {
+        .dropBlock {
+            margin-top: 0px;
+        }
+    }
+}

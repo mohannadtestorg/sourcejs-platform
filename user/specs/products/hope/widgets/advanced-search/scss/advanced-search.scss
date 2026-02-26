@@ -1,0 +1,47 @@
+.advanced-search {
+  &--filters {
+    label {
+      font-weight: 500;
+      color: $primary-darken-text-color;
+    }
+  }
+  .label-txt, .jcf-select-text {
+    font-weight: 500;
+    color: $primary-darken-text-color;
+    font-size: .875rem;
+    display: flex;
+  }
+  .jcf-select-text {
+    &:after {
+      float: none;
+      margin-left: auto;
+    }
+    @include media(">=tablet", "<desktop") {
+      font-size: 0.75rem;
+      &:after {
+        font-size: 0.5rem;
+      }
+    }
+  }
+  .accordion__control {
+    color: $primary-darken-text-color;
+    font-size: 1rem;
+  }
+
+}
+.jcf-select-publication-type__select{
+    width: 72%;
+  @include  media('>=tablet'){
+    .jcf-scrollable-wrapper{
+      height: 190px !important;
+    }
+   }
+
+  @include media('<tablet'){
+    width: 100%;
+  }
+  .jcf-scrollbar-horizontal{
+    display: none;
+  }
+
+}

@@ -1,0 +1,34 @@
+﻿header.header.fixed.base(data-db-parent-of="sb1")
+    .container.header--first-row
+        .pull-left
+            | !{logo}
+        .pull-right
+            .header__quick-menu
+                .col-sm-6
+                    | !{institution}
+                .col-sm-6
+                    a.header__donate(href"#") Donate
+
+                ul.rlist--inline
+                    li.res--left
+                        a.quick-menu__item(title="Subscribe" href="#")
+                            span Subscribe
+                    li.res--left
+                        a.quick-menu__item(title="or Authors" href="#")
+                            span For Authors
+                    li
+                        .eCommerceCartIndicatorWidget(widget-def='eCommerceCartIndicatorWidget', widget-id='919a768a-3ccb-4a54-a5fb-9ec266ca3a9c')
+                            a#cartLabel(href='/action/showCart')
+                                .cartLabel
+                                    span.icon-shoppingcart
+                                    span.filter-count.filter-count-bubble.shopping-cart.hidden(data-id='cart-size') 0
+                                    span.cartText My Cart
+                    li
+                        //| !{user}
+                        .right-side(widget-def='literatumNavigationLoginBar', widget-id='afb30c65-16c7-48c2-a29d-0490ff094f7a')
+                            .loginBar.login-open
+                                a.show-login(href='/action/showLogin?uri=%2F')
+                                    span.icon-profile_empty
+                                    span.sign-in-label Sign in
+    .primary-bg-color.text-onDark.drawer__nav
+        | !{mainmenu}

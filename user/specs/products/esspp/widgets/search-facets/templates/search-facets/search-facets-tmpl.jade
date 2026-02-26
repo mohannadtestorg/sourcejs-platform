@@ -1,0 +1,9 @@
+extends ../../../../../../ux3/widgets/search-facets/templates/search-facets/search-facets-tmpl
+
+
+block searchFacetsTitle
+    h4.facets__title.facets__title--main REFINE YOUR SEARCH
+
+
+block ExtendedFacet
+    | !{pb.render('search-facets', 'search-facets/extended/ext-facet', {data: facet},"esspp")}

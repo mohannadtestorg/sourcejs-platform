@@ -1,0 +1,19 @@
+extends ./teaser-tmpl
+mixin render(items)
+    block teaserWrapper
+        - var itemNo = items.length
+        if itemNo > 1
+            ul.rlist.lot.grid-xs-1.grid-sm-2.grid-md-2.grid-lg-2.grid-xlg-1
+                each item, l in items
+                    if l > 1
+                        li.grid-item.hidden-sm.hidden-md
+                            +teaser(item)
+                    else
+                        li.grid-item
+                            +teaser(item)
+        else
+            each item, l in items
+                +teaser(item)
+
+if ((data) && (data.items))
+    +render(data.items)

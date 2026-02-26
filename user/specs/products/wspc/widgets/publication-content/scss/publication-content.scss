@@ -1,0 +1,176 @@
+.corrections__ctrl {
+    .corrections__label, i, .corrections__icon.icon-Icon_Information {
+        color: #DB3B3B;
+    }
+    .icon-section_arrow_d {
+        font-weight: bold;
+    }
+}
+
+.article {
+    &__content {
+        .coolBar__wrapper {
+            background-color: #fff;
+            border-bottom: 1px solid $divider-color;
+        }
+    }
+    &__body {
+        color: #000;
+        font-family: serif;
+        line-height: 2rem;
+        font-size: 1.125rem;
+        .section {
+            &__title, h1, h2, h3, h4, h5, h6 {
+                font-family: Open Sans, sans-serif;
+            }
+        }
+        .figure__caption {
+            font-family: Open Sans, sans-serif;
+        }
+        .article-table-caption {
+            font-family: Open Sans, sans-serif;
+            font-weight: bold;
+        }
+        .article-table-content {
+            border: none;
+            table {
+                font-family: Open Sans, sans-serif;
+            }
+            thead tr {
+                background-color: $divider-color;
+                border-top: 1px solid #000;
+                border-bottom: 1px solid #000;
+                th {
+                    border: none;
+                }
+            }
+            tbody {
+                border-bottom: 1px solid #000;
+                tr {
+                    &:nth-child(odd) {
+                        background-color: $secondary-bg-color;
+                    }
+                    &:nth-child(even) {
+                        background-color: $divider-color;
+                    }
+                }
+            }
+        }
+    }
+    &-section__inline-figure figure {
+        width: 100%;
+        float: none;
+    }
+    &__keyword a {
+        background-color: $secondary-color;
+        color: #fff;
+    }
+
+    &__breadcrumbs {
+        margin-right: 0;
+        nav#{&} {
+            margin-right: 5px;
+        }
+        .separator:after{
+            content: "";
+            padding: 0;
+        }
+    }
+}
+
+.citation__top__item {
+    &.article {
+        &__tocHeading {
+            display: inline-block;
+            white-space: nowrap;
+            width: 200px;
+            overflow: hidden;
+            vertical-align: middle;
+            text-overflow: ellipsis;
+            margin: 0;
+            &:before{
+                content: ' | ';
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+article {
+    .author-name{
+        font-size: 0.875rem;
+        color: $secondary-text-color;
+    }
+    .loa-accordion {
+        font-size: 0.875rem;
+        color:$black;
+    }
+
+    .tab.js--sticko {
+        .w-slide--list {
+            a {
+                color: $secondary-color
+            }
+            i {
+                color: $secondary-color
+            }
+            a.active {
+                border: inherit;
+            }
+        }
+        .tab__content {
+            background-color: $secondary-bg-color;
+        }
+    }
+    .lot {
+        .creative-work{
+            &__title{
+                font-weight: 400;
+                margin-bottom: 8px;
+                &.min-height{
+                    height: 3em;
+                }
+            }
+            .loa{
+                margin-bottom: 8px;
+                a{
+                    color: $badge-bg-color;
+                }
+            }
+            .meta{
+                color: $badge-bg-color;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.epub-section {
+    &__item {
+        &:not(:last-child) {
+            padding-right: 6px;
+            margin-right: 6px;
+            border-right-color: $secondary-text-color;
+        }
+        & > span:first-child {
+            color: #000;
+        }
+        span {
+            color: $secondary-text-color;
+        }
+    }
+    &__citedBy__value {
+        border-radius: 0;
+        border: none;
+        padding: 0;
+    }
+}
+.citationFormats{
+    .link{
+        color: $primary-text-color;
+
+    }
+    .helpLink{
+        padding-bottom: 5px;
+    }
+}

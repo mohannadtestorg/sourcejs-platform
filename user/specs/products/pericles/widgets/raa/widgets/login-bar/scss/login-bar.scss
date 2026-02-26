@@ -1,0 +1,72 @@
+
+.loginBar {
+
+    .icon-profile_empty, .icon-userprofile{
+
+        margin: 0;
+
+        @include media('>=desktop') {
+            display: none;
+        }
+    }
+
+    .icon-profile_empty {
+        &:before {
+            color: $wiley-gray;
+            content: "\e907";
+        }
+    }
+    .icon-userprofile {
+        &:before {
+            color: $wiley-gray;
+            content: "\e907";
+        }
+    }
+
+    .sign-in-label, .profile-text {
+
+        @include media('<desktop') {
+            display: none;
+        }
+
+        max-width: 120px;
+        font-size: 0.875rem;
+        color: $wiley-blue-color;
+        font-weight: 600;
+
+        span {
+            color: $wiley-gray-color;
+        }
+    }
+
+}
+
+
+.agupubs-header {
+    @include media('>=desktop') {
+        .loginBar {
+            padding-left: 15px;
+            margin-top: 15px;
+        }
+
+        .individualUser {
+            width: 78px;
+            text-align: left;
+            a {display: inline-block;}
+        }
+    }
+}
+
+
+.keepMeLogin {
+    display: inline-block;
+}
+.switch {
+    position: static;
+    display: inline-block;
+
+    label {
+        margin: 0;
+        vertical-align: middle;
+    }
+}

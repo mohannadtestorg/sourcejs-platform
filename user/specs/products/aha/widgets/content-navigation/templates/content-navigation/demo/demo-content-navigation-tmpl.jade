@@ -1,0 +1,40 @@
+mixin prev(link)
+    a.btn.btn-sm.btn--primary.content-navigation__btn--pre(href=link title="Previous")
+        span.hidden-xs.hidden-sm.hidden-md Previous
+        span.hidden-lg
+            i.icon-arrow_l
+
+mixin next(link)
+    a.btn.btn-sm.btn--primary.content-navigation__btn--next(href=link title="Next")
+        span.hidden-xs.hidden-sm.hidden-md Next
+        span.hidden-lg
+            i.icon-arrow_r
+
+div.content-navigation.clearfix
+    if (data.content.previous)
+        case data.content.type
+            when "Article"
+            when "Chapter"
+            when "Digital Object Pub"
+                +prev(data.content.previous.itemUrl)
+            when "Issue"
+                +prev(data.content.previous.tocUrl)
+            when "Book"
+                +prev(data.content.previous.bookUrl)
+
+    block contentNavigationDropZone
+        div.content-navigation__extra
+            a(href="#" title="back to top" class="pagination__btn--back-to-top")
+                i.icon-section_arrow_u
+                | Back to top
+
+    if (data.content.next)
+        case data.content.type
+            when "Article"
+            when "Chapter"
+            when "Digital Object Pub"
+                +next(data.content.next.itemUrl)
+            when "Issue"
+                +next(data.content.next.tocUrl)
+            when "Book"
+                +next(data.content.next.bookUrl)

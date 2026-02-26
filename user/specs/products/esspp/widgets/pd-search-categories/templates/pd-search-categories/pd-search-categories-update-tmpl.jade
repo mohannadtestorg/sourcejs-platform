@@ -1,0 +1,8 @@
+extends ../../../../../../ux3/widgets/pd-search-categories/templates/pd-search-categories/pd-search-categories-update-tmpl.jade
+
+block inputClass
+    -var inputClass="Taxonomy__select"
+    -var isThereError=false
+    if(data.inputs.uris.message && data.inputs.uris.message.text)
+        -isThereError=true
+        -inputClass=data.inputs.uris.message.type + "-input"

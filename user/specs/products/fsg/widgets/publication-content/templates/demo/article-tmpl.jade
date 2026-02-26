@@ -1,0 +1,21 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/demo/article-tmpl.jade
+
+block articleRow
+    .row
+        .col-md-8(class=contentClasses)
+            //+articleHEeader()
+            //+articleCitation()
+            block includeCitation
+                include ../article/extended/ext-citation-tmpl
+                +epub()
+            block includeCoolbar
+                .scroll-to-target
+                    include ../article/extended/ext-coolbar-demo-tmpl
+            +articleBody()
+
+        block tabsContainer
+            .col-sm-4.hidden-xs.hidden-sm.hidden-md.sticko__parent
+                block socialLinkDropZone
+                //+articleTab()
+                block includeTabs
+                    include ../article/extended/ext-tabs-tmpl

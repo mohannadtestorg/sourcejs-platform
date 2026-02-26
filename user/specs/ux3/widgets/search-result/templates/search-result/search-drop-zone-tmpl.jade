@@ -1,0 +1,30 @@
+if(data.widgetData && data.widgetData.dropZone)
+     if data.widgetData.dropZone.dropZones10
+         - var itemNo = data.widgetData.dropZone.dropZones10.length
+         if itemNo > 1
+             each zone, l in data.widgetData.dropZone.dropZones10
+                 if zone.row == i && zone.page == data.search.startPage + 1
+                     li.clearfix.separator.search__item
+                         | !{pb.renderDropzone(thisWidget, "searchResultPageSize10")}
+     if data.widgetData.dropZone.dropZones20
+         - var itemNo = data.widgetData.dropZone.dropZones20.length
+         if itemNo > 1
+             each zone, l in data.widgetData.dropZone.dropZones20
+                 if zone.row == i && zone.page == data.search.startPage + 1
+                     li.clearfix.separator.search__item
+                         | !{pb.renderDropzone(thisWidget, "searchResultPageSize20")}
+     if data.widgetData.dropZone.dropZones50
+         - var itemNo = data.widgetData.dropZone.dropZones50.length
+         if itemNo > 1
+             each zone, l in data.widgetData.dropZone.dropZones50
+                 if zone.row == i && zone.page == data.search.startPage + 1
+                     li.clearfix.separator.search__item
+                         | !{pb.renderDropzone(thisWidget, "searchResultPageSize50")}
+     if data.widgetData.dropZone.dropZones100
+         - var itemNo = data.widgetData.dropZone.dropZones100.length
+         if itemNo > 1
+             each zone, l in data.widgetData.dropZone.dropZones100
+                 if zone.row == i && zone.page == data.search.startPage + 1
+                     li.clearfix.separator.search__item
+                         | !{pb.renderDropzone(thisWidget, "searchResultPageSize100")}
+

@@ -1,0 +1,23 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/gallery/templates/gallery/gallery-tmpl.jade')
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+        .source_example.source_visible
+            .container
+                .row
+                    .col-xs-12.col-sm-12.col-md-12
+                        | !{data.body}
+    | #{''}

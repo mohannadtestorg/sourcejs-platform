@@ -1,0 +1,130 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 Transplant
+    p Moving elements around inside the dom
+
+    section.source_section
+        h2 Default set-up
+        p Use HTML attributes to control the Transplant Plugin. Not all attributes are required. The ones that are, are noted.
+        p By default, the plugin will transfer the element to the target element. By changing the direction, you can do the opposite.
+
+        h3 Transplant Attributes to be added to the div that you want to move
+
+        code.src-js.source_visible.source_example
+            |   "data-toggle": "transplant", (required)
+            |   "data-target": ".header__nav", // The div you want to move to or from. It could be class, id of the target div (required)
+            |   "data-direction": "to|from", // Select whether you want to move the widget to another (to) or move another to this (from). Default: 'to'
+            |   "data-transplant": "nav", // The elements you want to move could be "self" which means that you want to move div its self, or could be class, id, or tag name of a child element (required)
+            |   "data-transplant-order": "1" // The order
+            |   "data-remove": "false" // Remove original element if true
+            |   "data-targetClass": "targetCustomClass" // Custom classes to be added to original elements
+            |   "data-classNames": "clonedCustomClass" // Custom classes to be added to cloned elements
+
+        markdown
+            p you can order the divs you moved inside the same target by using `data-transplant-order` attribute, it takes a integer value start from "0"
+
+        h3 Code example
+
+        code.src-html.source_visible.source_example
+            |   <div data-toggle="transplant" data-target=".header__nav" data-transplant="nav" data-transplant-order="1">
+            |       <nav role="navigation" >
+            |           .....
+            |       </nav>
+            |   </div>
+            |   <div data-toggle="transplant" data-target=".header__nav" data-transplant="nav" data-transplant-order="0">
+            |       <nav role="navigation" >
+            |           .....
+            |       </nav>
+            |   </div>
+
+    section.source_section
+        h2 Transplant
+        .source_example
+            header
+                .primary-bg-color.text-onDark.drawer__nav
+                    .header__nav(data-toggle='transplant', data-direction="from",
+                    data-target='.sitemap', data-transplant='.col-sm-4',
+                    data-transplant-order='0', data-target-class="hidden-xs", data-class-names="hidden-lg")
+                        a(href='#mainNav', data-target='mainNav', data-toggle='nav')
+                            i.icon-menu2(aria-hidden="true")
+                            i.icon-close_thin(aria-hidden="true")
+                        nav#mainNav.drawer__nav.container.gutterless(role='navigation')
+                            ul.rlist--inline
+                                li
+                                    a(href='#', title='Journals') Journals
+                                li
+                                    a(href='#', title='Books') Books
+                                li
+                                    a(href='#', title='Proceedings') Proceedings
+                                li
+                                    a(href='#', title='Blog') Blog
+
+            main.content
+            footer
+                .footer-top
+                    .clearfix.gutterless
+                        .col-sm-3
+                            a(href='#')
+                                img.logo__image(alt='logo', src='/specs/ux3/releasedAssets/images/logo.png')
+                            ul.rlist.inline-list.separator.visible-xs.visible-sm.separated-list
+                                li
+                                    a(href='#') Contact Us
+                                li
+                                    a(href='#') About us
+                                li
+                                    a(href='#') Publication
+                            .contact
+                                nav.contact__nav
+                                    ul.rlist--inline
+                                        li
+                                            a(href='#', title='icon-facebook')
+                                                i.icon-facebook(aria-hidden="true")
+                                        li
+                                            a(href='#', title='icon-twitter')
+                                                i.icon-twitter(aria-hidden="true")
+                                        li
+                                            a(href='#', title='icon-linkedin')
+                                                i.icon-linkedin(aria-hidden="true")
+                                        li
+                                            a(href='#', title='icon-Rss')
+                                                i.icon-Rss(aria-hidden="true")
+                                .contact__address 1801 Alexander Bell Drive Reston, VA 20191-4400 703-295-6300 | 800-548-2723
+                        .col-sm-9.col-lg-7.col-lg-offset-2.sitemap
+                            .col-sm-4
+                                h5.border-top Latest Articles
+                                ul.rlist
+                                    li
+                                        a(href='#') Nick Gayeski
+                                    li
+                                        a(href='#') George Pess
+                                    li
+                                        a(href='#') Tim Beechie
+                            .col-sm-4
+                                h5.border-top Popular Articles
+                                ul.rlist
+                                    li
+                                        a(href='#') George Pess
+                                    li
+                                        a(href='#') Tim Beechie
+                            .col-sm-4
+                                h5.border-top Archive
+                                ul.rlist
+                                    li
+                                        a(href='#') George Pess
+                                    li
+                                        a(href='#') Nick Gayeski
+                                    li
+                                        a(href='#') Tim Beechie
+                .footer-bottom.text-onDark
+                    .clearfix.gutterless
+                        .col-sm-6
+                            ul.rlist.inline-list.separator
+                                li
+                                    a(href='#') Terms and condition
+                                li
+                                    a(href='#') Privacy policy
+                        .col-sm-6
+                            .copyright © 2016 Atypon Systems Incorporated
+
+    | #{''}

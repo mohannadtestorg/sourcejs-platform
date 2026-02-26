@@ -1,0 +1,10 @@
+.featuredCard(class=card.config.classes)
+    if card.header
+        .featuredCard__header
+            | !{card.header}
+    if card.body
+        .featuredCard__body
+            | !{card.body}
+    if card.tale
+        a.featuredCard__tale(href= card.tale.link)
+            | !{card.tale.text}

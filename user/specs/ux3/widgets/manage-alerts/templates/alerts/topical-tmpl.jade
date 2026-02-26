@@ -1,0 +1,68 @@
+- var freqs = {"freqs": ["NEVER","DAILY","WEEKLY","MONTHLY"]};
+block headerContent
+    h1 Topics
+form.alert__content.alert__topic(id='topicAlertsForm' name="topicAlertsForm" method="post" action="/action/doUpdateAlertSettings")
+    input(type="hidden" value="removeCustomAlert" name="action")
+    input(type="hidden" name="backURI" value="/action/showAlertSettings?updatedTopicAlerts=true")
+    input(type="hidden" name="saveTopicAlerts" value="true")
+
+    block alertFrequency
+        .alert__freq
+            .input-group.left-side-label
+                label Frequency of alerts for latest articles
+                select.jcf(name="period")
+                    each freq, l in freqs.freqs
+                        if data.currentPerson.alerts.frequency == freq
+                            option(value=freq.charAt(0) selected="selected") !{freq}
+                        else
+                            option(value=freq.charAt(0)) !{freq}
+    block alertFormats
+        .alert__format
+            .input-group.left-side-label
+                label Choose an Email Format:
+                .input-group.left-side-label
+                    -var checkboxText
+                    if (data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.format != 'TEXT' && data.currentPerson.alerts.format != 'HTML')
+                        - checkboxText = 'TEXT'
+                    else
+                        - checkboxText = data.currentPerson.alerts.format
+
+                    label(class="radio--primary")
+                        input#alertFormat_text(type="radio" name="format" value="T" checked=checkboxText == 'TEXT')
+                        span(class="label-txt") Plain Text
+
+                    label(class="radio--primary")
+                        input#alertFormat_html(type="radio" name="format" value="H" checked=checkboxText == 'HTML')
+                        span(class="label-txt") HTML
+
+    block beforeTaxonomyContent
+
+    block taxonomyContent
+        h5.profile__heading.border-bottom Title A-Z
+        .table-responsive.separator
+            table.alert__list
+                tbody
+                    each taxonomy, i in data.taxonomies
+                        tr
+                            td.group__heading(colspan="2")
+                                h5  !{taxonomy.label}
+                        if (taxonomy.tags)
+                            each tag, l in taxonomy.tags
+                                tr
+                                    td.table__mark
+                                        label.checkbox--primary
+                                            if tag.subscribed == true
+                                                input(type="checkbox" id=tag.value name="topicalAlert[]" value=tag.value checked="checked")
+                                            else
+                                                input(type="checkbox" id=tag.value name="topicalAlert[]" value=tag.value )
+                                            span
+                                    td
+                                        label(for=tag.value)
+                                            a(href=tag.link) !{tag.label}
+
+    block topicalButtons
+        .form-btn
+            input(type="hidden" name="referrer" value="/action/showPreferences?menuTab=Alerts")
+            button.btn--inverse.extra-border(type='submit' name="save" value="true")  SUBMIT
+            button.btn--inverse.extra-border(type='submit' name='delete' value='true')  Delete
+            button.btn--cancel(type='reset')  Reset

@@ -1,0 +1,33 @@
+﻿header.header.fixed.base.header-demo.pageHeader(data-db-parent-of="sb1")
+    .institution--res
+        .container.hidden-lg
+            .institution-wrapper
+                | !{institution}
+    .visible-md.visible-lg
+        .ad-container
+            .pb-ad
+                a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fgo.adinstruments.com%2Fl%2F21302%2F2017-01-30%2F52sldx%26amp%3Bnx%3D331%26amp%3Bny%3D-40%26amp%3Bmb%3D33&loc=%2F&placeholderId=1011&productId=1011')
+                    img(src='/specs/products/physio/templates/header/images/aps-ad.png')
+    .header--first-row
+        .container
+            .row
+                .pull-left
+                    a(href="#", class="menu-home")
+                        span PHYSIOLOGY.ORG
+                        i.icon-home
+                    | !{mainmenu}
+                    .institution-wrapper
+                        | !{institution}
+                .pull-right
+                    .header__quick-menu.pull-right
+                        ul.rlist--inline
+                            li
+                                | !{search}
+                            li
+                                | !{cart}
+                            li
+                                | !{user}
+    .header--second-row.hidden-xs.hidden-sm.hidden-md
+        .container
+            .row
+                | !{breadcrumb}

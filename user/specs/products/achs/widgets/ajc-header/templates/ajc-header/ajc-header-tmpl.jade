@@ -1,0 +1,25 @@
+div.ajcHeader
+    div.container.container_scaled-down
+        div.row
+            div.col-xs-12
+                div.ajcHeader_left.pull-left
+                    block ajcHeaderContentDropzone
+                        | !{pb.renderDropzone(thisWidget, "ajcHeaderContentDropzone")}
+                div.ajcHeader_right.pull-right
+                    block ajcHeaderLogoDropzone
+                        | !{pb.renderDropzone(thisWidget, "ajcHeaderLogoDropzone")}
+                    a.button_primary_2(href="/action/showLogin")
+                        i.icon-send
+                        span Get e-Alerts
+                    span Latest Article
+                    if(data)
+                        if(data.content && data.content.date)
+                            span
+                                | !{data.content.date}
+                        else if(data.search && data.search.results && data.search.results[0].content && data.search.results[0].content.date)
+                            span
+                                | !{data.search.results[0].content.date}
+div.container.container_scaled-down
+    div.row
+        div.col-xs-12
+            div.ajcHeader_divider

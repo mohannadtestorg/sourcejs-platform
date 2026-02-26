@@ -1,0 +1,49 @@
+/***
+
+Empty container for full width promo box.
+
+```
+<div class="m-promo-blank"></div>
+```
+
+***/
+.o-article-promo-blank {
+  position: relative;
+  left: 0;
+  margin-top: map-get($inner-gutters, small);
+
+
+  @each $name, $point in $breakpoints {
+    @include breakpoint('#{$name}') {
+      margin-right: -(map-get($outer-gutters, $name));
+      margin-left: -(map-get($outer-gutters, $name));
+    }
+  }
+
+  @include breakpoint('medium+') {
+    height: 96px;
+  }
+
+  @include breakpoint('large+') {
+    left: 50%;
+    width: colspan(8, large);
+    margin-left: colspan(6, large, (map-get($inner-gutters, large) / 2), true);
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(7, xlarge);
+    margin-left: colspan(5, xlarge, (map-get($inner-gutters, xlarge) / 2), true);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(7, xxlarge);
+    margin-left: colspan(5, xxlarge, (map-get($inner-gutters, xxlarge) / 2), true);
+  }
+
+  .pb-ad {
+    height: 100%;
+  }
+}
+

@@ -1,0 +1,49 @@
+.userLoginBar {
+    .block-icon {
+        font-size: 1.45rem;
+        & ~ span {padding: 0 5px;}
+    }
+
+    &__controller {color: $wiley-gray;}
+    &__controller.js--open {
+        color: $wiley-blue-color;
+
+        &:after {
+            display: block;
+            content: '';
+            height: 5px;
+            width: calc(100% - 10px);
+            position: absolute;
+            background: $wiley-blue-color;
+            bottom: -15px;
+            right: 5px;
+        }
+    }
+
+    &__holder {
+        border: 1px solid $wiley-blue-color;
+        margin-top: 15px;
+        padding: 0;
+
+        li a {
+            padding: 10px;
+            display: block;
+        }
+
+        li + li { border-top: 1px solid $separators-color;}
+    }
+}
+
+.loginBar  {
+    .show-login,
+    .indivLogin {
+        display: inline-block
+    }
+
+    .sign-in-label, .profile-text {
+
+        @include media('<desktop') {
+            display: none;
+        }
+    }
+}

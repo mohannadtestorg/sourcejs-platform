@@ -1,0 +1,52 @@
+.alert {
+    &s {
+        h5 {
+            margin-top: 0px;
+        }
+
+        .rlist--inline {
+            li {
+                vertical-align: middle;
+            }
+        }
+    }
+    &__action {
+        i {
+            vertical-align: text-bottom;
+        }
+    }
+    &__freq {
+        label {
+            @include media('<tablet') {
+                width: auto;
+                margin-bottom: 15px;
+            }
+        }
+        .input-group {
+            @include media('>=tablet') {
+                width: auto;
+            }
+        }
+    }
+    &__format {
+        .left-side-label {
+            label {
+                width: auto;
+                @include media('<tablet') {
+                    width: auto;
+                    margin-bottom: 15px;
+                }
+            }
+            .input-group {
+                @include media('<tablet') {
+                    width: auto;
+                    text-align: left;
+                }
+            }
+        }
+
+        .radio--primary {
+            color: $primary-link-color;
+        }
+    }
+}

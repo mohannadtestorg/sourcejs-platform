@@ -1,0 +1,50 @@
+/***
+
+```
+<ul class="m-titles-listing f-h8">
+  <li><a href="#">A Fully Magnetically Levitated Circulatory Pump for Advanced Heart Failure</a></li>
+  <li><a href="#">Single Versus Bilateral Internal-Thoracic-Artery</a></li>
+  <li><a href="#">A Fully Magnetically Levitated Circulatory Pump for Advanced Heart Failure</a></li>
+  <li><a href="#">Single Versus Bilateral Internal-Thoracic-Artery</a></li>
+  <li><a href="#">A Fully Magnetically Levitated Circulatory Pump for Advanced Heart Failure</a></li>
+</ul>
+```
+
+***/
+
+.m-titles-listing {
+  margin-top: 0;
+}
+
+.m-titles-listing > li {
+  display: block;
+  position: relative;
+  margin-top: 8px;
+  padding-top: 8px;
+  list-style-type: none;
+}
+
+.m-titles-listing > li:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-titles-listing > li:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.m-titles-listing a {
+  color: $color__text--headlines;
+}
+
+.m-titles-listing a:hover {
+  @include text-underline();
+  color: $color__text--headlines;
+}

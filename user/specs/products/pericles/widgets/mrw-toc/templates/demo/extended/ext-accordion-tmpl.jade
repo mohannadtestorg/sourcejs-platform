@@ -1,0 +1,117 @@
+extends ../../../../../../../ux3/components/accordion/templates/accordion/accordion-tmpl.jade
+
+
+block accordionType
+    if (data) && (data.items)
+        each item, i in data.items
+            if(item.label)
+                a.accordion__control(href="#" title=item.label aria-expanded="false" aria-controls=thisWidget.id + i)
+                    i.icon-add-circle-outline(aria-hidden="true")
+                    h3
+                        span !{item.label}
+
+            if(item.content)
+                .accordion__content(id= thisWidget.id + i)
+
+                    a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                        i.icon-add-circle-outline(aria-hidden="true")
+                        h3
+                            span Constitutive Modelling of Smart Materials
+                    .accordion__content(id="id430")(style="display:none;")
+                        .inner-result-list
+                            li.clearfix.separator.search__item
+                                .item__body
+                                    .meta__header
+                                    h4.meta__title.meta__title__margin
+                                        span.hlFld-Title
+                                            a(href='/doi/10.1002/9781444351071.wbeghm701') Introduction
+                                    .meta__info
+                                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                                        ul.rlist--inline.separator.toc-item__detail
+                                            li
+                                                a(title='Abstract', href='/doi/abs/10.1002/9781444351071.wbeghm701') Abstract
+                                            li
+                                                a(title='Full text', href='/doi/full/10.1002/9781444351071.wbeghm701')
+                                                    | Full text
+                                            li
+                                                a(href='/servlet/linkout?type=rightslink&url=startPage%3D1%26pageCount%3D6%26author%3D%26isbn%3D9781444334890%26orderBeanReset%3Dtrue%26imprint%3DAmerican%2BCancer%2BSociety%26contentID%3D10.1002%252F9781444351071.wbeghm701%26title%3DIntroduction%26pa%3D%26publisherName%3DWiley%26publication%3Dbook%26rpt%3Dn%26endPage%3D6%26publicationDate%3D02%252F04%252F2013%26bookTitle%3DThe%2BEncyclopedia%2Bof%2BGlobal%2BHuman%2BMigration', target='_blank') Request permission
+                            li.clearfix.separator.search__item
+                                .item__body
+                                    .meta__header
+                                    h4.meta__title.meta__title__margin
+                                        span.hlFld-Title
+                                            a(href='/doi/10.1002/9781444351071.wbeghm702') Maps
+                                    .meta__info
+                                        ul.meta__authors.rlist--inline.comma(title='list of authors')
+                                        ul.rlist--inline.separator.toc-item__detail
+                                            li
+                                                a(title='Abstract', href='/doi/abs/10.1002/9781444351071.wbeghm702') Abstract
+                                            li
+                                                a(title='Full text', href='/doi/full/10.1002/9781444351071.wbeghm702')
+                                                    | Full text
+                                            li
+                                                a(href='/servlet/linkout?type=rightslink&url=startPage%3D1%26pageCount%3D13%26author%3D%26isbn%3D9781444334890%26orderBeanReset%3Dtrue%26imprint%3DAmerican%2BCancer%2BSociety%26contentID%3D10.1002%252F9781444351071.wbeghm702%26title%3DMaps%26pa%3D%26publisherName%3DWiley%26publication%3Dbook%26rpt%3Dn%26endPage%3D13%26publicationDate%3D02%252F04%252F2013%26bookTitle%3DThe%2BEncyclopedia%2Bof%2BGlobal%2BHuman%2BMigration', target='_blank') Request permission
+
+
+                    a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                        i.icon-add-circle-outline(aria-hidden="true")
+                        h3
+                            span Modeling Methods for SHM
+                    .accordion__content(id="id430")(style="display:none;")
+
+                        a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                            i.icon-add-circle-outline(aria-hidden="true")
+                            h3
+                                span Civil Infrastructure Load Models for Structural Health Monitoring
+                        .accordion__content(id="id430")(style="display:none;")
+                            | Lorem Ipsum
+
+                        a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                            i.icon-add-circle-outline(aria-hidden="true")
+                            h3
+                                span Static Damage Phenomena and Models
+                        .accordion__content(id="id430")(style="display:none;")
+                            | Lorem Ipsum
+                        a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id43011" data-sectionHeading="data.ajaxData.sectionHeading")
+                            i.icon-add-circle-outline(aria-hidden="true")
+                            h3
+                                span Damage Evolution Phenomena and Models
+                        .accordion__content.accordion-issue-item(id="id43011")(style="display:none;")
+
+                            .inner-result-count
+
+                            .inner-result-list
+                                .mrw-spinner
+                            .inner-result-pagination
+
+                            a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                                i.icon-add-circle-outline(aria-hidden="true")
+                                h3
+                                    span Algorithms
+                            .accordion__content(id="id430")(style="display:none;")
+                                | Lorem Ipsum
+
+                    a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                        i.icon-add-circle-outline(aria-hidden="true")
+                        h3
+                            span Damage Detection Algorithms and Techniques
+                    .accordion__content(id="id430")(style="display:none;")
+                        | Lorem Ipsum
+
+                    a.accordion__control(href="#" title="" aria-expanded="false" aria-controls="id430")
+                        i.icon-add-circle-outline(aria-hidden="true")
+                        h3
+                            span Probabilistic Approaches
+                    .accordion__content(id="id430")(style="display:none;")
+                        | Lorem Ipsum
+
+    else if type == 'subSection' && (data.items)
+        each item, i in data.items
+            if(item.label)
+                a.accordion__control.sub(href="#" title=item.label aria-expanded="false" aria-controls=thisWidget.id + i)
+                    i.icon-section_arrow_d(aria-hidden="true")
+                    h3
+                        span !{item.label}
+            if(item.content)
+                .accordion__content.bordered(id= thisWidget.id + i)
+                    | !{item.content}

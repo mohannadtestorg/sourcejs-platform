@@ -1,0 +1,95 @@
+.o-col.o-col--primary
+  p.a-subtitle Poll, prompt with image
+  form.m-poll(action='/endpoints/PollResults.php', data-behavior='Poll')
+    input(type='hidden', name='pollID', value='3')
+
+    fieldset
+      legend.m-poll__legend
+        span.m-cta__image-challenge-image
+          span.m-cta__image-challenge-image-container
+            img(src='http://placehold.dev.area17.com/image/300x200', sizes='(min-width: 1480px) 120px, (min-width: 1280px) 8.3vw, (min-width: 1024px) 8.3vw, (min-width: 768px) 12.5vw, (min-width: 480px) 16.67vw, calc(((100vw - 112px) / 6) * 2)', width='300', height='200')
+
+        span.m-cta__image-challenge-prompt.f-blurb
+          | A man presented with difficulty walking and urinary incontinence. On examination, his pupils where nonreactive to bright light. What is the diagnosis?
+
+      ol.m-poll__items
+        li
+          span.a-form-radio
+            input#poll_3_answer_1(type='radio', value='answer_1', name='poll')
+
+            label.m-poll__label(for='poll_3_answer_1')
+              | Ischemic hepatitis.
+              em.m-poll__label-percentage(data-poll-percentage='')
+
+              span.a-progress-bar
+                span(data-poll-bar='')
+
+        li
+          span.a-form-radio
+            input#poll_3_answer_2(type='radio', value='answer_2', name='poll')
+
+            label.m-poll__label(for='poll_3_answer_2')
+              | Wilson&apos;s disease.
+              em.m-poll__label-percentage(data-poll-percentage='')
+
+              span.a-progress-bar
+                span(data-poll-bar='')
+
+        li
+          span.a-form-radio
+            input#poll_3_answer_3(type='radio', value='answer_3', name='poll')
+
+            label.m-poll__label(for='poll_3_answer_3')
+              | Autoimmune hepatitis.
+              em.m-poll__label-percentage(data-poll-percentage='')
+
+              span.a-progress-bar
+                span(data-poll-bar='')
+
+        li
+          span.a-form-radio
+            input#poll_3_answer_4(type='radio', value='answer_4', name='poll')
+
+            label.m-poll__label(for='poll_3_answer_4')
+              | Hepatic-vein thrombosis.
+              em.m-poll__label-percentage(data-poll-percentage='')
+
+              span.a-progress-bar
+                span(data-poll-bar='')
+
+        li
+          span.a-form-radio
+            input#poll_3_answer_5(type='radio', value='answer_5', name='poll')
+
+            label.m-poll__label(for='poll_3_answer_5')
+              | Acute hepatitis E virus infection.
+              em.m-poll__label-percentage(data-poll-percentage='')
+
+              span.a-progress-bar
+                span(data-poll-bar='')
+
+        li
+          span.a-form-radio
+            input#poll_3_answer_6(type='radio', value='answer_6', name='poll')
+
+            label.m-poll__label(for='poll_3_answer_6')
+              | Hemochromatosis.
+              em.m-poll__label-percentage(data-poll-percentage='')
+
+              span.a-progress-bar
+                span(data-poll-bar='')
+
+      p.m-poll__btns
+        button.a-btn(data-poll-submit='')
+          | Submit
+          svg.icon--arrow(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+
+        button.a-btn.a-btn--fake-link(data-poll-view='') How others chose
+
+        button.a-btn.a-btn--fake-link(data-poll-back='', aria-hidden='true') Back to Poll
+
+        span.m-poll__message.m-poll__message--secondary.f-ui(data-poll-responses='', aria-hidden='true')
+
+      p.m-poll__note.f-author
+        | This open poll should not be interpreted as a scientifically valid physician survey.

@@ -1,0 +1,59 @@
+.bookSeries {
+    &__count {
+        margin: 23px 0;
+        @include media('<tablet') {
+            padding: 0 20px;
+        }
+    }
+
+    .doi-access-wrapper, .cover-image__date,  &__title {
+        margin-bottom: 0.75rem;
+        float: none;
+    }
+
+    &__title {
+        font-weight: 600;
+        color: $wiley-blue-color;
+    }
+
+    .item__image {
+        display: block;
+
+        @include media('<tablet') {
+            display: none;
+        }
+        @include media('>=tablet') {
+            ~ .item__body {
+                width: 80%;
+                float: left;
+            }
+        }
+    }
+
+    .medium__header {
+        margin-bottom: 0.75rem;
+    }
+
+    .accordion__control {
+        color: $wiley-blue-color;
+        font-size: 0.75rem;
+        font-weight: 600;
+
+        i[class*=icon-] {
+            font-size: 0.3rem;
+            margin-left: 7px;
+            vertical-align: middle;
+        }
+    }
+
+    .accordion__content {
+        padding: 15px;
+        background: $tertiary-bg-color;
+    }
+
+    .item__body label {
+        display: inline;
+        margin-right: 4px;
+        color: $label;
+    }
+}

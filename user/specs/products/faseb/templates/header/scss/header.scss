@@ -1,0 +1,130 @@
+.header {
+
+    @include media('<desktop') {
+        padding-right: 0;
+        border-bottom: none;
+    }
+
+    .container {
+        max-width: $container-large-desktop;
+
+        @include media('>=desktop', '<large') {
+            width: $container-desktop;
+        }
+
+        @include media('>=tablet', '<desktop') {
+            width: $container-tablet;
+        }
+    }
+
+    &--first-row {
+        padding: 18px 15px;
+    }
+
+    &__logo {
+
+        @include media('<desktop') {
+            margin-left: 0px;
+        }
+
+        img {
+            height: auto;
+            max-height: 40px;
+            width: auto;
+
+            @include media('<tablet') {
+                height: auto;
+                max-height: 29px;
+                margin-left: 0px;
+                width: initial;
+            }
+        }
+    }
+
+    .institution-wrapper {
+        vertical-align: middle;
+
+        @include media('<desktop') {
+            display: inline-block;
+
+            span {
+                display: block;
+                font-size: $xx-small-font-size;
+                padding-left: 0px;
+            }
+        }
+        @include media('<tablet') {
+            display: none;
+        }
+    }
+
+    .institution {
+        font-size: $xx-small-font-size;
+        color: $secondary-text-color;
+        padding: 0px;
+        border-right: none;
+    }
+
+    .institution-info-wrapper {
+        padding: 5px 18px;
+        border-right: 1px solid $tertiary-border-color;
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    .header--first-row {
+        @include media('<tablet') {
+            padding: 15px 60px 15px 15px;
+        }
+    }
+
+    &__quick-menu {
+        vertical-align: middle;
+        float: right;
+
+        .rlist--inline {
+            li {
+                a.quick-menu__item {
+                    padding: 0px 0px 0px 24px;
+
+                    i, span {
+                        color: $primary-link-color;
+                    }
+                    i {
+                        font-size: $icon-font-size;
+                        line-height: 1em;
+                        margin-bottom: 0px;
+
+                        @include media('<tablet') {
+                            line-height: 29px;
+                        }
+                    }
+
+
+                    span {
+                        font-size: $xx-small-font-size;
+                        margin-top: 10px;
+
+                        @include media('<tablet') {
+                            display: none;
+                        }
+                    }
+
+
+                }
+
+                &:first-child .quick-menu__item {
+                    padding-left: 18px;
+
+                    @include media('<tablet') {
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+
+    }
+
+}

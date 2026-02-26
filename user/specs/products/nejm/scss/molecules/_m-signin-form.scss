@@ -1,0 +1,219 @@
+/***
+
+```
+<form action="/endpoints/Login.php" class="m-signin-form" method="post">
+  <fieldset>
+    <ol>
+      <li>
+        <label class="a-label" for="email">Email Address</label>
+        <input type="text" id="email" name="email" />
+      </li>
+      <li>
+        <label class="a-label" for="password">Password</label>
+        <input type="password" id="password" name="password" />
+      </li>
+      <li class="m-signin-form__international-dialling">
+        <span class="a-label">Insert your mobile number to receive a verification code in order to sign in</span>
+        <label class="a-label" for="diallingCode">International dialing code</label>
+        <span class="a-form-select">
+          <select name="diallingCode" id="diallingCode">
+            <option>+1</option>
+            <option>+30</option>
+            <option>+44</option>
+          </select>
+        </span>
+        <label class="a-label" for="password">Mobile number</label>
+        <input type="text" id="mobileNumber" name="mobileNumber" />
+      </li>
+    </ol>
+  </fieldset>
+
+  <p class="m-signin-form__remember">
+    <span class="a-form-checkbox">
+      <input type="checkbox" value="true" id="remember_me" name="remember_me">
+      <label for="remember_me">Remember me</label>
+    </span>
+
+    <a href="#" class="f-ui">Forgot password?</a>
+  </p>
+
+  <p class="m-signin-form__btns">
+    <button class="a-btn a-btn--no-icon" type="submit" class="">Sign In</button>
+  </p>
+
+  <div class="m-signin-form__help">
+    <p class="f-ui">Don't have an account?</span>
+    <ul class="f-ui">
+      <li><a href="#">Create an Account</a></li>
+      <li><a href="#">Subscribe</a></li>
+    </ul>
+  </div>
+
+  <p class="m-signin-form__footer f-ui">
+    <a href="/templates/login-athens.php">Login via OpenAthens or your institution</a>
+  </p>
+</form>
+```
+
+***/
+
+.m-signin-form {
+  margin-top: 32px;
+
+  @include breakpoint('small+') {
+    width: colspan(5, small);
+    padding-top: 0;
+    padding-left: colspan(1, small, map-get($inner-gutters, small));
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(6, medium);
+    margin-top: 64px;
+    padding-left: colspan(2, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(6, large);
+    padding-left: colspan(2, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(6, xlarge);
+    padding-left: colspan(2, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(6, xxlarge);
+    padding-left: colspan(2, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.m-signin-form fieldset label,
+.m-signin-form fieldset input {
+  display: block;
+  width: 100%;
+}
+
+.m-signin-form input,
+.m-signin-form .a-form-select {
+  margin-top: 16px;
+}
+
+.m-signin-form fieldset ol {
+  margin-top: 0;
+}
+
+.m-signin-form fieldset li {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.m-signin-form .a-label {
+  color: $color__text--headlines;
+  font-weight: bold;
+}
+
+.m-signin-form__btns {
+  margin-top: 20px;
+}
+
+.m-signin-form__btns .a-btn {
+  display: block;
+  width: 100%;
+  margin: 16px 0;
+}
+
+.m-signin-form__remember {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.m-signin-form__remember > * {
+  flex: 0 0 auto;
+}
+
+.m-signin-form__remember a:hover {
+  text-decoration: underline;
+}
+
+.m-signin-form__help {
+  margin-top: 16px;
+  overflow: hidden;
+
+  @include breakpoint('large+') {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  p {
+    margin-top: 0;
+    color: $color__text--quaternary;
+
+    @include breakpoint('large+') {
+      flex: 0 0 auto;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 8px;
+
+    @include breakpoint('large+') {
+      flex: 0 0 auto;
+      margin-top: 0;
+    }
+
+    li {
+      flex: 0 0 auto;
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 1px solid $color__rules;
+    }
+
+    li:first-child {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+}
+
+.m-signin-form__footer {
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px solid $color__rules;
+}
+
+
+.m-signin-form__international-dialling {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.m-signin-form__international-dialling .a-label {
+  display: block;
+  //flex: 0 0 auto;
+  width: 100%;
+}
+
+.m-signin-form .m-signin-form__international-dialling label.a-label {
+  display: none;
+}
+
+.m-signin-form__international-dialling .a-form-select,
+.m-signin-form__international-dialling input {
+  flex: 0 0 auto;
+  width: 90px;
+}
+
+.m-signin-form fieldset .m-signin-form__international-dialling input {
+  flex: 1;
+  border-left: 0 none;
+}

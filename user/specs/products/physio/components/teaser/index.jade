@@ -1,0 +1,101 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p The <strong>Teaser</strong> component contains the following components: #[a(href="../parent-item/") Parent item], #[a(href="../loa/") List of authors]
+        p The <strong>Teaser</strong> component is included in the following widgets: #[a(href="../../widgets/most-x/") Most - X widget]
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/teaser/templates/teaser/teaser-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Teaser template.
+        +printJson({
+            "data": {
+                "teasers": [
+                    {
+                        "itemUrl": "#",
+                        "title": "A life-table model estimation of the parr capacity of a late 19<sup>th</sup> century Puget Sound steelhead population",
+                        "img": "/specs/ux3/releasedAssets/images/components/teaser/news.png",
+                        "parentItem": {
+                            "title": "FACETS",
+                            "volume": 2,
+                            "issue": 5
+                        },
+                        "authors": [
+                            {
+                                "text": "Nick Gayeski",
+                                "itemUrl": "/author/search/url?q=Nick Gayeski"
+                            },
+                            {
+                                "text": "George Pess",
+                                "itemUrl": "/author/search/url?q=George Pess"
+                            },
+                            {
+                                "text": "Tim Beechie",
+                                "itemUrl": "/author/search/url?q=Tim Beechie"
+                            }
+                        ]
+                    }
+                ]
+            }
+        })
+        markdown
+            p It takes list of `teasers`
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `itemUrl`
+                        td its the url of the image and titl, "issue url"
+                    tr
+                        td `title`
+                        td Issue title
+                    tr
+                        td `img`
+                        td Issue Image
+                    tr
+                        td `parentItem`
+                        td Contains the type of the issue, volume number and issue number for more info #[a(href="../parent-item/") Parent item]
+                    tr
+                        td `authors`
+                        td Contains the author name and link, for more info #[a(href="../loa/") List of authors]
+
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        .source_example
+            | !{data.items[1].body}
+
+        h3!= data.items[2].title
+        .source_example
+            | !{data.items[2].body}
+
+        h3!= data.items[3].title
+
+        .source_example
+            | !{data.items[3].body}
+
+
+        h3!= data.items[4].title
+        .source_example
+            | !{data.items[4].body}
+
+    | #{''}

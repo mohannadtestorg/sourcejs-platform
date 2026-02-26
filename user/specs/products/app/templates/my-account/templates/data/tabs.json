@@ -1,0 +1,637 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "m1x"
+        },
+        "config": {
+            "type": "vertical",
+            "effect": "dropdown"
+        },
+        "data": {
+            "nav": [
+
+                {
+                    "text": "Professional Information",
+                    "content": {
+                        "$pug": {
+                            "template": "../../../../ux3/templates/my-account/templates/my-account/professional-information-tmpl.jade",
+                            "data": {}
+                        }
+                    }
+                },
+                {
+                    "text": "Addresses",
+                    "content": {
+                        "$pug": {
+                            "template": "../../../../ux3/templates/my-account/templates/my-account/addresses-tmpl.jade",
+                            "data": {}
+                        }
+                    }
+                },
+                {
+                    "text": "Access Entitlements / Redeem Voucher",
+                    "content": {
+                        "$pug": {
+                            "template": "./templates/access-entitlements-tmpl.jade",
+                            "data": {}
+                        }
+                    }
+                },
+                {
+                    "text": "Alert",
+                    "content": {
+                        "$pug": {
+                            "template": "../../../../ux3/widgets/manage-alerts/templates/manage-alerts/manage-alerts-tmpl.jade",
+                            "data": {
+                                "thisWidget": {
+                                    "properties": {
+                                        "displayNewContentAlerts": true,
+                                        "contentAlertsLabel": "New content alerts",
+                                        "displayCitationAlerts": true,
+                                        "citationAlertsLabel": "Citation alerts",
+                                        "displayCustomAlerts": true,
+                                        "customAlertsLabel": "Custom alerts",
+                                        "displayNewTitleAlerts": true,
+                                        "newTitleAlertsLabel": "New Title Alerts",
+                                        "displayAxaAlerts": true,
+                                        "axaAlertsLabel": "Article by Alerts",
+                                        "displayCollectionAlerts": true,
+                                        "collectionAlertsLabel": "Collection Alerts",
+                                        "displayDigestAlerts": true,
+                                        "digestAlertsLabel": "Digest Alerts",
+                                        "newContentView": "modifyOnly",
+
+                                        "customHeadingsEnabled": true,
+                                        "bookSeriesAlertsHeading" : "BOOK ALERTS",
+                                        "journalAlertsHeading": "JOURNAL ALERTS",
+                                        "selectAllLabel": "Select All"
+                                    }
+                                },
+                                "data": {
+                                    "currentPerson": {
+                                        "email": "habuemiesh@atypon.com",
+                                        "alerts": {
+                                            "format": "TEXT",
+                                            "frequency": "DAILY",
+                                            "toc": [
+                                                {
+                                                    "content": {
+                                                        "journalUrl": "http://habuemiesh:18080/journal/fca",
+                                                        "code": "fca",
+                                                        "title": "Future Cardiology"
+                                                    }
+                                                },
+                                                {
+                                                    "content": {
+                                                        "journalUrl": "http://habuemiesh:18080/journal/fon",
+                                                        "code": "fon",
+                                                        "title": "Future Oncology"
+                                                    }
+                                                },
+                                                {
+                                                    "content": {
+                                                        "journalUrl": "http://habuemiesh:18080/journal/pme",
+                                                        "code": "pme",
+                                                        "title": "Personalized Medicine"
+                                                    }
+                                                }
+                                            ],
+                                            "books": [],
+                                            "citations": [
+                                                {
+                                                    "ID": 22921,
+                                                    "content": {
+                                                        "bestUrl": "http://habuemiesh:18080/doi/10.2217/ebo.12.203",
+                                                        "title": "Acromegaly: diagnosis and treatment",
+                                                        "epubDate": "3/18/13 3:48 AM",
+                                                        "group": {
+                                                            "title": "Acromegaly: Diagnosis &amp; Treatment",
+                                                            "bookUrl": "http://habuemiesh:18080/doi/book/10.2217/9781780841595"
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "title": [],
+                                            "digest": [],
+                                            "collection": [],
+                                            "custom": []
+                                        }
+                                    },
+                                    "journals": [
+                                        {
+                                            "code": "fca",
+                                            "doi": "10.1517/fca.1",
+                                            "journalUrl": "http://habuemiesh:18080/journal/fca",
+                                            "title": "Future Cardiology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": true
+                                        },
+                                        {
+                                            "code": "fon",
+                                            "doi": "10.1517/fon.2",
+                                            "journalUrl": "http://habuemiesh:18080/journal/fon",
+                                            "title": "Future Oncology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": true
+                                        },
+                                        {
+                                            "code": "pme",
+                                            "doi": "10.1517/pme.3",
+                                            "journalUrl": "http://habuemiesh:18080/journal/pme",
+                                            "title": "Personalized Medicine",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": true
+                                        },
+                                        {
+                                            "code": "pgs",
+                                            "doi": "10.1517/pgs.4",
+                                            "journalUrl": "http://habuemiesh:18080/journal/pgs",
+                                            "title": "Pharmacogenomics",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "whe",
+                                            "doi": "10.2217/whe.7",
+                                            "journalUrl": "http://habuemiesh:18080/journal/whe",
+                                            "title": "Women's Health",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "rme",
+                                            "doi": "10.2217/rme.8",
+                                            "journalUrl": "http://habuemiesh:18080/journal/rme",
+                                            "title": "Regenerative Medicine",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "ahe",
+                                            "doi": "10.2217/ahe.9",
+                                            "journalUrl": "http://habuemiesh:18080/journal/ahe",
+                                            "title": "Aging Health",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "flp",
+                                            "doi": "10.2217/flp.10",
+                                            "journalUrl": "http://habuemiesh:18080/journal/flp",
+                                            "title": "Future Lipidology",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "frm",
+                                            "doi": "10.2217/frm.11",
+                                            "journalUrl": "http://habuemiesh:18080/journal/frm",
+                                            "title": "Future Rheumatology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "fvl",
+                                            "doi": "10.2217/fvl.12",
+                                            "journalUrl": "http://habuemiesh:18080/journal/fvl",
+                                            "title": "Future Virology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "fmb",
+                                            "doi": "10.2217/fmb.13",
+                                            "journalUrl": "http://habuemiesh:18080/journal/fmb",
+                                            "title": "Future Microbiology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "fnl",
+                                            "doi": "10.2217/fnl.14",
+                                            "journalUrl": "http://habuemiesh:18080/journal/fnl",
+                                            "title": "Future Neurology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "nnm",
+                                            "doi": "10.2217/nnm.15",
+                                            "journalUrl": "http://habuemiesh:18080/journal/nnm",
+                                            "title": "Nanomedicine",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "thy",
+                                            "doi": "10.1517/thy.16",
+                                            "journalUrl": "http://habuemiesh:18080/journal/thy",
+                                            "title": "Therapy",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "fht",
+                                            "doi": "10.1517/fht.17",
+                                            "journalUrl": "http://habuemiesh:18080/journal/fht",
+                                            "title": "Future HIV Therapy",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "bmm",
+                                            "doi": "10.1517/bmm.18",
+                                            "journalUrl": "http://habuemiesh:18080/journal/bmm",
+                                            "title": "Biomarkers in Medicine",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "phe",
+                                            "doi": "10.1517/phe.19",
+                                            "journalUrl": "http://habuemiesh:18080/journal/phe",
+                                            "title": "Pediatric Health",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "imt",
+                                            "doi": "10.2217/17507448",
+                                            "journalUrl": "http://habuemiesh:18080/journal/imt",
+                                            "title": "Immunotherapy",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "iim",
+                                            "doi": "10.2217/17555205",
+                                            "journalUrl": "http://habuemiesh:18080/journal/iim",
+                                            "title": "Imaging in Medicine",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "hiv",
+                                            "doi": "10.2217/17584310",
+                                            "journalUrl": "http://habuemiesh:18080/journal/hiv",
+                                            "title": "HIV Therapy",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "clp",
+                                            "doi": "10.2217/17584299",
+                                            "journalUrl": "http://habuemiesh:18080/journal/clp",
+                                            "title": "Clinical Lipidology",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "ijr",
+                                            "doi": "10.2217/17584272",
+                                            "journalUrl": "http://habuemiesh:18080/journal/ijr",
+                                            "title": "International Journal of Clinical Rheumatology",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "ica",
+                                            "doi": "10.2217/ica.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/ica",
+                                            "title": "Interventional Cardiology",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "epi",
+                                            "doi": "10.2217/epi.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/epi",
+                                            "title": "Epigenomics",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "pmt",
+                                            "doi": "10.2217/pmt.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/pmt",
+                                            "title": "Pain Management",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "dmt",
+                                            "doi": "10.2217/dmt.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/dmt",
+                                            "title": "Diabetes Management",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "npy",
+                                            "doi": "10.2217/npy.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/npy",
+                                            "title": "Neuropsychiatry",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "nmt",
+                                            "doi": "10.2217/nmt.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/nmt",
+                                            "title": "Neurodegenerative Disease Management",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "bmt",
+                                            "doi": "10.2217/bmt.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/bmt",
+                                            "title": "Breast Cancer Management",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "cer",
+                                            "doi": "10.2217/cer.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/cer",
+                                            "title": "Journal of Comparative Effectiveness Research",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "crc",
+                                            "doi": "10.2217/crc.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/crc",
+                                            "title": "Colorectal Cancer",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "lmt",
+                                            "doi": "10.2217/lmt.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/lmt",
+                                            "title": "Lung Cancer Management",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "cpr",
+                                            "doi": "10.2217/cpr.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/cpr",
+                                            "title": "Clinical Practice",
+                                            "isVisible": false,
+                                            "isAlertsEnabled": false,
+                                            "isAxaAlertsEnabled": false,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "cns",
+                                            "doi": "10.2217/cns.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/cns",
+                                            "title": "CNS Oncology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "ijh",
+                                            "doi": "10.2217/ijh.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/ijh",
+                                            "title": "International Journal of Hematologic Oncology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "hep",
+                                            "doi": "10.2217/hep.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/hep",
+                                            "title": "Hepatic Oncology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "ije",
+                                            "doi": "10.2217/ije.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/ije",
+                                            "title": "International Journal of Endocrine Oncology",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "mmt",
+                                            "doi": "10.2217/mmt.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/mmt",
+                                            "title": "Melanoma Management",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "cnc",
+                                            "doi": "10.2217/cnc.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/cnc",
+                                            "title": "Concussion",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "3dp",
+                                            "doi": "10.2217/3dp.",
+                                            "journalUrl": "http://habuemiesh:18080/journal/3dp",
+                                            "title": "Journal of 3D Printing in Medicine",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        },
+                                        {
+                                            "code": "bem",
+                                            "doi": "10.2217/bem",
+                                            "journalUrl": "http://habuemiesh:18080/journal/bem",
+                                            "title": "Bioelectronics in Medicine",
+                                            "isVisible": true,
+                                            "isAlertsEnabled": true,
+                                            "isAxaAlertsEnabled": true,
+                                            "isSubscribedToAlert": false
+                                        }
+                                    ],
+                                    "sortBy": "ITEM_TITLE",
+                                    "success": true
+                                },
+                                "errors": []
+                            }
+                        }
+                    }
+                },
+                {
+                    "text": "Favorits",
+                    "content": {
+                        "$pug": {
+                            "template": "../../../../ux3/widgets/favorites/templates/favorites/favorites-tmpl.jade",
+                            "data":
+                            {
+                                "thisWidget": {
+                                    "properties": {
+                                        "displayArticles": true,
+                                        "articlesLabel": "Article shortlist",
+                                        "displayPublications": true,
+                                        "publicationsLabel": "Publication shortlist"
+                                    }
+                                },
+                                "data": {
+                                    "favorites": {
+                                        "items": [
+                                            {
+                                                "type": "Digital Object",
+                                                "title": "Potential for use of creatine supplementation following mild traumatic brain injury",
+                                                "doi": "",
+                                                "epubDate": "3/21/17 4:10 AM",
+                                                "digitalObjectType": "podcast",
+                                                "bestFormat": "http://ten-lts.literatumonline.com/doi/10.2217/cnc-2016-0016"
+                                            },
+                                            {
+                                                "type": "Article",
+                                                "title": "Potential for use of creatine supplementation following mild traumatic brain injury",
+                                                "doi": "",
+                                                "epubDate": "3/21/17 4:10 AM",
+                                                "group": {
+                                                    "volume": "0",
+                                                    "issue": "0",
+                                                    "pageRange": "1-10",
+                                                    "link": "/toc/hiv/current",
+                                                    "serial": {
+                                                        "title": "Concussion"
+                                                    }
+                                                },
+                                                "bestFormat": "http://ten-lts.literatumonline.com/doi/10.2217/cnc-2016-0016"
+                                            }
+                                        ],
+                                        "booksAndSerials": [
+                                            {
+                                                "type": "Book Series",
+                                                "title": "Future Science Book Series",
+                                                "bestFormat": "http://ten-lts.literatumonline.com/doi/10.4155/books?publicationCode=fsbooks"
+                                            },
+                                            {
+                                                "type": "Book",
+                                                "title": "<i>In Silico</i> Drug Discovery and Design",
+                                                "bestFormat": "http://ten-lts.literatumonline.com/doi/10.4155/9781909453012",
+                                                "coverDate": "10/1/13 12:00 AM"
+                                            }
+                                        ]
+                                    },
+                                    "sortBy": "SERIAL_TITLE"
+                                },
+                                "errors": []
+                            },
+                            "errors": []
+
+                        }
+                    }
+                },
+                {
+                    "text": "Saved Search",
+                    "content": {
+                        "$pug": {
+                            "template": "../../../../ux3/widgets/saved-searches/templates/saved-searches/saved-searches-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "noSearchesMessage": "You do not have any saved searches",
+                                    "searches": [
+                                        {
+                                            "queryName": "testSearch",
+                                            "queryNotes": null,
+                                            "savedDate": "May 3, 2017",
+                                            "runDate": "May 3, 2017",
+                                            "runUrl": "/action/doSearch?target=saved&runSaved=13",
+                                            "deleteUrl": "/action/doDeleteSearch?queryId=13&searchType=saved"
+                                        }
+                                    ],
+                                    "properties": {
+                                        "displaySavedOn": true,
+                                        "displayLastRunOn": true,
+                                        "numberOfSearchesToDisplay": "5"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

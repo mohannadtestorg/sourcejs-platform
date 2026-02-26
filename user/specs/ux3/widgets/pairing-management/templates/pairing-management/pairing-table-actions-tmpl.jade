@@ -1,0 +1,88 @@
+.actionButtonsPanel.border-bottom.clearfix
+    .actionButton.addExternalEmailButton.pull-right
+        a.link#addExternalEmailButton(href='#externalEmailDialogForm', data-toggle='modal', data-target='#externalEmailDialogForm') Add external email
+
+    .dropBlock.pairing-management__actions
+       a.withSelected.disabled(href="#" data-db-target-for="pairing-management-actions") With selected
+       .dropBlock__holder(data-db-target-of="pairing-management-actions")
+           ul.rlist
+               li
+                   span#extendReinstateButton(disabled='',href='#extendReinstateAccessDialogForm', data-toggle='modal', data-target='#extendReinstateAccessDialogForm') Extend / Reinstate
+               li
+                   span#revokeButton(disabled='',href='#revokeAccessDialogForm', data-toggle='modal', data-target='#revokeAccessDialogForm') Revoke access
+               li
+                   form(action='/action/showInstitutionDevicePairingManagement', method='get')
+                       input(type='hidden', name='institutionUserId', value=data.hiddenData.institutionUserId)
+                       input(type='hidden', name='action', value='viewDevicePairingDetailsAction')
+                       input.viewDetailsBtn#viewDetailButton(type='submit', value='View details', disabled='')
+
+
+
+
+
+.ux-modal-container
+    #externalEmailDialogForm.modal(role="dialog")
+        .modal__dialog
+            .modal__header
+                h1 Add External Email
+            .modal__body
+                    label(for='addExternalEmail') Email address:
+                    input#addExternalEmail(type='text', name='addExternalEmail', placeholder='External email address')
+                    .expires-days
+                        label(for='addExternalEmailExp') Access expires in:
+                        input#addExternalEmailExp.expdays.input(type='text', name='addExternalEmailExp', value=data.pairingDuration)
+                        span days
+                    label(for='addExternalEmailReason') Reason:
+                    input#addExternalEmailReason(type='text', name='addExternalEmailReason')
+
+            .modal__footer
+                button.btn--cancel.pull-right(type='button', data-dismiss='modal')  Cancel
+                button.btn.pull-right#confirmAddExternalEmail(type='button')  Confirm
+
+
+
+.ux-modal-container
+    #extendReinstateAccessDialogForm.modal(role="dialog")
+        .modal__dialog
+            .modal__header
+                h1 Extend / Reinstate access
+            .modal__body
+                  label(for='extendEmail') Email address:
+                  input#extendEmail(type='text', name='extendEmail', readonly='readonly')
+                  .expires-days
+                      label(for='extendEmailExp') Access expires in:
+                      input#extendEmailExp.expdays.input(type='text', name='extendEmailExp', value=data.pairingDuration)
+                      span days
+                  label(for='extendEmailReason') Reason:
+                  input#extendEmailReason(type='text', name='extendEmailReason')
+
+            .modal__footer
+                button.btn--cancel.pull-right(type='button', data-dismiss='modal')  Cancel
+                button.btn.pull-right#confirmExtendReinstate(type='button')  Confirm
+
+
+.ux-modal-container
+    #revokeAccessDialogForm.modal(role="dialog")
+        .modal__dialog
+            .modal__header
+                h1 Revoke access
+            .modal__body
+                 label(for='revokeAccessEmail') Email address:
+                 input#revokeAccessEmail(type='text', name='revokeAccessEmail', readonly='readonly')
+                 label(for='revokeAccessReason') Reason:
+                 input#revokeAccessReason(type='text', name='revokeAccessReason')
+            .modal__footer
+                button.btn--cancel.pull-right(type='button', data-dismiss='modal')  Cancel
+                button.btn.pull-right#confirmRevokeAccess(type='button')  Confirm
+
+
+.ux-modal-container
+    #externalEmailError.modal(role="dialog")
+        .modal__dialog
+            .modal__header
+                h1 Error occurred
+            .modal__body
+                .message
+
+            .modal__footer
+                button.pull-right(type='button', data-dismiss='modal')  OK

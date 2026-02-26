@@ -1,0 +1,77 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p Source info...
+
+    section.source_section
+        h2 Cards
+        h3 Case Study Card
+        .source_example.source_visible
+            | !{data.items[0].body}
+        h3 Case Study Cards
+        .source_example.source_visible
+            section.section
+                .container
+                    .row
+                        .col-xs-12.col-sm-12.col-md-4.hidden-xs
+                            aside.article__feature
+                                h3
+                                    | Related Case Studies
+                                p
+                                    | This copy should introduce the features that fall under Content Maagement. This subheading will work to lead users into any relevant feature cards below.
+
+                        .col-xs-12.col-sm-6.col-md-4
+                            | !{data.items[0].body}
+                        .col-xs-12.col-sm-6.col-md-4
+                            | !{data.items[0].body}
+        h3 Card - Double thin border
+        .source_example.source_visible
+            | !{data.items[1].body}
+
+        h3 Cards - Double thin border
+        .source_example.source_visible
+            section.section
+                .container
+                    .row
+                        .col-xs-12.col-sm-12.col-md-6
+                            | !{data.items[1].body}
+                        .col-xs-12.col-sm-12.col-md-6
+                            | !{data.items[1].body}
+        h3 Card - solid background
+        .source_example.source_visible
+            | !{data.items[2].body}
+        h3 Cards - solid background collection
+        .source_example.source_visible
+            section.section
+                .container
+                    .row
+                        .col-xs-12.col-sm-12.col-md-4.hidden-xs
+                            aside.article__feature
+                                h3
+                                    | Available Collateral
+                                p
+                                    | Take a look at and download some of our collateral for Digital Objects.
+
+                        .col-xs-12.col-sm-12.col-md-8
+                            .row
+                                .col-xs-12.col-sm-6.col-md-6
+                                    | !{data.items[2].body}
+                                .col-xs-12.col-sm-6.col-md-6
+                                    | !{data.items[2].body}
+                                .col-xs-12.col-sm-6.col-md-6
+                                    | !{data.items[2].body}
+                                .col-xs-12.col-sm-6.col-md-6
+                                    | !{data.items[2].body}
+        h3 Cards - solid background and double thick border
+        markdown
+            p `card card--solid-background card--double-thick-border`
+        .source_example.source_visible
+            section.section
+                .container
+                    .row
+                        .col-xs-12.col-sm-12.col-md-12
+                            | !{data.items[3].body}
+
+    | #{''}

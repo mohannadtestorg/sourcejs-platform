@@ -1,0 +1,33 @@
+.article__breadcrumbs {
+    display: block;
+    margin: 0px;
+    padding: 5px 0px;
+
+    .article__tocHeading {
+        font-weight: normal;
+        font-size: $x-small-font-size;
+    }
+
+    a+a:before {
+        content: '>';
+        margin: 0px 5px;
+    }
+
+    a:hover { 
+        text-decoration: underline; 
+    }
+
+    .separator:after {
+        content: "";
+        padding: 0px;
+        display: none;
+    }
+}
+
+.top-image {
+    & ~ .container {
+        .article__breadcrumbs {
+            color: $text-onDark;
+        }
+    }
+}

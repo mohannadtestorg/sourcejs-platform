@@ -1,0 +1,72 @@
+- var freqs = {"freqs": ["NEVER","DAILY","WEEKLY","MONTHLY"]};
+- var alerts = data.currentPerson.alerts;
+- var hasSubscriptions = alerts.toc.length || alerts.books.length || alerts.citations.length || alerts.title.length || alerts.digest.length || alerts.collection.length || alerts.custom;
+
+
+mixin accordionItem(cdata,tabid,inputName)
+    - var itemNo = cdata.length
+    if itemNo > 0
+        -var title = cdata[0].content.website.bannerText
+        li.accordion-tabbed__tab
+            label.checkbox--primary
+                input(type="checkbox" name="groupAll")
+                span.label-txt= title
+            a.accordion-tabbed__control(href="#" title=title aria-expanded="true" aria-controls= tabid)
+            div.accordion-tabbed__content(id= tabid)
+                ul.rlist.alert__list
+                    - var cnt = 0;
+                    each el, l in cdata
+                        li
+                            .input-group
+                                label.checkbox--primary
+                                    input(type='checkbox' id=el.content.doi name=inputName value=el.content.code)
+                                    span.label-txt
+                                        a(href=el.content.journalUrl) !{el.content.title}
+
+
+block newContentAlertText
+    .infoDropZone(data-pb-dropzone="newContentDropZone")
+        | !{pb.renderDropzone(thisWidget, "newContentDropZone")}
+
+if(data && data.currentPerson && data.currentPerson.alerts)
+    form.alert__content(id='frmAlerts' method="post" action="/action/doUpdateAlertSettings")
+        .alert__freq
+            .input-group.left-side-label
+                block newContentAlertFormFirstElement
+                    label Frequency
+                    select.jcf(name="period")
+                        each freq, l in freqs.freqs
+                            if data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.tocFrequency == freq
+                                option(value=freq.charAt(0) selected="selected") !{freq}
+                            else
+                                option(value=freq.charAt(0)) !{freq}
+                    button.btn(type="submit" name="action" value="updateTocFrequency") UPDATE
+
+
+        block alertLists
+            .alert__list.newcontent-list
+
+                if (data.websites)
+                    .section__separator
+                        h4 You are receiving alerts for the following publications:
+                        small Select any item to unsubscribe
+                        .input-group
+                            label.checkbox--primary
+                                input(type='checkbox' name="markall")
+                                if (thisWidget.properties.customHeadingsEnabled)
+                                    span.label-txt !{thisWidget.properties.selectAllLabel}
+                                else
+                                    span.label-txt SELECT ALL
+                else
+                    .section__separator
+                        h4 You are not subscribed for any publication
+
+                .accordion
+                    ul.accordion-tabbed.rlist
+                        if (data.websites)
+                            each website, l in data.websites
+                                +accordionItem(website,'id'+l,'journalCode')
+
+        block formButton
+            .form-btn
+                button.btn(type="submit" name="action" value="removeJournal" id="removeJournal") UPDATE ALERT SETTINGS

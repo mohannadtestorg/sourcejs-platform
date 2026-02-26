@@ -1,0 +1,46 @@
+/** Autocomplete
+  <div style="position: absolute; left: 0px; top: 48px; width: 1112px; visibility: visible; z-index: 99999999;" class="autocomplete">
+    <div id="autocomplete_item_0" index="0" title="Search for testosterone" style="z-index: 99999;" class="autocomplete_item">testosterone</div>
+    <div id="autocomplete_item_1" index="1" title="Search for testosterone replacement therapy" style="z-index: 99999;" class="autocomplete_item">testosterone replacement therapy</div>
+    <div id="autocomplete_item_2" index="2" title="Search for testicular cancer" style="z-index: 99999;" class="autocomplete_item">testicular cancer</div>
+    <div id="autocomplete_item_3" index="3" title="Search for testing limits" style="z-index: 99999;" class="autocomplete_item">testing limits</div>
+    <div id="autocomplete_item_4" index="4" title="Search for test" style="z-index: 99999;" class="autocomplete_item">test</div>
+  </div>
+*/
+
+
+.autocomplete:not(:empty) {
+  @include sans-serif(16, 40);
+  margin-top: 0;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  box-shadow: 0 1px 3px 0 $color__rules;
+}
+
+.autocomplete div {
+  margin-top: 0;
+}
+
+.m-search-suggestions__hr {
+  border-top: 1px solid $color__rules;
+}
+
+.autocomplete > div {
+  display: block;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: $color__text--headlines;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.autocomplete > div:hover, .autocomplete > div.autocomplete_item_highlighted {
+  background-color: $color__background;
+  color: $color__text--headlines;
+}
+
+.autocomplete mark {
+  font-weight: bold;
+}

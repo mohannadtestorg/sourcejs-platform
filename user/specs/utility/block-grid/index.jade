@@ -1,0 +1,216 @@
+﻿extends /specs/page-structure/layout.jade
+block cssLastInHead
+    include /specs/page-structure/css-lastin-head.jade
+    link(rel='stylesheet', href='/specs/utility/block-grid/scss/helpers/block-grid.css')
+block content
+
+
+    section.source_section
+        h2 Usage
+        p We build a block grid, so we can handle a grid view with only adding class to the parent item "custom class to the widget".
+
+        markdown
+            p To get the block grid you have to add
+            ul
+                li class to the parent `"grid-x-y"` x refer to screen size, y refer to number of columns in row.
+                li class to the children `"grid-item"`.
+            table
+                thead
+                    tr
+                        th Screen size
+                        th Parent classes
+                tbody
+                    tr
+                        td Large(lg)
+                        td `grid-lg-1` `grid-lg-2` `grid-lg-3` `grid-lg-4` `grid-lg-5`
+                    tr
+                        td Desktop(md)
+                        td `grid-md-1` `grid-md-2` `grid-md-3` `grid-md-4` `grid-md-5`
+                    tr
+                        td tablet(sm)
+                        td `grid-sm-1` `grid-sm-2` `grid-sm-3` `grid-sm-4` `grid-sm-5`
+                    tr
+                        td phone(xs)
+                        td `grid-xs-1` `grid-xs-2` `grid-xs-3` `grid-xs-4` `grid-xs-5`
+
+
+    | #{''}
+
+    section.source_section
+        h2 block grid on large screen size
+        .source_example
+            .grid-lg-1
+                .grid-item
+                    p grid item
+            .grid-lg-2
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-lg-3
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-lg-4
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-lg-5
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+    | #{''}
+
+
+    section.source_section
+        h2 block grid on medium "desktop" screen size
+
+        .source_example
+            .grid-md-1
+                .grid-item
+                    p grid item
+            .grid-md-2
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-md-3
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-md-4
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-md-5
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+    | #{''}
+
+    section.source_section
+        h2 block grid on small "tablet" screen size
+
+        .source_example
+            .grid-sm-1
+                .grid-item
+                    p grid item
+            .grid-sm-2
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-sm-3
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-sm-4
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-sm-5
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+    | #{''}
+
+    section.source_section
+        h2 block grid on extra small "mobile" screen size
+
+        .source_example
+            .grid-xs-1
+                .grid-item
+                    p grid item
+            .grid-xs-2
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-xs-3
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-xs-4
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+            .grid-xs-5
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+    | #{''}
+
+    section.source_section
+        h2 block grid on 4 on desktop 2 on tablet and one on mobile
+
+        .source_example
+            .grid-md-4.grid-sm-2.grid-xs-1
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+                .grid-item
+                    p grid item
+    | #{''}

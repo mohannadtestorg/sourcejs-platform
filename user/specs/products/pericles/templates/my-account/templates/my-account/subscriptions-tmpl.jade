@@ -1,0 +1,106 @@
+| !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+.pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914', style='padding-top: 86px;')
+    // begin pagefulltext
+    .page-body.pagefulltext
+        div(data-pb-dropzone='main')
+            div
+            .profile-pages__heading.card(data-widget-def='ux3-layout-widget', data-widget-id='9ce29057-a88f-4b0f-a1ec-8a2349f23131')
+                .container
+                    .row
+                        div
+                            .col-md-6.gutterless
+                                h1.account-page__header
+                                    | My account
+                                div
+                            .col-md-6.gutterless
+            .container
+                .row
+                    .raaAccountInfo.gutterless--md.gutterless--sm.gutterless--xs.col-md-12.gutterless
+                        .gutterless--md.gutterless--sm.gutterless--xs.col-md-3
+                            | !{pb.render('profile-menu', 'data.json', 'pericles')}
+                        .main-content.gutterless--md.gutterless--sm.gutterless--xs.col-md-9
+                            .card(data-widget-def='eCommerceAccessEntitlementWidget', data-widget-id='0076c622-20a4-403e-bd35-117d2e788c41')
+                                #0076c622-20a4-403e-bd35-117d2e788c41.access-widget.eCommerceAccessEntitlementWidget
+                                    .tabs-widget(aria-live='polite', aria-atomic='true', aria-relevant='additions')
+                                        .tab.tab--flex.account-tab
+                                            ul.rlist.tab__nav.account-tab__nav
+                                                li.active(aria-selected='true')
+                                                    h2.hidden PUBLICATION SUBSCRIPTIONS
+                                                    a#pane-series-con(aria-controls='#pane-series', href='#pane-series', data-toggle='tab', role='tab', title='PUBLICATION SUBSCRIPTIONS', target='_self')
+                                                        | PUBLICATION SUBSCRIPTIONS
+                                                li(aria-selected='false')
+                                                    h2.hidden ARTICLES/CHAPTER SUBSCRIPTIONS
+                                                    a#pane-items-con(aria-controls='#pane-items', href='#pane-items', data-toggle='tab', role='tab', title='ARTICLES/CHAPTER SUBSCRIPTIONS', target='_self')
+                                                        | ARTICLES/CHAPTER SUBSCRIPTIONS
+                                            ul.rlist.tab__content
+                                                li#pane-series.tab__pane.active.seriesContent(aria-labelledby='pane-series-con', role='tabpanel')
+                                                    #series
+                                                        .seriesDropZone(data-pb-dropzone='seriesDropZone')
+                                                        .tab-pane-content
+                                                            .sort-by
+                                                                form.subscriptions-form(action='/action/showPreferences', name='pubTitle', method='post')
+                                                                    input(type='hidden', name='menuTab', value='licenses')
+                                                                    input(type='hidden', name='selectedTab', value='series')
+                                                                    .section__separator
+                                                                        .account__sort.input-group.left-side-label
+                                                                            label
+                                                                                i.icon-icon-Icons_Sorting(aria-hidden='true')
+                                                                                |  Sorted by:
+                                                                            select.jcf(data-bind-change='sort', data-bind='sort', name='sort')
+                                                                                option(value='title') Title
+                                                                                option(value='expiration')
+                                                                                    | Expiration Date
+                                                        .separator
+                                                            table.expandable.entitlements-table
+                                                                thead
+                                                                    tr
+                                                                        th
+                                                                            | Publication Title
+                                                                        th
+                                                                            | LICENCE START DATE
+                                                                        th
+                                                                            | LICENCE EXPIRATION DATE
+                                                                tbody
+                                                                    tr.expanded
+                                                                        td
+                                                                            p no access entitlements to be listed
+                                                            #paginationControl.controlsPanel
+                                                li#pane-groups.tab__pane.groupsContent(aria-labelledby='pane-groups-con', role='tabpanel')
+                                                li#pane-items.tab__pane.itemsContent(aria-labelledby='pane-items-con', role='tabpanel')
+                                                    #items
+                                                        .itemsDropZone(data-pb-dropzone='itemsDropZone')
+                                                            pb2:renderdropzone(widget='Widget type: eCommerceAccessEntitlementWidget, #0076c622-20a4-403e-bd35-117d2e788c41', dropzone='itemsDropZone')
+                                                        .sort-by
+                                                            form.subscriptions-form(action='/action/showPreferences', name='pubTitle', method='post')
+                                                                input(type='hidden', name='menuTab', value='licenses')
+                                                                input(type='hidden', name='selectedTab', value='items')
+                                                                .border-bottom.clearfix
+                                                                    .pull-right.account__sort
+                                                                        .input-group.left-side-label
+                                                                            label Sort by:
+                                                                            select(data-bind-change='sort', data-bind='sort', name='sort')
+                                                                                option(value='title') Title
+                                                                                option(value='expiration')
+                                                                                    | Expiration Date
+                                                        .table-responsive.separator
+                                                            table.expandable
+                                                                thead
+                                                                    tr
+                                                                        th
+                                                                            | Publication Title
+                                                                        th
+                                                                            | LICENCE START DATE
+                                                                        th
+                                                                            | LICENCE EXPIRATION DATE
+                                                                tbody
+                                                                    tr.expanded
+                                                                        td
+                                                                            p no access entitlements to be listed
+
+
+
+    // end pagefulltext
+
+
+| !{pb.render('footer', 'pericles')}

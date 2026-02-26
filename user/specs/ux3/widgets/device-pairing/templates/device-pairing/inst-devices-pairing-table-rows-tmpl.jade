@@ -1,0 +1,10 @@
+if(data.devices)
+    each item in data.devices
+        tr.device-pairing__row
+            td.table__mark
+                label.checkbox--primary
+                    input(type='checkbox',id=item.deviceId+'_'+item.institutionId, name='deviceId', value=item.deviceName+" Paired on "+item.pairedOn)
+                    span.label-txt
+
+            td(data-thead="Device Name") !{item.deviceName}
+            td(data-thead="Paired On") !{item.pairedOn}

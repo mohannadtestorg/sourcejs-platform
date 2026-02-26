@@ -1,0 +1,14 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+block citation
+
+block citationPrefix
+    if(data.item)
+        - var original = data;
+        - var citationData = {"itemUrl": data.item.formats.fullText,"title": data.item.titles.primary,"subtitle": data.item.titles.subtitle,"authors": data.item.contribsFull, "tocHeading": data.item.headings.primary};
+        - data = citationData;
+
+block citation__access
+    | !{pb.render('access-icon', 'access-icon/access-icon', {"data": {"access": original.item.access,"license": original.item.license}})}
+
+block citationSuffix

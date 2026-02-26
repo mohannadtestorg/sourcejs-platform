@@ -1,0 +1,56 @@
+extends ../search-result-tmpl
+
+block searchResultMain
+    block resultsListClassesXSLT
+        - var ulClasses = "search-result__xsl-body items-results rlist--inline "
+    ul(class=ulClasses)
+        -var n=0
+        while n < 6
+            -n=n+1;
+            li.search__item
+                .search__item-checkbox
+                    label.checkbox--primary
+                        input.issue-Item__checkbox(type="checkbox" name="item" +n)
+                        span
+                .issue-item.clearfix
+                    .issue-item__citation
+                        .issue-heading.bold Video
+                        .video-time 23:34
+                        .video-size.comma-before 1.2GB
+                        .video-res.comma-before HIGH RES
+
+                    .issue-item__content
+                        h5.issue-item__title
+                            a(href='#')
+                                | "GrabCut": interactive foreground extraction using iterated graph cuts
+
+                        .issue-item__detail.clearfix
+                            .video__image
+                                img(src="/specs/products/acm/widgets/search-result/Images/video1.png")
+                            .video__details
+                                .video__details-title
+                                    span.bold ACM Transactions on Graphics (TOG):
+                                    span Proceedings of ACM SIGGRAPH
+
+                                .video__details-abstract
+                                    p Maintaining the highest levels of availability for content providers is challenging in the face of scale, network evolution and complexity. Little, however, is known about failures large content providers are susceptible to, and what mechanisms they employ to ensure high availability. From a detailed analysis of over 100 high-impact failure.
+
+
+
+
+                        .issue-item__footer
+                            .issue-item__footer-links-video
+                                .addtional-material
+                                  a(href='#', title='Additional material available')
+                                        i.icon-circle-plus
+                                        span Additional material available
+
+                                ul.rlist--inline
+                                    li
+                                        a.btn.play-stream(href='#', title='Play stream')
+                                            i.icon-play_circle_filled
+                                            span Play stream
+                                    li
+                                        a.btn.download(href='#', title='Download')
+                                            i.icon-Icon_Download
+                                            span Download

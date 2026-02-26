@@ -1,0 +1,210 @@
+{
+    "title": "Cover image",
+    "template": "doc",
+    "tag": ["ready"],
+    "templates": {
+        "default": "cover-image",
+        "alternative": {
+            "cover-image--article": {
+                "name": "Article Cover Image",
+                "path": "cover-image--article",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Article",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["article-cover-image"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image--article-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/single-cover-image.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Single with link",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/single-cover-image.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Single with Details - dropblock",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["dropBlock"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/dropblock.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Single with Details - Figure",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/cover-image/templates/data/figure.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "List of Covers",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/cover-image/templates/data/gallery.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of Covers given block grid classes",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["grid-md-4 grid-sm-2 grid-xs-1"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/cover-image/templates/data/gallery.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of Covers given block grid classes",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["grid-lg-5  grid-md-4 grid-sm-3 grid-xs-2"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/cover-image/templates/data/recent.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

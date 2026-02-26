@@ -1,0 +1,147 @@
+block labels
+    - title = "Exam Questionnaire"
+
+block displayControls
+    //- The default widget hides the exam title since the design uses the Exam Disclosure widget to display it instead. If a custom design requires the Show Exam widget to display the title, you can override it here.
+    - showExamTitle = false
+
+- var exam = {"title":"", "xslt":"", "status":"", "doi":"", "articleDoi": "", "articleTitle":"", "articleLink":"", "authors":"", "jornalTitle":"", "jornalLink":"", "jornalCitation":"", "jornalCitationLink":"", "jornalCoverDate":"", "message":"", "attemptCount": "", "creditsEarned":"", "accreditationId":"", "maxCreditHours":"", "certificateLink":""};
+if(data && data.request && data.request.attributes)
+    - exam.message = data.request.attributes.string ? data.request.attributes.string : exam.message;
+    - exam.attemptCount = data.request.attributes.attemptCount ? data.request.attributes.attemptCount : exam.attemptCount;
+if(data && data.exam)
+    - data = data.exam;
+    - exam.title = data.title ? data.title : exam.title;
+    - exam.xslt = data.xslt ? data.xslt : exam.xslt;
+    - exam.doi = data.doi ? data.doi : exam.doi;
+    - exam.certificateLink = data.examCertificateLink ? data.examCertificateLink : exam.certificateLink;
+
+    if(data.response)
+        - var response = data.response;
+        - exam.status = response.status ? response.status : exam.status;
+        - exam.creditsEarned = response.creditsEarned ? response.creditsEarned : exam.creditsEarned;
+    if(data.related && data.related[0].content)
+        - var content = data.related[0].content[0];
+        - exam.articleTitle = content.title ? content.title : exam.articleTitle;
+        - exam.articleLink = content.link ? content.link : exam.articleLink;
+        - exam.authors = content.authors ? content.authors : exam.authors;
+        - exam.articleDoi = content.doi ? content.doi : exam.articleDoi;
+    if(data.related && data.related[0].content && data.related[0].content[0].group && data.related[0].content[0].group.serial)
+        - var serial = data.related[0].content[0].group.serial;
+        - exam.jornalTitle = serial.title ? serial.title : exam.jornalTitle;
+        - exam.jornalLink = serial.link ? serial.link : exam.jornalLink;
+    if(data.related && data.related[0].content && data.related[0].content[0].group)
+        - var group = data.related[0].content[0].group;
+        - exam.jornalCitation = group.citationLine ? group.citationLine : exam.jornalCitation;
+        - exam.jornalCitationLink = group.link ? group.link : exam.jornalCitationLink;
+        - exam.jornalCoverDate = group.coverDate ? group.coverDate : exam.jornalCoverDate;
+    if(data.accreditations[0])
+        - var accreditations = data.accreditations[0];
+        - exam.accreditationId = accreditations.id ? accreditations.id : exam.accreditationId;
+        - exam.maxCreditHours = accreditations.maxCreditHours ? accreditations.maxCreditHours : exam.maxCreditHours;
+
+
+    div.show-exam
+        block exam-title
+            if (exam.title && showExamTitle == "true")
+                h1.show-exam__title 
+                    | !{exam.title}
+                | !{pb.renderDropzone(thisWidget, "showExamDropzone")}
+
+        block exam-related-article
+            h3.section__header.border-bottom
+                | !{title}
+
+            div.show-exam__article
+                if (exam.articleTitle)
+                    h5.show-exam__article-title
+                        if (exam.articleLink)
+                            a(href=exam.articleLink) !{exam.articleTitle}
+                        else
+                            | !{exam.articleTitle}
+                if (exam.authors)
+                    div.show-exam__article-authors
+                        | !{exam.authors}
+                div.show-exam__article-meta
+                    if (exam.jornalTitle)
+                        span
+                            if (exam.jornalLink)
+                                a(href=exam.jornalLink) !{exam.jornalTitle}
+                            else
+                                | !{exam.jornalTitle}
+                    if (exam.jornalCitation)
+                        span
+                            if (exam.jornalCitationLink)
+                                a(href=exam.jornalCitationLink) !{exam.jornalCitation}
+                            else
+                                | !{exam.jornalCitation}
+                    if (exam.jornalCoverDate)
+                        span !{exam.jornalCoverDate}
+
+        if (exam.status && exam.status =="SAVED")
+            block fail-message
+                if (exam.message)
+                    div.show-exam__message
+                        span.show-exam__message-fail
+                            i.icon-close_thin
+                            span !{exam.message}
+            block submit-exam
+                div.show-exam__questions
+                    form.show-exam__questions-form(action="/action/submitExam" method="post")
+                        input(type="hidden" name="doi" value=exam.doi)
+                        input(type="hidden" name="attemptCount" value=exam.attemptCount)
+                        | !{exam.xslt}
+                        button.btn--inverse(name="submit" type="submit" value="Submit") Submit
+
+        else if (exam.status && exam.status =="PASSED")
+            block success-message
+                if (exam.message)
+                    div.show-exam__message
+                        span.show-exam__message-success
+                            i.icon-checkmark
+                            span !{exam.message}
+
+            
+            if(exam.creditsEarned)
+                block view-certificate
+                    div.show-exam__questions
+                        | !{exam.xslt}
+                    div.show-exam__certificate
+                        h2.show-exam__certificate-title Certificate
+                        p
+                            | Thank you for taking this exam
+                            strong  !{exam.articleTitle}
+                        if (exam.certificateLink)
+                            a.show-exam__certificate-link(href=exam.certificateLink)
+                                span View certificate
+                                i.icon-arrow_r
+            else
+                block claim-credit
+                    div.show-exam__questions
+                        | !{exam.xslt}
+                        form.show-exam__questions-form(action="/action/claimExamCredit" method="post")
+                            input(type="hidden" name="doi" value=exam.doi)
+                            input(type="hidden" name="attemptCount" value=exam.attemptCount)
+                            input(type="hidden" name="accreditation" value=exam.accreditationId)
+                            div.show-exam__credit
+                                h2.show-exam__credit-title CREDIT AMOUNT CLAIMED
+                                p The amount of time I spent (in hours) on this activity was:
+
+                                block credit-options
+                                    if (exam.maxCreditHours)
+                                        ul.rlist--inline
+                                            - var index = 1;
+                                            - var quarterCredit = exam.maxCreditHours/4;
+                                            - var val = 0;
+                                            - var checked = false;
+                                            while index <= 4
+                                                - val = index*quarterCredit;
+                                                if(index == 4)
+                                                    - checked = true;
+                                                li.input-group
+                                                    label.radio--primary
+                                                        input(type="radio" name="credit" value=val checked=checked)
+                                                        span !{val}
+                                                - index+=1;
+
+                            button.btn--inverse(name="submit" type="submit" value="Submit") Submit

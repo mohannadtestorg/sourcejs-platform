@@ -1,0 +1,24 @@
+.bookInfo
+    .bookInfo__image
+      a(href=data.href title=data.title)
+        img(src=data.image alt=data.title)
+
+    .bookInfo__data
+        a(href=data.href title=data.title)
+           h4.bookInfo__title !{data.title}
+
+        .bookInfo__authors
+          a(href=data.authorRef title=data.author)
+            | !{data.author}
+
+        .bookInfo__summary
+            if(data.editon)
+              span Edition: !{data.editon}
+            if(data.pages)
+              span.pages Pages: !{data.pages}
+
+
+        if(data.about)
+            .bookInfo__about
+                | !{data.about}
+

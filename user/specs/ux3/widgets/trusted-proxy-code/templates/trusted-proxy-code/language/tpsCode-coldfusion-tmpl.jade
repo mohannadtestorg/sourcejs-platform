@@ -1,0 +1,12 @@
+textarea.proxy_code(readonly=true)
+    | &lt;!--- ask #{data.product} for permission and parameters and capture return---&gt;
+    | &lt;cfhttp URL="http://#{data.wwwhost}/tps/requestticket?ru=#{data.formFields.journalUrl}&amp;debug=true&amp;domain=#{data.formFields.domain}" method="GET"&gt;
+    | &lt;/cfhttp&gt;
+    | &lt;cfif cfhttp.statusCode contains "200 OK"&gt;
+    |    &lt;cflocation url="#cfhttp.filecontent#"&gt;  &lt;!--- redirect user to the content of the above request ---&gt;
+    | &lt;/cfif&gt;
+    | &lt;!-- if you have reached here, there was an error in getting a
+    | ticket --&gt;
+    | The Trusted Proxy Server failed to establish connection.
+    | &lt;!--- Syntax of CFHTTP at http://livedocs.macromedia.com/coldfusion/6.1/htmldocs/tags-p58.htm#wp1632966 ---&gt;
+    | &lt;!--- Syntax of CFLOCATION at http://livedocs.macromedia.com/coldfusion/6.1/htmldocs/tags-p70.htm#wp1100753 ---&gt;

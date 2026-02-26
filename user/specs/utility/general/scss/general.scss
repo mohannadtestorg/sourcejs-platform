@@ -1,0 +1,195 @@
+/* Utitlity classes */
+
+.clearfix {
+    @include clearfix;
+}
+
+.align-start {
+    @include align(left);
+}
+
+.align-center {
+    @include align(center);
+}
+
+.align-end {
+    @include align(right);
+}
+
+.text-truncate {
+    @include text-truncate;
+}
+
+.pull-left {
+    @include float(left);
+}
+
+.pull-right {
+    @include float(right);
+}
+
+.is-hidden {
+    @include hidden;
+}
+
+.is-invisible {
+    @include invisible;
+}
+
+.center-block {
+    @include center-block;
+}
+
+.visible {
+    &-xs {
+        display: none;
+        @include media('<phone') {
+            display: block !important;
+        }
+    }
+    &-sm {
+        display: none;
+        @include media('>=phone', '<tablet') {
+            display: block !important;
+        }
+    }
+    &-md {
+        display: none;
+        @include media('>=tablet', '<desktop') {
+            display: block !important;
+        }
+    }
+    &-lg {
+        display: none;
+        @include media('>=desktop') {
+            display: block !important;
+        }
+    }
+
+    &-print {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+.hidden {
+    display: none;
+
+    &-xs {
+        display: block;
+        @include media('<phone') {
+            display: none !important;
+        }
+    }
+
+    &-sm {
+        display: block;
+        @include media('>=phone' , '<tablet') {
+            display: none !important;
+        }
+    }
+
+    &-md {
+        display: block;
+        @include media('>=tablet' , '<desktop') {
+            display: none !important;
+        }
+    }
+
+    &-lg {
+        display: block;
+        @include media('>=desktop') {
+            display: none !important;
+        }
+    }
+
+    &Label {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        &--xs {
+            @include media('<phone') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &--sm {
+            @include media('>=phone', '<tablet') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &--md {
+            @include media('>=tablet', '<desktop') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &--lg {
+            @include media('>=desktop') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+    }
+}
+
+
+.gutterless {
+    padding: 0;
+
+    &--xs {
+        @include media('<phone') {
+            padding: 0;
+        }
+    }
+
+    &--sm {
+        @include media('>=phone', '<tablet') {
+            padding: 0;
+        }
+    }
+
+    &--md {
+        @include media('>=tablet', '<desktop') {
+            padding: 0;
+        }
+    }
+
+    &--lg {
+        @include media('>=desktop') {
+            padding: 0;
+        }
+    }
+}
+
+.top-gutter {
+    margin-top: 30px;
+}
+
+.text-uppercase{
+    text-transform: uppercase;
+}
+
+.piped {
+    span:not(:last-child) {
+        font-size: 0.88rem;
+        &:after {
+            content: "|";
+            font-size: 0.8rem;
+            padding-right: 4px;
+            padding-left: 4px;
+        }
+    }
+}

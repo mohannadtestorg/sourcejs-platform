@@ -1,0 +1,54 @@
+.homepage{
+    .top-image{
+        background-image:url('/pb-assets/images/backgrounds/bg-banner-home.png');
+    }
+}
+.info-box {
+
+    &__item {
+        padding: 15px;
+        background-color: $tertiary-darken-bg-color;
+
+        @include media('<desktop') {
+            margin-top: 15px;
+        }
+        &-img-link {
+            float: left;
+        }
+        &-content {
+            padding-left: 55px;
+        }
+
+        h6 {
+            a {
+                color: $primary-text-color;
+                font-size: $h6-font-size;
+
+                &:hover {
+                    color: $primary-link-color;
+                }
+            }
+        }
+
+        p {
+            font-size: $x-small-font-size;
+        }
+
+        a {
+            font-size: $x-small-font-size;
+            color: $primary-link-color;
+
+            &:hover {
+                color: $primary-text-color;
+            }
+        }
+    }
+
+    .grid-item:first-child {
+        .info-box__item {
+            @include media('<desktop') {
+                margin-top: 0px;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.article {
+    &__tocHeading {
+        color: $secondary-text-color;
+        font-size: 1rem;
+        font-weight: 100;
+        display: initial;
+        vertical-align: middle;
+    }
+    &__breadcrumbs {
+        display: block;
+        text-transform: uppercase;
+        a {
+            & + a:before {
+                content: ">";
+                padding: 0 5px;
+            }
+
+        }
+        .separator:after {
+            content: ' ';
+            padding: 0;
+        }
+        .article__title {
+            margin-bottom: 0;
+        }
+    }
+}

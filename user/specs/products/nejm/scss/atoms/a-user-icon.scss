@@ -1,0 +1,40 @@
+
+/***
+
+.a-user-icon
+============
+
+Comes in 2 variations, standard and with notifications by adding a class of `s-notifications`.
+
+```
+<span class="a-user-icon"><svg class="icon--user" aria-hidden="true"><use xlink:href="#icon--user" /></svg></span>
+<span class="a-user-icon s-notificaitons"><svg class="icon--user" aria-hidden="true"><use xlink:href="#icon--user" /></svg></span>
+```
+
+
+***/
+
+.a-user-icon {
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  color: $color__black;
+  vertical-align: middle;
+}
+
+.a-user-icon svg {
+  display: inline;
+}
+
+.a-user-icon.s-notificaitons::before {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid $color__white;
+  border-radius: 50%;
+  background-color: $color__accent;
+}

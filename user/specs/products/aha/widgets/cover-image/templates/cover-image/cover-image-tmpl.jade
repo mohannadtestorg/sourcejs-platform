@@ -1,0 +1,21 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block coverImageLink
+    if (((cover.serial) && cover.serial.type == "Journal") && (cover.serial.serialTitle) && (cover.volume) && (cover.issue))
+        - var altValue = "View Table of Contents for " + cover.serial.serialTitle + " volume "+cover.volume+" issue "+ cover.issue;
+    if (cover.type == "Book" && (cover.serial.serialTitle))
+        - var altValue = "View Table of Contents for "+cover.serial.serialTitle;
+    block defaultImagelinkToIssueOrBookOrSeriesHome
+        if (cover.tocUrl && cover.coverImage && cover.coverImage.src)
+            div(class=imageClass)
+                if(cover.coverImage && cover.coverImage.src)
+                    img(src=cover.coverImage.src alt=altValue)
+
+            div.cover-image__details.card.m-0
+                h2.owl-nav-custom-position
+                    | !{cover.serial.title}
+                    div.owl-nav-custom-place
+                a.btn.btn-sm.btn-primary(href=cover.linkURL) Current issue
+
+
+

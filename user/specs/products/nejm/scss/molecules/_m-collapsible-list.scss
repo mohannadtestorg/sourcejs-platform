@@ -1,0 +1,50 @@
+/***
+
+<ul class="m-collapsible-list">
+  <li class="m-collapsible-list__item m-collapsible" data-behavior="CollapsibleArea">
+    <p class="m-collapsible__button-trigger f-h5" data-collapsible-trigger>Contact <svg class="icon--chevron" aria-hidden="true"><use xlink:href="#icon--chevron"></use></svg></p>
+    <div class="m-collapsible__block" data-collapsible-block>
+      <div class="m-collapsible__content">
+      ...
+      </div>
+    </div>
+  </li>
+</ul>
+
+***/
+
+.m-collapsible-list {
+  margin-top: 0;
+  padding-bottom: 20px;
+}
+
+.m-collapsible-list__item.m-collapsible {
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px solid $color__rules;
+}
+
+.m-collapsible-list__item.m-collapsible:last-child {
+  padding-bottom: 15px;
+  border-bottom: 1px solid $color__rules;
+}
+
+.a-subtitle + .m-collapsible-list .m-collapsible-list__item.m-collapsible:first-child {
+  padding-top: 16px;
+  border-top: 0 none;
+}
+
+.m-collapsible-list__item.m-collapsible:first-child {
+  margin-top: 0;
+}
+
+.m-collapsible-list__item.m-collapsible .m-collapsible__content {
+  @include breakpoint('medium+') {
+    padding-bottom: 16px;
+  }
+}
+
+.m-collapsible-list__item.m-collapsible .m-collapsible__content::before {
+  content: none;
+  display: none;
+}

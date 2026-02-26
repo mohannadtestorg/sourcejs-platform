@@ -1,0 +1,23 @@
+- if (model !== undefined) data = model.data;
+
+- var wData = {"itemUrl":"", "institution":"", "introText":""};
+
+if (data)
+    - wData.itemUrl = data.itemUrl ? data.itemUrl : wData.itemUrl;
+    - wData.institution = data.institution ? data.institution : wData.institution;
+    - wData.introText = data.introText ? data.introText : wData.introText;
+
+div.institution
+    if (wData.introText) || (wData.institution)
+        span.institution-info-wrapper
+            if(wData.itemUrl)
+                a(href=wData.itemUrl title=wData.institution)
+                    if(wData.introText)
+                        span.institution__intro !{wData.introText}
+                    if(wData.institution)
+                        span.institution__name !{wData.institution}
+            else
+                if(wData.introText)
+                    span.institution__intro !{wData.introText}
+                if(wData.institution)
+                    span.institution__name !{wData.institution}

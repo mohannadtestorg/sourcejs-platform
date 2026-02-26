@@ -1,0 +1,126 @@
+.pairing-management {
+  h5, h1 {
+    color: $black;
+  }
+  h5{
+    text-transform: uppercase;
+  }
+
+  table{
+    font-size: .875rem;
+  }
+
+  .dateFilter {
+    .input-group{
+      label{
+        font-weight: 500;
+      }
+      [for="toDate"]{
+         text-align: right;
+        padding-right: 20px;
+      }
+    }
+  }
+
+  &__filter{
+    .label-txt{
+      font-size: .875rem;
+      font-weight: 500;
+    }
+
+    .small-block {
+      .input-group{
+        label{
+          width: 55px;
+        }
+      }
+    }
+
+    .dateFilter{
+      @include media('>=desktop'){
+        width:60%
+      }
+      @include media('>=large'){
+        width:50%
+      }
+      .calendar{
+        color:$link-text-color;
+        right:15px;
+      }
+    }
+  }
+  &__actions {
+    .viewDetailsBtn {
+      background: transparent;
+      &:hover{
+        background: transparent;
+      }
+    }
+
+    .withSelected {
+      &.js--open {
+        @include themify($themes) {
+          border-color: themed('color');
+        }
+      }
+      &:after {
+        @include themify($themes) {
+          color: themed('color');
+        }
+      }
+
+      &.disabled {
+        &:after {
+          color: $tertiary-darken-color;
+        }
+
+      }
+    }
+  }
+
+  .icon-arrow_d_n {
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+
+  .actionButtonsPanel
+  {
+    .link {
+      color: $black;
+    }
+  }
+.refresh-button{
+  padding-right: 5px;
+}
+}
+
+
+[class*="pairing"] {
+  .modal {
+
+    &__dialog{
+      border-radius: 5px;
+    }
+
+    &__body {
+      @include media('>=phone'){
+        label{
+          width: 145px;
+        }
+        input{
+          width: calc(100% - 145px);
+        }
+      }
+
+      .expires-days{
+        span{
+         font-weight: 700;
+        }
+      }
+    }
+  }
+
+
+
+}

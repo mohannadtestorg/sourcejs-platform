@@ -1,0 +1,20 @@
+extends ../../../../../../../ux3/templates/my-account/templates/my-account/extended/ext-tabs-tmpl
+
+block tabsNav
+    - var l = 0
+    - var tabClasses = ""
+
+    if (data) && (data.nav)
+        each item, k in data.nav
+            - tabClasses = ""
+
+            if(l==0)
+                if (item.tabClasses)
+                    - tabClasses = item.tabClasses + "active"
+                else
+                    - tabClasses = "active"
+
+            li(class= tabClasses role="presentation")
+                +link(item,l)
+                if (!item.itemUrl)
+                    - l++;

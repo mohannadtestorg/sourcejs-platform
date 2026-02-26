@@ -1,0 +1,7 @@
+extends ../../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+block citation__tocHeading
+    span.article__breadcrumbs
+        | !{pb.render("breadcrumbs", "data.json")}
+    if(data && data.tocHeading)
+        span.citation__top__item.article__tocHeading !{data.tocHeading}

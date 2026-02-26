@@ -1,0 +1,283 @@
+/***
+
+Fills the container, by default also fills full browser width.
+
+```
+<p class="a-alert-bar"><a href="/"><b>Looking for more information on the Zika Virus?</b> Find out more <em>here</em></a></p>
+<p class="a-alert-bar a-alert-bar--multi">A correction has been published <a href="#">1</a> <a href="#">2</a></p>
+<p class="a-alert-bar a-alert-bar--success">our changes have been saved.</p>
+<p class="a-alert-bar a-alert-bar--retraction">This article has been retracted.</p>
+<p class="a-alert-bar a-alert-bar--error"><svg class="icon--alert" aria-hidden="true"><use xlink:href="#icon--alert" /></svg> The link that you followed to reset your password has expired.</p>
+```
+
+***/
+/***
+
+Inside a `o-col` they only fill the container width:
+
+```
+<div class="o-col">
+  <p class="a-alert-bar"><a href="#"><svg class="icon--poll"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--poll"></use></svg>Poll</a> open through June 12, 2017</p>
+  <p class="a-alert-bar"><a href="#"><svg class="icon--comment"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--comment"></use></svg>Comments</a> open through June 15, 2017</p>
+</div>
+```
+
+***/
+/***
+
+Can also be a div with content:
+
+```
+<div class="a-alert-bar">
+  <p class="a-article-h2 f-h12">Thank you!</p>
+  <p class="f-ui">Your comment listed below has been successfully submitted for the moderator to review.</p>
+</div>
+<div class="a-alert-bar a-alert-bar--media-center">
+  <p class="f-body">If you would like to place a link from the Web version of your story to the abstract or extract of this source article, please link the full title of the article using the following URL, which will only work after 5 p.m. Wednesday (per our press embargo.) <br><a href="/templates/perspective.php" data-behavior="CopyUrl" class="f-ui">Copy URL</a></p>
+</div>
+```
+
+***/
+
+.a-alert-bar {
+  @include background-fill;
+  @include f-author;
+  margin-top: 32px;
+  margin-bottom: 0;
+  padding: 11px 16px 9px;
+  background-color: $color__background--alert;
+  color: $color__text--tertiary;
+  text-align: center;
+}
+
+div.a-alert-bar {
+  padding: 16px;
+  color: $color__text;
+  text-align: left;
+
+  @include breakpoint('medium+') {
+    padding: 20px 20px 16px;
+  }
+
+  @include breakpoint('large+') {
+    padding: 20px 28px 16px;
+  }
+
+  &::before {
+    content: none;
+    display: none;
+  }
+}
+
+.a-alert-bar + .a-alert-bar,
+.m-quick-links + .a-alert-bar,
+.m-simple-tabs + .a-alert-bar,
+.a-subtitle + .a-alert-bar,
+.m-pager-bar + .a-alert-bar,
+.a-alert-bar:first-child {
+  margin-top: 0;
+}
+
+.a-alert-bar + .a-alert-bar::after,
+.m-pager-bar + .a-alert-bar::after,
+.o-col .a-alert-bar::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.a-subtitle + .a-alert-bar::after,
+.m-simple-tabs + .a-alert-bar::after,
+.m-intro-block .a-alert-bar::after {
+  content: none;
+  display: none;
+}
+
+div.a-alert-bar > *:first-child {
+  margin-top: 0;
+}
+
+.a-alert-bar a {
+  color: $color__text--tertiary;
+}
+
+.a-alert-bar strong {
+  color: $color__text--headlines;
+  font-weight: bold;
+}
+
+.a-alert-bar em {
+  color: $color__link-primary;
+  font-style: normal;
+}
+
+.a-alert-bar a:hover em {
+  text-decoration: underline;
+}
+
+.a-alert-bar svg {
+  margin-right: 8px;
+  color: $color__input-border;
+  vertical-align: middle;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar--retraction
+//
+
+.a-alert-bar--retraction {
+  background-color: $color__background--retraction;
+  color: $color__white;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar--success
+//
+
+.a-alert-bar--success {
+  background-color: $color__background--success;
+  color: $color__white;
+
+  svg {
+    color: $color__white;
+    position: relative;
+    top: -2px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar--error
+//
+
+.a-alert-bar--error {
+  background-color: $color__error-bg;
+  color: $color__error;
+
+  svg {
+    color: $color__error;
+    position: relative;
+    top: -3px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar--multi
+//
+
+.a-alert-bar--multi a {
+  display: inline-block;
+  min-width: 1em;
+  color: $color__link-primary;
+  text-align: center;
+}
+
+.a-alert-bar--multi.a-alert-bar--retraction a,
+.a-alert-bar--multi.a-alert-bar--success a {
+  color: $color__white;
+  text-decoration: underline;
+}
+
+.a-alert-bar--multi a:hover {
+  text-decoration: underline;
+}
+
+.a-alert-bar--multi:not(.a-alert-bar--success) a + a::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-right: .5em;
+  background-color: $color__rules;
+  vertical-align: middle;
+}
+
+.a-alert-bar--multi.a-alert-bar--retraction a + a,
+.a-alert-bar--multi.a-alert-bar--success a + a {
+  margin-left: 6px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar--media-center
+//
+
+.a-alert-bar--media-center,
+div.a-alert-bar--media-center {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  background-color: $color__error-bg;
+  text-align: left;
+
+  @include breakpoint('small+') {
+    margin-bottom: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-bottom: 40px;
+  }
+
+  @include breakpoint('large+') {
+    margin-bottom: 52px;
+  }
+}
+
+.a-alert-bar+.a-alert-bar--media-center::after,
+.m-pager-bar+.a-alert-bar--media-center::after,
+.o-col .a-alert-bar--media-center::after {
+  background-color: $color__accent;
+}
+
+.a-alert-bar--media-center a {
+  color: $color__link-primary;
+}
+
+.a-alert-bar--media-center a:hover {
+  text-decoration: underline;
+}
+
+.a-alert-bar--media-center svg {
+  color: $color__input-border--hover;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar in .o-article-body (but not in a column)
+//
+
+.o-article-body > .a-alert-bar:first-of-type::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 100vw;
+  height: 3px;
+  margin-left: -50vw;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.o-article-body > .a-alert-bar--retraction:first-of-type::after {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .a-alert-bar in .o-col
+//
+.o-col .a-alert-bar::before {
+  content: none;
+  display: none;
+}
+
+.o-col .a-alert-bar--multi {
+  text-align: left;
+}
+
+.o-article-body__content > .container > .a-alert-bar:after {
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+}

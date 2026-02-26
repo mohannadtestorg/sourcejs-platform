@@ -1,0 +1,35 @@
+extends  ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+
+block teaser
+    div.creative-work
+        .creative-work__image
+           img(src=item.image title=item.tocHeading)
+           block teaserImage
+             | !{pb.renderDropzone(thisWidget,"teaserImage_${thisWidget.id}")}
+        .delayLoad
+            if(item.tocHeading)
+                div.creative-work__header !{item.tocHeading}
+            if (item.title)
+                if (item.best)
+                    a(href=item.best title=item.title)
+                        h5.creative-work__title !{item.title}
+                else
+                    h5.creative-work__title !{item.title}
+
+            if (item.contribs)
+                div.teaser__label Authors
+                | !{item.contribs}
+            +meta(item)
+
+        +loading(image)
+
+block meta
+
+     if (item.group && item.group.serial && item.group.serial.title)
+        | #{' '}
+        div.teaser__label Published in
+        div.teaser__serial-title !{item.group.serial.title}
+
+     .teaser__tail
+         block teaserTail
+           | !{pb.renderDropzone(thisWidget,"teaserTail_${thisWidget.id}")}

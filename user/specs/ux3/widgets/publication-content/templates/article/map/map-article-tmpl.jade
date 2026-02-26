@@ -1,0 +1,139 @@
+mixin articleCitation()
+    block articleCitation
+
+        if(data.item && data.item.titles && data.item.formats)
+            -
+                var citationData = {
+                "itemUrl": data.item.formats.fullText,
+                "title": data.item.titles.primary,
+                "authors": data.item.contribsShort,
+                }
+            //| !{pb.render("publication-content", "article/extended/ext-citation", {data: citationData})}
+
+mixin articleCoolbar()
+    block articleCoolbar
+        -
+            var coolbarData = {
+                "data": {
+                    "sections": {
+                        "icon": "icon-toc",
+                        "label": "Sections"
+                        },
+                        "download": {
+                            "icon": "icon-download",
+                            "label": "Download",
+                            "items": [
+                                {
+                                    "icon": "icon-download",
+                                    "text": "Download PDF",
+                                    "url": data.item.formats.pdf
+                                },
+                                {
+                                    "icon": "icon-download",
+                                    "text": "Download PDFPlus",
+                                    "url": data.item.formats.pdfPlus
+                                },
+                                {
+                                    "icon": "icon-download",
+                                    "text": "Download ePub",
+                                    "url": data.item.formats.ePub
+                                }
+                            ]
+                        },
+                        "extra": [
+                            {
+                                "content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-favorites\"></i><span>Add to Favorites</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-Email\"></i><span>Email a Friend</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-track\"></i><span>Track Citations</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-permissions\"></i><span>Permissions</span></a></li></ul>"
+                            },
+                            {
+                                "content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"
+                            }
+                        ]
+                    }
+                }
+
+        //| !{pb.render("publication-content", "article/extended/ext-coolbar", coolbarData)}
+
+mixin articleTab()
+    block articleTab
+        if(data.item)
+            -
+                var tabsData = {
+                    "data": {
+                        "nav":[
+                            {
+                                "text": "Figures",
+                                "icon": ["icon-figures"],
+                                "content": "",
+                                "class": "figures"
+                            },
+                            {
+                                "text": "References",
+                                "icon": ["icon-references"],
+                                "content": "",
+                                "class": "references"
+                            },
+                            {
+                                "text": "Related",
+                                "icon": ["icon-related"],
+                                "class": "related",
+                                "content": {
+                                    "data": {
+                                        "items": [
+                                            {
+                                                "label": "Cited By",
+                                                "content": data.item.citedBy
+                                            },
+                                            {
+                                                "label": "Similar",
+                                                "content": data.item.similar
+                                            },
+                                            {
+                                                "label": "Recommended",
+                                                "content": data.item.recommended
+                                            }
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "text": "Details",
+                                "icon": ["icon-info2"],
+                                "class": "details",
+                                "content": "<section class=\"section\"><strong class=\"section__title\">Authors and Affiliations</strong><div class=\"section__body\"><ul class=\"rlist inline-list comma\" aria-label=\"authors\"><li>Nick Gayeski<sub>a</sub></li><li>George Pess<sub>b</sub></li><li>Tim Beechie<sub>b</sub></li></ul><ol class=\"rlist spaced lower-alpha\"><li>Flathead Lake Biological Station, University of Montana, 32125 Bio Station Lane, Polson, MT 59860, USA</li><li>NOAA Fisheries, Northwest Fisheries Science Center, 2725 Montlake Boulevard East, Seattle, WA 98112, USA</li></ol></div></section><hr class=\"section__separator\"><section class=\"section\"><strong class=\"section__title\">Author Contributions</strong><div class=\"section__body\"><ul class=\"rlist spaced\"><li>All conceived and designed the study.</li><li>All performed the experiments/collected the data.</li><li>NG analyzed and interpreted the data.</li><li>All contributed resources.</li><li>NG drafted or revised the manuscript.</li></ul></div></section><hr class=\"section__separator\"><section class=\"section\"><strong class=\"section__title\">Competing Interests</strong><div class=\"section__body\">The authors have declared that no competing interests exist.</div></section>"
+                            }
+                        ]
+                    }
+                };
+            //| !{pb.render("publication-content", "article/extended/ext-tabs", tabsData)}
+
+
+mixin articleBody()
+    block articleBodyClasses
+        -var articleBodyClasses='article__body'
+    block articleBody
+        -var showRefOfArticleBodyClass=""
+        if(data.item && data.item.serviceName && data.item.serviceName == "showEnhancedAbstract")
+            -showRefOfArticleBodyClass="show-references"
+
+        div(class=articleBodyClasses + " " +showRefOfArticleBodyClass)
+            if (data.item && data.item.supplHtml) && data.item.supplHtml != ''
+                h2(class="article-section__title section__title" id="secSuppl") Supplemental Material
+                | !{data.item.supplHtml}
+
+            else if (data.item && data.item.supplContentList) && data.item.supplContentList != ''
+                .article-section__content
+                    h2(class="article-section__title section__title" id="secSuppl") Supplemental Material
+
+                    each suppl in data.item.supplContentList
+                        p
+                            if(suppl.url && suppl.fileName)
+                                a(href=suppl.url)= suppl.fileName
+                                if (suppl.supplSize) && suppl.supplSize != ''
+                                    | &nbsp;(!{suppl.supplSize})
+
+            else if(data.item)
+                | !{data.item.htmlContent}
+            block articleContentSuffix
+
+        if (toolbox)
+            | !{toolBox}

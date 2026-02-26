@@ -1,0 +1,97 @@
+.profile-menu {
+    padding: 30px 0;
+    background: $tertiary-lighten-bg-color;
+    font-size: 14px;
+    font-weight: bold;
+
+    a {
+        border: none;
+        padding: 10px;
+        border-left: 4px solid transparent;
+        display: block;
+        color: #9d9d9d;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+            line-height: 2;
+        }
+    }
+
+    .active {
+        color: #333;
+        border-left-color: #333;
+
+    }
+
+    .rlist:nth-child(2):not(:empty) {
+        padding-top: 20px;
+        margin-top: 20px;
+        border-top: 4px solid $white;
+    }
+
+    &--dropBlock {
+        margin-left: -15px;
+        margin-right: -15px;
+
+        a {
+            display: block;
+            background: $tertiary-lighten-bg-color;
+
+            font-size: 12px;
+            font-weight: bold;
+            border-bottom: none;
+            padding: 20px;
+            border-top: 1px solid #e7e7e7;
+            color: #757575;
+
+
+            &:hover {
+                background: #949494;
+                color: $default-bg-color;
+            }
+            span {
+                line-height: 1;
+
+            }
+        }
+
+        i {
+            font-size: .625rem;
+            font-weight: bolder;
+            color: #333;
+            margin-top: 5px;
+        }
+    }
+
+    &--res {
+        padding: 0;
+        width: 100% !important;
+
+    }
+
+
+
+    .item-badge {
+        font-size: 13px;
+        height: 100%;
+        color: white;
+        padding: 5px;
+        border-radius: 10px;
+        &.green{
+            background: green;
+        }
+        &.orange{
+            background: orange;
+        }
+    }
+
+
+}
+
+
+#pb-page-content {
+    overflow: hidden; // to hide the exceeding sidebar
+}

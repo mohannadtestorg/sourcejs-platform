@@ -1,0 +1,23 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Advance Search Page
+    section.source_section
+        h2 Advance Search Page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content
+                .container.advanced-search
+                  .row
+                      .col-md-8
+                        |!{data.advancedSearch}
+
+
+
+            | !{pb.render("footer", "footer/demo/footer",'ehp')}
+    | #{''}

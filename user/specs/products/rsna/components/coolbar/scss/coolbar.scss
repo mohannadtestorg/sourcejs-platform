@@ -1,0 +1,206 @@
+.coolBar {
+
+    &__wrapper {
+        border-bottom: 1px solid $primary-border-color;
+        padding: 20px 0px;
+    }
+
+    &.slide {
+        transform: translateX(0vw);
+    }
+
+    &.trans {
+        transition: all 0s;
+    }
+
+    &__first {
+        .coolBar__section {
+            padding: 0px 25px 0px 0px;
+
+            @include media('>=tablet', '<desktop') {
+                padding: 0px 12px 0px 0px;
+            }
+        }
+    }
+
+    &__second {
+        .coolBar__section {
+            padding: 0px 0px 0px 25px;
+        }
+    }
+
+    .coolBar__section {
+        > a {
+            &:hover {
+                i, span {
+                    color: $primary-link-hover-color;
+                    transition: color .3s;
+                }
+            }
+        }
+    }
+
+
+    [class*=__ctrl] {
+        margin: 0px;
+        padding: 0px;
+
+        span {
+            color: $primary-link-color;
+            font-size: $h6-font-size;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+
+        }
+
+        &.share__ctrl span, &.article-tools__ctrl span {
+            @include media('<desktop') {
+                display: none;
+            }
+        }
+
+        i {
+            font-size: $h3-font-size;
+            color: $primary-link-color;
+            vertical-align: middle;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+    }
+
+
+    &__drop,
+    [class*="__block"] {
+        position: absolute;
+        top: 41px;
+        padding: 15px;
+        background-color: $default-bg-color;
+
+        a {
+            color: $primary-link-color;
+            font-size: $h6-font-size;
+            display: inline-block;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+        i {
+            color: $primary-link-color;
+            font-size: $h3-font-size;
+            vertical-align: text-top;
+            width: 35px;
+            text-align: left;
+            margin-right: 0px;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+
+        i.at-icon-wrapper {
+            margin-right: 0px;
+            vertical-align: middle;
+        }
+
+        i+span {
+            margin-left: 0px;
+        }
+
+        li, ul li {
+            margin-bottom: 0px;
+            padding-top: 15px;
+
+            &:first-child {
+                padding-top: 0px;
+            }
+        }
+    }
+
+    &.coolBar--res {
+
+        .coolBar__wrapper {
+            padding: 10px 15px ;
+            background-color: $primary-bg-color;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.4);
+
+            @include themify($themes) {
+                background-color: themed('color');
+            }
+        }
+
+
+        [class*=__ctrl] {
+            padding: 0px;
+            color: $text-onDark;
+
+            i {
+                color: $text-onDark;
+                font-size: $h3-font-size;
+                width: auto;
+                vertical-align: bottom;
+            }
+            span {
+                margin-left: 10px;
+                margin-right: 20px;
+                color: $text-onDark;
+            }
+        }
+
+        .coolBar__first {
+            .coolBar__section {
+                padding: 0px;
+            }
+        }
+
+        .coolBar__second {
+            .coolBar__section {
+                padding: 0px 0px 0px 15px;
+            }
+        }
+
+        .coolBar--sections {
+            margin-left: 0px;
+        }
+    }
+
+    .article-tools__block {
+        right: -94px;
+
+        @include media('<desktop') {
+            right: -45px;
+        }
+    }
+
+    .share__block {
+        right: 0px;
+    }
+
+    &--cme, &--pdf, &--download {
+        @include media('<tablet') {
+            padding: 10px 15px;
+            display: block;
+            font-size: $h6-font-size;
+            color: $primary-link-color;
+            border-bottom: 1px solid $primary-border-color;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+
+        i {
+            @include media('<tablet') {
+                text-align: center;
+                font-size: $h3-font-size;
+                padding-right: 20px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+}

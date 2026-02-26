@@ -1,0 +1,37 @@
+input, optgroup, select, textarea {
+  border-color: #000;
+}
+.checkbox--primary .jcf-checkbox, .radio--primary .jcf-radio {
+  //-webkit-box-sizing: content-box;
+  //-moz-box-sizing: content-box;
+  //box-sizing: content-box;
+  margin:0;
+}
+.checkbox--primary .jcf-checkbox span, .radio--secondary .jcf-checkbox span {
+  margin: 0px;
+  border:none;
+  line-height: 18px;
+  background-color: $primary-green;
+  height: 18px;
+  width: 18px;
+}
+.checkbox--primary span:before, .radio--secondary span:before, .checkbox--primary .jcf-checkbox {
+  border-color: $primary-grey;
+  line-height: 18px;
+}
+
+.checkbox--primary .jcf-checked, .checkbox--primary .jcf-checked span:before {
+  background-color: $primary-green;
+  border-color: $primary-green;
+  border:none;
+}
+
+.checkbox--primary input:not(.jcf):checked~span:before, .radio--secondary input:not(.jcf):checked~span:before {
+  background-color: $primary-green;
+  border-color: $primary-green;
+  border: none;
+}
+
+::placeholder, ::-moz-placeholder, ::-webkit-input-placeholder, :-ms-input-placeholder {
+  font-family: Open Sans, sans-serif;
+}

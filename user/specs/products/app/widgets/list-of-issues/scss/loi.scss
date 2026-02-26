@@ -1,0 +1,234 @@
+.loi {
+  &__list  {
+
+    li{
+      font-weight: 400;
+    }
+
+    .active {
+      @include themify($themes) {
+        color: themed('color');
+        border-bottom: 3px solid themed('color');
+      }
+    }
+    &.swipe__list{
+      white-space: nowrap;
+      a{
+        padding: 8px 15px 16px;
+      }
+    }
+  }
+
+  &-slide__ctrl{
+    border-left: 2px solid $text-onDark;
+    margin-left: 5px;
+    text-transform: uppercase;
+  }
+
+  &__banner{
+    background:transparent;
+    box-shadow: none;
+    font-family: $menu-font-family;
+    font-size: .9375rem;
+
+    &.uncollapsible{
+      &.loi--res{
+        width: 100%;
+        float: none;
+      }
+      .tab__content{
+        max-height:none;
+      }
+    }
+    &-list{
+      position: relative;
+    }
+    &__right-side{
+      @include media('>=large') {
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+      }
+    }
+    @include media('<desktop'){
+      background-color: transparent;
+      color:$text-onDark;
+    }
+
+    &__right-side{
+      i{
+        @include media('<desktop'){
+          color:$text-onDark;
+        }
+      }
+    }
+    &.loi--res{
+      top:120px !important;
+      @include media('<desktop'){
+        float:left;
+        top: 60px!important;
+        z-index: 10;
+        right: 0;
+        left: auto;
+        width:172px;
+        @include media('<tablet') {
+          width: auto;
+        }
+      }
+
+      .loi__banner-list {
+        float: none;
+
+        @include media('<desktop'){
+          float:left;
+        }
+      }
+
+      .coolBar__wrapper{
+        background:$default-bg-color;
+        @include media('<desktop'){
+          padding-right: 0;
+          background-color: transparent;
+          .icon-toc{
+            display: none;
+          }
+        }
+      }
+    }
+    .coolBar__wrapper{
+      padding-top: 0;
+    }
+    &-list{
+      @extend  .loi-centered;
+    }
+    .loi-more{
+      display: inline-block;
+      color:$white;
+      border-left: 2px solid $white;
+      padding-left: 10px;
+      line-height: .875rem;
+      .dropdown {
+        min-width: 50px;
+        i[class*=_arrow]{
+          color: $white;
+          padding-top: 7px;
+          padding-left: 0;
+          margin-left: 0;
+        }
+        .dropdown__menu{
+          a{
+            display: block;
+            padding: 10px 9px;
+          }
+        }
+      }
+    }
+  }
+  &-list{
+    &__wrapper{
+      padding: 0 16px;
+    }
+  }
+  &.tab{
+    padding-top: 10px;
+  }
+  &-slide__ctrl {
+    .coolBar--res & {
+      @include media('<large') {
+        padding-left: 10px;
+      }
+      @include media('<tablet') {
+        padding-left: 4px;
+      }
+    }
+  }
+  &__archive{
+    &:after{
+      color: $white;
+    }
+  }
+}
+@include media('<=tablet') {
+  .loi-more {
+    >a {
+      font-size: 0.875rem;
+      font-weight: bold;
+      padding: 17px 15px;
+      display: block;
+      line-height: 0.875rem;
+      color: $primary-light-text-color;
+      border-top: 2px solid $light-grey;
+      padding-left: 0;
+
+      &:last-child {
+        border-bottom: 2px solid $light-grey;
+      }
+    }
+  }
+}
+.dropBlock-loi__holder>.loi{
+  @extend  .loi-centered;
+}
+
+
+.loi-centered{
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $max-container-size;
+  width:100%;
+  padding: 0 10px;
+  @include media('<desktop'){
+    width:auto;
+    padding: 0;
+  }
+}
+.loi__banner-list{
+  padding: 0;
+}
+[data-order="ascending"] {
+  .loi__list {
+    text-align: center;
+  }
+}
+
+[class*="loi__btn"]{
+  padding: 9px 10px 15px;
+}
+#loi-banner{
+  >a{
+    color: $white;
+    position: relative;
+    @include media('<large'){
+      padding: 0 6px;
+      margin-left: -2px;
+    }
+    &:before{
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: $white;
+      transition: width .3s;
+      position: absolute;
+      bottom: -15px;
+    }
+    &:hover:before{
+      @include media('>large') {
+        width: calc(100% - 18px);
+      }
+    }
+    &:first-child{
+      padding-left: 0;
+      &:hover{
+        &:before{
+          width: calc(100% - 11px);
+        }
+      }
+
+    }
+    ~ a {
+      border-color: $white;
+    }
+  }
+
+}

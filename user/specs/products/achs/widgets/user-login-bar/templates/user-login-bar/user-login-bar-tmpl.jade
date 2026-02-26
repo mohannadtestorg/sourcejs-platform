@@ -1,0 +1,10 @@
+extends ../../../../../../ux3/widgets/user-login-bar/templates/user-login-bar/user-login-bar-tmpl
+
+block userLoginBar
+    if(wData.isUserLoggedIn)
+        | Welcome:
+        a.user-login-bar__name(href=wData.userNameLinkUrl) !{wData.displayName}
+        span.user-login-bar__separator |
+        a.user-login-bar__Logout(href=wData.logoutUrl) Logout
+    else
+        a.user-login-bar__Login(href=wData.loginUrl) Log In

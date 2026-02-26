@@ -1,0 +1,95 @@
+{
+    "title": "Top Content",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Jornal Home Page",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["grid-sm-2"],
+                                    "headingLevel": "h3",
+                                    "headingClass": ["section__header border-bottom"]
+                                },
+                                "data": {
+                                    "title": "Title Here",
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/top-content/top-content-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/top-content/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Home Page",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["top-content__home", "grid-sm-3"],
+                                    "headingLevel": "h3",
+                                    "headingClass": ["section__header border-bottom"]
+                                },
+                                "data": {
+                                    "title": "Title Here",
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/top-content/top-content-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/top-content/data/data-features.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Home Page (Without Image)",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["top-content__home", "top-content__without-img", "grid-sm-3"],
+                                    "headingLevel": "h3",
+                                    "headingClass": ["section__header border-bottom"]
+                                },
+                                "data": {
+                                    "title": "Title Here",
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/top-content/top-content-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/top-content/data/data-features.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+.switch.small-switch [type=checkbox]:not(:checked) + label:after {
+    width: 20px;
+}
+
+.switch {
+    .cmn-toggle {
+        &:checked + label {
+            background-color: transparent;
+        }
+        &:not(:checked) + label:before {
+            width: 36px;
+            height: 14px;
+            background: $publication;
+            opacity: .5;
+        }
+    }
+    [type=checkbox] {
+        &:checked + label:before {
+            -webkit-transition: background .4s;
+            transition: background .4s;
+            height: 14px;
+            background: $primary-blue-color;
+            opacity: .5;
+            width: 36px;
+            border-radius: 10px;
+        }
+        &:not(:checked) + label:after {
+            left: 0;
+            top: auto;
+        }
+        &:not(:checked) + label:after {
+            height: 20px;
+            width: 20px;
+            bottom: 3px;
+            background-color: $publication;
+        }
+    }
+    label {
+        background: transparent;
+    }
+    &.small-switch {
+        .cmn-toggle:checked + label:after {
+            width: 20px;
+            margin-left: 16px;
+            height: 20px;
+            background: $primary-blue-color;
+            top: auto;
+        }
+        .cmn-toggle:not(:checked) + label:before {
+            top: 2px
+        }
+    }
+}

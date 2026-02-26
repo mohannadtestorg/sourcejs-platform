@@ -1,0 +1,1017 @@
+/***
+
+Quadraat:
+
+```
+<span class="sg-quadraat-offc-pro">Quadraat Offc Pro</span><br>
+<span class="sg-quadraat-offc-pro-italic">Quadraat Offc Pro Italic</span><br>
+<span class="sg-quadraat-offc-pro-demibold">Quadraat Offc Pro Demibold</span><br>
+<span class="sg-quadraat-offc-pro-demibold-italic">Quadraat Offc Pro Demibold Italic</span><br>
+```
+
+***/
+// for use in styleguide only, to apply fonts in site use the f-xxx series below
+// see /templates/typography.php
+
+.sg-quadraat-offc-pro,
+.sg-quadraat-offc-pro-italic,
+.sg-quadraat-offc-pro-demibold,
+.sg-quadraat-offc-pro-demibold-italic {
+  @include serif(32, 32);
+  color: $color__black;
+}
+
+.sg-quadraat-offc-pro-italic {
+  font-style: italic;
+}
+
+.sg-quadraat-offc-pro-demibold {
+  font-weight: 600;
+}
+
+.sg-quadraat-offc-pro-demibold-italic {
+  font-weight: 600;
+  font-style: italic;
+}
+
+
+/***
+
+Scala Sans:
+
+```
+<span class="sg-scala-sans-offc-pro">Scala Sans Offc Pro</span><br>
+<span class="sg-scala-sans-offc-pro-bold">Scala Sans Offc Pro</span><br>
+```
+
+***/
+// for use in styleguide only, to apply fonts in site use the f-xxx series below
+// see /templates/typography.php
+
+.sg-scala-sans-offc-pro,
+.sg-scala-sans-offc-pro-bold {
+  @include sans-serif(32, 32);
+  color: $color__black;
+}
+
+.sg-scala-sans-offc-pro-bold {
+  font-weight: 700;
+}
+
+
+
+
+
+/***
+
+f-h1
+
+```
+<p class="f-h1">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h1() {
+  @include serif(32, 36);
+  @include baseliner(2);
+  letter-spacing: -.005em;
+
+  @include breakpoint('medium+') {
+    @include baseliner(0);
+    font-size: 40px;
+    letter-spacing: -.01em;
+    line-height: 44px;
+  }
+
+  @include breakpoint('large+') {
+    @include baseliner(2);
+    font-size: 46px;
+    line-height: 52px;
+  }
+}
+
+%f-h1,
+.f-h1 {
+  @include f-h1;
+}
+
+/***
+
+f-h2
+
+```
+<p class="f-h2">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h2() {
+  @include serif(28, 32, bold);
+  @include baseliner(1);
+  letter-spacing: -.005em;
+
+  @include breakpoint('small+') {
+    @include baseliner(2);
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(3);
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  @include breakpoint('large+') {
+    @include baseliner(0);
+    font-size: 40px;
+    letter-spacing: -.01em;
+    line-height: 44px;
+  }
+}
+
+%f-h2,
+.f-h2 {
+  @include f-h2;
+}
+
+/***
+
+f-h3
+
+```
+<p class="f-h3">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h3() {
+  @include serif(24, 28, bold);
+  @include baseliner(0);
+
+  @include breakpoint('small+') {
+    @include baseliner(1);
+    font-size: 28px;
+    letter-spacing: -.005em;
+    line-height: 32px;
+  }
+}
+
+%f-h3,
+.f-h3 {
+  @include f-h3;
+}
+
+/***
+
+f-h4
+
+```
+<p class="f-h4">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h4() {
+  @include serif(21, 24, bold);
+  @include baseliner(3);
+
+  @include breakpoint('small+') {
+    @include baseliner(1);
+    font-size: 28px;
+    letter-spacing: -.005em;
+    line-height: 32px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(0);
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+%f-h4,
+.f-h4 {
+  @include f-h4;
+}
+
+/***
+
+f-h5
+
+```
+<p class="f-h5">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h5() {
+  @include serif(21, 24, bold);
+  @include baseliner(3);
+
+  @include breakpoint('small+') {
+    @include baseliner(0);
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(3);
+    font-size: 21px;
+    line-height: 24px;
+  }
+}
+
+%f-h5,
+.f-h5 {
+  @include f-h5;
+}
+
+/***
+
+f-h6
+
+```
+<p class="f-h6">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h6() {
+  @include serif(18, 24, bold);
+  @include baseliner(3);
+
+  @include breakpoint('small+') {
+    @include baseliner(2);
+    font-size: 19px;
+    line-height: 28px;
+  }
+}
+
+%f-h6,
+.f-h6 {
+  @include f-h6;
+}
+
+/***
+
+f-h7
+
+```
+<p class="f-h7">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h7() {
+  @include serif(17, 20, bold);
+  @include baseliner(2);
+
+  @include breakpoint('small+') {
+    @include baseliner(3);
+    font-size: 21px;
+    line-height: 24px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(2);
+    font-size: 17px;
+    line-height: 20px;
+  }
+}
+
+%f-h7,
+.f-h7 {
+  @include f-h7;
+}
+
+/***
+
+f-h8
+
+```
+<p class="f-h8">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h8() {
+  @include serif(18, 24);
+  @include baseliner(3);
+}
+
+%f-h8,
+.f-h8 {
+  @include f-h8;
+}
+
+/***
+
+f-h9
+
+```
+<p class="f-h9">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h9() {
+  @include serif(18, 24, normal, italic);
+  @include baseliner(3);
+
+  @include breakpoint('small+') {
+    @include baseliner(3);
+    font-size: 18.5px;
+    line-height: 24px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(1);
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+%f-h9,
+.f-h9 {
+  @include f-h9;
+}
+
+/***
+
+f-h10
+
+**this is a single usage font for the traveling homepage as it doesn't sit on the 4px baseline grid**
+
+```
+<p class="f-h10">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h10() {
+  @include serif(14, 17);
+  margin-bottom: -1px;
+  padding-top: 0;
+}
+
+%f-h10,
+.f-h10 {
+  @include f-h10;
+}
+
+/***
+
+f-h11
+
+```
+<p class="f-h11">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h11() {
+  @include sans-serif(16, 20, bold);
+  @include baseliner(2);
+}
+
+%f-h11,
+.f-h11 {
+  @include f-h11;
+}
+
+/***
+
+f-h12
+
+```
+<p class="f-h12">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h12() {
+  @include sans-serif(13, 24, bold);
+  @include baseliner(1);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+
+  @include breakpoint('small+') {
+    @include baseliner(3);
+    font-size: 13px;
+    line-height: 28px;
+  }
+}
+
+%f-h12,
+.f-h12 {
+  @include f-h12;
+}
+
+/***
+
+f-h13
+
+```
+<p class="f-h13">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h13() {
+  @include serif(12, 12, bold);
+  @include baseliner(3);
+  //@include font-smoothing(off);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+%f-h13,
+.f-h13 {
+  @include f-h13;
+}
+
+/***
+
+f-h14
+
+```
+<p class="f-h14">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h14() {
+  @include sans-serif(32, 36);
+  @include baseliner(3);
+  letter-spacing: -.005em;
+
+  @include breakpoint('small+') {
+    @include baseliner(1);
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -.01em;
+  }
+
+  @include breakpoint('large+') {
+    @include baseliner(3);
+    font-size: 46px;
+    line-height: 52px;
+    letter-spacing: -.02em;
+  }
+}
+
+%f-h14,
+.f-h14 {
+  @include f-h14;
+}
+
+/***
+
+f-h15
+
+```
+<p class="f-h15">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h15() {
+  @include serif(21, 24);
+  @include baseliner(3);
+
+  @include breakpoint('small+') {
+    @include baseliner(2);
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -.005em;
+  }
+
+  @include breakpoint('large+') {
+    @include baseliner(0);
+    font-size: 38px;
+    line-height: 44px;
+    letter-spacing: -.01em;
+  }
+}
+
+%f-h15,
+.f-h15 {
+  @include f-h15;
+}
+
+/***
+
+f-h16
+
+```
+<p class="f-h16">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h16() {
+  @include serif(56, 56);
+  @include baseliner(1);
+  letter-spacing: -.005em;
+}
+
+%f-h16,
+.f-h16 {
+  @include f-h16;
+}
+
+/***
+
+f-h17
+
+```
+<p class="f-h17">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-h17() {
+  @include serif(16, 20, bold);
+  @include baseliner(2);
+}
+
+%f-h17,
+.f-h17 {
+  @include f-h17;
+}
+
+
+/***
+
+f-emphasis
+
+```
+<p class="f-emphasis">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-emphasis() {
+  @include serif(18, 24, normal, italic);
+  @include baseliner(3);
+
+  @include breakpoint('small+') {
+    @include baseliner(3);
+    font-size: 18.5px;
+    line-height: 24px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(1);
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+%f-emphasis,
+%f-emphasis em,
+.f-emphasis,
+.f-emphasis em {
+  @include f-emphasis;
+}
+
+/***
+
+f-body
+
+```
+<p class="f-body">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-body() {
+  @include serif(17, 24);
+  @include baseliner(0);
+
+  @include breakpoint('small+') {
+    @include baseliner(0);
+    font-size: 17.5px;
+    line-height: 24px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(2);
+    font-size: 19px;
+    line-height: 28px;
+  }
+}
+
+%f-body,
+.f-body {
+  @include f-body;
+}
+
+%f-body strong,
+.f-body strong,
+%f-body b,
+.f-body b {
+  font-weight: 700;
+}
+
+%f-body em,
+.f-body em,
+%f-body i,
+.f-body i {
+  font-style: italic;
+}
+
+%f-body a:hover,
+.f-body a:hover {
+  text-decoration: underline;
+}
+
+/***
+
+f-body--sm
+
+```
+<p class="f-body--sm">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-body--sm() {
+  @include serif(16, 20);
+  @include baseliner(2);
+
+  @include breakpoint('small+') {
+    @include baseliner(0);
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+%f-body--sm,
+.f-body--sm {
+  @include f-body--sm;
+}
+
+%f-body--sm strong,
+.f-body--sm strong,
+%f-body--sm b,
+.f-body--sm b {
+  font-weight: 700;
+}
+
+%f-body--sm em,
+.f-body--sm em,
+%f-body--sm i,
+.f-body--sm i {
+  font-style: italic;
+}
+
+%f-body--sm a:hover,
+.f-body--sm a:hover {
+  text-decoration: underline;
+}
+
+/***
+
+f-body--xs
+
+```
+<p class="f-body--xs">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-body--xs() {
+  @include serif(15, 20);
+  @include baseliner(3);
+}
+
+%f-body--xs,
+.f-body--xs {
+  @include f-body--xs;
+}
+
+%f-body--xs strong,
+.f-body--xs strong {
+  font-weight: 700;
+}
+
+%f-body--xs em,
+.f-body--xs em {
+  font-style: italic;
+}
+
+%f-body--xs a:hover,
+.f-body--xs a:hover {
+  text-decoration: underline;
+}
+
+/***
+
+f-blurb
+
+```
+<p class="f-blurb">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-blurb() {
+  @include serif(16, 20);
+  @include baseliner(2);
+}
+
+%f-blurb,
+.f-blurb{
+  @include f-blurb;
+}
+
+/***
+
+f-dropcap
+
+Here demonstrated as a CSS classname and not using CSS `p::first-letter`.
+
+Uses `font-variant: small-caps;` because of a webkit bug: https://bugs.chromium.org/p/chromium/issues/detail?id=129669
+
+```
+<p class="f-dropcap">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-dropcap() {
+  @include serif(88, 56);
+  @include baseliner(1);
+
+  @include breakpoint('medium+') {
+    margin-bottom: -2px;
+    padding-top: 0;
+    font-size: 104px;
+    line-height: 66px;
+  }
+}
+
+%f-dropcap,
+.f-dropcap {
+  @include f-dropcap;
+}
+
+/***
+
+f-intro
+
+Here demonstrated as a CSS classname and not using CSS `p::first-line`
+
+```
+<p class="f-intro">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-intro() {
+  @include serif(17, 24);
+  @include baseliner(0);
+  font-variant: small-caps;
+  letter-spacing: .04em;
+
+  @include breakpoint('small+') {
+    @include baseliner(0);
+    font-size: 17.5px;
+    line-height: 24px;
+  }
+
+  @include breakpoint('medium+') {
+    @include baseliner(2);
+    font-size: 19px;
+    line-height: 28px;
+  }
+}
+
+%f-intro,
+.f-intro {
+  @include f-intro;
+}
+
+/***
+
+f-body, with ::first-letter for drop cap and ::first-line intro
+
+```
+<p class="f-body f-body--w-dropcap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula libero vel quam fringilla dignissim. Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis, nec tempus felis orci id erat. </p>
+```
+
+***/
+
+.f-body--w-dropcap {
+  overflow:hidden;
+}
+
+.f-body--w-dropcap::first-line {
+  @include f-intro;
+}
+
+.f-body--w-dropcap::first-letter {
+  @include f-dropcap;
+  float: left;
+  margin: 0 10px 0 0;
+  padding-top: 14px;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    padding-top: 14px;
+  }
+}
+
+@-moz-document url-prefix() {
+  .f-body--w-dropcap::first-letter {
+    padding-top: 6px;
+  }
+
+  @include breakpoint('small+') {
+    .f-body--w-dropcap::first-letter {
+      padding-top: 7px;
+    }
+  }
+}
+
+/***
+
+f-hint
+
+```
+<p class="f-hint">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-hint() {
+  @include serif(16, 20, normal, italic);
+  @include baseliner(2);
+}
+
+%f-hint,
+.f-hint {
+  @include f-hint;
+}
+
+/***
+
+f-ui
+
+```
+<p class="f-ui">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-ui() {
+  @include sans-serif(16, 24);
+  @include baseliner(0);
+}
+
+%f-ui,
+.f-ui {
+  @include f-ui;
+}
+
+%f-ui a:hover,
+.f-ui a:hover {
+  text-decoration: underline;
+}
+
+/***
+
+f-author
+
+```
+<p class="f-author">The qauthorck brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-author() {
+  @include sans-serif(15, 20);
+  @include baseliner(3);
+}
+
+%f-author,
+.f-author {
+  @include f-author;
+}
+
+/***
+
+f-caption
+
+```
+<p class="f-caption">The quick brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-caption() {
+  @include sans-serif(15, 20);
+  @include baseliner(3);
+
+  @include breakpoint('medium+') {
+    @include baseliner(0);
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+%f-caption,
+.f-caption {
+  @include f-caption;
+}
+
+/***
+
+f-related
+
+```
+<p class="f-related">The qrelatedck brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-related() {
+  @include sans-serif(14, 16);
+  @include baseliner(1);
+}
+
+%f-related,
+.f-related {
+  @include f-related;
+}
+
+/***
+
+f-caps
+
+```
+<p class="f-caps">The qrelatedck brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-caps() {
+  @include sans-serif(12, 16, bold);
+  @include baseliner(1);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+%f-caps,
+.f-caps {
+  @include f-caps;
+}
+
+
+/***
+
+f-caps--sm
+
+```
+<p class="f-caps--sm">The qrelatedck brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-caps--sm() {
+  @include sans-serif(10, 12, bold);
+  @include baseliner(0);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+%f-caps--sm,
+.f-caps--sm {
+  @include f-caps--sm;
+}
+
+
+/***
+
+f-tag
+
+```
+<p class="f-tag">The qrelatedck brown fox, <br>jumps over the lazy dog</p>
+```
+
+***/
+
+@mixin f-tag() {
+  @include sans-serif(12, 16);
+  @include baseliner(1);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+}
+
+%f-tag,
+.f-tag {
+  @include f-tag;
+}

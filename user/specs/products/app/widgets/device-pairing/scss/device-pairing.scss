@@ -1,0 +1,40 @@
+.device-pairing {
+
+
+  &__new-device{
+    .btn{
+      width:auto;
+    }
+  }
+
+  btn--inverse {
+    font-size: .875rem;
+  }
+  table {
+    font-size: .875rem;
+  }
+  .title,&__verify-confirm .browse-cookies-title{
+    text-transform: uppercase;
+    color: $black;
+  }
+
+  &__devices:not(.institution-mode){
+      .title{
+        font-weight: 500;
+        border-bottom: 1px solid $primary-border-color;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        @include themify($themes) {
+          color: themed('color');
+        }
+      }
+  }
+
+  .table__control__button {
+    i{
+      @include themify($themes) {
+        color: themed('color');
+      }
+    }
+  }
+}

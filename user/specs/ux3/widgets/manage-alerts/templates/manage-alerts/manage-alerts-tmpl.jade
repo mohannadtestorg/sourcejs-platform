@@ -1,0 +1,104 @@
+
+block alertWrapperClassBlock
+    -var alertWrapperClass = 'alerts'
+
+block mobileDropdownBlock
+    -var mobileDropdown = 'dropdown'
+
+div(class=alertWrapperClass)
+    .tab.tab--flex.account-tab
+        ul.rlist.tab__nav.account-tab__nav(data-mobile-toggle=mobileDropdown)
+            if(thisWidget.properties)
+                block alertTabs
+                    if (thisWidget.properties.displayNewContentAlerts)
+                        li(class=data.activeTab == "content" ? "active" : "")
+                            a(href="#pane-content" aria-controls="#pane-content" role="tab" data-toggle="tab" title="New content alerts" id="pane-content-con" )
+                                block newContentAlertLabel
+                                    | New content alerts
+
+                    if (thisWidget.properties.displayCitationAlerts)
+                        li(class=data.activeTab == "citation" ? "active" : "")
+                            a(href="#pane-citation" aria-controls="#pane-citation" role="tab" data-toggle="tab" title="Citation alerts" id="pane-citation-con" )
+                                block citationAlertLabel
+                                    | Citation alerts
+
+                    if (thisWidget.properties.displayCustomAlert)
+                        li(class=data.activeTab == "custom" ? "active" : "")
+                            a(href="#pane-custom" aria-controls="#pane-custom" role="tab" data-toggle="tab" title="Custom alerts" id="pane-custom-con" )
+                                block customAlertLabel
+                                    | Custom alerts
+
+                    if (thisWidget.properties.displayNewTitleAlert)
+                        li(class=data.activeTab == "title" ? "active" : "")
+                            a(href="#pane-title" aria-controls="#pane-title" role="tab" data-toggle="tab" title="New Title Alerts" id="pane-title-con" )
+                                block newTitleAlertLabel
+                                    | New Title Alerts
+
+                    if (thisWidget.properties.displayArtByArtAlert)
+                        li(class=data.activeTab == "axa" ? "active" : "")
+                            a(href="#pane-axa" aria-controls="#pane-axa" role="tab" data-toggle="tab" title="Article by Alerts" id="pane-axa-con" )
+                                block axaAlertLabel
+                                    | Article by Alerts
+
+                    if (thisWidget.properties.displayCollectionAlert)
+                        li(class=data.activeTab == "collection" ? "active" : "")
+                            a(href="#pane-collection" aria-controls="#pane-collection" role="tab" data-toggle="tab" title="Collection Alerts" id="pane-collection-con" )
+                                block collectionAlertLabel
+                                    | Collection Alerts
+
+                    if (thisWidget.properties.displayDigestAlert)
+                        li(class=data.activeTab == "digest" ? "active" : "")
+                            a(href="#pane-digest" aria-controls="#pane-digest" role="tab" data-toggle="tab" title="Digest Alerts" id="pane-digest-con" )
+                                block digestAlertLabel
+                                    | Digest Alerts
+
+                    if (thisWidget.properties.displayTopicalAlert)
+                        li(class=data.activeTab == "topical" ? "active" : "")
+                            a(href="#pane-topical" aria-controls="#pane-topical" role="tab" data-toggle="tab" title="Topic Alerts" id="pane-topical-con" )
+                                block topicalAlertLabel
+                                    | Topic Alerts
+
+
+
+        if data.success
+            div.success-message Your email alert settings have been updated.
+
+        block alertPane
+            ul.rlist.tab__content
+                if(thisWidget.properties)
+                    if (thisWidget.properties.displayNewContentAlerts)
+                        li(id="pane-content" aria-labelledby="pane-content-con" role="tabpanel" class="tab__pane")
+                            block newContentAlert
+                                | !{pb.render("manage-alerts", "alerts/new-content", {data: data,thisWidget:thisWidget})}
+
+                    if (thisWidget.properties.displayCitationAlerts)
+                         li(id="pane-citation" aria-labelledby="pane-citation-con" role="tabpanel" class="tab__pane")
+                            block citationAlert
+                                | !{pb.render("manage-alerts", "alerts/citation", {data: data,thisWidget:thisWidget})}
+
+                    if (thisWidget.properties.displayCustomAlert)
+                        li(id="pane-custom" aria-labelledby="pane-custom-con" role="tabpanel" class="tab__pane")
+                            | !{pb.render("manage-alerts", "alerts/custom", {data: data, thisWidget: thisWidget})}
+
+                    if(data.currentPerson && data.currentPerson.alerts)
+                        if (thisWidget.properties.displayNewTitleAlert)
+                            li(id="pane-title" aria-labelledby="pane-title-con" role="tabpanel" class="tab__pane")
+                                | !{pb.render("manage-alerts", "alerts/alerts", {data: data.currentPerson.alerts.title})}
+
+                    if (thisWidget.properties.displayArtByArtAlert)
+                        li(id="pane-axa" aria-labelledby="pane-axa-con" role="tabpanel" class="tab__pane")
+                            block alertsAxa
+                               | !{pb.render("manage-alerts", "alerts/alerts", {data: data.currentPerson.alerts.axa})}
+
+                    if (thisWidget.properties.displayCollectionAlert)
+                        li(id="pane-collection" aria-labelledby="pane-collection-con" role="tabpanel" class="tab__pane")
+                            | !{pb.render("manage-alerts", "alerts/alerts", {data: data.currentPerson.alerts.collection})}
+
+                    if (thisWidget.properties.displayDigestAlert)
+                        li(id="pane-digest" aria-labelledby="pane-digest-con" role="tabpanel" class="tab__pane")
+                            | !{pb.render("manage-alerts", "alerts/alerts", {data: data.currentPerson.alerts.digest})}
+
+                    if (thisWidget.properties.displayTopicalAlert)
+                        li(id="pane-topical" aria-labelledby="pane-topical-con" role="tabpanel" class="tab__pane")
+                            block topicsAlert
+                                | !{pb.render("manage-alerts", "alerts/topical", {data: data})}

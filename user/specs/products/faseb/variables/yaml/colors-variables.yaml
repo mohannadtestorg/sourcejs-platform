@@ -1,0 +1,96 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+      profile-primary-color:
+        value: "{!STANDARD}"
+      facets-applied:
+        value: "{!STANDARD}"
+    # Background
+      default-bg-color:
+        value: "{!WHITE}"
+      primary-bg-color:
+        value: "{!STANDARD}"
+      primary-lighten-bg-color:
+        value: "{!GRAY-BG_04}"
+      secondary-bg-color:
+        value: "{!GRAY-BG_02}"
+      secondary-lighten-bg-color:
+        value: "{!GRAY-BG_01}"
+      tertiary-bg-color:
+        value: "{!GRAY-BG_03}"
+
+      tertiary-lighten-bg-color:
+        value: "{!WHITE}"
+      footer-bg-color:
+        value: "{!WHITE}"
+      button-bg:
+        value: "{!STANDARD}"
+      menu-background:
+        value: "{!WHITE}"
+      search-bg-color:
+        value: "{!GRAY-BG_02}"
+
+    # Text
+      primary-text-color:
+        value: "{!GRAY-TEXT_03}"
+      primary-darken-text-color:
+        value: "{!BLACK}"
+      secondary-text-color:
+        value: "{!GRAY-TEXT_02}"
+      tertiary-text-color:
+        value: "{!GRAY-TEXT_01}"
+      text-onLight:
+        value: "{!BLACK}"
+      text-onDark:
+        value: "{!WHITE}"
+      primary-link-color:
+        value: "{!STANDARD}"
+
+      creative-loa-color:
+        value: "{!GRAY-TEXT_02}"
+      creative-color:
+        value: "{!GRAY-TEXT_02}"
+      creative-title-color:
+        value: "{!STANDARD}"
+      footer-color:
+        value: "{!STANDARD}"
+      primary-dark-text-color:
+        value: "{!GRAY-TEXT_02}"
+      facets-text:
+        value: "{!STANDARD}"
+
+    # Border
+      default-border-color:
+        value: "{!WHITE}"
+      primary-border-color:
+        value: "{!GRAY-BORDER_02}"
+      secondary-border-color:
+        value: "{!STANDARD}"
+      tertiary-border-color:
+        value: "{!GRAY-BORDER_01}"
+
+      separators-color:
+        value: "{!GRAY-BORDER_02}"
+      teaser-border-color:
+        value: "{!GRAY-BORDER_02}"
+      header-separators-color:
+        value: "{!GRAY-BORDER_01}"

@@ -1,0 +1,17 @@
+each item in data.pairedEmails
+        tr.pairing-management__row.expanded
+            td.table__mark
+                label(class="radio--primary")
+                    input(id=item.email  type='radio', name='userEmail', value=item.email)
+                    span(class="label-txt")
+
+
+            td
+                | !{item.email}
+
+                a.table__control__button(href="#" title="Expand row")
+                        i.icon-arrow_d_n
+
+            td.to_hide(data-thead="Name") !{item.name}
+            td.to_hide(data-thead="Last Action On") !{item.lastActionDate}
+            td.to_hide(data-thead="Pairing Permission") !{item.permission}

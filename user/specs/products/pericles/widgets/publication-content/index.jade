@@ -1,0 +1,158 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-190547' target="_blank">`LIT-190547`</a> and <a href='https://jira.atypon.com/browse/LIT-189423' target="_blank">`LIT-189423`</a> and <a href='https://jira.atypon.com/browse/LIT-200481' target="_blank">`LIT-200481`</a>
+
+    section.source_section
+        h2 Publication content widget
+        h3 Include template
+        +printJsCode('include /widgets/publication-content/templates/article/article-tmpl.jade')
+        h3 Data
+        p The following the JSON structure provided by the Front-end:
+        +printJson({
+            "thisWidget": {
+                "id": "",
+                "lastModified": "tdtsda77"
+            },
+            "data": {
+                "widget": {
+                    "template": "article-template",
+                    "cachingData": {
+                        "widgetCacheKey": "123456",
+                        "area": "LIVE"
+                    }
+                },
+                "test": "tets",
+                "item": {
+                    "mathJax": {
+                        "mathjaxUrl": "#"
+                    },
+                    "hasAccessToReferences": true,
+                    "hasAccessToFigures": true,
+                    "isAbstractView": false,
+                    "articleInfo": "citation XSL conetnt",
+                    "type": "article",
+                    "subType": "research-article",
+                    "titles": {
+                        "primary": "Trade and the Recognition of Commercial Lingua FFrancas: Russian Language Laws in Post-Soviet Countries",
+                        "subtitle": "An editorial comment to T.Vanmierlo et al. 'The plant sterol brassicasterol and additional CFS biomarker in Alzheimer's Disease'"
+                    },
+                    "headings": {
+                        "primary": "Research Article",
+                        "secondary": "Heading Level Two",
+                        "tertiary": "Heading Level Three"
+                    },
+                    "license": {
+                        "type": "open-access",
+                        "statement": "This work is licensed under the Creative Commons Attribution 4.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.",
+                        "cc-type": "cc-by"
+                    },
+                    "ids": {
+                        "doi": {
+                            "value": "10.2217/cnc-2016-0006",
+                            "registered": true
+                        },
+                        "medline": "27248440",
+                        "elocationId": "CNC1722"
+                    },
+                    "label": "First published: ",
+                    "ePubDate": "September 6th, 2016",
+                    "contribsShort": "authors XSL conetnt",
+                    "contribsFull": "authors XSL conetnt",
+                    "group": {
+                        "issueText": "Accepted, unedited articles published online and citable. The final edited and typeset version of record will appear in the future.",
+                        "issueLabel": "Accepted Articles",
+                        "type": "issue",
+                        "coverImageSrc": "https://pericles.pericles-prod.literatumonline.com/cms/attachment/18428538/209130137/mim.v61.12.cover.jpg",
+                        "url": "/toc/13480421/0/ja",
+                        "volume": "1",
+                        "issue": "3",
+                        "seq": "T221",
+                        "coverDate": "Dec. 2016",
+                        "pageRange": " 237 - 260",
+                        "elocatorNum": "E-locator number",
+                        "mrwUrls": [
+                            {
+                                "label": "BROWSE TABLE OF CONTENTS",
+                                "url": "/browse/book/10.1002/9781444367072/toc"
+                            },
+                            {
+                                "label": "BROWSE BY TOPIC",
+                                "url": "/browse/book/10.1002/9781444367072/topic"
+                            }
+                        ],
+                        "titles": {
+                            "primary": "Long issue title goes here",
+                            "edition": "Volume 1"
+                        },
+                        "appearsIn": "Virtual issue title"
+                    },
+                    "series": {
+                        "type": "journal",
+                        "titles": {
+                            "title": "Hepatology",
+                            "abbrevTitle": "Concussion"
+                        },
+                        "ids": {
+                            "code": "cnc",
+                            "pIssn": "1745-509X",
+                            "eIssn": "1745-5103"
+                        },
+                        "tmpImage": "../../images/article-header-left.png"
+                    },
+                    "formats": {
+                        "fullText": "/doi/full/10.2217/cnc-2016-0006",
+                        "pdf": "/doi/pdf/10.2217/cnc-2016-0006",
+                        "pdfPlus": "/doi/pdfplus/10.2217/cnc-2016-0006",
+                        "bookPdf": "reem",
+                        "ePub": "/doi/epub/10.2217/cnc-2016-0006",
+                        "am": "/doi/10.2217/cnc-2016-0006@am"
+                    },
+                    "keywords": [
+                        {
+                            "label": "concussion",
+                            "searchUrl": "/keyword/concussion"
+                        },
+                        {
+                            "label": "head",
+                            "searchUrl": "/keyword/head"
+                        }
+                    ],
+                    "abstract": "XSL conetnt",
+                    "htmlContent": "XSL conetnt",
+                    "references": "ajax Url ",
+                    "figures": "ajax Url",
+                    "supplemental": "<sec>HTML for supplemental materials</sec>",
+                    "citedBy": "XSL conetnt",
+                    "similar": "XSL conetnt",
+                    "recommended": "XSL conetnt",
+                    "copyright": "<sec>HTML for copyright statement</sec>",
+                    "acknowledgements": [
+                        {
+                            "title": "Financial & competing interests disclosure",
+                            "text": [
+                                "The authors have no relevant affiliations or financial involvement with any organization..."
+                            ]
+                        },
+                        {
+                            "title": "Ethical conduct of research",
+                            "text": [
+                                "he authors state that they have obtained appropriate institutional review board approval..."
+                            ]
+                        }
+                    ]
+                }
+            }
+        })
+
+        h3 Examples
+        .source_example
+            .container
+                | !{pb.render('publication-content', 'demo/article', 'content.json', 'pericles')}
+    | #{''}
+

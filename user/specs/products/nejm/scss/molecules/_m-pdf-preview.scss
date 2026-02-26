@@ -1,0 +1,67 @@
+/***
+
+```
+<div class="m-pdf-preview">
+  <p class="m-pdf-preview__title f-ui">The article is available in PDF format only. <a href="#">Open in the PDF</a>.</p>
+  <div class="m-pdf-preview__img">
+    <a href="#" class="m-pdf-preview__img-link">
+      <img srcset="http://placehold.dev.area17.com/image/2100x2970?bg=ffffff&fg=1a1a1a&text=PDF" sizes="(min-width: 1480px) 800px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 7), (min-width: 1024px) calc(((100vw - 390px) / 12) * 7), (min-width: 768px) calc(((100vw - 270px) / 7) * 2), (min-width: 480px) calc(100vw - 40px), calc(100vw - 32px)">
+    </a>
+  </div>
+</div>
+```
+
+***/
+
+.m-pdf-preview {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 16px;
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+.m-pdf-preview::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-pdf-preview__title {
+  margin-top: 0;
+  color: $color__text--quaternary;
+}
+
+.m-pdf-preview__img {
+  position: relative;
+  margin-top: 40px;
+}
+
+.m-pdf-preview__img-link {
+  display: block;
+  position: relative;
+}
+
+.m-pdf-preview__img-link::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border: 1px solid $color__rules;
+}
+
+.m-pdf-preview__img img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}

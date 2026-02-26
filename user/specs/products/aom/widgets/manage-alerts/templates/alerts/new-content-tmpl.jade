@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/new-content-tmpl
+
+
+block journalAlertSeries
+    each journal, l in data.journals
+        if journal.isVisible && journal.isAlertsEnabled && !(journal.successors && journal.successors.length > 0 && journal.successors[0].relationshipType == "CONTINUE")
+            li
+                .input-group
+                    label.checkbox--primary
+                        input(type='checkbox' id=journal.doi name="pubCode" value=journal.code checked=journal.isSubscribedToAlert)
+                        span.label-txt
+                            a(href=journal.journalUrl) !{journal.title}

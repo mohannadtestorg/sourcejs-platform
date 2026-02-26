@@ -1,0 +1,45 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/manage-article-select/templates/manage-article-select/manage-article-select-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use Manage Article Select template.
+        +printJson({
+            "data": {
+                "errorAddMsg": "Email provided mhamdan+t@atypon.com is not activated",
+                "successAddMsg": "User added successfully",
+                "errorRemoveMsg": "Please select at least one user",
+                "successRemoveMsg": "User removed successfully",
+                "pageSize": 3,
+                "startPage": 3,
+                "pages": 18,
+                "actionUrl": "http://mhamdan:18080/action/showArticleSelect?institutionUserId=1059",
+                "users": [
+                    {
+                        "givenName": "Mabvuto",
+                        "surname": "Hardy",
+                        "email": "mhardy@atypon.com"
+                    },
+                    {
+                        "givenName": "Mohammad",
+                        "surname": "Hijazi",
+                        "email": "mhijazi@atypon.com"
+                    }
+                ]
+            }
+        })
+
+
+    section.source_section
+        h2 Examples
+        h3 Manage Article Select
+        .source_example
+            .container
+                .col-md-4
+                .col-md-8
+                    | !{pb.render('manage-article-select', 'data.json', 'pericles')}

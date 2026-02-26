@@ -1,0 +1,32 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p The <strong>Header</strong> template contains the following components:
+          | #[a(href="../../widgets/html/") Html widget],
+          | #[a(href="../../widgets/images/") Images widget],
+          | #[a(href="../../widgets/user-login-bar/") user-login-bar],
+          | #[a(href="../../widgets/institution-banner/") institution-banner],
+
+
+
+    section.source_section
+        h2 Header (Primary)
+        .source_example.source_visible
+            .primary-theme
+                | !{data.header}
+
+    section.source_section
+        h2 Header (Radiology)
+        .source_example.source_visible
+            .jrnl-radiology
+                | !{data.header}
+
+    section.source_section
+        h2 Header (Radiographics)
+        .source_example.source_visible
+            .jrnl-radiographics
+                | !{data.header}
+
+    | #{''}

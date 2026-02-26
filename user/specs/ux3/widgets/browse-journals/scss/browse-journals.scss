@@ -1,0 +1,29 @@
+.browse-journals {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 40px 0;
+
+	@include media("<tablet") {
+        margin: 40px 10px;
+    }
+
+    @include media("<phone") {
+        margin: 15px 10px;
+    }
+
+	&__item {
+		width: 48%;
+		margin: 0 0 40px;
+
+		@include media("<phone") {
+			width: 100%;
+	        margin: 0 0 15px;
+	        border-bottom: 1px solid $borders;
+	    }
+
+	    .meta__title {
+	    	margin-bottom: 10px;
+	    }
+	}
+}

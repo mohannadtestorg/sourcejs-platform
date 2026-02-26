@@ -1,0 +1,16 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p Empty
+
+    section.source_section
+        h2 Example
+
+        h3 Personal info
+
+        .source_example
+            div.container
+                | !{pb.render('personal-information', 'data.json')}
+
+    | #{''}

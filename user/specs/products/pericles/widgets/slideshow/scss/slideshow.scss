@@ -1,0 +1,216 @@
+.owl-carousel {
+    z-index: 0;
+}
+
+.journal-news {
+
+    .owl-carousel {
+        padding: 0 50px;
+
+        .owl-nav {
+
+            [class*=owl-] {
+                margin-top: -40px;
+            }
+
+            [class*=owl-], [class*=owl-]:hover {
+                color: $wiley-gray;
+                background: transparent!important;
+            }
+
+            span {
+                display: none;
+            }
+
+            i {
+                display: block;
+                font-size: 1.5rem;
+                font-weight: bold;
+                opacity: 0.2;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+
+    .owl-dots {
+        border-top: 1px solid lighten($wiley-gray, 40%) ;
+        padding: 24px 60px 14px;
+        margin: 0 -70px;
+        margin-top: 10px;
+        text-align: left;
+        line-height: 11px;
+
+        .owl-dot {
+            span {
+                margin: 0 4px;
+            }
+        }
+
+    }
+
+    .slide-item {
+
+        img {
+            width: 50%;
+        }
+
+        .creative-work__title { // TODO: use truncate() instead of -webkit-line-clamp
+            font-size: 1rem;
+            color: $wiley-blue-color;
+            font-weight: 600;
+            height: 5.6em;
+        }
+
+        .loa { // TODO: use truncate() instead of -webkit-line-clamp
+            font-size: 0.75rem;
+            a {
+                color: $wiley-gray;
+            }
+
+            &-height {
+                height: 1.4em;
+            }
+        }
+
+        p { // TODO: use truncate() instead of -webkit-line-clamp
+            font-size: 0.875rem;
+            overflow: hidden;
+            height: 4.2em;
+        }
+    }
+
+    .more-widget-link {
+        margin: 0;
+        padding: 0;
+        border: none;
+        float: right;
+        position: relative;
+        top: -28px;
+        padding-right: 10px;
+    }
+}
+
+
+.slideshow--full-width-image {
+
+    margin-bottom: 20px;
+
+
+    .read-more-link {
+        position: absolute;
+        bottom: 0;
+        color: $white;
+        background: $wiley-blue-color;
+        width: 100%;
+        padding: 10px 0 15px;
+        text-align: center;
+        left: 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        box-shadow: 0 -11px 28px -10px $wiley-blue-color;
+        display: none;
+        transition: all 200s;
+    }
+
+    @include media('<desktop', '>=tablet') {
+        h2 {
+            font-size: 18px;
+            line-height: 18px;
+            margin-bottom: 5px;
+        }
+    }
+
+    .owl-carousel {
+        padding: 0;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .slideshow-caption {
+        z-index: 10;
+        position: absolute;
+        background-color: rgba(0, 65, 115, 0.8);
+        color: $text-onDark;
+        bottom: 0;
+        width: 100%;
+        padding: 25px 20px 0;
+        margin-bottom: 39px;
+
+        @include media('<desktop', '>=tablet') {
+            padding: 10px 10px 0;
+            margin-bottom: 30px;
+        }
+
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0, 65, 115, 0.8);
+        width: 100%;
+        text-align: left;
+        padding: 0 0 15px 15px;
+
+        @include media('<desktop', '>=tablet') {
+            padding: 0 0 10px 10px;
+        }
+
+        .owl-dot {
+            span {
+                background: #4d7797;
+                margin: 5px 4px;
+
+                @include media('<desktop', '>=tablet') {
+                    margin: 3px 4px;
+                }
+            }
+
+            &.active {
+                span {
+                    background: $white;
+                }
+            }
+        }
+
+    }
+
+    @include media('<tablet') {
+
+        .owl-item  img, h2 {
+            display: none;
+        }
+
+        .slideshow-caption {
+            background: $wiley-blue-color;
+            position: static;
+            overflow: hidden;
+            margin: 0;
+            transition: all 200s;
+            padding: 20px;
+
+            p {
+                margin: 0;
+            }
+
+            &.js--open {
+                //height: auto;
+
+                .read-more-link {
+                    position: static;
+                }
+            }
+        }
+
+        .owl-dots {
+            display: none;
+        }
+    }
+
+}

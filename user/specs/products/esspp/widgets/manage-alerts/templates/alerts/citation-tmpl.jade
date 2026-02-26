@@ -1,0 +1,68 @@
+block citationTopSection
+    p.intro-text
+        | To receive citation alerts for a preprint/poster, go to the preprint/poster page and click "Track Citations" above the Abstract section. To disable an alert, check the box next to the alert and click "Delete".
+
+form(id='citationAlerts' method="post" action="/action/doUpdateAlertSettings")
+    input(type="hidden" name="action" value="removeArticle")
+    input(type="hidden" name="type" value="citation")
+    input(type="hidden" name="backURI" value="/action/showPreferences?menuTab=Alerts&type=citation")
+    .section__separator
+        block alertsToolBar
+            ul.rlist--inline.pull-left
+                li
+                    input-group
+                        label.checkbox--primary
+                            input(type='checkbox' name="markall")
+                            span.label-txt
+                                p.inline.hidden-xs Select All
+                li
+                    div.alert__action
+                        a.js__citActions(href="#" data-value='removeArticle')
+                            i.icon-delete(aria-hidden="true")
+                            | Delete
+            .pull-right.alert__sort
+                .input-group.left-side-label
+                    label.hidden-xs Sort by:
+                    select.jcf(id="citationsortby" name="sortBy")
+                        option(value="ITEM_TITLE",selected= data.sortBy == "ITEM_TITLE" ? "true" : undefined) Title
+                        option(value="EPUB_DATE",selected= data.sortBy == "EPUB_DATE" ? "true" : undefined) Publication Date
+    block citationTable
+        .table-responsive.separator
+            table.expandable.alert__list
+                thead
+                    tr
+                        th
+                        th Title
+                        th Type
+                        th Publication Date
+                tbody
+                    if(data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.citations)
+                        each citation, l in data.currentPerson.alerts.citations
+                            tr.expanded
+                                td.table__mark
+                                    label.checkbox--primary
+                                        - var id = citation.ID ? citation.ID : l
+                                        input(type="checkbox" id="cit" + id name="citId" value=id)
+                                        span
+                                td
+                                    label(for="cit" + id)
+                                        if(citation.content && citation.content.bestUrl && citation.content.title)
+                                            a(href=citation.content.bestUrl) !{citation.content.title}
+                                    a.table__control__button(href="#" title="Expand row")
+                                        i.icon-arrow_u_p(aria-hidden="true")
+                                        i.icon-arrow_d_n(aria-hidden="true")
+
+                                td.to_hide
+                                    if(citation.content && citation.content.articleType)
+                                        - var type = citation.content.articleType
+                                        - type = type.substr(type.lastIndexOf(':') + 1)
+                                        - type = type.charAt(0).toUpperCase() + type.slice(1);
+                                        | !{type}
+                                td.to_hide
+                                    if(citation.content && citation.content.epubDate)
+                                        |   !{citation.content.epubDate}
+
+
+    //.form-btn
+        button.btn.btn__transparent.btn-alert__transparent SUBMIT
+        a(href="#").my-account__cancle RESET

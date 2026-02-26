@@ -1,0 +1,54 @@
+extends ./pd-basic-metadata-update-tmpl
+
+
+block basicMetadataPrefix
+    -var isReadonly=true
+
+
+block meetings
+    if (data && data.meetings)
+        .input-group.left-side-label
+            label.__nomargin Meeting Name
+            each item, l in data.meetings
+                if(data.inputs["poster-meeting"].value == item.name)
+                    span.readonly #{item.label}
+
+        .meeting-additional-information
+            each item, l in data.meetings
+                if(data.inputs["poster-meeting"].value == item.name)
+
+                    .input-group.left-side-label
+                        label.__nomargin Meeting Location
+                        .left-side-content
+                            div.meeting-additional-information__location
+                                | #{item.location}
+                    .input-group.left-side-label
+                        label.__nomargin Meeting Date
+                        .left-side-content
+                            div.meeting-additional-information__date
+                                | #{item.date}
+
+
+
+block License
+    .input-group.left-side-label
+        label.__nomargin License
+        div.left-side-content.readonly
+            if(data.inputs["license"].value == "essoar" )
+                | Non-exclusive license
+            if(data.inputs["license"].value == "cc-by" )
+                | Creative Commons Attribution 4.0 International (CC BY 4.0)
+            if(data.inputs["license"].value == "cc-by-nc" )
+                | Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+            if(data.inputs["license"].value == "cc-by-nc-nd" )
+                | Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)
+
+
+block journals
+
+    span.readonly
+        | #{journalLabel}
+
+
+
+

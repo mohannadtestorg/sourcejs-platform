@@ -1,0 +1,62 @@
+.author-services
+
+    if(thisWidget.properties.widgetHeader)
+       h2.main-title !{thisWidget.properties.widgetHeader}
+
+    if(data.currentPerson)
+            each item,i in data.currentPerson.authoredContent
+               div.author-services__item.border-bottom
+                    h4.sub-title
+                       a(href=item.content.abstractLink title=item.content.title) !{item.content.title}
+
+                    if(item.content.authors)
+                        .author-services__authors
+                            | !{item.content.authors}
+
+                    block authorServiceDetail
+                        if(item.content.group && item.content.group.serial)
+                            .author-services__Journal
+                                a(href=item.content.group.serial.link).link !{item.content.group.serial.title}
+
+                        if(item.content.group)
+                            .author-services__details
+                               span Volume: !{item.content.group.volume},
+                               span  Issue: !{item.content.group.issue},
+                               span  pp.  !{item.content.group.pages} |
+                               span  DOI: !{item.content.doi}
+
+
+                    .author-services__links
+                        ul.rlist--inline.separator
+                           if(item.content.formats)
+                               each link,type in item.content.formats
+                                    li
+                                      a(href=link title=type).rlist--bold-link !{type}
+
+
+                    if(thisWidget.properties.showMetricsAndAlerts)
+                        .author-services__metrice
+                                h5.sub-section Metrics and Alerts
+                                if(item.content.pubViews)
+                                   div Article Views:
+                                        span.metrics-value !{item.content.pubViews}
+
+                                if(item.content.citations)
+                                   div  Citations:
+                                        span.metrics-value !{item.content.citations}
+                                if(item.content.citationLink)
+                                   a(href=item.content.citationLink).link Citation email alert
+
+                                ul.rlist--inline.separator
+                                   if(item.eprints)
+                                        li !{item.eprints} eprints remaining
+                                   if(item.content.shareEprintLink)
+                                        li
+                                           a(href=item.content.shareEprintLink).link Share an eprint with a colleague
+
+                    if(thisWidget.properties.showHistory && item.history)
+                        .author-services__history
+                                h5.sub-section History
+                                ol.list-items
+                                    each history in item.history
+                                        li !{history}

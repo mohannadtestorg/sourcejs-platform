@@ -1,0 +1,141 @@
+extends /specs/products/mal/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/mal/page-structure/css-lastin-head.jade
+    include /specs/products/mal/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+
+block content
+    .source_section
+        h2 MAL color pallete
+        p We include the #[a(href="/specs/ux3/basic/colors/") UX3 color pallete ] by default. Custom colors are listed below along with the class name that will utilize them.
+
+    .source_section
+        h2 Primary Color Palette
+        .source_example.colors-palette
+            ul.rlist--inline
+                li
+                    div.burgundy.block
+                    p $burgundy
+                li
+                    div.almost-black.block
+                    p $almost-black
+                li
+                    div.dark-gray.block
+                    p $dark-gray
+
+    .source_section
+        h2 Secondary Color Palette
+        .source_example.colors-palette
+            ul.rlist--inline
+                li
+                    div.blue-green-dark.block
+                    p $blue-green-dark
+                li
+                    div.teal-dark.block
+                    p $teal-dark
+                li
+                    div.purple-dark.block
+                    p $purple-dark
+                li
+                    div.gray-dark.block
+                    p $gray-dark
+                li
+                    div.blue-green-light.block
+                    p $blue-green-light
+                li
+                    div.teal-light.block
+                    p $teal-light
+                li
+                    div.purple-light.block
+                    p $purple-light
+                li
+                    div.gray-light.block
+                    p $gray-light
+                li
+                    div.burgundy-light.block
+                    p $burgundy-light
+
+    .source_section
+        h2 Background colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.default-bg-color.block
+                    p $default-bg-color
+                li
+                    div.primary-bg-color.block
+                    p $primary-bg-color
+                li
+                    div.primary-lighten-bg-color.block
+                    p $primary-lighten-bg-color
+                li
+                    div.secondary-bg-color.block
+                    p $secondary-bg-color
+
+                li
+                    div.secondary-lighten-bg-color.block
+                    p $secondary-lighten-bg-color
+                li
+                    div.tertiary-bg-color.block
+                    p $tertiary-bg-color
+
+    | #{''}
+    .source_section
+        h2 Text colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.primary-text-color.block Aa
+                    p $primary-text-color
+                li
+                    div.primary-darken-text-color.block Aa
+                    p $primary-darken-text-color
+                li
+                    div.secondary-text-color.block Aa
+                    p $secondary-text-color
+                li
+                    div.tertiary-text-color.block Aa
+                    p $tertiary-text-color
+                li
+                    div.tertiary-darken-color.block Aa
+                    p $tertiary-darken-color
+                li
+                    div.text-onLight.block Aa
+                    p $text-onLight
+                li
+                    div.text-onDark.primary-bg-color.block Aa
+                    p $text-onDark
+    .source_section
+        h2 Link colors
+        .source_example.colors-palette
+            ul.rlist--inline
+                li
+                    div.primary-link-color.block Aa
+                    p $primary-link-color
+                li
+                    div.primary-link-hover-color.block Aa
+                    p $primary-link-hover-color
+                li
+                    div.primary-link-active-color.block Aa
+                    p $primary-link-active-color
+                li
+                    div.primary-link-focus-color.block Aa
+                    p $primary-link-focus-color
+                li
+                    div.primary-link-visited-color.block Aa
+                    p $primary-link-visited-color
+    | #{''}
+    .source_section
+        h2 border colors
+        .source_example.colors-palette
+            ul.rlist--inline.border-colors
+                li
+                    div.primary-border-color.block
+                    p $primary-border-color
+                li
+                    div.secondary-border-color.block
+                    p $secondary-border-color
+
+    | #{''}
+

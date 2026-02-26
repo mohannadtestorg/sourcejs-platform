@@ -1,0 +1,17 @@
+if (data) && (data.items)
+    if data.hasNewer == true
+        .accordion.publication-version-container.outdated-version
+            a.accordion__control.version-label.w-slide__btn(href='#', title='Single Accordion Controller', aria-expanded='false', data-slide-target='#rev-1', data-label='article versions')
+                i.icon-notice(aria-hidden='true')
+                span  !{data.linkLabel}
+                i.icon-keyboard_arrow_down(aria-hidden='true')
+            .accordion__content.corrections-body#rev-1(style='display: none;')
+                | !{pb.render("publication-versions", "extended/ext-publication-list", { data: data, thisWidget: thisWidget}, 'pericles')}
+    else
+        .accordion.publication-version-container
+            a.accordion__control.version-label.w-slide__btn(href='#', title='Single Accordion Controller', aria-expanded='false', data-slide-target='#rev-2', data-label='article versions')
+                i.icon-notice(aria-hidden='true')
+                span  !{data.linkLabel}
+                i.icon-keyboard_arrow_down(aria-hidden='true')
+            .accordion__content.corrections-body#rev-2(style='display: none;')
+                | !{pb.render("publication-versions", "extended/ext-publication-list", { data: data, thisWidget: thisWidget}, 'pericles')}

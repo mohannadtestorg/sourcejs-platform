@@ -1,0 +1,198 @@
+{
+    "logo": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "true",
+                        "className": ["header__logo"]
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/images/templates/images/images-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "link": "/",
+                                            "src": "/specs/ux3/releasedAssets/images/logo.png",
+                                            "alt": "logo"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "institution": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/institution-banner/templates/institution-banner/institution-banner-tmpl.jade",
+                                "data": {
+                                    "model": {
+                                        "data": {
+                                            "itemUrl": "#",
+                                            "institution": "Atypon Institution",
+                                            "introText": "brought to you by"
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "search": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl.jade",
+            "data": {
+                "$ref": "../../../../../../ux3/widgets/quick-search/templates/data/quick-search-menu.json"
+            }
+        }
+    },
+    "cart": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+            "data": {
+                "thisWidget": {
+                    "id":"shoppingCart1",
+                    "properties": {
+                        "render": "html",
+                        "html": "<a href=\"/user/cart\" class=\"quick-menu__item\" title=\"My Cart\"><i class=\"icon-shopping_cart block-icon\" aria-hidden=\"true\"></i><span>My Cart</span></a>"
+                    }
+                }
+            }
+        }
+    },
+    "user": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/user-login-bar/templates/logged-out-panel/logged-out-panel.jade",
+                                "data": {
+                                    "$ref": "../../../../../../ux3/widgets/user-login-bar/templates/data/user-panel-logged-out.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "mainmenu": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/menu/templates/menu/menu-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "vPort": "medium"
+                                        }
+                                    },
+                                    "data": {
+
+                                        "id": "main0",
+                                        "list": [
+                                            {
+                                                "text": "Home",
+                                                "link": "#",
+                                                "current": "true"
+                                            },
+                                            {
+                                                "text": "Information",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Journals",
+                                                "link": "/action/showPublications?pubType=journal",
+                                                "list": [
+                                                    {
+                                                        "text": "The Bone & Joint Journal",
+                                                        "link": "/journal/bjj"
+                                                    },
+                                                    {
+                                                        "text": "Bone & Joint 360",
+                                                        "link": "/journal/bj360"
+                                                    },
+                                                    {
+                                                        "text": "Bone & Joint Research",
+                                                        "link": "/journal/bjr"
+                                                    },
+                                                    {
+                                                        "text": "Journal of Children's Orthopaedics",
+                                                        "link": "/journal/jco"
+                                                    },
+                                                    {
+                                                        "text": "EFORT Open Reviews",
+                                                        "link": "/journal/eor"
+                                                    },
+                                                    {
+                                                        "text": "Orthopaedic Proceedings",
+                                                        "link": "/journal/procs"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Education",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Multimedia",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Congress",
+                                                "link": "#"
+                                            },
+                                            {
+                                                "text": "Specialty",
+                                                "link": "#"
+                                            }
+                                        ]
+
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

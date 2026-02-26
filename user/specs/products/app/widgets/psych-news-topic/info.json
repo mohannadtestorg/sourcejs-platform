@@ -1,0 +1,58 @@
+{
+    "title": "PsychNews Topic",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "PsychNews Topic",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/psych-news-topic/psych-news-topic-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "PsychNews Topic demo",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/psych-news-topic/demo-psych-news-topic-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/demo-data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

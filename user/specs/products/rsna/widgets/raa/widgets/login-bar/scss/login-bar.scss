@@ -1,0 +1,84 @@
+.loginBar {
+    color: $primary-link-color;
+    float: left;
+
+    .show-login, .indivLogin {
+        display: inline-block;
+        padding: 0px 15px;
+        border-right: 1px solid $primary-border-color;
+        color: $primary-link-color;
+        transition: background-color 0.3s;
+        float: left;
+
+        @include media('<tablet') {
+            padding: 0px 10px;
+            border-right: none;
+        }
+
+        &:hover {
+            background-color: $secondary-lighten-bg-color;
+
+            @include media('<tablet') {
+                background-color: transparent;
+            }
+        }
+    }
+
+    .icon-profile_empty, .icon-userprofile {
+        margin: 0px;
+        font-size: $h3-font-size;
+        line-height: 36px;
+        float: left;
+
+        @include media('<tablet') {
+            font-size: $icon-font-size;
+            line-height: normal;
+        }
+    }
+
+    .sign-in-label, .profile-text{
+        line-height: 36px;
+        color: $primary-link-color;
+        float: left;
+        padding-left: 10px;
+    }
+
+    .icon-userprofile {
+        color: $primary-link-color;
+    }
+}
+
+.navigation-login-dropdown-container {
+    top: 100%;
+    color: $primary-link-color;
+    font-size: $x-small-font-size;
+    padding: 0px;
+
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+    li {
+        border-top: 1px solid $primary-border-color;
+        transition: background-color 0.3s;
+        margin: 0px;
+        padding: 0px;
+
+        &:hover {
+            background-color: $secondary-lighten-bg-color;
+        }
+
+        &:first-child {
+            border-top: none;
+        }
+
+        a {
+            font-weight: normal;
+            font-size: $x-small-font-size;
+            padding: 10px 15px;
+            display: block;
+        }
+    }
+}

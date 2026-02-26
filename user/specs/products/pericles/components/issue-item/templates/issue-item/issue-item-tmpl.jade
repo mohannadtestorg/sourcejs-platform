@@ -1,0 +1,89 @@
+-var pdfClass = '';
+
+mixin mainIssuesWrapper()
+    each item, l in data.items
+        .issue-item
+            block versionHeading
+            if (item.access) && item.access != 'no'
+                if item.access == 'limited'
+                    - item.access = 'full'
+                .doi-access-wrapper
+                    .access-type(class = item.access == 'oa' ? 'open-access' : item.access + '-access')
+                        i(aria-hidden='true' alt="" class='icon-icon-lock_open')
+                        div.doi-access
+                            if (item.access == 'oa')
+                                | Open access
+                            else
+                                | !{item.access} access
+
+            a.issue-item__title(href=item.best title=item.title)
+                h3
+                    | !{item.title}
+
+            if (item.contribs)
+                | !{item.contribs}
+
+            block meta
+                ul.rlist--inline.separator.issue-item__details
+                    if (item && item.group && item.group.serial && item.group.serial.title)
+                        li
+                            a(href=item.group.serial.journalLink)
+                                | !{item.group.serial.title}
+
+                    if (item && item.group.pageRange)
+                        if !(item.group.serial && item.group.serial.code == 'mrwseries')
+                            li.iPageRange
+                                label Pages:
+                                span !{'&nbsp' + item.group.pageRange}
+
+                    if (item && item.pageRange)
+                        if !(item.group.serial && item.group.serial.code == 'mrwseries')
+                            li.iPageRange
+                                label Pages:
+                                span !{'&nbsp' + item.pageRange}
+
+
+                    if (item.earliestPubDate)
+                        li
+                            label First published:
+                            span.bold  !{'&nbsp' + item.earliestPubDate}
+
+                    block doiItem
+                        if (item && item.doi)
+                            li.coverDoi
+                                label DOI:
+                                span
+                                    a(href=item.best) !{'&nbsp' + item.doi}
+
+            block formatLinks
+                .content-item-format-links
+                    ul.rlist--inline.separator
+                        if(data.widget && data.widget.showAbstract) && (item.abstractLink)
+                            li
+                                a(href=item.abstractLink, title='Abstract') Abstract
+                        if(data.widget && data.widget.showFulltext) && (item.fullTextLink)
+                            li
+                                a(href=item.fullTextLink, title='Full text') Full text
+
+                        if (item.epdfLink)
+                            - pdfClass = 'pdfLink--is-hidden';
+                            li.readcubeEPdfLink
+                                a(href=item.epdfLink, title='EPDF') PDF
+
+                        if (item.pdfLink)
+                            li(class=pdfClass )
+                                a(href=item.pdfLink, title='PDF') PDF
+
+                        if(data.widget && data.widget.showReferences) && (item.referencesLink)
+                            li
+                                a(href=item.referencesLink, title='References') References
+
+                        if(data.widget && data.widget.showPermissions) && (item.permissions)
+                            li
+                                a(href=item.permissions title="Request permissions") Request permissions
+
+            if (item.abstract)
+                | !{item.abstract}
+
+block mainIssuesWrapper
+    +mainIssuesWrapper()

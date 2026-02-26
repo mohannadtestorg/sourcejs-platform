@@ -1,0 +1,63 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200288' target="_blank">`LIT-200288`</a>, <a href='https://jira.atypon.com/browse/LIT-192534' target="_blank">`LIT-192534`</a>, <a href='https://jira.atypon.com/browse/LIT-200304' target="_blank">`LIT-200304`</a> and <a href='https://jira.atypon.com/browse/LIT-194456' target="_blank">`LIT-194456`</a>
+            small note: in the example bellow the "refine search" toggle functionality is broken only on sourcejs, because of the needed for jquery ui that already loaded in LIT
+
+    section.source_section
+        h2 Search Result page
+
+        h3 Search Result page - (Articles & Chapters)
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .search-results-page-body.pageBody.secondary-bg-color(data-widget-def='pageBody', data-widget-id='2c02640e-53a0-4b6a-956f-6a8d0cc95861')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        .container
+                            .row
+                                .col-md-12.gutterless--sm.gutterless--md.gutterless--xs
+                                    .search-results-left.hidden-sm.hidden-xs.hidden-md.col-md-3
+                                        | !{pb.render('search-facets', 'facet.json', 'pericles')}
+                                    .search-results-wrapper.gutterless--xs.gutterless--sm.gutterless--md.col-md-9
+                                        .main-content(data-widget-def='UX3SearchResults', data-widget-id='d67bd8f5-e3b5-4b64-b6bc-e571c2f4dffc')
+                                            h1.is-accessible
+                                                | Search Results
+                                            | !{pb.render('search-result', 'search-result/demo/search-result', 'article.json', 'pericles')}
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+
+
+        h3 Search Result page - (Publications)
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .search-results-page-body.pageBody.secondary-bg-color(data-widget-def='pageBody', data-widget-id='2c02640e-53a0-4b6a-956f-6a8d0cc95861')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        .container
+                            .row
+                                .col-md-12.gutterless--sm.gutterless--md.gutterless--xs
+                                    .search-results-left.hidden-sm.hidden-xs.hidden-md.col-md-3
+                                        | !{pb.render('search-facets', 'facet.json', 'pericles')}
+                                    .search-results-wrapper.gutterless--xs.gutterless--sm.gutterless--md.col-md-9
+                                        .main-content(data-widget-def='UX3SearchResults', data-widget-id='d67bd8f5-e3b5-4b64-b6bc-e571c2f4dffc')
+                                            h1.is-accessible
+                                                | Search Results
+                                            | !{pb.render('search-result', 'search-result/demo/search-result', 'content.json', 'pericles')}
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}

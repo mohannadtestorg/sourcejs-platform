@@ -1,0 +1,35 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-tabs-tmpl
+
+
+block tabsPrefix
+    - var original = data;
+    - var fakeId = "pcw";
+    - var config = {"type":"flex","effect": "slide","vPort":"xsmall"};
+    - var tabsData = {"nav":[{"text": "Details","content": "","class": "details"},{"text": "Exhibits","class": "figures","content": ""},{"text": "References","content": "","class": "references"},{"text": "Related","class": "related","content": ""}]};
+    - data = tabsData;
+
+block tabsPanes
+    ul.rlist.tab__content.sticko__child
+        - var i = 0
+        if(data.nav)
+            each item, I in data.nav
+                if (item.class == "related")
+                    li.accordion-with-arrow.tab__pane.tab__pane--clear(id="pane-"+ fakeId + "-" + item.class  aria-labelledby="pane-"+ fakeId + "-" + item.class + "con" role="tabpanel")
+                        | !{pb.render("publication-content", "article/extended/ext-accordion", { data: original, thisWidget: thisWidget }, null)}
+                else if (item.class == "details")
+                    li.tab__pane(id="pane-" + fakeId + "-" + item.class  aria-labelledby="pane-" + fakeId + "-" + item.class + "con" role="tabpanel")
+                        include ../details-tab-tmpl.jade
+                else
+                    li.tab__pane(id="pane-"+ fakeId + "-" + item.class  aria-labelledby="pane-"+ fakeId + "-" + item.class + "con" role="tabpanel")
+                        | !{item.content}
+                - i++
+        li.tab__spinner
+            img(src="/ux3/widgets/publication-content/images/spinner.gif" id="spinner" style="width: 100%")
+
+
+
+block tabsMain
+    div.tab.tab--slide.tab--flex.sticko__md.tabs--xs.dynamic-sticko(class=classNames)
+        ul.rlist.tab__nav.w-slide--list(data-mobile-toggle = "slide")
+            +nav()
+        +pane()

@@ -1,0 +1,112 @@
+if (data.recipients && data.recipients.success)
+    div.success
+        | !{data.recipients.success}
+form.usageReports(action="/action/updateInstitutionUsageReport" name="InstitutionAdmin_UsageReport" id="institutionUsageReport")
+    input(type="hidden" name="reportiuid" value=reportiuid)
+    input(type='hidden' name='anti-forgery-token' value=data.token)
+
+    block report_delivery
+        .card.report_delivery
+            h2.section__header Report delivery
+
+            ol.rlist.separator
+                li
+                    h3.normal__header 1. Select reports
+                    ul.rlist.alert__list
+                        li.markAll
+                            .input-group
+                                label.checkbox--primary
+                                    input(type='checkbox' name="markall" value="all" id="counterIdsAll")
+                                    span.label-txt Select all reports
+
+                        each report,counterId in data.reports.counterIds
+                            li
+                                .input-group
+                                    label.checkbox--primary
+                                        input(type='checkbox' name="counterIds" checked=report.value == '' ? false : report.value  value=report.name id="counterIds" + report.name)
+                                        span.label-txt= report.label
+                li.dateRange
+                    h3.normal__header 2. Select range
+                    .input-group
+                        - var months = ['January','February','March','April','May','June','July', 'August', 'September', 'October', 'November', 'December']
+                        - var years = data.yearsRange;
+                        - var monthRange = data.monthRange.monthRangeRadioOption == '' ? false : data.monthRange.monthRangeRadioOption
+
+                        div
+                            span.label From:
+                            select.jcf(name="startMonth" size="1" id="startMonthId")
+                                each month,i in months
+                                    if i + 1 != data.monthRange.startMonth
+                                        option(value=i + 1)= month
+                                    else
+                                        option(value=i + 1 selected)= month
+                            select.jcf(name="startYear" size="1" id="startYear")
+                                each year in years
+                                    if year != data.monthRange.startYear
+                                        option(value=year)= year
+                                    else
+                                        option(value=year selected)= year
+                        div
+                            span.label To:
+                            select.jcf(name="endMonth" size="1" id="endMonthId")
+                                each month,i in months
+                                    if i + 1 != data.monthRange.endMonth
+                                        option(value=i + 1)= month
+                                    else
+                                        option(value=i + 1 selected)= month
+                            select.jcf(name="endYear" size="1" id="endYear")
+                                each year in years
+                                    if year != data.monthRange.endYear
+                                        option(value=year)= year
+                                    else
+                                        option(value=year selected)= year
+
+                li
+                    h3.normal__header 3. Select formats
+                    each format in data.formats
+                        .input-group
+                            label.checkbox--primary
+                                input(type="checkbox" checked=format.value == '' ? false : format.value name="format" value=format.name id="format" + format.name)
+                                if format.name == "tsv"
+                                    span.label-txt Tab-delimited text
+                                else
+                                    span.label-txt.uppercase= format.name
+                li
+                    h3.normal__header 4. Select the recipient(s)
+                    - var recipients = data.recipients.emailAllAdminsTrue == '' ? false : data.recipients.emailAllAdminsTrue
+                    .input-group
+                        label.radio--primary.withInput
+                            input(type="radio" name="emailAllAdmins" value="false" checked=!recipients)
+                            span.label-txt
+                                input(type="text" name="emailAddresses" value= data.recipients.usageReportEmailAddress)
+                    .input-group
+                        label.radio--primary
+                            input(type="radio" name="emailAllAdmins" value="true" checked=recipients id="emailAllAdminsTrue")
+                            span.label-txt All administrators of this organization
+
+            button.btn.uppercase.js__submitReport(type='submit' name='sendMail')= data.sendMailLabel
+
+
+    block emailNotifications
+        .card
+            h2.section__header Counter usage data notification
+            .input-group
+                label.checkbox--secondary
+                    input(type="checkbox" name="counterEnabled" id="chk_counterEnabled" checked= (data.emailCounterEnabled > 0) ? true : false)
+                    span.label-txt Send the institutional administrators an email when COUNTER usage date for the current month has been processed and is available for download.
+
+            button.btn.hidden(type='submit' name='notify' value='true')= data.usageReportSaveButtonValue
+
+
+    block sushiDetails
+        .card
+            h2.section__header= data.usageReportSushiHeader
+
+            h3.small__header Our SUSHI request URL is:
+            p= data.sushiRequestUrl
+
+            h3.small__header Your Requestor ID is:
+            p= data.sushiRequestId
+
+            h3.small__header Your customerReference ID is:
+            p= data.sushiCustomerRefId

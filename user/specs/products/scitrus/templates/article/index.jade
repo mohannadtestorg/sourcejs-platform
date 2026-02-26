@@ -1,0 +1,13 @@
+extends /specs/products/scitrus/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Article page
+
+    section.source_section
+        h2 Article page
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            | !{pb.render("publication-content", "demo/article", "content.json")}
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

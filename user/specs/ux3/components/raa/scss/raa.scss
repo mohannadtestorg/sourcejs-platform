@@ -1,0 +1,87 @@
+.form {
+
+    &__links {
+        margin-top: 14px;
+        color: $secondary-text-color;
+        display: inline-block;
+        font-size: 0.875rem;
+        .form__registration & {
+            display: block;
+            text-align: center;
+        }
+    }
+    &__intro-text {
+        color: $secondary-text-color;
+        font-size: 0.875rem;
+        padding-bottom: 40px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        border-bottom: 1px solid $social-login-separators-color;
+    }
+    &__login, &__registration ,&__user,&__pass{
+        ::-webkit-input-placeholder {
+            color: $light-gray-links;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        ::-moz-placeholder {
+            color: $light-gray-links;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        :-ms-input-placeholder {
+            color: $light-gray-links;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        :-moz-placeholder {
+            color: $light-gray-links;
+            font-size: 15px;
+            font-weight: 400;
+        }
+    }
+}
+
+.social-login {
+    border-bottom: 1px solid $social-login-separators-color;
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    i {
+        font-size: 1.875rem; // 30px
+    }
+
+    li {
+        margin: 0 20px 17px 0;
+    }
+
+    .icon-linkedin2 {
+        color: $linkedin;
+    }
+
+    .icon-facebook2 {
+        color: $facebook;
+    }
+
+    .icon-twitter2 {
+        color: $twitter;
+    }
+}
+
+#institutional-login {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.ORCID-icon {
+    color: white;
+    background: black;
+    font-weight: 900;
+    border-radius: 50%;
+    padding: 3px 5px;
+    display: inline-block;
+    margin-right: 5px;
+}

@@ -1,0 +1,80 @@
+/***
+
+```
+<form class="m-filter-form">
+  <div class="m-filter-form__fieldset" role='group'>
+    <legend class="m-filter-form__legend">Find by volume and issue</legend>
+    <ol class="m-filter-form__list">
+      <li class="m-filter-form__item">
+        <label for="issue_filter_volume" class="m-filter-form__label">Volume</label>
+        <input type="text" name="issue_filter_volume" id="issue_filter_volume" class="m-filter-form__input" placeholder="Vol.">
+      </li>
+      <li class="m-filter-form__item">
+        <label for="issue_filter_number" class="m-filter-form__label">Number</label>
+        <input type="text" name="issue_filter_number" id="issue_filter_number" class="m-filter-form__input" placeholder="No.">
+      </li>
+    </ol>
+    <p class="m-filter-form__btns">
+      <button class="a-btn a-btn--icon-only" aria-label="Search">
+        <svg class="icon--arrow"><use xlink:href="#icon--arrow" /></svg>
+      </button>
+    </p>
+  </div>
+</form>
+```
+
+NB: `<div class="m-filter-form__fieldset" role='group'>` rather than `fieldset` because `fieldset` can't be a flex container: https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
+
+***/
+
+.m-filter-form {
+  margin-top: 0;
+}
+
+.m-filter-form__fieldset {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start
+}
+
+.m-filter-form__legend {
+  @include f-h11;
+  display: flex;
+  flex: 0 0 100%;
+  width: 100%;
+  color: $color__text--headlines;
+}
+
+.m-filter-form__list,
+.m-filter-form__btns {
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: row wrap;
+  margin-top: 12px;
+}
+
+.m-filter-form__item,
+.m-filter-form__btns > * {
+  flex: 0 0 auto;
+  margin-right: 12px;
+}
+
+.m-filter-form__label {
+  display: none;
+}
+
+.m-filter-form__input {
+  width: 80px;
+
+  @include breakpoint('medium+') {
+    width: 76px;
+  }
+
+  @include breakpoint('large+') {
+    width: 56px;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: 80px;
+  }
+}

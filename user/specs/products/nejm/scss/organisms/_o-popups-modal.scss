@@ -1,0 +1,388 @@
+.o-popups-modal {
+  height:100%;
+  width:100%;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: $color__white;
+  z-index: 21;
+}
+
+.o-popups-modal__leaderboard {
+
+}
+
+.o-popups-modal__header {
+  height: 48px;
+  border-bottom: 1px solid $color__rules;
+  background-color: $color__white;
+  position:relative;
+
+  @include breakpoint('small+') {
+    height: 56px;
+  }
+
+  button {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background-color: $color__white;
+    cursor: pointer;
+  }
+
+  .f-11 {
+    margin:0;
+    padding:0 20px;
+    line-height: 48px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight:bold;
+    color:$color__text--headlines;
+
+    @include breakpoint('small+') {
+      line-height: 56px;
+    }
+  }
+
+  button.o-popups-modal__closeAside {
+    position:absolute;
+    right:0;
+    top:0;
+    height: 100%;
+    width: 48px;
+    border-left: 1px solid $color__rules;
+    display:block;
+
+    @include breakpoint('small+') {
+      width: 56px;
+    }
+
+    @include breakpoint('large+') {
+      display:none;
+    }
+  }
+
+  button.o-popups-modal__nav-link--menu {
+    display:block;
+
+    @include breakpoint('large+') {
+      display:none;
+    }
+  }
+}
+
+
+
+.o-popups-modal__nav,
+.o-popups-modal__tools {
+  position: absolute;
+  top: 0;
+}
+
+.o-popups-modal__nav {
+  left: 0;
+
+  .s-no-popups-modal-menu & {
+    display: none;
+  }
+}
+
+.o-popups-modal__tools {
+  right: 0;
+}
+
+.o-popups-modal__nav-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0;
+}
+
+.o-popups-modal__nav-item {
+  flex: 0 0 auto;
+}
+
+.o-popups-modal__nav .o-popups-modal__nav-item {
+  border-right: 1px solid $color__rules;
+}
+
+/*.o-popups-modal__tools li:last-child {
+  border-left: 1px solid $color__rules;
+}*/
+
+.o-popups-modal__nav-link,
+.o-popups-modal .a-dropdown > button {
+  display: block;
+  position: relative;
+  width: 48px;
+  height: 47px;
+  padding-right: 0;
+  border: 0 none;
+  background-color: $color__white;
+  color: $color__black;
+  cursor: pointer;
+
+  @include breakpoint('small+') {
+    width: 56px;
+    height: 55px;
+  }
+}
+
+span.o-popups-modal__nav-link {
+  cursor:default;
+
+  svg {
+    opacity:0.25;
+  }
+}
+
+a.o-popups-modal__nav-link:hover,
+button.o-popups-modal__nav-link:hover {
+  color: $color__text--tertiary;
+}
+
+.o-popups-modal__nav-link svg,
+.o-popups-modal .a-dropdown > strong svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-right: auto;
+  margin-left: -12px;
+}
+
+.o-popups-modal__nav-link--prev {
+  transform: rotate(180deg);
+}
+
+.o-popups-modal .a-dropdown {
+  border: 0 none;
+}
+
+.o-popups-modal .a-dropdown ul {
+  left: auto;
+  right: -1px;
+  top: calc(100% - 4px);
+  width: 200px;
+}
+
+.o-popups-modal__content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  bottom: 48px;
+
+  @include breakpoint('small+') {
+    bottom: 56px;
+  }
+
+  @include breakpoint('large+') {
+    right: 436px;
+    left:0;
+    transition: right .25s ease-in-out;
+
+    .s-figcaption-collapsed &,
+    .s-figcaption-empty & {
+      right: 0;
+    }
+
+  }
+}
+
+.o-popups-modal__player {
+  position: fixed;
+  left:0;
+  bottom: 0;
+  right: 0;
+  height: 56px;
+  line-height:56px;
+  background-color: $color__background;
+  border-top: 1px solid $color__rules;
+
+  @include breakpoint('large+') {
+    right: 436px;
+  }
+}
+
+.o-popups-modal__title {
+  margin-top:0;
+  color:$color__text--headlines;
+}
+
+.o-popups-modal__ref {
+  margin-top:13px;
+  padding-bottom:10px;
+  display: block;
+  color: $color__text--quaternary;
+}
+
+.o-popups-modal__content-inner {
+  overflow-y: auto;
+  height:100%;
+
+  @each $name, $point in $breakpoints {
+    @include breakpoint('#{$name}') {
+      padding: map-get($inner-gutters, $name);
+    }
+  }
+
+  img {
+    float:right;
+    margin-top:20px;
+    margin-bottom:20px;
+    max-width:300px;
+
+    width: colspan(3, xsmall);
+
+    @include breakpoint('small+') {
+      width: colspan(3, small);
+    }
+
+    @include breakpoint('medium+') {
+      width: colspan(3, medium);
+    }
+
+    @include breakpoint('large+') {
+      width: colspan(3, large);
+    }
+
+    @include breakpoint('xlarge+') {
+      width: colspan(3, xlarge);
+    }
+
+    @include breakpoint('xxlarge') {
+      width: colspan(3, xxlarge);
+    }
+
+    @each $name, $point in $breakpoints {
+      @include breakpoint('#{$name}') {
+        margin-left: map-get($inner-gutters, $name);
+      }
+    }
+  }
+}
+
+
+.o-popups-modal__aside {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $color__white;
+  width: 100%;
+/*  padding: 15px 16px 16px;*/
+
+  overflow:hidden;
+  -webkit-overflow-scrolling: touch;
+  transition: transform .25s ease-in-out, box-shadow .25s ease-in-out;
+  transform: translateX(-100%);
+
+  box-shadow: 0 0 0 0 $color__black--50;
+
+  .s-aside-empty & {
+    display: none;
+  }
+
+  &.s-aside-active {
+    transform: translateX(0);
+    box-shadow: 0 0 7px 0 $color__black--50;
+  }
+
+  @include breakpoint('medium+') {
+    width: 436px;
+  }
+
+  @include breakpoint('large+') {
+    box-shadow: none;
+    left: auto;
+    right:0;
+    border-top: 0 none;
+    border-left: 1px solid $color__rules;
+    transition-property: none;
+    transform: translateX(0);
+
+    .s-aside-empty & {
+      right: -436px;
+      bottom: 0;
+    }
+
+    &.s-aside-active {
+      box-shadow: none;
+    }
+  }
+}
+
+
+
+.o-popups-modal__aside--inner {
+  overflow-y: auto;
+  height: calc(100% - 48px);
+
+  @include breakpoint('small+') {
+    height: calc(100% - 56px);
+  }
+
+  ul {
+    margin:0;
+    padding:0;
+
+    li {
+      display:block;
+    }
+  }
+}
+
+.o-popups-modal__article {
+  position:relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    height: 1px;
+    background-color: $color__rules;
+  }
+
+  a {
+    padding:15px;
+    color:$color__text--headlines;
+
+    @include breakpoint('small+') {
+      padding:20px;
+    }
+
+    &:hover {
+      text-decoration:underline;
+    }
+  }
+}
+
+.o-popups-modal__article--active {
+  background-color:$color__magnolia;
+
+  &:after {
+    left: 0;
+    right: 0;
+  }
+}
+
+.o-popups-modal__content-nav {
+  margin-bottom:56px;
+
+  a {
+    padding: 0 15px;
+
+    &:first-child {
+      padding-left:0;
+    }
+  }
+}

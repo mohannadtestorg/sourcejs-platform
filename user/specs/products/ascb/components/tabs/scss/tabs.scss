@@ -1,0 +1,19 @@
+.tab{
+    &__nav{
+      i,a{
+          @include themify($themes) {
+              color: themed('color');
+          }
+
+      }
+      .active {
+        i, a {
+          @include themify($themes) {
+            color: themed('color');
+            border-bottom-color: themed('color');
+          }
+        }
+      }
+
+    }
+}

@@ -1,0 +1,45 @@
+extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    section.source_section
+
+        include ../../../page-structure/helpers/print-json-mixin
+        include ../../../page-structure/helpers/print-template-include-mixin
+        include ../../../page-structure/helpers/print-js-code-mixin
+
+        h2 Usage
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Quick search form template.
+
+        +printJson({
+            "data": {
+                "categories": [
+                    {
+                        "name": "...",
+                        "label": "..."
+                    }
+                ],
+                "category": "...",
+                "submissions": [
+                    {
+                        "doi": "...",
+                        "title": "...",
+                        "state": "...",
+                        "category": "...",
+                        "submissionDate": "..."
+                    }
+
+                ]
+            }
+        })
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+        h3 Submission List
+        .source_example
+            | !{data.items[0].body}
+    | #{''}

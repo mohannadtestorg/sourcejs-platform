@@ -1,0 +1,14 @@
+extends ../../../../../../ux3/widgets/share/templates/share/share-tmpl
+
+
+block shareMain
+    .dropBlock.article-tools__dropblock.article-tools__share
+        a.article-tools__ctrl.share__ctrl(href="#" data-db-target-for=thisWidget.id)
+            i.icon-gizmo-share(aria-hidden="true")
+            span Share
+        div.share__block.dropBlock__holder.article-tools__dropblock__holder(data-db-target-of=thisWidget.id id=thisWidget.id + "_Pop")
+            | !{pb.renderDropzone(thisWidget, "shareBlock")}
+            +addThis()
+
+block shareServiceName
+    span !{service.name}

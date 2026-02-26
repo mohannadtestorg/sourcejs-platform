@@ -1,0 +1,37 @@
+extends ./menu-tmpl
+
+
+
+block mainNavBlock
+    .responsive-menu-container.clearfix
+        .left-section.pull-left
+            block MenuLeftDropZone
+               | !{pb.renderDropzone(thisWidget, 'MenuLeftDropZone')}
+
+        .menu-section
+            div.main-nav.responsive-menu-nav
+                a(href="#" + data.id data-target=data.id data-toggle="nav" title="menu drawer")
+                    block navIcons
+                        i.icon-menu2(aria-hidden="true")
+                        i.icon-close_thin(aria-hidden="true")
+                block mainNavContainer
+                    nav.drawer__nav.container.gutterless(role="navigation" id=data.id class=viewPortClass data-ctrl-res=viewPort)
+                        block  menuHeader
+                            a.menu-header(href='#' class=viewPortInvertClass) Home
+                        +menu(data.list, false)
+
+        .right-section.pull-right
+            block MenuRightDropZone
+              | !{pb.renderDropzone(thisWidget, 'MenuRightDropZone')}
+
+
+
+block menuSuffix
+    li.dropdown-more.hidden.dropdown.menu-parent(role='menuitem', aria-haspopup='true', aria-label='More')
+        a.dropdown__toggle(href='#', title='More', data-toggle='dropdown')
+            span More
+            i.icon-section_arrow_d.pull-right.hidden-sm.hidden-xs(aria-hidden='true')
+        ul.rlist.dropdown__menu(aria-labelledby='main0-1', aria-hidden='true', role='menu')
+
+
+

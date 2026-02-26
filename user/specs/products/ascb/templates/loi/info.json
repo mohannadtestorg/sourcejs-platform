@@ -1,0 +1,115 @@
+{
+  "title": "LOI page",
+  "tag": ["templates"],
+  "clearview": true,
+  "templateData": {
+    "header":{
+      "$pug": {
+        "template": "../header/templates/header/header-tmpl.jade",
+        "data": {
+          "$ref": "../header/templates/data/header.json"
+        }
+      }
+    },
+    "meta":{
+      "$pug": {
+        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+        "data": {
+          "model": {
+            "config": {
+              "wrapper": "false"
+            },
+            "data": {
+              "content": {
+                "$pug": {
+                  "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                  "data": {
+                    "thisWidget": {
+                      "id": "htmlAssetwrapper",
+                      "properties": {
+                        "render": "html",
+                        "html": "<div class=\"card card--gutter card--shadow meta__body\"><div class=\"meta__left-side left-side-image\"><img alt=\"cover\" src=\"http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png\" class=\"meta__img\"><h1 class=\"meta__title\">Journal of Aerospace Engineering</h1><div class=\"meta__info\"><p>ISSN (print): 0893-1321 | ISSN (online): 1943-5525</p><p>Frequency: Bimonthly | Sponsored by the Aerospace Division</p></div><p class=\"meta__contrib\"><span class=\"meta__contrib__label\">Editor:</span> Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</p></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--inverse btn--journal-meta\">Submit an article</a><a href\"#=\"href\" #\"=\"\"class=\"btn btn--inverse btn--journal-meta\">Subscribe</a></div></div>"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+    },
+    "loi":{
+      "$pug": {
+        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+        "data": {
+          "model": {
+            "config": {
+              "wrapper": "false"
+            },
+            "data": {
+              "content": {
+                "$pug": {
+                  "template": "../../widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade",
+                  "data": {
+                    "$ref": "../../widgets/list-of-issues/templates/data/loi-decade.json"
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+    },
+    "nl": {
+      "$pug": {
+        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+        "data": {
+          "model": {
+            "config": {
+              "wrapper": "true",
+              "className": [
+                "card--dark",
+                "card--gutter"
+              ]
+            },
+            "data": {
+              "content": {
+                "$pug": {
+                  "template": "../../../../ux3/components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                  "data": {
+                    "$ref": "../../../../ux3/components/newsletter/templates/data/newsletter.json"
+                  }
+                }
+              }
+            }
+          }
+
+        }
+      }
+    },
+    "tweets":{
+      "$pug": {
+        "template": "../../../../ux3/components/tweets/templates/tweets/tweets-tmpl.jade",
+        "data": {
+          "body": [
+            {
+              "screenName": "TwitterDev",
+              "height": "510"
+            }
+          ]
+        }
+      }
+    },
+    "footer":{
+      "$pug": {
+        "template": "../../../../ux3/templates/footer/templates/footer/footer-tmpl.jade",
+        "data": {
+          "$ref": "../footer/templates/data/footer.json"
+        }
+      }
+    }
+  }
+}

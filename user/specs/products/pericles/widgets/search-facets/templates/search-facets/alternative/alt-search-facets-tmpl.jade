@@ -1,0 +1,13 @@
+div.virtual-issue__facet
+    div.facet
+        if (data) && (data.facets)
+            each facet, l in data.facets
+                div.facet__content
+                    each item, i in facet.values
+                        a(href=item.link title=item.label)
+                            .input-group
+                                label.checkbox--primary
+                                    input(type='checkbox')
+                                    span.label-txt.facet__label !{item.label}
+
+

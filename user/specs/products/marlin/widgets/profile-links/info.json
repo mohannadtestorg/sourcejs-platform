@@ -1,0 +1,33 @@
+{
+    "title": "Profile links",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Profile links - logged in",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/profile-links/profile-links-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/profile-links-logged-in.json"
+                        }
+                    }
+
+                }
+            },
+            {
+                "title": "Profile links - logged out",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/profile-links/profile-links-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/profile-links-logged-out.json"
+                        }
+                    }
+
+                }
+            }
+        ]
+    }
+}

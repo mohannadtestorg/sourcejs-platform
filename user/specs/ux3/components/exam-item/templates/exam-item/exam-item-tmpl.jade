@@ -1,0 +1,101 @@
+block labels
+    //- Shared
+    - completedIcon = "icon-checkmark"
+    - completedMessage = "You have completed this exam"
+    - incompleteIcon = "icon-x_btnclose"
+    - incompleteMessage = "Incomplete"
+    - creditsLabel = "Credit Hours:"
+    - expiresDateLabel = "Expires:"
+    - relatedArticleLabel = "View related article"
+    //- Exam List Only
+    - publishedDateLabel = "Published:"
+    //- Completed Exams Only
+    - expiredLabel = "Expired"
+    - completedDateLabel = "Completed:"
+    - examCertificateLabel = "View exam certificate"
+    - continueExamLabel = "Continue exam"
+
+if (item)
+    - var complete = false;
+    - var saved = false;
+    if (item.status && item.status == "PASSED")
+        - complete = true;
+    if (item.status && item.status == "SAVED")
+        - saved = true;
+
+    div.exam-item
+        block examStatus
+            if (complete)
+                div.exam-item__status.status--complete
+                    i(class=completedIcon)
+                    | !{completedMessage}
+            if (saved)
+                div.exam-item__status.status--incomplete
+                    i(class=incompleteIcon)
+                    | !{incompleteMessage}
+
+        block examMeta
+            div.exam-item__content.pull-left
+                if(item.examTitle)
+                    h5.exam-item__title
+                        if(item.examLink)
+                            a(href=item.examLink) !{item.examTitle}
+                        else
+                            | !{item.examTitle}
+                else if(item.articleTitle)
+                    h5.exam-item__title
+                        if(item.articleLink)
+                            a(href=item.articleLink) !{item.articleTitle}
+                        else
+                            | !{item.articleTitle}
+
+                div.exam-item__authors
+                    if(item.authors)
+                        | !{item.authors}
+
+                if(item.jornalTitle)
+                    span.exam-item__journal-title
+                        if(item.jornalLink)
+                            a(href=item.jornalLink) !{item.jornalTitle}
+                        else
+                            | !{item.jornalTitle}
+        
+        block examDates
+            div.exam-item__meta.pull-left
+                if (item.creditHours || item.creditHours == 0)
+                    //- For Completed Exams, show credits if the user has completed the exam.
+                    //- For Exam List, show credits if the widget property is enabled.
+                    if (item.showCreditHours && (complete || item.examList))
+                        span.exam-item__credit-hours
+                            | !{creditsLabel}
+                            span
+                                if(item.creditHours == 0)
+                                    | 0
+                                else
+                                    | !{item.creditHours}
+                if(item.publishedDate)
+                    span.exam-item__published-date
+                        | !{publishedDateLabel}
+                        span !{item.publishedDate}
+                //- For Exam List, always display the expiration date. For Completed Exams, only show if incomplete and not expired.
+                if(item.expiresDate && (item.examList || (item.myActivity && saved && !item.isExpired)))
+                    span.exam-item__expires-date
+                        | !{expiresDateLabel}
+                        span !{item.expiresDate}
+                if(item.isExpired)
+                    span.exam-item__expired
+                        | !{expiredLabel}
+                if(item.completedDate && complete)
+                    span.exam-item__completed-date
+                        | !{completedDateLabel}
+                        span !{item.completedDate}
+
+        block examLinks
+            if(item.examLink || item.articleLink)
+                div.exam-item__link.pull-left
+                    if(item.examLink && item.showExamLink == true && !complete && !item.isExpired)
+                        a(href=item.examLink)  !{continueExamLabel}
+                    if(item.examCertificateLink && complete)
+                        a(href=item.examCertificateLink) !{examCertificateLabel}
+                    if(item.articleLink && item.showRelatedArticleLink == "true")
+                        a(href=item.articleLink)  !{relatedArticleLabel}

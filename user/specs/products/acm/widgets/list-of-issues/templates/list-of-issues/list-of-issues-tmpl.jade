@@ -1,0 +1,49 @@
+block loiPrefix
+- data.loi.thisWidget = thisWidget;
+- var order = "ascending";
+- if (data.order == "descending") order = "descending"
+
+block loi
+    if (data.ajaxRequest)
+        | !{pb.render("list-of-issues", "list-of-issues/extended/ext-tabs", {originaldata: data})}
+    else
+        div(data-order= order)
+            div.loi__banner.loi__banner--sticky.sticko(data-db-parent-of=thisWidget.id)
+                .loi__banner__wrapper
+                    a.loi__jacm-title.hidden-lg.hidden-xs(href="#" data-db-target-for="loi-banner")
+                        span Journal of the ACM
+                    a.loi__jacm-title.hidden-md.hidden-lg.hidden-sm(href="#" data-db-target-for="loi-banner")
+                        span JACM
+
+
+                    div.loi__banner-list
+                        if (data.nav)
+                            #loi-banner(data-db-target-of="loi-banner").pull-left
+                                span.loi__jacm-title.hidden-md.hidden-sm.hidden-xs Journal of the ACM
+                                each item, k in data.nav
+                                    if k == 'archive'
+                                        a(class='loi__' + k href=item.href title=item.label data-db-target-for=thisWidget.id)
+                                            if (item.label)
+                                                | !{item.label}
+                                        if (data.loi)
+                                            div.dropBlock__holder.dropBlock-loi__holder(id=thisWidget.id data-db-target-of=thisWidget.id data-grouptype=data.loi.groupType)
+                                                block loitabs
+                                                    | !{pb.render("list-of-issues", "list-of-issues/extended/ext-tabs", {originaldata: data})}
+
+
+                                    else if k == 'additionalLinksData'
+                                        each link, l in item
+                                            if link.enabled == 'on' && link.url
+                                                a(class='loi__additionalLink' href=link.url title=link.label)
+                                                    if (link.label)
+                                                        | !{link.label}
+
+                                    else if item.href
+                                        a(class='loi__' + k href=item.href title=item.label)
+                                            if (item.label)
+                                                | !{item.label}
+
+                        .loi__banner__right-side.pull-right
+                            block loiBannerSecond
+                                | !{pb.renderDropzone(thisWidget, "coolbarDropZone")}
+

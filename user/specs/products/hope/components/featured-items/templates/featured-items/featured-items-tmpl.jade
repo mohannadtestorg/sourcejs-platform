@@ -1,0 +1,69 @@
+- var image = 'false';
+
+mixin loading(image)
+    block loading
+        .lazy-load
+            if (image == 'true')
+                .lazy-load__img
+            .lazy-load__text
+                .lazy-load__line
+                .lazy-load__line--80
+                .lazy-load__line
+                .lazy-load__line--70
+                .lazy-load__line--50
+
+mixin meta(item)
+    block meta
+        div.meta
+            if (item.group && item.group.citationLine)
+                | !{item.group.citationLine}
+                | #{' '}
+            if (item.group)
+                | !{pb.render('parent-item', {data: item.group})}
+            if (item && item.group.coverDate)
+                | !{pb.render('date', {date: item.group.coverDate})}
+
+mixin teaser(item)
+    block teaser
+        .delayLoad
+            if (item.tags && item.tags.length>0)
+                if (item.group.serial.journalLink)
+                    a.featuredCard__head(href= item.group.serial.journalLink) !{item.tags[0].label}
+                else
+                    span.featuredCard__head !{item.tags[0].label}
+
+            if (item.title)
+                if (item.best)
+                    a.featuredCard__title(href=item.best title=item.title) !{item.title}
+                else
+                    h5.featuredCard__title !{item.title}
+            if (item.coverDate || item.contribs)
+                .featuredCard__details
+                    if item.group.isAheadOfPrint && item.fullFormatDate
+                        span.featuredCard__date
+                            | !{item.fullFormatDate}
+                    else if (item.group.coverDate)
+                        span.featuredCard__date
+                            | !{item.group.coverDate}
+                    if (item.contribs)
+                        .featuredCard__authors
+                            | !{item.contribs}
+            //+meta(item)
+
+        +loading(image)
+
+
+mixin render(items)
+    block teaserWrapper
+        - var itemNo = items.length
+        if itemNo > 1
+            ul.rlist
+                each item, l in items
+                    li.featuredCard__item
+                        +teaser(item)
+        else
+            each item, l in items
+                +teaser(item)
+
+if ((data) && (data.items))
+    +render(data.items)

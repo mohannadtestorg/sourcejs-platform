@@ -1,0 +1,4 @@
+block collectionsListBody
+    if (data && data.items)
+        block collectionsListItemBody
+            | !{pb.render('collections', 'collections-list-item', {data: data, model: model})}

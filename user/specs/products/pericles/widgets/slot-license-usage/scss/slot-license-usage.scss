@@ -1,0 +1,233 @@
+.articleSelect {
+    @include solidTabs;
+    .tab__nav {
+        margin: 0 0 -20px;
+        background-color: $white;
+        > :last-child {
+            span {
+                @include media ('<tablet') {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    transform: translateY(50%);
+                }
+            }
+        }
+    }
+}
+
+.slot-license-usage {
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    .table-responsive {
+        margin: 0 -20px;
+    }
+
+    td, th {
+        &:first-child {
+            @include media('>=desktop') {
+                padding-left: 20px;
+            }
+
+        }
+
+        &:last-child {
+            padding-right: 20px;
+            position: relative;
+        }
+    }
+
+    tbody tr {
+        &:hover, &.selected {
+            background: rgba(160, 199, 229, 0.30);
+            cursor: pointer;
+        }
+    }
+
+    .licenseReportBtn {
+        padding: 10px 15px;
+        color: $white;
+        background: $wiley-gray;
+
+        @include media ('<desktop') {
+            padding: 17px;
+        }
+    }
+
+    form {
+        margin-top: 0;
+    }
+
+    > .card {
+        margin-bottom: 48px;
+    }
+    .card-style {
+
+        @include media ('<desktop') {
+            padding-left: 0;
+            padding-right: 0;
+            border: 0;
+            box-shadow: none;
+            padding-top: 0;
+        }
+    }
+
+    @include media('<tablet') {
+        .expandable {
+            td:not(.hidden) {
+                &:first-child:before {
+                    content: attr(data-thead) ":  ";
+                    margin-right: 5px;
+                    float: left;
+                }
+
+                &:last-child:before {
+                    content: attr(data-thead);
+                    float: none;
+                }
+            }
+        }
+    }
+
+}
+
+.issue-item:first-child.card {
+    padding: 20px;
+    border: none;
+}
+
+.selected-license {
+    h4 {
+        font-size: 1.125rem;
+    }
+
+    &__meta {
+        margin-bottom: 30px;
+    }
+
+    &__meta, .item-access {
+        font-size: 0.75rem;
+        line-height: 1rem;
+
+        label {
+            color: $wiley-gray;
+            display: inline-block;
+            margin: 0;
+        }
+    }
+
+    .item-access {
+        margin-top: 24px;
+    }
+
+    .toc-item__detail {
+        margin-bottom: 0;
+
+        span {
+            color: $wiley-typography-color;
+        }
+
+        label {
+            color: $wiley-gray;
+            display: inline-block;
+            margin: 0;
+        }
+    }
+
+    .loa {
+        margin-bottom: 10px;
+    }
+
+    .note {
+        margin: 10px 0;
+    }
+
+}
+
+.licenseReportForm {
+    @include media('<tablet') {
+        .btn ~ .btn {
+            margin-left: 5px;
+        }
+    }
+}
+
+.licenseReportForm, .licenseReport-infoBox {
+
+    @include media('>=tablet') {
+        min-width: 426px;
+        right: 0;
+    }
+
+    bottom: 100%;
+
+    &.js--open {
+
+        &:after {
+            content: " ";
+            display: inline-block;
+            border: 13px solid transparent;
+            position: absolute;
+            border-top-color: $white;
+            bottom: -26px;
+            right: 13%;
+
+            @include media('<tablet') {
+                right: auto;
+                left: 13%;
+            }
+        }
+
+        &:before {
+            content: " ";
+            display: inline-block;
+            border: 14px solid transparent;
+            position: absolute;
+            border-top-color: rgba(0, 0, 0, 0.2);
+            right: 12.6%;
+            bottom: -29px;
+
+            @include media('<tablet') {
+                right: auto;
+                left: 12.6%;
+            }
+        }
+    }
+}
+
+.licenseReport-infoBox {
+    @include media('>=tablet') {
+        min-width: 298px;
+    }
+
+    .infoBox {
+        background: transparent;
+        margin: 0;
+
+        i {
+            color: $white;
+            background: green;
+            border-radius: 100%;
+            font-size: 0.875rem;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            display: inline-block;
+            text-align: center;
+            line-height: 18px;
+        }
+
+        .error {
+            i {
+                background: $wiley-red;
+                font-size: 8px;
+            }
+        }
+
+    }
+
+}

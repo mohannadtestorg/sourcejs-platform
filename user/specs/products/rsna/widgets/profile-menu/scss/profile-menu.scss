@@ -1,0 +1,86 @@
+.profile-menu {
+    margin: 30px -16px 0px 0px;
+    padding: 0px 16px 30px 0px;
+    border-right: 1px solid $primary-border-color;
+
+    @include media('<tablet') {
+        margin: 0px;
+        padding: 0px;
+        border-right: none;
+    }
+
+    &--dropBlock {
+        & > a {
+            background-color: $secondary-lighten-bg-color;
+            color: $primary-text-color;
+            font-size: $h6-font-size;
+
+            &:hover {
+                background-color: $secondary-bg-color;
+                color: $primary-text-color;
+            }
+
+            &.js--open {
+                i {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    a {
+        color: $primary-link-color;
+        padding: 10px 0px;
+        transition: all 0.3s;
+
+
+        @include media('<tablet') {
+            padding: 10px 15px;
+            background-color: transparent;
+        }
+
+        span {
+            line-height: normal;
+        }
+
+        &:hover {
+            color: $primary-link-color;
+        }
+    }
+
+    .active {
+        color: $primary-link-color;
+
+        background-color: $default-bg-color;
+        border: 1px solid $primary-border-color;
+        padding: 10px 15px;
+        margin-right: -17px;
+        margin-left: -15px;
+        border-right: 1px solid $default-border-color;
+        z-index: 2;
+        position: relative;
+
+        @include media('<tablet') {
+            border: none;
+            border-top: 1px solid $primary-border-color;
+            background-color: transparent;
+            padding: 10px 15px;
+            margin-right: 0px;
+            margin-left: 0px;
+            border-right: none;
+        }
+    }
+
+    .rlist:nth-child(2):not(:empty) {
+        padding-top: 10px;
+        margin-top: 10px;
+        border-top: 1px solid $primary-border-color;
+        @include media('<tablet') {
+            margin-top: 0px;
+        }
+
+        &:empty {
+            display: none;
+        }
+    }
+}

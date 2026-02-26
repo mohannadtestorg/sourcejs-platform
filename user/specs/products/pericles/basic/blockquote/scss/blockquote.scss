@@ -1,0 +1,72 @@
+
+blockquote, blockquote.quote, .block-box {
+
+    background: #f9f9f9;
+    margin: 1.5em auto;
+    padding: 20px 40px;
+    position: relative;
+    max-height: none;
+    font-style: normal;
+    text-indent: 0;
+
+    p {
+        margin: 0;
+    }
+}
+
+blockquote, blockquote.quote {
+    &:before {
+        content: open-quote;
+        height: 21px;
+        left: 8px;
+        position: absolute;
+        top: 0;
+        width: 21px;
+        font-size: 3.45rem;
+        color: $wiley-gray-color;
+        font-family: 'Liberation serif'; //LIT-194130
+    }
+
+    &:after {
+        content: close-quote;
+        height: 21px;
+        right: 10px;
+        position: absolute;
+        bottom: 30px;
+        width: 21px;
+        font-size: 3.45rem;
+        color: $wiley-gray-color;
+        font-family: 'Liberation serif'; //LIT-194130
+    }
+}
+
+.poetry {
+    padding-left: 80px;
+    text-align: center;
+    line-height: 1.5rem;
+
+    &:before {
+        content: '\e945';
+        font-family: icomoon !important;
+        left: 30px;
+        top: 18px;
+        color: $section-border;
+        font-size: 1.5rem;
+
+    }
+}
+
+.block-box.dialogue {
+    padding-left: 80px;
+
+    &:before {
+        position: absolute;
+        content: '\e96b';
+        font-family: icomoon !important;
+        left: 30px;
+        top: 18px;
+        color: $section-border;
+        font-size: 1.5rem;
+
+    }
+}

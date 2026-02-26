@@ -1,0 +1,35 @@
+
+.institution {
+    color: $standard-color;
+    border-right: none;
+    margin: 0px -15px;
+    text-align: center;
+    @include media('<desktop'){
+        margin-top: 5px;
+    }
+    @include media('<tablet'){
+        margin: 5px 0 0 140px;
+        float: left;
+    }
+    &__name{
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        @include media('<phone'){
+            position: absolute;
+            z-index: 5;
+            font-size: .5rem;
+            top: 0px;
+            right: 40px;
+            font-weight: 500;
+            max-width: 100px;
+        }
+    }
+    &__intro{
+        @include media('<phone'){
+        display: none;
+    }
+    }
+}
+

@@ -1,0 +1,129 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Institutional Login page
+
+    p.source_info
+        |The Institutional login page template contains the following components: Header, Footer, Input, Accordion
+
+    section.source_section
+        h2 Institutional login
+        markdown
+        code.src-html
+        .source_example
+
+            | !{data.header}
+            main.content.pageBody
+                .container
+                    .row
+                        .checkoutProcessLeftCol.col-sm-8.no-buying
+                            .eCommerceCheckoutFieldsWidget.card.clearfix
+                                ol.checkoutPaymentList.checkoutDropZone
+                                    .eCommerceCheckoutIdentityWidget
+                                        .checkoutList.scroll-focus
+                                            .header.commerce-header
+                                                | Checkout
+                                            .checkout-expand
+                                                .checkoutLogin
+                                                    .identity-info.hidden
+                                                        p.errorMsgBox
+                                                    .errorMsgBox.hidden
+                                                        p.fail-para
+                                                            | Your email needs verification. Please go to your email account and follow the link.
+                                                        form(action='http://physio-prod.literatumonline.com/action/doMailVerification', method='post')
+                                                            input.link(type='hidden', value='', name='email')
+                                                            input.link(type='submit', value='Resend >', name='verifyEmail')
+                                                        p
+                                                    form(action='/action/guestCheckout', method='post')
+                                                        .input-group(data-notification='email')
+                                                            .label
+                                                                label(for='email') Email
+                                                                span.field-info.hidden
+                                                                    span  -
+                                                                    span.message
+                                                            input#email.user(type='email', name='email', value='', maxlength='', autocomplete='', placeholder='')
+                                                        .checkoutMethod
+                                                            a#returningUserLink.returningUser.btn(data-bind='showUserLogin', href='/action/showLogin')
+                                                                | Returning user
+                                                        .checkoutMethod
+                                                            input.btn(type='submit', value='Continue as Guest', data-bind='guest')
+                                                        .checkoutMethod
+                                                            span If you are a new user please click
+                                                            a.newUser.primary-blue-color(data-bind='register', href='/action/registration?redirectUri=%2Faction%2FshowCart%3Fcheckout') here
+                                                            span to register
+                                                .frmLogin.hidden
+                                                    div
+                                                        a.ssoLink(href='/action/showLogin?redirectUri=%2Faction%2FshowCart')
+                                                            | Sign In / Register
+                                    .eCommerceCheckoutBillingWidget
+                                        .hidden
+                                    .eCommerceCheckoutSummaryWidget
+                                        #orderSummary.checkoutList.scroll-focus
+                                            .header
+                                                | Order Summary
+                                            .checkoutList_expanded
+                                                .orderSummary.checkout-readonly
+                                                    div
+                                                        span.label Subtotal
+                                                        span.boldText
+                                                            | $25.00
+                                                    div
+                                                        span.label Discount
+                                                        span.boldText
+                                                            | $0.00
+                                                    div
+                                                        span.label Subtotal
+                                                        span.boldText
+                                                            | $25.00
+                                                    div
+                                                        | Order total
+                                                        span.boldText
+                                                            | $25.00
+                                    .eCommerceCheckoutPaymentWidget
+                                        .hidden
+                        .checkoutProcessRightCol.col-sm-4
+                            .cartInfo.hidden
+                                p
+                            .eCommerceCheckoutBuyingItemsWidget.card
+                                .header.commerce-header
+                                    | Buying items
+                                #buytabcontent.tabContent.active
+                                    .buyingList-info.hidden(data-notification='info')
+                                        p
+                                    // if there is no items in the evaluated quotes then show empty buying list message
+                                    .articleDataContainer
+                                        br
+                                        .articleTitlePrice
+                                            p.float-left.boldText
+                                                | Article PPV,  for  in
+                                            .float-right.item-price
+                                                | $25.00
+                                        .articleAuthorDate
+                                            span
+                                            span May 24, 2017
+                                        .tabPanelFooter
+                                            a(data-bind='saveItem', data-item-id='APS-PPV-ELECTRONIC-USD-10.1152/JN.00482.2016-36', href='/action/saveItem?id=APS-PPV-ELECTRONIC-USD-10.1152/JN.00482.2016-36')
+                                                | Save for later
+                                            a(data-bind='removeItem', data-item-id='APS-PPV-ELECTRONIC-USD-10.1152/JN.00482.2016-36', href='/action/removeCartItem?id=APS-PPV-ELECTRONIC-USD-10.1152/JN.00482.2016-36')
+                                                | Remove
+                                    .buyItemFooter
+                                        .promoCodeBlock
+                                            .promoCodeForm
+                                                form#applyDiscountForm(action='/action/applyDiscount', method='post')
+                                                    input.clearableInput(title='Add discount code', type='text', name='discount', value='', size='15', placeholder='Add discount code')
+                                                    input.button.applyDiscount.float-right-xs-sm(data-bind='applyDiscount', type='submit', title='Apply', value='Apply', disabled='')
+                                                .promoCodeMsg
+                                                    span.errorMsg.hidden
+                                                    span.infoMsg.hidden
+                                            .promoOffers.hidden
+                                        .price
+                                            p.totalPrice
+                                                | Subtotal:
+                                                span.boldText
+                                                    | $25.00
+                                            p.intialPrice
+                                                | Initial price: $25.00
+
+            | !{data.footer}
+    | #{''}

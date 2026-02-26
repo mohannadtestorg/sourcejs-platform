@@ -1,0 +1,17 @@
+if (data.journals)
+	ul.rlist.browse-journals
+		each journal in data.journals
+			li.browse-journals__item
+				.item__image
+					a(href=journal.link)
+						img(src=journal.coverImage.src, alt=journal.title, class=journal__cover)
+				.item__body
+					h4.meta__title
+						a(href=journal.link) !{journal.title}
+					.meta__info
+						.meta__details
+							a(href=journal.latestIssue.link) Current Issue: !{journal.latestIssue.citationLine} | !{journal.latestIssue.coverDate}
+						if (journal.issn)
+							.meta__issns ISSN: !{journal.issn}
+						if (journal.eissn)
+							.meta__eissn EISSN: !{journal.eissn}

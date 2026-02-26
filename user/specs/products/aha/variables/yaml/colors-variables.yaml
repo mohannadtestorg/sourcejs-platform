@@ -1,0 +1,85 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+      aha_transparent:
+        value: '{!TRANSPARENT}'
+
+      aha_black:
+        value: '{!BLACK}'
+      aha_lighten_black:
+        value:  '{!LIGHTEN_BLACK}'
+
+      aha_white:
+        value: '{!WHITE}'
+      aha_darken_white:
+        value: '{!DARKEN_WHITE}'
+
+      aha_grey:
+        value: '{!GREY}'
+      aha_darken_grey:
+        value: '{!DARKEN_GREY}'
+      aha_lighten_grey:
+        value: '{!LIGHTEN_GREY}'
+
+      aha_red:
+        value: '{!RED}'
+      aha_lighten_red:
+        value: '{!LIGHTEN_RED}'
+      aha_darken_red:
+        value: '{!DARKEN_RED}'
+
+      aha_green:
+        value: '{!GREEN}'
+      aha_darken_green:
+        value: '{!DARKEN_GREEN}'
+
+      # OVERRIDING THE UX3 COLORS
+      default-bg-color:
+        value: '{!WHITE}'
+      primary-bg-color:
+        value: '{!WHITE}'
+
+      # THEMING
+      journal_atvb:
+        value: '{!JOURNAL_ATVB}'
+      journal_circ:
+        value: '{!JOURNAL_CIRC}'
+      journal_circep:
+        value: '{!JOURNAL_CIRCEP}'
+      journal_circgen:
+        value: '{!JOURNAL_CIRCGEN}'
+      journal_circimaging:
+        value: '{!JOURNAL_CIRCIMAGING}'
+      journal_circinterventions:
+        value: '{!JOURNAL_CIRINTERVENTIONS}'
+      journal_circoutcomes:
+        value: '{!JOURNAL_CIRCOUTCOMES}'
+      journal_circheartfailure:
+        value: '{!JOURNAL_CIRCHEARTFAILURE}'
+      journal_res:
+        value: '{!JOURNAL_RES}'
+      journal_hyp:
+        value: '{!JOURNAL_HYP}'
+      journal_str:
+        value: '{!JOURNAL_STR}'
+      journal_jaha:
+        value: '{!JOURNAL_JAHA}'

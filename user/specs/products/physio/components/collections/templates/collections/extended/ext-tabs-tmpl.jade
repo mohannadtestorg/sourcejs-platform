@@ -1,0 +1,113 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+block tabsPrefix
+    - var dataOld = tabsData;
+    - var thisWidget = tabsData.thisWidget;
+    - var data = tabsData;
+    - var tabsNumber = [];
+
+mixin tablinkloc(item,l)
+    a(href="#pane-" + thisWidget.id + l + tabNumber aria-controls="#pane-" + thisWidget.id + l + tabNumber role="tab" data-toggle="tab" data-expand=item.groupYear title=item.groupYear id="pane-" + thisWidget.id + l + tabNumber + "con")
+        +item(item)
+mixin link(item,l)
+    block tabsLinks
+        if (item.content)
+            - tabNumber++;
+            div.expandable-list
+                a.expandable-list__toggle(href='#' data-toggle='dropdown' data-expand=item.label title=item.label)
+                    i.icon-arrow_r(aria-hidden='true')
+                    +item(item)
+                ul.rlist.expandable-list__body( aria-hidden='true')
+
+                    each childItem, m in item.content
+                        li
+                            +tablinkloc(childItem,m)
+        else
+            +tablinkloc(item,l)
+
+block tabsPanes
+    - tabNumber = 1;
+    div.tab__content.collections_content.card
+        ul.rlist
+            each item, I in data.content
+                if (item.content)
+                    - tabNumber++;
+                    each childItem, m in item.content
+                        li.tab__pane(id="pane-" + thisWidget.id + m + tabNumber aria-labelledby="pane-" + thisWidget.id + m + tabNumber + "con" role="tabpanel")
+                            h2 !{childItem.label}
+                            h4.intro !{item.groupYear}
+                            .collections__meta-data
+                                .collections__cover
+                                    img(src="http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png")
+                                .collections__info
+                                    p !{childItem.description}
+                                    span !{childItem.doi}
+                            +loc(childItem.items)
+                else
+                    li.tab__pane(id="pane-" + thisWidget.id + I + tabNumber aria-labelledby="pane-" + thisWidget.id + I + tabNumber + "con" role="tabpanel")
+                        h2 !{item.label}
+                        .collections__meta-data
+                            .collections__cover
+                                img(src="http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png")
+                            .collections__info
+                                p !{item.description}
+                                a(href=item.doi) !{item.doi}
+                        +loc(item.items)
+
+block tabsMain
+    div.tab.tab--aside
+        - tabNumber++;
+        ul.rlist.collections__list.tab__nav.card
+            h2.side-section-header Collections by year
+            +nav()
+        +pane()
+
+mixin nav()
+    block tabsNav
+        - var l = 0;
+        if (data) && (data.content)
+            each item, k in data.content
+                li(class=item.content ? 'nested' : '')
+                    +link(item,l)
+                    - l++;
+
+mixin item(item)
+    block tabsItem
+        if (item.groupYear)
+            span !{item.groupYear}
+        else if (item.label)
+            span !{item.label}
+
+mixin loc(items)
+    block loIssues
+        ul.rlist.collections__issues
+            if (items)
+                each item, l in items
+                    li.clearfix
+                        div.collections__issue
+                            if (item.title)
+                                h3
+                                    a(href=item.url) !{item.title}
+                            if (item.author)
+                                .authors
+                                    | !{item.author}
+                            if (item.coverDate)
+                                .coverDate
+                                    | !{item.coverDate}
+                            .collections-item__footer
+                                ul.rlist--inline.separator.collections-item__detail
+                                    li
+                                        a(href=item.fullTextLink, title='Full text')
+                                            span Full text
+                                            i.icon.icon-full-text
+                                    li
+                                        a(href='item.pdfLink', title='PDF')
+                                            span PDF
+                                            i.icon.icon-file-pdf
+                                .accordion.accordion__box
+                                    a.accordion__control(href='#', title='Preview Abstract' aria-expanded='true')
+                                        i.icon-section_arrow_d
+                                        span Preview Abstract
+                                    .accordion__content.collections-item__abstract
+                                        p
+                                            | !{item.abstract}

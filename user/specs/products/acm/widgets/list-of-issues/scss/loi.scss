@@ -1,0 +1,217 @@
+.loi {
+  background: $white;
+  padding: 0;
+
+  .coverDate {
+    border-right: none;
+
+    &:after {
+      content: ',';
+    }
+  }
+
+  .issue {
+    font-weight: 600;
+    @include media('<tablet') {
+      color: $link-text-color;
+    }
+
+    &__image {
+      margin-bottom: 15px;
+      margin-left: 8px;
+      @include media('<tablet') {
+        display: none;
+      }
+    }
+  }
+
+  &__issue {
+    font-size: .875rem;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+
+    @include media('<tablet') {
+      border-bottom: 1px solid $secondary-border-color;
+      padding-left: 30px;
+    }
+
+    .status {
+      font-size: .75rem;
+      padding-left: 16px;
+    }
+
+  }
+  &__vol-title {
+    margin: 0 15px 30px;
+    @include themify($themes) {
+      color: themed('color');
+      border-color: themed('color');
+    }
+
+  }
+
+  &__list {
+    font-size: 1.125rem;
+    .active {
+      border: none;
+      background-color: $white;
+      color: $text-onLight;
+    }
+    a {
+      padding: 14px 20px;
+    }
+  }
+
+  .tab__content {
+    border-top: none;
+    box-shadow: inset 0 6px 5px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .issues-list {
+    @include media('>=tablet') {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .loi__issue {
+      padding-right: 65px;
+    }
+
+  }
+
+  .swipe__wrapper {
+    background-color: $secondary-lighten-bg-color;
+    color: $transparent-black-color;
+  }
+
+  &-tab-1 {
+    > .swipe__wrapper {
+      box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+      background-color: $primary-bg-color;
+      color: $text-onDark;
+      z-index: 2;
+
+      [class*="loi__btn"] {
+        background: $primary-bg-color;
+        color: $text-onDark;
+        box-shadow: 10px 0 15px -5px rgba(0, 0, 0, 0.8);
+        padding: 16px 10px 15px;
+      }
+    }
+
+  }
+
+  &-list {
+    &__wrapper {
+      margin: 0;
+      max-width: inherit;
+    }
+  }
+
+  .swipe__wrapper {
+    &:before, &:after {
+      background: none;
+    }
+  }
+
+  &__banner {
+    box-shadow: none;
+    font-weight: 500;
+
+    @include themify($themes) {
+      background-color: themed('color');
+    }
+
+    &.uncollapsible {
+      .tab__content {
+        max-height: initial;
+      }
+    }
+
+    &__wrapper {
+      margin: auto;
+      max-width: $container-large-screen;
+      padding: 0 15px;
+      @include media('<desktop') {
+        padding: 15px;
+      }
+    }
+  }
+
+  &__jacm-title {
+    font-weight: bold;
+    display: inline-block;
+    padding: 0 15px;
+    @include media('<desktop') {
+      text-align: center;
+      font-size: .875rem;
+      display: block;
+      &::after {
+        font-family: icomoon !important;
+        content: "\e61c";
+        color: rgba($black, .34);
+        padding-left: 15px;
+        font-size: .75rem;
+      }
+    }
+  }
+
+  &__archive {
+    &:after {
+      color: rgba(0, 0, 0, .34)
+    }
+    @include media('<desktop') {
+      &:after {
+        font-size: .75rem;
+        float: right;
+        margin-right: 10px;
+      }
+
+      + .dropBlock-loi__holder {
+        position: static;
+        .loi--res {
+          display: block;
+        }
+      }
+
+    }
+  }
+
+}
+
+#loi {
+  &-banner {
+
+    > a {
+      padding: 15px 10px;
+      &:hover {
+        background-color: rgba(255, 255, 255, .1);
+      }
+    }
+
+    @include media('>=desktop') {
+      display: block;
+      position: static;
+      box-shadow: none;
+    }
+    @include media('<desktop') {
+      left: 0;
+      right: 0;
+      top: 49px;
+      border-top: 1px solid $black;
+      @include themify($themes) {
+        background-color: themed('color');
+      }
+      > a {
+        border-bottom: 1px solid rgba($black, .12);
+        display: block;
+        font-size: 1rem;
+      }
+    }
+
+    > a {
+      ~ a {
+        border-left: none;
+      }
+    }
+  }
+}

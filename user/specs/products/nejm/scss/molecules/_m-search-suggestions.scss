@@ -1,0 +1,53 @@
+/***
+
+```
+<ul class="m-search-suggestions">
+  <li><a href="#">Topic <mark>keyword</mark> 1</a></li>
+  <li><a href="#">Topic <mark>keyword</mark> 2</a></li>
+  <li><a href="#">Topic <mark>keyword</mark> 3</a></li>
+  <li class="m-search-suggestions-hr"><a href="#">Article <mark>keyword</mark> 1</a></li>
+  <li><a href="#">Article <mark>keyword</mark> 2</a></li>
+  <li><a href="#">Article <mark>keyword</mark> 3</a></li>
+  <li><a href="#">Article <mark>keyword</mark> 4</a></li>
+</ul>
+```
+
+***/
+
+.m-search-suggestions {
+  @include sans-serif(16, 40);
+  margin-top: 0;
+  padding-top: 3px;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  box-shadow: 0 1px 3px 0 $color__rules;
+}
+
+.m-search-suggestions li {
+  margin-top: 0;
+}
+
+.m-search-suggestions__hr {
+  border-top: 1px solid $color__rules;
+}
+
+.m-search-suggestions a {
+  display: block;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: $color__text--headlines;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.m-search-suggestions a:hover {
+  background-color: $color__background;
+  color: $color__text--headlines;
+}
+
+.m-search-suggestions mark {
+  background-color: transparent;
+  font-weight: 700;
+  outline: none;
+}

@@ -1,0 +1,177 @@
+.meta {
+    &__body {
+        //margin-bottom:  10px; it effects the journal home page and toc
+
+        h1 {
+            min-height: 60px;
+            line-height: 1.625rem;
+
+            @include media('<tablet') {
+                font-size: 1.25rem;
+            }
+        }
+
+        p {
+            margin: 0;
+
+            @include media('<tablet') {
+                font-size: 0.875rem;
+            }
+        }
+
+        &.card {
+
+            @include media('<tablet') {
+                padding: 15px;
+                margin: 0px -15px;
+            }
+
+        }
+
+        .accordion {
+            &__control {
+                font-size: 0.81rem;
+                i {
+                    font-size: 0.5rem;
+                    margin-left: 5px;
+                }
+            }
+            &__content {
+                font-size: 0.81rem;
+                padding: 10px 15px;
+                background: darken($secondary-lighten-bg-color, 2%);
+            }
+        }
+
+        .quote {
+            @include media('<tablet') {
+                display: none;
+            }
+        }
+    }
+
+    &__content {
+        @include media('>=tablet') {
+            width: 80%;
+            float: left;
+        }
+    }
+
+    &__info {
+        margin-bottom: 15px;
+    }
+
+    &__title {
+        line-height: 1.38rem;
+    }
+
+    &__contrib {
+        color: $meta-contrib-text;
+    }
+
+    &__type {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    &__frequency {
+        margin-bottom: 16px;
+    }
+
+    &__attr {
+        font-weight: bold;
+    }
+
+    &__issns,
+    &__eissn,
+    &__eisbn {
+        font-size: 0.81rem;
+        font-weight: 700;
+        @include media('<tablet') {
+            font-size: 0.75rem;
+        }
+    }
+
+    &__left-side, &__right-side {
+        display: inline-block;
+    }
+
+    &__left-side {
+
+        @include media('>=tablet') {
+            width: 75%;
+        }
+
+        @include media('<desktop') {
+            img {
+                display: none;
+            }
+        }
+
+        &.left-side-image {
+            @include media('>=desktop') {
+                .meta__info {
+                    margin-left: 20%;
+                }
+            }
+        }
+    }
+
+    &__right-side {
+        @include media('<tablet') {
+            margin-top: 20px;
+        }
+
+        @include media('>=tablet') {
+            width: 24%;
+            vertical-align: bottom;
+            text-align: right
+        }
+    }
+
+    &__authors {
+        font-size: 0.875rem;
+        color: $secondary-text-color;
+        margin-bottom: 10px;
+    }
+
+    &__details {
+        font-size: 0.875rem;
+        margin-bottom: 10px;
+        & > span {
+            &:not(:last-child) {
+                &:after {
+                    content: "|";
+                    display: inline-block;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1rem; // 16px
+    margin: 0 0 6px;
+    padding-left: 0.375rem;
+    text-indent: -0.375rem;
+
+    &:before {
+        content: open-quote;
+    }
+
+    &:after {
+        content: close-quote;
+    }
+
+    @include media('<desktop') {
+        display: -webkit-box;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+    }
+}

@@ -1,0 +1,31 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+
+block tabsArchiveLabel
+    if(item.year)
+        div.archive-label Archive of <strong>#{item.year}</strong> Online Issues
+    else
+        div.archive-label Archive of <strong>#{item.label}</strong> Online Issues
+
+block issuesMixin
+
+    if (itemo)
+        each item, l in itemo
+            li.col-lg-4.col-md-6.col-sm-12
+                div.loi__issue
+                    if (volume && volume.VolNo && !item.volume)
+                        - item.volume = volume.VolNo;
+                    if ((item.volume) || (item.issue))
+                        block tabsparent
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item})}
+                    block issueTitle
+                        if (item.title)
+                            h6 !{item.title}
+                    block pageRange
+                        if (item.pageRange)
+                            div.iPageRange pp. !{item.pageRange}
+                    block currentProgressIssue
+                        if (item.isCurrent)
+                            span.current CURRENT ISSUE
+                        else if (item.inProgress)
+                            span.inprogress IN PROGRESS

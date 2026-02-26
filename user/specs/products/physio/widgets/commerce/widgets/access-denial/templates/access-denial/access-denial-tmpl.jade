@@ -1,0 +1,39 @@
+//| !{data.sections}
+#purchaseArea.purchaseArea
+    h2 Access content
+    span.purchaseArea--label Please select your options to get access
+    ul.rlist.purchaseArea--list
+        li
+            a.expand-link(href='#') Personal login
+                i.icon-arrow_d_n(aria-hidden="true")
+            .content.hidden
+                .login-form
+                    form(action='https://ascelibrary.org/action/doLogin', method='post')
+                        input(type='hidden', name='id', value='41450a30-869d-44e9-8fbe-b46fe27104af-login-40456093')
+                        input(type='hidden', name='redirectUri', value='/doi/full/10.1061/%28ASCE%29AS.1943-5525.0000731')
+                        input(type='hidden', name='popup', value='true')
+                        .input-group
+                            .label
+                                label(for='login') Username
+                            input#login.login(type='text', name='login', value='', size='15')
+                            .actions
+                                a.link.show-request-username(href='https://ascelibrary.org/action/requestUsername') Forgot username?
+                        .input-group
+                            .label
+                                label(for='password') Password
+                            input#password.password(type='password', name='password', value='', autocomplete='off')
+                            span.password-eye-icon.icon-eye.hidden
+                            .actions
+                                a.link.show-request-reset-password(href='https://ascelibrary.org/action/requestResetPassword') Forgot password?
+                        .remember
+                            span.label Keep me logged in
+                            .switch.small-switch
+                                input#41450a30-869d-44e9-8fbe-b46fe27104af-remember.cmn-toggle.cmn-toggle-round-flat(type='checkbox', name='remember', value='true')
+                                label(for='41450a30-869d-44e9-8fbe-b46fe27104af-remember')
+                        .submit
+                            input.button.submit.primary(type='submit', name='submit', value='Login')
+        li
+            a(href='https://ascelibrary.org/action/registration?source=denial&redirectUri=%2Fdoi%2Ffull%2F10.1061%2F%2528ASCE%2529AS.1943-5525.0000731') Register for access
+                i.icon-arrow_d_n(aria-hidden="true")
+        li
+            | !{pb.renderDropzone(thisWidget, "purchaseAccessDropZone")}

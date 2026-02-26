@@ -1,0 +1,47 @@
+/***
+
+```
+<li class="m-title-listing-item"><a href="#" class="f-h8">Allergy/Immunology<svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a></li>
+```
+
+***/
+
+.m-title-listing-item {
+  display: block;
+  margin-top: 0;
+}
+
+.m-title-listing-item a.f-h8 {
+  display: block;
+  position: relative;
+  margin-bottom: 0;
+  padding: 15px 50px 12px 0;
+  color: $color__text--headlines;
+}
+
+.m-title-listing-item a:hover {
+  text-decoration: underline;
+}
+
+.m-title-listing-item a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-title-listing-item .icon--arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  margin-top: -13px;
+  color: $color__black;
+  opacity: 0;
+}
+
+.m-title-listing-item a:hover .icon--arrow {
+  opacity: 1;
+}

@@ -1,0 +1,48 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p The <strong>Header</strong> template contains the following components:
+          | #[a(href="../../widgets/html/") Html widget],
+          | #[a(href="../../widgets/images/") Images widget],
+          | #[a(href="../../widgets/user-login-bar/") user-login-bar],
+          | #[a(href="../../widgets/institution-banner/") institution-banner],
+
+
+
+    section.source_section
+        h2 Generic Header
+        .source_example.source_visible
+            | !{data.header}
+    | #{''}
+
+    section.source_section
+        h2 AJP Header
+        .source_example.source_visible
+            | !{data.ajpHeader}
+    | #{''}
+
+    section.source_section
+        h2 AJP Header with Advertisment
+        .source_example.source_visible
+            | !{data.ajpHeaderAdv}
+    | #{''}
+    section.source_section
+        h2 AJP Header with Advertisment and Loi
+        .source_example.source_visible
+            | !{data.ajpHeaderAdvLoi }
+    | #{''}
+
+    section.source_section
+        h2 POL Header
+        .source_example.source_visible
+            | !{data.polHeader}
+    | #{''}
+
+    section.source_section
+        h2 POL Books Header
+        .source_example.source_visible
+            | !{data.polBooksHeader}
+    | #{''}
+

@@ -1,0 +1,38 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 trunk8
+    .source_info
+        p Lazy Load is delays loading of images in long web pages. Images outside of viewport are not loaded until user scrolls to them. This is opposite of image preloading. Using Lazy Load on long web pages will make the page load faster. In some cases it can also help to reduce server load.
+
+    section.source_section
+        h2 Default
+        markdown
+           p `$("img.lazy").lazyload();`
+
+        .source_example
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/1', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/2', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/3', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/4', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/5', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/6', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/7', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/8', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/9', width='300', height='200')
+            p
+                img.lazy(data-original='http://lorempixel.com/300/200/food/10', width='300', height='200')
+
+script.
+    $(window).on('load', function (){
+        $("img.lazy").lazyload();
+    });

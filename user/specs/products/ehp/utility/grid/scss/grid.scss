@@ -1,0 +1,24 @@
+.container {
+    max-width: $max-container-size;
+}
+
+// save grid block selector to variable
+// @usage: #{$grid-block} {
+// stuff
+// }
+
+$grid-block: '[class*=grid-]:not([class*=item]):not([class^=icon-])';
+
+// create grid margins, same as default grid
+//
+// @note main purpose of those classes is to handle a grid view with only by adding class to the parent item "custom class to the widget" according to documentation
+// this tells us, that there is not any reason to display it differently, than default Grid
+// workaround for this, as it was missing in css, is to add .row class too, which is done on multiple components and projects
+// this is cleaner way to do it
+// @fixme also there is a try to do it with class .gutterless - but it wrong code, see css result of that
+
+@include loop-grid-block(xs);
+@include loop-grid-block(sm);
+@include loop-grid-block(md);
+@include loop-grid-block(lg);
+@include loop-grid-block(xlg);

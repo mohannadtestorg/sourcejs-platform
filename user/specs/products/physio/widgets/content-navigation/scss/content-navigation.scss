@@ -1,0 +1,28 @@
+.content-navigation {
+    background: $light-blue;
+    padding: 10px 40px;
+    a {
+        color: $primary-blue-color;
+        font-weight: bold;
+    }
+    i {
+        font-size: 0.6rem;
+    }
+    @include media('<desktop') {
+        padding: 10px 20px;
+    }
+    &__btn--back {
+        text-align: center;
+        width: 50%;
+        float: left;
+    }
+    @include media('<tablet') {
+        margin-right: -20px;
+        margin-left: -20px;
+        margin-bottom: 48px;
+        .content-navigation__btn--back {
+            margin-top: 48px;
+            margin-bottom: -48px;
+        }
+    }
+}

@@ -1,0 +1,67 @@
+// Margin and Padding
+
+// Margin and Padding
+
+$flexColumns : 10 !default;
+
+@mixin calc-grid-flex-column($index, $classFlex) {
+    .col-flex-#{$classFlex}-#{$index} {
+        width: ($index / $flexColumns)*1000 + px;
+    }
+}
+
+@mixin loop-grid-flex-columns($flexColumns, $classFlex) {
+    @for $i from 1 through $flexColumns {
+        @include calc-grid-flex-column($i, $classFlex);
+    }
+}
+
+@mixin make-flex-grid($classFlex) {
+    @include loop-grid-flex-columns($flexColumns, $classFlex);
+}
+
+@include make-flex-grid(xs);
+
+@media (min-width: $screen-sm-min) {
+    @include make-flex-grid(sm);
+}
+
+@media (min-width: $screen-md-min) {
+    @include make-flex-grid(md);
+}
+
+@media (min-width: $screen-lg-min) {
+    @include make-flex-grid(lg);
+}
+
+
+
+
+.flex-layout {
+
+    &-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+
+        > div:not([class*="col-flex"]) {
+            flex: 1;
+        }
+    }
+
+    > .container > .row {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+
+        > div:not([class*="col-flex"]) {
+            flex: 1;
+        }
+    }
+}
+
+[class*="col-flex"] {
+    padding: 0;
+}

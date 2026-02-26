@@ -1,0 +1,7 @@
+extends ./publication-list-journal-tmpl.jade
+
+block cover
+    if (item.doi)
+        div.top-list__cover
+            div.altmetric-container
+                div.altmetric-embed(data-badge-type="donut" data-hide-no-mentions="true" data-badge-popover="right" data-doi=item.doi )

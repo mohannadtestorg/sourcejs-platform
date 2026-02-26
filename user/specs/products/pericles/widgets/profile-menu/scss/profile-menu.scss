@@ -1,0 +1,162 @@
+.profile-menu {
+    background: $secondary-bg-color;
+    padding-top: 0;
+    a {
+        font-size: .9rem;
+        font-weight: 400;
+        color: $wiley-blue-color;
+        padding: 6px 20px;
+        padding-left: 16px;
+        display: block;
+        margin-bottom: 5px;
+        border-left: none;
+    }
+
+    .active {
+        background: $wiley-extralightGray-color;
+        border-left: none;
+        color: #1F1F1F;
+
+        a {
+            color: $wiley-typography-color;
+        }
+
+    }
+    .rlist:nth-child(2):not(:empty) {
+        border-color: transparent;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+    }
+}
+
+.profile-heading-style {
+    color: $info-text-color;
+}
+
+.access-token-wrapper {
+    .message {
+        display: none;
+    }
+}
+
+.profileMenuAccordion {
+    margin-bottom: 15px;
+
+    .accordion__control {
+        padding: 18px;
+        font-size: 0.875rem;
+        line-height: 1em;
+        background-color: $wiley-blue-color;
+        color: $white;
+        margin-bottom: 0;
+
+        i {
+            float: right;
+            margin-top: 3px;
+            font-size: 0.375rem;
+        }
+    }
+    .accordion__content {
+        position: absolute;
+        height: 100vh;
+        overflow-y: scroll;
+        padding-bottom:252px;
+        z-index: 3;
+    }
+}
+
+.profile-pages__heading {
+    .follow-style {
+        padding: 9px 8px;
+        display: inline-block;
+        margin-top: 14px;
+        padding-right: 0;
+        margin-right: 14px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 20px;
+
+        a {
+            color: $wiley-gray-dark;
+        }
+    }
+    .social-media {
+        a {
+            display: inline-block;
+            border: 0;
+            font-size: 1.8rem;
+            padding: 9px 8px;
+            color: $wiley-orange-icons-color;
+        }
+    }
+}
+
+.profile-pages__body {
+    .section__mainHeader--mid {
+        margin-top: 30px;
+        &:first-child {
+            margin-top: 21px;
+        }
+    }
+    .section__article-mainHeader {
+        margin-bottom: 3px;
+    }
+}
+
+[data-widget-def="literatumNavigationLoginBar"] {
+    .loginBar {
+        &.login-open {
+            .icon-userprofile {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.raaAccountInfo {
+    .main-content {
+        .card {
+            .form-btn {
+                p.small-txt {
+                    @include media('<tablet') {
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+    @include media('<tablet') {
+        .marketable {
+            .notified-group {
+                .radio--primary {
+                    .label-txt {
+                        display: flex;
+                        &:before {
+                            width: 25px;
+                        }
+                    }
+                }
+            }
+        }
+        .alerts {
+            .account-tab__nav {
+                li {
+                    a {
+                        padding-top: 24px;
+                    }
+                }
+            }
+        }
+    }
+}
+.accountInfo {
+    .addresses {
+        #address {
+            margin-top: 25px;
+            .edit {
+                padding-left: 0px;
+            }
+        }
+    }
+}

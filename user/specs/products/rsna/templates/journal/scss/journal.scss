@@ -1,0 +1,263 @@
+.top-image {
+    background-color: $primary-darken-bg-color;
+    height: 200px;
+    background-size: cover;
+
+    @include media('<tablet') {
+        height: 15px;
+    }
+
+    @include themify($themes) {
+        background-color: themed('meta-wrapper-bg-color');
+        background-image: url(themed('meta-wrapper-bg-img'));
+    }
+}
+
+@mixin multiSearchBorder() {
+    border-bottom: solid 2px $primary-border-color;
+    padding: 0px 15px 20px;
+    margin-bottom: 20px;
+}
+
+.journal-home {
+    &__content {
+        @include media('<desktop') {
+            padding: 0px 15px;
+        }
+    }
+    &__info-links {
+        background-color: $secondary-lighten-bg-color;
+        padding: 8px;
+        margin-bottom: 15px;
+        margin-top: -8px;
+
+        .border-bottom {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+
+        li {
+            margin-top: 8px;
+
+            &:first-child {
+                margin-top: 0px;
+            }
+        }
+
+        a {
+            color: $primary-link-color;
+            font-weight: bold;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+
+            &:hover {
+                color: $primary-link-hover-color;
+            }
+        }
+
+        & ~ .journal-home__info-links {
+            margin-top: 0px;
+        }
+    }
+
+    &__tab {
+        .tab__nav {
+            display: block;
+            border-bottom: 2px solid $primary-border-color;
+            margin-bottom: 20px;
+
+            li {
+                margin: 0px;
+                font-size: $default-font-size;
+                line-height: $default-font-size;
+                color: $primary-lighten-text-color;
+
+                &:after {
+                    content: "|";
+                    padding: 0px 10px;
+                }
+
+                &:last-child {
+                    &:after {
+                        content: "";
+                        padding: 0px;
+                    }
+                }
+
+                &.active {
+                    a:after {
+                        content: " ";
+                        display: block;
+                        position: absolute;
+                        top:100%;
+                        width: 100%;
+                        border-bottom: 4px solid $secondary-border-color;
+
+                        @include themify($themes) {
+                            border-bottom: 4px solid themed('color');
+                        }
+                    }
+                }
+            }
+
+            li.active {
+                a {
+                    @include themify($themes) {
+                        color: themed('color');
+                    }
+                }
+            }
+
+            a {
+                position: relative;
+                padding: 0px;
+                display: inline-block;
+                border-bottom: none;
+                line-height: 60px;
+            }
+        }
+
+        .tab__content {
+            .tab__pane {
+                padding-top: 0px;
+            }
+        }
+    }
+
+    &__slide {
+        margin: 32px 65px 46px 65px;
+
+        @include media('<tablet') {
+            margin: 15px 15px 46px 15px;
+        }
+
+        &-img {
+            float: left;
+
+            @include media('<tablet') {
+                display: none;
+            }
+
+            img {
+                width: 305px;
+                border: none;
+            }
+
+            & ~ .journal-home__slide-text {
+                margin-left: 337px;
+                padding-bottom: 20px;
+                @include media('<tablet') {
+                    margin-left: 0px;
+                }
+            }
+        }
+
+        &-text {
+            h1 {
+                font-size: 1.5rem;
+                color: $primary-link-color;
+                min-height: 90px;
+
+                @include themify($themes) {
+                    color: themed('color');
+                }
+            }
+
+            h5 {
+                margin-bottom: 0px;
+                font-weight: normal;
+            }
+
+            p {
+                margin-bottom: 0px;
+                color: $secondary-lighten-text-color;
+            }
+        }
+    }
+
+}
+
+.e-alerts {
+    margin-bottom: 20px;
+    color: $primary-lighten-text-color;
+
+    i {
+        color: $primary-link-color;
+        font-size: $h3-font-size;
+        padding-right: 5px;
+        vertical-align: text-bottom;
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    span {
+        @include media('>=desktop', '<large') {
+            font-size: $h6-font-size;
+        }
+    }
+}
+
+.multi-search {
+    margin-bottom: 20px;
+
+    &-dropzone {
+        @include multiSearchBorder();
+    }
+
+    ul.facet__list--applied {
+        @include multiSearchBorder();
+
+        & > li {
+            border: none;
+            margin-bottom: 0px;
+            @include themify($themes) {
+                background-color: themed('color');
+            }
+            &:hover {
+                background-color: $primary-bg-color;
+            }
+        }
+    }
+
+    ul.lot {
+        & > li {
+            .creative-work {
+                height: 100%;
+                padding-bottom: 15px;
+                margin-bottom: 15px;
+            }
+
+            h5 {
+                height: 100%;
+                margin-bottom: 10px;
+            }
+
+            time::before {
+                content: '';
+            }
+        }
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+}
+.creative-work{
+    &__title{
+        &.min-height{
+            height:auto;
+        }
+    }
+}

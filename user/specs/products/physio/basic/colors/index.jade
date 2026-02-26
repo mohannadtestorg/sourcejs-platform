@@ -1,0 +1,68 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/physio/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+
+block content
+    .source_section
+        h2 Physio color pallete
+        p we are including #[a(href="/specs/ux3/basic/colors/") UX3 color pallete ]
+
+    .source_section
+        h2 Background colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.primary-blue-background-color.block
+                    p $primary-blue-background-color
+                li
+                    div.default-bg-color.block
+                    p $default-bg-color
+                li
+                    div.primary-red-bg.block
+                    p $primary-red-bg
+                li
+                    div.ajpregu-bg.block
+                    p $ajpregu-bg
+                li
+                    div.Disabled-bg.block
+                    p $Disabled-bg
+                li
+                    div.secondary-gray-bg.block
+                    p $secondary-gray-bg
+
+    | #{''}
+    .source_section
+        h2 Text colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.primary-text-color.block Aa
+                    p $primary-text-color
+                li
+                    div.primary-blue-color.block Aa
+                    p $primary-blue-color
+                li
+                    div.primary-red.block Aa
+                    p $primary-red
+                li
+                    div.search-text.block Aa
+                    p $gray-2
+                li
+                    div.secondary-text-color.block Aa
+                    p $secondary-text-color
+    | #{''}
+    .source_section
+        h2 Border colors
+        .source_example.colors-palette
+            ul.rlist--inline.border-colors
+                li
+                    div.primary-border-color
+                    p $primary-border-color
+                li
+                    div.secondary-border-color
+                    p $secondary-border-color
+
+    | #{''}
+

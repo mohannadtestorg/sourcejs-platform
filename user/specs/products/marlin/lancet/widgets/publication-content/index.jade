@@ -1,0 +1,13 @@
+extends /specs/products/marlin/lancet/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Example
+        each item, l in data.items
+            h3!= item.title
+            .source_example
+                .ux3
+                    | !{item.body}
+
+    | #{''}

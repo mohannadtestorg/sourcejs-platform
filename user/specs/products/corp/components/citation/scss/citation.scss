@@ -1,0 +1,71 @@
+.blockquote {
+    margin: 0;
+    font-family: $header-font-family;
+    font-style: italic;
+
+    &__cite {
+        display: block;
+        margin-top: 1em;
+        font-family: $default-font-family;
+        font-style: normal;
+        text-transform: uppercase;
+        font-size: .785rem;
+        @include media('>=phone') {
+            font-size: .8125rem;
+        }
+        @include media('>=desktop') {
+            font-size: .78rem;
+        }
+
+        &-name{
+            color: $primary-link-color;
+        }
+    }
+}
+
+.citation {
+    position: relative;
+    padding: 0;
+    margin-top: 2rem;
+    &:before {
+        content: '\201C';
+        display: block;
+        font-size: 16rem;
+        color: $secondary-text-color;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        transform: translateY(200%);
+    }
+    .card__content {
+        position: relative;
+        padding: 42px 0 32px 0 !important;
+    }
+    .blockquote {
+        text-align: left;
+        font-size: 1.22rem;
+        line-height: 2.22rem;
+
+        @include media('>=desktop') {
+            text-align: center;
+        }
+
+        &__cite {
+            text-align: left;
+            font-weight: bold;
+
+            @include media('>=desktop') {
+                text-align: center;
+            }
+
+            &-hyphen {
+                display: inline;
+                @include media('>=desktop') {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+

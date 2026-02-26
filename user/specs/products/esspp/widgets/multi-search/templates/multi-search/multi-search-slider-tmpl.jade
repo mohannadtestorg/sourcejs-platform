@@ -1,0 +1,19 @@
+extends ../../../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl
+
+
+
+block slideShowPrefix
+    - var originalData = data
+    - var dataSlider = { "widget": {"items": "4", "slideby":"4", "loop": true, "arrow": true, "indicators": true, "animation":"fade", "autoplay": true, "slides": []}}
+
+    if (data && data.items)
+        each item, l in data.items
+            - dataSlider.widget.slides.push(item)
+
+    - data = dataSlider
+
+block slideShowDropZone
+    div.slide-item
+        | !{pb.render("multi-search", "multi-search/multi-search-single", {item: item,index:k, thisWidget:thisWidget}, 'esspp')}
+
+

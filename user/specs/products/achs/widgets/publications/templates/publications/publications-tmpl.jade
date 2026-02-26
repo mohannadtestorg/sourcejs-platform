@@ -1,0 +1,30 @@
+div.pub
+    div.pub-modal
+        div.pub-modal_content
+            div.pub-modal_row
+                div.pub-modal_left
+                    div.pub-modal_left-content
+                        // Types
+                        div.pub-modal_types
+                            h6 CONTENT TYPES
+                            ul.pub-modal_types-list
+                                li(data-type="all").pub-modal_types-active
+                                    a(href="#") All Types
+                        // Subjects
+                        div.pub-modal_subjects.hidden-sm.hidden-xs
+                            h6 SUBJECTS
+                            ul.pub-modal_subjects-list
+                div.pub-modal_right
+                    div.pub-modal_right-control
+                        a.pub-modal_back.hidden-lg.hidden-md.pull-left(href="#")
+                            i.icon-chevron-left
+                            span Back
+                        a.pub-modal_close.icon-close.pull-right(href="#")
+                    div.pub-modal_right-cover-gallery.hidden-lg.hidden-md
+                        a(href="/coverGallery") Browse Our Cover Art Gallery
+
+                    // Publications list
+                    div.pub-content
+        // The widget data
+        if(data)
+            input(type="hidden" name="pubModalData" value=JSON.stringify(data))

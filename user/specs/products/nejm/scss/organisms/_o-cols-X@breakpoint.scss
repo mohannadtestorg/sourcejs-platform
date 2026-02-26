@@ -1,0 +1,97 @@
+/***
+
+A series of colsets intended for light usage to split items into columns but only at certain breakpoints.
+
+Variant `o-cols-2@small`:
+
+```
+<div class="o-cols-2@small">
+  <div></div>
+  <div></div>
+</div>
+```
+
+***/
+
+/***
+
+Variant `o-cols-2@medium':
+
+```
+<div class="o-cols-2@medium">
+  <div></div>
+  <div></div>
+</div>
+```
+
+***/
+
+@include breakpoint(small) {
+  .o-cols-2\@small {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: (map-get($inner-gutters, small) / -1);
+  }
+
+  .o-cols-2\@small > * {
+    flex: 0 0 auto;
+    width: colspan(6, small);
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  .o-cols-2\@small > *:not(:only-child) {
+    width: colspan(3, small);
+  }
+}
+
+
+@include breakpoint(medium) {
+  .o-cols-2\@medium {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-left: (map-get($inner-gutters, medium) / -1);
+  }
+
+  .o-col--secondary.o-col--keyline-top .o-cols-2\@medium:first-child,
+  .o-cols-2\@medium + .o-cols-2\@medium {
+    margin-top: 20px;
+  }
+
+  .o-cols-2\@medium > * {
+    flex: 0 0 auto;
+    width: colspan(8, medium);
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  .o-cols-2\@medium > *:not(:only-child) {
+    width: colspan(4, medium);
+  }
+}
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .o-cols-2\@medium:not(:first-child) {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+  }
+}
+
+
+// for the toolkit:
+div > #a17 .o-cols-2\@small > *,
+div > #a17 .o-cols-2\@medium > * {
+  margin-top: 5px;
+  background-color: #eee;
+}

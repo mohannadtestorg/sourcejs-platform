@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Source+Sans+Pro:400,400i,700,700i|Merriweather:400,400i');
+/*font-family: 'Open Sans', sans-serif;*/
+/*font-family: 'Source Sans Pro', sans-serif;*/
+/*font-family: 'Merriweather', serif;*/
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    height:100%;
+}
+
+#view {
+    position:relative;
+    min-height: 100%;
+}
+
+main {
+    padding: 20px 0;
+}
+@media (min-width: 768px) {
+    main {
+        padding: 70px 0;
+    }
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: #2F80ED;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    box-sizing: border-box;
+    max-width: 832px;
+    min-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+.header {
+    height: 203px;
+    text-align: center;
+    background: url(./assets/bg.jpg) 50% 50% repeat-x;
+}
+
+.header__logo {
+    margin-top: 45px;
+    margin-bottom: 16px;
+    width: 240px;
+}
+@media (min-width: 768px) {
+    .header__logo {
+        margin-top: 70px;
+    }
+}
+
+.header__motto {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #63B3C9;
+}
+
+.footer {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    background: #3186A3;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer__span {
+    display: block;
+}
+@media (min-width: 768px) {
+    .footer__span {
+        display: inline;
+    }
+}
+
+.footer .container {
+   text-align: right;
+    white-space: normal;
+}
+
+
+
+.signup {
+    position: relative;
+    margin: 44px 0 24px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+}
+
+.signup:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -13px;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 1px;
+    background-color: rgba(0,0,0,.12);
+}
+
+.questions {
+    margin: 24px 0 44px;
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    font-style: italic;
+    text-align: center;
+}

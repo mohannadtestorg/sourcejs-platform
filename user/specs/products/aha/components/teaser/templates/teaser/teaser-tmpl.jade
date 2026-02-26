@@ -1,0 +1,8 @@
+extends ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+block meta
+block teaserAltmetric
+    if (item && item.image)
+        img(src=item.image)
+    if (item.group && item.group.coverDate)
+        p.creative-work__date
+            | !{item.group.coverDate}

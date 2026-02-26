@@ -1,0 +1,39 @@
+$leaderboard-size-small:68px;
+$leaderboard-size-medium:116px;
+$leaderboard-size-large:120px;
+
+.s-has-leaderboard {
+
+  .g-leaderboard {
+    display: flex;
+  }
+
+  .o-popups-modal__leaderboard {
+
+  }
+
+  .o-popups-modal__content {
+    top: $leaderboard-size-small;
+
+    @include breakpoint('medium+') {
+      top: $leaderboard-size-medium;
+    }
+
+    @include breakpoint('large+') {
+      top: $leaderboard-size-large;
+    }
+  }
+
+  .o-popups-modal__aside {
+    top: 0;
+
+    @include breakpoint('medium+') {
+      top: 0;
+    }
+
+    @include breakpoint('large+') {
+      top: 120px;
+    }
+  }
+
+}

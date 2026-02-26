@@ -1,0 +1,9 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-facet-tmpl
+
+block facetDateMain
+    div.facet.accordion
+        if (data) && (data.title)
+            +facetTitle()
+        if (data) && (data.values)
+            div.facet__content.accordion__content.js--open(id="facet")
+                +facetUl(data)

@@ -1,0 +1,31 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.pt-0
+                .quickSearchRegion.dark.hidden-xs
+                    .container
+                        .row
+                            div.col-lg-12.clearfix
+                                | !{data.quickSearch}
+
+                .container
+                    .row
+                        .col-sm-4.col-md-3
+                            #filter.hidden-xs.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                        .col-sm-8.col-md-9
+                            | !{data.searchresult}
+
+
+
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,607 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block cssLastInHead
+    include /specs/products/pericles/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='/specs/products/pericles/fonts/icomoon/style.css')
+    link(rel='stylesheet', href='/specs/products/pericles/basic/icon-fonts/scss/helpers/icons.css')
+
+block content
+    include /specs/page-structure/helpers/print-html-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        p We are using #[a(href="https://icomoon.io/") IcoMoon] font to render icons in our templates (<code>specs/fonts</code>).
+        p Use <code>i</code> tag with icon class name to add an icon in your code. here you can find complete list of icons for reference.
+        h3 Example
+        +printHtmlCode('<i class="icon-facebook" aria-hidden="true"></i>')
+    | #{''}
+
+    section.source_section
+        h2 Icons
+
+
+        h3 General icons
+        .source_example
+            .container.icons-palette
+
+                .col-md-3
+                    i(aria-hidden="true").icon-remove-circle
+                    p  icon-remove-circle
+
+                .col-md-3
+                    i(aria-hidden="true").icon-add-circle-outline
+                    p  icon-add-circle-outline
+
+                .col-md-3
+                    i(aria-hidden="true").icon-list-unordered
+                    p  icon-list-unordered
+
+                .col-md-3
+                    i(aria-hidden="true").icon-multi-figure
+                    p  icon-multi-figure
+
+                .col-md-3
+                    i(aria-hidden="true").icon-book-series
+                    p  icon-book-series
+
+                .col-md-3
+                    i(aria-hidden="true").icon-permissions-key
+                    p  icon-permissions-key
+
+                .col-md-3
+                    i(aria-hidden="true").icon-export-icon
+                    p  icon-export-icon
+
+                .col-md-3
+                    i(aria-hidden="true").icon-users
+                    p  icon-users
+
+                .col-md-3
+                    i(aria-hidden="true").icon-book
+                    p  icon-book
+
+                .col-md-3
+                    i(aria-hidden="true").icon-book2
+                    p  icon-book2
+                .col-md-3
+                    i(aria-hidden="true").icon-chat_bubble
+                    p  icon-chat_bubble
+
+                .col-md-3
+                    i(aria-hidden="true").icon-subdirectory_arrow_right
+                    p  icon-subdirectory_arrow_right
+
+                .col-md-3
+                    i(aria-hidden="true").icon-ic_mail_solid
+                    p  icon-ic_mail_solid
+
+
+                .col-md-3
+                    i(aria-hidden="true").icon-author
+                    p  icon-author
+
+                .col-md-3
+                    i(aria-hidden="true").icon-filter_drop
+                    p  icon-filter_drop
+
+                .col-md-3
+                    i(aria-hidden="true").icon-chain
+                    p  icon-chain
+
+                .col-md-3
+                    i(aria-hidden="true").icon-related-circles-extend-button
+                    p  icon-related-circles-extend-button
+
+                .col-md-3
+                    i(aria-hidden="true").icon-checkmark
+                    p  icon-checkmark
+
+                .col-md-3
+                    i(aria-hidden="true").icon-trash-can
+                    p  icon-trash-can
+
+                .col-md-3
+                    i(aria-hidden="true").icon-abstract
+                    p  icon-abstract
+
+                .col-md-3
+                    i(aria-hidden="true").icon-sort
+                    p  icon-sort
+
+                .col-md-3
+                    i(aria-hidden="true").icon-filter_list
+                    p  icon-filter_list
+                .col-md-3
+                    i(aria-hidden="true").icon-filter_list2
+                    p  icon-filter_list2
+
+                .col-md-3
+                    i(aria-hidden="true").icon-justify-left
+                    p  icon-justify-left
+
+                .col-md-3
+                    i(aria-hidden="true").icon-menu2
+                    p  icon-menu2
+
+                .col-md-3
+                    i(aria-hidden="true").icon-external-link
+                    p  icon-external-link
+
+                .col-md-3
+                    i(aria-hidden="true").icon-recommend
+                    p  icon-recommend
+
+                .col-md-3
+                    i(aria-hidden="true").icon-alert
+                    p  icon-alert
+                .col-md-3
+                    i(aria-hidden="true").icon-sample_issue
+                    p  icon-sample_issue
+                .col-md-3
+                    i(aria-hidden="true").icon-submit_article
+                    p  icon-submit_article
+
+                .col-md-3
+                    i(aria-hidden="true").icon-subscribe
+                    p  icon-subscribe
+
+                .col-md-3
+                    i(aria-hidden="true" style="display: initial").icon-mail_outline
+                    p  icon-mail_outline
+
+                .col-md-3
+                    i(aria-hidden="true").icon-toc
+                    p  icon-toc
+                .col-md-3
+                    i(aria-hidden="true").icon-Icon_Tools
+                    p  icon-Icon_Tools
+                .col-md-3
+                    i(aria-hidden="true").icon-Icon_Download
+                    p  icon-Icon_Download
+                .col-md-3
+                    i(aria-hidden="true").icon-Icon_Track-citations
+                    p  icon-Icon_Track-citations
+                .col-md-3
+                    i(aria-hidden="true").icon-tools_close
+                    p  icon-tools_close
+                .col-md-3
+                    i(aria-hidden="true").icon-icon-bookmark
+                    p  icon-icon-bookmark
+                .col-md-3
+                    i(aria-hidden="true").icon-icon-Icon_Star-26
+                    p  icon-icon-Icon_Star-26
+
+                .col-md-3
+                    i(aria-hidden="true").icon-icon-lock_open
+                    p  icon-icon-lock_open
+
+                .col-md-3
+                    i(aria-hidden="true").icon-icon-lock_outline
+                    p  icon-icon-lock_outline
+
+                .col-md-3
+                    i(aria-hidden="true").icon-icon-Icons_Sorting
+                    p  icon-icon-Icons_Sorting
+
+                .col-md-3
+                    i(aria-hidden="true").icon-icon-Rss
+                    p  icon-icon-Rss
+
+                .col-md-3
+                    i(aria-hidden="true").icon-save-search
+                    p  icon-save-search
+
+                .col-md-3
+                    i(aria-hidden="true").icon-add_box
+                    p  icon-add_box
+
+                .col-md-3
+                    i(aria-hidden="true").icon-squared-minus
+                    p  icon-squared-minus
+
+                .col-md-3
+                    i(aria-hidden="true").icon-by
+                    p  icon-by
+
+                .col-md-3
+                    i(aria-hidden="true").icon-cc
+                    p  icon-cc
+
+                .col-md-3
+                    i(aria-hidden="true").icon-nc
+                    p  icon-nc
+
+                .col-md-3
+                    i(aria-hidden="true").icon-nd
+                    p  icon-nd
+
+                .col-md-3
+                    i(aria-hidden="true").icon-sa
+                    p  icon-sa
+
+                .col-md-3
+                    i(aria-hidden="true").icon-close_thin
+                    p  icon-close_thin
+
+                .col-md-3
+                    i(aria-hidden="true").icon-x
+                    p  icon-x
+                .col-md-3
+                    i(aria-hidden="true").icon-zoom
+                    p  icon-zoom
+                .col-md-3
+                    i(aria-hidden="true").icon-zoom-in
+                    p  icon-zoom-in
+                .col-md-3
+                    i(aria-hidden="true").icon-zoom-out
+                    p  icon-zoom-out
+                .col-md-3
+                    i(aria-hidden="true").icon-allfigures
+                    p  icon-allfigures
+                .col-md-3
+                    i(aria-hidden="true").icon-doublearrow
+                    p  icon-doublearrow
+                .col-md-3
+                    i(aria-hidden="true").icon-arrow_l
+                    p  icon-arrow_l
+
+                .col-md-3
+                    i(aria-hidden="true").icon-arrow_r
+                    p  icon-arrow_r
+
+                .col-md-3
+                    i(aria-hidden="true").icon-permissions
+                    p  icon-permissions
+
+                .col-md-3
+                    i(aria-hidden="true").icon-Email
+                    p  icon-Email
+
+                .col-md-3
+                    i(aria-hidden="true").icon-export_citation
+                    p  icon-export_citation
+
+                .col-md-3
+                    i(aria-hidden="true").icon-favorites
+                    p  icon-favorites
+
+                .col-md-3
+                    i(aria-hidden="true").icon-table
+                    p  icon-table
+
+                .col-md-3
+                    i(aria-hidden="true").icon-orcid
+                    p  icon-orcid
+
+                .col-md-3
+                    i(aria-hidden="true").icon-section_arrow_u
+                    p  icon-section_arrow_u
+
+                .col-md-3
+                    i(aria-hidden="true").icon-section_arrow_d
+                    p  icon-section_arrow_d
+
+                .col-md-3
+                    i(aria-hidden="true").icon-related
+                    p  icon-related
+
+                .col-md-3
+                    i(aria-hidden="true").icon-references
+                    p  icon-references
+
+                .col-md-3
+                    i(aria-hidden="true").icon-figures
+                    p  icon-figures
+
+                .col-md-3
+                    i(aria-hidden="true").icon-info2
+                    p  icon-info2
+
+                .col-md-3
+                    i(aria-hidden="true").icon-account-circle
+                    p  icon-account-circle
+
+                .col-md-3
+                    i(aria-hidden="true").icon-keyboard_arrow_up
+                    p  icon-keyboard_arrow_up
+                .col-md-3
+                    i(aria-hidden="true").icon-keyboard_arrow_down
+                    p  icon-keyboard_arrow_down
+
+                .col-md-3
+                    i(aria-hidden="true").icon-account_circle
+                    p  icon-account_circle
+
+                .col-md-3
+                    i(aria-hidden="true").icon-block
+                    p  icon-block
+
+                .col-md-3
+                    i(aria-hidden="true").icon-error
+                    p icon-error
+
+                .col-md-3
+                    i(aria-hidden="true").icon-explore
+                    p  icon-explore
+
+                .col-md-3
+                    i(aria-hidden="true").icon-close
+                    p  icon-close
+                .col-md-3
+                    i(aria-hidden="true").icon-close2
+                    p  icon-close2
+
+                .col-md-3
+                    i(aria-hidden="true").icon-sync
+                    p  icon-sync
+
+                .col-md-3
+                    i(aria-hidden="true").icon-link
+                    p  icon-link
+
+                .col-md-3
+                    i(aria-hidden="true").icon-add_circle
+                    p  icon-add_circle
+                .col-md-3
+                    i(aria-hidden="true").icon-Icon_Share
+                    p  icon-Icon_Share
+
+                .col-md-3
+                    i(aria-hidden="true").icon-search
+                    p  icon-search
+                .col-md-3
+                    i(aria-hidden="true").icon-arrow_forward
+                    p  icon-arrow_forward
+                .col-md-3
+                    i(aria-hidden="true").icon-arrow_back
+                    p  icon-arrow_back
+                .col-md-3
+                    i(aria-hidden="true").icon-pencil
+                    p  icon-pencil
+                .col-md-3
+                    i(aria-hidden="true").icon-quote
+                    p  icon-quote
+                .col-md-3
+                    i(aria-hidden="true").icon-notice
+                    p  icon-notice
+                .col-md-3
+                    i(aria-hidden="true").icon-chevron-down
+                    p  icon-chevron-down
+                .col-md-3
+                    i(aria-hidden="true").icon-chevron-up
+                    p  icon-chevron-up
+                .col-md-3
+                    i(aria-hidden="true").icon-Icon_Images
+                    p  icon-Icon_Images
+                .col-md-3
+                    i(aria-hidden="true").icon-Icon_Information
+                    p  icon-Icon_Information
+                .col-md-3
+                    i(aria-hidden="true").icon-caret-down
+                    p  icon-caret-down
+                .col-md-3
+                    i(aria-hidden="true").icon-caret-up
+                    p  icon-caret-up
+                .col-md-3
+                    i(aria-hidden="true").icon-circle-left
+                    p  icon-circle-left
+                .col-md-3
+                    i(aria-hidden="true").icon-eye
+                    p  icon-eye
+                .col-md-3
+                    i(aria-hidden="true").icon-eye-blocked
+                    p  icon-eye-blocked
+                .col-md-3
+                    i(aria-hidden="true").icon-citeulike
+                    p  icon-citeulike
+
+
+        h3 Social media icons
+        .source_example
+            .container.icons-palette
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-youtube-icon
+                        p  icon-hubs-youtube-icon
+                .col-md-3
+                    i(aria-hidden="true").icon-google-plus.hubs-icon-google-plus
+                    p  icon-google-plus hubs-icon-google-plus
+                .col-md-3
+                    i(aria-hidden="true").icon-twitter2.hubs-icon-twitter-n-icon
+                    p  icon-twitter2 hubs-icon-twitter-n-icon
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-weibo-icon
+                        p  icon-hubs-weibo-icon
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-soundcloud-icon
+                        p  icon-hubs-soundcloud-icon
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-rss-icon
+                        p  icon-hubs-rss-icon
+                .col-md-3
+                    i(aria-hidden="true").icon-hubs-bell-icon
+                    p  icon-hubs-bell-icon
+                .col-md-3
+                    i(aria-hidden="true").icon-hubs-flickr-icon
+                    p  icon-hubs-flickr-icon
+                .col-md-3
+                    i(aria-hidden="true").icon-hubs-rg-icon
+                    p  icon-hubs-rg-icon
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-mobile-icon
+                        p  icon-hubs-mobile-icon
+
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-linkedin-icon
+                        p  icon-hubs-linkedin-icon
+
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-instagram-n-icon
+                        p  icon-hubs-instagram-n-icon
+
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-facebook-n-icon
+                        p  icon-hubs-facebook-n-icon
+                .col-md-3
+                    clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-facebook.icon-rectangualr
+                        p  icon-facebook .icon-rectangualr
+                .col-md-3
+                    i(aria-hidden="true").icon-hubs-envelope-icon
+                    p  icon-hubs-envelope-icon
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-instagram-icon
+                        p  icon-hubs-instagram-icon
+
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-facebook-icon
+                        p  icon-hubs-facebook-icon
+
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-twitter-icon
+                        p  icon-hubs-twitter-icon
+
+                .col-md-3
+                    .clearfix.bshadow0.pbs
+                        i(aria-hidden="true").icon-hubs-pinterest-icon
+                        p  icon-hubs-pinterest-icon
+                .col-md-3
+                    i(aria-hidden="true").icon-twitter-t
+                    p  icon-twitter-t
+                .col-md-3
+                    i(aria-hidden="true").icon-reddit-alien
+                    p  icon-reddit-alien
+                .col-md-3
+                    i(aria-hidden="true").icon-google-plus
+                    p  icon-google-plus
+                .col-md-3
+                    i(aria-hidden="true").icon-linkedin
+                    p  icon-linkedin
+                .col-md-3
+                    i(aria-hidden="true").icon-twitter2
+                    p  icon-twitter2
+                .col-md-3
+                    i(aria-hidden="true").icon-facebook
+                    p  icon-facebook
+                .col-md-3
+                    i(aria-hidden="true").icon-facebook-f
+                    p  icon-facebook-f
+
+                .col-md-3
+                    i(aria-hidden="true").icon-facebook-round
+                    p  icon-facebook-round
+
+                .col-md-3
+                    i(aria-hidden="true").icon-twitter-round
+                    p  icon-twitter-round
+
+
+        h3 Special Mathjax icons
+        .source_info
+            markdown
+                p Note: some special icons have been added to be used in the Mathjax equtions <a href='https://jira.atypon.com/browse/LIT-166351' target="_blank">`LIT-166351`</a> / <a href='http://vendors.wiley.com/schemas/wileyml3g/PUA.html' target="_blank">`icons`</a>
+
+
+        .source_example
+            .container.icons-palette
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E5
+                    p  icon-uniF8E5
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E6
+                    p  icon-uniF8E6
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E7
+                    p  icon-uniF8E7
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E8
+                    p  icon-uniF8E8
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E9
+                    p  icon-uniF8E9
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8EA
+                    p  icon-uniF
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8EB
+                    p  icon-uniF8EB
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8EC
+                    p  icon-uniF8EC
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8ED
+                    p icon-uniF8ED
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8EE
+                    p icon-uniF8EE
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8EF
+                    p icon-uniF8EF
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F3001
+                    p icon-uniF8F3001
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F1
+                    p icon-uniF8F1
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F2
+                    p icon-uniF8F2
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F3
+                    p icon-uniF8F3
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F4
+                    p icon-uniF8F4
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F5
+                    p icon-uniF8F5
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F6
+                    p icon-uniF8F6
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F7
+                    p icon-uniF8F7
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F8
+                    p icon-uniF8F8
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8F9
+                    p icon-uniF8F9
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8FA
+                    p icon-uniF8FA
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8FB
+                    p icon-uniF8FB
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8FC
+                    p icon-uniF8FC
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8FD
+                    p icon-uniF8FD
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8FE
+                    p icon-uniF8FE
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8FF
+                    p icon-uniF8FF
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E2
+                    p icon-uniF8E2
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E3
+                    p icon-uniF8E3
+                .col-md-3
+                    i(aria-hidden="true").icon-uniF8E4
+                    p icon-uniF8E4
+    | #{''}
+

@@ -1,0 +1,184 @@
+{
+    "title": "Tables",
+    "template": "doc",
+    "tag": [
+        "components"
+    ],
+    "templateData": {
+        "items": [
+            {
+                "title": "Default Table",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/tables/templates/tables/tables-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/tables/templates/data/default.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Bordered Table",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "separator"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/tables/templates/tables/tables-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/tables/templates/data/bordered.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Expandable Table",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "separator"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/tables/templates/tables/tables-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/tables/templates/data/expandable.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Checkbox Table",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "table-checkboxes"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/tables/templates/tables/tables-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/tables/templates/data/checkbox.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Checkbox Expandable Table",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "table-checkboxes",
+                                        "separator"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/tables/templates/tables/tables-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/tables/templates/data/checkbox-expandable.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Saved Search Tables",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "separator",
+                                        "stacked",
+                                        "unlabeled"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/components/tables/templates/tables/tables-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/tables/templates/data/saved-search.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

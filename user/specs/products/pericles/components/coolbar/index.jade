@@ -1,0 +1,41 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 Coolbar
+
+    .source_info
+        p Colors, font sizes and margins changed based on the
+            | !{''}
+            a(href="https://projects.invisionapp.com/d/main#/console/12228601/258969606/preview") new design
+
+    markdown
+        p Make any element sticky using HTML Classes, `stickybar` as a parent class and `stickybar__wrapper` as a child class
+
+
+    section.source_section
+        h2 Abstract view
+        markdown
+            p `Go to full text` changed to `Read the full text` based on <a href='https://jira.atypon.com/browse/LIT-200481' target="_blank">`LIT-200481`</a>
+
+
+        .source_example
+            .container
+                | !{pb.render('coolbar', 'coolbar/demo/demo-abst-coolbar', 'pericles')}
+
+
+    section.source_section
+        h2 Full view with no access
+
+        .source_example
+            .container
+                | !{pb.render('coolbar', 'coolbar/demo/demo-full-coolbar-noaccess', 'pericles')}
+
+    section.source_section
+        h2 Full view with access
+
+        markdown
+            p note: i removed class `coolBar--sections` from the sections wrapper for demonstration purpose
+
+        .source_example
+            .container
+                | !{pb.render('coolbar', 'coolbar/demo/demo-full-coolbar-access', 'pericles')}

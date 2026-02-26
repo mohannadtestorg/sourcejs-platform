@@ -1,0 +1,105 @@
+.meta {
+    &__body {
+        margin-bottom: 0;
+
+        h1 {
+            min-height: 30px;
+        }
+
+        &.card--shadow {
+            margin-top: 55px;
+            padding: 30px 15px;
+            @include media('<tablet') {
+                margin-top: 25px;
+            }
+        }
+        &.card{
+            .meta{
+                &__left-side{
+                    @include media('>=large') {
+                        width: 86%;
+                    }
+                    @include media('<large') {
+                        @include media('>tablet') {
+                            width: 81%;
+                        }
+                    }
+                }
+                &__right-side{
+                    @include media('>=tablet') {
+                        vertical-align: top;
+                        text-align: right;
+                    }
+                    @include media('>=large') {
+                        width: 14%;
+                    }
+                    @include media('<large') {
+                        @include media('>tablet') {
+                            width: 19%;
+                        }
+                    }
+
+                }
+                &__info{
+                    @include media('>=tablet') {
+                        max-width: 79%;
+                    }
+                }
+            }
+        }
+    }
+
+    &__title {
+        margin-bottom: 55px;
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    &__details {
+        font-weight: 900;
+        margin-bottom: 15px;
+    }
+
+    &__info {
+        .rlist {
+            font-size: .875rem;
+            @include themify($themes) {
+                color: themed('color');
+            }
+
+            &--inline {
+                @include media('<phone') {
+                    &.separator > li {
+                        display: block;
+                        border: none;
+                        padding: 0;
+                        ~ li {
+                            border: none;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__right-side {
+        @include media('<tablet') {
+            display: block;
+        }
+
+        .btn {
+            min-width: 1px;
+            @include media('>=tablet') {
+                display: block;
+            }
+        }
+
+    }
+    &__contrib{
+        @include media('>tablet') {
+            padding-left: 20%;
+        }
+    }
+}

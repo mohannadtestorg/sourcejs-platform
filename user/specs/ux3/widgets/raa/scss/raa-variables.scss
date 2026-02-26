@@ -1,0 +1,122 @@
+//colors
+$grayLight: #999;
+
+$journalThemeColor: #204c8b;
+
+//font-sizes
+$small-font: 10px;
+
+@mixin raa-button() {
+    background-color: #fff;
+    border: 2px solid $journalThemeColor;
+    color: $journalThemeColor;
+    outline: none;
+    padding: 3px 20px;
+    &:hover {
+        color: #fff;
+        background-color: $journalThemeColor;
+    }
+}
+
+@mixin raa-submit-button() {
+    background-color: $journalThemeColor;
+    border: 2px solid $journalThemeColor;
+    color: #fff;
+    font-weight: bold;
+    outline: none;
+    padding: 3px 20px;
+}
+
+@mixin raa-cancel-button() {
+    background: none;
+    border: none;
+    color: $journalThemeColor;
+    font-weight: bold;
+    outline: none;
+    padding: 5px 22px;
+}
+
+// Font sizes used throughout the size. Will aim to normalize all in-between.
+/*
+
+Use is simple:
+
+.foo{
+  color: #fff;
+  text-decoration: underline;
+  .font_big;
+}
+
+produces:
+
+.foo{
+  color: #fff;
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+*/
+@mixin font_huge() {
+    font-size: 30px;
+}
+
+@mixin font_bigger() {
+    font-size: 25px;
+}
+
+@mixin font_big() {
+    font-size: 18px;
+}
+
+@mixin font_normal() {
+    font-size: 15px;
+}
+
+@mixin font_small() {
+    font-size: 12px;
+}
+
+@mixin font_tiny() {
+    font-size: 10px;
+}
+
+// Used when we need custom icon placing, such as replacing in HTML markup we don't control
+.icomoon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$fontType: "Open Sans", Arial, sans-serif;
+$brandingColor: #204C8B;
+$footerLinkColor: #f9fafa;
+$footerTextColor: #2a2c29;
+$mobileExpandColor: #535353;
+$mobileFooterDropdownLinkColor: #888888;
+$mobileFooterBgColor: #292929;
+
+$header-links-color: #1E5991;
+
+$lightGrey: #f9fafa;
+$grey: #848789;
+$darkGrey: #888888;
+
+$nearlyBlack: #1f1f1f;
+$authorColor: #5f5f5f;
+
+$header-links-color: #1E5991;
+
+$lg-container: 1024px;
+$lg-min: 1200px;
+
+$xlg-container: 1260px;
+$xlg-min: 1024px;

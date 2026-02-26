@@ -1,0 +1,56 @@
+extends ../article/article-tmpl.jade
+
+block tabKeywords
+
+block detailsTabTopSectionsCopyright
+    if (original.item && original.item.license && original.item.license.statement)
+        hr.section__separator
+        section
+            strong.section__title Open Access
+            div.section__body
+                p !{original.item.license.statement}
+
+        hr.section__separator
+
+block coolbarPrefix
+    - var original = data;
+    - var coolbarData = {"sections": {"icon": "icon-Icon_Section-menu","label": "Sections"},"download": {"icon": "icon-Icon_Download","label": "Full text", "url": data.item.formats.fullText}, "pdf": {"icon": "icon-pdf","label": "PDF", "link":data.item.formats.pdf}, "cme": {"label": "CME", "link":data.item.CMELink, "hasCME": data.item.hasCME},"extra": [{"content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-favorites\"></i><span>Add to Favorites</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-Email\"></i><span>Email a Friend</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-track\"></i><span>Track Citations</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-permissions\"></i><span>Permissions</span></a></li></ul>"},{"content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"}]};
+    - data  = coolbarData;
+
+block downloadCoolbarSection
+    if(data.download && data.download.url)
+        li.coolBar__section
+            a.coolBar__ctrl.coolBar--download(href= data.download.url )
+                i(class= data.download.icon aria-hidden="true")
+                span !{data.download.label}
+
+block addtionalCoolbarSection
+    if(data.pdf && data.pdf.link)
+        li.coolBar__section
+            a.coolBar__ctrl.coolBar--pdf(href=data.pdf.link)
+                i(class= data.pdf.icon aria-hidden="true")
+                span !{data.pdf.label}
+    if(data.cme && data.cme.hasCME && data.cme.link)
+        li.coolBar__section
+            a.coolBar__ctrl.coolBar--cme(href=data.cme.link)
+                span !{data.cme.label}
+
+block coolbarDropZoneTransplant
+    div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--download, .coolBar--pdf, .coolBar--cme" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+
+block citation__tocHeading
+    span.article__breadcrumbs.hidden-sm.hidden-xs
+        | !{pb.render('breadcrumbs', {data:{"breadcrumbs": {"SiteHome": {"label": "Home","link": "/"},"Serial": {"label": "Radiology","link": "/journal/ajpcell"},"Group": {"label": "Table οf Contents","link": "/toc/ajpcell/313/1"}}}})}
+    span.citation__top__item.article__tocHeading !{data.tocHeading}
+
+block article
+    main.content
+        if(data.item)
+            if(data.item.mathJax && data.item.mathJax.enabled)
+                article.container(data-figures=data.item.figures data-references=data.item.references data-enable-mathjax=data.item.mathJax.enabled)
+                    +articleRow()
+            else
+                article.container(data-figures=data.item.figures data-references=data.item.references)
+                    +articleRow()
+

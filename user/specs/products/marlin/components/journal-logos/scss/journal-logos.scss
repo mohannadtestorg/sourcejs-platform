@@ -1,0 +1,39 @@
+.journal-logos {
+    //height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    float: left;
+    & + .journal-logos {
+        margin-left: 32px;
+    }
+    &--xsmall {
+        max-width: 60px;
+        height: auto;
+    }
+    &--small {
+        max-width: 100px;
+        height: auto;
+    }
+    &--medium {
+        max-width:  150px;
+        height: auto;
+    }
+    &--large {
+        max-width: 175px;
+        height: auto;
+    }
+    &--xlarge {
+        max-width: 225px;
+        height: auto;
+    }
+    &--xxlarge {
+        max-width: 275px;
+        height: auto;
+    }
+    img {
+        max-height: 100%;
+        @include media('<tablet') {
+            max-height: 32px;
+        }
+    }
+}

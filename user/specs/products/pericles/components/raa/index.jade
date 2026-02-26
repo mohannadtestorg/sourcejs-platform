@@ -1,0 +1,29 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    .source_info
+        small note: those templates are jsps and we are including them only for demonstration purpose
+
+    section.source_section
+        h2 Example
+
+        h3 Register form
+        .source_example
+            | !{pb.render('raa', 'registration/registration', 'registration.json', 'pericles')}
+
+        h3 Login form
+        .source_example
+            | !{pb.render('raa', 'login/login', 'login.json', 'pericles')}
+
+        h3 Forget password form
+        .source_example
+            | !{pb.render('raa', 'forget-pass/forget-pass', 'forget-pass.json', 'pericles')}
+
+        h3 Forget Username form
+        .source_example
+            | !{pb.render('raa', 'forget-user/forget-user', 'forget-user.json', 'pericles')}
+
+        h3 alm emails
+        .source_example
+            | !{pb.render('raa', 'email/email', 'pericles')}
+    | #{''}

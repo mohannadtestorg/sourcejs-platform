@@ -1,0 +1,234 @@
+/***
+
+```
+<div class="m-video-item">
+  <a href="#" class="m-video-item__link">
+    <span class="m-video-item__img">
+      <span class="m-video-item__img-container">
+        <img src="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg" width="300">
+      </span>
+      <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+    </span>
+    <span class="m-video-item__type f-caps">Quick Take</span> <br>
+    <strong class="m-video-item__title f-h7">Semaglutide and Cardiovascular Risks</strong> <br>
+    <span class="m-video-item__timestamp f-ui">13:12</span>
+  </a>
+</div>
+<div class="m-video-item">
+  <a href="#" class="m-video-item__link">
+    <span class="m-video-item__img">
+      <span class="m-video-item__img-container">
+        <img src="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg" width="300">
+      </span>
+      <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+    </span>
+    <span class="m-video-item__type f-caps">Quick Take</span> <br>
+    <strong class="m-video-item__title f-h7">Semaglutide and Cardiovascular Risks</strong> <br>
+    <span class="m-video-item__timestamp f-ui">13:12</span>
+    <span class="m-video-item__date f-tag">Nov 30</span>
+  </a>
+</div>
+<div class="m-video-item m-video-item--no-meta">
+  <a href="#" class="m-video-item__link">
+    <span class="m-video-item__img">
+      <span class="m-video-item__img-container">
+        <img src="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg" width="300">
+      </span>
+      <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+    </span>
+  </a>
+</div>
+<div class="o-col m-video-item">
+  <a href="#" class="m-video-item__link">
+    <span class="m-video-item__img">
+      <span class="m-video-item__img-container">
+        <img src="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg" width="300">
+      </span>
+      <svg class="icon--interactive" aria-hidden="true"><use xlink:href="#icon--interactive" /></svg>
+    </span>
+    <strong class="m-video-item__title f-h7">Making the Connection</strong> <br>
+  </a>
+</div>
+```
+***/
+
+.m-video-item {
+  position: relative;
+  margin-top: 16px;
+  list-style-type: none;
+
+  &.o-col {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &::after {
+    content: '';
+    background-color: #e2e2e2;
+    position: absolute;
+    display: block;
+    height: 100%;
+    right: -16px;
+    width: 1px;
+    top: 0;
+  }
+  &:last-of-type::after {
+    display: none;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 20px;
+
+    .o-listing-full-width__list &::after {
+      display: none;
+    }
+  }
+
+  @include breakpoint('small-') {
+    &:nth-child(2n) {
+      &::after {
+        display: none;
+      }
+    }
+    &:nth-child(n+3) {
+      &::after {
+        height: 90%;
+        top: 16px;
+      }
+    }
+    &::after {
+      right: -11px;
+    }
+  }
+
+  @include breakpoint('xsmall') {
+    &::after {
+      right: -8px;
+    }
+  }
+  @include breakpoint('medium+') {
+    &:nth-child(4n) {
+      &::after {
+        display: none;
+      }
+    }
+    &:nth-child(n+5) {
+      &::after {
+        height: 90%;
+        top: 16px;
+      }
+    }
+  }
+}
+
+.m-cta .m-video-item:first-child {
+  margin-top: 0;
+}
+
+.m-video-item__link {
+  display: block;
+  position: relative;
+  padding-bottom: 32px;
+
+  .o-col > & {
+    height: 100%;
+  }
+
+  @include breakpoint('small+') {
+    padding-bottom: 40px;
+  }
+
+  @include breakpoint('large+') {
+    padding-bottom: 32px;
+
+    .o-colset-2-4-6--gridlines & {
+      padding-bottom: 44px;
+    }
+  }
+}
+
+.m-video-item--no-meta .m-video-item__link {
+  padding-bottom: 0;
+
+  @include breakpoint('small+') {
+    padding-bottom: 0;
+  }
+
+  @include breakpoint('large+') {
+    padding-bottom: 0;
+  }
+}
+
+.m-video-item__img {
+  @include ratio-image(16, 9, 'center center');
+  background-color: $color__background;
+  &.vcm-small-thumb {
+    svg {
+      left: 62px;
+      @include  breakpoint('xsmall') {
+        left: 48px;
+      }
+      @include  breakpoint('small') {
+        left: 68px;
+        bottom: 26px;
+      }
+      @include  breakpoint('medium') {
+        left: 55px;
+      }
+      @include  breakpoint('large') {
+        left: 56px;
+      }
+      @include  breakpoint('xlarge') {
+        left: 53px;
+      }
+    }
+  }
+}
+
+.m-video-item br {
+  display: none;
+}
+
+.m-video-item__type {
+  display: block;
+  margin-top: 12px;
+  color: $color__accent;
+
+  @include breakpoint('large+') {
+    margin-top: 16px;
+  }
+}
+
+.m-video-item__title {
+  display: block;
+  margin-top: 4px;
+  color: $color__text--headlines;
+}
+
+  .m-video-item__link:hover .m-video-item__title {
+    text-decoration: underline;
+  }
+
+.m-video-item__timestamp,
+.m-video-item__date {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-right: 30px;
+  color: $color__text--quaternary;
+}
+
+.m-video-item__date {
+  left: auto;
+  right: 0;
+  padding-right: 0;
+  padding-left: 30px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  demo usage
+//
+
+#demo > .m-video-item {
+  width: 200px;
+}

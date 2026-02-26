@@ -1,0 +1,163 @@
+
+main {
+    &.with-bg {
+        background-color: #fff;
+    }
+    .top-image {
+        background-image: url('../images/banner.jpeg');
+        @include media("<desktop") {
+            height: 250px;
+        }
+    }
+}
+
+.slideshow-wrapper {
+    min-height: 190px;
+    margin-left: 0;
+    margin-right: 0;
+
+    @include media("<desktop") {
+        padding: 10px;
+    }
+}
+
+.slideShow {
+    height: 100%;
+    overflow: hidden;
+    .creative-work__title {
+        height: 64px;
+        margin-bottom: 13px;
+        font-size: 24px;
+        font-weight: bold;
+        color: $primary-text-color;
+        font-family: "Open Sans", sans-serif;
+        line-height: 33px;
+    }
+    .loa {
+        height: 16px;
+        color: $secondary-text-color;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .meta {
+        margin-top: 28px;
+        margin-bottom: 38px;
+        color: #000;
+        font-weight: 800;
+        line-height: 16px;
+        text-transform: none;
+        & > * + *:before {
+            content: '.';
+            padding: 0 0.5rem;
+        }
+    }
+    .owl-carousel {
+        padding: 0;
+        &.owl-drag {
+            &:active, &:focus {
+                outline: none;
+            }
+        }
+        .owl-nav.disabled + .owl-dots {
+            margin-top: 0;
+        }
+        .owl-dots {
+            margin-top: 0;
+            line-height: normal;
+            position: absolute;
+            bottom: 1.7rem;
+            width: 100%;
+            left: 0;
+            @include media('<tablet') {
+                display: block;
+            }
+            .owl-dot {
+                span {
+                    box-shadow: 0 0 10px rgba(25, 25, 25, 0.5);
+                    margin: 0 4px;
+                    background-color: $secondary-bg-color;
+                }
+                &.active span {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+        .owl-item img {
+            margin: auto;
+        }
+    }
+}
+
+.mpu {
+    width: 329px;
+    height: 107px;
+}
+
+.news-section {
+    @extend .clearfix;
+    margin-bottom: 2rem;
+    padding: 0;
+
+    .section__header {
+        margin-bottom: 0.25rem;
+    }
+
+    .btn {
+        font-weight: bold;
+        float: right;
+    }
+    .multi-search {
+        margin-bottom: 1.5rem;
+    }
+    .lot {
+        .do {
+            border-bottom: 1px solid $divider-color;
+            padding: 1rem 0;
+            h3 {
+                font-size: 1rem;
+                margin: 0;
+            }
+            .date {
+                display: none;
+            }
+            .description {
+                display: none;
+            }
+        }
+    }
+}
+
+.teaser-titles, .teaser-review {
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .teaser-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+    }
+    .more-link {
+        display: flex;
+        align-items: center;
+        color: $primary-bg-color;
+        margin-top: auto;
+        justify-content: flex-end;
+        i {
+            margin-left: 0.5rem;
+        }
+    }
+    .loa a {
+        color: $secondary-text-color;
+    }
+    .delayLoad {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid $divider-color;
+    }
+}
+@include media('<tablet') {
+    .home-sections {
+        padding: 0px 20px;
+    }
+}

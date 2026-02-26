@@ -1,0 +1,50 @@
+// Margin and Padding
+$spacer: 1rem !default;
+$spacers: (
+        0: 0,
+        1: ($spacer * .25),
+        2: ($spacer * .5),
+        3: $spacer,
+        4: ($spacer * 1.5),
+        5: ($spacer * 3),
+        6 : ($spacer * 2),
+        auto: auto
+) !default;
+
+@each $size, $length in $spacers {
+    .m-#{$size} { margin: $length !important; }
+    .mt-#{$size},
+    .my-#{$size} {
+        margin-top: $length !important;
+    }
+    .mr-#{$size},
+    .mx-#{$size} {
+        margin-right: $length !important;
+    }
+    .mb-#{$size},
+    .my-#{$size} {
+        margin-bottom: $length !important;
+    }
+    .ml-#{$size},
+    .mx-#{$size} {
+        margin-left: $length !important;
+    }
+
+    .p-#{$size} { padding: $length !important; }
+    .pt-#{$size},
+    .py-#{$size} {
+        padding-top: $length !important;
+    }
+    .pr-#{$size},
+    .px-#{$size} {
+        padding-right: $length !important;
+    }
+    .pb-#{$size},
+    .py-#{$size} {
+        padding-bottom: $length !important;
+    }
+    .pl-#{$size},
+    .px-#{$size} {
+        padding-left: $length !important;
+    }
+}

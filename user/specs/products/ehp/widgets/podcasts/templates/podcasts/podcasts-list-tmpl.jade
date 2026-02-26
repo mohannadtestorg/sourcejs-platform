@@ -1,0 +1,4 @@
+block podcastsListBody
+    if (data && data.items)
+        block podcastsListItemBody
+            | !{pb.render('podcasts', 'podcasts-list-item', {data: data})}

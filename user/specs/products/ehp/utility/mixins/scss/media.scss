@@ -1,0 +1,33 @@
+// in future, flex can be used instead, but IE doesn't handle it well, and is still supported browser
+%make-media-object {
+    display: block;
+    zoom: 1;
+    overflow: hidden;
+}
+
+%media-object-styling {
+    display: table-cell;
+    vertical-align: top;
+
+    &:not(:first-child) {
+        @include media(">=tablet") {
+            padding-left: $media-gutter-x;
+        }
+    }
+}
+
+%make-media-object-element {
+    @extend %media-object-styling;
+
+    @include media("<tablet") {
+        display: none;
+    }
+}
+
+%make-media-object-body {
+    @extend %media-object-styling;
+
+    zoom: 1;
+    overflow: hidden;
+    width: 10000px;
+}

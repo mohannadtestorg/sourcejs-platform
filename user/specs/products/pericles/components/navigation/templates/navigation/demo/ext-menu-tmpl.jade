@@ -1,0 +1,41 @@
+extends ../../../../../widgets/menu/templates/menu/menu-tmpl
+
+
+block menuDropZone
+    #717e2cee-e38d-4cab-beca-edfd16b735a0.widget.UX3HTMLWidget.none.social-links.widget-none
+        .wrapped
+            .widget-body.body.body-none
+                .social-media
+                    h2.side-section-header.hidden-lg.hidden-md Follow journal
+                    ul.rlist--inline
+                        li.icon-alert-header
+                            a(href='#')
+                                i.icon-alert
+
+                        li
+                            a(href='#')
+                                i.icon-facebook-round
+                                span.label.hidden-lg.hidden-md Facebook page
+                        li
+                            a(href='#')
+                                i.icon-twitter-round
+                                span.label.hidden-lg.hidden-md Twitter channel
+                        li
+                            div.expandable-list
+                                a.expandable-list__toggle(href='#' data-toggle='dropdown' id="pane-1")
+                                    i.icon-icon-Rss(aria-hidden="true")
+                                ul.rlist.expandable-list__body( aria-hidden='true' aria-labelledby="pane-1")
+                                    li
+                                        a(href='/action/showFeed?jc=(JOURNAL_CODE)&type=etoc&feed=rss')
+                                            i.icon-icon-Rss
+                                            | Most recent
+                                    li
+                                        a(href='/action/showMostReadArticlesFeed?journalCode=(JOURNAL_CODE)')
+                                            i.icon-icon-Rss
+                                            | Most Accessed
+                                    li
+                                        a(href='/action/showMostCitedArticlesFeed?journalCode=(JOURNAL_CODE)')
+                                            i.icon-icon-Rss
+                                            | Most cited
+block MenuDropZone
+

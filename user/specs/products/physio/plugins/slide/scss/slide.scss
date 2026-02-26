@@ -1,0 +1,93 @@
+.w-slide {
+    &__content {
+        background: $default-bg-color;
+        padding: 48px 20px 0px;
+        .w-slide--list{
+            background: $primary-white;
+            li {
+                background: $primary-white;
+            }
+            li:first-child{
+                border-top: 1px solid $default-bg-color;
+            }
+            a{
+                border-bottom: 1px solid $default-bg-color;
+                color: $primary-blue-color;
+            }
+            i{
+                color: $primary-blue-color;
+            }
+        }
+        > a{
+            border-top: 1px solid $default-bg-color;
+        }
+        .quick-search {
+            .dropBlock {
+                display: none;
+            }
+        }
+        > a, > ul >li {
+            color: $primary-light-text-color;
+            border-top: 0;
+            border-bottom: 1px solid lighten($gray-2, 35%);
+        }
+        .autocomplete {
+            background: $primary-white;
+            border: 0;
+            padding-left: 50px;
+        }
+        .quick-search__button {
+            right: auto;
+            left: 15px;
+            background: $transparent;
+        }
+        .menu-nav {
+            text-transform: uppercase;
+            i {
+                font-size: .5rem;
+                margin-left: 5px;
+                font-weight: bold;
+            }
+            li {
+                padding: 0;
+            }
+            a {
+                padding: 15px 0;
+                display: block;
+            }
+        }
+        .loi-list__wrapper {
+            background: $default-bg-color;
+        }
+    }
+    &_head {
+        text-transform: uppercase;
+        padding: 17px 20px;
+        max-height: 48px;
+    }
+    &__back {
+        font-size: 0.68rem;
+        i {
+            font-size: 0.65rem;
+        }
+    }
+    .dropdown {
+        &__menu {
+            display: block;
+            position: relative;
+            float: none;
+            left: auto;
+            top:auto;
+            min-width: 0;
+            box-shadow: none;
+            background-color: transparent;
+        }
+        &:hover,
+        &.hover {
+            background: transparent;
+        }
+    }
+    .w-slide_head {
+        background-color: $primary-white;
+    }
+}

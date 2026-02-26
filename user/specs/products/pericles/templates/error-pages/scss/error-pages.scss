@@ -1,0 +1,87 @@
+.errorPage {
+    position: relative;
+
+    &Icon {
+        color: $secondary-bg-color;
+        margin-top: 5rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 25rem;
+    }
+
+    &Card {
+        position: relative;
+        max-width: 74%;
+        min-height: 20rem;
+        margin-top: 1em;
+        margin-bottom: 10em;
+
+        .sub {
+            font-size: 1rem;
+        }
+    }
+
+    ul, ol {
+        padding-left: 32px;
+        list-style-type: none;
+    }
+
+    li {
+        position: relative;
+        &:before {
+            height: 5px;
+            width: 5px;
+            content: '';
+            display: block;
+            background: $wiley-blue-color;
+            border-radius: 50%;
+            position: absolute;
+            left: -15px;
+            top: 8px;
+        }
+    }
+
+    @include media('<=phone') {
+        &Icon {
+            margin-top: 1rem;
+            font-size: 8rem;
+        }
+
+        &Card {
+            max-width: none;
+            margin-top: 3em;
+            margin-right: 3rem;
+            margin-left: 20px;
+        }
+    }
+
+
+
+
+
+    @include media('<desktop') {
+        &Icon {
+            margin-top: 14rem;
+            font-size: 15rem;
+        }
+
+        &Card {
+            max-width: none;
+            margin-top: 3em;
+            margin-right: 3rem;
+            margin-left: 20px;
+        }
+    }
+
+    @include media('<=phone') {
+        &Icon {
+            margin-top: 18rem;
+            font-size: 8rem;
+        }
+    }
+}
+
+.error-401-title {
+    margin:0;
+}

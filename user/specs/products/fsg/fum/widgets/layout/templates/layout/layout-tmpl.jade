@@ -1,0 +1,57 @@
+
+-
+    var colSize = 'xs';
+    var cMarkup = 'div';
+
+mixin col(col, l)
+    if (thisWidget.properties.stack)
+        if thisWidget.properties.stack == 'mobile'
+            - colSize = 'sm';
+        else if thisWidget.properties.stack == 'tablet'
+            - colSize = 'md';
+
+    if (col.config.className)
+        - colClass = col.config.className;
+    else
+        - colClass = '';
+
+    if (col.config.width)
+        if col.config.width != 'Unspecified'
+            - colClass = colClass + ' col-' + colSize + '-' + col.config.width;
+
+            if (thisWidget.properties.gutterless) && thisWidget.properties.gutterless == 'true'
+                - colClass = colClass + ' gutterless ';
+
+    if (col.config.markup)
+        - cMarkup = col.config.markup;
+
+    if (thisWidget.properties.isList) && thisWidget.properties.isList == 'true'
+        - cMarkup = 'li';
+
+    #{cMarkup}(class=colClass)
+        | !{pb.renderDropzone(thisWidget, "col-"+ l)}
+
+
+if (thisWidget.properties.contained) && thisWidget.properties.contained == 'true'
+    .container
+        .row
+            if (thisWidget.properties.isList) && thisWidget.properties.isList == 'true'
+                ul.rlist--inline
+                    if (data.columns)
+                        each col, l in data.columns
+                            +col(col, l)
+            else
+                if (data.columns)
+                    each col, l in data.columns
+                        +col(col, l)
+else
+    if (thisWidget.properties.isList) && thisWidget.properties.isList == 'true'
+        ul.rlist--inline
+            if (data.columns)
+                each col, l in data.columns
+                    +col(col, l)
+    else
+        if (data.columns)
+            each col, l in data.columns
+                +col(col, l)
+

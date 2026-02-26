@@ -1,0 +1,14 @@
+-var id= data.id
+
+
+.dropBlock.dropBlock--actions
+    a(href="#", data-db-target-for="#{id}").btn--actions
+    .dropBlock__holder(data-db-target-of="#{id}")
+        ul.rlist
+            if data.actions
+                each action, r in data.actions
+                       li.btn.btn--action(class=action.class)
+                               if(action.icon)
+                                  i(class=action.icon)
+                               span !{action.label}
+

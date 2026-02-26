@@ -1,0 +1,19 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 access-denial
+    .source_info
+        markdown
+            p the access denial widget is extending the publication content widget
+            small note: access tab content created in PB using accordion widget
+
+    section.source_section
+        h2 access-denial
+
+        .source_example
+            .container
+                | !{pb.render("access-denial", "access-denial/demo/access-denial", "content.json", "pericles")}
+    | #{''}

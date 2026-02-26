@@ -1,0 +1,35 @@
+.journal-home{
+.meta__right-side{
+  .btn{
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+}
+
+  &.content{
+    @include media('<desktop'){
+      padding-top: 135px;
+    }
+  }
+}
+
+
+.top-image {
+  height: 214px;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+
+  .mboc-theme & {
+    background-image: url("../images/MBoC.png");
+
+  }
+  .lse-theme & {
+    background-image: url("../images/LSE.png");
+
+  }
+
+  @include media('<tablet'){
+display: none;
+  }
+}

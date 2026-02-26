@@ -1,0 +1,51 @@
+.profile-pages {
+  .usageReports {
+    .section__header {
+      font-weight: 800;
+      font-size: 0.875rem;
+    }
+
+    ol {
+      counter-reset: report-step;
+      padding: 0;
+      & > li {
+        list-style-type: none;
+        counter-increment: item;
+        position: relative;
+
+        .section__header {
+          margin-left: 1.2rem;
+          margin-bottom: 0;
+        }
+
+        &:before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding-right: 0.5em;
+          font-weight: 800;
+          font-size: 0.875rem;
+          text-align: right;
+          content: counter(item) ".";
+        }
+      }
+    }
+  }
+
+  .extraPageTitle {
+    display: none;
+  }
+}
+
+.sushi-table tr th {
+  width: 1px;
+  white-space: nowrap;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#dateRange .jcf-select {
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}

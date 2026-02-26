@@ -1,0 +1,98 @@
+/***
+
+```
+<nav class="m-side-nav">
+  <a href="#" class="m-side-nav__previous">Previous issue</a>
+  <a href="#" class="m-side-nav__next">Next issue</a>
+</nav>
+
+<nav class="m-side-nav">
+  <a href="#" class="m-side-nav__previous">Back to Article</a>
+</nav>
+```
+
+***/
+
+.m-side-nav {
+  height:40px;
+  width:100%;
+  position:relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 0;
+    background:$color__background;
+    width: 100vw;
+    height: 40px;
+    margin-left: -50vw;
+    pointer-events: none;
+  }
+
+  a {
+
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    @include f-caps;
+    height: 40px;
+    line-height: 40px;
+    max-width:50%;
+  }
+}
+
+.m-side-nav__previous,
+.m-side-nav__next {
+  position:relative;
+  color: $color__text--tertiary;
+
+  svg {
+    display: none;
+  }
+
+  &:hover {
+    color:$color__text;
+  }
+}
+
+.m-side-nav__previous {
+  float: left;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: -1px;
+    margin-right: 5px;
+    border-width: 4px 4px 4px 0;
+    border-style: solid;
+    border-color: transparent $color__text--quaternary transparent transparent;
+  }
+
+  &:hover::before {
+    border-color: transparent $color__text transparent transparent;
+  }
+}
+
+.m-side-nav__next {
+  float: right;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: -1px;
+    margin-left: 5px;
+    border-width: 4px 0 4px 4px;
+    border-style: solid;
+    border-color: transparent transparent transparent $color__text--quaternary;
+  }
+
+  &:hover::after {
+    border-color: transparent transparent transparent $color__text;
+  }
+}

@@ -1,0 +1,31 @@
+extends /specs/products/informs/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+
+            main.content
+                .quickSearchRegion.dark
+                    .container
+                        .row
+                            div.col-lg-12.clearfix
+                                | !{pb.render("quick-search", "quick-search.json")}
+
+                .container
+                    .row
+                        .col-sm-4
+                            #filter.hidden-xs.hidden-sm.search__filters
+                               | !{pb.render("search-facets", "facet.json")}
+                        .col-sm-8
+                            | !{pb.render("search-result", "search-result/search-result", "search.json")}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

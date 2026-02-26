@@ -1,0 +1,270 @@
+.advanced-search {
+
+    input, .jcf-select {
+        border-color: $black;
+    }
+    >.btn{
+        margin-bottom: 15px;
+    }
+
+
+    [class*='-ctrl-field'] {
+        width: 5%;
+        font-size: 1.25rem;
+        vertical-align: middle;
+
+        @include media('<phone'){
+            margin-left: 2%;
+        }
+
+        &:not(.hidden) {
+            display: inline-block;
+        }
+
+        i {
+            font-weight: bold;
+        }
+    }
+
+    &--filters {
+        label {
+            font-weight: 600;
+            color: $primary-text-color;
+            font-size: 0.875rem;
+            padding: 0 8px;
+
+            @include media('>=phone') {
+                ~ input, ~ select, ~ .ms-ctn  {
+                    width: 70%;
+                }
+            }
+        }
+
+        .radio--primary {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+
+            .jcf-radio {
+                margin-top: 3px;
+            }
+        }
+
+        .search-term {
+            vertical-align: middle;
+        }
+    }
+
+    .accordion__control {
+        color: $primary-text-color;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-bottom: 1px solid $primary-text-color;
+        padding-bottom: 10px;
+
+        i {
+            font-size: 0.5rem;
+        }
+    }
+
+    .accordion__content {
+        .checkbox--primary {
+            padding-left: 10px;
+        }
+    }
+
+    .label-txt {
+        color: $primary-text-color;
+        font-size: 0.875rem;
+        font-weight: 600;
+        overflow: visible;
+    }
+
+    &--searchIn {
+        @include media('<phone') {
+            border-bottom: 2px solid #ececec;
+            margin-bottom: 15px;
+        }
+
+    }
+
+    .ms-res-ctn.dropdown-menu{
+        height: auto !important;
+    }
+
+}
+
+.filter-date {
+    &.left-side-label {
+        label {
+            vertical-align: top;
+        }
+    }
+
+    @include media('<phone') {
+        padding-top: 20px;
+        border-bottom: 2px solid #ececec;
+        border-top: 2px solid #ececec;
+    }
+}
+
+.time-frame {
+    .left-side-label & {
+        label {
+            width: auto;
+            min-width: 122px;
+            padding: 0;
+            vertical-align: middle;
+        }
+    }
+
+    @include media('<tablet') {
+        .label-txt {
+            min-width: 100px;
+            display: block;
+        }
+    }
+
+    .jcf-select {
+        margin: 0 1%;
+        padding: 9px 5px 11px;
+    }
+
+    .radio--primary span:before {
+        margin-right: 5px;
+    }
+}
+
+.jcf-select-staticRange {
+    min-width: 110px;
+}
+
+.jcf-select-month-range {
+    min-width: 82px;
+    .jcf-scrollbar-horizontal {
+        display: none;
+    }
+}
+
+span.jcf-select-year-range {
+    min-width: 69px;
+    margin: 0px;
+}
+
+.timeFrame-to {
+    display: inline;
+    @include media('<large') {
+        margin-top: 20px;
+        display: block;
+    }
+}
+
+.separator-label.separator-label {
+    display: inline-block;
+    margin: 0;
+    width: auto;
+    font-weight: 600;
+    font-size: 0.875rem;
+
+    @include media('<large') {
+        vertical-align: middle;
+        min-width: 122px;
+        text-align: right;
+
+        &:before {
+            content: " ";
+            display: table;
+            clear: both;
+        }
+    }
+
+
+}
+
+.searchIn {
+    &--field {
+
+        .jcf-select {
+            width: 50%;
+            margin-bottom: 13px;
+
+            @include media('>=phone') {
+                width: 19%;
+                min-width: 0px;
+                margin-bottom: 0px;
+            }
+        }
+
+        .jcf-select-text {
+            color: $primary-text-color;
+            font-size: 0.875rem;
+            font-weight: 600;
+            overflow: visible;
+        }
+
+        input {
+            width: 93%;
+            @include media('>=phone') {
+                width: 70%;
+                margin: 0px 2%;
+            }
+
+            &[value] {
+                color: $primary-text-color;
+            }
+        }
+    }
+
+}
+.ms-ctn {
+    padding: 0;
+
+    .ms-sel-ctn{
+        padding: 6px 8px;
+        border: 1px solid $black;
+        background: inherit;
+        font-size: .9375rem;
+        line-height: 1rem;
+        margin-left: 0;
+        height: 37px;
+        @include media('>=desktop') {
+            width: 100% !important;
+            min-width: 170px;
+        }
+    }
+
+}
+
+.ms-ctn input:focus {
+    background: inherit;
+}
+
+.ms-ctn-focus {
+    border: none;
+    box-shadow: none;
+}
+
+.ms-res-ctn.dropdown-menu {
+    position: absolute;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+}
+
+.dateFilterSelect{
+    [for='customRange']{
+        @include media('<phone'){
+            display: block;
+            margin-bottom: 15px;
+        }
+    }
+}

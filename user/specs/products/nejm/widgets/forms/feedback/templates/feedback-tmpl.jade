@@ -1,0 +1,49 @@
+.m-intro-block
+  p.f-body
+    | Please use this form to send us comments or inquiries. Required fields are indicated by an asterisk.
+p.a-alert-bar.a-alert-bar--error
+  svg.icon--alert(aria-hidden='true')
+    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--alert')
+  |  PRINT ERROR HERE
+.m-deflist
+  dl.m-deflist__dl.m-deflist__dl--fields
+    dt.m-deflist__dt.f-body--sm
+      label(for='') Your name
+    dd.m-deflist__dd.m-deflist__dd--field
+      input(name='', type='text')
+    dt.m-deflist__dt.f-body--sm
+      label(for='') Customer number
+    dd.m-deflist__dd.m-deflist__dd--field
+      input(name='', type='text')
+    dt.m-deflist__dt.f-body--sm
+      label(for='') Your e-mail address*
+    dd.m-deflist__dd.m-deflist__dd--field
+      input(name='', type='email')
+    dt.m-deflist__dt.f-body--sm Subject*
+    dd.m-deflist__dd
+      span.a-form-radio
+        input(type='radio', name='subject', value='H')
+        label.f-body--sm(for='') Login or password question
+      span.a-form-radio
+        input(type='radio', name='subject', value='T')
+        label.f-body--sm(for='') Technical problem
+      span.a-form-radio
+        input(type='radio', name='subject', value='T')
+        label.f-body--sm(for='') Subscription or membership inquiry
+      span.a-form-radio
+        input(type='radio', name='subject', value='T')
+        label.f-body--sm(for='') Advertising
+      span.a-form-radio
+        input(type='radio', name='subject', value='T')
+        label.f-body--sm(for='') Other
+    dt.m-deflist__dt.f-body--sm
+      label(for='')
+        | Your comments
+    dd.m-deflist__dd.m-deflist__dd--field
+      textarea(name='', rows='5')
+  .m-deflist__action
+    button.a-btn(type='submit')
+      | Submit 
+      svg.icon--arrow(aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+  p.f-hint *Required

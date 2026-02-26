@@ -1,0 +1,42 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "m1x"
+        },
+        "config": {
+            "type": "default",
+            "id": "m1x",
+            "hideEmpty": "false",
+            "vPort": "medium"
+        },
+        "data": {
+            "nav": [
+                {
+                    "text": "Most read",
+                    "icon": ["icon-shoppingcart"],
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                            "data": {
+                                "$ref": "../../../../widgets/top-content/templates/data/data.json"
+                            }
+                        }
+                    }
+                },
+                {
+                    "text": "Most cited",
+                    "icon": ["icon-search"],
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                            "data": {
+                                "$ref": "../../../../widgets/top-content/templates/data/data.json"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+}

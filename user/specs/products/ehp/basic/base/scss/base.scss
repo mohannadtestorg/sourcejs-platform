@@ -1,0 +1,77 @@
+//@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.content {
+  padding-top: 116px;
+  @include media('<desktop'){
+    padding-top: 60px;
+  }
+
+}
+
+// separators
+hr {
+    border: 0;
+    border-top: 2px solid $separators-color;
+    margin: 20px 0;
+
+    &.separator {
+        border-color: $separators-color;
+    }
+    &.section__separator {
+        border-color: $separators-color;
+    }
+}
+
+.section__separator {
+    border-color: $separators-color;
+}
+
+.row {
+    &.separator {
+        @include make-row();
+    }
+    &[class*='--extra']{
+        @include make-row();
+    }
+}
+
+// # state colors
+// ## text
+.text-note {
+    color: $note-text-color !important;
+}
+
+.text-success {
+    color: $success-text-color !important;
+}
+
+.text-warning {
+    color: $warning-text-color !important;
+}
+
+.text-error {
+    color: $error-text-color !important;
+}
+
+// ## blocks
+.note {
+    color: $note-text-color;
+}
+
+.success {
+    color: $success-text-color;
+}
+
+.warning {
+    color: $warning-text-color;
+}
+
+.error {
+    color: $error-text-color;
+}
+
+// emphatise
+.strong {
+    font-weight: bold;
+}

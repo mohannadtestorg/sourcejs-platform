@@ -1,0 +1,35 @@
+@mixin make-column-padding-left($gutter: $grid-gutter-width, $property: padding) {
+    @if($property == margin) {
+        margin-left:  ceil(($gutter / 2));
+    }
+    @else {
+        padding-left:  ceil(($gutter / 2));
+    }
+}
+
+@mixin make-column-padding-right($gutter: $grid-gutter-width, $property: padding) {
+    @if($property == margin) {
+        margin-right: floor(($gutter / 2));
+    }
+    @else {
+        padding-right: floor(($gutter / 2));
+    }
+
+}
+
+@mixin make-column-padding($gutter: $grid-gutter-width, $property: padding) {
+    @include make-column-padding-left($gutter, $property);
+    @include make-column-padding-right($gutter, $property);
+}
+
+@mixin loop-grid-block($view) {
+    $class: grid;
+
+    @for $i from 1 through 5 {
+
+        // for each $grid-#{view}-#{i}
+        .#{$class}-#{$view}-#{$i} {
+            @include make-row();
+        }
+    }
+}

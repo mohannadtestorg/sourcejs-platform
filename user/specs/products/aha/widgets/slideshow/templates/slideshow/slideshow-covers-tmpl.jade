@@ -1,0 +1,17 @@
+extends ./slideshow-tmpl
+
+block slideShow
+    .row.has-covers
+        .col-xs-12.is-gallery
+            .slideShow
+                div.owl-carousel(data-items=items data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=indicators data-arrow=arrow data-controls=controls)
+                    each item, k in data.widget.slides
+                        block slideShowDropZone
+                            div.slide-item
+                                | !{pb.renderDropzone(thisWidget, item)}
+                .card--dark
+                    block manageAlertsDropzone
+                        | !{pb.renderDropzone(thisWidget, "slideshowManageAlertsDropzone")}
+            .gallery-items.owl-dots-reflection(data-dot-item='li.cover-image')
+                ul.rlist.grid-sm-4.listing__covers__holder
+

@@ -1,0 +1,59 @@
+{
+    "title": "Parent item",
+    "template": "doc",
+    "tag": ["components"],
+    "templateData": {
+        "items": [
+            {
+                "title": "All data provided",
+                "body": {
+                    "$pug": {
+                        "template": "../../templates/parent-item/parent-item-tmpl.jade",
+                        "data": {
+                            "data": {
+                                "title": "FACETS",
+                                "volume": 2,
+                                "issue": 5
+                            }
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "No issue number",
+                "body": {
+                    "$pug": {
+                        "template": "../../templates/parent-item/parent-item-tmpl.jade",
+                        "data": {
+                            "data": {
+                                "title": "FACETS",
+                                "volume": 2
+                            }
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "Compact rendering",
+                "body": {
+                    "$pug": {
+                        "template": "../../templates/parent-item/parent-item-tmpl.jade",
+                        "data": {
+                            "config": {
+                                "display": "compact"
+                            },
+                            "data": {
+                                "title": "FACETS",
+                                "volume": 2,
+                                "issue": 5
+                            }
+                        }
+                    }
+                }
+
+            }
+        ]
+    }
+}

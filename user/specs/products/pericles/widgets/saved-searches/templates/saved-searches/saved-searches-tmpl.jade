@@ -1,0 +1,122 @@
+- var maxNo = data.properties.numberOfSearchesToDisplay;
+
+div.saved-searches.separator(data-queries=maxNo)
+    if !data.searches
+        if (data.noSearchesMessage)
+            p.emptySavedSearches !{data.noSearchesMessage}
+        else
+            p.emptySavedSearches You do not have any saved searches
+        .hidden
+
+            - var tableData = {"headings":[], "actions":[], "rows":[]}
+            - var config = {"checkbox": false,"expandable": true}
+
+            - var headings = [{"content": "Search terms"}]
+            - var actions = []
+
+            - tableData.headings = headings
+            - tableData.actions = actions
+
+            -var i = 0;
+            while i < maxNo
+                - var cols = [];
+                - i++;
+                -var j = 0;
+
+                while j < 3
+                    - j++;
+                    - cols.push({"content": "title"})
+
+                - tableData.rows.push({"hidden": true, "cols": cols})
+
+            | !{pb.render('tables', {data: tableData, config: config})}
+
+
+    else
+
+        - var tableData = {"headings":[], "actions":[], "rows":[]}
+        - var config = {"checkbox": false,"expandable": true}
+
+        - var headings = [{"content": "Search terms"}]
+        - var actions = []
+
+        - tableData.headings = headings
+        - tableData.actions = actions
+
+        - var queryNotesAval = false;
+
+        //each search, i in data.searches
+        //    if (search.frequency)
+        //        - queryNotesAval = true;
+        //if (queryNotesAval)
+        - headings.push({"content": "Alert"})
+
+        if (data.properties.displaySavedOn)
+            - headings.push({"content": "Saved on"})
+        if (data.properties.displayLastRunOn)
+            - headings.push({"content": "Date Last Run"})
+        - headings.push({"content": ""})
+
+
+        - tableData.headings = headings
+
+        - var rowNum = data.searches.length
+
+        each search, i in data.searches
+            - var display = maxNo == '' ? -1 : maxNo
+            if (i < display || display == -1)
+                - var cols = []
+                - var col_cnt = 0;
+
+                each content, m in  search
+                    if content
+                        if (m == 'queryName')
+                            - content = '<a href="'+ search.runUrl+'">'+ content + '</a>'
+                            - cols.push({"content": content})
+                        else if (m == 'frequency')
+                            case content
+                                when "D"
+                                    - cols.push({"content": "Daily"})
+                                when "W"
+                                    - cols.push({"content": "Weekly"})
+                                when "M"
+                                    - cols.push({"content": "Monthly"})
+                                when "N"
+                                    - cols.push({"content": "Never"})
+                        else if (m == 'savedDate')
+                            if (data.properties.displaySavedOn )
+                                - cols.push({"content": content})
+                        else if (m == 'runDate')
+                            if (data.properties.displayLastRunOn )
+                                - cols.push({"content": content})
+                        else if (m == 'deleteUrl')
+                            - content = '<a href="'+ search.deleteUrl+'" class="icon-trash-can delete-item" title="Delete search"></a>';
+                            - cols.push({"content": content})
+
+                    - col_cnt++
+                - tableData.rows.push({"cols": cols})
+
+        if rowNum <= maxNo
+
+            -var i = rowNum;
+            while i < maxNo
+                - var cols = [];
+                - i++;
+
+                - var colNum = actions.length+1
+                if (data.properties.displaySavedOn )
+                    - colNum++
+                if (data.properties.displayLastRunOn )
+                    - colNum++
+                if (queryNotesAval )
+                    - colNum++
+
+
+                -var j = 0;
+                while j < colNum
+                    - j++;
+                    - cols.push({"content": "title"})
+
+                - tableData.rows.push({"hidden": true, "cols": cols})
+
+        | !{pb.render('tables', {data: tableData, config: config})}

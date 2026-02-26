@@ -1,0 +1,175 @@
+h2.extraPageTitle= data.extraPageTitle
+
+form.usageReports(action="/action/updateInstitutionUsageReport" name="InstitutionAdmin_UsageReport" id="institutionUsageReportTop")
+    input(type="hidden" name="reportiuid" value=reportiuid)
+    input(type='hidden' name='anti-forgery-token' value=data.token)
+
+    block sushiDetails
+        h3.section__header.border-bottom= data.usageReportSushiHeader
+        table
+            tbody
+                tr
+                    td our SUSHI request URL is:
+                    td= data.sushiRequestUrl
+                tr
+                    td Your Requestor ID is :
+                    td= data.sushiRequestId
+                tr
+                    td Your customerReference ID is:
+                    td= data.sushiCustomerRefId
+
+    block customerLegacyReports
+        if (data.customerLegacyReports)
+            -var customerLegacyReportsLength = data.customerLegacyReports.length;
+            if customerLegacyReportsLength == "undefined"
+                - customerLegacyReportsLength = data.customerLegacyReports.size()
+
+            if customerLegacyReportsLength > 0
+                h3.section__header.border-bottom Customers Legacy Reports
+                div.customersReports.input-group
+                    ul.rlist--inline.separator
+                        each report,i in data.customerLegacyReports
+                            li
+                                a(href="#{report.link}")
+                                    | #{report.label}
+
+
+            if (data.hasLegacyReport && data.hasLegacyReportPrior)
+                div.input-group
+                    button.btn--inverse.extra-border
+                        a.downloadLink(href="/action/showInstitutionUsageReport?show=download&reference=legacy")
+                            | Download HighWire COUNTER Statistics 2012-2013
+
+                    if (data.hasLegacyReportDeliveryFailed)
+                        p.error Error occurred during report generation.
+
+
+
+    block emailNotifications
+        h3.section__header.border-bottom e-mail Notifications
+        if(data.settingsUpdated)
+            div.success !{data.settingsUpdated}
+        div.input-group
+            label.checkbox--primary
+                input(type="checkbox" name="counterEnabled" id="chk_counterEnabled" checked=data.emailCounterEnabled == 1)
+                span.label-txt= data.emailCounterEnabledLabel
+        .input-group
+            button.btn--inverse.extra-border(type='submit' name='notify' value='update')= data.usageReportSaveButtonValue
+
+form.usageReports(action="/action/updateInstitutionUsageReport" name="InstitutionAdmin_UsageReport" id="institutionUsageReport")
+    input(type="hidden" name="reportiuid" value=reportiuid)
+    input(type='hidden' name='anti-forgery-token' value=data.token)
+
+    block delivery
+        h3.section__header.border-bottom Delivery
+        if (data.recipients && data.recipients.success)
+            div.success !{data.recipients.success}
+        ol
+            li#dateRange
+                h3.section__header= data.rangeHeading + ":"
+                - var months = ['January','February','March','April','May','June','July', 'August', 'September', 'October', 'November', 'December']
+                - var years = data.yearsRange;
+
+                if (years)
+                    - var yearsNo = years.length
+
+                if(data.monthRange)
+                    - var monthRange = data.monthRange.monthRangeRadioOption == '' ? false : data.monthRange.monthRangeRadioOption
+
+                if (years && yearsNo > 0)
+                    div.input-group.year-select
+                        label.radio--secondary
+                            input(type="radio" name="yearOnly" value="true" id="year-date" checked=!monthRange)
+                            span.label-txt Select year:
+                        div
+                            span Year:
+                            select(name="year" id="yearOnlyRadioOption")
+                                each year in years
+                                    option(value=year)= year
+                div.input-group.ranges-selects
+                    label.radio--secondary
+                        input(type="radio" name="yearOnly" value="false" id="range-date" checked=(monthRange || !years || yearsNo == 0))
+                        span.label-txt Select range:
+                    p.error_msg
+                    div
+                        span From:
+                        select(name="startMonth" size="1" id="startMonthId")
+                            if(months)
+                                each month,i in months
+                                    if (data.monthRange)  && i + 1 != data.monthRange.startMonth
+                                        option(value=i + 1)= month
+                                    else
+                                        option(value=i + 1 selected)= month
+
+                        if (years && yearsNo > 0)
+                            select(name="startYear" size="1" id="startYear")
+                                if(years)
+                                    each year in years
+                                        if (data.monthRange) && year != data.monthRange.startYear
+                                            option(value=year)= year
+                                        else
+                                            option(value=year selected)= year
+                    div
+                        span To:
+                        select(name="endMonth" size="1" id="endMonthId")
+                            if(months)
+                                each month,i in months
+                                    if (data.monthRange) &&  i + 1 != data.monthRange.endMonth
+                                        option(value=i + 1)= month
+                                    else
+                                        option(value=i + 1 selected)= month
+
+                        if (years && yearsNo > 0)
+                            select(name="endYear" size="1" id="endYear")
+                                if(years)
+                                    each year in years
+                                        if (data.monthRange) &&  year != data.monthRange.endYear
+                                            option(value=year)= year
+                                        else
+                                            option(value=year selected)= year
+
+            li#reports
+                h3.section__header Select Reports:
+                p.error_msg
+                ul.rlist.alert__list
+                    li
+                        .input-group
+                            label.checkbox--primary
+                                input(type='checkbox' name="markall" value="all" id="counterIdsAll")
+                                span.label-txt Select All Reports
+
+                    if(data.reports && data.reports.counterIds)
+                        each report,counterId in data.reports.counterIds
+                            li
+                                .input-group
+                                    label.checkbox--primary
+                                        input(type='checkbox' name="counterIds" checked=report.value == '' ? false : report.value  value=report.name id="counterIds" +report.name)
+                                        span.label-txt= report.label
+
+
+            li
+                h3.section__header Select Formats:
+                if(data.formats)
+                    each format in data.formats
+                        .input-group
+                            label.checkbox--primary
+                                input(type="checkbox" checked=format.value == '' ? false : format.value name="format" value=format.name id="format" + format.name)
+                                span.label-txt= format.name
+
+            li
+                h3.section__header Select the Recipient(s):
+                if(data.recipients)
+                    - var recipients = data.recipients.emailAllAdminsTrue == '' ? false : data.recipients.emailAllAdminsTrue
+                .input-group
+                    label.radio--secondary
+                        input(type="radio" name="emailAllAdmins" value="false" checked=!recipients)
+                        span.label-txt Email Address
+                            if(data.recipients)
+                                input(type="text" name="emailAddresses" value= data.recipients.usageReportEmailAddress)
+                .input-group
+                    label.radio--secondary
+                        input(type="radio" name="emailAllAdmins" value="true" checked=recipients id="emailAllAdminsTrue")
+                        span.label-txt All administrators of this organization
+        p.error_msg
+        block submitButton
+            button.btn--inverse.extra-border(type='submit' name='sendMail')= data.sendMailLabel

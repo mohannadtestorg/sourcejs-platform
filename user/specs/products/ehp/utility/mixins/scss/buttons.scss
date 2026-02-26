@@ -1,0 +1,65 @@
+/*
+ * Mixins for buttons appearance
+ * @require animate
+ */
+@import "animate";
+
+@mixin make-btn(
+        $btn-color: $primary-btn-color,
+        $btn-hover-color: $primary-btn-color,
+        $btn-bg: $primary-btn-bg,
+        $btn-hover-bg: $primary-btn-bg
+    ) {
+    // make buttons smooth on changes
+    @include animate($properties: (color, background));
+
+    // default state
+    color: $btn-color;
+    background: $btn-bg;
+
+    // hover state
+    &:hover,
+    &:focus {
+        background: get-hover-color($btn-hover-bg);
+        color: $btn-hover-color;
+    }
+    // disabled state
+    &[disabled], &.disabled, &:disabled {
+        opacity: 0.4;
+
+        &:hover,
+        &:focus {
+            color: $btn-hover-color;
+            background: $btn-hover-bg;
+        }
+    }
+}
+
+@mixin make-btn-size(
+    $btn-padding: $btn-default-padding,
+    $btn-font-weight: $btn-default-font-weight,
+    $btn-font-size: $btn-default-font-size
+) {
+    display: inline-block;
+    border: none;
+    text-align: center;
+    padding: $btn-padding;
+    font-size: $btn-font-size;
+    font-weight: $btn-font-weight;
+    font-family: $default-font-family;
+    line-height: $btn-font-size;
+}
+
+@mixin make-primary-btn() {
+    @include make-btn();
+}
+@mixin make-inverse-btn() {
+    @include make-btn(
+        $btn-color: $inverse-btn-color,
+        $btn-hover-color: $inverse-btn-color,
+        $btn-bg: $inverse-btn-bg,
+        $btn-hover-bg: $inverse-btn-bg
+    );
+    border: 1px solid $primary-btn-bg;
+}
+

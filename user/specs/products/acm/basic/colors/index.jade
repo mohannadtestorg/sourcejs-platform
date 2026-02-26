@@ -1,0 +1,125 @@
+extends /specs/products/acm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/acm/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+
+block content
+    .source_section
+        h2 ACM Color Palette
+        p We are including the #[a(href="/specs/ux3/basic/colors/") UX3 color palette ]
+
+    .source_section
+        h2 Background colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.default-bg-color.block
+                    p $default-bg-color
+                li
+                    div.primary-bg-color.block
+                    p $primary-bg-color
+                li
+                    div.primary-lighten-bg-color.block
+                    p $primary-lighten-bg-color
+                li
+                    div.secondary-bg-color.block
+                    p $secondary-bg-color
+
+                li
+                    div.secondary-lighten-bg-color.block
+                    p $secondary-lighten-bg-color
+                li
+                    div.tertiary-bg-color.block
+                    p $tertiary-bg-color
+                li
+                    div.gray-bg-color.block
+                    p $gray-bg-color
+                li
+                    div.transparent-black-color.block
+                    p $transparent-black-color
+                li
+                   div.highlight-color.block
+                   p $highlight-color
+                li
+                   div.light-yellow-color.block
+                   p $light-yellow-color
+
+
+    | #{''}
+    .source_section
+        h2 Text colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.primary-text-color.block Aa
+                    p $primary-text-color
+                li
+                    div.primary-darken-text-color.block Aa
+                    p $primary-darken-text-color
+                li
+                    div.secondary-text-color.block Aa
+                    p $secondary-text-color
+                li
+                    div.tertiary-text-color.block Aa
+                    p $tertiary-text-color
+                li
+                    div.tertiary-darken-color.block Aa
+                    p $tertiary-darken-color
+                li
+                    div.text-onLight.block Aa
+                    p $text-onLight
+                li
+                    div.text-onDark.primary-bg-color.block Aa
+                    p $text-onDark
+                li
+                    div.primary-link-color.block Aa
+                    p $primary-link-color
+                li
+                    div.light-blue-text-color.block Aa
+                    p $light-blue-text-color
+                li
+                    div.primary-blue-text-color.block Aa
+                    p $primary-blue-text-color
+                li
+                    div.light-pink-text-color.block Aa
+                    p $light-pink-text-color
+                li
+                   div.dark-pink-text-color.block Aa
+                   p $dark-pink-text-color
+
+                li
+                    div.link-text-color.block Aa
+                    p $link-text-color
+                li
+                   div.link2-text-color.block Aa
+                   p $link2-text-color
+
+                li
+                    div.secondary-blue-text-color.block Aa
+                    p $secondary-blue-text-color
+                li
+                  div.purple-text-color.block Aa
+                  p $purple-text-color
+                li
+                    div.journal-code-color.block Aa
+                    p $journal-code-color
+
+
+
+    | #{''}
+    .source_section
+        h2 border colors
+        .source_example.colors-palette
+            ul.rlist--inline.border-colors
+                li
+                    div.primary-border-color.primary-bg-color.block
+                        p ________
+                    p $primary-border-color
+                li
+                    div.secondary-border-color.block
+                        p _________
+                    p $secondary-border-color
+
+    | #{''}
+

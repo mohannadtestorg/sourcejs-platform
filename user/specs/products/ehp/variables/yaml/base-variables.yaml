@@ -1,0 +1,95 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# font
+  global:
+    type: "size"
+    category: "sizing"
+    cssProperties:
+    - 'font*'
+  jsGroupe: "base"
+  strip: "false"
+  props:
+    default-font-family:
+      value: "'Open Sans', sans-serif"
+    default-font-size:
+      value: "0.875rem"
+      suffix: "16px"
+    h1-font-size:
+      value: "1.625rem"
+      suffix: "26px"
+    h2-font-size:
+      value: "1.375rem"
+      suffix: "22px"
+    h3-font-size:
+      value: "1.25rem"
+      suffix: "20px"
+    h4-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    h5-font-size:
+      value: "1rem"
+      suffix: "16px"
+    h6-font-size:
+      value: "0.875rem"
+      suffix: "14px"
+    icon-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    small-font-size:
+      value: "0.65rem"
+      suffix: "12px"
+    gutter-size:
+      value: "20px"
+    gutter-extra-size:
+      value: "40px"
+    default-inner-padding-x:
+      value: "16px"
+    default-inner-padding-y:
+      value: "16px"
+    default-inner-padding:
+      value: "0 16px"
+# slide mobile
+    slide-head-height:
+      value: "40px"
+# theme
+    default-link-decoration:
+      value: "none"
+    default-link-hover-decoration:
+      value: "underline"
+    primary-link-decoration:
+      value: "none"
+    primary-link-hover-decoration:
+      value: "underline"
+    secondary-link-decoration:
+      value: "none"
+    secondary-link-hover-decoration:
+      value: "underline"
+    link-focus-outline:
+      value: "none"
+
+# btn
+    btn-default-padding:
+      value: "12px"
+    btn-default-font-weight:
+      value: "500"
+    btn-default-font-size:
+      value: "1rem"
+# inputs
+    input-range-slider-thumb-size:
+      value: "16px"
+    input-range-slider-track-height:
+      value: "4px"
+# media object
+    media-gutter-x:
+      value: "24px"
+# animations
+    animation-default-duration:
+      value: ".15s"

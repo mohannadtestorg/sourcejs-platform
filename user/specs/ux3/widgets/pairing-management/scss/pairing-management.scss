@@ -1,0 +1,282 @@
+.pairing-management {
+  table {
+    td {
+      padding: .45em 14px .45em 0;
+      @include media('<large') {
+        @include media('>tablet') {
+          padding: .45em 10px .45em 0;
+          max-width: 185px;
+        }
+      }
+      @include media('<desktop') {
+        padding-right: 0;
+      }
+    }
+    th{
+      padding: .8em 14px .8em 0;
+    }
+
+    &.expandable {
+      .table__mark {
+        @include media('<desktop') {
+          width: 25px;
+          display: inline-block;
+          + td {
+            display: inline-block;
+            &:before{
+              content: ' ';
+            }
+          }
+        }
+      }
+      td:nth-child(n+3) {
+        margin-left: 25px;
+      }
+    .table__control__button {
+
+      i{
+        font-size: .5rem;
+        @include media('<desktop'){
+          display: block;
+        }
+      }
+    }
+
+      @include media('<desktop') {
+         th{
+           display: none;
+         }
+        tr{
+          border-bottom: 1px solid $separators-color;
+          td{
+            &:nth-child(2){
+              width:calc(100% - 25px);
+            }
+            &:last-child{
+              padding-bottom: 10px;
+            }
+          }
+        }
+        td{
+          border: none;
+          &:nth-child(n+3):before{
+            content: attr(data-thead) ": ";
+            display: block;
+            float: left;
+            color:$secondary-text-color;
+            margin-right: 5px;
+          }
+        }
+      }
+      }
+
+  }
+
+&__row{
+  @include media('<desktop'){
+    display: block;
+    &.expanded{
+      padding: .6em 0 .8em 0;
+    }
+
+    &.js--expanded{
+      .to_hide{
+        display: block!important;
+      }
+    }
+    .to_hide{
+      display: none!important;
+    }
+  }
+
+
+}
+
+  &__filter {
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+
+    .emailFilter, .permissionFilter {
+      margin-bottom: 15px;
+    }
+    .otherFillter {
+      margin: 15px 0 25px;
+    }
+
+    .dateFilter{
+      .calendar{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+      }
+      input{
+        cursor: pointer;
+      }
+    }
+
+    .small-block{
+      width:50%;
+      @include media('<tablet'){
+        width:100%;
+      }
+      .input-group{
+        label{
+          width:60px;
+          display: inline-block;
+        }
+        input{
+          width:calc(100% - 60px) ;
+        }
+      }
+
+    }
+  }
+
+
+  &__actions {
+    .withSelected {
+      font-weight: 700;
+      font-size: .875rem;
+
+      &.disabled{
+        color:$tertiary-darken-color;
+        cursor: default;
+        pointer-events: none;
+      }
+
+      &:after {
+        font-size: .4375rem;
+        padding-left: 10px;
+        font-family: icomoon !important;
+        content: "\e61c";
+        width: 20px;
+
+      }
+
+      &.js--open {
+        border-bottom: 1px solid $black;
+        padding-bottom: 4px;
+
+        &:after {
+          content: "\e60c";
+        }
+      }
+    }
+    .dropBlock__holder {
+      background-color: white;
+      margin-top: 5px;
+      li {
+        cursor: pointer;
+        padding: 10px 15px;
+        border-bottom: 1px solid $separators-color;
+      }
+    }
+
+    .viewDetailsBtn {
+      margin: 0;
+      display: inline-block;
+      background: transparent;
+      color: black;
+      padding: 0;
+      font-weight: 500;
+      text-align: left;
+      opacity: 1;
+      &:hover {
+        background-color: transparent;
+        color: black;
+      }
+    }
+
+  }
+
+  .actionButtonsPanel {
+    margin: 15px 0;
+    padding: 5px 0 10px 0;
+    .link{
+      font-weight: 700;
+      font-size: .875rem;
+    }
+  }
+
+}
+
+[class*="pairing"] {
+  .modal {
+
+    &__header {
+       text-align: center;
+    }
+    &__footer{
+      border: none;
+      .btn{
+        width:auto;
+      }
+    }
+    &__body {
+      padding-top: 10px;
+
+      label{
+        @include media('>=phone'){
+          width: 120px;
+          display: inline-block;
+        }
+
+      }
+      input{
+        @include media('>=phone'){
+          width: calc(100% - 120px);
+        }
+
+        &[readonly]{
+          border-color: transparent;
+          padding: 0;
+        }
+      }
+      .expires-days{
+        input{
+          width: 100px;
+        }
+        span{
+          padding-left: 10px;
+        }
+      }
+
+
+
+    }
+  }
+
+  [class*="__pagination"] {
+
+    margin-top: 25px;
+    padding-bottom: 20px;
+
+    .prev {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .next {
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .pages {
+      padding: 0 10px;
+    }
+    .page {
+      padding: 0 10px;
+
+      &.selected {
+        font-weight: bold;
+      }
+    }
+
+    .controls {
+      text-align: center;
+    }
+
+  }
+
+}

@@ -1,0 +1,65 @@
+/***
+
+The `data-prompt-popup` is the name of the instance.
+
+```
+<div class="m-prompt-popup" data-behavior="PromptPopup" data-prompt-popup="subscribe">
+  <!-- content is dropped in manually -->
+</div>
+```
+
+***/
+/***
+
+The behavior `ShowPromptPopUp` positions and shows the popup - it looks for the linked instance name in `data-prompt-popup-target`
+
+```
+<a href="#" data-behavior="ShowPromptPopUp" data-prompt-popup-target="subscribe">Subscribe</a>
+```
+
+***/
+
+.m-prompt-popup {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  width: 400px;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  text-align: left;
+  visibility: hidden;
+  box-shadow: 0 0 3px 0 $color__rules;
+}
+
+.m-prompt-popup.s-active {
+  display: block;
+}
+
+.m-prompt-popup::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  right: 50px;
+  top: -9px;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid darken($color__rules, 10%);
+  border-right: 1px solid darken($color__rules, 10%);
+  background-color: $color__white;
+  transform: rotate(-45deg);
+}
+
+.m-prompt-popup::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: calc(100% - 2px);
+  height: 24px;
+}
+
+#demo .m-prompt-popup {
+  display: block;
+  position: relative;
+}

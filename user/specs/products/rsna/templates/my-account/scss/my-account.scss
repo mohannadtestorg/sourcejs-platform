@@ -1,0 +1,72 @@
+.profile {
+    &Main {
+        padding: 0px 0px 0px 20px;
+        margin: 30px 0px 0px -15px;
+        border-left: 1px solid $primary-border-color;
+
+        @include media('<tablet') {
+            padding: 0px;
+            margin: 30px 0px 0px 0px;
+            border-left: none;
+        }
+    }
+    &-pages {
+        h3 {
+            display: none;
+        }
+        &__heading {
+            background-color: $tertiary-darken-bg-color;
+            color: $primary-link-color;
+
+            h3 {
+                display: block;
+            }
+        }
+
+        .tab  {
+            .dropBlock {
+                & > a.js--open {
+                    i {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                a {
+                    text-align: left;
+                }
+            }
+
+        }
+    }
+}
+
+.account-tab {
+    margin-top: 0px;
+
+    &__nav:not(.js--open) {
+        a {
+            border-left-width: 0px;
+            font-size: $h6-font-size;
+            @include media('<tablet') {
+                font-size: $xx-small-font-size;
+                padding: 8px;
+            }
+        }
+        span {
+            line-height: normal;
+        }
+        li {
+            &:first-child {
+                a {
+                    border-left-width: 2px;
+                }
+            }
+        }
+    }
+
+    .tab__content {
+        label, .intro-text {
+            font-size: $h6-font-size;
+        }
+    }
+}

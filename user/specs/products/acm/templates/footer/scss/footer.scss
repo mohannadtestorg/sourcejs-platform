@@ -1,0 +1,146 @@
+.footer {
+  font-family: $secondary-font-family;
+  color: $text-onDark;
+  position: relative;
+  padding-top: 30px;
+
+  a, i {
+    &:hover, &:focus {
+      color: $tertiary-darken-color;
+    }
+  }
+
+  .back-to-top {
+    i {
+      background: $gray-bg-color;
+    }
+  }
+
+  &__copyright-wrapper {
+    @include media('>desktop') {
+      width: 69%;
+    }
+  }
+
+  &__logos-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include media('>desktop') {
+      width: 31%;
+      padding: 0;
+    }
+    @include media('<tablet') {
+      display: block;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid $primary-border-color;
+    }
+  }
+  &__logo1 {
+    width: 170px;
+    margin-right: 25px;
+    display: inline-block;
+    vertical-align: super;
+    @include media('<large') {
+      width: 140px;
+      margin-right: 12px;
+    }
+    @include media('<phone') {
+      width: 140px;
+      margin-right: 5px;
+    }
+  }
+  &__logo2 {
+    width: 140px;
+    display: inline-block;
+  }
+
+  &-bottom {
+    background-color: $default-bg-color;
+    color: $text-onLight;
+    font-size: .875rem;
+    padding: 15px 0;
+    border-top: 1px solid $primary-border-color;
+
+    .rlist--inline {
+      margin-top: 2px;
+      @include media('<tablet') {
+        margin-top: 15px;
+      }
+      li:not(:first-child) {
+        padding-left: 8px;
+        margin-left: 8px;
+        border-left: 1px solid $text-onLight;
+      }
+
+    }
+
+  }
+  &-top {
+    background-color: $footer-bg-color;
+    background-image: url("../images/footer-decoration1.png"), url("../images/footer-decoration2.png");
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, no-repeat;
+    @include media('<desktop'){
+      background-size: 50%;
+    }
+    @include media('<tablet'){
+      background-size: 80%;
+    }
+    @include media('<phone'){
+      background-size: 100%;
+    }
+
+    padding: 30px 0 50px;
+
+    @include media('<tablet') {
+      padding-bottom: 20px;
+    }
+
+    .sitemap {
+      display: flex;
+
+      @include media('<tablet') {
+        display: block;
+      }
+
+      &__column {
+
+        &:not(:first-child) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-left: 1px solid $primary-border-color;
+          @include media('<tablet') {
+            border-left: none;
+            display: block;
+            &:nth-child(3), &:nth-child(4) {
+              padding-top: 20px;
+              margin-top: 20px;
+              border-top: 1px solid $primary-border-color;
+            }
+          }
+        }
+      }
+
+      .rlist {
+        li {
+          margin-bottom: 5px;
+        }
+      }
+
+      i {
+        margin-right: 10px;
+      }
+
+      h6 {
+        font-family: $default-font-family;
+      }
+    }
+
+  }
+}
+
+
+

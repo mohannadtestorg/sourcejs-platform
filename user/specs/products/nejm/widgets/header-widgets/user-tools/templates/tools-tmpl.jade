@@ -1,0 +1,110 @@
+if (!loggedIn)
+    ul.g-nejm-group__user-tools
+        li
+            a(href='#')
+                span.a-user-icon
+                    svg.icon--user(aria-hidden='true')
+                        use(xlink:href='#icon--user')
+                | Sign In
+
+        li.g-nejm-group__user-tool-secondary
+            a(href='#') Create Account
+
+        li.g-nejm-group__user-tool-primary
+            a(href='#') Subscribe
+    ul.g-header__site-tools
+        li.g-header__site-tools-user
+            span.a-dropdown.a-dropdown--top-arrow(aria-title='User account', data-behavior='Dropdown')
+                strong
+                    span.a-user-icon
+                        svg.icon--user(aria-title='User account trigger')
+                            use(xlink:href='#icon--user')
+
+                ul
+                    li
+                        a(href='#') Sign in
+
+                    li
+                        a(href='#') Create account
+
+                    li
+                        a(href='#') Renew subscription
+
+                    li
+                        a.a-btn.a-btn--primary(href='#') Subscribe
+
+        li.g-header__site-tools-menu
+            a(href='#nav', data-behavior='NavPrimaryToggle', aria-label='menu', title='menu')
+                svg.icon--menu(aria-hidden='true')
+                    use(xlink:href='#icon--menu')
+
+                svg.icon--close(aria-hidden='true')
+                    use(xlink:href='#icon--close')
+
+        li.g-header__site-tools-skip-nav
+            a(href='#content') Skip Nav
+else
+    ul.g-nejm-group__user-tools
+        li
+            span.a-dropdown.a-dropdown--top-arrow.s-active(aria-title='User account', data-behavior='Dropdown', tabindex='0')
+                strong
+                    span.a-user-icon
+                        svg.icon--user(aria-hidden='true')
+                            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--user')
+                    | Marius Roosendaal
+                ul
+                    li
+                        a(href='#') Profile
+                    li
+                        a(href='#') Saved Items
+                    li
+                        a(href='#') CME Exams
+                    li
+                        a(href='#') Alerts
+                    li
+                        a(href='#') Special Offer
+                    li
+                        a(href='/endpoints/SignOut.php') Sign out
+                    li
+                        a.a-btn.a-btn--primary(href='#') Subscribe
+        li.g-nejm-group__user-tool-primary
+            a(href='#') Subscribe
+    ul.g-header__site-tools
+        li.g-header__site-tools-user
+            span.a-dropdown.a-dropdown--top-arrow(aria-title='User account', data-behavior='Dropdown', tabindex='0')
+                strong
+                    span.a-user-icon
+                        svg.icon--user(aria-title='User account trigger')
+                            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--user')
+                ul
+                    li
+                        strong.f-caps Marius Roosendaal
+                    li
+                        a(href='#') Profile
+                    li
+                        a(href='#') Saved Items
+                    li
+                        a(href='#') CME Exams
+                    li
+                        a(href='#') Alerts
+                    li
+                        a(href='#') Special Offer
+                    li
+                        a(href='/endpoints/SignOut.php') Sign out
+                    li
+                        a.a-btn.a-btn--primary(href='#') Subscribe
+        li.g-header__site-tools-search
+            a(href='#nav', data-behavior='SearchToggle', aria-label='Search', title='Search')
+                svg.icon--search(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--search')
+                svg.icon--close(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+        li.g-header__site-tools-menu
+            a(href='#nav', data-behavior='NavPrimaryToggle', aria-label='menu', title='menu')
+                svg.icon--menu(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--menu')
+                svg.icon--close(aria-hidden='true')
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+        li.g-header__site-tools-skip-nav
+            a(href='#content') Skip Nav
+

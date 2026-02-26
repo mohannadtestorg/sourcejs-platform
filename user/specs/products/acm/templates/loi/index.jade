@@ -1,0 +1,19 @@
+extends /specs/products/acm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 List of Issues
+        .source_example.container
+            | !{pb.render("header", "header/demo/header2", 'acm')}
+            main.content.loi-page.bj-journal
+
+                .container
+                    .title-gray-wrapper.clearfix
+                        h5.left-bordered-title Journal Archive Filter
+                    | !{pb.render("list-of-issues", "list-of-issues/demo/list-of-issues-new-demo","loi-decade.json")}
+
+
+
+            | !{data.footer}
+    | #{''}

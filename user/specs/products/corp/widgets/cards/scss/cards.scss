@@ -1,0 +1,169 @@
+.card {
+    margin-bottom: 2rem;
+    padding: 0;
+
+    &s-holder {
+        margin-bottom: -3em;
+        overflow: hidden;
+    }
+
+    &__content {
+        position: relative;
+        background: $white;
+        padding: 30px;
+    }
+    &__title {
+
+    }
+    &__logo {
+        margin: 0;
+        font-family: $default-font-family;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &-icon {
+            display: inline-block;
+            height: 1.78rem;
+            margin-right: 1ex;
+
+            & svg {
+                height: 100%;
+                fill: $secondary-link-color;
+            }
+        }
+    }
+
+    &__bradcrumbs {
+        margin-top: 50px;
+        margin-bottom: -15px;
+
+        .link {
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-family: $default-font-family;
+            font-weight: bold;
+            font-size: .79rem; //11px
+            line-height: 1.08rem; //13px
+            @include media('>phone') {
+                font-size: .75rem; //12px
+                line-height: .875em; //14px
+            }
+            @include media('>desktop') {
+                font-size: .67rem; //12px
+                line-height: .78rem; //14px
+            }
+        }
+    }
+
+    &__text {
+
+        @include media('>desktop') {
+            font-size: .89rem;
+            line-height: 1.6rem;
+        }
+    }
+
+    &__link {
+        margin: 0;
+        font-family: $default-font-family;
+        font-weight: normal;
+        font-size: .86rem;
+        line-height:  1rem;
+        //letter-spacing: normal;
+        @include media('>phone') {
+            font-family: $header-font-family;
+        }
+        @include media('>desktop') {
+            font-size: .89rem;
+            line-height: 1.1rem;
+        }
+    }
+
+
+    // CARD WITH DOUBLE THICK BORDER AND CUT EDGE
+    &--clipped {
+        .card__content {
+            clip-path: polygon(0% 0%, 100% 0, 100% 90%, 56% 100%, 0% 100%);
+        }
+
+
+        &-bg {
+            position: relative;
+            box-sizing: border-box;
+            padding: 0 4px 4px 0;
+            width: 100%;
+            clip-path: polygon(0% 0%, 100% 0, 100% 90%, 56% 100%, 0% 100%);
+
+            &-1 {
+                background: $card-border-color;
+            }
+
+            &-2 {
+                background: #fff;
+                padding: 0 4px 4px 0;
+            }
+
+            &-3 {
+                background: $card-border-color;
+                padding: 4px;
+            }
+        }
+    }
+
+    //CARD WITH SOLID BG
+    &--solid-background {
+        .card__content {
+            background: $card-border-color;
+        }
+    }
+
+    // CARD WITH DOUBLE THIN BORDER
+    &--double-thin-border {
+        margin: 24px 6px 1rem 0;
+        border: 2px solid $card-border-color;
+        box-shadow: 4px 4px 0 0 $white, 6px 6px 0 0 $card-border-color;
+        @include media('>phone') {
+            margin: 32px 6px 1rem 0;
+        }
+        @include media('>desktop') {
+            margin: 32px 6px 0 0;
+        }
+        .card__content {
+            position: relative;
+            padding: 42px 32px 32px 38px;
+        }
+
+        .card__image {
+            position: absolute;
+            left: 6px;
+            top: 0;
+            transform: translateY(-50%);
+            border-radius: 100%;
+            width: 48px;
+            height: 48px;
+
+            @include media('>phone') {
+                width: 64px;
+                height: 64px;
+            }
+        }
+    }
+
+    &--double-thick-border {
+        margin: 24px 6px 1rem 0;
+        border: 6px solid $card-border-color;
+        box-shadow: 6px 6px 0 0 $white, 12px 12px 0 0 $card-border-color;
+
+        @include media('>phone') {
+            margin: 32px 6px 1rem 0;
+        }
+        @include media('>desktop') {
+            margin: 32px 6px 0 0;
+        }
+        .card__content {
+            position: relative;
+            padding: 32px 32px 32px 38px;
+        }
+    }
+}

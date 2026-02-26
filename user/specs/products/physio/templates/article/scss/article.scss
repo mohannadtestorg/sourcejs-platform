@@ -1,0 +1,131 @@
+article {
+    @include media('<tablet') {
+        margin-top: 10px;
+    }
+    .coolBar__wrapper {
+        background: $primary-white;
+    }
+    .tab__nav {
+        background: $primary-white;
+        a {
+            color: $primary-blue-color;
+            border: none;
+        }
+        .active {
+            a {
+                border-bottom-color: $primary-blue-color;
+                background-color: $primary-blue-color;
+                color: $primary-white;
+                border-width: 1px;
+                font-size: 12px;
+                font-weight: 900;
+                i {
+                    color: $primary-white;
+                    font-weight: 400;
+                }
+            }
+        }
+        i {
+            color: $primary-blue-color;
+        }
+        li:hover {
+            background: $default-bg-color;
+        }
+    }
+    .tab--flex .tab__nav {
+        border-bottom: 3px solid $primary-blue-color;
+    }
+    .coolBar [class*=__block] {
+        background: $primary-white;
+        padding: 0;
+        min-width: 200px;
+        width: 200px;
+        li {
+            margin-bottom: 0;
+        }
+        i {
+            color: $primary-blue-color
+        }
+        a {
+            color: $primary-text-color;
+            padding: 13px 8px;
+        }
+    }
+    .coolBar .share__block a {
+        padding: 11px 8px;
+    }
+    .coolBar__second {
+        .article-tools__ctrl, .share__ctrl {
+            color: $primary-blue-color;
+            font-weight: 400;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        i {
+            color: $primary-blue-color;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+        &.js--open {
+            border-bottom: 2px solid $primary-blue-color;
+        }
+        .coolBar__ctrl {
+            span {
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: -1px;
+            }
+        }
+        .red_icon {
+            color: $light-red;
+        }
+    }
+    a.ref,
+    a.nav-text {
+        color: $primary-blue-color;
+    }
+    .NLM_def-list {
+        margin-bottom: 1rem;
+        td {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.article__body {
+    > .col-md-2, .col-md-10 {
+        padding: 0;
+    }
+    sub.stack-sub {
+        margin-left: 2px;
+        margin-right: -7px;
+    }
+    table,
+    .tableFooter {
+        font-size: .875rem;
+    }
+    h5 {
+        font-variant: small-caps;
+    }
+}
+
+
+.supplemental-material {
+    padding-top: 10px;
+    border-top: 1px solid $default-bg-color;
+    margin-bottom: 35px;
+    margin-top: 30px;
+    &__item {
+        color: $primary-blue-color;
+        i {
+            font-size: 0.45rem;
+            margin-left: 4px;
+            font-weight: bold;
+        }
+    }
+}

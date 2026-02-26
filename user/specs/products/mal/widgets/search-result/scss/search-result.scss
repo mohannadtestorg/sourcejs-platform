@@ -1,0 +1,66 @@
+.meta {
+    &__views {
+        @include media('>tablet') {
+            float: right
+        }
+        a {
+            color: $gray-dark;
+            margin-right: 3px;
+            &:not(:first-child) {
+                margin-left: 5px;
+            }
+        }
+        li {
+            margin-right: 10px;
+            padding-right: 10px;
+        }
+    }
+    &__show-abstract {
+        color: $secondary-bg-color;
+        font-weight: 400;
+        font-size: .875rem;
+    }
+    &__date {
+        color: $gray-dark;
+        margin-bottom: 10px;
+    }
+    &__doi {
+        margin-bottom: 15px;
+    }
+}
+
+.search__item {
+    border-bottom: 2px solid $secondary-lighten-bg-color;
+    i {
+        &[class*=icon-] {
+            margin-right: 7px;
+        }
+    }
+}
+
+.search-result {
+    span {
+        color: $primary-title-color;
+    }
+}
+
+.quickSearchRegion {
+    background: $tertiary-lighten-bg-color;
+}
+
+.result__ctrl__filters {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@include media('>=phone', '<desktop') {
+    .doSearch .result__ctrl__filters {
+        width: 46%;
+    }
+}
+
+@include media('<phone') {
+    .doSearch .result__ctrl__filters {
+        width: 38%;
+    }
+}

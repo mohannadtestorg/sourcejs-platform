@@ -1,0 +1,261 @@
+/***
+
+```
+<header class="m-generic-heading">
+  <h1 class="m-generic-heading__title">Search Results</h1>
+  <p class="m-generic-heading__note">104 Results for "Zika"</p>
+</header>
+
+<header class="m-generic-heading">
+  <h1 class="m-generic-heading__title">Search Results</h1>
+  <p class="m-generic-heading__note m-generic-heading__note--left">104 Results for "Zika"</p>
+</header>
+
+<header class="m-generic-heading">
+  <h1 class="m-generic-heading__title">Search Results</h1>
+  <p class="m-generic-heading__note m-generic-heading__note--right">104 Results for "Zika"</p>
+</header>
+
+<header class="m-generic-heading">
+  <h1 class="m-generic-heading__title">Search Results</h1>
+  <ul class="m-generic-heading__options">
+    <li class="m-generic-heading__option f-caps">Vol. 376 No. 12</li>
+    <li class="m-generic-heading__option">
+      <span aria-title="Audio Summary" class="a-dropdown a-dropdown--top-arrow" data-behavior="Dropdown">
+        <strong><svg class="icon--audio" aria-hidden="true"><use xlink:href="#icon--audio" /></svg>Audio Summary</strong>
+        <ul>
+          <li><a href="#">Listen</a></li>
+          <li><a href="#">Download</a></li>
+        </ul>
+      </span>
+    </li>
+  </ul>
+</header>
+
+
+
+<header class="m-generic-heading">
+  <h1 class="m-generic-heading__title"><span class="a-type-tag a-type-tag--archive">Archive</span><br>Search Results</h1>
+</header>
+
+<header class="m-generic-heading">
+  <svg class="m-generic-heading__svg-logo icon--logo-resident-360--lg" aria-label="NEJM Resident 360"><use xlink:href="#icon--logo-resident-360--lg" /></svg>
+</header>
+
+```
+
+***/
+/***
+
+Variant: `m-generic-heading--sm`
+As used on the sign in pages
+
+```
+<header class="m-generic-heading m-generic-heading--sm">
+  <h1 class="m-generic-heading__title">Sign In</h1>
+</header>
+```
+
+***/
+
+.m-generic-heading {
+  display: block;
+  position: relative;
+  z-index: 2;
+  min-height: 104px;
+  padding-top: 32px;
+  padding-bottom: .1px;
+
+  @include breakpoint('small+') {
+    min-height: 140px;
+    padding-top: 48px;
+  }
+
+  @include breakpoint('large+') {
+    padding-top: 36px;
+  }
+
+  @include breakpoint('xlarge+') {
+    min-height: 152px;
+    padding-top: 48px;
+  }
+}
+
+.m-generic-heading--sm {
+  min-height: 0;
+  padding-top: 16px;
+
+  @include breakpoint('small+') {
+    min-height: 0;
+    padding-top: 32px;
+  }
+
+  @include breakpoint('large+') {
+    padding-top: 32px;
+  }
+
+  @include breakpoint('xlarge+') {
+    min-height: 0;
+    padding-top: 32px;
+  }
+}
+
+.m-generic-heading__title {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-generic-heading:not(.m-generic-heading--sm) .m-generic-heading__title {
+  @include f-h1;
+  padding-bottom: 32px;
+  text-align: center;
+
+  @include breakpoint('small+') {
+    padding-bottom: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    padding-bottom: 0;
+  }
+}
+
+.m-generic-heading--sm .m-generic-heading__title {
+  @include f-h15;
+  padding-bottom: 16px;
+
+  @include breakpoint('small+') {
+    padding-bottom: 32px;
+  }
+
+  @include breakpoint('medium+') {
+    padding-bottom: 32px;
+  }
+}
+
+.m-generic-heading__svg-logo {
+  display: block;
+  margin: -8px auto 0;
+
+  @include breakpoint('small+') {
+    margin-top: -8px;
+  }
+
+  @include breakpoint('large+') {
+    margin: 0 auto;
+  }
+}
+
+.m-generic-heading__note {
+  @include sans-serif(16, 24);
+  position: relative;
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 16px;
+  color: $color__text--quaternary;
+  text-align: center;
+
+  @include breakpoint('medium+') {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.m-generic-heading__note::before {
+  @include breakpoint('xsmall') {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: $color__rules;
+  }
+}
+
+.m-generic-heading__note--left {
+  right: auto;
+  text-align: left;
+
+  @include breakpoint('small-') {
+    & ~ .m-generic-heading__note {
+      display: none;
+    }
+  }
+}
+
+.m-generic-heading__note--right {
+
+  @include breakpoint('small+') {
+    left: auto;
+    text-align: right;
+  }
+}
+
+.m-generic-heading__note a:hover {
+  text-decoration: underline;
+}
+
+.m-generic-heading__note svg {
+  margin-right: 4px;
+  color: $color__input-border;
+  vertical-align: middle;
+}
+
+.m-generic-heading__options {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-top: 16px;
+  padding-bottom: 32px;
+
+  @include breakpoint('medium+') {
+    padding-bottom: 57px;
+  }
+}
+
+.m-generic-heading__option {
+  flex: 0 0 auto;
+  height: 24px;
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.m-generic-heading__option,
+.m-generic-heading__option.f-caps,
+.m-generic-heading__option.f-ui {
+  line-height: 24px;
+}
+
+.m-generic-heading__option .a-dropdown {
+  display: inline-block;
+  top: -1px;
+  border: 0 none;
+}
+
+.m-generic-heading__option .a-dropdown > em,
+.m-generic-heading__option .a-dropdown > strong {
+  height: 24px;
+  padding-right: 13px;
+  padding-left: 0;
+  color: $color__link-primary;
+  line-height: 24px;
+}
+
+.m-generic-heading__option .a-dropdown:hover > em,
+.m-generic-heading__option .a-dropdown:hover > strong {
+  text-decoration: underline;
+}
+
+.m-generic-heading__option .a-dropdown > em::after,
+.m-generic-heading__option .a-dropdown > strong::after {
+  right: 0;
+}
+
+.m-generic-heading__option .a-dropdown > ul {
+  top: calc(100% + 4px);
+}

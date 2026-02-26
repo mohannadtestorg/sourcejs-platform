@@ -1,0 +1,113 @@
+button, [type="submit"],[type="button"], .btn, .button {
+    display: inline-block;
+    border: none;
+    color: $text-onDark;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem; // 16px
+    background: $button-bg;
+    font-weight: bold;
+    transition: all 0.25s;
+    font-family: $default-font-family;
+    line-height: 1rem;
+
+    &[disabled], &.disabled, &:disabled {
+        opacity: 0.4;
+        
+        &:hover,
+        &:focus {
+            background: $primary-btn-color;
+            color: $text-onDark;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        background: lighten($primary-btn-color, 5%);
+        color: $text-onDark;
+    }
+    ~ button {
+        margin-left: 10px ;
+    }
+}
+.btn, .button {
+    &--full-width {
+        width: 100%;
+    }
+
+    &--handle {
+        cursor: move;
+        font-size: 1.5rem;
+    }
+
+    &--inverse {
+        color: $profile-primary-color;
+        background: transparent;
+        border: 1px solid $profile-primary-color;
+        font-weight: normal;
+        font-size: 1.125rem;
+        text-align: center;
+
+        &:hover,
+        &:focus {
+            color: $text-onDark;
+            background: $button-bg;
+        }
+
+        &.extra-border {
+            border-width: 3px;
+            font-weight: bold;
+            padding: 7px 12px;
+            opacity: 1;
+        }
+
+        &[disabled]{
+            &:hover,
+            &:focus {
+                color: $profile-primary-color;
+                background: transparent;
+            }
+        }
+    }
+
+    &--cancel {
+        background-color: transparent;
+        color: $profile-primary-color;
+        font-size: 0.75rem;
+        font-weight: normal;
+
+        &:hover,
+        &:focus {
+            color: darken($profile-primary-color, 20%);
+            background-color: transparent;
+        }
+    }
+
+    &--actions:before {
+        content: "⋮";
+    }
+
+    &--journal-meta {
+        font-size: 1rem;
+        font-weight: 600;
+        min-width: 166px;
+
+
+        @include media('<tablet') {
+            min-width: 140px;
+            font-size: 0.875rem;
+        }
+
+        ~ .btn {
+            @include media('>=tablet') {
+                margin-top: 15px;
+            }
+
+            @include media('<tablet') {
+                margin-left: 9px;
+            }
+        }
+    }
+
+}

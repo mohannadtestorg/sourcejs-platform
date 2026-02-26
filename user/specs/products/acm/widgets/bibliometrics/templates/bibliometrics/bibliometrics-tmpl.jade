@@ -1,0 +1,44 @@
+extends ../../../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl
+
+block slideShowPrefix
+    -var originalData = data
+    -var dataSlider = {"widget": {"stagePadding":30,"indicators":true,"arrow": true, "slides": []}}
+
+    if(data.bibliometrics)
+        each item, l in data.bibliometrics
+            -dataSlider.widget.slides.push(item)
+
+    - data = dataSlider
+
+
+
+block slideShow
+    .bibliometrics.viewport-slider.equal-height-slides(data-slider-vport="screen-sm")
+        h5.bibliometrics__main-title Bibliometrics
+        .slideShow
+            div.owl-carousel(data-loop=loop data-items=items data-slideby=slideby data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=indicators data-arrow=arrow data-controls=controls data-stagePadding=stagePadding)
+                each item, k in data.widget.slides
+                    block slideShowDropZone
+                        div.slide-item
+                            | !{pb.render("bibliometrics", "bibliometrics/bibliometric-single", {item: item})}
+            block slideShowFooter
+
+
+
+
+//.bibliometrics
+//    h5.bibliometrics__main-title Bibliometrics
+//    if(data.bibliometrics)
+//        each item, i in data.bibliometrics
+//            div.bibliometrics__block(style="background-color:"+ item.color)
+//                div.bibliometrics__title !{item.title}
+//                div.bibliometrics__count !{item.count}
+
+
+
+
+
+
+
+
+

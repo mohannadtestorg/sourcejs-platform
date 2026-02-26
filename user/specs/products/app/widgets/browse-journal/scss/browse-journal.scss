@@ -1,0 +1,50 @@
+.browse-journal__item{
+
+	 font-family: $default-font-family;
+	 padding-bottom: 20px;
+
+	.item{
+		&__image{
+			width: 30%;
+			@include media('<large'){
+				display: inline-block;
+				width: 18%;
+			}
+			@include media('<desktop'){
+				width: 25%;
+			}
+			@include media('<tablet'){
+				width: 40%;
+			}
+		}
+
+		&__body{
+			display: inline-block;
+			width: 60%;
+		}
+		&__date{
+
+			&:before{
+				content: " |";
+			}
+		}
+	}
+
+	.meta{
+		&__title{
+			color: $primary-text-color;
+			@include media('<tablet'){
+				margin-bottom: 30px;
+			}
+		}
+		&__info{
+			.rlist{
+				@include media('<tablet'){
+					display: none;
+				}
+			}
+		}
+
+	}
+
+}

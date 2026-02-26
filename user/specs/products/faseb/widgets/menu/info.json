@@ -1,0 +1,32 @@
+{
+    "title": "Menu Navigation",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Header navigation",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/demo/demo-menu-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/widgets/menu/templates/data/mainMenu.json"
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "Header navigation - Nested menu",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/demo/demo-menu-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/widgets/menu/templates/data/nestedMenu.json"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

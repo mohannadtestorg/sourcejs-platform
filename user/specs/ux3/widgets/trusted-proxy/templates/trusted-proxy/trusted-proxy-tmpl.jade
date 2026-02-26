@@ -1,0 +1,69 @@
+block dropDownClasses
+    -var dropDownClasses=""
+
+
+if(data) && (data.extraPageTitle)
+    h3.trusted-proxy-header !{data.extraPageTitle}
+
+form.trusted-proxy-form(method='POST' action='/action/institutionAdminTpsSetup' name='InstitutionAdmin_TpsSetup' id="institutionAdminTpsSetup")
+    input(type='hidden' name='anti-forgery-token' value=data.token)
+    if(data) && (data.servers)
+        if(data.servers.serverDropdownLabel)
+            label !{data.servers.serverDropdownLabel}
+        if(data.servers.options)
+            select.trustedProxyUserId(name="trustedProxyUserId",class=dropDownClasses)
+                each item, I in data.servers.options
+                    if(item.label) && (item.value)
+                        - var itemLabel = item.label
+                        if (item.value != -1)
+                            - itemLabel = itemLabel + ' (' + item.value + ')'
+                        if(item.value != data.servers.selected)
+                            option(value=item.value) !{itemLabel}
+                        else
+                            option(value=item.value selected="true") !{itemLabel}
+
+form.trusted-proxy-form(method='POST' action='/action/institutionAdminTpsSetup' name='InstitutionAdmin_TpsSetup')
+    input(type='hidden' name='anti-forgery-token' value=data.token)
+    if (data) && (data.serverDetailsForm) && (data.serverDetailsForm.deleteButton)
+        input(type='hidden' name='trustedProxyUserId' value=data.servers.selected)
+        button.btn--inverse.extra-border(type='submit' name='delete' value='delete') !{data.serverDetailsForm.deleteButton}
+    else
+        input(type='hidden' name='trustedProxyUserId' value=-1)
+
+    if(data) && (data.serverDetailsForm)
+        h4 Description
+
+        each item, I in data.serverDetailsForm
+            case I
+                when "submitButton"
+                    button.btn--inverse.extra-border(type='submit' name='setup' value=item) SET UP MY PROXY SERVER AND GENERATE CODE
+                when "languageDropdown"
+                    .clearfix
+                        .pull-left
+                            if(item.label)
+                                label(for=I) !{item.label}
+                            if(item.options)
+                                select(name='language',class=dropDownClasses)
+                                    each option,k in item.options
+                                        if(option.value) && (option.label)
+                                            option(value=option.value) !{option.label}
+                default
+                    if(I != "deleteButton")
+                        if((item.errorRequired) || (item.errorInvalid))
+                            .input-group.error
+                                if(item.label)
+                                    label(for=I) !{item.label}
+                                    input(name=I id=I type="text" value=item.value)
+                                if(item.label2)
+                                    span !{item.label2}
+                                if(item.errorRequired)
+                                    span(title=item.errorRequired).form__links !{item.errorRequired}
+                                if(item.errorInvalid)
+                                    span(title=item.errorInvalid).form__links !{item.errorInvalid}
+                        else
+                            .input-group
+                                if(item.label)
+                                    label(for=I) !{item.label}
+                                    input(name=I id=I type="text" value=item.value)
+                                if(item.label2)
+                                    span !{item.label2}

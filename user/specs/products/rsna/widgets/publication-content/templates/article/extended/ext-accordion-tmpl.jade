@@ -1,0 +1,14 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-accordion-tmpl
+
+block Recommended
+    a.accordion-tabbed__control(href="#" title="Recommended Articles" aria-expanded="false" aria-controls="relatedTab3")
+        | Recommended Articles
+    .accordion-tabbed__content(id= "relatedTab3")
+        | !{pb.renderDropzone(thisWidget, "recommendedDropZone")}
+
+block extraTabs
+    li.accordion-tabbed__tab
+        a.accordion-tabbed__control(href="#" title="Educational Exhibits" aria-expanded="false" aria-controls="relatedTab4")
+            | Educational Exhibits
+        .accordion-tabbed__content(id= "relatedTab4")
+            | !{pb.renderDropzone(thisWidget, "educationalexhibitsDropZone")}

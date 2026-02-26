@@ -1,0 +1,18 @@
+q {
+    color: $headings-primary-color;
+    margin-left: -28px;
+    font-size: 1.38rem;
+    font-style: italic;
+    display: block;
+    line-height: 2.38rem;
+    margin-top: 26px;
+    margin-bottom: 26px;
+    @include media('<desktop') {
+        margin-left: 0;
+        font-size: 1rem;
+        line-height: 1.66rem;
+    }
+    &:before, &:after {
+        content: "";
+    }
+}

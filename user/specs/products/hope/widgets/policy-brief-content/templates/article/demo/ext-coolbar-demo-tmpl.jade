@@ -1,0 +1,15 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-coolbar-demo-tmpl
+
+block coolbarPrefix
+    - var original = data;
+    - var coolbarData = {"sections": {"icon": "icon-Icon_Section-menu","label": "Sections"},"download": {"icon": "icon-download","label": "View Brief","items": [{"icon": "icon-Icon_Download","text": "View Full Text","url": data.item.formats.fullText},{"icon": "icon-Icon_Download","text": "View PDF","url": data.item.formats.pdf}]},"extra": [{"content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-bookmark\"></i><span>bookmark</span></a></li></ul>"},{"content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"}]};
+    - data  = coolbarData;
+
+
+
+
+block coolBarTools
+    li.article-tool(role='none')
+        a(href='http://ux3-prod.literatumonline.com/personalize/addFavoritePublication?doi=10.2217%2Fcnc-2016-0006', role='menuitem')
+            i.icon-bookmark(aria-hidden="true")
+            span Bookmark

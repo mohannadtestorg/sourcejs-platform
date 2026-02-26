@@ -1,0 +1,26 @@
+extends ../extended/ext-tabs-tmpl.jade
+block tabsPrefix
+    - var original = data;
+    - var fakeId = {"id": "srw"}
+    - var config = {"type": "default","vPort":"xsmall","effect": "slide"};
+    - var tabsData = {"nav":[{"text": "Refine Search","content": "","class": "advanced"},{"text": "Search History","content": "","class": "searchHistory"},{"text": "Saved Searches","class": "savedSearches","content": ""}]};
+    - data = tabsData;
+
+block tabsPanes
+    ul.rlist.tab__content.sticko__child
+        - var i = 0
+        if(data.nav)
+            each item, I in data.nav
+                if (i == 0)
+                    li.tab__pane.tab__pane--clear(id="pane-" + fakeId.id + i  aria-labelledby="pane-" + fakeId.id + i + "con" role="tabpanel")
+                        if(original && original.widgetData)
+                            block advancedSearchForm
+                                | !{pb.render("advanced-search", {data: original.widgetData.refineSearch}, 'pericles')}
+                else if (i == 1)
+                    li.tab__pane(id="pane-" + fakeId.id + i  aria-labelledby="pane-" + fakeId.id + i + "con" role="tabpanel")
+                        | !{pb.render('search-history', 'data.json')}
+                else if (i == 2)
+                    li.tab__pane(id="pane-" + fakeId.id + i  aria-labelledby="pane-" + fakeId.id + i + "con" role="tabpanel")
+                        | !{pb.render('saved-searches', 'example.json', 'pericles')}
+                - i++
+

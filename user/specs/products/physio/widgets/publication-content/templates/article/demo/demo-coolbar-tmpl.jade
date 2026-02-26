@@ -1,0 +1,15 @@
+extends ../extended/ext-coolbar-tmpl
+
+block coolBarSecond
+    if (original.item.formats.pdf)
+        li.coolBar__section.coolBar--download.hidden-xs.hidden-sm
+          a.coolBar__ctrl(data-db-target-for="pdfLinks"  title= "PDF" href="#" aria-haspopup="true" aria-controls="download_Pop" role="button" id="download_Ctrl")
+            i.icon.icon-file-pdf.red_icon
+            span PDF (#{original.item.pdfSize})
+          ul.coolBar__drop.rlist.w-slide--list.hidden-xs.hidden-sm(data-db-target-of="pdfLinks" aria-labelledby="articleToolsCtrl" role="menu")
+            if original.item.formats.pdf
+              li
+                a(href=original.item.formats.pdf role="menuitem") Download PDF
+            if original.item.formats.pdfPlus
+              li
+                a(href=original.item.formats.pdfPlus role="menuitem") Download PDFPlus

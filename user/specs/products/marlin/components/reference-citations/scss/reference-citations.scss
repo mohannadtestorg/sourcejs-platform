@@ -1,0 +1,75 @@
+.reference-citations {
+    display: inline-block;
+    &__loa {
+        font-size: 1.125rem;
+        font-weight: bold;
+    }
+
+    &__border {
+        border-top: 2px solid $primary-bg-color;
+        display: block;
+        position: absolute;
+        top: -18px;
+        left: 0;
+        right: -16px;
+        @include media('<tablet') {
+            left: -16px;
+        }
+        &:after {
+            content: "";
+            width: 19px;
+            border-top: 2px solid $primary-bg-color;
+            transform: rotate(45deg);
+            position: absolute;
+            top: -9px;
+            left: -16px;
+            @include media('<tablet') {
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__holder {
+        margin-top: 20px;
+        width: 410px;
+        max-width: 100%;
+        @include media('<tablet') {
+            max-width: none;
+            width: auto;
+            left: -15px;
+            right: -15px;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            bottom: auto;
+            left: -15px;
+            top: -30px;
+            border-width: 10px 10px 10px 10px;
+            border-color: transparent transparent rgba(235, 235, 235, .95) rgba(235, 235, 235, .95);
+            @include media('<tablet') {
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__links {
+        font-size: 1rem;
+        margin-top: 10px;
+        i {
+            font-size: 0.4rem;
+            margin-left: 4px;
+            color: $primary-body-font-color;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .dropBlock__ctrl--close {
+        top: 8px;
+        right: 12px;
+    }
+}

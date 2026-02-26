@@ -1,0 +1,68 @@
+﻿head
+    link(rel='stylesheet', href='css/owl.carousel.css')
+
+
+h1 Tabs
+.source_info
+    p
+        a(href='https://owlcarousel2.github.io/OwlCarousel2/') Owl Carousel 2
+section.source_section
+    h2 Default set-up
+
+    code.src-html.source_visible
+        .owl-carousel--Class
+            div ....
+    markdown
+        p Add `"owl-carousel"` class to the slider items wrapper
+    .source_example
+        .container
+            div(class="owl-carousel")
+                div(class="item")
+                    h4 1
+                div(class="item")
+                    h4 2
+                div(class="item")
+                    h4 3
+                div(class="item")
+                    h4 4
+                div(class="item")
+                    h4 5
+                div(class="item")
+                    h4 6
+                div(class="item")
+                    h4 7
+                div(class="item")
+                    h4 8
+                div(class="item")
+                    h4 9
+                div(class="item")
+                    h4 10
+                div(class="item")
+                    h4 11
+                div(class="item")
+                    h4 12
+            
+
+script(src='js/owl.carousel.min.js')
+script.
+     $(document).ready(function(){
+
+
+        $(".owl-carousel").owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            responsive:{
+               0:{
+                   items:1
+               },
+               600:{
+                   items:3
+               },
+               1000:{
+                   items:5
+               }
+            }
+        });
+     });
+p

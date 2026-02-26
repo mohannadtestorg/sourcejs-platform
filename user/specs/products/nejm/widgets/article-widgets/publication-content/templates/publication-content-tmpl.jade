@@ -1,0 +1,941 @@
+nav.m-simple-tabs
+  ul.m-simple-tabs__links
+    li.s-active
+      a(href='/templates/article.php') Article
+    li
+      a(href='/templates/figures.php') Figures/Media
+  p.m-simple-tabs__note
+    a(href='#') Metrics
+
+
+.m-boxed-text.m-boxed-text--intro
+  p.f-body--sm
+    | Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+
+nav.m-quick-links
+  ul.m-quick-links__list.f-ui
+    li.m-quick-links__item
+      a(href='#article_references')
+        em 8
+        |  References
+    li.m-quick-links__item
+      a(href='#article_citing_articles')
+        em 4
+        |  Citing articles
+    li.m-quick-links__item
+      a(href='#article_letters')
+        em 3
+        |  Letters
+    li.m-quick-links__item
+      a(href='#article_comments')
+        em 3
+        |  Comments
+  .m-quick-links__note.f-ui
+    span.a-dropdown.a-dropdown--top-arrow(aria-title='Audio Summary', data-behavior='Dropdown', tabindex='0')
+      strong
+        svg.icon--audio(aria-hidden='true')
+          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--audio')
+        | Audio Summary
+      ul
+        li
+          a(href='#') Listen
+        li
+          a(href='#') Download
+p.a-alert-bar.a-alert-bar--multi
+  a(href='#article_comments')
+    svg.icon--comment
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--comment')
+    | Comments
+  |  open through June 15, 2017
+section#article_body.o-article-body__section(data-article-section-title='Body', data-behavior="StickyArticleComponents")
+  include ../../article-tools/templates/article-tools-tmpl
+  nav.m-simple-tabs.m-simple-tabs--sticky
+    ul.m-simple-tabs__links
+      li.s-active
+        a(href='/templates/article.php') Article
+      li
+        a(href='/templates/figures.php') Figures/Media
+      li.m-simple-tabs__action
+        a(href='#nav', data-behavior='SearchToggle', aria-label='Search', title='Search')
+          svg.icon--search(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--search')
+          svg.icon--close(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+      li.m-simple-tabs__action
+        a(href='#nav', data-behavior='NavPrimaryToggle', aria-label='Menu', title='Menu')
+          svg.icon--menu(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--menu')
+          svg.icon--close(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+
+  .m-media-holder.m-media-holder--16-9
+    .m-media-holder__container
+      img(srcset='http://placehold.dev.area17.com/image/1600x900?text=Video%20Poster 1600w', sizes='(min-width: 1480px) 800px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 7), (min-width: 1024px) calc(((100vw - 390px) / 12) * 7), (min-width: 768px) calc(((100vw - 270px) / 7) * 2), (min-width: 480px) calc(100vw - 40px), calc(100vw - 32px)')
+    button.m-media-holder__play-btn(aria-label='Play', title='Play')
+      svg.icon--play(aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+  .m-media-holder.m-media-holder--16-9.m-media-holder--alt
+    svg.icon--meatball
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--meatball')
+    button.m-media-holder__play-btn(aria-label='Play', title='Play')
+      svg.icon--play(aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+  p.f-body.f-body--w-dropcap
+    | Nullam aliquet eleifend felis, vel posuere ante porta vel. Donec convallis mi sit amet orci consectetur. Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis, H
+    sub 2
+    | O
+    sup 2
+    |  tempus felis orci id erat.
+  p.f-body
+    a.a-btn.a-btn--simple(href='#')
+      svg.icon--download(aria-label='Download PDF')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--download')
+      | Transcript (PDF)
+  h2.a-article-h1.f-h3 Header level 1
+  p.f-body
+    | Proin metus sapien, laoreet at ex elementum, interdum pulvinar risus. Pellentesque id enim felis. Nam volutpat et odio sed aliquet. Praesent ut finibus est, sed ultrices tellus. Phasellus sagittis viverra ante eu efficitur. Praesent fermentum erat in mauris pulvinar malesuada
+    sup
+      a(href='#', data-behavior='ShowPopupTip', data-popup-content-ids='cite_note_1') 1
+    | . Pellentesque iaculis nisi sed congue rutrum.
+  h2.a-article-h1.a-article-h1--underline.f-h3 Header level 1 with underline
+  p.f-body
+    | Nam efficitur turpis enim, maximus pretium sapien pulvinar non. Vivamus tincidunt dui velit, vitae aliquet enim rutrum non. Aliquam congue accumsan lacus
+    sup
+      a(href='#', data-behavior='ShowPopupTip', data-popup-content-ids='cite_note_2,cite_note_3') 2,3
+    | . Donec eu felis quis arcu elementum ultrices.
+  h2.a-article-h2.f-caps Header level 2
+  p.f-body
+    | Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus
+    sup
+      a(href='#', data-behavior='ShowPopupTip', data-popup-content-ids='cite_note_4') 4
+    | . Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.
+  h2.a-article-h2.a-article-h2--inline.f-caps Header level 2 inline
+  p.f-body
+    | Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat
+    sup
+      a(href='#', data-behavior='ShowPopupTip', data-popup-content-ids='cite_note_5') 5
+    | . Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.
+  h2.a-article-h2.a-article-h2--proud.f-caps Header level 2 proud
+  p.f-body
+    | Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.
+  h2.a-article-h3.f-h6 Header level 3
+  p.f-body
+    | Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.
+  h2.a-article-h4.f-h9 Header level 4
+  p.f-body
+    | Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec.
+  header.m-article-section-header
+    p.m-article-section-header__type.f-caps Case Vignette
+    h2.m-article-section-header__title.f-h3 A Man Considering the Use of E-Cigarettes
+    p.m-article-section-header__subtitle.f-h9 Praesent cursus diam ac risus eleifend.
+  p.f-body
+    | Suspendisse hendrerit nec sem commodo scelerisque. Nullam elit ante, consectetur at quam a, ultricies blandit sapien. Donec auctor leo ante. Mauris in nulla cursus sem sodales egestas at nec dui. Sed congue, ante vel luctus ullamcorper, eros enim tincidunt nulla, vel rutrum lacus orci lobortis lacus. Sed nec mi lectus. Ut fringilla semper massa, vitae tristique velit vehicula sit amet. Sed cursus odio vitae nisl fermentum aliquet. Integer maximus mollis diam vitae pretium. Integer auctor nec felis ut semper. Sed nec enim risus. Pellentesque molestie arcu sed erat egestas dapibus vehicula vel nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+  aside.m-cta
+    p.a-subtitle.a-subtitle--alt Related Article
+    p.m-simple-listing-item
+      a.m-simple-listing-item__link(href='#')
+        span.m-simple-listing-item__meta.f-caps
+          span.m-simple-listing-item__type.f-caps Article Type
+          span.m-simple-listing-item__date.f-caps Jan 1, 2016
+        br
+        strong.m-simple-listing-item__title.f-h8 Acute Kidney Injury in Critically Ill Children — An Ominous Legacy
+        br
+        em.m-simple-listing-item__author.f-author J.M Beaten and Others
+  p.f-body
+    | Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc.
+  aside.m-cta.m-cta--left
+    p.a-subtitle.a-subtitle--alt Related Article
+    p.m-simple-listing-item
+      a.m-simple-listing-item__link(href='#')
+        span.m-simple-listing-item__meta.f-caps
+          span.m-simple-listing-item__type.f-caps Article Type
+          span.m-simple-listing-item__date.f-caps Jan 1, 2016
+        br
+        strong.m-simple-listing-item__title.f-h8 Acute Kidney Injury in Critically Ill Children — An Ominous Legacy
+        br
+        em.m-simple-listing-item__author.f-author J.M Beaten and Others
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  aside.m-cta.m-cta--narrow
+    p.a-subtitle.a-subtitle--alt Related Article
+    p.m-simple-listing-item
+      a.m-simple-listing-item__link(href='#')
+        span.m-simple-listing-item__meta.f-caps
+          span.m-simple-listing-item__type.f-caps Article Type
+          span.m-simple-listing-item__date.f-caps Jan 1, 2016
+        br
+        strong.m-simple-listing-item__title.f-h8 Acute Kidney Injury in Critically Ill Children — An Ominous Legacy
+        br
+        em.m-simple-listing-item__author.f-author J.M Beaten and Others
+  p.f-body
+    | Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc.
+  aside.m-cta.m-cta--narrow.m-cta--left
+    p.a-subtitle.a-subtitle--alt Related Article
+    p.m-simple-listing-item
+      a.m-simple-listing-item__link(href='#')
+        span.m-simple-listing-item__meta.f-caps
+          span.m-simple-listing-item__type.f-caps Article Type
+          span.m-simple-listing-item__date.f-caps Jan 1, 2016
+        br
+        strong.m-simple-listing-item__title.f-h8 Acute Kidney Injury in Critically Ill Children — An Ominous Legacy
+        br
+        em.m-simple-listing-item__author.f-author J.M Beaten and Others
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  aside.m-cta.m-cta--narrow
+    a.m-cta__figure-link(href='/templates/figures.php#figure1', data-behavior='ShowFiguresModal', data-figure-id='figure1')
+      p.a-subtitle.a-subtitle--alt Figure 1.
+      figure.m-cta__figure
+        .m-cta__figure-img
+          img(srcset='http://placehold.dev.area17.com/image/320x400?bg=e2e2e2&fg=ff3300&text=figure', sizes='(min-width: 1480px) 320px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 3), (min-width: 1024px) calc(((100vw - 390px) / 12) * 3), (min-width: 768px) calc(((100vw - 270px) / 8) * 3), (min-width: 480px) calc(((100vw - 140px) / 6) * 3), calc(100vw - 32px)', width='300', height='400')
+          svg.icon--fullscreen
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--fullscreen')
+        figcaption.m-cta__figcaption.f-caption Ultrasonography of the Abdomen
+  p.f-body
+    | Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc. Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  hr
+  p.f-body
+    | Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc.
+  aside.m-mini-promo.m-mini-promo--sign-up-alerts
+    a(href='#')
+      strong Sign up for alerts and updates
+      br
+      em Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      svg.icon--arrow(aria-hidden='true')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  p.f-body
+    | Suspendisse hendrerit nec sem commodo scelerisque. Nullam elit ante, consectetur at quam a, ultricies blandit sapien. Donec auctor leo ante. Mauris in nulla cursus sem sodales egestas at nec dui. Sed congue, ante vel luctus ullamcorper, eros enim tincidunt nulla, vel rutrum lacus orci lobortis lacus. Sed nec mi lectus. Ut fringilla semper massa, vitae tristique velit vehicula sit amet. Sed cursus odio vitae nisl fermentum aliquet. Integer maximus mollis diam vitae pretium. Integer auctor nec felis ut semper. Sed nec enim risus. Pellentesque molestie arcu sed erat egestas dapibus vehicula vel nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+  p.f-body
+    | Maecenas tempus ligula nisi, sed vestibulum eros lacinia et. Vestibulum consectetur, lacus vitae placerat porta, lectus velit tincidunt urna, non varius nibh nisl in ipsum. Maecenas malesuada mi id laoreet ullamcorper. Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at. Cras lobortis urna ac dui fringilla congue. Praesent cursus diam ac risus eleifend iaculis. Sed gravida justo ut ex iaculis, et eleifend orci porta. Morbi et justo euismod ex fermentum tincidunt quis in lacus. Aliquam erat volutpat.
+  span.a-equation-img
+    img(src='/testimages/equation.png', width='596', height='80')
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  ul.a-list.f-body
+    li Check your spelling
+    li Try searching for fewer terms to broaden your results.
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  aside.m-cta
+    h3.a-subtitle.a-subtitle--alt Video
+    p.m-media-item
+      a.m-media-item__link(href='#')
+        span.m-media-item__img
+          span.m-media-item__img-container
+            img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='\
+            (min-width: 1480px) 200px,\
+            (min-width: 1280px) calc((((100vw - 520px) / 12) * 2) + 40px),\
+            (min-width: 1024px) calc((((100vw - 390px) / 12) * 2) + 30px),\
+            (min-width: 768px) calc((((100vw - 270px) / 8) * 2) + 30px),\
+            (min-width: 480px) calc((((100vw - 140px) / 6) * 1) + 20px),\
+            calc((((100% - 112px) / 6) * 2) + 16px)\
+            ')
+          svg.icon--play(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+        span.m-media-item__meta.f-author
+          strong.m-media-item__title Semaglutide and Cardiovascular Risks.
+          span.m-media-item__timestamp (13:12)
+          span
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  aside.m-cta.m-cta--full-width
+    p.m-media-item
+      a.m-media-item__link(href='#')
+        span.m-media-item__img
+          span.m-media-item__img-container
+            img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='\
+            (min-width: 1480px) 200px,\
+            (min-width: 1280px) calc((((100vw - 520px) / 12) * 2) + 40px),\
+            (min-width: 1024px) calc((((100vw - 390px) / 12) * 2) + 30px),\
+            (min-width: 768px) calc((((100vw - 270px) / 8) * 2) + 30px),\
+            (min-width: 480px) calc((((100vw - 140px) / 6) * 2) + 20px),\
+            calc((((100% - 112px) / 6) * 2) + 16px)\
+            ')
+          svg.icon--play(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+        span.m-media-item__meta
+          span.m-media-item__type.f-caps Quick Take
+          br
+          strong.m-media-item__title.f-h8 Semaglutide and Cardiovascular Risks
+          br
+          span.m-media-item__timestamp.f-ui 13:12
+          span
+  p.f-body
+    | Maecenas tempus ligula nisi, sed vestibulum eros lacinia et. Vestibulum consectetur, lacus vitae placerat porta, lectus velit tincidunt urna, non varius nibh nisl in ipsum. Maecenas malesuada mi id laoreet ullamcorper. Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at. Cras lobortis urna ac dui fringilla congue. Praesent cursus diam ac risus eleifend iaculis. Sed gravida justo ut ex iaculis, et eleifend orci porta. Morbi et justo euismod ex fermentum tincidunt quis in lacus. Aliquam erat volutpat.
+  aside.m-cta.m-cta--full-width
+    p.m-media-item
+      a.m-media-item__link(href='#')
+        span.m-media-item__img
+          span.m-media-item__img-container
+            img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='\
+            (min-width: 1480px) 200px,\
+            (min-width: 1280px) calc((((100vw - 520px) / 12) * 2) + 40px),\
+            (min-width: 1024px) calc((((100vw - 390px) / 12) * 2) + 30px),\
+            (min-width: 768px) calc((((100vw - 270px) / 8) * 2) + 30px),\
+            (min-width: 480px) calc((((100vw - 140px) / 6) * 2) + 20px),\
+            calc((((100% - 112px) / 6) * 2) + 16px)\
+            ')
+          svg.icon--audio(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--audio')
+        span.m-media-item__meta
+          span.m-media-item__type.f-caps Quick Take
+          br
+          strong.m-media-item__title.f-h8 Semaglutide and Cardiovascular Risks
+          br
+          em.m-media-item__timestamp.f-ui 13:12
+  p.f-body
+    | Maecenas tempus ligula nisi, sed vestibulum eros lacinia et. Vestibulum consectetur, lacus vitae placerat porta, lectus velit tincidunt urna, non varius nibh nisl in ipsum. Maecenas malesuada mi id laoreet ullamcorper. Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at. Cras lobortis urna ac dui fringilla congue. Praesent cursus diam ac risus eleifend iaculis. Sed gravida justo ut ex iaculis, et eleifend orci porta. Morbi et justo euismod ex fermentum tincidunt quis in lacus. Aliquam erat volutpat.
+  aside.m-cta
+    h3.a-subtitle.a-subtitle--alt Audio Interview
+    p.m-media-item.m-media-item--narrow-img
+      a.m-media-item__link(href='#')
+        span.m-media-item__img
+          span.m-media-item__img-container
+            img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='\
+            (min-width: 1480px) 200px,\
+            (min-width: 1280px) calc((((100vw - 520px) / 12) * 2) + 40px),\
+            (min-width: 1024px) calc((((100vw - 390px) / 12) * 2) + 30px),\
+            (min-width: 768px) calc((((100vw - 270px) / 8) * 2) + 30px),\
+            (min-width: 480px) calc((((100vw - 140px) / 6) * 1) + 20px),\
+            calc((((100% - 112px) / 6) * 2) + 16px)\
+            ')
+          svg.icon--audio(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--audio')
+        span.m-media-item__meta
+          strong.m-media-item__title.f-author Semaglutide and Cardiovascular Risks.
+          br
+          em.m-media-item__timestamp.f-author (13:12)
+  p.f-body
+    | Maecenas tempus ligula nisi, sed vestibulum eros lacinia et. Vestibulum consectetur, lacus vitae placerat porta, lectus velit tincidunt urna, non varius nibh nisl in ipsum. Maecenas malesuada mi id laoreet ullamcorper. Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at. Cras lobortis urna ac dui fringilla congue. Praesent cursus diam ac risus eleifend iaculis. Sed gravida justo ut ex iaculis, et eleifend orci porta. Morbi et justo euismod ex fermentum tincidunt quis in lacus. Aliquam erat volutpat.
+  p.f-body
+    | Pellentesque sed nibh nec augue vehicula porttitor id at massa. Mauris vitae urna quis justo mollis viverra. Nam suscipit justo at ultrices commodo. Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa. Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue. Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+  .m-boxed-text
+    h2.a-article-h2.a-article-h2--proud.f-caps Header level 2
+    ol.a-list.f-body
+      li
+        | Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.
+      li
+        | Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.
+      li
+        | Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa.
+  .m-boxed-text.m-boxed-text--positioned-title
+    h2.a-article-h2.f-caps Boxed with positioned title
+    p.f-body
+      | Integer venenatis quam eu nisl imperdiet, vel pretium ipsum vestibulum. Etiam eu iaculis risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim, tincidunt aliquet quam turpis varius orci. Cras eget est urna. Vestibulum quis nibh non justo dictum varius.
+    p.f-body
+      | Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. In commodo risus est. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce sem neque, dignissim at dapibus vitae, mattis eu nunc.
+    p.f-body
+      | Donec dapibus ornare augue
+      br
+      a(href='#') placerat orci rhoncus
+    p.f-emphasis Morbi iaculis, ante ut aliquet tincidunt, nisl justo condimentum enim
+  #section_key_clinical_points.m-boxed-text.m-boxed-text--key-clinical-points
+    h2.a-article-h2.f-caps Key Clinical Points
+    h3.a-article-h3.f-h6 Header level 3
+    ul.a-list.f-body
+      li
+        | Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.
+      li
+        | Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.
+      li
+        | Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa.
+    h3.a-article-h3.f-h6 Header level 3
+    ul.a-list.f-body
+      li
+        | Phasellus feugiat vel erat non luctus. Vestibulum eu sem tempor, sollicitudin dui nec, placerat nisl. Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.
+      li
+        | Nam luctus, tortor eget porttitor facilisis, felis nisl sollicitudin tellus, in commodo quam mi quis augue.
+      li
+        | Praesent rhoncus sed mauris sit amet maximus. Sed a eros eget urna interdum blandit pellentesque nec massa.
+  hr
+  p.f-body--sm
+    a(href='#') Disclosure forms
+    |  provided by the author are available with the full text of this article at NEJM.org
+section#article_treatment_options(class='o-article-body__section o-article-body__section--collapsible o-article-body__section--collapsible-open@medium+', data-behavior='CollapsibleArea', data-article-section-title='Treatment Options')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Treatment Options toggle')
+    | Treatment Options    
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  .o-article-body__collapsible(data-collapsible-block='')
+    .o-article-body__collapsible-content
+      p.f-body Integer maximus mollis diam vitae pretium
+      ol.f-body.a-list
+        li
+          strong Recommend trying e-cigarettes for smoking cessation.
+        li
+          strong Do not recommend trying e-cigarettes for smoking cessation.
+      p.f-body
+        | Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at.
+      .m-inline-tabs(data-behavior='InlineTabs')
+        nav.m-simple-tabs
+          ul.m-simple-tabs__links(data-inline-tabs-links='')
+            li.s-active
+              a(href='#treatment1', aria-controls='treatment1', aria-expanded='true', data-inline-tabs-link='') Treatment 1
+            li
+              a(href='#treatment2', aria-controls='treatment2', aria-expanded='false', data-inline-tabs-link='') Treatment 2
+        #treatment1.m-inline-tabs__tab.s-active(aria-hidden='false', data-inline-tabs-tab='')
+          header.m-article-section-header
+            h3.m-article-section-header__title.f-h6 1. Recommend Trying E-Cigarettes for Smoking Cessation
+            p.m-article-section-header__subtitle.f-h9 Ut fringilla semper massa, vitae tristique velit vehicula sit amet
+          p.f-body
+            | Suspendisse hendrerit nec sem commodo scelerisque. Nullam elit ante, consectetur at quam a, ultricies blandit sapien. Donec auctor leo ante. Mauris in nulla cursus sem sodales egestas at nec dui. Sed congue, ante vel luctus ullamcorper, eros enim tincidunt nulla, vel rutrum lacus orci lobortis lacus. Sed nec mi lectus. Ut fringilla semper massa, vitae tristique velit vehicula sit amet. Sed cursus odio vitae nisl fermentum aliquet. Integer maximus mollis diam vitae pretium. Integer auctor nec felis ut semper. Sed nec enim risus. Pellentesque molestie arcu sed erat egestas dapibus vehicula vel nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+          p.f-body
+            | Maecenas tempus ligula nisi, sed vestibulum eros lacinia et. Vestibulum consectetur, lacus vitae placerat porta, lectus velit tincidunt urna, non varius nibh nisl in ipsum. Maecenas malesuada mi id laoreet ullamcorper. Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at. Cras lobortis urna ac dui fringilla congue. Praesent cursus diam ac risus eleifend iaculis. Sed gravida justo ut ex iaculis, et eleifend orci porta. Morbi et justo euismod ex fermentum tincidunt quis in lacus. Aliquam erat volutpat.
+          p.f-body
+            | Duis vestibulum sed nunc a ultrices. Duis nunc metus, faucibus a viverra eget, congue sed sem. Praesent lobortis, ante at tempor facilisis, libero elit rutrum nunc, quis vehicula tellus lectus in eros. Donec eget imperdiet nisl, et faucibus libero. Donec molestie mauris a ex pellentesque egestas. Suspendisse potenti. Aenean nisl est, laoreet eget mauris id, volutpat iaculis mi. Ut ut congue felis. Sed elementum nisl sed elit laoreet, quis hendrerit risus aliquam. Morbi luctus enim et vestibulum faucibus. Cras volutpat, odio in scelerisque placerat, sapien dolor consectetur justo, non congue tortor justo at leo. Nunc mollis justo id arcu lobortis pulvinar. Phasellus quis odio id urna efficitur consectetur. Nam porttitor varius lectus, ac finibus metus.
+        #treatment2.m-inline-tabs__tab.s-inactive(aria-hidden='true', data-inline-tabs-tab='')
+          header.m-article-section-header
+            h3.m-article-section-header__title.f-h6 2. Do Not Recommend Rrying E-Eigarettes for Smoking Cessation
+            p.m-article-section-header__subtitle.f-h9 Ut fringilla semper massa, vitae tristique velit vehicula sit amet
+          p.f-body
+            | Duis vestibulum sed nunc a ultrices. Duis nunc metus, faucibus a viverra eget, congue sed sem. Praesent lobortis, ante at tempor facilisis, libero elit rutrum nunc, quis vehicula tellus lectus in eros. Donec eget imperdiet nisl, et faucibus libero. Donec molestie mauris a ex pellentesque egestas. Suspendisse potenti. Aenean nisl est, laoreet eget mauris id, volutpat iaculis mi. Ut ut congue felis. Sed elementum nisl sed elit laoreet, quis hendrerit risus aliquam. Morbi luctus enim et vestibulum faucibus. Cras volutpat, odio in scelerisque placerat, sapien dolor consectetur justo, non congue tortor justo at leo. Nunc mollis justo id arcu lobortis pulvinar. Phasellus quis odio id urna efficitur consectetur. Nam porttitor varius lectus, ac finibus metus.
+          p.f-body
+            | Suspendisse hendrerit nec sem commodo scelerisque. Nullam elit ante, consectetur at quam a, ultricies blandit sapien. Donec auctor leo ante. Mauris in nulla cursus sem sodales egestas at nec dui. Sed congue, ante vel luctus ullamcorper, eros enim tincidunt nulla, vel rutrum lacus orci lobortis lacus. Sed nec mi lectus. Ut fringilla semper massa, vitae tristique velit vehicula sit amet. Sed cursus odio vitae nisl fermentum aliquet. Integer maximus mollis diam vitae pretium. Integer auctor nec felis ut semper. Sed nec enim risus. Pellentesque molestie arcu sed erat egestas dapibus vehicula vel nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+          p.f-body
+            | Maecenas tempus ligula nisi, sed vestibulum eros lacinia et. Vestibulum consectetur, lacus vitae placerat porta, lectus velit tincidunt urna, non varius nibh nisl in ipsum. Maecenas malesuada mi id laoreet ullamcorper. Aliquam maximus ultrices ex eu posuere. Mauris nunc felis, condimentum in lacus ac, feugiat rhoncus lorem. In facilisis eros libero, in luctus est pellentesque at. Cras lobortis urna ac dui fringilla congue. Praesent cursus diam ac risus eleifend iaculis. Sed gravida justo ut ex iaculis, et eleifend orci porta. Morbi et justo euismod ex fermentum tincidunt quis in lacus. Aliquam erat volutpat.
+      hr
+      p.f-body--sm
+        | Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis tempus felis orci id erat.
+      h2.a-article-h1.a-article-h1--underline.f-h3 Source Information
+      p.f-body--sm
+        | Nullam aliquet eleifend felis, vel posuere ante porta vel. Donec convallis mi sit amet orci consectetur. Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis tempus felis orci id erat.
+section#article_poll.o-article-body__section.o-article-body__section--collapsible(class='o-article-body__section--collapsible-open@medium+', data-behavior='CollapsibleArea', data-article-section-title='Poll')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Poll toggle')
+    | Poll    
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  .o-article-body__collapsible(data-collapsible-block='')
+    .o-article-body__collapsible-content
+      form.m-poll
+        fieldset
+          legend.m-poll__legend.f-body What is the most likely diagnosis?
+          ol.m-poll__items
+            li
+              span.a-form-radio
+                input#poll_1(type='radio', value='all', name='poll', checked='')
+                label(for='poll_1') Ischemic hepatitis.
+            li
+              span.a-form-radio
+                input#poll_2(type='radio', value='all', name='poll')
+                label(for='poll_2') Wilson's disease.
+            li
+              span.a-form-radio
+                input#poll_3(type='radio', value='all', name='poll')
+                label(for='poll_3') Autoimmune hepatitis.
+            li
+              span.a-form-radio
+                input#poll_4(type='radio', value='all', name='poll')
+                label(for='poll_4') Hepatic-vein thrombosis.
+            li
+              span.a-form-radio
+                input#poll_5(type='radio', value='all', name='poll')
+                label(for='poll_5') Acute hepatitis E virus infection.
+            li
+              span.a-form-radio
+                input#poll_6(type='radio', value='all', name='poll')
+                label(for='poll_6') Hemochromatosis.
+          p.m-poll__btns
+            em.m-poll__note.f-author
+              | This open poll should not be interpreted as a scientifically valid physician survey.
+            a.a-btn.a-btn--fake-link(href='#') View results
+            button.a-btn(type='submit')
+              | Submit
+              svg.icon--arrow(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+section#article_author_affiliations.o-article-body__section.o-article-body__section--collapsible(class='o-article-body__section--collapsible-open@medium+', data-behavior='CollapsibleArea', data-article-section-title='Author Affiliations')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Author Affiliations toggle')
+    | Author Affiliations    
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  .o-article-body__collapsible(data-collapsible-block='')
+    .o-article-body__collapsible-content
+      p.f-body--sm
+        | From the National Institute for Health Innovation, University of Auckland, Auckland, New Zealand.
+section#article_supplementary_material.o-article-body__section.o-article-body__section--collapsible(class='o-article-body__section--collapsible-open@medium+', data-behavior='CollapsibleArea', data-article-section-title='Supplementary Material')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Supplementary Material toggle')
+    | Supplementary Material    
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  .o-article-body__collapsible(data-collapsible-block='')
+    .o-article-body__collapsible-content
+      table.a-table.f-ui
+        tbody
+          tr
+            th
+              a(href='#') Protocol
+            td PDF
+            td 2017kb
+          tr
+            th
+              a(href='#') Supplementary Appendix
+            td PDF
+            td 1312kb
+          tr
+            th
+              a(href='#') Disclosure Forms
+            td PDF
+            td 1337kb
+section#article_glossary.o-article-body__section.o-article-body__section--collapsible(data-behavior='CollapsibleArea', data-article-section-title='Glossary')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Glossary toggle', aria-controls='collapsible-a81a49', aria-expanded='false')
+    | Glossary    
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  #collapsible-a81a49.o-article-body__collapsible(data-collapsible-block='', aria-hidden='true')
+    .o-article-body__collapsible-content
+      dl.a-definition-list
+        dt.f-h7 Lorem ipsum dolor sit amet
+        dd.f-body--sm
+          | Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        dt.f-h7 Lorem ipsum dolor sit amet
+        dd.f-body--sm
+          | Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        dt.f-h7 Lorem ipsum dolor sit amet
+        dd.f-body--sm
+          | Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      p.o-article-body__collapsible-close-link
+        button.a-btn.a-btn--fake-link-secondary(data-collapsible-close='') Close Glossary
+section#article_references.o-article-body__section.o-article-body__section--collapsible(data-behavior='CollapsibleArea', data-article-section-title='References')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='References toggle', aria-controls='collapsible-f1174b', aria-expanded='false')
+    | References 
+    em.a-article-h1__count (8)
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  #collapsible-f1174b.o-article-body__collapsible(data-collapsible-block='', aria-hidden='true')
+    .o-article-body__collapsible-content
+      ol.m-article-references.m-article-references--num-in-html
+        li#cite_note_1.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 1. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_2.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 2. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_3.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 3. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_4.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 4. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_5.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 5. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_6.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 6. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_7.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 7. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+        li#cite_note_8.m-article-references__item
+          p.f-body--sm
+            strong.m-article-references__number 8. 
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+            li
+              a(href='#') Web of Science
+            li
+              a(href='#') Medline
+      p.o-article-body__collapsible-close-link
+        button.a-btn.a-btn--fake-link-secondary(data-collapsible-close='') Close References
+section#article_citing_articles.o-article-body__section.o-article-body__section--collapsible(data-behavior='CollapsibleArea', data-article-section-title='Citing Articles')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Citing Articles toggle', aria-controls='collapsible-1f9965', aria-expanded='false')
+    | Citing Articles 
+    em.a-article-h1__count (4)
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  #collapsible-1f9965.o-article-body__collapsible(data-collapsible-block='', aria-hidden='true')
+    .o-article-body__collapsible-content
+      ol.m-article-references.m-article-references--citing-articles
+        li.m-article-references__item
+          p.f-body--sm
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+            br
+            em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+          p.f-body--sm Maecenas lacinia interdum lacinia.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+        li.m-article-references__item
+          p.f-body--sm
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+            br
+            em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+          p.f-body--sm Maecenas lacinia interdum lacinia.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+        li.m-article-references__item
+          p.f-body--sm
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+            br
+            em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+          p.f-body--sm Maecenas lacinia interdum lacinia.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+        li.m-article-references__item
+          p.f-body--sm
+            | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+            br
+            em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+          p.f-body--sm Maecenas lacinia interdum lacinia.
+          ul.m-article-references__links.f-body--sm
+            li
+              a(href='#') Cross Ref
+      p.o-article-body__collapsible-close-link
+        button.a-btn.a-btn--fake-link-secondary(data-collapsible-close='') Close Citing Articles
+section#article_letters.o-article-body__section.o-article-body__section--collapsible(data-behavior='CollapsibleArea', data-article-section-title='Letters')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Letters toggle', aria-controls='collapsible-683484', aria-expanded='false')
+    | Letters 
+    em.a-article-h1__count (3)
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  #collapsible-683484.o-article-body__collapsible(data-collapsible-block='', aria-hidden='true')
+    .o-article-body__collapsible-content
+      section.m-letter
+        header.m-letter__header
+          p.m-letter__type.f-caps Correspondence
+          h2.m-letter__title.f-h5 Antidrug Antibodies in Patients Treated with Alirocummab
+          p.m-letter__authors.f-author J.M Beaten and Others
+        p.f-body
+          | Pellentesque efficitur massa nec ex porttitor mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vel sodales nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec iaculis condimentum enim in iaculis. Praesent condimentum maximus turpis ut scelerisque. Cras facilisis libero vitae nisi lacinia malesuada. Nulla convallis velit et facilisis lacinia.
+        p.f-body
+          | Sed vehicula tincidunt enim eget viverra. Fusce lobortis turpis sit amet sagittis tincidunt. Nunc purus nulla, laoreet ut placerat a, pellentesque imperdiet nunc. Vivamus ullamcorper non est vitae porta. Nulla volutpat ornare pharetra. Nam vestibulum dui non ligula vehicula, in blandit eros auctor. Nulla aliquam eros quis velit bibendum, et blandit lacus varius. Proin non risus velit. Mauris sagittis condimentum velit. Quisque vel lorem vitae velit tristique dictum. Donec a ex accumsan, sodales magna at, porta nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vulputate ante eget dolor tempor, eu semper eros bibendum. Integer vehicula enim nisl. Pellentesque porttitor sapien vitae metus semper, suscipit interdum felis placerat. Donec id eros ut odio eleifend aliquam a quis quam.
+        p.f-body
+          | James B. Bowman, III, M.D.
+          br
+          |     Personal Heath Care Alternatives Group, Rockville, MD
+          br
+          a(href='mailto:jimbowend@yahoo.com') jimbowend@yahoo.com
+        p.f-body
+          em No potential conflict of interest relevant to this letter was reported.
+        .m-collapsible(data-behavior='CollapsibleArea')
+          button.m-collapsible__button-trigger.f-ui(type='button', data-collapsible-trigger='', aria-controls='collapsible-020387', aria-expanded='false')
+            | 2 References
+            svg.icon--triangle
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--triangle')
+          #collapsible-020387.m-collapsible__block(data-collapsible-block='', aria-hidden='true')
+            .m-collapsible__content
+              ol.m-article-references
+                li#cite_note_1.m-article-references__item
+                  p.f-body--sm
+                    | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+                  ul.m-article-references__links.f-body--sm
+                    li
+                      a(href='#') Cross Ref
+                    li
+                      a(href='#') Web of Science
+                    li
+                      a(href='#') Medline
+                li#cite_note_2.m-article-references__item
+                  p.f-body--sm
+                    | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+                  ul.m-article-references__links.f-body--sm
+                    li
+                      a(href='#') Cross Ref
+                    li
+                      a(href='#') Web of Science
+                    li
+                      a(href='#') Medline
+      section.m-letter
+        header.m-letter__header
+          p.m-letter__type.f-caps Correspondence
+          h2.m-letter__title.f-h5 Antidrug Antibodies in Patients Treated with Alirocummab
+          p.m-letter__authors.f-author J.M Beaten and Others
+        p.f-body
+          | Pellentesque efficitur massa nec ex porttitor mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vel sodales nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec iaculis condimentum enim in iaculis. Praesent condimentum maximus turpis ut scelerisque. Cras facilisis libero vitae nisi lacinia malesuada. Nulla convallis velit et facilisis lacinia.
+        p.f-body
+          | Sed vehicula tincidunt enim eget viverra. Fusce lobortis turpis sit amet sagittis tincidunt. Nunc purus nulla, laoreet ut placerat a, pellentesque imperdiet nunc. Vivamus ullamcorper non est vitae porta. Nulla volutpat ornare pharetra. Nam vestibulum dui non ligula vehicula, in blandit eros auctor. Nulla aliquam eros quis velit bibendum, et blandit lacus varius. Proin non risus velit. Mauris sagittis condimentum velit. Quisque vel lorem vitae velit tristique dictum. Donec a ex accumsan, sodales magna at, porta nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vulputate ante eget dolor tempor, eu semper eros bibendum. Integer vehicula enim nisl. Pellentesque porttitor sapien vitae metus semper, suscipit interdum felis placerat. Donec id eros ut odio eleifend aliquam a quis quam.
+        p.f-body
+          | James B. Bowman, III, M.D.
+          br
+          |     Personal Heath Care Alternatives Group, Rockville, MD
+          br
+          a(href='mailto:jimbowend@yahoo.com') jimbowend@yahoo.com
+        p.f-body
+          em No potential conflict of interest relevant to this letter was reported.
+        .m-collapsible(data-behavior='CollapsibleArea')
+          button.m-collapsible__button-trigger.f-ui(type='button', data-collapsible-trigger='', aria-controls='collapsible-626346', aria-expanded='false')
+            | 2 References
+            svg.icon--triangle
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--triangle')
+          #collapsible-626346.m-collapsible__block(data-collapsible-block='', aria-hidden='true')
+            .m-collapsible__content
+              ol.m-article-references
+                li#cite_note_1.m-article-references__item
+                  p.f-body--sm
+                    | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+                  ul.m-article-references__links.f-body--sm
+                    li
+                      a(href='#') Cross Ref
+                    li
+                      a(href='#') Web of Science
+                    li
+                      a(href='#') Medline
+                li#cite_note_2.m-article-references__item
+                  p.f-body--sm
+                    | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+                  ul.m-article-references__links.f-body--sm
+                    li
+                      a(href='#') Cross Ref
+                    li
+                      a(href='#') Web of Science
+                    li
+                      a(href='#') Medline
+      section.m-letter
+        header.m-letter__header
+          p.m-letter__type.f-caps Correspondence
+          h2.m-letter__title.f-h5 Antidrug Antibodies in Patients Treated with Alirocummab
+          p.m-letter__authors.f-author J.M Beaten and Others
+        p.f-body
+          | Pellentesque efficitur massa nec ex porttitor mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas vel sodales nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec iaculis condimentum enim in iaculis. Praesent condimentum maximus turpis ut scelerisque. Cras facilisis libero vitae nisi lacinia malesuada. Nulla convallis velit et facilisis lacinia.
+        p.f-body
+          | Sed vehicula tincidunt enim eget viverra. Fusce lobortis turpis sit amet sagittis tincidunt. Nunc purus nulla, laoreet ut placerat a, pellentesque imperdiet nunc. Vivamus ullamcorper non est vitae porta. Nulla volutpat ornare pharetra. Nam vestibulum dui non ligula vehicula, in blandit eros auctor. Nulla aliquam eros quis velit bibendum, et blandit lacus varius. Proin non risus velit. Mauris sagittis condimentum velit. Quisque vel lorem vitae velit tristique dictum. Donec a ex accumsan, sodales magna at, porta nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed vulputate ante eget dolor tempor, eu semper eros bibendum. Integer vehicula enim nisl. Pellentesque porttitor sapien vitae metus semper, suscipit interdum felis placerat. Donec id eros ut odio eleifend aliquam a quis quam.
+        p.f-body
+          | James B. Bowman, III, M.D.
+          br
+          |     Personal Heath Care Alternatives Group, Rockville, MD
+          br
+          a(href='mailto:jimbowend@yahoo.com') jimbowend@yahoo.com
+        p.f-body
+          em No potential conflict of interest relevant to this letter was reported.
+        .m-collapsible(data-behavior='CollapsibleArea')
+          button.m-collapsible__button-trigger.f-ui(type='button', data-collapsible-trigger='', aria-controls='collapsible-77db8d', aria-expanded='false')
+            | 2 References
+            svg.icon--triangle
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--triangle')
+          #collapsible-77db8d.m-collapsible__block(data-collapsible-block='', aria-hidden='true')
+            .m-collapsible__content
+              ol.m-article-references
+                li#cite_note_1.m-article-references__item
+                  p.f-body--sm
+                    | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+                  ul.m-article-references__links.f-body--sm
+                    li
+                      a(href='#') Cross Ref
+                    li
+                      a(href='#') Web of Science
+                    li
+                      a(href='#') Medline
+                li#cite_note_2.m-article-references__item
+                  p.f-body--sm
+                    | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.
+                  ul.m-article-references__links.f-body--sm
+                    li
+                      a(href='#') Cross Ref
+                    li
+                      a(href='#') Web of Science
+                    li
+                      a(href='#') Medline
+      p.o-article-body__collapsible-close-link
+        button.a-btn.a-btn--fake-link-secondary(data-collapsible-close='') Close Letters
+section#article_comments.o-article-body__section.o-article-body__section--collapsible(data-behavior='CollapsibleArea', data-article-section-title='Comments')
+  h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Comments toggle', aria-controls='collapsible-51ea2a', aria-expanded='false')
+    | Comments 
+    em.a-article-h1__count (12)
+    svg.icon--chevron
+      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+  .o-article-body__collapsible(data-collapsible-block='', aria-hidden='true')
+    .o-article-body__collapsible-content
+      .m-comment-form(data-behavior='CommentFormShowHide')
+        button.m-comment-form__show-form-btn.a-btn(data-comment-form-show='') Submit a comment
+        form.m-comment-form__form
+          fieldset.m-comment-form__fieldset
+            legend
+              | Post a Comment
+              button.m-comment-form__hide-form-btn(data-comment-form-hide='')
+                svg.icon--close(aria-hidden='true')
+                  use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--close')
+            p.m-comment-form__note.f-ui
+              | Signed in as 
+              a(href='#') Marius Roosendaal
+              |  (
+              a(href='#') not Marius Roosendaal
+              | ?)
+            ol.m-comment-form__fields-list
+              li
+                label.a-label(for='comment_title') Comment Title
+                input#comment_title(type='text', name='comment_title')
+              li
+                label.a-label(for='relavent_financial_associations') Relevant Financial Associations
+                span.a-form-select(data-behavior='FormSelectFocus')
+                  select(name='relavent_financial_associations')
+                    option All content
+                    option Option 1
+                    option Option 2
+              li
+                label.a-label(for='comment_body') Comment
+                textarea#comment_body(name='comment_body')
+          p.m-comment-form__btns
+            button.a-btn(type='submit')
+              | Submit
+              svg.icon--arrow(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+            a.a-btn.a-btn--fake-link-secondary(href='#comment_guidelines', data-behavior='ShowPopupTip', data-popup-content-ids='comment_guidelines') Guidelines
+          #comment_guidelines.m-popup-tip-content
+            p.f-body--xs
+              | Mauris ac tortor pellentesque, ultrices ante nec, lobortis mauris. Vivamus hendrerit nulla sit amet purus dignissim, facilisis ornare nisl aliquet. Integer quis ligula mi. Phasellus ut leo orci. Proin consequat eros vel vulputate ultrices. Donec et ante at nisl fringilla lobortis eu nec tellus. Nunc facilisis, neque vitae luctus molestie, risus neque bibendum enim, vitae dictum mauris odio sed massa.
+            p.f-body--xs
+              a(href='#') Guidelines for user-generated content
+      nav.m-comment-filters
+        ul.m-comment-filters__items
+          li.m-comment-filters__item.f-ui Showing 1–5 of 13 comments
+          li.m-comment-filters__item.f-ui
+            a(href='#')
+              svg.icon--clock(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--clock')
+              | Contributors
+          li.m-comment-filters__item.f-ui
+            span.a-dropdown(aria-title='sort by', data-behavior='Dropdown', tabindex='0')
+              strong Newest
+              ul
+                li
+                  a(href='#') Newest
+                li
+                  a(href='#') Oldest
+                li
+                  a(href='#') Most Cited
+      .m-comment
+        .m-comment__meta
+          p.f-body--sm
+            a(href='comment_author_1', data-behavior='ShowPopupTip', data-popup-content-ids='comment_author_1')
+              | Terry Hannan Giambatista Gorhdo, FRACP 
+              svg.icon--triangle
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--triangle')
+            br
+            |       Dec 20, 2016
+          #comment_author_1.m-popup-tip-content
+            p.f-body--xs
+              strong Terry Hannan Giambatista Gorhdo, FRACP
+              br
+              | Physician, Internal Medicine 
+              br
+              |  Disclosures: None 
+              br
+              em Boston, Ma
+        .m-comment__body
+          p.m-comment__title.f-body--sm
+            strong Towards a more personalized and safe approach to AF patients
+          p.f-body--sm
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fugit, cupiditate, a necessitatibus repellendus optio pariatur architecto culpa amet! Animi provident tempore necessitatibus repudiandae incidunt officia, ipsam quas magnam ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga a delectus doloremque id, fugiat accusamus nam mollitia, voluptatem possimus quos rerum, animi. Fuga reprehenderit, enim magni magnam fugit, deserunt culpa! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi unde optio delectus maxime quasi ab est tempore reiciendis quisquam, tempora magni quos. Quasi a, quis dignissimos dolorum nihil eius?
+          .m-boxed-text
+            p.m-comment__title.f-body--sm
+              strong Editor’s Comment
+            p.f-body--sm Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            p.f-body--sm
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores reiciendis sed magni velit quisquam voluptatum soluta, voluptatibus libero dolore quas eaque quo, nostrum provident veritatis! Fugit, distinctio ut earum id.
+            p.f-body--sm
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo omnis exercitationem, minima commodi explicabo facilis fuga voluptates debitis sit repudiandae beatae suscipit quasi nulla architecto ab autem expedita at! Vitae.
+        svg.icon--feature(aria-hidden='true')
+          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--feature')
+      .m-comment
+        .m-comment__meta
+          p.f-body--sm
+            a(href='comment_author_1', data-behavior='ShowPopupTip', data-popup-content-ids='comment_author_2')
+              | Frank Giambatista, MD 
+              svg.icon--triangle
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--triangle')
+            br
+            |       Dec 20, 2016
+          #comment_author_2.m-popup-tip-content
+            p.f-body--xs
+              strong Frank Giambatista, MD
+              br
+              | Physician, Internal Medicine 
+              br
+              |  Disclosures: None 
+              br
+              em Boston, Ma
+        .m-comment__body
+          p.m-comment__title.f-body--sm
+            strong Voluptatem possimus quos rerum
+          p.f-body--sm
+            | Sit amet, consectetur adipisicing elit. Et fugit, cupiditate, a necessitatibus repellendus optio pariatur architecto culpa amet! Animi provident tempore necessitatibus repudiandae incidunt officia, ipsam quas magnam ab. Lorem ipsum dolor sit amet, consectetur adipisicing delectus doloremque id, fugiat accusamus nam mollitia, voluptatem possimus quos rerum, animi. Fuga reprehenderit, enim magni magnam fugit, deserunt culpa! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae sequi unde optio delectus maxime quasi ab est tempore reiciendis quisquam, tempora magni quos.
+      nav.m-paginator
+        ul.m-paginator__prev-next
+          li
+            a.a-btn.a-btn--simple(href='#')
+              span.a-btn__label Next
+              svg.icon--arrow(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+          li.s-disabled
+            a.a-btn.a-btn--simple(href='#')
+              span.a-btn__label Prev
+              svg.icon--arrow.icon--arrow--rev(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')
+        ul.m-paginator__pages
+          li.s-active
+            a(href='#') 1
+          li
+            a(href='#') 2
+          li
+            a(href='#') 3
+          li
+            a(href='#') 4
+          li
+            a(href='#') 5
+          li
+            span …
+          li
+            a(href='#') 99
+        p.m-paginator__current-page Page 1

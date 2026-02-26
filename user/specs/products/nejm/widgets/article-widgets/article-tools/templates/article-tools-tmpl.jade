@@ -1,0 +1,70 @@
+ul.m-article-tools(data-behavior='ArticleTools', data-article-tools='')
+  li.m-article-tools__nav-item
+    button(data-behavior='ToolTip', data-tooltip='Contents', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge', data-article-tool-subnav-toggle='')
+      svg.icon--chapter(aria-label='Contents')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chapter')
+      span.f-caps Contents
+    .m-article-tools__subnav
+      ul.m-article-tools__subnav-list.f-ui(data-behavior='CollapsibleItemsList')
+        li
+          a(href='#article_body', data-target-id='article_body') Body
+        li
+          a(href='#article_source_information', data-target-id='article_source_information') Author Affiliations
+        li
+          a(href='#article_supplementary_material', data-target-id='article_supplementary_material') Supplementary Material
+        li
+          a(href='#article_glossary', data-target-id='article_glossary') Glossary
+        li
+          a(href='#article_references', data-target-id='article_references') References
+        li
+          a(href='#article_citing_articles', data-target-id='article_citing_articles') Citing Articles
+        li
+          a(href='#article_letters', data-target-id='article_letters') Letters
+        li
+          a(href='#article_comments', data-target-id='article_comments') Comments
+  li.m-article-tools__nav-item
+    a.m-article-tools__tool-save(href='/endpoints/Login.php', data-behavior='ToolTip', data-tooltip='Sign In or Create Account to save this article', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge')
+      svg.icon--save(aria-label='Sign In or Create Account to save this article')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--save')
+  li.m-article-tools__nav-item
+    a(href='#', data-behavior='ToolTip', data-tooltip='Download PDF', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge')
+      svg.icon--download(aria-label='Download PDF')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--download')
+  li.m-article-tools__nav-item
+    button(data-behavior='ToolTip', data-tooltip='Share article', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge', data-article-tool-subnav-toggle='')
+      svg.icon--share(aria-label='Share article')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--share')
+      span.f-caps Share
+    .m-article-tools__subnav
+      ul.m-article-tools__subnav-list.f-ui
+        li
+          a(href='#') Facebook
+        li
+          a(href='#') Twitter
+        li
+          a(href='#') Google+
+        li
+          a(href='#') LinkedIn
+        li
+          a(href='#') Email
+        li
+          a(href='#', data-behavior='CopyUrl') Copy Url
+  li.m-article-tools__nav-item
+    a(href='#', data-behavior='ToolTip', data-tooltip='Permissions', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge')
+      svg.icon--permissions(aria-label='Permissions')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--permissions')
+  li.m-article-tools__nav-item
+    button(data-behavior='ToolTip', data-tooltip='More', data-tooltip-direction='right', data-tooltip-breakpoints='large xlarge xxlarge', data-article-tool-subnav-toggle='')
+      svg.icon--more(aria-label='More article tools')
+        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--more')
+      span.f-caps More
+    .m-article-tools__subnav
+      ul.m-article-tools__subnav-list.f-ui
+        li
+          a(href='#') Download citation
+        li
+          a(href='#') Alerts
+        li
+          a(href='#') Download Slides
+        li
+          a(href='#') Submit a letter

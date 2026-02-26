@@ -1,0 +1,16 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-parent-item-tmpl
+
+block volume
+    if data.url
+        a(href=data.url)
+            if (data) && (data.volume)
+                span.comma Vol. #{data.volume}
+
+            if (data) && (data.issue)
+                | Issue #{data.issue}
+    else
+        if (data) && (data.volume)
+            span.comma Vol. #{data.volume}
+
+        if (data) && (data.issue)
+            | Issue #{data.issue}

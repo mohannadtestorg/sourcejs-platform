@@ -1,0 +1,20 @@
+.figure {
+    margin: 0;
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    &__caption {
+        font-size: 1rem;
+        font-style: normal;
+        @include media('>=phone') {
+            font-style: italic;
+        }
+        @include media('>=desktop') {
+            font-size: .89rem;
+
+        }
+    }
+}
+

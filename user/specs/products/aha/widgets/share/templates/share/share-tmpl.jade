@@ -1,0 +1,27 @@
+extends ../../../../../../ux3/widgets/share/templates/share/share-tmpl
+
+block addThis
+    ul.coolBar__drop.fixed.rlist(data-db-target-of=thisWidget.id id=thisWidget.id + "_Pop")
+        | !{pb.renderDropzone(thisWidget, "shareBlock")}
+        if (data && data.services)
+            each service, l in data.services
+                li
+                    a(class="addthis_button_" + service.code)
+                        if (service.icon)
+                            i.at-icon-wrapper(aria-hidden="true" class=service.icon)
+                        if(service.name)
+                            block shareServiceName
+                                span !{service.name}
+        if thisWidget.properties && thisWidget.properties.more == 'true'
+            li
+                a.addthis_button_compact(aria-label="More options")
+
+block shareController
+    a.coolBar__ctrl(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" data-slide-target= "#" + thisWidget.id + "_Pop")
+        i.icon-Icon_Share(aria-hidden="true")
+        span.hidden-xs.hidden-sm Share
+
+block shareBlock
+    +addThis()
+
+

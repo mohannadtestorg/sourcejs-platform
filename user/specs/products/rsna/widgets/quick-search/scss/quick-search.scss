@@ -1,0 +1,164 @@
+.quick-search {
+
+    @include media('<desktop') {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    &__dropBlock {
+        background-color: $tertiary-darken-bg-color;
+
+        @include media("<=tablet") {
+            margin-top: 28px;
+        }
+
+
+        .quick-search__button {
+            background-color: transparent;
+        }
+    }
+
+    .dropBlock {
+        a {
+            font-weight: 600;
+            color: $primary-link-color;
+        }
+        & > a {
+            border: 1px solid $secondary-border-color;
+        }
+
+        i {
+            padding: 3px 10px;
+            color: $primary-link-color;
+        }
+    }
+
+    input {
+        border: 1px solid $secondary-border-color;
+        color: $primary-link-color;
+        font-weight: 600;
+        font-size: $h6-font-size;
+        outline: none;
+    }
+
+    &__adv-search-link, &-advanced-link {
+        line-height: 38px;
+        float: right;
+        color: $primary-link-color;
+        font-size: $h6-font-size;
+        font-weight: 600;
+
+        @include media('<desktop') {
+            line-height: normal;
+        }
+
+        &:hover {
+            font-weight: 600;
+        }
+    }
+
+    &__button {
+        background-color: transparent;
+        font-size: $icon-font-size;
+        font-weight: 600;
+        margin: 0px;
+        width: auto;
+
+        &:hover {
+            color: $primary-link-color;
+            background-color: transparent;
+        }
+
+        @include media('<desktop') {
+            right: 0px;
+        }
+    }
+
+    &__col-1 {
+        width: 160px;
+        float: left;
+
+        @include media('<desktop') {
+            float: none;
+            width: auto;
+        }
+    }
+
+    &__col-2 {
+        width: calc(100% - 290px);
+        padding: 0px 15px;
+        position: relative;
+        float: left;
+
+        @include media('<desktop') {
+            float: none;
+            width: auto;
+            padding: 0px;
+        }
+    }
+
+    &__col-3 {
+        width: 130px;
+        float: left;
+
+        @include media('<desktop') {
+            float: none;
+            width: auto;
+        }
+    }
+
+    .option-citation {
+        @include media('<desktop') {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.quickSearchRegion.dark {
+    background-color: $tertiary-darken-bg-color;
+
+    .row {
+        margin: 0px;
+
+        @include media('<desktop') {
+            margin: 0px -15px;
+        }
+    }
+
+    .quick-search__button {
+        background-color: transparent;
+    }
+}
+
+.quick-menu__item .icon-search {
+    font-size: $icon-font-size;
+    margin: 0px;
+}
+
+.header--quick-menu {
+.header__search {
+    & > a {
+        padding: 0 10px;
+        color: $primary-link-color;
+        border-right: 1px solid $primary-border-color;
+
+        @include media('<tablet') {
+            border-right: none;
+        }
+
+        i {
+            margin: 0;
+            font-size: $h3-font-size;
+            line-height: 36px;
+
+            @include media('<tablet') {
+                line-height: normal;
+            }
+        }
+
+        span {
+            display: none;
+        }
+    }
+}
+}

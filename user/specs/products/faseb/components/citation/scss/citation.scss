@@ -1,0 +1,201 @@
+.citation {
+
+    &__top {
+        padding: 15px 0px 5px 0px;
+        margin-top: 0px;
+
+        @include media('<tablet') {
+            text-align: left;
+        }
+
+        .article__access__type {
+            &:before {
+                content: "|";
+                padding: 0 5px;
+                font-weight: normal;
+                color: $secondary-text-color;
+                font-weight: normal;
+            }
+
+            &:empty {
+                display: none;
+            }
+        }
+
+        span.article__breadcrumbs {
+            font-weight: bold;
+            margin-right: 0px;
+
+            &:after {
+                content: "|";
+                padding: 0 5px;
+                font-size: $x-small-font-size;
+                color: $secondary-text-color;
+                font-weight: normal;
+            }
+
+            &:empty {
+                display: none;
+            }
+
+            .separator:after {
+                content: "|";
+                font-size: $x-small-font-size;
+                color: $secondary-text-color;
+                font-weight: normal;
+            }
+
+            nav {
+                margin-right: 0px;
+            }
+        }
+
+        a.article__tocHeading {
+            margin-bottom: 0px;
+            margin-top: 0px;
+            display: inline;
+
+            &.separator~a:before {
+                display: none;
+            }
+        }
+
+        span.article__tocHeading {
+            &:after {
+                display: none;
+            }
+        }
+
+        span.article__breadcrumbs, span.article__tocHeading {
+            display: inline;
+            margin-bottom: 0px;
+            font-size: $x-small-font-size;
+            color: $secondary-text-color;
+        }
+        span.article__access {
+            font-size: $x-small-font-size;
+            float: none;
+            i {
+                font-size: $h6-font-size;
+            }
+
+
+            .article__cc {
+                &:before {
+                    color: $secondary-text-color;
+                    font-weight: normal;
+                }
+                /*
+                @include media('<tablet') {
+                    display: none;
+                }*/
+            }
+        }
+    }
+
+    &__title {
+        @include media('>=tablet') {
+            min-height: 55px;
+        }
+    }
+
+    .loa-wrapper {
+        margin-bottom: 15px;
+
+        a.author-name {
+            color: $secondary-text-color;
+            font-size: $h6-font-size;
+            padding: 0px;
+
+            &:hover {
+                color: $primary-link-color;
+            }
+
+            span {
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+        }
+
+        button.loa-toggle {
+            color: $secondary-text-color;
+            font-size: $h6-font-size;
+            margin-bottom: 0px;
+            outline: none;
+
+            i {
+                margin-left: 20px;
+            }
+        }
+
+    }
+
+    .mobile-authors {
+        color: $secondary-text-color;
+
+        i {
+            color: $primary-link-color;
+        }
+
+        li {
+            margin-right: 5px;
+        }
+
+        ul ~span, i.icon-arrow_r {
+            color: $primary-link-color;
+        }
+    }
+
+    .article__corrections {
+        .corrections__ctrl {
+            color: $primary-bg-color ;
+            font-size: $h6-font-size;
+
+            span.corrections__label {
+                line-height: normal;
+            }
+
+            i {
+                margin-left: 20px;
+            }
+        }
+
+        i.corrections__icon {
+            color: $primary-bg-color;
+            font-size: $h4-font-size;
+        }
+        .corrections__content {
+            padding: 0px 0px 10px 40px;
+        }
+    }
+
+}
+
+@include media('>desktop', '<large') {
+    @media screen and (max-height: $pc_sm_height) {
+        .citation {
+            &__title {
+                font-size: $h4-font-size;
+
+                h1 {
+                    font-size: $h4-font-size;
+                }
+            }
+        }
+
+        .article__body {
+            h2 {
+                font-size: $h4-font-size;
+            }
+            h3 {
+                font-size: 1.0625rem;
+            }
+            h4 {
+                font-size: $h5-font-size;
+            }
+            h5 {
+                font-size: 0.9375rem;
+            }
+        }
+    }
+}

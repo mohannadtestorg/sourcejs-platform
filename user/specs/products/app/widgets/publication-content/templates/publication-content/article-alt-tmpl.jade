@@ -1,0 +1,29 @@
+extends ../article/article-tmpl.jade
+
+block articleBodyClasses
+    -var articleBodyClasses='article__body psych__body'
+
+block includeCoolbar
+    script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-4faab26f2cff13a7')
+    .article-inline-share
+        ul.rlist.addthis.addthis_toolbox.addthis_default_style.addthis_32x32_style.w-slide--list
+            li.article-inline-share__item
+                a.addthis_button_facebook
+                    i.at-icon-wrapper.icon-facebook(aria-hidden='true')
+            li.article-inline-share__item
+                a.addthis_button_twitter
+                    i.at-icon-wrapper.icon-twitter(aria-hidden='true')
+            li.article-inline-share__item
+                a.addthis_button_linkedin
+                    i.at-icon-wrapper.icon-linkedin(aria-hidden='true')
+            li.article-inline-share__item
+                a.addthis_button_email
+                    i.at-icon-wrapper.icon-Icon_mail(aria-hidden='true')
+
+block tabsContainer
+    .col-sm-4.col-md-4.col-lg-3.hidden-xs.hidden-sm.sticko__parent
+        | !{pb.renderDropzone(thisWidget, "articleAdvertisement")}
+
+block contentClasses
+    -var contentClasses="col-sm-8 col-md-8 col-lg-9 article__content psych-article__content"
+

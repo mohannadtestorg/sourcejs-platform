@@ -1,0 +1,40 @@
+.error-page {
+    padding: 40px;
+    margin: 0 auto;
+    h1.page__header {
+        font-size: 5rem;
+        line-height: 5rem;
+        color: $tertiary-darken-color;
+        text-align: left;
+        @include media('<tablet') {
+            text-align: center;
+        }
+    }
+    h2.subtitle {
+        margin-bottom: 40px;
+    }
+    ul {
+        padding-left: 0;
+        list-style: none;
+        margin: 0 0 30px 0;
+        li {
+            &:before {
+                display: inline-block;
+                content: '-';
+                margin-right: 6px;
+            }
+        }
+    }
+    button {
+        text-transform: uppercase;
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    img {
+        width: 80%;
+        margin: 3rem auto;
+    }
+    @include media('<tablet') {
+        text-align: center;
+    }
+}

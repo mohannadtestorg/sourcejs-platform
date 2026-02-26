@@ -1,0 +1,68 @@
+.alerts .account-tab__nav {
+    a {
+        font-size: 1rem;
+    }
+}
+
+.alert {
+    &__freq {
+        float: left;
+        .jcf-select, .left-side-label label, .input-group {
+            @include media('>=tablet') {
+                width: auto;
+            }
+            vertical-align: baseline;
+            width: 100%;
+        }
+        .jcf-select {
+            border-color: #aaa;
+        }
+    }
+    &__format {
+        float: right;
+        padding-top: 7px;
+        text-align: right;
+        .left-side-label {
+            .input-group {
+                margin-left: 0.5rem;
+                width: auto;
+            }
+            label {
+                width: auto;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    &__sort {
+        .sortby__dropdown {
+            display: flex;
+            align-items: center;
+        }
+    }
+    &__accordion {
+        margin-top: 2.5rem;
+        h5 {
+            margin: 0;
+        }
+        .accordion {
+            &__control {
+                padding-bottom: 0.875rem;
+                border-bottom: 1px solid $divider-color;
+                display: flex;
+                &:before {
+                    content: "\e625";
+                    font-family: icomoon;
+                    font-size: 0.75rem;
+                    margin-right: 0.5rem;
+                    flex: 0 0 18px;
+                }
+                &.js--open:before {
+                    content: "\e60b";
+                    font-size: 0.5rem;
+                }
+            }
+        }
+
+    }
+}

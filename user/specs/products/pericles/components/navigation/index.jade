@@ -1,0 +1,393 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+
+    section.source_section
+        h2 Example
+
+
+        h3 Page menu
+        markdown
+            p we are using `HTML menu structure` for mobile view and `menu widget` for desktop view, used in journal pages and toc
+            small note: we are using the transplant functionality to append the content for the small screen size "html structure"
+        .source_example
+            .pages-nav.hidden-xs.hidden-sm.hidden-md
+                | !{pb.render('navigation', 'navigation/demo/ext-menu', 'page-menu-data.json', 'pericles')}
+
+
+            .pages-nav.hidden-lg
+                .pages-nav--res.container
+                    ul.rlist--inline.pull-left
+                        li
+                            a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                i.icon-toc(aria-hidden='true')
+                                span Journal
+
+                            #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                .transplant.showit(data-target='#menu-item-1, #menu-item-2, #menu-item-4' data-remove='false' data-toggle='transplant' data-direction='from' data-transplant='self')
+                        li
+                            a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                i.article-img-icon
+                                    img(src='https://image.ibb.co/fSKxJQ/articles_1.png', alt="")
+                                span Articles
+
+                            #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                .transplant.showit(data-target='#menu-item-3' data-remove='false' data-toggle='transplant' data-direction='from' data-transplant='self')
+
+                    ul.rlist--inline.pull-right
+                        li
+                            a(href='#', data-db-target-for='actions-list', data-db-switch='rotate')
+                                span Actions
+                                i.icon-chevron-down(aria-hidden='true')
+
+                            #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                .transplant.showit(data-target='.social-media' data-remove='false' data-toggle='transplant' data-direction='from' data-transplant='self')
+
+
+        h3 AG pages main menu
+        markdown
+            p `Html structure` for the AG pages main menu
+        .source_example
+
+            style.
+                .pageHeader {
+                    position: static !important;
+                }
+
+            div.pageHeader(style="height:100px")
+                a.hubpage-menu__burger.hidden-lg(href='#main1', title='menu drawer' data-db-switch="icon-close_thin" data-db-target-for="hub-menu")
+                    i.icon-menu2(aria-hidden='true')
+                    span
+            .hubpage-menu
+                nav.container.hubpage-menu__nav.visible-lg.dropBlock__holder(role='navigation' data-db-target-of="hub-menu")
+                    ul.pull-left.rlist--inline
+                        li.dropdown.menu-parent(role="menuitem" tabindex="-1" aria-label="Journals")
+                            a#main1-1.dropdown__toggle.w-slide__btn(href='https://icomoon.io/app/#/select/font', title='Journals', data-toggle='dropdown' data-slide-target="#hubMain-sub-1")
+                                span Journals
+                                i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+
+                            div#hubMain-sub-1.dropdown__menu(aria-labelledby='main1-1', aria-hidden='true', role='menu')
+                                .menu-items-container
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earths Future')
+                                            a(href='#', title='Earths Future')
+                                                span Earth's Future
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth and Space Science')
+                                            a(href='#', title='Earth and Space Science')
+                                                span Earth and Space Science
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry, Geophysics, Geosystems')
+                                            a(href='#', title='Geochemistry, Geophysics, Geosystems')
+                                                span Geochemistry, Geophysics, Geosystems
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='GeoHealth')
+                                            a(href='#', title='GeoHealth')
+                                                span GeoHealth
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysical Research Letters')
+                                            a(href='#', title='Geophysical Research Letters')
+                                                span Geophysical Research Letters
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Global Biogeochemical Cycles')
+                                            a(href='#', title='Global Biogeochemical Cycles')
+                                                span Global Biogeochemical Cycles
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                            a(href='#', title='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                                span Journal of Advances in Modeling Earth Systems (JAMES)
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography')
+                                            a(href='#', title='Paleoceanography')
+                                                span Paleoceanography
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Radio Science')
+                                            a(href='#', title='Radio Science')
+                                                span Radio Science
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Reviews of Geophysics')
+                                            a(href='#', title='Reviews of Geophysics')
+                                                span Reviews of Geophysics
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather')
+                                            a(href='#', title='Space Weather')
+                                                span Space Weather
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather Quarterly')
+                                            a(href='#', title='Space Weather Quarterly')
+                                                span Space Weather Quarterly
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Tectonics')
+                                            a(href='#', title='Tectonics')
+                                                span Tectonics
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Water Resources Research')
+                                            a(href='#', title='Water Resources Research')
+                                                span Water Resources Research
+
+                                    h6 Eos
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org')
+                                            a(href='#', title='Eos.org')
+                                                span Eos.org
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org Eos Archives (1920-2014)')
+                                            a(href='#', title='Eos.org Eos Archives (1920-2014)')
+                                                span Eos.org Eos Archives (1920-2014)
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry, Geophysics, Geosystems')
+                                            a(href='#', title='Geochemistry, Geophysics, Geosystems')
+                                                span Geochemistry, Geophysics, Geosystems
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='GeoHealth')
+                                            a(href='#', title='GeoHealth')
+                                                span GeoHealth
+
+                                    h6 Journal of Geophysical Research
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheres')
+                                            a(href='#', title='Atmospheres')
+                                                span Atmospheres
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Biogeosciences')
+                                            a(href='#', title='Biogeosciences')
+                                                span Biogeosciences
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Surface')
+                                            a(href='#', title='Earth Surface')
+                                                span Earth Surface
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography')
+                                            a(href='#', title='Paleoceanography')
+                                                span Paleoceanography
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Oceans')
+                                            a(href='#', title='Oceans')
+                                                span Oceans
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Planets')
+                                            a(href='#', title='Planets')
+                                                span Planets
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Solid Earth')
+                                            a(href='#', title='Solid Earth')
+                                                span Solid Earth
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Physics')
+                                            a(href='#', title='Space Physics')
+                                                span Space Physics
+                                    h6 Partnered Journals
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Chinese Journal of Geophysics')
+                                            a(href='#', title='Chinese Journal of Geophysics')
+                                                span Chinese Journal of Geophysics
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Chinese Journal of Geophysics')
+                                            a(href='#', title='Chinese Journal of Geophysics')
+                                                span Chinese Journal of Geophysics
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Interactions')
+                                            a(href='#', title='Earth Interactions')
+                                                span Earth Interactions
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysics')
+                                            a(href='#', title='Geophysics')
+                                                span Geophysics
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='International Journal of Geomagnetism and Aeronomy')
+                                            a(href='#', title='International Journal of Geomagnetism and Aeronomy')
+                                                span International Journal of Geomagnetism and Aeronomy
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Interpretation')
+                                            a(href='#', title='Interpretation')
+                                                span Interpretation
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Nonlinear Processes in Geophysics')
+                                            a(href='#', title='Nonlinear Processes in Geophysics')
+                                                span Nonlinear Processes in Geophysics
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='The Leading Edge')
+                                            a(href='#', title='The Leading Edge')
+                                                span The Leading Edge
+                                                i.icon-export_citation
+
+                        li.dropdown.menu-parent(role="menuitem" tabindex="-1" aria-label="Topics")
+                            a#main1-2.dropdown__toggle.w-slide__btn(href='#', title='Topics', data-toggle='dropdown' data-slide-target="#hubMain-sub-2" )
+                                span Topics
+                                i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+
+                            div#hubMain-sub-2.dropdown__menu(aria-labelledby='main1-2', aria-hidden='true', role='menu')
+                                .menu-items-container
+                                    h6 Eos
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org')
+                                            a(href='#', title='Eos.org')
+                                                span Eos.org
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org Eos Archives (1920-2014)')
+                                            a(href='#', title='Eos.org Eos Archives (1920-2014)')
+                                                span Eos.org Eos Archives (1920-2014)
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry, Geophysics, Geosystems')
+                                            a(href='#', title='Geochemistry, Geophysics, Geosystems')
+                                                span Geochemistry, Geophysics, Geosystems
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='GeoHealth')
+                                            a(href='#', title='GeoHealth')
+                                                span GeoHealth
+
+                                    h6 Journal of Geophysical Research
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheres')
+                                            a(href='#', title='Atmospheres')
+                                                span Atmospheres
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Biogeosciences')
+                                            a(href='#', title='Biogeosciences')
+                                                span Biogeosciences
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Surface')
+                                            a(href='#', title='Earth Surface')
+                                                span Earth Surface
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography')
+                                            a(href='#', title='Paleoceanography')
+                                                span Paleoceanography
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Oceans')
+                                            a(href='#', title='Oceans')
+                                                span Oceans
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Planets')
+                                            a(href='#', title='Planets')
+                                                span Planets
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Solid Earth')
+                                            a(href='#', title='Solid Earth')
+                                                span Solid Earth
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Physics')
+                                            a(href='#', title='Space Physics')
+                                                span Space Physics
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earths Future')
+                                            a(href='#', title='Earths Future')
+                                                span Earth's Future
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth and Space Science')
+                                            a(href='#', title='Earth and Space Science')
+                                                span Earth and Space Science
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry, Geophysics, Geosystems')
+                                            a(href='#', title='Geochemistry, Geophysics, Geosystems')
+                                                span Geochemistry, Geophysics, Geosystems
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='GeoHealth')
+                                            a(href='#', title='GeoHealth')
+                                                span GeoHealth
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysical Research Letters')
+                                            a(href='#', title='Geophysical Research Letters')
+                                                span Geophysical Research Letters
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Global Biogeochemical Cycles')
+                                            a(href='#', title='Global Biogeochemical Cycles')
+                                                span Global Biogeochemical Cycles
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                            a(href='#', title='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                                span Journal of Advances in Modeling Earth Systems (JAMES)
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography')
+                                            a(href='#', title='Paleoceanography')
+                                                span Paleoceanography
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Radio Science')
+                                            a(href='#', title='Radio Science')
+                                                span Radio Science
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Reviews of Geophysics')
+                                            a(href='#', title='Reviews of Geophysics')
+                                                span Reviews of Geophysics
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather')
+                                            a(href='#', title='Space Weather')
+                                                span Space Weather
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather Quarterly')
+                                            a(href='#', title='Space Weather Quarterly')
+                                                span Space Weather Quarterly
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Tectonics')
+                                            a(href='#', title='Tectonics')
+                                                span Tectonics
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Water Resources Research')
+                                            a(href='#', title='Water Resources Research')
+                                                span Water Resources Research
+
+                                    h6 Partnered Journals
+                                    ul.rlist
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Chinese Journal of Geophysics')
+                                            a(href='#', title='Chinese Journal of Geophysics')
+                                                span Chinese Journal of Geophysics
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Chinese Journal of Geophysics')
+                                            a(href='#', title='Chinese Journal of Geophysics')
+                                                span Chinese Journal of Geophysics
+                                                .doi-access-wrapper
+                                                    .access-type.open-access
+                                                        i.icon-icon-lock_open(aria-hidden='true')
+                                                        .doi-access Open access
+
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Interactions')
+                                            a(href='#', title='Earth Interactions')
+                                                span Earth Interactions
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysics')
+                                            a(href='#', title='Geophysics')
+                                                span Geophysics
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='International Journal of Geomagnetism and Aeronomy')
+                                            a(href='#', title='International Journal of Geomagnetism and Aeronomy')
+                                                span International Journal of Geomagnetism and Aeronomy
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Interpretation')
+                                            a(href='#', title='Interpretation')
+                                                span Interpretation
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Nonlinear Processes in Geophysics')
+                                            a(href='#', title='Nonlinear Processes in Geophysics')
+                                                span Nonlinear Processes in Geophysics
+                                                i.icon-export_citation
+                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='The Leading Edge')
+                                            a(href='#', title='The Leading Edge')
+                                                span The Leading Edge
+                                                i.icon-export_citation
+
+                        li(role="menuitem" tabindex="-1" aria-label="Books")
+                            a(href='/action/showPublications?pubType=book') Books
+
+
+
+
+                    div.pull-right
+                        div.social-media.pull-left.visible-lg
+                            a(href='#')
+                                i.icon-facebook-round
+                            a(href='#')
+                                i.icon-twitter-round
+
+                        ul.rlist--inline.pull-right
+                            li
+                                a(href='#') Membership
+                            li
+                                a(href='#') AGU.org
+
+                        div.social-media.hidden-lg
+                            a(href='#')
+                                i.icon-facebook-round
+                            a(href='#')
+                                i.icon-twitter-round
+
+
+
+
+    | #{''}

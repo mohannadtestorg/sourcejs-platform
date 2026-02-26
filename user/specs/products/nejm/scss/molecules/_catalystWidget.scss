@@ -1,0 +1,162 @@
+/*
+
+  Catalyst
+
+  Products Right Rail Widgets
+  Using the HTML code of the existing module. HTML can't be changed ¯\_(ツ)_/¯
+  therefore !important is used a lot below, sorry
+*/
+
+#catalystWidget {
+  position: relative !important;
+  margin: 32px 0 0 !important;
+  padding: 20px 16px !important;
+  background-color: $color__aside-bg--career-center !important;
+  border:0 none !important;
+  width:100% !important;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  .o-col--secondary .o-cols-2\@medium & {
+    @include breakpoint('medium') {
+      margin-top: 0 !important;
+    }
+  }
+
+  .containerBorder.top {
+    background-color:transparent !important;
+    padding:0 !important;
+
+    a {
+      display:block;
+      background-image:url('../images/nejm-catalyst.svg');
+      background-repeat:no-repeat !important;
+      background-position:left center !important;
+      width: 180px !important;
+      height: 48px !important;
+      background-size: 180px 48px !important;
+      padding:0 !important;
+
+      img {
+        display:none !important;
+      }
+    }
+  }
+
+  .outerContainer .containerBorder {
+    a {
+      display:block;
+    }
+
+    img {
+      display:block;
+    }
+  }
+
+  .InsightsCouncilLogo {
+    margin: 16px -16px 0 !important;
+    padding: 0 !important;
+    background-color: #4a2b59 !important;
+
+    a {
+      display: block;
+      width: 100% !important;
+      height: 100px !important;
+      background-image:url('../images/nejm-catalyst-insights.png') !important;
+      background-repeat: no-repeat !important;
+      background-position: 16px 17px !important;
+      background-size: 316px 71px !important;
+
+      img {
+        display:none;
+      }
+    }
+  }
+
+  strong,
+  strong p {
+    display: block;
+    font-family: $sans-serif !important;
+    font-size:15px !important;
+    line-height:20px !important;
+    font-weight:bold !important;
+    color: $color__text--headlines !important;
+
+    .wf-active & {
+      font-family: $sans-serif--loaded !important;
+    }
+  }
+
+  strong p {
+    margin-top: 18px !important;
+    margin-bottom: 1px !important;
+    padding-top: 1px !important;
+  }
+
+  .innerContainer {
+    padding:0 !important;
+    margin:0 !important;
+  }
+
+  ul {
+    position: relative;
+    font-family: $sans-serif !important;
+    font-size:15px !important;
+    line-height:24px !important;
+    margin: 16px 0 -2px !important;
+    padding-top: 2px !important;
+    padding-left: 1em !important;
+
+    .wf-active & {
+      font-family: $sans-serif--loaded !important;
+    }
+
+    li {
+      padding:0 !important;
+      margin:0 !important;
+      list-style-type: disc;
+    }
+
+    li,
+    li span {
+      color: $color__text--secondary !important;
+    }
+  }
+
+  .btnLink {
+    padding-top: 21px !important;
+
+    a {
+      text-align:left !important;
+      display:block !important;
+      width:100% !important;
+      font-weight:normal !important;
+      text-transform:uppercase !important;
+      border-radius:0 !important;
+      margin: 0 -16px 0 0 !important;
+      font-size: 12px !important;
+      font-weight:700 !important;
+      color:$color__text--secondary !important;
+      letter-spacing: .12em !important;
+      padding: 13px 40px 10px 18px !important;
+
+      background-image:url('../images/nejm-catalyst-button.svg') !important;
+      background-repeat:no-repeat !important;
+      background-position: center right !important;
+
+      .wf-active & {
+        font-family: $sans-serif--loaded !important;
+      }
+
+      br {
+        display:none !important;
+      }
+    }
+    p,
+    p a {
+      display: none !important;
+    }
+  }
+}

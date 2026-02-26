@@ -1,0 +1,43 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 News Page
+    section.source_section
+        h2 News Page
+        markdown
+        .source_example
+            | !{pb.render('header',"header/demo/header")}
+            main.content
+                .container.static-page.news-page
+                    h2.news-page__title News
+                    .row.static-page__content
+                        .col-lg-9.col-md-12.col-sm-12
+                            article.news-item
+                                .news-item__header
+                                    h3 Congratulations to our authors' Rainer Weiss, Barry C. Barish and Kip S. Thorne, who have been awarded 2017 Nobel Prize in Physics
+                                    .news-item__meta
+                                        span.news-item__meta__key Date:
+                                        span November 23 2017
+
+                                .news-item__content
+                                    p World Scientific congratulates our authors, Rainer Weiss, Barry C. Barish and Kip S. Thorne, who have been awarded 2017 Nobel Prize in Physics for "decisive contributions to the LIGO detector and the observation of gravitational waves".
+                                    img(src='https://wspc-stag.literatumonline.com/sda/1042/17100502-01.jpg')
+                                    p In celebration of this momentous achievement, World Scientific is providing FREE ACCESS to their contributed chapters. FREE ACCESS ends on 31 Dec 2017:
+                                    ul
+                                        li Observation of Gravitational Waves from a Binary Black Hole Merger
+                                        li LHC to ILC
+                                        li Towards Detection of Gravitational Waves
+                                        li An Overview of Gravitational-Wave Sources
+                        .col-sm-3.static-page__aside
+                            .row
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    h3.section__header.border-bottom newsletter
+                                    | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+                                    //mpu a
+                                    .mpu
+                                .col-lg-12.col-sm-6.col-xs-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

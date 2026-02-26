@@ -1,0 +1,7 @@
+.card.confirmation-dialog
+    p Wiley Online Library
+    p This application (Chemie Into Edition) is requesting access to your Wiley Online Library account.
+    form(method='POST', name='authorizationForm')
+        input(type='hidden', name='oauth_token', value=data.oauthToken)
+        input.btn.btn--full-width(type='submit', name='submitType', value='Confirm')
+        input.btn.btn--full-width.btn--inverse.btn--journal-meta(type='cancel', name='submitType', value='Cancel')

@@ -1,0 +1,26 @@
+
+
+div.pagination
+
+    if (data.prevButton) && (data.prevButton.itemUrl)
+        a.pagination__btn--prev(href=data.prevButton.itemUrl title="Previous")
+            span.pagination__btn--prev__title Previous
+    else
+        span.pagination__btn--prev.disabled
+            span.pagination__btn--prev__title Previous
+
+    ul.rlist--inline.pagination__list
+        each item, l in data.pager
+            li
+                if (item.active) && item.active == 'true'
+                    a(href=item.itemUrl class="active" title=item.text) !{item.text}
+                else
+                    a(href=item.itemUrl title=item.text) !{item.text}
+
+
+    if (data.nextButton) && (data.nextButton.itemUrl)
+        a.pagination__btn--next(href=data.nextButton.itemUrl title="Next")
+            span.pagination__btn--next__title Next
+    else
+        span.pagination__btn--next.disabled
+            span.pagination__btn--next__title Next

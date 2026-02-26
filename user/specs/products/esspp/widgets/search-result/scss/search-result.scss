@@ -1,0 +1,286 @@
+.search {
+    &__filters {
+        background-color: $facet-bg-color;
+        .facets {
+            &__title--main {
+                margin: 0;
+                border-bottom: none;
+                background: white;
+                padding-top: 10px;
+            }
+        }
+
+    }
+
+    &__sort {
+        @include media('<tablet') {
+            i {
+                color: $blue-text-color;
+            }
+
+        }
+    }
+
+    &__item {
+        .item__image {
+            @include media('<desktop') {
+                display: inline-block;
+            }
+            @include media('<tablet') {
+                display: block;
+                width: 50%;
+            }
+        }
+        & + .search__item {
+            margin: 15px 0px;
+        }
+        .meta__footer {
+            .accordion {
+                &__content {
+                    background-color: $accordion-content-bg-color;
+                    font-size: .875rem;
+                }
+                &__control {
+                    margin-bottom: 5px;
+                  width: auto;
+                  display: inline-block;
+                }
+
+            }
+        }
+
+    }
+
+    &-result {
+        &__meta {
+
+            @include media('<tablet') {
+                background-color: transparent;
+            }
+
+            background-color: $facet-bg-color;
+
+            &__top {
+                border: none;
+            }
+
+            .tab__nav {
+                a {
+                    padding: 10px;
+                }
+
+            }
+
+        }
+
+        &__nav {
+
+            @include media('<tablet') {
+                margin: 0 -15px;
+            }
+
+            &__item {
+                padding: 14px 18px;
+                color: $blue-text-color;
+                &.active {
+                    border-color: $blue-text-color;
+                }
+            }
+        }
+
+        .accordion {
+            &__control {
+                color: $blue-text-color;
+                font-size: $smaller-font-size;
+                font-weight: 600;
+                i {
+                    font-size: .4rem;
+                    margin-left: 5px;
+                    margin-top: 6px;
+                }
+
+              &:not(.js--open){
+                i{
+                  padding-right: 2px;
+                }
+              }
+            }
+
+            &__refine {
+                .js--open {
+                    border-color: $blue-text-color;
+                }
+            }
+
+        }
+
+        .meta {
+            &__title {
+                padding-top: 5px;
+
+                a {
+                    color: $blue-text-color;
+                }
+            }
+
+            &__authors {
+                color: $primary-text-color;
+            }
+
+            &__information {
+                font-size: .875rem;
+                color: $ess-secondary-text-color;
+                margin-bottom: 10px;
+
+                .bold {
+                    color: $primary-text-color;
+                    font-weight: 700;
+                }
+                span:not(:first-child) {
+                    padding-right: 5px;
+                }
+
+            }
+
+            &__footer {
+                position: relative;
+                font-size: .875rem;
+                font-weight: bold;
+                .accordion {
+                    display: inline-block;
+                    width: 100%;
+
+                    &__content {
+                        color: $primary-text-color;
+                        font-weight: 100;
+                    }
+                }
+
+                a:not(:last-child):after {
+                    content: "|";
+                    padding: 0 5px;
+                    color: black;
+                }
+
+            }
+
+            &__extraLinks {
+                display: inline-block;
+                font-weight: 600;
+              position: absolute;
+              left: 140px;
+              top: 0;
+              padding-left: 5px;
+            }
+
+            &__info {
+                margin-bottom: 0px;
+            }
+        }
+
+      &__follow {
+        &__item {
+          ~ .search__follow__item {
+            border-left: 1px solid $shadow-color;
+          }
+        }
+      }
+    }
+}
+.jcf-range .jcf-range-wrapper {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.jcf-range .jcf-range-display-wrapper {
+  height: 16px;
+}
+.jcf-range-frequencies {
+  height:16px;
+}
+.jcf-range-frequencies__slice {
+  background: $blue-text-color;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  height: 16px;
+}
+.jcf-range .jcf-range-display {
+  height:16px;
+}
+.jcf-range .jcf-range-track {
+  height:16px;
+}
+.jcf-range .jcf-range-handle {
+  width: 16px;
+  height: 32px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.24);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  top: -4px;
+}
+
+
+
+@include media('<=phone'){
+  .advanced-search {
+    .jcf-select{
+      width: 93%;
+    }
+    .btn {
+      width:100%;
+    }
+  }
+
+  .advanced-search--searchIn {
+    border-bottom: none;
+  }
+
+  .advanced-search--filters label {
+    padding: 0;
+  }
+
+  .timeFrame-to {
+    &:before {
+      content: '';
+      width:122px;
+      display: inline-block;
+    }
+  }
+
+  form.quick-search--form {
+    position: relative;
+    .quickSearchRegion {
+      .quick-search__button {
+        right:0px;
+      }
+    }
+  }
+
+
+
+  .advancedSearch__tabs .advancedSearch__tabs__nav{
+    background: $basic-bg-color;
+    margin: 0 -15px;
+    margin-bottom: 10px;
+    li {
+      margin-bottom:0px;
+    }
+    li a {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      text-align: center;
+      padding: 10px 16px;
+      span {
+        line-height: normal;
+      }
+    }
+    li.active a {
+      border-bottom-color: $ess-primary-text-color;
+    }
+  }
+}

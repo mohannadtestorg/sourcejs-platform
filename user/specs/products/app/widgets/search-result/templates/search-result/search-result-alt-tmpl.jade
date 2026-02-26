@@ -1,0 +1,24 @@
+extends search-result-tmpl
+
+
+block searchResultTop
+
+block searchResultTopShowPublications
+    div.search-result__meta
+        div.pull-left.search__result
+            if (data.serviceName == "showPublications")
+                a(href="#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                    i(class="icon-filter_list inline-icon" aria-hidden="true")
+                    span Filters
+
+        div.pull-right.search__bottom.clearfix
+            if (data.serviceName == "doSearch")
+                a(href = "#" class="visible-xs visible-sm pull-right w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+                    i(class="icon-filter_list inline-icon" aria-hidden="true")
+                    span Filters
+
+
+block defineUserLayout
+    -searchlistClass="search-result__books "
+    -searchlistClass=searchlistClass + "search-result--tile";
+    -isTileLayoutActive=true;

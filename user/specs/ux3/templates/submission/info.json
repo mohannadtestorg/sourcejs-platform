@@ -1,0 +1,87 @@
+{
+    "title": "Submission Tool page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "basicMetadata":{
+            "$pug": {
+                "template": "../../widgets/pd-basic-metadata/templates/pd-basic-metadata/pd-basic-metadata-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-basic-metadata/templates/data/basic-metadata.json"
+                }
+            }
+        },
+        "category":{
+            "$pug": {
+                "template": "../../widgets/pd-editorial-category/templates/pd-editorial-category/pd-editorial-category-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-editorial-category/templates/data/category.json"
+                }
+            }
+        },
+        "categories":{
+            "$pug": {
+                "template": "../../widgets/pd-search-categories/templates/pd-search-categories/pd-search-categories-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-search-categories/templates/data/categories.json"
+                }
+            }
+        },
+        "tableAuthors":{
+            "$pug": {
+                "template": "../../widgets/pd-authors/templates/pd-authors/pd-authors-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-authors/templates/data/data.json"
+                }
+            }
+        },
+        "tableFunders":{
+            "$pug": {
+                "template": "../../widgets/pd-grants/templates/pd-grants/pd-grants-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-grants/templates/data/data.json"
+                }
+            }
+        },
+        "pdfUploader":{
+            "$pug": {
+                "template": "../../widgets/pd-pdf/templates/pd-pdf/pd-pdf-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-pdf/templates/data/data.json"
+                }
+            }
+        },
+        "tableFiles":{
+            "$pug": {
+                "template": "../../widgets/pd-supplemental-files/templates/pd-supplemental-files/pd-supplemental-files-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-supplemental-files/templates/data/data.json"
+                }
+            }
+        },
+        "tableLinks":{
+            "$pug": {
+                "template": "../../widgets/pd-supplemental-links/templates/pd-supplemental-links/pd-supplemental-links-update-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/pd-supplemental-links/templates/data/data.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

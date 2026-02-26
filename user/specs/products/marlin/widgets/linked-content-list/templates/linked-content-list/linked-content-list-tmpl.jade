@@ -1,0 +1,24 @@
+mixin printArticleBody(article)
+    li.linked-article__item
+        a.linked-article__title(href = article.FullTextUrl, title=article.ArticleTitle) !{article.ArticleTitle}
+        .linked-article__labels !{article.ArticleAuthors}
+        .linked-article__details
+            i !{article.JournalName},
+            span  !{article.IssueVolume}, !{article.IssueNumber}, !{article.IssuePages}
+        ul.rlist.rlist--inline.linked-article__links.clearfix
+            if (article.FullTextUrl)
+                li.bulleted
+                    a.faded(href=article.FullTextUrl, title="Full-Text") Full-Text
+            if (article.PdfUrl)
+                li
+                    a(href=article.PdfUrl, title="PDF") PDF
+if (data && thiswidget)
+    section
+        h2.top(id="section-" + thiswidget.id) Linked Article
+        div.section-paragraph.linked-article
+            ul.rlist
+                each article, I in data.sourceArticles
+                    +printArticleBody(article)
+                each article, I in data.targetArticles
+                    +printArticleBody(article)
+

@@ -1,0 +1,86 @@
+mixin errorMsg(errorConditional,errorMsg,errorClass)
+    if (errorConditional)
+        .infoBox
+            i.icon-notice(aria-hidden="true")
+            span.error_msg(class=errorClass)= errorMsg
+
+.brandingDropZone1(data-pb-dropzone="brandingDropZone1")
+    | !{pb.renderDropzone(thisWidget, "brandingDropZone1")}
+
+.co-branding
+    form(action="/action/institutionAdminBannerUpdate" method="post" name="InstitutionAdmin_Banner" enctype="multipart/form-data")
+        if data.antiForgeryToken
+            input(type="hidden" name="anti-forgery-token" value=data.antiForgeryToken)
+
+        if data.error && data.error.message
+            .infoBox.error
+                i.icon-notice(aria-hidden="true")
+                span.error_msg
+                if data.error.message == 'systemError'
+                    | Unfortunately, the system could not process your request. Try again later or&nbsp
+                    a(href="/feedback/show") contact us
+                    |  and we will be happy to help you.
+                else
+                    | !{data.error.message}
+
+        block brandingLogo
+            section.card
+                h2.section__header Add/edit branding logo
+                p.sub Your logo should be a .gif, .jpg, or .png and can be a maximum of 96px wide by 48px high.
+                .bannerImageDropZone(data-pb-dropzone="bannerImageDropZone")
+                    | !{pb.renderDropzone(thisWidget, "bannerImageDropZone")}
+
+                label Branding logo image
+                if(data.bannerImage.internetPath)
+                    img(src="/userimages" + data.bannerImage.internetPath + "?trick=" + data.trick alt=data.bannerImage.description)
+                    div.removeURLImage
+                        button.remove(type="submit" name="removeImage" value='remove')
+                            i.icon-close_thin(aria-hidden="true")
+                            span= 'Remove'
+                else
+                    p.noImage No image uploaded
+
+                if data.uploadImageError
+                    +errorMsg(data.uploadImageError,data.uploadImageError,'error')
+                +errorMsg(data.removeImage,'Your institution logo was removed.','success')
+
+                .uploadImage
+                    label(for="imagebutton") Upload a branding logo image
+                    input#imagebutton(type='file' name='imageFile' size="30")
+                    if data.instLogo && data.instLogo.error
+                        +errorMsg(data.instLogo.error.imageFileRequired,'Please select the image file to upload.','error')
+                        +errorMsg(data.instLogo.error.invalidFileType,'The uploaded file has a wrong type.','error')
+                        +errorMsg(data.instLogo.error.invalidWidth,'The uploaded image has incorrect width. Please fix the image and try again.','error')
+                        +errorMsg(data.instLogo.error.invalidHeight,'The uploaded image has incorrect height. Please fix the image and try again.','error')
+
+                .form-btn
+                    button.btn(type="submit" name="uploadImage" value='update') UPDATE
+
+        block brandingText
+            section.card
+                h2.section__header Add/edit branding text
+                .row
+                    .col-md-3
+                        label(for="cobrandText") Branding text:
+                    .col-md-9
+                        input#cobrandText(type="text" value=data.managedInstitutionBannerText name="banner" size=data.inputSize maxLength=data.inputMaxLength)
+                        p.note The current text is shown above. Edit this text if you wish, and then click Update.
+                        if data.bannerText
+                            +errorMsg(data.bannerText.error && data.bannerText.error.bannerTextRequired,'Please enter banner text','error')
+                            +errorMsg(data.bannerText.success,'Banner text was successfully updated.','success')
+                .form-btn
+                    button.btn(type="submit" name="update" value='update') UPDATE
+
+        block brandingUrl
+            section.card
+                h2.section__header Add/edit your institution's URL
+                .row
+                    .col-md-3
+                        label(for="institutionUrl") !{data.urlLabel}
+                    .col-md-9
+                        input(type="text" name="institutionUrl" id="institutionUrl" value=data.institutionUserUrl)
+                        p.note To add a link to your institution's website, enter the URL in full HTTP format, e.g. https://www.example.com.
+                        if (data.institutionUrlError)
+                            +errorMsg(data.institutionUrlError, data.institutionUrlError,'error')
+                .form-btn
+                    button.btn(type="submit" name="updateInstitutionUrl" id="updateInstitutionUrl" value="updateInstitutionUrl") UPDATE

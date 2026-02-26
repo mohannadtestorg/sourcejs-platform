@@ -1,0 +1,150 @@
+{
+    "title": "TOC page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "meta":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card card--gutter card--shadow meta__body\"><div class=\"meta__left-side\"><h1 class=\"meta__title\">Journal of Aerospace Engineering</h1><div class=\"meta__info\"><p>ISSN (print): 0893-1321 | ISSN (online): 1943-5525</p><p>Frequency: Bimonthly | Sponsored by the Aerospace Division</p></div><p class=\"meta__contrib\"><span class=\"meta__contrib__label\">Editor:</span> Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</p></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--inverse btn--journal-meta\">Submit an article</a><a href\"#=\"href\" #\"=\"\"class=\"btn btn--inverse btn--journal-meta\">Subscribe</a></div></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "loi":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/list-of-issues/templates/list-of-issues/demo/list-of-issues-demo-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/widgets/list-of-issues/templates/data/loi-data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "toc":{
+            "$pug": {
+                "template": "../../widgets/table-of-content/templates/table-of-content/markup.jade",
+                "data": {}
+            }
+        },
+        "nl":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "card--dark",
+                                "card--gutter"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../components/newsletter/templates/data/newsletter.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "news":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<h3 class=\"section__header border-bottom\">News</h3> <div class=\"creative-work\"> <div class=\"hidden-sm hidden-xs\"><a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\"><h5>EDITOR'S CHOICE Efficient Analysis of HALE Aircraft Structure for Static Aeroelastic Behavior</h5></a><p>In this work, the static aeroelastic behavior of flexible aircraft with a high aspect ratio wing undergoing large static deformations has been investigated analytically and numerically. Read more...</p></div><a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\"><img src=\"http://via.placeholder.com/329x176\" alt=\"Bridge Column Maximum Drift Estimation via Computer Vision\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\" class=\"creative-work__img\"></a><div class=\"visible-xs visible-sm\"><a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\"><h5>EDITOR'S CHOICE Efficient Analysis of HALE Aircraft Structure for Static Aeroelastic Behavior</h5></a></div></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "tweets":{
+            "$pug": {
+                "template": "../../../../ux3/components/tweets/templates/tweets/tweets-tmpl.jade",
+                "data": {
+                    "body": [
+                        {
+                            "screenName": "TwitterDev",
+                            "height": "500"
+                        }
+                    ]
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

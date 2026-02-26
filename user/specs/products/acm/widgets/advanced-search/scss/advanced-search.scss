@@ -1,0 +1,87 @@
+.advanced-search {
+  font-size: .75rem;
+
+  &--searchIn {
+    display: inline-block;
+    width: 75%;
+
+  }
+
+  .left-side-label {
+    label {
+      ~ #publicationDate {
+        margin: 0;
+      }
+      ~ input {
+        width: 70%;
+      }
+    }
+    > label {
+      font-size: 1rem;
+      width: 24%;
+      font-style: italic;
+      color: black;
+      border-left: 10px solid;
+      padding-left: 10px;
+    }
+
+  }
+
+  i {
+    color: $primary-blue-text-color;
+  }
+  &__buttons {
+    color: $primary-blue-text-color;
+    .btn {
+      color: $text-onDark;
+      background-color: $primary-blue-text-color;
+      padding: 10px 15px;
+
+      &[disabled="disabled"] {
+        background-color: rgba($primary-blue-text-color, .5);
+      }
+    }
+
+    a{
+      padding: 8px 20px;
+    }
+  }
+
+  &__link{
+    display: none;
+  }
+
+  .label-txt, .jcf-select-text {
+    font-size: .75rem;
+    font-weight: 500;
+    color: $text-onLight;
+  }
+
+  &--filters {
+    border-bottom: 1px solid $secondary-border-color;
+    margin: 0 -15px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    label {
+      ~ .ms-ctn {
+        width: 68%;
+        margin: 0;
+      }
+    }
+  }
+  .filter-date {
+    margin-top: 40px;
+  }
+  .search-within-label {
+    vertical-align: top;
+    margin-top: 10px;
+  }
+  .ms-sel-ctn, input, .jcf-select {
+    border: none;
+    border-bottom: 1px solid $secondary-border-color;
+  }
+
+}
+
+
+

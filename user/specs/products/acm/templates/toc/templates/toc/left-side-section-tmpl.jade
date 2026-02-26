@@ -1,0 +1,25 @@
+.sticko__md.dynamic-sticko
+    .sticko__child
+        .colored-block.tools-box
+            .colored-block__title.clearfix
+                h4 Tools and Resources
+            .colored-block__content
+                | !{pb.render('coolbar-tools', 'data.json')}
+                .colored-block__dash
+
+        .colored-block.sections-box
+            .colored-block__title.clearfix
+                h4 Sections
+            .colored-block__content
+                .parent-item
+                    .basic-info
+                        .vol-issue
+                            span Volume 32
+                            span , Issue 4
+                        .coverDate January 2018
+                | !{pb.render("content-navigation", 'content.json')}
+
+                .sections-block.scroll-to-target
+                    ul.rlist
+                .colored-block__dash
+

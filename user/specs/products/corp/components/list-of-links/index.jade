@@ -1,0 +1,18 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 List of Links
+
+        h3 Base
+        .source_example
+            section.section.section--bg
+                .container
+                    .row.section__header
+                        .col-md-12.__center
+                            h2
+                                | What are you looking for?
+                    .row.section__content
+                        .col-xs-12.col-sm-12.col-md-12
+                            | !{data.items[0].body}

@@ -1,0 +1,168 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    .source_info
+        markdown
+            p styled based on <a href='https://jira.atypon.com/browse/LIT-189421' target="_blank">`LIT-189421`</a>
+            small note: for small screen sizes i didnt follow the attached design mentioned in <a href='https://jira.atypon.com/browse/LIT-189421' target="_blank">`LIT-189421`</a>, instead i've followed the points in the ticket
+    section.source_section
+        h2 Home page
+        .source_example
+
+            | !{pb.render('header', {data : data.header, page: 'home'},'pericles')}
+
+            .pageBody.reset-padding(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        .homepage-search-container(data-widget-def='ux3-layout-widget', data-widget-id='603c136c-6121-4202-9cfb-b51ccfaa9f96')
+                            div
+                                .container
+                                    .row
+                                        .col-md-12
+                                            .col-md-2
+                                            .gutterless.col-md-8
+                                                section.search-header-section(data-widget-def='UX3HTMLWidget', data-widget-id='ab4c6480-a301-4927-9bed-da527c2ce4d3')
+                                                    p.intro-text Accelerating research discovery to shape a better future
+                                                    p.intro-text--search Today's research, tomorrow's innovation
+
+                                                | !{pb.render('quick-search','quick-search/alternative/alt-quick-search', data.quickSearch, 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "homepage-search-wrapper"}}}})}
+
+                                                .advanced-search-link-wrapper(data-widget-def='UX3HTMLWidget', data-widget-id='4f1dc6bf-5421-44f4-bd55-b9074c5a7161')
+                                                    a.advanced-search-link(href='/search/advanced') Advanced Search
+                                            .col-md-2
+
+                                .homepage-search-headings(data-widget-def='ux3-layout-widget', data-widget-id='f3a34b6e-c1f0-4234-bb6e-f66df28252d0')
+                                    .container
+                                        .row
+                                            .col-md-12
+                                                .col-sm-4
+                                                    a(href='/action/showPublications?PubType=journal', title='Browse journals')
+                                                        | 1,600+ Journals
+                                                .col-sm-4
+                                                    a(href='/action/showPublications?PubType=refWork', title='Browse reference works')
+                                                        | 200+ Reference Works
+                                                .col-sm-4
+                                                    a(href='/action/showPublications?PubType=book', title='Browse books')
+                                                        | 21,000+ Online Books
+                        section.resources-container(data-widget-def='ux3-layout-widget', data-widget-id='69846e79-7b70-45ab-8762-1f1a716c1822')
+                            .container
+                                .row
+                                    .col-md-12
+                                        .row(data-widget-def='ux3-layout-widget', data-widget-id='5c62101a-6f13-4704-878f-934a959332af')
+                                            h4.section__mainHeader.col-md-12
+                                                | Resources
+                                            .col-md-3
+                                                .collapsible-menu.list--bordered-left
+                                                    h5.hidden-xs.hidden-sm.hidden-md(data-bind='toggle')
+                                                        a(href='/researchers') Researchers
+                                                    h5.collapsible-menu-header.hidden-lg(data-bind='toggle')
+                                                        | Researchers
+                                                        span.icon.icon-chevron-down
+                                                    ul.rlist.collapsible-menu-body
+                                                        li.hidden-lg
+                                                            a(href='/researchers') Researcher resources
+                                                        li
+                                                            a(href='/action/registration') Register online
+                                                        li
+                                                            a(href='/researchers') Discover tools and manage alerts
+                                                        li
+                                                            a(href='/researchers') Learn about how to access
+                                            .col-md-3
+                                                .collapsible-menu.list--bordered-left
+                                                    h5.hidden-xs.hidden-sm.hidden-md
+                                                        a(href='/library-info') Librarians
+                                                    h5.collapsible-menu-header.hidden-lg(data-bind='toggle')
+                                                        | Librarians
+                                                        span.icon.icon-chevron-down
+                                                    ul.rlist.collapsible-menu-body
+                                                        li.hidden-lg
+                                                            a(href='/library-info') Library info
+                                                        li
+                                                            a(href='/action/showInstitutionDetails') Manage your account
+                                                        li
+                                                            a(href='/library-info') View products and solutions
+                                                        li
+                                                            a(href='/library-info') Find resources and support
+                                            .col-md-3
+                                                .collapsible-menu.list--bordered-left
+                                                    h5.hidden-xs.hidden-sm.hidden-md
+                                                        a(href='https://hub.wiley.com/community/society-resources') Societies
+                                                    h5.collapsible-menu-header.hidden-lg(data-bind='toggle')
+                                                        | Societies
+                                                        span.icon.icon-chevron-down
+                                                    ul.rlist.collapsible-menu-body
+                                                        li.hidden-lg
+                                                            a(href='https://hub.wiley.com/community/society-resources') Society resources
+                                                        li
+                                                            a(href='https://hub.wiley.com/community/society-resources/pages/about-us') Publish with Wiley
+                                                        li
+                                                            a(href='https://hub.wiley.com/community/society-resources/pages/home') Explore our resource library
+                                                        li
+                                                            a(href='https://hub.wiley.com/community/society-resources/pages/resources') Learn about topics and trends
+                                            .col-md-3
+                                                .collapsible-menu.list--bordered-left
+                                                    h5.hidden-xs.hidden-sm.hidden-md
+                                                        a(href='https://authorservices.wiley.com/home.html') Authors
+                                                    h5.collapsible-menu-header.hidden-lg(data-bind='toggle')
+                                                        | Authors
+                                                        span.icon.icon-chevron-down
+                                                    ul.rlist.collapsible-menu-body
+                                                        li.hidden-lg
+                                                            a(href='https://authorservices.wiley.com/') Wiley Author Services
+                                                        li
+                                                            a(href='https://authorservices.wiley.com/author-resources/Journal-Authors/index.html') Submit a paper
+                                                        li
+                                                            a(href='https://authorservices.wiley.com/index.html#dashboard') Track your article
+                                                        li
+                                                            a(href='https://authorservices.wiley.com/author-resources/Journal-Authors/licensing-open-access/index.html') Learn about Open Access
+                        section.subjects-container(data-widget-def='ux3-layout-widget', data-widget-id='a2151b69-94a1-41e5-9564-b1f880b69c4c')
+                            .container
+                                .row
+                                    .col-md-12
+                                        h4.section__mainHeader
+                                            | Subjects
+
+                                        | !{pb.render('accordion', 'accordion/demo/demo-accordion', data.accordion, 'pericles')}
+
+
+                        section.featured-container(data-widget-def='ux3-layout-widget', data-widget-id='f333400b-d7dd-4a46-9065-bdffac376c8b')
+                            .container
+                                .row
+                                    .col-md-12
+                                        .row(data-widget-def='ux3-layout-widget', data-widget-id='2370fd7f-d084-4b28-aefc-14498bae1037')
+                                            h4.section__mainHeader.col-md-12
+                                                | New to Wiley Online Library
+                                            .col-sm-4.col-md-2
+                                                .new-issue
+                                                    a(href='/journal/24734209')
+                                                        img.hidden-sm.hidden-xs(src='//wol-prod-cdn.literatumonline.com/pb-assets/images/u72-1510027870633.png')
+                                                        h5.new-issue--header Medical Physics
+                                            .col-sm-4.col-md-2
+                                                .new-issue
+                                                    a(href='/journal/15509613')
+                                                        img.hidden-sm.hidden-xs(src='//wol-prod-cdn.literatumonline.com/pb-assets/images/u77-1510027869930.png')
+                                                        h5.new-issue--header Journal of Ultrasound in Medicine
+                                            .col-sm-4.col-md-2
+                                                .new-issue
+                                                    a(href='/journal/21576580')
+                                                        img.hidden-sm.hidden-xs(src='//wol-prod-cdn.literatumonline.com/pb-assets/images/u81-1510027870140.png')
+                                                        h5.new-issue--header STEM CELLS Translational Medicine
+                                            .col-sm-4.col-md-2
+                                                .new-issue
+                                                    a(href='/journal/14697750')
+                                                        img.hidden-sm.hidden-xs(src='//wol-prod-cdn.literatumonline.com/pb-assets/images/u85-1510027870313.png')
+                                                        h5.new-issue--header Journal of the London Mathematical Society
+                                            .col-sm-4.col-md-2
+                                                .new-issue
+                                                    a(href='/journal/2367198x')
+                                                        img.hidden-sm.hidden-xs(src='//wol-prod-cdn.literatumonline.com/pb-assets/images/u90-1510027870400.png')
+                                                        h5.new-issue--header Solar RRL
+                                            .col-sm-4.col-md-2
+                                                .new-issue
+                                                    a(href='/doi/book/10.1002/9781118784235')
+                                                        img.hidden-sm.hidden-xs(src='//wol-prod-cdn.literatumonline.com/cms/attachment/ba52df42-6d53-4fe4-8319-f2151f7992e2/9781118784235.cover.jpg')
+                                                        h5.new-issue--header TESOL Encyclopedia
+                                        .col-md-12.featured-container--btn
+                                            a.btn--inverse(href='/action/showPublications', title='Browse publications') Browse All Titles
+                | !{pb.render('footer', 'pericles')}

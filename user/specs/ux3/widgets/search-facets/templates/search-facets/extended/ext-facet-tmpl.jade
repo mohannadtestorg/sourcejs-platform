@@ -1,0 +1,43 @@
+extends ../../../../../components/facet/templates/facet/facet-tmpl.jade
+block facetTitle
+    a(href="#" title=data.title aria-controls="titleFacet" class="facet__ctrl accordion__control js--open")
+        h4.facet__title !{data.title}
+        i(aria-hidden="true" class="icon-section_arrow_d")
+
+block facetDateMain
+    if (data) && (data.title)
+        +facetTitle()
+    if (data) && (data.values)
+        div.facet__content.accordion__content.js--open(id="facet")
+            +facetUl(data)
+
+block facetMain
+    if data.title || data.values
+        div.facet.accordion
+            if (data) && (data.title)
+                +facetTitle()
+            if (data) && (data.values)
+                div.facet__content.accordion__content.js--open(id="facet")
+                    +facetUl(data)
+
+block facetTaxMain
+    if (data && data.section)
+        - var showFacet = false;
+        each item, i in data.section
+            if (item.values)
+                - var itemNo = item.values.length
+                if itemNo > 0
+                    - showFacet = true;
+        if (showFacet)
+            div.facet
+                each item, i in data.section
+                    if (item.values)
+                        - var itemNo = item.values.length
+                        if itemNo > 0
+                            div.accordion
+                                a(href="#" title=item.title aria-controls="taxFacet"+i class="facet__ctrl accordion__control js--open")
+                                    h4.facet__title !{item.title}
+                                    i(aria-hidden="true" class="icon-section_arrow_d")
+
+                                div.facet__content.accordion__content.js--open(id="taxFacet"+i)
+                                    +facetUl(item)

@@ -1,0 +1,41 @@
+div.exam-list
+    if (thisWidget && thisWidget.properties)
+        - widget = thisWidget.properties
+    if (data.examSeriesList)
+        each seriesList in data.examSeriesList
+            each group in seriesList.groups
+                each i in group.items
+                    if (i.title && i.epubDate && i.expiresDate)
+
+                        - var item = {"showRelatedArticleLink": "", "showCreditHours": "", "examTitle": "", "examLink": "", "publishedDate": "", "expiresDate": "", "status": "", "articleTitle": "", "articleLink": "", "jornalTitle": "", "jornalLink": "", "creditHours": "", "examList": "", "props": ""};
+
+                        - item.showRelatedArticleLink = widget ? widget.showExamRelatedArticle : item.showExamRelatedArticle;
+                        - item.showCreditHours = widget ? widget.showMaxCreditHours : item.showCreditHours;
+                        - item.examList = true; //Flags the input for the Exam List instead of Completed Exams
+                        - item.examTitle = i.title ? i.title : item.examTitle;
+                        - item.examLink = i.link ? i.link : item.examLink;
+                        //- Check widget properties before setting published and expired dates
+                        - item.publishedDate = i.epubDate && widget.showPubDate ? i.epubDate : item.publishedDate;
+                        - item.expiresDate = i.expiresDate && widget.showExpiryDate ? i.expiresDate : item.expiresDate;
+
+                        if(i.response)
+                            - var response = i.response;
+                            - item.status = response.status ? response.status : item.status;
+
+                        if(i.related && i.related.length > 0 && i.related[0].content && i.related[0].content.length > 0)
+                            - var content = i.related[0].content[0];
+                            - item.articleTitle = content.title ? content.title : item.articleTitle;
+                            - item.articleLink = content.link ? content.link : item.articleLink;
+
+                            if(content.group && content.group.serial)
+                                - var serial = content.group.serial;
+                                - item.jornalTitle = serial.title ? serial.title : item.jornalTitle;
+                                - item.jornalLink = serial.link ? serial.link : item.jornalLink;
+
+                        if(i.accreditations && i.accreditations.length > 0)
+                            - var accreditations = i.accreditations[0];
+                            //- Check widget property before setting credit hours
+                            - item.creditHours = accreditations.maxCreditHours && widget.showMaxCreditHours ? accreditations.maxCreditHours : item.creditHours;
+
+                        div.exam-list__item.clearfix
+                            | !{pb.render("exam-item", {item:item})}

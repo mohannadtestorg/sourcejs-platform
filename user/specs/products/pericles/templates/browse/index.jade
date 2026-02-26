@@ -1,0 +1,40 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Publication Browse page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200349' target="_blank">`LIT-200349`</a>
+
+    section.source_section
+        h2 Publication Browse page
+
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .pageBody.search-results-page-body
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        .container
+                            .row
+                                .col-md-12.gutterless--sm.gutterless--md.gutterless--xs
+                                    .publication-results-left.hidden-sm.hidden-xs.hidden-md.col-md-3
+                                        | !{pb.render('search-facets', 'browse.json', 'pericles')}
+                                    .search-results-wrapper.gutterless--xs.gutterless--sm.gutterless--md.col-md-9
+                                        .main-content(data-widget-def='UX3SearchResults', data-widget-id='d67bd8f5-e3b5-4b64-b6bc-e571c2f4dffc')
+                                            | !{pb.render('search-result', 'search-result/demo/search-result', 'showPublications.json', 'pericles')}
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+
+
+
+    | #{''}
+
+
+

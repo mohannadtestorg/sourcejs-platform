@@ -1,0 +1,37 @@
+- if (model !== undefined) data = model.data
+
+- profileId = (thisWidget.properties) && (thisWidget.properties.profileId) ? thisWidget.properties.profileId : "xa-4faab26f2cff13a7"
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+script(type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=" + profileId)
+if (data) && (data.customJs)
+    script(type="text/javascript").
+        !{data.customJs}
+
+mixin addThis()
+    block addThis
+        ul.rlist.w-slide--list.addthis.addthis_toolbox.addthis_default_style.addthis_32x32_style
+            if (data && data.services)
+                each service, l in data.services
+                    li
+                        a(class="addthis_button_" + service.code)
+                            if (service.icon)
+                                i.at-icon-wrapper(aria-hidden="true" class=service.icon)
+                            if(service.name)
+                                block shareServiceName
+                                    | !{service.name}
+            if thisWidget.properties && thisWidget.properties.more == 'true'
+                li
+                    a.addthis_button_compact(aria-label="More options")
+block shareMain
+    block shareController
+        a.share__ctrl.w-slide__btn(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" data-slide-target= "#" + thisWidget.id + "_Pop")
+            i.icon-Icon_Share(aria-hidden="true")
+            span Share
+
+    block shareBlock
+        div.share__block.dropBlock__holder.fixed(data-db-target-of=thisWidget.id id=thisWidget.id + "_Pop")
+            | !{pb.renderDropzone(thisWidget, "shareBlock")}
+            +addThis()
+
+

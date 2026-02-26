@@ -1,0 +1,48 @@
+.content.blog {
+    .dark {
+        padding-bottom: 0;
+        margin-top: 20px;
+    }
+    @include media('>=tablet') {
+        .dark {
+            padding-bottom: 0;
+            margin-top: 64px;
+        }
+        .fixed-banner {
+            position: fixed;
+            top: 145px;
+            background: $white;
+            width: 100%;
+            z-index: 1;
+
+        }
+        .social-links {
+            margin-top: 64px;
+        }
+    }
+    .fixed-banner {
+        @include media('>=desktop') {
+            top: 157px;
+        }
+        @include media('<tablet') {
+            .filled--blog {
+                margin-top: 15px;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .filled--blog {
+        margin-top: 55px;
+        margin-bottom: 0;
+        @include media('<tablet') {
+            margin-top: 50px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .bottom-banner {
+        .filled--blog {
+            margin-top: 37px;
+        }
+    }
+}

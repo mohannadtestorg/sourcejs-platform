@@ -1,0 +1,98 @@
+.advanced-search {
+    margin-top: 35px;
+
+    i {
+        color: $blue-text-color;
+    }
+
+    .btn {
+        margin-bottom: 10px;
+    }
+    .left-side-label label ~ .jcf-select {
+        margin: 0 0 0 10px;
+        width: 15%!important;
+        min-width: 68px;
+    }
+
+    .jcf-select {
+        min-height: 38px;
+
+        &:before {
+            border: none;
+        }
+    }
+
+    &--advancedFilters {
+        display: none;
+    }
+
+    .left-side-label {
+        justify-content: flex-start;
+
+        label {
+            width: 20%;
+            margin-right: 2%;
+        }
+    }
+    .searchIn--field {
+        @include media('>=phone') {
+            input {
+                width: 74%;
+                margin: 0;
+            }
+            .jcf-select {
+                width: 20%;
+                margin-right: 2%;
+            }
+        }
+    }
+
+    [class*=-ctrl-field] {
+        margin-left: 5px;
+        width: auto;
+    }
+    .left-side-label label~.ms-ctn {
+        width: 74%!important;
+        margin: 0!important;
+
+    }
+    label~#publicationDate {
+        width: 78%!important;
+        margin: 0!important;
+        padding-top: 6px;
+    }
+
+    .__to {
+        margin-left: 10px;
+    }
+}
+
+.ms-ctn .ms-sel-ctn {
+  border: 1px solid transparentize($black, 0.88);
+  input {
+    border: none;
+  }
+}
+
+.advanced-search--filters label, .searchIn--field .jcf-select-text {
+  color: $form-label-color;
+  font-family: 'Source Sans Pro';
+}
+
+.searchIn--field .jcf-select-text {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 16px;
+}
+
+.advanced-search .label-txt {
+  color: $ess-primary-text-color;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 14px;
+}
+.advanced-search .accordion__control {
+  border-bottom: 1px solid transparentize($black, 0.88);;
+}

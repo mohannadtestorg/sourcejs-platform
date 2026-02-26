@@ -1,0 +1,62 @@
+div.administratorsWidget
+    block addAdministrator
+        h2.section__header.border-bottom ADD AN ADMINISTRATOR
+        form(action='/action/updateInstitutionAdminManager' name="InstitutionAdmin_AdminManager" method='post')
+            input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+            input(type='hidden' name='add' value="true")
+            if (data.success && data.success.message)
+                p.success !{data.success.message}
+            if(data.email && data.email.error)
+                p.error !{data.email.error}
+
+            .row
+                .col-sm-2.col-md-3
+                    label(for="addAdmin") Email:
+                .col-sm-6
+                    input(type='email' name='emailAddress' id="addAdmin")
+                    p.instructions Enter email address of an administrator and click 'Add administrator'.
+                .col-sm-4.col-md-3
+                    if(data.addButtonValue)
+                      input.btn--inverse.extra-border(type='submit' title=data.addButtonValue value=data.addButtonValue)
+
+    if data.admins
+        if data.admins != ''
+            block daleteAdministrator
+                h2.section__header.border-bottom DELETE AN ADMINISTRATOR
+                form(action='/action/updateInstitutionAdminManager' name="InstitutionAdmin_AdminManager" method='post')
+                    input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+                    ul.rlist
+                        each admin,i in data.admins
+                            - var name = (admin.firstName!='' && admin.lastName!='')? admin.firstName+' '+admin.lastName : admin.displayName
+                            - var id = admin.id != '' ? admin.id : 'admin' + i
+                            li
+                                .input-group
+                                    label.checkbox--primary(class= data.individualUserId == id ? 'disabled' : '')
+                                        input(type="checkbox" id='chk_'+id name="adminUserIds" value=id  disabled= data.individualUserId == id ? true : false)
+                                        span.label-txt= name + ' (' + admin.email + ')'
+
+                    if(data.deleteButtonValue)
+                      input.btn--inverse.extra-border.js__removeAdmins(type='submit' name='remove' value=data.deleteButtonValue)
+                    a.email-addresses(href="/action/showInstitutionAdminManager?mail=true") EMAIL ADDRESSES FOR MY RECORDS
+
+    if (data.recommendedLibrarian)
+        br
+        block forLibrarian
+            h2.section__header.border-bottom RECOMMENDED TO YOUR LIBRARIAN
+            form(action='/action/instDesignatedContact' name="designateContact" id="designateContact" method='post')
+                input(type='hidden' name='anti-forgery-token' value= (data.recommendedLibrarian.antiForgeryToken) ? data.recommendedLibrarian.antiForgeryToken : '' )
+                input(type='hidden' name='add' value="true")
+
+                .row
+                    .col-sm-4.col-md-3
+                        label Current Contact:
+                    .col-sm-8.col-md-9
+                        p= data.recommendedLibrarian.addDesignateContactParam == '' ? 'None' : data.recommendedLibrarian.addDesignateContactParam
+                .row
+                    .col-sm-2.col-md-3
+                        label(for="addLibrarian") Email:
+                    .col-sm-6
+                        input(type='email' name='designatedContactEmail' id="addLibrarian" value= (data.recommendedLibrarian.institutionEmail) ? data.recommendedLibrarian.institutionEmail : '')
+                    .col-sm-4.col-md-3
+                        - btn_label = data.value ? data.value : 'Add new contact'
+                        input.btn--inverse.extra-border(type='submit' name='addDesignateContact' title=btn_label value=btn_label)

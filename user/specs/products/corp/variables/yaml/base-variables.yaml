@@ -1,0 +1,90 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# font
+  global:
+    type: "size"
+    category: "sizing"
+    cssProperties:
+    - 'font*'
+  jsGroupe: "base"
+  strip: "false"
+  props:
+    default-font-family:
+      value: "ProximaNova, sans-serif"
+    header-font-family:
+      value: "Merriweather, serif"
+    default-font-size:
+      value: "1rem"
+      suffix: "18px"
+    h1-font-size:
+      value: "2.5rem"
+      suffix: "45px"
+    h2-font-size:
+      value: "2rem"
+      suffix: "36px"
+    h3-font-size:
+      value: "1.5rem"
+      suffix: "27px"
+    h4-font-size:
+      value: "1.2rem"
+      suffix: "22px"
+    h5-font-size:
+      value: "1rem"
+      suffix: "18px"
+    h6-font-size:
+      value: "0.78rem"
+      suffix: "14px"
+    icon-font-size:
+      value: "1rem"
+      suffix: "18px"
+    small-font-size:
+      value: "0.9em"
+      suffix: "16px"
+    smaller-font-size:
+      value: "0.78rem"
+      suffix: "14px"
+    quote-font-size:
+      value: "1.5rem"
+      suffix: "27px"
+    quote-small-font-size:
+      value: "1.2rem"
+      suffix: "22px"
+    quote-smaller-font-size:
+      value: "1rem"
+      suffix: "18px"
+    gutter-size:
+      value: "30px"
+    gutter-extra-size:
+      value: "60px"
+    default-line-height:
+      value: "1.8rem"
+      suffix: "32px"
+    small-line-height:
+      value: "1.7rem"
+      suffix: "30px"
+    h1-line-height:
+      value: "3.5rem"
+      suffix: "63px"
+    h2-line-height:
+      value: "3rem"
+      suffix: "54px"
+    h3-line-height:
+      value: "2.25rem"
+      suffix: "40px"
+    h4-line-height:
+      value: "2rem"
+      suffix: "36px"
+    h5-line-height:
+      value: "1.7rem"
+      suffix: "30px"
+    h6-line-height:
+      value: "0.8rem"
+      suffix: "22px"

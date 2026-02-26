@@ -1,0 +1,347 @@
+nav#nav.g-nav(data-behavior='NavPrimary', data-nav='')
+    form.g-nav__search-form(action='/templates/search.php', data-behavior='SearchSuggestions', data-searchsuggestions-action='/endpoints/SearchSuggestions.php')
+        fieldset
+            legend Search site
+            label(for='nav_search_keyword') Keyword
+            input#nav_search_keyword(type='text', name='search_keyword', placeholder='Enter keyword, author, title or citation', autocomplete='off', data-gsearch-keyword-input='')
+            button(aria-label='search', title='search', type='submit')
+                svg.icon--search
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--search')
+
+    ul.g-nav__primary
+      li.g-nav__primary-item.g-nav__primary-item--home
+        a(href='/')
+          | Home
+      li.g-nav__primary-item(data-navprimary-hover-trigger='')
+        a(href='#', data-navprimary-touch-trigger='')
+          | Specialties
+          svg.icon--chevron(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+        .g-nav__secondary
+          strong.g-nav__secondary-title(data-navprimary-close-trigger='')
+            | Specialties
+            svg.icon--chevron(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+          .g-nav__secondary-panel.g-nav__secondary-panel--6x.g-nav__secondary-panel--primary.g-nav__secondary-panel--with-view-all-link
+            p.g-nav__secondary-panel-label.f-caps Selected specialties
+            ul.g-nav__secondary-list.g-nav__secondary-list--3col
+              li.g-nav__secondary-item.g-nav__secondary-item--view-all
+                a(href='#') View all specialties
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Allergy/
+                  wbr
+                  | Immunology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Cardiology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Dermatology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Emergency Medicine
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Endocrinology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Gastroenterology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Genetics
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Geriatrics/
+                  wbr
+                  | Aging
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Hematology/
+                  wbr
+                  | Oncology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Infectious Disease
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Nephrology
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Neurology/
+                  wbr
+                  | Neurosurgery
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Obstetrics/
+                  wbr
+                  | Gynecology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Pediatrics
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Primary Care/
+                  wbr
+                  | Hospitalist
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Psychiatry
+              li.g-nav__secondary-item.f-ui
+                a(href='#')
+                  | Pulmonary/
+                  wbr
+                  | Critical Care
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Rheumatology
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Surgery
+            p.g-nav__secondary-panel-view-all.f-caps
+              a(href='#') View all specialties
+          .g-nav__secondary-panel.g-nav__secondary-panel--6x.g-nav__secondary-panel--secondary
+            ul.g-nav__features
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Hematology
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Hematology
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Hematology
+      li.g-nav__primary-item(data-navprimary-hover-trigger='')
+        a(href='#', data-navprimary-touch-trigger='')
+          | Topics
+          svg.icon--chevron(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+        .g-nav__secondary
+          strong.g-nav__secondary-title(data-navprimary-close-trigger='')
+            | Topics
+            svg.icon--chevron(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+          .g-nav__secondary-panel.g-nav__secondary-panel--4x.g-nav__secondary-panel--primary.g-nav__secondary-panel--with-view-all-link
+            p.g-nav__secondary-panel-label.f-caps Selected Topics
+            ul.g-nav__secondary-list.g-nav__secondary-list--2col
+              li.g-nav__secondary-item.g-nav__secondary-item--view-all
+                a(href='#') View all topics
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Health Policy
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Medicine and Society
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Data Sharing
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Pain Management
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Zika Virus
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Clinical Trials Series
+            p.g-nav__secondary-panel-view-all.f-caps
+              a(href='#') View all topics
+          .g-nav__secondary-panel.g-nav__secondary-panel--8x.g-nav__secondary-panel--secondary
+            ul.g-nav__features
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Zika Virus
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Zika Virus
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Zika Virus
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Zika Virus
+      li.g-nav__primary-item(data-navprimary-hover-trigger='')
+        a(href='#', data-navprimary-touch-trigger='')
+          | Multimedia
+          svg.icon--chevron(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+        .g-nav__secondary
+          strong.g-nav__secondary-title(data-navprimary-close-trigger='')
+            | Multimedia
+            svg.icon--chevron(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+          .g-nav__secondary-panel.g-nav__secondary-panel--4x.g-nav__secondary-panel--primary.g-nav__secondary-panel--with-view-all-link
+            p.g-nav__secondary-panel-label.f-caps Selected Multimedia
+            ul.g-nav__secondary-list.g-nav__secondary-list--2col
+              li.g-nav__secondary-item.g-nav__secondary-item--view-all
+                a(href='#') View all multimedia
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Audio Clinical Practice
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Audio Interviews
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Interactive Medial Cases
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Image Challenge
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Images in Clinical Medicine
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Videos in Clinical Medicine
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Quick Takes
+            p.g-nav__secondary-panel-view-all.f-caps
+              a(href='#') View all multimedia
+          .g-nav__secondary-panel.g-nav__secondary-panel--8x.g-nav__secondary-panel--secondary
+            ul.g-nav__features
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Rural Health Care: The Maternal Health Compact
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Rural Health Care: The Maternal Health Compact
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Rural Health Care: The Maternal Health Compact
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Rural Health Care: The Maternal Health Compact
+      li.g-nav__primary-item(data-navprimary-hover-trigger='')
+        a(href='#', data-navprimary-touch-trigger='')
+          | Current Issue
+          svg.icon--chevron(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+        .g-nav__secondary
+          strong.g-nav__secondary-title(data-navprimary-close-trigger='')
+            | Current Issue
+            svg.icon--chevron(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+          .g-nav__secondary-panel.g-nav__secondary-panel--4x.g-nav__secondary-panel--primary.g-nav__secondary-panel--with-view-all-link
+            p.g-nav__secondary-panel-label.f-caps Current Issue
+            ul.g-nav__secondary-list
+              li.g-nav__secondary-item.f-ui
+                a(href='#') April 6, 2017 Vol. 376 No. 14
+            p.g-nav__secondary-panel-label.f-caps Recent Issues
+            ul.g-nav__secondary-list
+              li.g-nav__secondary-item.f-ui
+                a(href='#') March 30, 2017 Vol. 376 No. 13
+              li.g-nav__secondary-item.f-ui
+                a(href='#') March 23, 2017 Vol. 376 No. 12
+              li.g-nav__secondary-item.f-ui
+                a(href='#') March 16, 2017 Vol. 376 No. 11
+              li.g-nav__secondary-item.f-ui.g-nav__secondary-item--view-all
+                a(href='#') Browse full issue index
+              li.g-nav__secondary-item.f-ui.g-nav__secondary-item--view-all
+                a(href='#') Browse recently published
+            p.g-nav__secondary-panel-view-all.f-caps
+              a(href='#') Browse full issue index
+          .g-nav__secondary-panel.g-nav__secondary-panel--8x.g-nav__secondary-panel--secondary.g-nav__secondary-panel--with-view-all-link
+            p.g-nav__secondary-panel-label.f-caps Recently Published Articles
+            ul.g-nav__secondary-list
+              li.g-nav__secondary-item.g-nav__secondary-item--view-all
+                a(href='#') View all learning
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Treatment of Benzodiazepine Dependence
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Trial of Pregablin for Acute and Chronic Sciatica
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Case 8-2017 — A 39-Year-Old Zimbabwean Man with a Severe Headache
+              li.g-nav__secondary-item.f-ui
+                a(href='#') An FDA Commissioner for the 21st Century
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Dada Authorship as an Incentive to Data Sharing
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Rivaroxaban or Aspirin for Extended Treatment of Venous Thromboembolism
+            p.g-nav__secondary-panel-view-all.f-caps
+              a(href='#') Browse recently published
+      li.g-nav__primary-item(data-navprimary-hover-trigger='')
+        a(href='#', data-navprimary-touch-trigger='')
+          | Learning
+          svg.icon--chevron(aria-hidden='true')
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+        .g-nav__secondary
+          strong.g-nav__secondary-title(data-navprimary-close-trigger='')
+            | Learning
+            svg.icon--chevron(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+          .g-nav__secondary-panel.g-nav__secondary-panel--6x.g-nav__secondary-panel--primary.g-nav__secondary-panel--with-view-all-link
+            ul.g-nav__secondary-list.g-nav__secondary-list--1col
+              li.g-nav__secondary-item.g-nav__secondary-item--view-all
+                a(href='#') View all learning
+              li.g-nav__secondary-item.f-ui
+                a(href='#') CME
+                ul.g-nav__tertiary-list
+                  li.g-nav__tertiary-item.f-author
+                    a(href='#') Treatment of Benzodiazepine Dependence
+                  li.g-nav__tertiary-item.f-author
+                    a(href='#') Trial of Pregablin for Acute and Chronic Sciatica
+                  li.g-nav__tertiary-item.f-author
+                    a(href='#') Case 8-2017 — A 39-Year-Old Zimbabwean Man with a Severe Headache
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Challenge Yourself
+              li.g-nav__secondary-item.f-ui
+                a(href='#') Videos in Clinical Medicine
+            p.g-nav__secondary-panel-view-all.f-caps
+              a(href='#') View all learning
+          .g-nav__secondary-panel.g-nav__secondary-panel--6x.g-nav__secondary-panel--secondary.g-nav__secondary-panel--with-view-all-link
+            p.g-nav__secondary-panel-label.f-caps Other NEJM Group Learning
+            ul.g-nav__features
+              li.m-simple-listing-item.m-simple-listing-item--img
+                a.m-simple-listing-item__link(href='#')
+                  span.m-simple-listing-item__img
+                    img(srcset='http://placehold.dev.area17.com/image/300x200 300w', sizes='(min-width: 1480px) 200px, (min-width: 1280px) 15vw, (min-width: 1024px) 15vw, (min-width: 768px) 25vw, (min-width: 480px) 33.33vw, 50vw')
+                    svg.icon--play.g-nav__secondary-featured-icon(aria-hidden='true')
+                      use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                  strong.m-simple-listing-item__title.f-h7 Transfusion of Red Cells
+              li.m-simple-listing-item
+                a.m-simple-listing-item__link(href='#')
+                  svg.m-simple-listing-item__logo.icon--logo-resident-360
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--logo-resident-360')
+                  strong.m-simple-listing-item__title.f-body--sm
+                    | Donec massa diam, efficitur vitae porta sed, condimentum sed leo. Nunc mattis ipsum gravida, finibus arcu at, tincidunt mauris.
+              li.m-simple-listing-item
+                a.m-simple-listing-item__link(href='#')
+                  svg.icon--logo-knowledge-plus
+                    use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--logo-knowledge-plus')
+                  strong.m-simple-listing-item__title.f-body--sm
+                    | Donec massa diam, efficitur vitae porta sed, condimentum sed leo. Nunc mattis ipsum gravida, finibus arcu at, tincidunt mauris.
+
+      li.g-nav__primary-item
+        a(href='#')
+          | Author Center
+      li.g-nav__primary-item.g-nav__primary-item--promo
+        span.m-mini-promo.m-mini-promo--subscribe
+          strong
+            a(href='#') Subscribe
+            span or
+            a(href='#') Renew
+          br
+          em includes iPad edition
+          a.m-mini-promo__full-hit-link(href='#')
+            svg.icon--arrow(aria-hidden='true')
+              use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')

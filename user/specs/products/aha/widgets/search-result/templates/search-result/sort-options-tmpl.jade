@@ -1,0 +1,45 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/sort-options-tmpl
+
+div.search__sort.dropBlock
+    block sortLabel
+        a.inline-icon(href="#" data-db-target-for="sort" data-db-parent-of="sort" data-db-switch="rotate") Sort By:
+            | #{' '}
+
+            if(thisWidget && thisWidget.properties && data.widgetData && data.widgetData.sortLinks )
+                if (data.widgetData.sortLinks.relevancy && data.widgetData.sortLinks.relevancy.selected && thisWidget.properties.relevancy)
+                    - var selected = thisWidget.properties.relevancyLabel
+
+                if (data.widgetData.sortLinks.Earliest && data.widgetData.sortLinks.Earliest.selected && thisWidget.properties.Ppub)
+                    - selected = thisWidget.properties.PpubLabel ? thisWidget.properties.PpubLabel : 'Date'
+
+                if (data.widgetData.sortLinks.downloaded && data.widgetData.sortLinks.downloaded.selected && thisWidget.properties.downloaded)
+                    - selected = thisWidget.properties.downloadedLabel
+
+                if (data.widgetData.sortLinks.cited && data.widgetData.sortLinks.cited.selected && thisWidget.properties.cited)
+                    - selected = thisWidget.properties.citedLabel
+
+                if (data.widgetData.sortLinks.TitleSort && data.widgetData.sortLinks.TitleSort.selected && thisWidget.properties.TitleSort)
+                    - selected = thisWidget.properties.byTitleLabel ? thisWidget.properties.byTitleLabel : data.widgetData.sortLinks.TitleSort.byTitleLabel
+
+
+            span.sort-by !{selected}
+            i.icon-section_arrow_d(aria-hidden="true")
+    block sortLink
+        div.dropBlock__holder.search__sort__drop(data-db-target-of="sort")
+            ul.rlist
+                if(thisWidget.properties && data.widgetData && data.widgetData.sortLinks )
+                    if (data.widgetData.sortLinks.relevancy && !data.widgetData.sortLinks.relevancy.selected && thisWidget.properties.relevancy)
+                        li
+                            a(href= data.widgetData.sortLinks.relevancy.link) !{thisWidget.properties.relevancyLabel}
+                    if (data.widgetData.sortLinks.Earliest && !data.widgetData.sortLinks.Earliest.selected && thisWidget.properties.Ppub)
+                        li
+                            a(href= data.widgetData.sortLinks.Earliest.link) !{thisWidget.properties.PpubLabel ? thisWidget.properties.PpubLabel : 'Date'}
+                    if (data.widgetData.sortLinks.downloaded && !data.widgetData.sortLinks.downloaded.selected && thisWidget.properties.downloaded)
+                        li
+                            a(href= data.widgetData.sortLinks.downloaded.link) !{thisWidget.properties.downloadedLabel}
+                    if (data.widgetData.sortLinks.cited && !data.widgetData.sortLinks.cited.selected && thisWidget.properties.cited)
+                        li
+                            a(href= data.widgetData.sortLinks.cited.link) !{thisWidget.properties.citedLabel}
+                    if (data.widgetData.sortLinks.TitleSort && !data.widgetData.sortLinks.TitleSort.selected && thisWidget.properties.TitleSort)
+                        li
+                            a(href= data.widgetData.sortLinks.TitleSort.link) !{thisWidget.properties.byTitleLabel}

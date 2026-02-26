@@ -1,0 +1,41 @@
+.facet{
+  &__list{
+    li{
+      padding:10px 0;
+      &:not(:last-child){
+        border-bottom: 1px solid $primary-border-color;
+      }
+    }
+  }
+  &__title{
+    font-size: 1rem;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  &__label{
+    font-size: .875rem;
+  }
+&__SeeMore{
+  color: $blue-text-color;
+  cursor: pointer;
+  display: block;
+  border-top: 1px solid $primary-border-color;
+  padding-top: 5px;
+}
+
+  &.accordion{
+    @include media('<tablet'){
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+}
+
+.seeMoreAuthorDropzone{
+  display: none;
+}
+
+.pb-edit-view .seeMoreAuthorDropzone{
+  display: block;
+}

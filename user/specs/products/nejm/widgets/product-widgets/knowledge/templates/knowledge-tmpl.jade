@@ -1,0 +1,35 @@
+#kplusWidget(style='')
+  .outerContainer
+    .containerBorder.top
+      a(target='_blank', href='http://knowledgeplus.nejm.org/', title='NEJM Knowledge+ Question of the Week')
+        img(src='http://nejm.lod.miisolutions.net/kplus/qow/images/common/knowledgePlusID.png', alt='NEJM Knowledge+ Question of the Week', width='161', height='54')
+    .QoWLogo
+      a(href='http://knowledgeplus.nejm.org/question-of-week/1424/', title='NEJM Knowledge+ Question of the Week', target='_blank')
+        img(src='http://nejm.lod.miisolutions.net/kplus/qow/images/common/qow_wRibbon.png', alt='NEJM Knowledge+ Question of the Week', width='300', height='46')
+    .containerBorder
+      .innerContainer
+        strong
+          p
+            | Which one of the following diagnoses is most likely in a 61-year-old man with a slow-growing, 9-mm, pearly-pink papule on the face?
+      .innerContainer
+        fieldset
+          input#kplus_question_id(type='hidden', value='1424')
+          ul
+            li
+              input#kplus_q1(type='radio', value='A', name='kplus_question')
+              label(for='kplus_q1') Squamous-cell carcinoma
+            li
+              input#kplus_q2(type='radio', value='B', name='kplus_question')
+              label(for='kplus_q2') Melanoma
+            li
+              input#kplus_q3(type='radio', value='C', name='kplus_question')
+              label(for='kplus_q3') Pyogenic granuloma
+            li
+              input#kplus_q4(type='radio', value='D', name='kplus_question')
+              label(for='kplus_q4') Molluscum contagiosum
+            li
+              input#kplus_q5(type='radio', value='E', name='kplus_question')
+              label(for='kplus_q5') Basal-cell carcinoma
+          .btnSubmit
+            input#kplus_question_submit(type='image', src='http://nejm.lod.miisolutions.net/kplus/qow/images/common/btn_submit_gold.png', name='submit', value='Submit')
+  // /knowledge+ widget

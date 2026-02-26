@@ -1,0 +1,18 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        form(action="#", method="post")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            button.btn.btn--submit.btn--inverse(type="button", data-toggle="modal", data-target="#modalApprovedRevise") Revise
+
+            .ux-modal-container
+                #modalApprovedRevise.modal(role="dialog")
+                    .modal__dialog
+                        .modal__body
+                            | Revising your submission will create a new version. This version will remain posted. Please, confirm that you would like to start a new version.
+
+                        .modal__footer
+                            button.btn--cancel(data-dismiss="modal") Cancel
+                            button.btn(data-action=data.reviseLink) Revise
+
+

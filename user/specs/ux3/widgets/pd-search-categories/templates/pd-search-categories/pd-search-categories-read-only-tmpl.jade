@@ -1,0 +1,26 @@
+extends  pd-search-categories-update-tmpl
+
+block hiddenInputs
+
+block tooltip
+
+block catogoriesDropbox
+    if(data.categories)
+        - var values = data.inputs["uris"].value;
+        span.readonly.margin
+            each item, l in data.categories
+                - var selected = false;
+                - selected = values.indexOf(item.name) > -1;
+
+                if (selected)
+                    span  !{item.label}
+
+                if (item.children && item.children.length > 0)
+                    each child, l in item.children
+                        - var selected = false;
+                        - selected = values.indexOf(child.name) > -1;
+
+                        if (selected)
+                            span  !{child.label}
+
+

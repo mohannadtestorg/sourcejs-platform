@@ -1,0 +1,199 @@
+.quick-search {
+    float: left;
+    width: 556px;
+    position: relative;
+    text-align: left;
+
+    @include media('>=desktop', '<large') {
+        width: 448px;
+    }
+
+    @include media('>=tablet', '<desktop') {
+        width: 408px;
+    }
+    @include media('<tablet') {
+        width: auto;
+        float: none;
+        display: inline-block;
+    }
+
+    & > a {
+        display: none;
+        position: relative;
+        text-align: left;
+        line-height: 57px;
+        padding-top: 4px;
+        border-bottom: 4px solid transparent;
+        transition: color .3s,border .3s;
+        vertical-align: bottom;
+        min-width: 18px;
+        margin-right: 15px;
+        font-size: $icon-font-size;
+        color: $tertiary-third-text-color;
+
+        @include media('<tablet') {
+            display: inline-block;
+        }
+
+        &:hover {
+            color: $tertiary-third-text-color ;
+        }
+    }
+
+    ::placeholder {
+        color: $secondary-text-color;
+        font-style: italic;
+    }
+
+    input {
+        border: none;
+        height: 46px;
+        margin: 0px;
+        font-size: $xsmall-font-size;
+        padding: 15px;
+        background-color: $light-fifth-bg-color ;
+        font-style: normal;
+    }
+
+    button {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 46px;
+        width: 46px;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        color: $tertiary-third-text-color;
+        font-size: $icon-font-size;
+        padding: 0px;
+        margin: 0px;
+
+        &:before {
+            width: 18px;
+            height: 19px;
+            display: inline-block;
+        }
+    }
+
+    p {
+        font-size: $xsmall-font-size;
+        color: $secondary-text-color;
+        font-weight: bold;
+        text-align: center;
+        display: none;
+    }
+
+    &_content {
+        padding: 27px;
+        width: 100%;
+        background-color: $default-bg-color;
+        transition: all 0.3s;
+        z-index: 2;
+
+        @include media('<tablet') {
+            display: none;
+        }
+    }
+
+    &_default {
+        position: relative;
+
+        input {
+            padding-right: 46px;
+        }
+    }
+
+    &_citation {
+        position: relative;
+        display: none;
+
+        .jcf-select {
+            width: 47%;
+
+            @include media('<large') {
+                width: 47%;
+            }
+
+            &-text {
+                box-shadow: none;
+                background-color: $light-fifth-bg-color;
+                border: none;
+                font-size: $xsmall-font-size;
+                color: $secondary-text-color;
+                height: 46px;
+
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        input {
+            width: 23.5%;
+            color: #000;
+
+            @include media('<large') {
+                width: 23.5%;
+            }
+        }
+
+        input, .jcf-select {
+            display: inline-block;
+            border: none;
+            border-right: 15px solid $default-border-color;
+            background-color: $light-fifth-bg-color;
+            vertical-align: top;
+        }
+
+        button {
+            background-color: $primary-bg-color;
+            color: $text-onDark;
+        }
+    }
+
+    &_opened {
+        .quick-search_content {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            box-shadow: 0px 0px 6px $shadow-color;
+            display: block;
+
+            @include media('<tablet') {
+                position: fixed;
+                top: 77px;
+                box-shadow: 0px 3px 6px $shadow-color;
+                border-top: 1px solid $light-second-border-color;
+                padding: 25px 15px;
+            }
+        }
+
+        .quick-search_citation {
+            display: block;
+        }
+
+        .quick-search_default {
+            input {
+                background-color: $light-fifth-bg-color;
+                border: none;
+            }
+
+            button {
+                background-color: $primary-bg-color;
+                color: $text-onDark;
+            }
+        }
+
+        p {
+            display: block;
+        }
+
+        & > a {
+            @include media('<tablet') {
+                display: inline-block;
+                //border-bottom-color: $tertiary-third-border-color;
+            }
+        }
+    }
+}

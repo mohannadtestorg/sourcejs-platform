@@ -1,0 +1,37 @@
+extends ../../../../../../../ux3/components/tabs/templates/tabs/tabs-tmpl
+block tabsDropZone
+    | !{item.content}
+block tabsMain
+
+    div.tab(class=classNames data-ctrl-res = viewPort)
+        - tabNumber++;
+        if (config) && (config.effect)
+          div.col-sm-4
+            div.profile-menu.demo-profile
+                ul.rlist.tab__nav
+                    +nav()
+          +pane()
+
+        else
+         div.profile-menu
+           ul.rlist.tab__nav
+                +nav()
+            +pane()
+
+
+block tabsPanes
+  div.col-sm-8.profileMain
+     ul.rlist.tab__content
+        - var i = 0
+        if (data) && (data.nav)
+            each item, I in data.nav
+                if !(item.itemUrl)
+                    if i == 0
+                        li.tab__pane.active(id="pane-" + thisWidget.id + i + tabNumber aria-labelledby="pane-" + thisWidget.id + i + tabNumber + "con" role="tabpanel")
+                            block tabsDropZone
+                                | !{pb.renderDropzone(thisWidget, "tabsDropZone_" + thisWidget.id + i)}
+                    else
+                        li.tab__pane(id="pane-" + thisWidget.id + i + tabNumber aria-labelledby="pane-" + thisWidget.id + i + tabNumber + "con" role="tabpanel")
+                            block tabsDropZone
+                                | !{pb.renderDropzone(thisWidget, "tabsDropZone_" + thisWidget.id + i)}
+                    - i++;

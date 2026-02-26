@@ -1,0 +1,31 @@
+-
+    var headingEl = (model.config) && (model.config.headingLevel) ? model.config.headingLevel : 'h2';
+    var wMarkup = (model.config) && (model.config.markup) ? model.config.markup : 'div';
+
+
+mixin heading()
+    if (model.data.title)
+        if (model.config.headingClass)
+            #{headingEl}(class=model.config.headingClass) !{model.data.title}
+        else
+            #{headingEl} !{model.data.title}
+if (model.config.wrapper) && model.config.wrapper == 'true'
+    if (model.config.className)
+        if (model.config.attr)
+            - var pattributes = JSON.parse(model.config.attr);
+            #{wMarkup}(class=model.config.className )&attributes(pattributes)
+                +heading()
+                | !{model.data.content}
+        else
+            #{wMarkup}(class=model.config.className )
+                +heading()
+                | !{model.data.content}
+
+    else
+        #{wMarkup}
+            +heading()
+            | !{model.data.content}
+else
+    +heading()
+    | !{model.data.content}
+

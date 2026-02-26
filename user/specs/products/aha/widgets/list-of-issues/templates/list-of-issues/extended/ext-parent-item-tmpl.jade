@@ -1,0 +1,27 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-parent-item-tmpl
+
+block parentInfo
+    div.parent-item
+        block parentDate
+            if data.url
+                a(href=data.url)
+                    if (data) && (data.coverDate)
+                            span.coverDate !{data.coverDate} :
+
+                    if (data) && (data.volume)
+                        span #{data.volume}
+                        if (data) && (data.issue)
+                            |  (#{data.issue})
+                    if (data && data.pageRange)
+                        | , page #{data.pageRange}
+            else
+                if (data) && (data.coverDate)
+                    span.coverDate !{data.coverDate} :
+
+                if (data) && (data.volume)
+                    span #{data.volume}
+                    if (data) && (data.issue)
+                        |  (#{data.issue})
+                if (data && data.pageRange)
+                    | , page #{data.pageRange}
+        block volume

@@ -1,0 +1,23 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-parent-item-tmpl
+
+mixin volume(item)
+    if (item)
+        if (item.volume) && (item.issue)
+            span.comma Vol. #{item.volume}
+            | No. #{item.issue}
+        else if (item.volume)
+            span Vol. #{data.volume}
+        else if (item.issue)
+            | No. #{data.issue}
+
+
+block parentDate
+//    if (data) && (data.coverDate)
+//        span.coverDate !{data.coverDate}
+
+block volume
+    if data.url
+        a(href=data.url)
+            +volume(data)
+    else
+        +volume(data)

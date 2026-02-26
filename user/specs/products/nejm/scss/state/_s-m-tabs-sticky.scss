@@ -1,0 +1,69 @@
+
+.s-m-tabs-sticky {
+
+  #content {
+    padding-top: 56px;
+  }
+
+  .m-tabs {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-right: map-get($outer-gutters, xsmall);
+    padding-left: map-get($outer-gutters, xsmall);
+
+    @include breakpoint('small+') {
+      padding-right: map-get($outer-gutters, small);
+      padding-left: map-get($outer-gutters, small);
+    }
+
+    @include breakpoint('medium+') {
+      padding-right: map-get($outer-gutters, medium);
+      padding-left: map-get($outer-gutters, medium);
+    }
+
+    @include breakpoint('large+') {
+      padding-right: map-get($outer-gutters, large);
+      padding-left: map-get($outer-gutters, large);
+    }
+
+    @include breakpoint('xlarge+') {
+      padding-right: map-get($outer-gutters, xlarge);
+      padding-left: map-get($outer-gutters, xlarge);
+    }
+
+    @include breakpoint('xxlarge') {
+      left: 50%;
+      width: map-get($main-col-widths, xxlarge);
+      margin-left: map-get($main-col-widths, xxlarge) / -2;
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .m-tabs__note {
+    right: map-get($outer-gutters, xsmall);
+
+    @include breakpoint('small+') {
+      right: map-get($outer-gutters, small);
+    }
+
+    @include breakpoint('medium+') {
+      right: map-get($outer-gutters, medium);
+    }
+
+    @include breakpoint('large+') {
+      right: map-get($outer-gutters, large);
+    }
+
+    @include breakpoint('xlarge+') {
+      right: map-get($outer-gutters, xlarge);
+    }
+
+    @include breakpoint('xxlarge') {
+      right: 0;
+    }
+  }
+}

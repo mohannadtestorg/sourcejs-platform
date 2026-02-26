@@ -1,0 +1,151 @@
+footer {
+    padding-top: 0px;
+    margin-top: 30px;
+}
+
+.footer {
+    &-top {
+        padding: 10px 0;
+
+        @include themify($themes) {
+            background-color: themed('background-color');
+        }
+
+        a {
+            font-size: $x-small-font-size;
+            font-weight: bold;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+            &:hover {
+                color: $primary-link-hover-color;
+            }
+        }
+
+        .contact__nav {
+            margin-top: 10px;
+        }
+
+        .contact__address {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: $x-small-font-size;
+            color: $primary-lighten-text-color;
+        }
+
+        .border-top {
+            padding-top: 8px;
+            margin-bottom: 11px;
+            font-size: $small-font-size;
+            border-top-width: 1px;
+            color: $primary-lighten-text-color;
+            border-top: 1px solid $primary-lighten-text-color;
+        }
+
+        .icon-facebook, .icon-twitter, .icon-linkedin, .icon-Rss {
+            font-size: $icon-font-size;
+        }
+
+        .icon-facebook {
+            color: #3B5998;
+        }
+        .icon-twitter {
+            color: #00B6F1;
+        }
+        .icon-linkedin {
+            color: #007BB6;
+        }
+        .icon-Rss {
+            color: #FF6600;
+        }
+    }
+
+    &-logo {
+        img {
+            margin: 0px;
+        }
+    }
+
+    &--contact__list {
+        margin-bottom: 0px;
+        padding: 10px 15px;
+
+        @include themify($themes) {
+            border-bottom: 1px solid themed('color');
+            border-top: 1px solid themed('color');
+        }
+
+        &.separator {
+            > li ~ li {
+                @include themify($themes) {
+                    border-color: themed('color');
+                }
+            }
+        }
+
+        a {
+            font-size: $h6-font-size;
+            opacity: 1;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+
+        & ~ ul {
+            margin-top: 15px;
+
+            li {
+                padding: 0px 25px 0px 0px;
+            }
+        }
+    }
+
+    &-bottom {
+        font-weight: bold;
+        .container {
+            a {
+                color:$text-onDark;
+            }
+
+            a:hover { 
+                text-decoration: underline; 
+                color:$text-onDark;
+            }
+        }
+
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+
+        .separator {
+            li:not(:last-of-type) {
+                border-right: 1px solid $default-border-color;
+                margin: 0px 8px 0px 0px;
+                padding: 0px 8px 0px 0px;
+            }
+            li:last-child {
+                border-right:none;
+                margin: 0px;
+                padding: 0px;
+            }
+
+        }
+
+        .copyright {
+            color: $text-onDark;
+
+            @include media('<desktop') {
+                margin-top: 0px;
+                text-align: right;
+            }
+
+            @include media('<tablet') {
+                text-align: left;
+                margin-top: 5px
+            }
+        }
+    }
+
+}

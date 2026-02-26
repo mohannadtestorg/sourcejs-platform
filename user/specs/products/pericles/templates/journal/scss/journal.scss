@@ -1,0 +1,203 @@
+.journal-body {
+    margin-top: 0;
+    .cover-image--parentInfo .loc {
+        margin: 0 -15px;
+    }
+
+    @include media('>tablet') {
+        margin-top: 35px;
+    }
+
+    .section__mainHeader--mid {
+        margin: 15px 0;
+    }
+
+    .aboutBook {
+        margin-bottom: 25px;
+    }
+
+    .tab__content .tab__pane {
+        padding-top: 5px;
+    }
+    .more-widget-link {
+        margin-top: 0;
+    }
+    .issue-item {
+        &:last-child {
+            border-bottom: 0;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.journal-page {
+    &-header {
+        &.card {
+            padding: 20px 0;
+        }
+        @include media('<desktop') {
+            border-bottom: 3px solid $wiley-extralightGray-color;
+        }
+
+        .cover-image__latestIssue .cover-image__details {
+            font-size: 0.875rem;
+        }
+    }
+
+    &-body {
+        .flex-layout-container {
+
+            > .col-md-8 {
+                padding-right: 0;
+                margin-right: 19px;
+            }
+        }
+    }
+
+}
+
+
+/*********** Journal side sections ***********/
+
+.journal-sidebar {
+    > div {
+        margin-bottom: 1.2rem;
+    }
+
+    .card--bordered, .pb-ad {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+}
+
+.journal-side-section {
+    @include media(">=desktop") {
+        margin-bottom: 1.2rem;
+    }
+
+    ul {
+        + p {
+            margin: 0;
+            padding: 15px;
+            text-align: right;
+        }
+    }
+
+    @include media('<tablet') {
+        .side-section-header {
+            background: $white;
+        }
+    }
+
+    .unordered-list-icons {
+        li i {
+            width: 40px;
+            margin-right: 0;
+
+            @include media('<desktop') {
+                font-size: 1.125rem;
+            }
+        }
+    }
+
+    .unordered-bordered-list {
+        li {
+            padding: 0 0 0 20px;
+
+            @include media('<tablet') {
+                padding: 0;
+            }
+
+            ~ li {
+                border-top: none;
+                margin-top: 1rem;
+
+                @include media('<tablet') {
+                    margin-top: 0;
+                }
+
+            }
+        }
+        > li {
+            &:before {
+                top: .5rem;
+            }
+        }
+    }
+    &.journal-resources {
+        ul {
+            li {
+                color: $wiley-text-color;
+                margin: 0;
+                line-height: 22px;
+                /*padding:11px 16px;*/
+                //it effects other components
+            }
+        }
+    }
+}
+
+.journal-actions-container {
+
+    @include media('>=tablet') {
+        margin-bottom: 0;
+    }
+
+}
+
+/*********************************************/
+/*********************************************/
+
+/*********** Journal Featured Articles ***********/
+
+.journal-featured-articles {
+
+    .issue-item {
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+}
+
+.pages-nav--res [data-db-target-of] {
+
+    .section__mainHeader--small {
+        padding: 15px;
+
+        @include media('<tablet') {
+            box-shadow: 0 0 2px $wiley-gray;
+            margin-bottom: 0;
+            background: $white;
+        }
+    }
+
+    .card--bordered {
+        padding: 0;
+    }
+
+    .unordered-list li {
+        padding: 15px;
+        padding-left: 30px;
+
+        &:before {
+            top: 1.2rem;
+            left: 15px;
+        }
+
+        a {
+            padding: 0;
+        }
+    }
+}
+
+.accessLogo {
+    margin-bottom: 5px;
+}
+
+#societyText {
+    padding: 0 20px 15px 20px;
+    margin: 15px 0;
+    border: 1px solid $wiley-extralightGray-color;
+    text-align: center;
+}

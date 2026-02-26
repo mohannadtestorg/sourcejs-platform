@@ -1,0 +1,24 @@
+extends ../../../../../components/parent-item/templates/parent-item/parent-item-tmpl.jade
+
+block parentDate
+    if (data) && (data.coverDate)
+        if data.url
+            a(href=data.url)
+                span.coverDate !{data.coverDate}
+        else
+            span.coverDate !{data.coverDate}
+
+block volume
+    if data.url
+        a(href=data.url)
+            if (data) && (data.volume)
+                span.comma VOL. #{data.volume}
+
+            if (data) && (data.issue)
+                | NO. #{data.issue}
+    else
+        if (data) && (data.volume)
+            span.comma VOL. #{data.volume}
+
+        if (data) && (data.issue)
+            | NO. #{data.issue}

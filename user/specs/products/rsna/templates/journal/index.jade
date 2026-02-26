@@ -1,0 +1,62 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+mixin getPage()
+    | !{data.header}
+    main.content.journal-home
+        div.top-image
+        div.container
+            | !{data.breadcrumbs}
+            | !{data.slideshow}
+            div.row.separator
+                div.col-md-9.col-sm-8.journal-home__content
+                    | !{data.articles}
+                    div.tab.tab--flex.journal-home__tab
+                        ul.rlist.tab__nav(role="tablist")
+                            li.active(role="presentation")
+                                a.active#pane-m1101con(href="#pane-m1101" aria-controls="#pane-m1101" role="tab" data-toggle="tab" title="Most viewed" aria-selected="true")
+                                    span Most Viewed
+                            li(role="presentation")
+                                a.active#pane-m1111con(href="#pane-m1111" aria-controls="#pane-m1111" role="tab" data-toggle="tab" title="Most cited" aria-selected="false")
+                                    span Most Cited
+                        ul.rlist.tab__content
+                            li.tab__pane.active#pane-m1101(aria-labelledby="pane-m1101con" role="tabpanel")
+                                | !{data.mostViewed}
+                            li.tab__pane#pane-m1111(aria-labelledby="pane-m1111con" role="tabpanel")
+                                | !{data.mostCited}
+                aside.col-md-3.col-sm-4
+                    div.e-alerts.border-bottom
+                        a(href="#").inline-icon
+                            i.icon-Icon_mail
+                            span SIGN UP FOR e-ALERTS
+                    h5.section__header.border-bottom RADIOLOGY PODCASTS
+                    | !{data.video}
+                    | !{data.video}
+                    | !{data.Ad}
+
+    | !{data.footer}
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+    section.source_section
+        h2 Journal Home page (Radiology)
+        markdown
+        .source_example
+            style(type="text/css")
+                | .jrnl-radiology .top-image{ background-image: url("../../images/bg-banner-radiology.png"); }
+            .jrnl-radiology
+                +getPage()
+
+    section.source_section
+        h2 Journal Home page (RadioGraphics)
+        markdown
+        .source_example
+            style(type="text/css")
+                | .jrnl-radiographics .top-image{ background-image: url("../../images/bg-banner-radiographics.png"); }
+            .jrnl-radiographics
+                +getPage()
+    | #{''}

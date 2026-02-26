@@ -1,0 +1,242 @@
+.figure-viewer {
+  color: $aha_black;
+  background: $aha_darken_white;
+
+  &__ctrl {
+    float: right;
+    border-left: 1px solid $aha_grey;
+    padding-left: 28px;
+    margin-left: 28px;
+    vertical-align: middle;
+    &:last-of-type {
+      margin-left: 0;
+      padding-left: 0;
+      border-left: none;
+    }
+    span {
+      font-size: 1rem; //16px
+      font-weight: 600;
+      color: $aha_lighten_black;
+      line-height: 58px;
+    }
+  }
+
+  &__reg__top {
+    background: $aha_white;
+    padding: 0px 30px;
+    margin-right: 0;
+    margin-left: auto;
+    border-bottom: 1px solid $aha_grey;
+    // __caption_area is opened
+    &.js-open {
+      width: 80%;
+      padding-left: 0;
+      .figure-viewer__top__left {
+        margin-left: -28px;
+      }
+      @media screen and (min-width: $container-md) and (max-width: $container-lg) {
+        width: 75%;
+      }
+    }
+  }
+
+  &__cent__left {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  &__caption_area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 3;
+    width: 20%;
+    @media screen and (min-width: $container-md) and (max-width: $container-lg) {
+      width: 25%;
+    }
+    background: $aha_white;
+    color: $aha_black;
+    padding: 0 30px;;
+    //default
+    backface-visibility: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.1s, box-shadow 0.1s;
+
+    .icon-doublearrow {
+      transform: none;
+      font-size: 1.625rem; // 26px
+      vertical-align: top;
+      line-height: inherit;
+      //margin-left:-30px;
+    }
+
+    &.js-open { //opened
+      transform: translateX(0);
+
+      .icon-doublearrow {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__top__left {
+    height: initial;
+    margin-left: 0px;
+  }
+
+  [class*="__ctrl__"],
+  [class*="__label__"] {
+    color: inherit;
+    background: inherit;
+    background: inherit;
+    height: 58px;
+  }
+
+  &__label__zoom {
+    margin-right: 0px;
+    font-size: 1.5rem; // 29px
+  }
+
+  &__ctrl__browse,
+  &__ctrl__return {
+    margin-right: 0px;
+    vertical-align: inherit;
+  }
+
+  &__ctrl__next,
+  &__ctrl__prev {
+    position: relative;
+    top: 0;
+    margin-top: 0px;
+    font-size: 1rem; // 16px
+
+    span {
+      text-shadow: none;
+      font-size: 0.725rem;
+    }
+  }
+
+  &__ctrl__next {
+    right: 0px;
+  }
+
+  &__ctrl__prev {
+    left: 0px;
+  }
+
+  &__ctrl__browse,
+  &__ctrl__return {
+    span {
+      font-size: 1.5rem;
+      display: inline-block;
+      font-weight: 400;
+    }
+  }
+
+  &__title {
+    left: 125px;
+    text-align: right;
+    line-height: 58px;
+  }
+
+  &__ctrl__caption {
+    & > span {
+      min-width: initial;
+      font-size: 1rem;
+      text-align: left;
+      vertical-align: middle;
+    }
+    &.js-open {
+      display: none;
+    }
+
+    &.reversed {
+      display: block;
+      line-height: 58px;
+      color: $aha_green;
+      transform: rotate(180deg);
+    }
+  }
+
+  @include media('>=desktop') {
+    &__ctrl__caption {
+      margin-left: 0;
+      background: $aha_grey;
+      padding: 0;
+    }
+  }
+
+  &__caption {
+    &__label {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  // ------------------------  Zoom Range custom styles, visit http://danielstern.ca/range.css/#/ for more details and cutomization ---------------------------
+  // range thumb related styles
+  input[type=range] {
+    padding: initial;
+  }
+
+}
+
+@include media('>=desktop') {
+  .figure-viewer {
+    &__title__text {opacity: 1;}
+  }
+}
+
+@include media('<desktop') {
+  .figure-viewer {
+
+    &__caption_area {
+      position: absolute;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      height: auto;
+      z-index: 9;
+      width: 100%;
+      padding: 20px 20px 60px;
+      transform: translateY(100%);
+
+      &.js-open { //opened
+        transform: translateY(0);
+      }
+    }
+
+    &__caption_area.js-open {
+      .icon-doublearrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+
+input[type=range] {
+  -webkit-appearance: none !important;
+  width: 100%!important;;
+}
+input[type=range]:focus {
+  outline: none!important;;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  border: none !important;
+  width: 100%!important;;
+  height: 4px!important;;
+  cursor: pointer!important;;
+  animate: 0.2s!important;;
+  background: $aha_grey !important;
+}
+input[type=range]::-webkit-slider-thumb {
+  border: none !important;
+  height: 16px !important;
+  width: 16px !important;
+  background: $aha_green !important;
+  margin-top: -6px !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,409 @@
+extends /specs/products/marlin/cell/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Default
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+                            section.article-text
+                                h2#sec001(role='') Graphical abstract
+                                p#par01901
+                                    | Population is unevenly distributed in the territory (
+                                    a(href='#tbl0035') Table 6
+                                    | ). Densely populated areas (> 7500 inhab./km
+                                    sup 2
+                                    | ) are distributed in 0.06% (< 190,000 ha) of the territory with 13.2 million inhabitants compared to the 42 million total inhabitants of Argentina. Medium-sized urban areas (between 2,500 and 7,500 inhab./km
+                                    sup 2
+                                    | ) occupy 0.68% of the territory with 22.3 million inhabitants and the remaining 1.45% (580,000) are distributed in the rest of the territory (98%).
+                                figure#fig001(data-std-width='900', data-std-height='1181', data-ds-width='540')
+                                    img.tall(src='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f2-standard.jpg', alt='Figure thumbnail gr7', data-locator='gr7', data-high-res='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f2-standard.jpg', style='width: 100%;')
+                                    figcaption
+                                        .figure__caption__body
+                                            .figure__title
+                                                span.label.figure__label(data-fv-label='Graph. abst.')  Graphical abstract.
+                                                span.figure__title__text
+                                                    | PM10 (Mg/year) emissions from residential and commercial sector: a) Geographical distribution; b) total values according to urban densities; c) total and proportional values according to geographical regions. Urban densities: i) rural (density < 100 inhab./km
+                                            .accordion
+                                                a.accordion__control(href='#', aria-expanded='false')
+                                                    i.icon-section_arrow_d
+                                                    span Show full caption
+                                                .accordion__content(style='display: none;')
+                                                    .figure__caption__text
+                                                        span
+                                                            | The positioning and movement of the nucleus has recently emerged as an important aspect of cell migration. Understanding of nuclear positioning and movement has reached an apogee in studies of fibroblast migration. Specific nuclear positioning and movements have been described in the polarization of fibroblast for cell migration and in active migration in 2D and 3D environments. Here, we review recent studies that have uncovered novel molecular mechanisms that contribute to these events in fibroblasts. Many of these involve a connection between the nucleus and the cytoskeleton through the LINC complex composed of outer nuclear membrane nesprins and inner nuclear membrane SUN proteins. We consider evidence that appropriate nuclear positioning contributes to efficient fibroblast polarization and migration and the possible mechanism through which the nucleus affects cell migration.
+                                                    .figure__copyright
+                                                        .figure__copyright__header Copyright © 2017 Wellcome Library
+                                                        .figure__copyright__text Reproduced from The UX3 by permission of The Biogroup
+                                            ul.rlist--inline.separator.download-links
+                                                li
+                                                    a.figure__open__ctrl(href='#') Figure Viewer
+                                                li
+                                                    a(href='#') View Hi-Res Image
+                                                li.hidden-xs
+                                                    a(href='#') Download (PPT)
+                                h2#sec0075(role='') Results
+                                section
+                                    h3#sec0080 Emissions by source type
+                                    section
+                                        h4#sec0085 Residential and commercial emissions
+                                        p#par0190
+                                            | Population is unevenly distributed in the territory (
+                                            a(href='#tbl0035') Table 6
+                                            | ). Densely populated areas (> 7500 inhab./km
+                                            sup 2
+                                            | ) are distributed in 0.06% (< 190,000 ha) of the territory with 13.2 million inhabitants compared to the 42 million total inhabitants of Argentina. Medium-sized urban areas (between 2,500 and 7,500 inhab./km
+                                            sup 2
+                                            | ) occupy 0.68% of the territory with 22.3 million inhabitants and the remaining 1.45% (580,000) are distributed in the rest of the territory (98%).
+                                        p#par0195
+                                            | With 12 million homes, the consumption of the residential and commercial sector in 2014 was: 11.4 × 10
+                                            sup 9
+                                            |  m
+                                            sup 3
+                                            |  of natural gas, 1.7 × 10
+                                            sup 6
+                                            |  Mg of LPG; 8 × 10
+                                            sup 6
+                                            |  Mg of firewood and 51 × 10
+                                            sup 6
+                                            |  MWh, leading to an average of 15.64 GJ/cap and 55.48 GJ/home (
+                                            a(href='#fig0010') Fig. 2
+                                            | ). Natural gas provides 52% of the total energy consumed by residential and commercial sectors for cooking and heating. While the Pampean Region has 20 million inhabitants consuming 54% of the total natural gas provision (460 m
+                                            sup 3
+                                            | /home per year), Patagonia, with 2.2 million inhabitants and the coldest climate in the country, consumed 24% of the natural gas provision (3,700 m
+                                            sup 3
+                                            | /home per year), other Regions consumed the remaining 22% (
+                                            a(href='#fig0015') Fig. 3
+                                            | ). Emissions to the atmosphere from the use of electricity in homes and offices are estimated as emissions from thermal power plants (next section).
+                                        p#par0200
+                                            a(href='#tbl0040') Table 7
+                                            |  shows the spatial distribution of pollutants emitted in residential and commercial areas. For example, this sector emits 13,393 Mg per year of PM10. From this total, 26% of the emissions are generated in rural areas (<1,000 inhab.="" km
+
+                                        #par02021
+                                            a(href='#tbl0040') Table 7
+                                            |  shows the spatial distribution of pollutants emitted in residential and commercial areas. For example, this sector emits 13,393 Mg per year of PM10. From this total, 26% of the emissions are generated in rural areas (<1,000 inhab.="" km
+                                        figure#fig0035(data-std-width='900', data-std-height='1181', data-ds-width='540')
+                                            img.tall(src='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f10-standard.jpg', alt='Figure thumbnail gr7', data-locator='gr7', data-high-res='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f10-standard.jpg', style='width: 100%;')
+                                            figcaption
+                                                .figure__caption__body
+                                                    .figure__title
+                                                        span.label.figure__label(data-fv-label='Fig. 7')  Figure 7.
+                                                        span.figure__title__text FMN2 Promotes Metastasis of Murine Melanoma Cells
+                                                    .accordion
+                                                        a.accordion__control(href='#', aria-expanded='false')
+                                                            i.icon-section_arrow_d
+                                                            span Show full caption
+                                                        .accordion__content(style='display: none;')
+                                                            .figure__caption__text
+                                                                span
+                                                                    | (A–H) Primary mouse embryo fibroblasts (MEF) plated on fibronectin-coated coverslips were (A and B).
+                                                                .base.dropBlock
+                                                                    a.inline-icon(href='#', data-db-target-for='p1', data-db-switch='rotate') Ref 1
+                                                                    .dropBlock__holder(data-db-target-of='p1')
+                                                                        | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries
+                                                                |  fixed and immunolabeled with antibodies against FMN2 and paxillin, actin was stained with fluorescent phalloidin, and the nucleus stained with DAPI. Cells were imaged by spinning disk confocal microscopy (SDC). (A) Ventral confocal sections; arrowhead, FMN2 (red) at FA (actin, green; paxillin, blue). (B) Maximal intensity projection (upper) and X-Z 3D reconstruction (bottom). White line, position of the X-Z image. (C–G) SDC (D–G) or total internal reflection fluorescence microscopy (C, TIRF, evanescent field depth = 100 nm) images of MEF expressing FMN2-GFP (green) with mCardinal histone H2B (blue, D, F, and G; red, C and H) and mApple actin (red, D–F), mCherry α-actinin (red, G). (C) Boxed region of color overlay (left) is zoomed at right. (D and E) Cells treated with (D) 50 μM blebbistatin or (E) 500 nM latrunculin-A for 1 hr prior to imaging. Boxed regions are zoomed on the right (D) or bottom (E); arrowheads in (D), perinuclear FMN2 fibrils associated with actin clusters. (F) Cells were imaged before (Pre-Treat) and immediately after extraction with 1% Triton X-100. (G) Left: single time point of color-encoded overlay, Right, time-lapse image series of the boxed region from the left; time in minutes is shown. Bars in (A)–(G) (left) = 10 μM; C and G (right) and E (bottom) = 5 μm. (H) SDC image of a live MEF expressing myosin 2 regulatory light chain-GFP (MLC, green) and mCherry histone H2B (H2B, red). Boxed region in top image (bar, 10 μm) zoomed below (bar, 10 μm); arrowheads, myosin 2-containing bundle deforming the nucleus. See also Figures S1 and S2 and Movies S1, S2, and S3.
+                                                            .figure__copyright
+                                                                .figure__copyright__header Copyright © 2017 Wellcome Library
+                                                                .figure__copyright__text Reproduced from The UX3 by permission of The Biogroup
+                                                    ul.rlist--inline.separator.download-links
+                                                        li
+                                                            a.figure__open__ctrl(href='#') Figure Viewer
+                                                        li
+                                                            a(href='#') View Hi-Res Image
+                                                        li.hidden-xs
+                                                            a(href='#') Download (PPT)
+                                    section
+                                        h4#sec0090 Main point sources
+                                        p#par0205
+                                            | Geographical distribution; b) total values according to urban densities; c) total and proportional values according to geographical regions. Urban densities: i) rural (density < 100 inhab./km
+                                            sup 6
+                                            |  Mg), refineries (31.7 × 10
+                                            sup 6
+                                            |  Mg of crude oil refining), and electricity generation (129 GWh). Regarding the energy production, thermal power plants generate 64%, hydroelectric plants generate 31%, and the remaining is nuclear or renewable. Considering the energy demand, the residential sector consumes 41%, the commercial sector consumes 29% and the industrial sector consumes 30%.
+                                            a(href='#fig0040') Fig. 8
+                                            |  also represents, as an example, the CO
+                                            sub 2
+                                            |  emissions (Gg) produced by these point sources: 40,329 Gg from power plants, 6,444 Gg from refineries’ own consumption and 4,134 Gg from cement production plants. Considering its regional distribution, 43% of carbon dioxide emissions (22,500 Gg) are emitted in the Pampean Region, followed by 24% in the Central Region (12,100 Gg); the rest of the country contributes with 32%, that is 16,350 Gg.
+                                        figure#fig0040(data-std-width='479', data-std-height='481', data-ds-width='460')
+                                            img.tall(src='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f2-standard.png', alt='Figure thumbnail gr8', data-locator='gr8', data-high-res='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f2-standard.png', style='width: 100%;')
+                                            .figure__caption__body
+                                                .figure__title
+                                                    span.label.figure__label(data-fv-label='Fig. 8')  Figure 8.
+                                                    span.figure__title__text
+                                                        | a) Spatial distribution of CO2 emissions (Gg/year) thermal power plants, cement and refineries by production of heat or electricity; b) total and proportional values according to geographical regions.
+                                                .accordion
+                                                    a.accordion__control(href='#', aria-expanded='false')
+                                                        i.icon-section_arrow_d
+                                                        span Show full caption
+                                                    .accordion__content(style='display: none;')
+                                                        .figure__caption__text
+                                                            span
+                                                                | distribution; b) total values according to urban densities; c) total and proportional values according to geographical regions. Urban densities: i) rural (density < 100 inhab./km
+                                                                sup 2
+                                                                | ), ii) urban low (densities between 100 and 5000 inhab./km
+                                                                sup 2
+                                                                | ), iii) urban medium (densities between 5000 and 100000 inhab./km
+                                                                sup 2
+                                                                | ), iv) Urban high (densities > 100000 inhab./km
+                                                                sup 2
+                                                                | ).
+                                                        .figure__copyright
+                                                            .figure__copyright__header Copyright © 2017 Wellcome Library
+                                                            .figure__copyright__text Reproduced from The UX3 by permission of The Biogroup
+                                                ul.rlist--inline.separator.download-links
+                                                    li
+                                                        a.figure__open__ctrl(href='#') Figure Viewer
+                                                    li
+                                                        a(href='#') View Hi-Res Image
+                                                    li.hidden-xs
+                                                        a(href='#') Download (PPT)
+
+                                        p#spar0160.legend NG: Natural Gas; GO: Gas oil, BD Biodiesel, FO Fuel-oil, C: Coal.
+                                        p#spar0165.legend
+                                            | Geographic regions include the following Provinces:
+                                            em Patagonia
+                                            | : Neuquén, Río Negro, Chubut, Santa Cruz y Tierra del Fuego;
+                                            em West
+                                            | : La Rioja, Mendoza, San Juan, San Luis;
+                                            em Northwest
+                                            | : Catamarca, Jujuy, Salta Tucumán;
+                                            em Northeast:
+                                            |  Corrientes, Chaco, Formosa, Misiones;
+                                            em Centre
+                                            | : Córdoba, Entre Ríos Santiago del Estero y Santa Fe;
+                                            em Pampa
+                                            | : Buenos Aires, Ciudad de Buenos Aires y La Pampa; (See also
+                                            a(href='#fig0005') Fig. 1
+                                            | ).
+                                    section
+                                        h4#sec0095 Emissions from the transport sector
+                                        p#par0210
+                                            | In 2014, the transportation sector consumed 8.2 × 10
+                                            sup 6
+                                            |  Mg of gas-oil, 7.9 × 10
+                                            sup 6
+                                            |  Mg of gasoline and 2.8 × 10
+                                            sup 9
+                                            |  m
+                                            sup 3
+                                            |  of compressed natural gas mainly in road transport, 1.6 × 10
+                                            sup 6
+                                            |  Mg of kerosene for aviation and 1.4 × 10
+                                            sup 6
+                                            |  Mg of fuel oil for inland navigation
+                                            |                       ). The railroad freight network carried 8.9 × 10
+                                            sup 6
+                                            |  tonne-kilometers (TKT) and transported 267 million passengers from which 13 million veh-km (VKT) used diesel engines and 99.5 million VKT used electric engines.
+                                        p#spar0175.legend Ref.: AEK: Aero kerosene and jet fuel; NCG: Natural compressed gas.
+                                        p#par0215
+                                            a(href='#fig0045') Fig. 9
+                                            |  shows the fuel sales at the refueling gas stations. It also shows the calculated VKT activity derived for the road transport sector and the respective NOx emissions for this subsector. The Pampean and Central Region concentrates 60% of the activity and emissions. Road transport produced the main NOx emissions, which has a strong impact on rural areas. Maritime and inland navigation has a significant impact on NOx, PM10 and SO
+                                            sub 2
+                                            |  emissions due to the use of fuel oil as the main fuel.
+                                        figure#fig0045(data-std-width='775', data-std-height='514', data-ds-width='540')
+                                            img.tall(src='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f3-standard.png', alt='Figure thumbnail gr9', data-locator='gr9', data-high-res='/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f3-standard.png', style='width: 100%;')
+                                            figcaption
+                                                .figure__caption__body
+                                                    .figure__title
+                                                        span.label.figure__label(data-fv-label='Fig. 9')  Figure 9.
+                                                        span.figure__title__text
+                                                            | emissions of the transport sector. a) Spatial distribution of gasoline sales at refueling stations (m
+                                                    .accordion
+                                                        a.accordion__control(href='#', aria-expanded='false')
+                                                            i.icon-section_arrow_d
+                                                            span Show full caption
+                                                        .accordion__content(style='display: none;')
+                                                            .figure__caption__text
+                                                                span
+                                                                    | Consumption, activity and emissions of the transport sector. a) Spatial distribution of gasoline sales at refueling stations (m
+                                                                    sup 3
+                                                                    | /year); b) VKT for gasoline passenger vehicles (veh-km/year) with zoom to a central area; c) NOx emissions as function of the urbanization type. Reference to rural or urban areas for maritime navigation refers to the type of zone adjacent to the ports, docks and areas of the river/coastal environment. d) Distribution of NOx emissions from road transport as a function of the geographical regions. Urban densities: i) rural (density < 100 inhab./km
+                                                                    sup 2
+                                                                    | ), ii) urban low (densities between 100 and 5000 inhab./km
+                                                                    sup 2
+                                                                    | ), iii) urban medium (densities between 5000 and 100000 inhab./km
+                                                                    sup 2
+                                                                    | ), iv) Urban high (densities > 100000 inhab./km
+                                                                    sup 2
+                                                                    | ).
+                                                            .figure__copyright
+                                                                .figure__copyright__header Copyright © 2017 Wellcome Library
+                                                                .figure__copyright__text Reproduced from The UX3 by permission of The Biogroup
+                                                    ul.rlist--inline.separator.download-links
+                                                        li
+                                                            a.figure__open__ctrl(href='#') Figure Viewer
+                                                        li
+                                                            a(href='#') View Hi-Res Image
+                                                        li.hidden-xs
+                                                            a(href='#') Download (PPT)
+
+    | #{''}
+
+    section.source_section
+        h2 ajhg
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.ajhg
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+
+        | #{''}
+    section.source_section
+        h2 bpj
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.bpj
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 molp
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.molp
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 stemcr
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.stemcr
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 asgct
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.asgct
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 physicalsci
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.physicalsci
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 lifesci
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.lifesci
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 omtm
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.omtm
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}
+    section.source_section
+        h2 others
+        .source_example.source_visible(style="width: 1400px;")
+            .ux3
+                article.others
+                    include ../../../components/color-overlay/templates/demo/demo-color-overlay-tmpl
+                    .container
+                        .col-xs-12.col-lg-3.hidden-xs.hidden.sm
+                        .col-xs-12.col-lg-6
+                            section
+                                h2 Summary
+                                ul
+                                    li The formin FMN2 generates a perinuclear actin/adhesion system
+                                    li FMN2 regulates nuclear position during 2D migration
+                                    li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                                    li FMN2 promotes metastasis of melanoma cells to the lung
+        | #{''}

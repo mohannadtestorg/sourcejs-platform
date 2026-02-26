@@ -1,0 +1,32 @@
+﻿extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/aha/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+
+block jsLastInBody
+    include /specs/products/aha/page-structure/structure/templates/structure/js-lastin-body-tmpl.jade
+
+block content
+    h1 General utility styles
+    .source_info
+        p General utility styles to be added here
+
+    section.source_section
+        h2 Normalize css
+        a.source_a_hl(href='https://necolas.github.io/normalize.css/') Normalize css
+        p A modern, HTML5-ready alternative to CSS resets
+        p We are using v5.0.0
+
+
+    section.source_section
+        h2 Custom utility styles
+        a.source_a_hl(href='/docs/spec') Spec Page Documentation
+        p Useful notes.
+        .source_example
+            p Rendered code examples.
+        p
+            | This spec uses
+            code index.src.html
+            |  template, view it's
+            a(href='index.src.html') source
+            | .

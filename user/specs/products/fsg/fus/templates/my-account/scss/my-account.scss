@@ -1,0 +1,41 @@
+.profile-pages {
+    > .tab {
+        > .dropBlock {
+            a {
+                color: $text-onDark;
+                &:hover {
+                    color: $text-onDark;
+                }
+            }
+        }
+    }
+}
+
+
+@include media('>=desktop') {
+    .profile-pages {
+        .tab--aside {
+
+            > .tab__nav {
+
+                .active a {
+                    color: $text-onDark;
+                    border-color: $text-onDark;
+                }
+                a {
+                    color: $text-onDark;
+                }
+            }
+        }
+    }
+}
+
+
+.account-tab {
+    &__nav:not(.js--open) {
+        .active a {
+            color: $text-onDark;
+            /*border-color: $text-onDark;*/
+        }
+    }
+}

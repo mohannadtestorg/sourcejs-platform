@@ -1,0 +1,103 @@
+- var image = 'false';
+mixin loading(image)
+    block loading
+        .lazy-load
+            if (image == 'true')
+                .lazy-load__img
+            .lazy-load__text
+                .lazy-load__line
+                .lazy-load__line--80
+                .lazy-load__line
+                .lazy-load__line--70
+                .lazy-load__line--50
+
+mixin meta(item)
+    block meta
+        div.meta
+            if (item.group)
+                if (item.group.citationLine)
+                    | !{item.group.citationLine}
+                else
+                    | !{pb.render('parent-item', {data: item.group})}
+            if (item && item.epubDate)
+                | #{', '}
+                | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}
+
+
+
+mixin teaser(item)
+    block teaser
+        div.creative-work
+            .delayLoad
+                if (item.title)
+                    if (item.best)
+                        a(href=item.best title=item.title)
+                            h5.creative-work__title !{item.title}
+                    else
+                        h5.creative-work__title !{item.title}
+
+                block authors
+                    if (thisWidget && thisWidget.properties && thisWidget.properties.displayAuthors === "true" && item.contribs)
+                        | !{item.contribs}
+                +meta(item)
+
+            +loading(image)
+
+
+mixin topicDropdown(tags)
+    block topicDropdown
+        div.multi-search-dropzone
+            if(thisWidget && thisWidget.id)
+                div.base.dropBlock.multi-search__dropblock(class="dropBlock-target_#{thisWidget.id}")
+                    a.inline-icon(data-db-target-for="dropBlock-target_#{thisWidget.id}" data-db-switch="rotate")
+                        span Subspecialty
+                        i.icon-section_arrow_d(aria-hidden="true")
+                    div.dropBlock__holder.multi-search__dropblock__holder(data-db-target-of="dropBlock-target_#{thisWidget.id}")
+                        ul.multi-search__dropblock-list
+                            each item in tags
+                                li
+                                    a(href="javascript:void(0)" data-value=item.value data-label=item.label)
+                                        span !{item.label}
+
+
+block multiSearchClasses
+    -var DOItemclasses="";
+    -var listclasses="rlist lot";
+    -var articleItemclasses="";
+    -var moreLinkclasses="more-link";
+
+block content
+    .multi-search
+        if(data && data.tags)
+            +topicDropdown(data.tags)
+        if(!data.tags && data.currentTopic)
+            ul.facet__list--applied.rlist--inline
+                li
+                    span(title=data.currentTopic)
+                        | !{data.currentTopic}
+                        a.remove-topic
+                            i.icon-tools_close(aria-hidden="true")
+
+        if ((data) && (data.items) && (data.items.length > 0))
+            - var itemNo = data.items.length
+            if itemNo > 0
+                ul(class=listclasses)
+                    each item, l in data.items
+                        if(item.type == "Digital Object Pub")
+                            li(class=DOItemclasses )
+                                | !{item.render}
+                        else
+                            li(class=articleItemclasses)
+                                +teaser(item)
+
+
+                if (data.widget) && (data.widget.moreUrl)
+                    a(class=moreLinkclasses,href=data.widget.moreUrl)
+                        if (data.widget) && (data.widget.moreText)
+                            | !{data.widget.moreText}
+                        else
+                            | Show More
+
+        else
+            div.multi-search__no-result 
+                | !{thisWidget.properties.noResultMessage}

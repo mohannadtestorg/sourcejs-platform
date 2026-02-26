@@ -1,0 +1,53 @@
+block parentInfo
+    div.parent-item
+        if (data) && (data.type == "Book")
+            .book__basic-info
+                if(data.title)
+                    .book__title
+                        a(href=data.bookUrl title=data.title)
+                            h6 !{data.title}
+                if(data.contribs)
+                    .book__authors !{data.contribs}
+            if(data.edition)
+                .book__edition
+                    span Edition:
+                    span  !{data.edition}
+
+        block parentDate
+            if (data) && (data.coverDate)
+                span.comma.coverDate !{data.coverDate}
+
+        block serialData
+                if (data) && (data.serial)
+                        if (data.serial.journalUrl) && (data.serial.serialTitle)
+                            span.comma
+                                a(href=data.serial.journalUrl) !{data.serial.serialTitle}
+
+                        else if (data.serial.journalUrl) && (data.serial.title)
+                            a.serialTitle(href=data.serial.journalUrl) !{data.serial.title}
+
+                        else if (data.serial.serialTitle)
+                            span.comma
+                                | !{data.serial.serialTitle}
+
+                        else if (data.serial.type)
+                            span.comma
+                                | !{data.serial.type}
+
+
+        if (data) && (data.isAheadOfPrint) && data.isAheadOfPrint == true
+            span.comma Ahead Of Print
+
+        block justAccepted
+            if (data) && (data.isJustAccepted) && data.isJustAccepted == true
+                span.comma Just Accepted
+
+        if (data) && (data.isForthcoming) && data.isForthcoming == true
+            span.comma Forthcoming
+
+        block volume
+            if (data) && (data.volume)
+                span.comma VOL. #{data.volume}
+
+            if (data) && (data.issue)
+                | NO. #{data.issue}

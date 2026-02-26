@@ -1,0 +1,13 @@
+extends ./quick-search-tmpl
+
+
+
+block advanceSearchArrow
+
+
+block quicSearchBlock
+    div.quick-search.quick-search-alt
+        +search()
+        block quickSearchDropBlock
+                 | !{pb.renderDropzone(thisWidget, "quickSearchMoreLinksDropZone")}
+

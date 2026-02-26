@@ -1,0 +1,39 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# font
+  global:
+    type: "size"
+    category: "sizing"
+    cssProperties:
+    - 'font*'
+  jsGroupe: "base"
+  strip: "false"
+  props:
+    default-font-family:
+      value: "'Source Sans Pro', sans-serif"
+    h2-font-size:
+      value: "2.88rem"
+      suffix: "46px 23pt"
+    h2-sm-font-size:
+      value: "1.63rem"
+      suffix: "26px 13pt"
+    h3-font-size:
+      value: "1.13rem"
+      suffix: "18px 9pt"
+    h3-sm-font-size:
+      value: "1rem"
+      suffix: "16px 8pt"
+    h4-font-size:
+      value: "1.13rem"
+      suffix: "18px 9pt"
+    h4-sm-font-size:
+      value: "0.94rem"
+      suffix: "15px 7.5pt"

@@ -1,0 +1,10 @@
+extends ../../../../../../ux3/components/figure-viewer/templates/figure-viewer/figure-viewer-tmpl
+
+
+
+block figureViewerZoom
+    button.figure-viewer__label__zoom.icon-zoom-out.zoom-out(title='zoom out')
+    span.zoomSlider.js__zoom-slider.ui-slider(tabindex="1")
+        input.zoom-range(type="range")
+
+    button.figure-viewer__label__zoom.icon-zoom-in.zoom-in(title='zoom in')

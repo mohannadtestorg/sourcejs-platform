@@ -1,0 +1,12 @@
+.m-image-zoom-area(data-behavior='ImageZoomArea', data-figure-id='imageChallenge')
+  img(srcset='http://placehold.dev.area17.com/image/300x169 300w, http://placehold.dev.area17.com/image/600x338 600w, http://placehold.dev.area17.com/image/800x450 800w, http://placehold.dev.area17.com/image/1000x563 1000w, http://placehold.dev.area17.com/image/1500x844 1500w', width='300', height='169')
+  nav.m-image-zoom-area__tools(class='u-hide@medium-')
+    ul
+      li
+        button(data-image-zoom-area-zoom-in='')
+          svg.icon--plus
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--plus')
+      li
+        button(data-image-zoom-area-zoom-out='', disabled='')
+          svg.icon--minus
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--minus')

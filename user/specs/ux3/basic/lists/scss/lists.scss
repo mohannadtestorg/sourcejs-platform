@@ -1,0 +1,78 @@
+.rlist{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &.separator {
+        > li ~ li {
+            border-top: 1px solid $separators-color;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+    }
+
+    &.spaced {
+        & > li {
+            margin-bottom: 8px;
+        }
+    }
+    &--inline {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        > li {
+            display: inline-block;
+        }
+
+        &.separator {
+            > li {
+                border: none;
+                margin-top: 0;
+                padding-top: 0;
+            }
+            > li:not(:last-of-type) {
+                border-right: 1px solid $primary-bg-color;
+            }
+        }
+
+        &.comma {
+           > li:not(:last-child) {
+                &:after {
+                    content: ",";
+                    margin: 0 6px 0 2px;
+                }
+            }
+        }
+    }
+    &.points {
+        li {
+            &:after {
+                content: "•";
+                margin: 0 6px 0 2px;
+            }
+        }
+
+    }
+}
+
+.separated-list {
+    padding: 15px 0;
+    border-bottom: 2px solid $tertiary-bg-color;
+    border-top: 2px solid $tertiary-bg-color;
+}
+
+.lower-alpha {
+    list-style-type: lower-alpha;
+    padding-left: 15px;
+
+    > li {
+        padding-left: 5px;
+    }
+}
+
+.loa {
+    //color: $secondary-text-color;
+    margin: 0 0 10px;
+    font-size: 0.875rem; // 14px
+}

@@ -1,0 +1,23 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 My Account page
+    .source_info
+
+    section.source_section
+        h2 My Account page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+
+            main.content
+                .profile-pages__heading
+                    .container
+                        h3 MY ACCOUNT
+                .container
+                    | !{pb.render('my-account', {"shared": {"model": {"config": {"wrapper": "true", "className": ["profile-pages"]}}}})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

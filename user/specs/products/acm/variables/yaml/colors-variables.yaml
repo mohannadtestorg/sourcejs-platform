@@ -1,0 +1,78 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    primary-bg-color:
+      value: "{!BLACK}"
+    primary-lighten-bg-color:
+      value: "{!GRAY_2}"
+    primary-border-color:
+      value: "{!GRAY_3}"
+    secondary-border-color:
+      value: "{!GRAY_5}"
+    light-blue-text-color:
+       value: "{!BLUE}"
+    primary-blue-text-color:
+           value: "{!BLUE_2}"
+    link-text-color:
+            value: "{!BLUE_3}"
+    link2-text-color:
+           value: "{!BLUE_5}"
+    secondary-blue-text-color:
+            value: "{!BLUE_4}"
+    footer-bg-color:
+       value: "{!BLACK}"
+    tertiary-bg-color:
+       value: "{!GRAY_4}"
+    light-pink-text-color:
+           value: "{!PINK}"
+    light-yellow-color:
+         value: "{!YELLOW}"
+    dark-pink-text-color:
+           value: "{!PINK_2}"
+    journal-bg-color-bj:
+       value: "{!BROWN}"
+    journal-bg-color-light-bj:
+           value: "{!BROWN_2}"
+    gray-bg-color:
+       value: "{!GRAY}"
+    secondary-lighten-bg-color:
+       value: "{!GRAY_6}"
+    transparent-black-color:
+           value: "{!GRAY_7}"
+    purple-text-color:
+           value: "{!PURPLE}"
+    journal-code-color:
+           value: "{!BLUE_6}"
+    highlight-color:
+           value: "{!HIGHTLIGHT}"
+    csuracm-journal-color:
+               value: "{!CSURACM}"
+    jea-journal-color:
+               value: "{!JEA}"
+    idiq-journal-color:
+               value: "{!IDIQ}"
+
+
+
+
+
+

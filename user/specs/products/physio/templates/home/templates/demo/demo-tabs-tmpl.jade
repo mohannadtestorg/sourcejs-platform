@@ -1,0 +1,11 @@
+extends ../../../../../../ux3/components/tabs/templates/tabs/tabs-tmpl
+
+block tabsDropZone
+    | !{item.content}
+
+block tabs
+       +tabs()
+           mixin item(item)
+block tabsItem
+    if (item.text)
+        span !{item.text}

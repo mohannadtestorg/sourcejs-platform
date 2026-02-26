@@ -1,0 +1,24 @@
+extends ../../../../../../ux3/widgets/article-tools/templates/article-tools/article-tools-tmpl
+
+
+
+block articletoolsList
+    li.article-tool(role="none")
+        if tool == 'permissions'
+          a(href=url role="menuitem" target="blank")
+            i.icon-lock_open(aria-hidden="true")
+            span !{label}
+
+        else
+           a(href=url role="menuitem")
+               if tool == 'addFavorite'
+                   i.icon-Icon_Star-26(aria-hidden="true")
+               if tool == 'downloadCitation'
+                   i.icon-Icon_Download(aria-hidden="true")
+               if tool == 'trackCitation'
+                   i.icon-Icon_Track-citations(aria-hidden="true")
+               if tool == 'permissions'
+                   i.icon-lock_open(aria-hidden="true")
+               if tool == 'reprints'
+                   i.icon-reprints(aria-hidden="true")
+               span !{label}

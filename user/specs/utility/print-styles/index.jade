@@ -1,0 +1,86 @@
+extends /specs/page-structure/layout.jade
+
+block cssLastInHead
+    include ../page-structure/css-lastin-head.jade
+
+block jsLastInBody
+    include ../page-structure/js-lastin-body.jade
+
+block content
+    h1 Print Styles
+    .source_info
+        p This is basic stylesheet for media print.
+        p You can extend it in product's SCSS directory.
+
+
+    section.source_section
+        h2 Basic classes
+        markdown
+            h3 `.visible-print`
+            p It is defined in `specs/utility/general/scss/general.scss`. An Element with this class is hidden on every media except print.
+
+            h3 `.hidden-print`
+            p An Element with this class <b>will not be</b> printed.
+
+            h3 Grid for printing
+            p Group of classes for creating grid for printing. You can prepare different layout for printing.
+            table
+                thead
+                    tr
+                        th Class
+                        th Width
+                tbody
+                    tr
+                        td `.col-print-1`
+                        td 8%
+                    tr
+                        td `.col-print-2`
+                        td 17%
+                    tr
+                        td `.col-print-3`
+                        td 25%
+                    tr
+                        td `.col-print-4`
+                        td 33%
+                    tr
+                        td `.col-print-5`
+                        td 42%
+                    tr
+                        td `.col-print-6`
+                        td 50%
+                    tr
+                        td `.col-print-7`
+                        td 58%
+                    tr
+                        td `.col-print-8`
+                        td 67%
+                    tr
+                        td `.col-print-9`
+                        td 75%
+                    tr
+                        td `.col-print-10`
+                        td 83%
+                    tr
+                        td `.col-print-11`
+                        td 92%
+                    tr
+                        td `.col-print-12`
+                        td 100%
+
+
+        .source_example
+            .container
+                .row
+                    h3.hidden-print Title - will not be printed
+                    h3.visible-print Title - will be printed
+                    .col-md-8.col-xs-12.col-print-12(style='background: hotpink')
+                        p This Column will have 100% width when you print it
+                        p .col-md-8.col-xs-12.col-print-12
+                    .col-md-4.col-xs-12.hidden-print(style='background: green; color: white')
+                        p This column will not be printed <br>
+                        p .col-md-4.col-xs-12.hidden-print
+
+    section.source_section
+        h2 Hidden elements
+        markdown
+            p Elements with classes `.main-nav, .header__quick-menu, .pb-ad, .coolBar, .loi__banner, .contact__nav, .sitemap` are set to `display: none` as default.

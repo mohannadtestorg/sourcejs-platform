@@ -1,0 +1,33 @@
+{
+    "title": "Share",
+    "template": "doc",
+    "tag": ["ready"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Share - Custom Html",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/share/share-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/share-addthis.json"
+                        }
+                    }
+                }
+
+            },
+            {
+                "title": "Share -  Custom icons",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/share/share-tmpl.jade",
+                        "data": {
+                            "$ref": "./templates/data/share-custom-icons.json"
+                        }
+                    }
+                }
+
+            }
+        ]
+    }
+}

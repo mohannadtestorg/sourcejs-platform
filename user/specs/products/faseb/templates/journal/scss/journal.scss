@@ -1,0 +1,69 @@
+.journal-home {
+    &__tab {
+        .section__header {
+            display: none;
+        }
+
+        .tab__nav {
+            font-size: $default-font-size ;
+            color: $secondary-text-color;
+            font-weight: normal;
+            display: block;
+            margin-bottom: 25px;
+            border-bottom: 1px solid $tertiary-border-color;
+
+            @include media('<tablet') {
+                display: none;
+            }
+
+            a {
+                border-bottom: none;
+                padding: 10px 15px 10px 15px;
+            }
+
+            li {
+                margin-bottom: 0px;
+
+                &.active a {
+                    font-weight: normal;
+                    border-bottom: 2px solid $secondary-border-color;
+                    color: $primary-link-color;
+                }
+
+                &:hover a {
+                    color: $primary-link-color;
+                    transition: color 0.3s;
+                }
+            }
+
+        }
+
+        .tab__pane {
+            @include media('<tablet') {
+                display: block;
+            }
+        }
+
+        .section__header {
+            @include media('<tablet') {
+                display: block;
+            }
+        }
+    }
+}
+
+main {
+    .top-image {
+        height: 220px;
+        z-index: 0;
+    }
+}
+
+.top-image {
+    ~.container {
+        .row {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+}

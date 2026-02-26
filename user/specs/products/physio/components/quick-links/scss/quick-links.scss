@@ -1,0 +1,60 @@
+.quick-links {
+  &-holder {
+    @include themify($themes) {
+      background: themed('color');
+    }
+    position: fixed;
+    right: 0;
+    top: 230px;
+    width: 48px;
+    z-index: 999999;
+    .share__ctrl {
+      font-size: inherit;
+    }
+    .share__block {
+      position: absolute;
+      top: 0;
+      right: 48px;
+      min-width:0px;
+      i.at-icon-wrapper {
+        margin:0;
+      }
+    }
+  }
+  &-items {
+    .quick-links-item {
+      height: 48px;
+      line-height: 48px;
+      width: 48px;
+      padding: 2px;
+      text-align: center;
+      vertical-align: middle;
+      overflow: hidden;
+      color: $primary-white;
+      font-size: 18px;
+      i {
+        font-weight: 600;
+      }
+      i.icon-Rss {
+        font-weight: lighter;
+      }
+      i.icon-eye {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+.pb-edit-view {
+  .quick-links {
+    &-holder {
+      position: initial;
+    }
+    &-items {
+      .quick-links-item {
+        overflow: visible;
+      }
+    }
+  }
+
+}

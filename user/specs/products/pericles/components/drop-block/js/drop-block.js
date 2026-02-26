@@ -1,0 +1,3 @@
+UX.dropBlock.setFocus = function () {
+
+};

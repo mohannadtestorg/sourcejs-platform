@@ -1,0 +1,99 @@
+{
+    "title": "Teaser (Creative work)",
+    "template": "doc",
+    "tag": ["components"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Creative work with image",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/components/teaser/templates/data/creative-work.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Creative work without image",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/components/teaser/templates/data/creative-work-noimage.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Creative card",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["card"],
+                                    "headingLevel": 3
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/teaser/teaser-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/teaser/templates/data/creative-work-noimage.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Creative card",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["left-side-image"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/teaser/teaser-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/components/teaser/templates/data/creative-work-left-side-image.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "List of Creative works",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/components/teaser/templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/components/teaser/templates/data/creative-work-list.json"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

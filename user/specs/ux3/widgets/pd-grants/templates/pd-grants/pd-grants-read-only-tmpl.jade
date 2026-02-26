@@ -1,0 +1,31 @@
+extends  pd-grants-update-tmpl
+block actionTd
+
+block inputInTd
+
+block errorMessage
+
+block funders
+    .funders
+        h4.border-bottom Funders
+
+        .table-responsive.table-actions
+            table(class='expandable separator')
+                thead
+                    tr
+                        th Funder
+                        th Grant number
+                        th Recipient
+
+                tbody
+                    if (data.forms)
+                        each row, r in data.forms
+                            +row(r,row)
+
+
+
+
+
+
+
+

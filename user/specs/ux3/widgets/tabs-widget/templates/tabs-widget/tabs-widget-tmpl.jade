@@ -1,0 +1,19 @@
+if(data.widget)
+    - var tabsWidgetData = { thisWidget: thisWidget, config: {type: data.widget.type,id: data.widget.id,hideEmpty: data.widget.hideEmpty,vPort: data.widget.vPort,effect: data.widget.effect,dynamic: data.widget.dynamic},data: {nav: []}}
+
+
+if(data.widget && data.widget.tabLabels)
+    each texto, i in data.widget.tabLabels
+        - tabsWidgetData.data.nav.push({text: texto})
+
+- var index = 0;
+if(tabsWidgetData.data && tabsWidgetData.data.nav)
+    each item, i in tabsWidgetData.data.nav
+        - item["tabClasses"] = data.widget.tabClasses[index]
+        - item["icon"] = data.widget.tabIcons[index]
+        if data.widget && data.widget.tabUrls[index]!= null
+            - item["itemUrl"] = data.widget.tabUrls[index]
+        - index++
+
+
+| !{pb.render("tabs", tabsWidgetData)}

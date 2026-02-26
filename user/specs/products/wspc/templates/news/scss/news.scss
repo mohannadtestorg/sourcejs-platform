@@ -1,0 +1,99 @@
+.news {
+    &-page__title {
+        margin-top: 1rem;
+        font-size: 2rem;
+        color: #000;
+    }
+    &-item {
+        &__header {
+            margin-bottom: 2rem;
+            h3 {
+                font-size: 26px;
+                line-height: normal;
+                color: #000;
+            }
+        }
+        &__meta {
+            color: $secondary-text-color;
+            font-size: 14px;
+            &__key {
+                color: #000;
+                font-weight: bold;
+                margin-right: 0.5rem;
+            }
+        }
+        &__content {
+            font-size: 14px;
+            color: #000;
+        }
+    }
+    &-list {
+        margin-bottom: 1.2rem;
+        list-style: none;
+        padding: 0;
+
+        .section__header {
+            font-weight: bold;
+            border-bottom: 1px solid $divider-color;
+            padding-top: 24px;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+        }
+        &__item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid $divider-color;
+            font-weight: bold;
+            &__title {
+                color: $primary-bg-color;
+                font-weight: bold;
+                font-size: 1rem;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+            &__date {
+                color: #000;
+                font-weight: bold;
+                font-size: 1rem;
+                display: block;
+            }
+        }
+    }
+}
+
+.tabs__nav {
+    @extend .search-result__nav;
+    border-color: $separator-color;
+    &__item {
+        @extend .search-result__nav__item;
+        min-width: 0;
+    }
+}
+
+.news {
+    &__container {
+        h1 {
+            line-height: 33px;
+        }
+        ul {
+            padding: 0px 20px;
+            li {
+                color: $secondary-color;
+                padding: 5px 0;
+            }
+        }
+    }
+    &__date {
+        .label {
+            font-weight: bold;
+            color: $primary-grey;
+            &:after {
+                content: ":";
+                padding: 0px 2px;
+            }
+        }
+        span {
+            color: $secondary-text-color;
+        }
+    }
+}

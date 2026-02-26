@@ -1,0 +1,39 @@
+.slideshow-wrapper {
+    margin-top: 30px;
+    padding: 30px 0;
+    @include media('<tablet') {
+        margin: 30px 0;
+    }
+    .slideShow {
+        min-height: 180px;
+    }
+}
+
+.slide-item {
+    .creative-work__title {
+        font-weight: 300;
+        font-size: 2.13rem;
+    }
+    .loa {
+        font-size: 1.06rem;
+    }
+}
+
+.owl-item {
+    .creative-work {
+        img {
+            @include media('<tablet') {
+                display: none;
+            }
+        }
+        .parent-item {
+            display: inline-block;
+        }
+    }
+    .creative-work__title {
+        @include media('<tablet') {
+            font-size: 1.63rem;
+        }
+    }
+}
+

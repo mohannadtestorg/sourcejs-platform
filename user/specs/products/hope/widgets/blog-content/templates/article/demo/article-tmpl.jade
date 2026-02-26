@@ -1,0 +1,32 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/demo/article-tmpl
+
+
+block contentClasses
+    -var contentClasses="blog__content article__content"
+
+block includeCitation
+    include ../../article/demo/ext-citation-demo-tmpl
+    if(data.item)
+        .epub-section
+            if (data.item.ePubDate)
+                span.epub-section__item
+                    span.epub-section__date !{data.item.ePubDate}
+            span.epub-section__item.pull-right
+                if(data.item.ids && data.item.ids.doi && data.item.ids.doi.value)
+                    a.epub-section__doi__text(href= "https://doi.org/" + data.item.ids.doi.value) https://doi.org/!{data.item.ids.doi.value}
+    if(data.doImage)
+      div.do-full__image !{data.doImage}
+
+
+block tabsContainer
+    .col-sm-4
+       include ../../article/sidebar-region-tmpl
+
+block includeCoolbar
+    include  ../../article/demo/ext-coolbar-demo-tmpl
+
+
+block article
+    if(data.item)
+        article.container(data-figures=data.item.figures data-references=data.item.references)
+            +articleRow()

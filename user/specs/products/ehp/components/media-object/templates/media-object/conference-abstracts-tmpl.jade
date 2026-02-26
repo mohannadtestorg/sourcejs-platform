@@ -1,0 +1,40 @@
+extends media-object-tmpl
+
+mixin item(item)
+    if (item.title)
+        if (item.url)
+            div
+                a(href=item.url) !{item.title}
+        else
+            div !{item.title}
+        if (item.date)
+            div !{item.date}
+        if (item.place)
+            div !{item.place}
+    if (item.pdf && item.pdf.title)
+        a(href=item.pdf.url) !{item.pdf.title}
+        if (item.pdf.size && item.pdf.url)
+            |  (!{item.pdf.size}-MB PDF)
+
+mixin renderItems(items)
+    - var itemNo = items.length
+    if itemNo > 1
+        ul.rlist.spaced
+            each item, l in items
+                li.media-object__item
+                    +item(item)
+    else
+        each item, l in items
+            .media-object__item
+                +item(item)
+
+
+block mediaObjectContent
+    if (item.date)
+        div.strong !{item.date}
+    if (item.place)
+        div.strong !{item.place}
+    if (item.content)
+        | !{item.content}
+    +renderItems(item.items)
+

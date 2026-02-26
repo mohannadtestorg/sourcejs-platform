@@ -1,0 +1,24 @@
+﻿header.header.base(data-db-parent-of="sb1")
+    .container.visible-lg
+        .row
+            .col-xs-12
+                .pb-ad
+                    a(href='#')
+                        img(src='http://placeimg.com/728/90/tech')
+    .scrollThenFix
+        .container.header--first-row
+            .pull-left
+                | !{logo}
+            .pull-right
+                .institution-wrapper
+                    | !{institution}
+                .header__quick-menu
+                    ul.rlist--inline
+                        li
+                            | !{search}
+                        li
+                            | !{cart}
+                        li
+                            | !{user}
+        .primary-bg-color.text-onDark.drawer__nav
+            | !{mainmenu}

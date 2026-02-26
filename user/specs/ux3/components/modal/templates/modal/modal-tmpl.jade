@@ -1,0 +1,12 @@
+
+.ux-modal-container
+    div.modal(id=data.id)
+        div.modal__dialog
+            div.modal__header
+                button(type="button" class="close" data-dismiss="modal")
+                    i.icon-close_thin(aria-hidden="true")
+                if (data.title)
+                    h2 !{data.title}
+            if (data.content)
+                div.modal__body
+                    | !{data.content}

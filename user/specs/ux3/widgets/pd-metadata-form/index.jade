@@ -1,0 +1,29 @@
+extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include ../../../page-structure/helpers/print-json-mixin
+    include ../../../page-structure/helpers/print-template-include-mixin
+    include ../../../page-structure/helpers/print-js-code-mixin
+
+        h2 Usage
+        h3 Data
+
+        +printJson({
+            "data": {
+                "doi": "",
+                "index": "",
+                "saveLink": "",
+                "cancelLink": "",
+                "submitLink": ""
+            }
+        })
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+        h3!= data.items[0].title
+        .source_example
+            .container
+                | !{data.items[0].body}
+    | #{''}

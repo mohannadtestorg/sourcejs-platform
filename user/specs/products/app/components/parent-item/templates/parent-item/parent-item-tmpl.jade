@@ -1,0 +1,25 @@
+extends ../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl
+
+
+
+block parentDate
+    if (data) && (data.coverDate) && data.type != "Book"
+        span.comma.coverDate !{data.coverDate}
+
+
+block serialData
+    if (data) && (data.serial) && data.type != "Book"
+        if (data.serial.journalUrl) && (data.serial.serialTitle)
+            span.comma
+                a(href=data.serial.journalUrl) !{data.serial.serialTitle}
+
+        else if (data.serial.journalUrl) && (data.serial.title)
+            a.serialTitle(href=data.serial.journalUrl) !{data.serial.title}
+
+        else if (data.serial.serialTitle)
+            span.comma
+                | !{data.serial.serialTitle}
+
+        else if (data.serial.type)
+            span.comma
+                | !{data.serial.type}

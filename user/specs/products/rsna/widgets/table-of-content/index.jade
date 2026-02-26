@@ -1,0 +1,25 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/table-of-content/templates/table-of-content/table-of-content-tmpl.jade')
+    | #{''}
+
+    section.source_section
+        h2 Radiology Example
+        h3 Include template
+        .source_example.jrnl-radiology
+            | !{data.items[1].body}
+    section.source_section
+        h2 Radiographics Example
+        h3 Include template
+        .source_example.jrnl-radiographics
+            | !{data.items[1].body}
+
+    | #{''}

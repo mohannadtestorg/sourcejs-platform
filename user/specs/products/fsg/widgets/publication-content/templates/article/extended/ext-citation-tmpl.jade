@@ -1,0 +1,20 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+block citationAuthors
+    - data = original;
+    +epub()
+    - data = citationData;
+    | !{data.authors}
+
+
+mixin epub()
+    .epub-section
+        if (data.item.ePubDate)
+            span.epub-section__item
+                span.epub-section__state Published Online:
+                span.epub-section__date !{data.item.ePubDate}
+        span.epub-section__item
+            a.epub-section__doi__text(href= "https://doi.org/"+ data.item.ids.doi.value) https://doi.org/!{data.item.ids.doi.value}
+        span.epub-section__item.epub-section__citedBy
+            span.epub-section__citedBy__label Cited by:
+            span.epub-section__citedBy__value !{data.item.citedby}

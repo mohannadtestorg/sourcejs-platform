@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade
+block parentInfo
+    div.parent-item
+        block volume
+            a.volume(href=data.tocUrl)
+                if (data) && (data.volume)
+                    span.volume Volume #{data.volume}
+                if (data) && (data.issue)
+                    span.issue Issue #{data.issue}
+            div
+                if (data) && (data.coverDate)
+                    span.coverDate !{data.coverDate}

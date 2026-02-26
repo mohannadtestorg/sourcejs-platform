@@ -1,0 +1,26 @@
+extends /specs/products/acm/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    .source_info
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/coolbar-tools/templates/coolbar-tools/coolbar-tools-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use tags template.
+
+        +printJson()
+
+
+    section.source_section
+
+
+        h3 Tags
+        .source_example
+            | !{pb.render('coolbar-tools', 'data.json')}
+
+
+    | #{''}

@@ -1,0 +1,93 @@
+{
+    "title": "Topical Index widget",
+    "tag": ["ready"],
+    "templates": {
+        "default": "topical-index",
+        "alternative": {
+            "topical-index-alt": {
+                "name": "Topical Index - Alternative",
+                "path": "topical-index-alt",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Topical index with one or two tags",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/topical-index/templates/topical-index/topical-index-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/topical-index/templates/data/data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Topical index with multiple tags",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/topical-index/templates/topical-index/topical-index-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/topical-index/templates/data/multiple-tags-data.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Alternate template",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/topical-index/topical-index-alt-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/data-alt.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

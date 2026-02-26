@@ -1,0 +1,144 @@
+.toc-separator {
+    border-left: 1px solid $secondary-border;
+}
+
+.toc-left-side {
+    > .col-md-2 {
+        padding: 0;
+    }
+}
+
+.toc-right-side {
+    .generic-tabs {
+        .tab__nav {
+            a {
+                font-size: 16px;
+                &:after {
+                    padding: 0 5px;
+                    font-size: 16px;
+                }
+            }
+        }
+        .active {
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+    .card {
+        padding: 20px;
+    }
+    .top-list__container {
+        .meta-container {
+            width: 100%;
+        }
+    }
+    .parent-item {
+        text-transform: capitalize;
+    }
+    .editor-in-chief {
+        margin-top: 0;
+        color: $primary-white;
+        @include themify($themes) {
+            background: themed('color');
+        }
+        .editor-info {
+            border-top: 1px solid #fff;
+            margin: 10px 20px;
+            padding: 10px;
+        }
+        label {
+            padding-left: 30px;
+            color: $primary-white;
+            font-size: 16px;
+            padding-top: 10px;
+            text-transform: none;
+        }
+        .author {
+            padding-left: 30px;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .social-icons {
+            display: none;
+        }
+    }
+    .cover-image {
+        background: $primary-white;
+        padding: 22px;
+        margin-top: 70px;
+    }
+}
+
+.table-of-content .issue-item__title {
+    font-weight: bold;
+}
+
+@include media('<tablet') {
+    .toc-right-side {
+        .featured-articles-card, .sidebar-tabs, .mpu, .stay-connected {
+            display: none;
+        }
+    }
+    .mobile__editor__area {
+        .toc__section {
+            margin: 10px 0 0;
+            border-top: 1px solid $primary-border;
+            padding-top: 10px;
+        }
+    }
+}
+@include media('<phone') {
+    .toc-item__footer {
+        .toc-item__detail {
+            .icon {
+                padding: 5px;
+                font-size: 15px;
+            }
+        }
+    }
+}
+@include media('>=tablet', '<desktop') {
+    .mobile__editor__area {
+        .toc__section {
+            margin: 0;
+        }
+    }
+}
+@include media('<desktop') {
+    .mobile__editor__area {
+        margin-bottom: 20px;
+        .cover-image__image {
+            display: none;
+        }
+        .toc__section {
+            a {
+                margin-left: 0;
+                font-size: 12px;
+                color: $primary-blue-color;
+                font-weight: 900;
+                padding: 0;
+            }
+            i {
+                vertical-align: middle;
+                font-size: 10px;
+                margin-right: 5px;
+                width: auto;
+            }
+            span {
+                vertical-align: middle;
+            }
+        }
+    }
+    .toc-separator {
+        border-left: none;
+        padding: 0px;
+    }
+    .toc-right-side {
+        .cover-image {
+            margin-top: 47px;
+
+        }
+    }
+}

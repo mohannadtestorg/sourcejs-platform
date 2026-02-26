@@ -1,0 +1,121 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    #POL header
+    pol-header-quick-menu-text-color:
+      value: "{!BLUE}"
+    # journal colors
+    default-theme-color:
+      value: "{!DEFAULT}"
+    default-theme-light-color:
+      value: "{!DEFAULT_LIGHT}"
+    ajp-theme-color:
+      value: "{!AJP}"
+    ajp-theme-light-color:
+      value: "{!AJP_LIGHT}"
+    ajprj-theme-color:
+        value: "{!AJPRJ}"
+    ajprj-theme-light-color:
+        value: "{!AJPRJ_LIGHT}"
+    apt-theme-color:
+          value: "{!APT}"
+    apt-theme-light-color:
+          value: "{!APT_LIGHT}"
+    pol-theme-color:
+      value: "{!POL}"
+    pol-theme-light-color:
+      value: "{!POL_LIGHT}"
+    ps-theme-color:
+          value: "{!PS}"
+    ps-theme-light-color:
+          value: "{!PS_LIGHT}"
+    neuro-theme-color:
+              value: "{!NEURO}"
+    neuro-theme-light-color:
+              value: "{!NEURO_LIGHT}"
+    focus-theme-color:
+              value: "{!FOCUSE}"
+    focus-theme-light-color:
+              value: "{!FOCUSE_LIGHT}"
+    psychnews-theme-color:
+          value: "{!DARK_BLUE}"
+    psychnews-theme-light-color:
+       value: "{!WHITE}"
+    dsm-theme-color:
+      value: "{!DSM}"
+    dsm-theme-light-color:
+      value: "{!DSM_LIGHT}"
+    pl-theme-color:
+      value: "{!PL}"
+    pl-theme-light-color:
+      value: "{!PL_LIGHT}"
+    prcp-theme-color:
+          value: "{!PRCP}"
+    prcp-theme-light-color:
+          value: "{!PRCP_LIGHT}"
+    ebooks-theme-color:
+      value: "{!EBL}"
+    ebooks-theme-light-color:
+      value: "{!EBL_LIGHT}"
+    facebook-color:
+      value: "{!FACEBOOK_ICON}"
+    twitter-color:
+        value: "{!TWITTER_ICON}"
+    linkedin-color:
+      value: "{!LINKEDIN_ICON}"
+    rss-color:
+      value: "{!RSS_ICON}"
+    primary-text-color:
+      value: "{!GRAY}"
+    correction-accordion:
+      value: "{!ORANGE}"
+    primary-border-color:
+      value: "{!GRAY_3}"
+    secondary-border-color:
+       value: "{!GRAY}"
+    rose-text-color:
+       value: "{!ROSE}"
+    link-text-color:
+       value: "{!BLUE2}"
+    yellow-bg-color:
+           value: "{!YELLOW1}"
+    yellow-bg-secondary-color:
+       value: "{!YELLOW2}"
+    yellow-bg-dark-color:
+           value: "{!YELLOW3}"
+    yellow-text-color:
+               value: "{!YELLOW4}"
+    pys-news-green-color:
+           value: "{!GREEN}"
+    pys-news-red-color:
+         value: "{!RED}"
+    pys-news-blue-color:
+         value: "{!BLUE3}"
+    pys-news-dark-orange-color:
+          value: "{!ORANGE1}"
+    pys-news-orange-color:
+          value: "{!ORANGE2}"
+    pys-news-purple-color:
+              value: "{!PURPLE1}"
+    pys-news-dark-purple-color:
+              value: "{!PURPLE2}"
+

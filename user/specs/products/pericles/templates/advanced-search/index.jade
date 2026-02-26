@@ -1,0 +1,161 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Advanced Search page
+
+    section.source_section
+        h2 Advanced Search page
+
+        .source_example
+            #pb-page-content
+                | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+
+                .search-results-page-body.pageBody.secondary-bg-color
+                    .page-body.pagefulltext
+                        div(data-pb-dropzone='main')
+                            .advanced-search-widget(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                                .container
+                                    .row
+                                        div
+                                            .main-content.col-md-8.gutterless--sm.gutterless--xs
+                                                .advanced-search__top-section(data-widget-def='UX3Tabs', data-widget-id='5aab5ec1-e445-4b30-9dd1-5d8bd8643846')
+                                                    .tab(data-ctrl-res='')
+                                                        ul.rlist.tab__nav(role='tablist')
+                                                            li.adv-search__tab.active(role='presentation')
+                                                                a#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384601con.active(href='#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384601', aria-controls='#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384601', role='tab', data-toggle='tab', title='Advanced Search', aria-selected='true', aria-expanded='true')
+                                                                    span Advanced Search
+                                                            li.citation-search__tab(role='presentation')
+                                                                a#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384611con(href='#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384611', aria-controls='#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384611', role='tab', data-toggle='tab', title='Citation Search', aria-selected='false', aria-expanded='false')
+                                                                    span Citation Search
+                                                        ul.rlist.tab__content
+                                                            li#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384601.tab__pane.active(aria-labelledby='pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384601con', role='tabpanel')
+                                                                .accordion.advanced-tips-text.visible-xs.visible-sm
+                                                                    a.accordion__control(href='#', title='Single Accordion Controller', aria-expanded='false', aria-controls='id40')
+                                                                        span Tips
+                                                                        i.icon-section_arrow_d(aria-hidden='true')
+                                                                    #id40.accordion__content(style='display: none;')
+                                                                        .transplant.showit(data-target='.advanced-search-tips', data-remove='false', data-targetclass='hidden-xs hidden-sm', data-toggle='transplant', data-direction='from', data-transplan='self')
+                                                                            .transplanted-clone
+                                                                                .advanced-search-tips(data-widget-def='general-rich-text', data-widget-id='1ef2f8ed-69e3-47a8-91da-744544111cb7')
+                                                                                    h5
+                                                                                        | Search Tips
+                                                                                    #rich-text-1ef2f8ed-69e3-47a8-91da-744544111cb7.pb-rich-text(style='overflow: auto;')
+                                                                                        p.MsoNormal
+                                                                                            span(lang='EN-US')
+                                                                                                | You can use the Boolean operators AND (also +  or &), OR and NOT (also -) within search fields. These operators must be entered in UPPERCASE to work.
+                                                                                        p.MsoNormal
+                                                                                            span(lang='EN-US')
+                                                                                                | If more than one term is entered, and no operators are specified, terms are searched using AND.  To search for a phrase, put the terms in quotes.  For example,
+                                                                                                i spinal cord
+                                                                                                |  searches spinal AND cord while
+                                                                                                i “spinal cord”
+                                                                                                |  finds this exact phrase.
+                                                                                            span(style='text-indent: 36pt;')  
+                                                                                        p.MsoNormal
+                                                                                            b
+                                                                                                span(style='text-decoration: underline;')
+                                                                                                    span(lang='EN-US') Wildcards
+                                                                                        p.MsoNormal
+                                                                                            b
+                                                                                                span(style='text-decoration: underline;')
+                                                                                                    span(lang='EN-US')
+                                                                                            span(lang='EN')
+                                                                                                | Use a question mark (?) in a search term to represent a single character (
+                                                                                                i wom?n
+                                                                                                |  finds women or woman).  Use an asterisk (*) to represent zero or more characters.   For example,
+                                                                                                i plant*
+                                                                                                |  finds all words with that root (plant, plants, & planting) while
+                                                                                                i an*mia
+                                                                                                |  finds variants with one or more letters (an
+                                                                                                span(style='text-decoration: underline;') e
+                                                                                                | mia & an
+                                                                                                span(style='text-decoration: underline;') ae
+                                                                                                | mia).  Wildcards CANNOT be used at the start of a search term (*tension) or when searching for phrases in quotes (“tobacco smok*”).
+                                                                                        p.MsoNormal
+                                                                                            b
+                                                                                                span(style='text-decoration: underline;')
+                                                                                                    span(lang='EN')
+                                                                                                        | Author Search
+                                                                                                        o:p
+                                                                                        p
+                                                                                        p.MsoNormal
+                                                                                            span(lang='EN')
+                                                                                                | Author names may appear with full first names or just initials.  Place author names in quotes to find a specific name and its variants.  For example, “John Smith” finds articles by John Smith, John K Smith and John Colby-Smith while “J Smith” finds articles by J Smith, JR Smith, John Smith and Julie Smith.
+                                                                                        p.MsoNormal
+                                                                                            span(lang='EN')
+                                                                                                br
+                                                                                        p.MsoNormal
+                                                                                            span(lang='EN')
+                                                                                                br
+
+                                                                | !{pb.render("advanced-search", "data.json", "pericles", {"shared": {"model": {"config": {"wrapper": "true", "className": "advanced-search-container"}}}})}
+
+                                                            li#pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384611.tab__pane(aria-labelledby='pane-5aab5ec1-e445-4b30-9dd1-5d8bd864384611con', role='tabpanel')
+                                                                | !{pb.render('quick-search', 'quick-search/citation-search', 'quick-search-citation.json', 'pericles')}
+
+                                            .hidden-sm.hidden-xs.col-md-4
+                                                .advanced-search-tips.cloned(data-widget-def='general-rich-text', data-widget-id='1ef2f8ed-69e3-47a8-91da-744544111cb7')
+                                                    h5
+                                                        | Search Tips
+                                                    #rich-text-1ef2f8ed-69e3-47a8-91da-744544111cb7.pb-rich-text(style='overflow: auto;')
+                                                        p.MsoNormal
+                                                            span(lang='EN-US')
+                                                                | You can use the Boolean operators AND (also +  or &), OR and NOT (also -) within search fields. These operators must be entered in UPPERCASE to work.
+                                                        p.MsoNormal
+                                                            span(lang='EN-US')
+                                                                | If more than one term is entered, and no operators are specified, terms are searched using AND.  To search for a phrase, put the terms in quotes.  For example,
+                                                                i spinal cord
+                                                                |  searches spinal AND cord while
+                                                                i “spinal cord”
+                                                                |  finds this exact phrase.
+                                                            span(style='text-indent: 36pt;')  
+                                                        p.MsoNormal
+                                                            b
+                                                                span(style='text-decoration: underline;')
+                                                                    span(lang='EN-US') Wildcards
+                                                        p.MsoNormal
+                                                            b
+                                                                span(style='text-decoration: underline;')
+                                                                    span(lang='EN-US')
+                                                            span(lang='EN')
+                                                                | Use a question mark (?) in a search term to represent a single character (
+                                                                i wom?n
+                                                                |  finds women or woman).  Use an asterisk (*) to represent zero or more characters.   For example,
+                                                                i plant*
+                                                                |  finds all words with that root (plant, plants, & planting) while
+                                                                i an*mia
+                                                                |  finds variants with one or more letters (an
+                                                                span(style='text-decoration: underline;') e
+                                                                | mia & an
+                                                                span(style='text-decoration: underline;') ae
+                                                                | mia).  Wildcards CANNOT be used at the start of a search term (*tension) or when searching for phrases in quotes (“tobacco smok*”).
+                                                        p.MsoNormal
+                                                            b
+                                                                span(style='text-decoration: underline;')
+                                                                    span(lang='EN')
+                                                                        | Author Search
+                                                                        o:p
+                                                        p
+                                                        p.MsoNormal
+                                                            span(lang='EN')
+                                                                | Author names may appear with full first names or just initials.  Place author names in quotes to find a specific name and its variants.  For example, “John Smith” finds articles by John Smith, John K Smith and John Colby-Smith while “J Smith” finds articles by J Smith, JR Smith, John Smith and Julie Smith.
+                                                        p.MsoNormal
+                                                            span(lang='EN')
+                                                                br
+                                                        p.MsoNormal
+                                                            span(lang='EN')
+                                                                br
+
+
+
+
+
+                | !{pb.render('footer', 'pericles')}
+
+
+
+    | #{''}

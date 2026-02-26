@@ -1,0 +1,21 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Notes
+
+        h3 Yellow Note
+        markdown
+            p In the example below we have added `note note--yellow border` to the link item.
+        .source_example
+            span.note.note--yellow.border(href='#') This is note ,This is note ,This is note
+
+        h3 Dark Yellow Note
+            markdown
+                p In the example below we have added `note note--dark-yellow` to the link item.
+            .source_example
+                span.note.note--dark-yellow(href='#') This is note ,This is note ,This is note
+
+
+    | #{''}

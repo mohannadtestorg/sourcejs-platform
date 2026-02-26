@@ -1,0 +1,62 @@
+h1, h2, h3, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    @include media('<desktop') {
+        margin-bottom: 8px;
+    }
+}
+
+h1,h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: $h1-font-size;
+    font-weight: 300;
+    line-height: 3rem;
+    @include media('<desktop') {
+        font-size: $h1-sm-font-size;
+        line-height: 2rem;
+    }
+}
+
+h2 {
+    margin-top: 10px;
+    font-size: $h2-font-size;
+    @include media('<desktop') {
+        font-size: $h2-sm-font-size;
+    }
+}
+
+h2, h3 {
+    color: $headings-primary-color;
+}
+
+h3 {
+    font-size: $h3-font-size;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    @include media('<desktop') {
+        font-size: $h3-sm-font-size;
+        margin-bottom: 13px;
+    }
+}
+
+h4 {
+    font-size: $h4-font-size;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 10px;
+    color: $h4-font-color;
+    @include media('<desktop') {
+        font-size: $h4-sm-font-size;
+    }
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h6 {
+    font-size: $h6-font-size;
+}

@@ -1,0 +1,126 @@
+block tabsPrefix
+- var tabNumber = 0;
+- var classNames = "";
+- var responsive = {"type": "","size": ""};
+- var viewPort = "";
+-
+    if (model) {
+        config = model.config;
+        data = model.data;
+        thisWidget = model.thisWidget;
+    };
+
+    if (config) {
+        if (config.type) {
+            if (config.type == "flex") {
+                classNames = classNames + " tab--flex";
+            } else if (config.type == "vertical") {
+                classNames = classNames + " tab--aside";
+            }
+        }
+        if (config.effect) {
+            if (config.effect == "dropdown") {
+                responsive['type'] = 'data-ms-toggle= "dropdown"';
+            }
+        }
+        if (config.vPort){
+            if (config.vPort == "xsmall") {
+                viewPort = "screen-xs";
+                classNames = classNames + " tabs--xs";
+            } else if (config.vPort == "small") {
+                viewPort = "screen-sm";
+            } else if (config.vPort == "medium") {
+                viewPort = "screen-md";
+            }
+        }
+        if (config.hideEmpty) {
+            if (config.hideEmpty == "true") {
+                classNames = classNames + " clean";
+            }
+        }
+    }
+
+
+mixin item(item)
+    block tabsItem
+        if (item.icon)
+            i(class=item.icon aria-hidden="true")
+        if (item.text)
+            span !{item.text}
+        if (item.arrow)
+            i(class=item.iconAfter aria-hidden="true")
+
+
+mixin nav()
+    block tabsNav
+        - var l = 0
+        if (data) && (data.nav)
+            each item, k in data.nav
+                if (item.tabClasses)
+                    li(class= item.tabClasses role="presentation")
+                        +link(item,l)
+                        if (!item.itemUrl)
+                            - l++;
+                else
+                    li(role="presentation")
+                        +link(item,l)
+                        if (!item.itemUrl)
+                            - l++;
+
+mixin link(item,l)
+    block tabsLinks
+        if (item.itemUrl)
+            a.external(href= item.itemUrl title=item.text)
+                +item(item)
+        else if (config.effect) && config.effect == "slide"
+            if l == 0
+                a.active(href="#pane-" + thisWidget.id + l + tabNumber aria-controls="#pane-" + thisWidget.id + l + tabNumber role="tab" data-toggle="tab" title=item.text id="pane-" + thisWidget.id + l + tabNumber + "con" data-slide-target="#pane-" + thisWidget.id + l aria-selected="true")
+                    +item(item)
+            else
+                a(href="#pane-" + thisWidget.id + l + tabNumber aria-controls="#pane-" + thisWidget.id + l + tabNumber role="tab" data-toggle="tab" title=item.text id="pane-" + thisWidget.id + l + tabNumber + "con" data-slide-target="#pane-" + thisWidget.id + l aria-selected="false")
+                    +item(item)
+        else
+            if l == 0
+                a.active(href="#pane-" + thisWidget.id + l + tabNumber aria-controls="#pane-" + thisWidget.id + l + tabNumber role="tab" data-toggle="tab" title=item.text id="pane-" + thisWidget.id + l + tabNumber + "con" aria-selected="true")
+                    +item(item)
+            else
+                a(href="#pane-" + thisWidget.id + l + tabNumber aria-controls="#pane-" + thisWidget.id + l + tabNumber role="tab" data-toggle="tab" title=item.text id="pane-" + thisWidget.id + l + tabNumber + "con" aria-selected="false")
+                    +item(item)
+
+
+mixin pane()
+    block tabsPanes
+        ul.rlist.tab__content
+            - var i = 0
+            if (data) && (data.nav)
+                each item, I in data.nav
+                    if !(item.itemUrl)
+                        if i == 0
+                            li.tab__pane.active(id="pane-" + thisWidget.id + i + tabNumber aria-labelledby="pane-" + thisWidget.id + i + tabNumber + "con" role="tabpanel")
+                                block tabsDropZone
+                                    | !{pb.renderDropzone(thisWidget, "tabsDropZone_" + thisWidget.id + i)}
+                        else
+                            li.tab__pane(id="pane-" + thisWidget.id + i + tabNumber aria-labelledby="pane-" + thisWidget.id + i + tabNumber + "con" role="tabpanel")
+                                block tabsDropZone
+                                    | !{pb.renderDropzone(thisWidget, "tabsDropZone_" + thisWidget.id + i)}
+                        - i++;
+mixin tabs()
+    block tabsMain
+        div.tab(class=classNames data-ctrl-res = viewPort)
+            - tabNumber++;
+            if (config) && (config.effect)
+                ul.rlist.tab__nav(data-mobile-toggle = config.effect role="tablist")
+                    +nav()
+                +pane()
+            else
+                ul.rlist.tab__nav(role="tablist")
+                    +nav()
+                +pane()
+block tabs
+    +tabs()
+
+block tabsSuffix
+
+block loIssues
+
+block issuesMixin

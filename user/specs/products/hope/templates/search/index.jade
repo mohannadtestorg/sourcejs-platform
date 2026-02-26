@@ -1,0 +1,38 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                .container
+                   | !{pb.render("html", data.socialLinks)}
+                .quickSearchRegion.dark
+                    .container
+                        .row.col-sm-8
+                            div.col-xs-9
+                                | !{data.quickSearch}
+                            div.col-xs-3
+                                a(href="/search/advanced" class="pull-left quick-search-advanced-link") Advanced Search
+
+                .container
+                    .row
+                        .col-sm-8
+                            | !{data.searchresult}
+                        .col-sm-4
+                            #filter.hidden-xs.hidden-sm.search__filters.sidebar-region
+                                each facet, l in data.facet
+                                    | !{facet}
+
+
+
+
+            | !{data.footer}
+    | #{''}

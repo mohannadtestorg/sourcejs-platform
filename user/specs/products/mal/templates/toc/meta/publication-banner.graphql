@@ -1,0 +1,21 @@
+query {
+  journal(code:"apc"){
+    title
+    date
+    eic: configuration(path:"eic")
+    impact: configuration(path:"impact")
+    published_string: configuration(path:"published_string")
+    description: configuration(path:"description")
+    link
+    code
+    issn
+    eissn
+    coverImage{
+      src
+    }
+    latestIssue {
+      volume
+    }
+
+  }
+}

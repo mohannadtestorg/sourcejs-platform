@@ -1,0 +1,97 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Buttons variations
+
+        h3 Default with hover and focus effects button
+        markdown
+            p In the example below we have added `btn` to the button item.
+        .source_example
+            button.btn Button
+
+        h3 Secondary with hover and focus effects button
+        markdown
+            p In the example below we have added `btn btn--secondary` to the button item.
+        .source_example
+            button.btn.btn--secondary Button
+
+        h3 Disabled button
+        markdown
+            p In the example below we have added `disabled` attribute to make the button disabled.
+        .source_example
+            button.btn(disabled="disabled") Button
+
+        h3 Inverse button
+        markdown
+            p In the example below we have added `btn btn--inverse` to the button item.
+        .source_example.dark-bg
+            button.btn.btn--inverse Button
+
+        h3 Simple button
+        markdown
+            p In the example below we have added `btn btn--simple-primary`, `btn btn--simple-secondary` to the button item to be fluid width.
+        .source_example
+            button.btn.btn--simple-primary Button
+            button.btn.btn--simple-secondary Button
+
+        h3 Buttons with icon
+        markdown
+            p In the example below we have added `btn` to the button item.
+
+        .source_example
+            button.btn
+                i.icon-calendar
+                | Button
+
+        .source_example
+            button.btn
+                | Button
+                i.icon-caret.right
+
+        .source_example
+            button.btn
+                i.icon-clock
+                | Button
+                i.icon-caret.right
+
+        h3 Dropdown Buttons with icon
+        markdown
+            p In the example below we have added `btn btn--dropdown` to the button item.
+
+        .source_example
+            button.btn.btn--dropdown
+                i.icon-calendar
+                | Button
+                i.icon-caret.right
+
+
+    section.source_section
+        h2 Text links
+
+        h3 Links
+        markdown
+            p In the example below we have added `text-link text-link--large`, `text-link`, `text-link text-link--small` class to the `a` item.
+        .source_example
+            .col-md-4
+                p
+                    a(href="#").text-link Text link
+            .col-md-4
+                p
+                    a(href="#").text-link.text-link--secondary Text link
+            .col-md-4.dark-bg
+                p
+                    a(href="#").text-link.text-link--inverse Text link
+    | #{''}
+    section.source_section
+        h2 Toggle menu button
+
+        h3 On light background
+        markdown
+            p `nav-button`
+        .source_example
+            .nav-button
+                span
+                span
+                span

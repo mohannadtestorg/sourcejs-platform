@@ -1,0 +1,7 @@
+extends ../../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+
+block coverDetails
+    if details
+        .cover-image__details
+            | !{pb.render('parent-item','parent-item/demo/demo-parent-item', {data: cover})}

@@ -1,0 +1,79 @@
+.radio--primary {
+    span:before {
+        border: 2px solid $primary-white;
+        box-shadow: 0 0 0 2px $primary-blue-color;
+        width: 13px;
+        height: 13px;
+        @include themify($themes) {
+            box-shadow: 0 0 0 2px themed('color');
+        }
+    }
+
+    input:checked ~ span:before {
+        background: $primary-blue-color;
+        @include themify($themes) {
+            background: themed('color');
+        }
+    }
+}
+
+.checkbox--primary {
+    span:before {
+        border: 2px solid $primary-white;
+        box-shadow: 0 0 0 2px $primary-blue-color;
+        width: 13px;
+        height: 13px;
+        border-radius: 1px;
+        @include themify($themes) {
+            box-shadow: 0 0 0 2px themed('color');
+        }
+    }
+
+    input:not(.jcf):checked ~ span:before {
+        background-color: $primary-blue-color;
+        padding: 0;
+        border: 0;
+        @include themify($themes) {
+            background: themed('color');
+        }
+    }
+}
+
+.checkbox--secondary {
+    span:before {
+        height: 14px;
+        bottom: 3px;
+        background: $publication;
+        opacity: .5;
+    }
+    span:after {
+        height: 20px;
+        width: 20px;
+        bottom: 0;
+        background: $publication;
+    }
+    input:checked ~ span:after {
+        right: 0;
+        background: $primary-blue-color;
+        @include themify($themes) {
+            background: themed('color');
+        }
+    }
+    input:checked ~ span:before {
+        background: $primary-blue-color;
+        @include themify($themes) {
+            background: themed('color');
+        }
+    }
+}
+
+.jcf-select {
+    background-image: none;
+}
+
+.jcf-select-text:after {
+    font-family: 'icomoon';
+    content: "\e60b";
+    font-size: xx-small;
+    float: right;
+}

@@ -1,0 +1,24 @@
+.psych-news-topic
+    if(data.topic)
+        .psych-news-topic__section
+            span.colored-block
+            h4.topic-title  !{data.topic.topicLabel}
+    if(data.item)
+        .row
+            .psych-news-topic__image.col-lg-12.col-md-6
+                 img(src=data.abstractImgSrc alt=data.item.title)
+            .psych-news-topic__info.col-lg-12.col-md-6
+                a(href=data.item.link title=data.item.title)
+                    h4.item-title !{data.item.title}
+                p !{data.abstractText}
+        .row
+            .col-lg-12.col-md-6
+            .col-lg-12.col-md-6
+                .psych-news-topic__bottom-info.border-top
+                    block psychDropzone
+                        | !{pb.renderDropzone(thisWidget, "psychDropzone")}
+                    if(data.topic)
+                        a.link(href=data.topic.topicUrl title="More") More
+
+
+

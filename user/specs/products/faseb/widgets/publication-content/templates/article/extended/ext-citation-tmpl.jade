@@ -1,0 +1,29 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+block citationAuthors
+
+
+block citationLicense
+    span.article__access__type
+        if (original.item.license.type == "open-access")
+            i.citation__acess__icon.icon-lock_open
+            span.citation__access__type !{original.item.license.type}
+
+block citationTitleSuffix
+    if data.authors
+        | !{data.authors}
+
+    if(original.item.related)
+        - var hasCorrectionOrRetraction = 0;
+        - var hasExam = 0;
+        if (original.item.related.items)
+            each item, i in original.item.related.items
+                if (item.rel_type === "erratum" || item.rel_type === "retraction" )
+                    -hasCorrectionOrRetraction++;
+                else if(item.rel_type === "hasExam")
+                    -hasExam++;
+
+            block articleCorrections
+                +corrections(hasCorrectionOrRetraction)
+
+            +relatedExams(hasExam)

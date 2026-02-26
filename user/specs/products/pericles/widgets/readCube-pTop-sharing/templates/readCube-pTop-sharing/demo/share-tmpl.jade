@@ -1,0 +1,7 @@
+extends ../../../../share/templates/share/share-tmpl
+
+block shareBlock
+    div.share__block.dropBlock__holder.fixed(data-db-target-of=thisWidget.id id=thisWidget.id + "_Pop")
+        | !{pb.render('readCube-pTop-sharing', 'readCube-pTop-sharing/demo/readCube-pTop-sharing', 'data.json', 'pericles')}
+        p Share a link
+        +addThis()

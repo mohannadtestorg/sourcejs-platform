@@ -1,0 +1,14 @@
+.row
+  .col-sm-6.col-md-3
+    img(src="#{data.book.coverImage.src}")
+
+  .col-sm-6.col-md-9
+      h1.book-title #{data.book.title}
+      .editor
+        p: strong
+          | #{{data.journal.authors}}
+      .text-minute.margin-bottom--small
+          .margin-right
+          | ISBN: #{data.book.isbn}
+          | | eISBN: #{data.book.eisbn}
+          | | Published: #{{data.book.date}}

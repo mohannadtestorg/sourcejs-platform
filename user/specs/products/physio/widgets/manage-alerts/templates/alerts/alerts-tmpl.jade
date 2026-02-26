@@ -1,0 +1,19 @@
+extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/new-content-tmpl.jade
+
+block newContentAlertText
+    div.axaTitle
+        | !{pb.renderDropzone(thisWidget, "axaTitle")}
+
+
+block alert__freq__type
+    input.hidden(name="alertType" value="AxA")
+
+block journalAlertSeries
+    each journal, l in data.journals
+        if journal.isVisible && journal.isAlertsEnabled
+            li
+                .input-group
+                    label.checkbox--primary
+                        input(type='checkbox' id=journal.doi name="pubCode" value=journal.code checked=journal.isSubscribedToAXA)
+                        span.label-txt
+                            a(href=journal.journalUrl) !{journal.title}

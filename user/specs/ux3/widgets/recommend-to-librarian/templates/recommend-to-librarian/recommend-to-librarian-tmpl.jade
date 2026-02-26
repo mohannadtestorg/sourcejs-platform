@@ -1,0 +1,76 @@
+form.recommendationForm(name=data.form.name id=data.form.id action=data.actionUrl method="post")
+    if(data.form)
+        if(data.form.publicationMeta)
+            .recommend-to-librarian
+                .publication-cover-info.clearfix
+                    if(data.form.publicationMeta.coverImage)
+                        .cover-image-wrapper.cover-image__image.hasDetails
+                            img(src=data.form.publicationMeta.coverImage alt=data.form.publicationMeta.title)
+                    .extra-info-wrapper.cover-image__details
+                        span.meta__type !{data.form.publicationMeta.type}
+                        h4.meta__title !{data.form.publicationMeta.title}
+                        .meta__info
+                            if (data.form.publicationMeta.authors || data.form.publicationMeta.pPubDate)
+                                .meta__details
+                                    if(data.form.publicationMeta.authors)
+                                        div !{data.form.publicationMeta.authors}
+                                    if(data.form.publicationMeta.pPubDate)
+                                        div !{data.form.publicationMeta.pPubDate}
+                            if (data.form.publicationMeta.issn)
+                                .meta__issns
+                                    span.label Online ISSN:&nbsp;
+                                    | !{data.form.publicationMeta.issn}
+                            if (data.form.publicationMeta.eIssn)
+                                .meta__eissn
+                                    span.label EISSN:&nbsp;
+                                    | !{data.form.publicationMeta.eIssn}
+        hr.separator
+        p To recommend this title for online access to your librarian, complete this form:
+        .row
+            each item, l in data.form
+                - var star = item.required ? '*' : ''
+                if(item.name != 'mailToAddress' && item.name != 'reason' && item.type != 'submit' && item.type != 'reset' && l != 'publicationMeta' && l != 'name' && l != 'id')
+                    .col-md-6
+                        .input-group(class= item.hidden ? 'hidden' : '')
+                            - inputType = 'hidden'
+                            if(!item.hidden)
+                                - inputType = "text"
+                                label(for=item.id) !{item.label + star}
+                            input(type=inputType name=item.name value=item.value required=item.required placeholder=item.placeholder)
+
+                if (item.name == 'mailToAddress')
+                    //.col-md-12
+                    hr.separator
+                    - inputType = 'hidden'
+                    .col-md-6
+                        .input-group(class= item.hidden ? 'hidden' : '')
+                            if(!item.hidden)
+                                - inputType = "text"
+                                label(for=item.id) !{item.label + star}
+                            input(type=inputType name=item.name value=item.value required=item.required placeholder=item.placeholder)
+                    hr.separator
+
+        h2.section__header I recommend the publication for the following reasons:
+        each item, l in data.form
+            if(item.name == "reason")
+                .input-group(class= item.hidden ? 'hidden' : '')
+                    label.checkbox--primary(for=item.id)
+                        input(id=item.id name=item.name+"[]" type="checkbox" required=item.required value=item.id)
+                        span.label-txt !{item.label}
+
+        if(data.captchaEnabled)
+            script(src='//www.google.com/recaptcha/api.js?render=explicit&onload=loadRecaptcha', async='', defer='')
+            .g-recaptcha(data-sitekey='6Lc4HR8TAAAAAPFSxfchztMruqn2dTwPIQ9vaX9b')
+
+        hr.separator
+        p PRIVACY STATEMENT: Information entered on this form may be recorded by Wiley, but will not be used to send unsolicited e-mails or shared with any third party.
+
+        block recommendationFormButtons
+            .border-top.form-btn
+                p.small-txt.pull-left * Marks a required field
+
+                if(data.form.submitButton)
+                    input.btn(type=data.form.submitButton.type name=data.form.submitButton.name value=data.form.submitButton.value)
+
+                if(data.form.resetButton)
+                    input.btn(type=data.form.resetButton.type value=data.form.resetButton.value)

@@ -1,0 +1,106 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/table-of-content/templates/table-of-content/table-of-content-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use table-of-content template.
+        +printJson({
+            "data": {
+                "group": {
+                    "tocXsl": "<h1> Lorem Lorem test</h1>"
+                }
+            },
+            "errors": []
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Usage
+        h3 Include template
+        .source_example
+            .pageHeader
+            .stickybar.pages-nav
+                .stickybar__wrapper
+                    .main-nav
+                        a(href='#menuBook', data-target='main-menu-1', data-toggle='nav', title='menu drawer')
+                            i.icon-menu2(aria-hidden='true')
+                            i.icon-close_thin(aria-hidden='true')
+                        nav#menuBook.drawer__nav.container.gutterless.hidden-md.hidden-sm.hidden-xs(role='navigation', data-ctrl-res='screen-md')
+                            h2.is-accessible Navigation Bar
+                            section
+                                h3.is-accessible Menu
+                                a.menu-header.hidden-lg(href='/') Home
+                                ul#menubar.menuBook--tab.tab__nav.rlist--inline(role='menubar')
+                                    li#aboutBook.menu-item.is--current(role='menuitem', aria-label='Home')
+                                        a(href='#aboutBook-pane', title='Home' data-toggle="tab" aria-expanded="true")
+                                            span Home
+                                    li#authorBio.menu-item(role='menuitem', aria-label='Author Biography' )
+                                        a(href='#authorBio-pane', title='Author Biography' data-toggle="tab" aria-expanded="false")
+                                            span Author Biography
+                                    li#bookReviews.menu-item(role='menuitem', aria-label='Reviews' )
+                                        a(href='#bookReviews-pane', title='Reviews' data-toggle="tab" aria-expanded="false")
+                                            span Reviews
+                            //| !{pb.renderDropzone(thisWidget, "shareBookMenuDropZone")}
+                            .share--social-links(data-widget-def='UX3share', data-widget-id='63a06dae-e865-4bfb-bf57-a1b38aee7fdc')
+                                // Go to www.addthis.com/dashboard to customize your tools
+                                script(type='text/javascript', src='//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-4faab26f2cff13a7')
+                                .relative
+                                    a#share__ctrl.share__ctrl(href='#', data-db-target-for='63a06dae-e865-4bfb-bf57-a1b38aee7fdc', data-db-switch='icon-close_thin', aria-haspopup='true', aria-controls='share_Pop', role='button')
+                                        i.icon-Icon_Share(aria-hidden='true')
+                                        span Share
+                                    #share_Pop.share__block.dropBlock__holder.fixed(data-db-target-of='63a06dae-e865-4bfb-bf57-a1b38aee7fdc', aria-labelledby='share__ctrl', role='menu')
+                                        p Share a link
+                                        ul.rlist.w-slide--list.addthis.addthis_toolbox.addthis_default_style.addthis_32x32_style
+                                            li
+                                                a.addthis_button_email
+                                                    i.at-icon-wrapper.icon-Email(aria-hidden='true')
+                                                    | Email
+                                            li
+                                                a.addthis_button_facebook
+                                                    i.at-icon-wrapper.icon-facebook(aria-hidden='true')
+                                                    | Facebook
+                                            li
+                                                a.addthis_button_twitter
+                                                    i.at-icon-wrapper.icon-twitter-t(aria-hidden='true')
+                                                    | Twitter
+                                            li
+                                                a.addthis_button_linkedin
+                                                    i.at-icon-wrapper.icon-linkedin(aria-hidden='true')
+                                                    | Linked In
+                                            li
+                                                a.addthis_button_google_plusone_share
+                                                    i.at-icon-wrapper.icon-google-plus(aria-hidden='true')
+                                                    | Google+ Share
+                                            li
+                                                a.addthis_button_reddit
+                                                    i.at-icon-wrapper.icon-reddit-alien(aria-hidden='true')
+                                                    | Reddit
+                                            li
+                                                a.addthis_button_citeulike
+                                                    i.at-icon-wrapper.icon-citeulike(aria-hidden='true')
+                                                    | CiteULike
+
+            .container
+                .col-md-8
+                    .toc-go-section
+                        nav.toc__section
+                            a.w-slide__btn(href='#', data-db-target-for='sections', data-db-switch='icon-close_thin', title='Go To Sections', data-slide-target='#sections')
+                                i.icon-toc
+                                span GO TO SECTION
+                            #sections
+                                ul.sections__drop.rlist.separator(data-db-target-of='sections')
+
+                    | !{pb.render('table-of-content', 'table-of-content.json', 'pericles')}
+
+    | #{''}
+

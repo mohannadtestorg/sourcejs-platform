@@ -1,0 +1,41 @@
+
+.institutions {
+  font-family: $secondary-font-family;
+  width:90%;
+  margin: auto;
+  @include media('>=tablet'){
+    width: 50%;
+  }
+
+  h5, h3 {
+    color:$primary-darken-text-color;
+    font-weight: 700;
+  }
+  h3{
+    text-align: left;
+  }
+
+  .tab {
+    .dropBlock {
+       a {
+        @include themify($themes) {
+          border-color: themed('color');
+        }
+         &.js--open{
+           i{
+             transform: rotate( 180deg );
+           }
+         }
+      }
+    }
+  }
+}
+.shibboleth{
+  .open-athens{
+    width:90%;
+    margin: auto;
+    @include media('>=tablet'){
+      width: 50%;
+    }
+  }
+}

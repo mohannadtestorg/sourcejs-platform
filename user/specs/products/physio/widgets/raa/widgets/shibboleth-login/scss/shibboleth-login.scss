@@ -1,0 +1,86 @@
+.shibboleth {
+    padding: 20px 30px;
+    background: $primary-white;
+    .page__header {
+        text-align: left;
+        font-weight: 900;
+        font-size: 26px;
+        margin: 15px 0 30px;
+    }
+    .institutions {
+        .js--open {
+            .icon-arrow_d_n {
+                &:before {
+                    content: "\e60c";
+                }
+            }
+        }
+    }
+    .header {
+        color: $primary-blue-color;
+    }
+}
+
+.institutions {
+    h5 {
+        color: $primary-text-color;
+        font-weight: 900;
+    }
+    .tab {
+        .dropBlock {
+            & > a {
+                color: $primary-text-color;
+            }
+            i {
+                color: $primary-blue-color;
+            }
+        }
+        &__pane {
+            a {
+                color: $primary-blue-color;
+            }
+            li {
+                border-bottom: 1px solid $primary-border;
+                padding: 26px 0;
+                &:before {
+                    content: "";
+                    margin-right: 0;
+                }
+                text-indent: 0;
+            }
+            h5 {
+                margin-bottom: 0;
+                margin-top: 25px;
+                border-bottom: 1px solid $primary-border;
+                padding-bottom: 25px;
+            }
+        }
+        &__nav {
+            a {
+                color: $primary-text-color;
+                &:hover {
+                    background: $primary-blue-color;
+                    color: $primary-white;
+                }
+            }
+        }
+    }
+}
+
+@include media('>tablet') {
+    .institutions {
+        width: 83%;
+    }
+}
+
+.profile-pages {
+    .shibboleth {
+        .tab {
+            .dropBlock {
+                > a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

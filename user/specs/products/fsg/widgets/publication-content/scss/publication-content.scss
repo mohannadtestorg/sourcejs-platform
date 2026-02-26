@@ -1,0 +1,40 @@
+.references__item {
+    a {
+        color: $secondary-text-color;
+
+        &:hover {
+            color: $primary-link-color;
+        }
+    }
+}
+
+.w-slide__content {
+    .references__item {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        padding: 10px 32px 0;
+        border-top: 10px solid $light-grey;
+
+        .references__authors {
+            color: $primary-text-color;
+        }
+        & > a,
+        & > span {
+            display: inline;
+        }
+    }
+    li ~ li.references__item {
+        padding: 10px 32px 0;
+        border-top: 10px solid $light-grey;
+    }
+}
+
+.article{
+    &__body {
+        font-size: 1.125rem;
+        line-height: 1.8;
+    }
+    &--res {
+        padding-top: 45px;
+    }
+}

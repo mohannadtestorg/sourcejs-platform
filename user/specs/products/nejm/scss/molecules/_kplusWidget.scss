@@ -1,0 +1,230 @@
+/*
+
+  Knowledge+
+
+  Products Right Rail Widgets
+  Using the HTML code of the existing module. HTML can't be changed ¯\_(ツ)_/¯
+  therefore !important is used a lot below, sorry
+*/
+
+#kplusWidget {
+  position: relative;
+  width: auto !important;
+  margin: 32px 0 0 !important;
+  padding: 20px 16px !important;
+  background-color: $color__aside-bg--career-center !important;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  .o-col--secondary .o-cols-2\@medium & {
+    @include breakpoint('medium') {
+      margin-top: 0 !important;
+    }
+  }
+
+  .outerContainer .containerBorder {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 none !important;
+
+    a {
+      display:block !important;
+    }
+
+    img {
+      display:block !important;
+    }
+  }
+
+  .outerContainer .containerBorder.top {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 none !important;
+
+    a {
+      display: block !important;
+      background-image:url('../images/nejm-knowledge-plus.svg') !important;
+      background-repeat:no-repeat !important;
+      background-position:left center !important;
+      width: 180px !important;
+      height: 48px !important;
+      background-size: 180px 48px !important;
+
+      img {
+        display: none !important;
+      }
+    }
+  }
+
+  .innerContainer,
+  .innerContainerShort {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 none !important;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: #00999a;
+  }
+
+  .QoWLogo {
+    margin: 16px -16px 0 !important;
+    padding: 12px 16px 12px !important;
+    background-color: #00999a !important;
+    color: $color__white !important;
+
+    a {
+      color: $color__white !important;
+
+      &::before {
+        content: 'Question of the Week';
+        display:block !important;
+        font-family: $sans-serif;
+        font-size: 19px;
+        line-height: 24px;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-top: 0;
+
+        .wf-active & {
+          font-family: $sans-serif--loaded !important;
+        }
+      }
+
+      img {
+        display:none !important;
+      }
+
+    }
+  }
+
+  strong,
+  strong p {
+    display: block;
+    font-family: $sans-serif !important;
+    font-size:15px !important;
+    line-height:20px !important;
+    font-weight:bold !important;
+    color: $color__text--headlines !important;
+
+    .wf-active & {
+      font-family: $sans-serif--loaded !important;
+    }
+  }
+
+  strong p {
+    margin-top: 18px !important;
+    margin-bottom: 1px !important;
+    padding-top: 1px !important;
+  }
+
+  ul {
+    position: relative !important;
+    padding-top: 3px !important;
+    border-top: 1px solid $color__rules !important;
+    margin-top:20px !important;
+
+    li {
+      padding-top: 0 !important;
+      float: none !important;
+      margin-top: 12px !important;
+      //@include f-related;
+    }
+
+    label {
+      //@include f-related;
+      display: block !important;
+      position: relative !important;
+      float: none !important;
+      margin-bottom: -3px !important;
+      margin-left: 0 !important;
+      padding-top: 3px !important;
+      padding-left: 30px !important;
+      cursor:pointer !important;
+      font-size:15px !important;
+      line-height:20px !important;
+      color: $color__text--secondary !important;
+
+      .wf-active & {
+        font-family: $sans-serif--loaded !important;
+      }
+    }
+
+    label::before,
+    label::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 16px;
+      height: 16px;
+      border: 1px solid $color__input-border;
+      border-radius: 50%;
+    }
+
+    label::after {
+      border: 0 none;
+      background-color: #00999a;
+      opacity: 0;
+      transform: scale(.1);
+      transition: all .25s $bezier__bounce;
+    }
+
+    label:hover::before {
+      border-color: $color__input-border--hover;
+    }
+
+    input[type=radio]:checked + label::after {
+      opacity: 1;
+      transform: scale(.5);
+    }
+
+    input[type=radio]:disabled + label {
+      opacity: .5;
+      pointer-events: none;
+    }
+
+    input[type=radio]:focus + label::before {
+      border-color: $color__input-border--focus;
+    }
+
+    input {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px 0 0 -1px !important;
+      padding: 0 !important;
+      border: 0 none !important;
+      clip: rect(1px, 1px, 1px, 1px) !important;
+      overflow: hidden !important;
+    }
+  }
+
+  .btnSubmit {
+    text-align:right !important;
+    margin: 32px 0 -16px 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    float: none !important;
+
+    background-image:url('../images/nejm-knowledge-plus-button.svg') !important;
+    background-repeat:no-repeat !important;
+    background-position:right top !important;
+
+    input {
+      opacity:0 !important;
+      width: 127px !important;
+      height: 47px !important;
+    }
+  }
+}

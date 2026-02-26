@@ -1,0 +1,70 @@
+.announcements-container {
+  .row.announcements {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    padding:16px 0px;
+  }
+  .btn.btn--announcements {
+    line-height: normal;
+    font-size: 14px;
+    padding: 9px 10px;
+  }
+  .slideShow {
+    min-height:initial;
+    .owl-carousel {
+      padding:0;
+    }
+    .owl-stage-outer {
+      line-height: normal;
+      font-size: 14px;
+      .owl-item{
+        padding-right: 100px;
+        font-size: 14px;
+      }
+      .announcment-text {
+        font-size:14px;
+        color: $aha_black;
+        padding-right: 4px;
+      }
+      .announcement-date {
+        color: $aha_grey;
+        font-size:14px;
+        &:before {
+          content: ' - ';
+        }
+      }
+    }
+    .owl-nav .owl-prev, .owl-nav .owl-next {
+      position: absolute;
+      right:0;
+      left:initial;
+      top:0;
+      bottom: 0;
+      height: 34px;
+      width: 34px;
+      border-radius: 0px;
+      line-height: 34px;
+      background: $aha_grey;
+      margin:auto;
+      &:hover, &:active {
+        background: $aha_grey !important;
+      }
+      span {
+        display: none;
+
+      }
+      i {
+        display: block;
+        line-height: 28px;
+        color: $aha_white;
+        opacity:1;
+      }
+    }
+    .owl-nav .owl-prev {
+      right: 50px;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+
+.lazy-loaded
+    if (image == 'true')
+        .lazy-load__img
+    .lazy-load__text
+        .lazy-load__line
+        .lazy-load__line--80
+        .lazy-load__line
+        .lazy-load__line--70
+        .lazy-load__line--50
+
+style(type='text/css').
+    .lazy-loaded {
+        margin-bottom: 12px;
+        border-radius: 4px;
+        -webkit-animation-delay: 260ms;
+        animation-delay: 260ms;
+        opacity: 0;
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+        -webkit-animation: fade-slide-in 334ms cubic-bezier(0, 0, .2, 1) forwards;
+        animation: fade-slide-in 334ms cubic-bezier(0, 0, .2, 1) forwards;
+    }
+
+    .lazy-loaded:after, .lazy-loaded:before {
+        display: table;
+        clear: both;
+        content: '';
+    }
+
+    .lazy-loaded [class*=lazy-load__line] {
+        height: 10px;
+        margin: 10px 0;
+        width: 100%;
+        background: #cacaca;
+        -webkit-animation: pulse .65s infinite alternate;
+        animation: pulse .65s infinite alternate;
+    }
+    .lazy-loaded .lazy-load__img {
+        min-width: 0px;
+    }
+    .lazy-loaded .lazy-load__line--80 {
+        width: 80%;
+    }
+
+    .lazy-loaded .lazy-load__line--70 {
+        width: 70%;
+    }
+
+    .lazy-loaded .lazy-load__line--50 {
+        width: 50%;
+    }
+

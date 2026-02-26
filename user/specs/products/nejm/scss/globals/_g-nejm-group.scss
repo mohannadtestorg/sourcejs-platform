@@ -1,0 +1,168 @@
+.g-nejm-group {
+  @include background-fill;
+  display: none;
+  position: absolute;
+  z-index: 11;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: $color__background;
+
+  @include breakpoint('large+') {
+    display: block;
+    padding-right: map-get($outer-gutters, large);
+    padding-left: map-get($outer-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-right: map-get($outer-gutters, xlarge);
+    padding-left: map-get($outer-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.g-nejm-group__group,
+.g-nejm-group__user-tools {
+  @include sans-serif(16, 24);
+  display: flex;
+  flex-flow: row;
+  margin-top: 0;
+}
+
+.g-nejm-group__user-tools {
+  position: absolute;
+  top: 0;
+
+  @include breakpoint('large+') {
+    right: map-get($outer-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    right: map-get($outer-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    right: 0;
+  }
+}
+
+.g-nejm-group__group > li,
+.g-nejm-group__user-tools > li {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.g-nejm-group__group > li:first-child {
+  border-right: 1px solid $color__rules;
+}
+
+.g-nejm-group__user-tools > li:not(:first-child):not(.g-nejm-group__user-tool-primary) {
+  border-left: 1px solid $color__rules;
+}
+
+
+
+.g-nejm-group__group a,
+.g-nejm-group__user-tools a {
+  display: block;
+  padding-right: 13px;
+  padding-left: 13px;
+  line-height: 40px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.g-nejm-group a.a-dropdown-prompt {
+  padding-right: 32px;
+}
+
+.g-nejm-group__group > li:first-child > .a-dropdown > em,
+.g-nejm-group__group > li:first-child > .a-dropdown > strong,
+.g-nejm-group__group > li:first-child > .a-dropdown-prompt {
+  padding-left: 0;
+}
+
+.g-nejm-group .a-dropdown {
+  border: 0 none;
+}
+
+.g-nejm-group .a-dropdown > em,
+.g-nejm-group .a-dropdown > strong,
+.g-nejm-group .a-dropdown a,
+.g-nejm-group .a-dropdown-prompt {
+  height: 40px;
+  line-height: 40px;
+}
+
+.g-nejm-group .a-dropdown > em,
+.g-nejm-group .a-dropdown > strong,
+.g-nejm-group .a-dropdown-prompt {
+  color: $color__link-primary;
+}
+
+.g-nejm-group .a-dropdown:hover > em,
+.g-nejm-group .a-dropdown:hover > strong,
+.g-nejm-group__user-tools > li > a:hover,
+.g-nejm-group .a-dropdown-prompt:hover {
+  text-decoration: underline;
+}
+
+.g-nejm-group__user-tools li:last-child .a-dropdown > em,
+.g-nejm-group__user-tools li:last-child .a-dropdown > strong {
+  padding-right: 16px;
+}
+
+.g-nejm-group__user-tools li:last-child .a-dropdown > em::after,
+.g-nejm-group__user-tools li:last-child .a-dropdown > strong::after {
+  right: 0;
+}
+
+.g-nejm-group__user-tools .a-user-icon {
+  margin-right: 4px;
+}
+
+.g-nejm-group__user-tools *:hover > .a-user-icon {
+  opacity: .6;
+}
+
+.g-nejm-group .a-dropdown ul {
+  top: calc(100% + 10px);
+}
+
+.g-nejm-group__group svg {
+  display: inline-block;
+  width: 30px;
+  margin-left: -8px;
+  color: $color__black;
+  vertical-align: middle;
+}
+
+.g-nejm-group__sign-out {
+  font-weight: bold;
+}
+
+
+.g-nejm-group__user-tool-primary a {
+  display: block;
+  height: 40px;
+  background-color: $color__accent;
+  color: $color__white;
+  font-size: 12px;
+  letter-spacing: .12em;
+  line-height: 42px;
+  text-transform: uppercase;
+}
+
+.g-nejm-group__user-tools .g-nejm-group__user-tool-primary > a:hover {
+  background-color: $color__accent--hover;
+  color: $color__white;
+  text-decoration: none;
+}
+
+.g-nejm-group__user-tool-secondary a {
+  background-color: $color__background--alert;
+}

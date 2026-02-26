@@ -1,0 +1,11 @@
+if (data) && (data.authors)
+    ul.rlist--inline.loa.comma(aria-label="authors")
+        each author, l in data.authors
+            li
+                if (author.itemUrl)
+                    a(href=author.itemUrl title=author.text)
+                        if (author.text)
+                            span !{author.text}
+                else
+                    if (author.text)
+                        span !{author.text}

@@ -1,0 +1,686 @@
+/***
+
+```
+<div class="m-deflist">
+  <dl class="m-deflist__dl">
+    <dt class="m-deflist__dt f-body--sm">Customer Number</dt>
+    <dd class="m-deflist__dd f-body--sm">123456789</dd>
+
+    <dt class="m-deflist__dt f-body--sm">ABIM ID: 111111</dt>
+    <dd class="m-deflist__dd f-ui"><a href="#">Frequently Asked Questions</a></dd>
+
+    <dt class="m-deflist__dt f-body--sm">Secondary Specialty</label></dt>
+    <dd class="m-deflist__dd f-body--sm">
+      *Unspecified
+      <em class="m-deflist__notes f-hint">Please edit your profile and select a secondary specialty of interest to help us tailor our content to meet your needs.</em>
+    </dd>
+  </dl>
+</div>
+<div class="m-deflist__action">
+  <p class="f-body--sm"><a href="#">Help with IP Address</a></p>
+</div>
+<div class="m-deflist">
+  <dl class="m-deflist__dl m-deflist__dl--fields">
+    <dt class="m-deflist__dt f-body--sm"><label for="contactEmail">Email Address</label></dt>
+    <dd class="m-deflist__dd m-deflist__dd--field">
+      <input type="email" name="contactEmail" id="contactEmail" value="" />
+    </dd>
+
+    <dt class="m-deflist__dt f-body--sm"><label for="contactReason">Contact Reason</label></dt>
+    <dd class="m-deflist__dd m-deflist__dd--field">
+      <span class="a-form-select">
+        <select name="contactReason" id="contactReason">
+          <option>Lorem ipsum</option>
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
+      </span>
+    </dd>
+
+    <dt class="m-deflist__dt f-body--sm"><label for="contactBody">Question or Comment</label></dt>
+    <dd class="m-deflist__dd m-deflist__dd--field">
+      <textarea name="contactBody" id="contactBody" rows="5"></textarea>
+    </dd>
+  </dl>
+</div>
+<div class="m-deflist__action m-deflist__action--closer">
+  <button type="submit" class="a-btn">Submit <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></button>
+</div>
+```
+
+***/
+/***
+
+Variant `m-deflist--tighter` with tighter spacing
+
+```
+<div class="m-deflist m-deflist--tighter">
+  <dl class="m-deflist__dl">
+    <dt class="m-deflist__dt f-body">Address</dt>
+    <dd class="m-deflist__dd f-body">10 Shattuck Street <br>Boston, MA 02115-6094</dd>
+    <dt class="m-deflist__dt f-body">Phone</dt>
+    <dd class="m-deflist__dd f-body">617-734-9800</dd>
+    <dt class="m-deflist__dt f-body">Fax</dt>
+    <dd class="m-deflist__dd f-body"><a href="fax:617-739-9864">617-739-9864</a></dd>
+    <dt class="m-deflist__dt f-body">Email</dt>
+    <dd class="m-deflist__dd f-body"><a href="mailto:comments@nejm.org" data-behavior="MaskEmail" data-user="comments" data-domain="nejm.org">comments@nejm.org</a></dd>
+  </dl>
+</div>
+```
+
+***/
+
+.m-deflist {
+  position: relative;
+  margin-top: 20px;
+
+  @include breakpoint('small+') {
+    @include float-clear;
+  }
+}
+
+.m-deflist + .m-deflist,
+.m-deflist + .m-renew-cme {
+  margin-top: 44px;
+}
+
+.m-deflist + .m-renew-cme {
+  padding-top: 15px;
+  border-top: 1px solid $color__rules;
+}
+
+.m-deflist + .m-deflist--after {
+  margin-top: 24px;
+}
+
+.m-deflist + .a-subtitle {
+  margin-top: 20px;
+
+  @include breakpoint('small+') {
+    margin-top: 24px;
+  }
+}
+
+form.m-deflist + .a-subtitle {
+  margin-top: 28px;
+
+  @include breakpoint('small+') {
+    margin-top: 52px;
+  }
+}
+
+.a-alert-bar + .m-deflist {
+  margin-top: 32px;
+}
+
+.m-collapsible .m-deflist {
+
+  @include breakpoint('small+') {
+    margin-top: 0;
+  }
+}
+
+.m-deflist__intro {
+  margin-top: 20px;
+
+  & + .m-deflist {
+    margin-top: 0;
+
+    @include breakpoint('small+') {
+      margin-top: 0;
+    }
+  }
+
+  & + .m-renew-cme,
+  & + form:not([class]) {
+    margin-top: 16px;
+  }
+
+  & + .m-deflist__dl {
+    margin-top: 36px;
+  }
+}
+
+.m-deflist__intro--sep {
+  margin-top: 20px;
+  padding-top: 11px;
+  border-top: 1px solid $color__rules;
+}
+
+.m-deflist__dl {
+  width: 100%;
+  margin-top: 0;
+
+  @include breakpoint('xsmall') {
+    & + & {
+      margin-top: 16px;
+    }
+  }
+
+  @include breakpoint('small+') {
+    @include float-clear;
+    margin-top: 20px;
+  }
+
+  dl {
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include breakpoint('small+') {
+      @include float-clear;
+    }
+  }
+
+  .m-deflist__dl-col-headers {
+    display: none;
+    font-weight: 700;
+
+    & + dl {
+      margin-top: 0;
+    }
+
+    @include breakpoint('small+') {
+      display: block;
+
+      & + dl {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+}
+
+.m-deflist__dl--fields:first-child {
+  @include breakpoint('small+') {
+    margin-top: -8px;
+  }
+}
+
+.m-deflist__dl--sep {
+  margin-top: 20px;
+  padding-top: 19px;
+  border-top: 1px solid $color__rules;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+    padding-top: 31px;
+
+    &.m-deflist__dl--fields {
+      padding-top: 23px;
+    }
+  }
+}
+
+.m-deflist strong {
+  color: $color__text--headlines;
+}
+
+.m-deflist__dt,
+.m-deflist__dd {
+  position: relative;
+  margin-top: 8px;
+
+  @include breakpoint('small+') {
+    float: left;
+    width: 50%;
+    margin-top: 16px;
+
+    .m-deflist--tighter & {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-deflist .m-deflist__field {
+  margin-top: 8px;
+}
+
+.m-deflist__dt--col-header {
+  display: none;
+
+  @include breakpoint('small+') {
+    display: block;
+  }
+}
+
+.m-deflist__dt {
+  clear: both;
+  margin-top: 20px;
+
+  @include breakpoint('small+') {
+    margin-top: 16px;
+  }
+
+  @each $name, $point in $breakpoints {
+    @if $name != 'xsmall' {
+      @include breakpoint('#{$name}') {
+        padding-right: map-get($inner-gutters, $name) / 2;
+      }
+    }
+  }
+}
+
+.m-deflist__dd {
+
+  @each $name, $point in $breakpoints {
+    @if $name != 'xsmall' {
+      @include breakpoint('#{$name}') {
+        padding-left: map-get($inner-gutters, $name) / 2;
+      }
+    }
+  }
+}
+
+.m-deflist__dt:first-child,
+.m-deflist__dt--col-header + .m-deflist__dd + .m-deflist__dt,
+.m-deflist__dt--col-header + .m-deflist__dd + .m-deflist__dt + .m-deflist__dd {
+  margin-top: 0;
+}
+
+.m-deflist__dt:first-child + .m-deflist__dd {
+  @include breakpoint('small+') {
+    margin-top: 0;
+  }
+}
+
+.m-deflist__dt--wide,
+.m-deflist__dd--wide {
+  @include breakpoint('small+') {
+    float: none;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.m-deflist__dt strong,
+.m-deflist__dt b {
+  display: block;
+}
+
+img.m-deflist__img {
+  display: block;
+  width: auto;
+  height: 28px; // #LIT-205896
+  margin-top: 15px;
+  margin-bottom: 11px;
+}
+
+span.m-deflist__img {
+  display: block;
+}
+
+.m-deflist__dt label {
+  @include breakpoint('small+') {
+    display: block;
+    margin-top: 8px;
+  }
+}
+
+.m-deflist__dt .a-form-checkbox label {
+  @include breakpoint('small+') {
+    margin-top: 0;
+  }
+}
+
+.m-deflist__dt--wide {
+  @include breakpoint('small+') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.m-deflist__dt--wide label,
+.m-deflist__dt--wide .m-deflist__notes,
+.m-deflist__dt--wide.f-body--sm .m-deflist__notes {
+  @include breakpoint('small+') {
+    flex: 0 0 auto;
+    margin-top: 0;
+    margin-left: 12px;
+  }
+}
+
+.m-deflist__dt--wide label:first-child,
+.m-deflist__dt--wide .m-deflist__notes:first-child {
+  @include breakpoint('small+') {
+    margin-left: 0;
+  }
+}
+
+.m-deflist__label-hidden {
+  display: none;
+}
+
+.m-deflist input,
+.m-deflist textarea,
+.m-deflist .a-form-select {
+  width: 100%;
+
+  & + * {
+    margin-top: 16px;
+  }
+}
+
+.m-deflist textarea {
+  min-height: 30px;
+  padding: 9px 12px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.m-deflist__dd--wide input,
+.m-deflist__dd--wide textarea {
+  margin-top: 16px;
+}
+
+.m-deflist .a-form-checkbox,
+.m-deflist .a-form-radio {
+  display: block;
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+}
+
+.m-deflist .a-form-file {
+  display: block;
+
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+
+.m-deflist__select {
+  min-height: 40px;
+}
+
+.m-deflist__multifield {
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.m-deflist__multifield-field {
+  margin-top: 8px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @include breakpoint('medium+') {
+    flex: 1;
+    margin-top: 0;
+    padding-left: 20px;
+
+    &:first-child,
+    &.m-deflist__multifield-field--no-pad {
+      padding-left: 0;
+    }
+
+    &.m-deflist__multifield-field--no-pad:not(:first-child) {
+      margin-left: -1px;
+    }
+
+    &.m-deflist__multifield-field--narrow {
+      flex: 0 0 auto;
+      width: 80px;
+    }
+  }
+}
+
+.m-deflist__multifield-field label {
+  display: block;
+
+  &.m-deflist__label-hidden {
+    display: none;
+  }
+}
+
+.m-deflist__multifield-field > input:not(:first-child),
+.m-deflist__multifield-field > textarea:not(:first-child),
+.m-deflist__multifield-field > .a-form-select:not(:first-child) {
+  margin-top: 8px;
+}
+
+.m-deflist__multifield-field-group-label {
+  display: block;
+  margin-top: 8px;
+
+  & ~ & {
+    margin-top: 16px;
+  }
+
+  & ~ .m-deflist__multifield-field {
+    margin-top: 8px;
+  }
+
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+    width: 100%;
+
+    & + .m-deflist__multifield-field {
+      padding-left: 0;
+    }
+  }
+}
+
+.m-deflist [data-remove], .m-deflist .a-btn--fake-link {
+  position: absolute;
+  right: 23px;
+  top: 12px;
+
+  & + textarea {
+    width: calc(100% - 63px);
+  }
+}
+
+.m-deflist__required,
+em.m-deflist__required,
+.m-deflist__optional,
+em.m-deflist__optional {
+  color: $color__text--quaternary;
+  font-style: normal;
+}
+
+.m-deflist__notes {
+  display: inline-block;
+  margin-top: 4px;
+  color: $color__text--quaternary;
+
+  .f-body--sm & {
+    margin-top: 2px;
+
+    @include breakpoint('small+') {
+      margin-top: 4px;
+    }
+  }
+
+  input + &,
+  textarea + &,
+  .a-form-file + & {
+    display: block;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    color: $color__text;
+    text-align: right;
+  }
+}
+
+.m-deflist__notes--left {
+  text-align: left;
+
+  input + &,
+  textarea + &,
+  .a-form-file + & {
+    padding-bottom: 12px;
+    text-align: left;
+
+    @include breakpoint('small+') {
+      padding-bottom: 28px;
+    }
+  }
+}
+
+.m-deflist__notes--error {
+  color: $color__error;
+  text-align: left;
+
+  input + &,
+  textarea + &,
+  .a-form-file + & {
+    color: $color__error;
+    text-align: left;
+  }
+}
+
+.m-deflist__action {
+  display: flex;
+  position: relative;
+  flex-flow: row wrap;
+  margin-top: 16px;
+  padding-top: 19px;
+  border-top: 1px solid $color__rules;
+  overflow: hidden;
+
+  @include breakpoint('xsmall') {
+    flex-direction: column-reverse;
+    padding-top: 11px;
+  }
+
+  & + .a-subtitle {
+    margin-top: 44px;
+  }
+}
+
+.m-deflist__action--closer {
+  padding-top: 0;
+  border: 0 none;
+}
+
+.m-deflist__action p {
+  flex: 0 0 auto;
+  margin-top: 8px;
+}
+
+.m-deflist__action .a-btn {
+  flex: 0 0 auto;
+  width: 100%;
+  margin-top: 8px;
+
+  @include breakpoint('small+') {
+    width: auto;
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.m-deflist__action .a-btn + .a-btn {
+  margin-left: 0;
+
+  @include breakpoint('small+') {
+    margin-left: 8px;
+  }
+}
+
+.m-deflist__ul {
+  margin-top: 0;
+
+  @include breakpoint('small+') {
+    float: left;
+    width: 50%;
+    margin-top: 8px;
+  }
+
+  @each $name, $point in $breakpoints {
+    @if $name != 'xsmall' {
+      @include breakpoint('#{$name}') {
+        padding-right: map-get($inner-gutters, $name) / 2;
+      }
+    }
+  }
+
+  li {
+    display: block;
+    margin-top: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  & + .m-deflist__ul {
+    @each $name, $point in $breakpoints {
+      @if $name != 'xsmall' {
+        @include breakpoint('#{$name}') {
+          padding-right: 0;
+          padding-left: map-get($inner-gutters, $name) / 2;
+        }
+      }
+    }
+  }
+}
+
+.m-deflist__ul--spaced {
+  li {
+    margin-top: 24px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-deflist__ul--spaced + .m-deflist__ul--spaced {
+  @include breakpoint('xsmall') {
+    margin-top: 24px;
+  }
+}
+
+.m-deflist .s-hidden {
+  display: none;
+}
+
+.m-deflist a.f-ui:hover {
+  text-decoration: underline;
+}
+
+.m-deflist--editable {
+  .m-deflist__btn {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    .m-deflist__dl:first-child {
+      dd:first-of-type {
+        padding-right: 130px;
+      }
+    }
+
+    .m-deflist__btn {
+      position: absolute;
+      right: 0;
+      top: -8px;
+      margin-top: 0;
+    }
+  }
+}
+
+.m-deflist .a-form-select + .a-form-select{
+  margin-top: 0;
+}

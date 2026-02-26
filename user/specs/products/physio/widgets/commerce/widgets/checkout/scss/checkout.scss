@@ -1,0 +1,152 @@
+.checkoutProcessRightCol {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+    .link, a:not(.btn) {
+        color: $primary-blue-color;
+    }
+    @include media('<tablet') {
+        margin: 20px;
+    }
+    .card {
+        padding: 1px 20px;
+    }
+}
+.eCommerceCheckoutIdentityWidget {
+    .header {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+}
+.eCommerceCheckoutPaymentWidget {
+    margin-top: 0;
+}
+.checkoutProcessLeftCol {
+    padding: 0px 20px;
+    .link, a:not(.btn) {
+        color: $primary-blue-color;
+
+        font-size: 16px;
+    }
+    .card {
+        padding: 0px 20px;
+    }
+}
+
+.articleTitlePrice {
+    & > p {
+        color: $primary-blue-color;
+    }
+    .item-price {
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+.checkoutProcessLeftCol, .checkoutProcessRightCol {
+    .card {
+        margin: 0;
+    }
+
+    .commerce-header {
+        font-size: 26px;
+        margin-top: 40px;
+    }
+}
+
+.orderSummary {
+    .label {
+        font-size: 16px;
+    }
+}
+
+.returningUser {
+    padding: 12px 16px;
+    text-transform: uppercase;
+    background: $primary-blue-color;
+    font-size: 12px;
+    font-weight: 800;
+    @include media('<tablet') {
+        margin: 10px 0px;
+    }
+}
+
+.commerce-header, .checkoutList .header {
+    font-weight: 900;
+    text-transform: none;
+    border-bottom: none;
+}
+
+.promoCodeBlock {
+    display: block;
+}
+
+.promoCodeForm {
+    display: block;
+    .clearableInput {
+        width: 70%;
+        @include media('>=phone', '<desktop') {
+            width: 63%;
+        }
+    }
+}
+
+.checkoutLogin {
+    .input-group {
+        label {
+            font-size: 14px;
+            color: $primary-text-color;
+
+        }
+    }
+}
+
+.buyItemFooter {
+    .price {
+        display: block;
+        padding: 40px 0;
+        padding-bottom: 20px;
+    }
+}
+
+.eCommerceCheckoutSummaryWidget {
+    .header {
+        border-bottom: 1px solid $primary-border;
+        font-size: 16px;
+        font-weight: 700
+    }
+}
+
+.newUser {
+    padding: 0px 5px;
+}
+
+.applyDiscount, .actions .button {
+    padding: 8px 11px;
+    text-transform: uppercase;
+    background: #5e8ab4;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.buyItemFooter {
+    .applyDiscount {
+        float: none;
+    }
+}
+
+
+.acceptTermsConditions {
+    position: relative;
+
+    label[for="acceptTermsConditions"]{
+        padding-left: 25px;
+    }
+    #acceptTermsConditions {
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: auto;
+    }
+}

@@ -1,0 +1,165 @@
+/* TODO: To be reviewed and cleaned up */
+
+.link {
+    color: $primary-link-color;
+}
+
+.checkout-readonly {
+    color: $info-text-color;
+}
+
+.checkoutList .pale {
+    color: $secondary-text-color;
+}
+
+.switch,
+.switch * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+}
+
+.switch {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    .cmn-toggle {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked:not(:disabled) ~ label:active:after {
+            box-shadow: 0 1px 3px 1px $tertiary-text-color, 0 0 0 15px $tertiary-darken-color;
+        }
+        &:not(:disabled) ~ label:active:after {
+            box-shadow: 0 1px 3px 1px $tertiary-text-color, 0 0 0 15px $tertiary-darken-color;
+        }
+        &[disabled] + label {
+            cursor: default;
+        }
+        &[disabled] + label:after,
+        &[disabled] + label .switch .cmn-toggle[disabled]:checked + label:after {
+            background-color: $tertiary-darken-color;
+        }
+        &:checked + label {
+            opacity: 1;
+            background-color: $secondary-text-color;
+            &:after {
+                top: 4px;
+                left: 4px;
+                bottom: 4px;
+                width: 23px;
+                background-color: $white;
+                margin-left: 30px;
+                border-radius: 52px;
+                transition: margin 0.4s;
+                height: auto;
+            }
+        }
+        &:not(:checked) + label:before {
+            top: 2px;
+            left: 2px;
+            bottom: 2px;
+            right: 2px;
+            background-color: $white;
+            border-radius: 60px;
+            transition: background 0.4s;
+            width: auto;
+            height: auto;
+            -webkit-transform: none;
+            transform: none;
+            -webkit-transform-origin: 20% 40%;
+            transform-origin: 100% 100%;
+        }
+    }
+    label {
+        display: inline-block;
+        padding: 2px;
+        width: 60px;
+        height: 30px;
+        background-color: $secondary-text-color;
+        opacity: 0.5;
+        border-radius: 60px;
+        transition: background 0.1s;
+    }
+    [type="checkbox"] {
+        &:not(:checked) + label:after {
+            top: 4px;
+            left: 4px;
+            bottom: 4px;
+            width: 23px;
+            background-color: $secondary-text-color;
+            border-radius: 52px;
+            transition: margin 0.4s;
+            height: auto;
+            z-index: 1;
+            border: none;
+        }
+        &:checked + label:before {
+            width: auto;
+            height: auto;
+            border: none;
+            transition: background 0.4s;
+        }
+    }
+    &.small-switch {
+        .cmn-toggle {
+            &:not(:checked) + label:before {
+                top: 1px;
+                left: 1px;
+                bottom: 1px;
+                right: 1px;
+            }
+            &:checked + label:after {
+                width: 13px;
+                margin-left: 21px;
+            }
+        }
+        [type="checkbox"]:not(:checked) + label:after {
+            width: 13px;
+        }
+        label {
+            display: inline-block;
+            width: 42px;
+            height: 22px;
+        }
+    }
+}
+
+.restore-content-access-widget {
+    padding: 15px;
+    .form-btn {
+        margin-top: 0;
+    }
+}
+
+.order-summary {
+    padding: 0 15px;
+}
+
+.commerce-header, .checkoutList .header {
+    border-bottom: 1px solid $input-border;
+    color: $primary-commerce-color;
+    text-transform: uppercase;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.checkoutList .header {
+    margin-top: 40px;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.checkoutProcessLeftCol, .checkoutProcessRightCol {
+    .link, a:not(.btn) {
+        color: $primary-commerce-color;
+    }
+}

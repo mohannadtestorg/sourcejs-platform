@@ -1,0 +1,34 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+
+block coverImageMain
+    .featuredCard
+        if(thisWidget.properties)
+            if thisWidget.properties.displayStyle == 'singleCover'
+                if data.single
+                    - var cover = data.single
+                    .cover-image
+                        +cover(cover, 0)
+
+            else if thisWidget.properties.displayStyle == 'coverGallery'
+                if data.journal && data.journal.gallery
+                    - var covers = data.journal.gallery
+                    ul.rlist.loc
+                        each cover, l in covers
+                            li.grid-item.cover-image
+                                +cover(cover, l)
+
+            else if thisWidget.properties.displayStyle == 'mostRecentCover'
+                if data.journal && data.journal.recent
+                    - var covers = data.journal.recent
+                    ul.rlist.loc
+                        each cover, l in covers
+                            li.grid-item.cover-image
+                                +cover(cover, l)
+
+
+
+
+
+
+

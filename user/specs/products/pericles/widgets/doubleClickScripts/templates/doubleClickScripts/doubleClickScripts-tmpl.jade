@@ -1,0 +1,7 @@
+script(type='text/javascript')
+    if data.journal
+        if data.journal.zoneTags
+            | var $DoubleClickZone = "!{data.journal.zoneTags[0].uri}";
+
+        if data.journal.siteTags
+            | var $DoubleClickSite =  "!{data.journal.siteTags[0].uri}";

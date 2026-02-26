@@ -1,0 +1,118 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    # Primary Colors
+    atypon_blue:
+      value: "{!ATYPON_BLUE}"
+    atypon_red:
+      value: "{!ATYPON_RED}"
+    atypon_gray_dark:
+      value: "{!ATYPON_GRAY_DARK}"
+    atypon_gray:
+      value: "{!ATYPON_GRAY}"
+    atypon_gray_light:
+      value: "{!ATYPON_GRAY_LIGHT}"
+    atypon_gray_lightest:
+      value: "{!ATYPON_GRAY_LIGHTEST}"
+    # Supporting Colors
+    atypon_blue_light:
+      value: "{!ATYPON_BLUE_LIGHT}"
+    atypon_blue_lightest:
+      value: "{!ATYPON_BLUE_LIGHTEST}"
+    atypon_red_light:
+      value: "{!ATYPON_RED_LIGHT}"
+    atypon_red_lightest:
+      value: "{!ATYPON_RED_LIGHTEST}"
+    atypon_green:
+      value: "{!ATYPON_GREEN}"
+    atypon_green_light:
+      value: "{!ATYPON_GREEN_LIGHT}"
+    # text colors
+    primary-text-color:
+      value: "{!ATYPON_GRAY_DARK}"
+    hero-text-color:
+      value: "{!ATYPON_GRAY}"
+    secondary-text-color:
+      value: "{!ATYPON_BLUE}"
+    tertiary-text-color:
+      value: "{!ATYPON_RED}"
+    default-content-color:
+      value: "{!ATYPON_GRAY}"
+    # buttons
+    primary-btn-color:
+      value: "{!ATYPON_BLUE}"
+    secondary-btn-color:
+      value: "{!ATYPON_RED}"
+    primary-border-color:
+      value: "{!ATYPON_BLUE}"
+    secondary-border-color:
+      value: "{!ATYPON_RED}"
+    primary-btn-bg:
+      value: "{!ATYPON_BLUE}"
+    secondary-btn-bg:
+      value: "{!ATYPON_RED}"
+    disabled-btn-bg:
+      value: "{!ATYPON_GRAY_LIGHT}"
+    site-navigation-caret-color:
+      value: "{!ATYPON_GRAY_LIGHT}"
+    # links
+    primary-link-color:
+      value: "{!ATYPON_BLUE}"
+    secondary-link-color:
+      value: "{!ATYPON_RED}"
+    # inouts
+    label:
+      value: "{!ATYPON_GRAY_DARK}"
+    input-border:
+      value: "#d9d9de"
+    input-placeholder-color:
+      value: "{!ATYPON_GRAY_DARK}"
+    #alerts
+    alert-success-color:
+      value: "{!ATYPON_GREEN}"
+    alert-success-background:
+      value: "{!ATYPON_GREEN_LIGHT}"
+    alert-error-color:
+      value: "{!ATYPON_RED}"
+    alert-error-background:
+      value: "{!ATYPON_RED_LIGHT}"
+    alert-info-color:
+      value: "{!ATYPON_BLUE}"
+    alert-info-background:
+      value: "{!ATYPON_BLUE_LIGHT}"
+    #cards
+    primary-card-bg:
+      value: "{!ATYPON_GRAY_DARK}"
+    secondary-card-bg:
+      value: "{!ATYPON_RED}"
+    tertiary-card-bg:
+      value: "{!ATYPON_BLUE}"
+    card-border-color:
+      value: "{!ATYPON_BLUE_LIGHTEST}"
+    #shadow
+    shadow-color:
+      value: "#d7dee6"
+    hr-color:
+      value: "#e2e3e6"
+    #sections
+    secondary-section-bg:
+      value: "{!ATYPON_BLUE_LIGHTEST}"

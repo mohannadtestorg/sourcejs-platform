@@ -1,0 +1,91 @@
+{
+    "title": "Institution Banner",
+    "template": "doc",
+    "tag": ["pbWidgets"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Institution Banner - with Graphic Banner",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/institution-banner/templates/institution-banner/institution-banner-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/institution-banner/templates/data/banner-graphic.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Institution Banner - with Graphic Banner",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": "institution--block"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/institution-banner/templates/institution-banner/institution-banner-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/institution-banner/templates/data/banner-graphic.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Institution Banner - without Graphic Banner",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/institution-banner/templates/institution-banner/institution-banner-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/institution-banner/templates/data/banner.json"
+                                            }
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

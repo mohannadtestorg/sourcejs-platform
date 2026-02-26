@@ -1,0 +1,99 @@
+mixin errorMsg(error)
+    if (error)
+        .infoBox
+            i.icon-notice(aria-hidden="true")
+            span.error_msg= error
+
+mixin institutinalFormlabel(field,label)
+    if field
+        label(for=field.name)= label
+            if field.required == true
+                span= ' *'
+
+mixin institutinalFormField(field, placeholder, type, isSelect)
+    if field
+        if isSelect == 'countries'
+            select.jcf.countrySelect(id=field.name name=field.name required=field.required hidden=field.hidden)
+                option(value='-1') SELECT YOUR COUNTRY OR LOCATION
+                each country in data.countries
+                    option(value=country.id class=country.states ? 'hasStates':'' selected=country.id==field.value)= country.name
+
+        else
+            input(id=field.name name=field.name type = type required=field.required hidden=field.hidden value=field.value placeholder=placeholder)
+        +errorMsg(field.message)
+
+if (data.ErrorMsg)
+    .infoBox
+        i.icon-notice(aria-hidden="true")
+        span.error !{data.ErrorMsg}
+if (data.SuccessMsg)
+    .infoBox
+        i.icon-notice(aria-hidden="true")
+        span.success !{data.SuccessMsg}
+
+.card.institutionDetails
+    block institutionalInformation
+        h2.section__header Institutional information
+
+        .row
+            .col-md-6
+                label Customer name
+                if  data.displayName
+                    span= data.displayName
+            .col-md-6
+                label Customer ID
+                if  data.customerNumber
+                    span= data.customerNumber
+
+        if data.form
+            - var form = data.form
+            form(action=data.action name="institutionDetails" method='post' class='institutionDetails')
+                input(type="hidden" name="InstitutionDetailsBean.institutionUserId" value=data.institutionUserId)
+
+                .row
+                    .col-md-6
+                        +institutinalFormlabel(form.phone, 'Phone')
+                        +institutinalFormField(form.phone, 'ex. +141591726354', 'tel')
+
+                .row
+                    .col-md-6
+                        +institutinalFormlabel(form.address1, 'Address line 1')
+                        +institutinalFormField(form.address1, 'ex. 123 High ST, ', 'text')
+                    .col-md-6
+                        +institutinalFormlabel(form.address2, 'Address line 2')
+                        +institutinalFormField(form.address2, 'ex. 123 High ST, ', 'text')
+
+                .row
+                    .col-md-6
+                        +institutinalFormlabel(form.city, 'City/Town')
+                        +institutinalFormField(form.city, 'ex. London', 'text')
+                    .col-md-6
+                        -var hasStates = false
+                        each country in data.countries
+                            if country.states
+                                .stateContainer(class=form.country.value!=country.id ? 'hidden' : '')
+                                    +institutinalFormlabel(form.state, 'State/Province')
+                                    select.jcf.stateSelect(id='country'+country.id)
+                                        option(value='-1') SELECT YOUR STATE OR PROVINCE
+                                        each state in country.states
+                                            option(value=state selected=form.state.value == state ? true : false)= state
+                            if form.country.value==country.id && country.states
+                                - hasStates=true
+                        .stateContainer.noStates.hidden
+                            if (hasStates)
+                                - form.state.name = 'InstitutionDetailsBean.state'
+                                - form.state.value = ''
+                            +institutinalFormField(form.state, 'ex. Greater London', 'hidden')
+
+                .row
+                    .col-md-6
+                        +institutinalFormlabel(form.country, 'Country/Location', 'countries')
+                        +institutinalFormField(form.country, '', 'text', 'countries')
+                    .col-md-6
+                        +institutinalFormlabel(form.zipCode, 'Post/Zip code')
+                        +institutinalFormField(form.zipCode, 'ex. xxxxxx', 'text')
+
+                .form-btn
+                    p.small-txt.float-left * Marks a required field
+                    button.btn.btn--inverse(type='submit', name='submitType', value='cancel' disabled) DISCARD CHANGES
+                    button.btn(type='submit' name='submit' value='submit') UPDATE

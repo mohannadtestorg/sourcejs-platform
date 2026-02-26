@@ -1,0 +1,8 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-tabs-tmpl.jade
+
+block tabsPrefix
+    - var original = data;
+    - var fakeId = "pcw";
+    - var config = {"type":"flex","effect": "slide","vPort":"medium"};
+    - var tabsData = {"nav":[{"text": "Figures","icon": "icon-figures","iconAfter":"icon-arrow_r","content": "","class": "figures"},{"text": "References","icon": "icon-references","iconAfter":"icon-arrow_r","content": "","class": "references"},{"text": "Related","icon": "icon-related","iconAfter":"icon-arrow_r","class": "related","content": ""},{"text": "Details","icon": "icon-info2","iconAfter":"icon-arrow_r","class": "details","content": ""}]};
+    - data = tabsData;

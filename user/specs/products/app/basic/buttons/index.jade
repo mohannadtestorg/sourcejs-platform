@@ -1,0 +1,80 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Buttons variations
+
+        h3 Default with hover and focus effects button
+        markdown
+            p In the example below we have added `btn` to the button item.
+        .source_example
+            button.btn I am button
+
+        h3 Disabled button
+        markdown
+            p In the example below we have added `disabled` attribute to make the button disabled.
+        .source_example
+            button.btn(disabled="disabled") I am button
+
+        h3 Full-width button
+        markdown
+            p In the example below we have added `btn` and `btn--full-width` to the button item to be fluid width.
+        .source_example
+            button.btn.btn--full-width I am full-width button
+
+        h3 Submit button
+        markdown
+            p In the example below we have added `btn--inverse` to the button item.
+        .source_example
+            button.btn--inverse I am button
+
+        h3 Cancel button
+        markdown
+            p In the example below we have added `btn--cancel` class to the button item.
+        .source_example
+            button.btn--cancel I am button
+
+        h3  Button themes
+        markdown
+            p In the example below we have added the theming class like `ajp-theme` , `apa-journal` to the button container.
+        .source_example
+            div.ajp-theme
+                button.btn I am button
+            div.apa-journal
+                button.btn I am button
+            div.dsm-theme
+                button.btn I am button
+            div.pl-theme
+                button.btn I am button
+            div.ebooks-theme
+                button.btn I am button
+        h3  Button inverse themes
+        markdown
+            p In the example below we have added the themming class like :`ajp-theme` , `apa-journal`  to the button container.
+        .source_example
+            div.ajp-theme
+                button.btn--inverse I am button
+            div.apa-journal
+                button.btn--inverse I am button
+            div.dsm-theme
+                button.btn--inverse I am button
+            div.pl-theme
+                button.btn--inverse I am button
+            div.ebooks-theme
+                button.btn--inverse I am button
+
+        h3  Link color
+        markdown
+            p In the example below we have added link class `link`
+        .source_example
+            a.link This is Link
+
+        h3  Meta Journal Button
+        markdown
+            p In the example below we have added link class `btn btn--inverse btn--journal-meta`
+        .source_example
+            a.btn.btn--inverse.btn--journal-meta Button
+
+
+    | #{''}

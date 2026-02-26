@@ -1,0 +1,100 @@
+/***
+
+a-form-radio
+=============
+
+```
+<span class="a-form-radio">
+  <input type="radio" value="all" id="search_author_all" name="search_author_type" checked>
+  <label for="search_author_all">All</label>
+</span>
+<span class="a-form-radio">
+  <input type="radio" value="all" id="search_author_any" name="search_author_type">
+  <label for="search_author_any">Any</label>
+</span>
+<span class="a-form-radio">
+  <input type="radio" value="all" id="search_author_any" name="search_author_type" disabled>
+  <label for="search_author_any">Any</label>
+</span>
+<span class="a-form-radio">
+  <input type="radio" value="all" id="search_author_any" name="search_author_type">
+  <label for="search_author_any" class="f-body">Any</label>
+</span>
+```
+
+
+***/
+
+.a-form-radio input[type=radio] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin-top: -1px;
+  margin-left: -1px;
+  padding: 0;
+  border: 0 none;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+}
+
+.a-form-radio label {
+  display: block;
+  position: relative;
+  padding-left: 22px;
+  color: $color__text;
+  cursor: pointer;
+}
+
+.a-form-radio label:not([class*=f-]) {
+  @include f-ui;
+}
+
+.a-form-radio label::before,
+.a-form-radio label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color__input-border;
+  border-radius: 50%;
+}
+
+.a-form-radio label::after {
+  border: 0 none;
+  background-color: $color__link-primary;
+  opacity: 0;
+  transform: scale(.1);
+  transition: all .25s $bezier__bounce;
+}
+
+.a-form-radio label:hover::before {
+  border-color: $color__input-border--hover;
+}
+
+.a-form-radio input[type=radio]:checked + label::after {
+  opacity: 1;
+  transform: scale(.5);
+}
+
+.a-form-radio input[type=radio]:disabled + label {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.a-form-radio input[type=radio]:focus + label::before {
+  border-color: $color__input-border--focus;
+}
+
+
+.a-form-radio label.f-body {
+  padding-left: 26px;
+}
+
+.a-form-radio label.f-body::before,
+.a-form-radio label.f-body::after {
+  @include breakpoint('medium+') {
+    top: 6px;
+  }
+}

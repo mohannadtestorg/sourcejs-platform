@@ -1,0 +1,26 @@
+/***
+
+Empty container for full width promo box.
+
+```
+<div class="m-full-promo-blank"></div>
+```
+
+***/
+.m-full-enhanced-promo-blank {
+  position: relative;
+
+  @each $name, $point in $breakpoints {
+    @include breakpoint('#{$name}') {
+      margin-top: map-get($inner-gutters, $name);
+      margin-right: -(map-get($outer-gutters, $name));
+      margin-left: -(map-get($outer-gutters, $name));
+    }
+  }
+
+  @include breakpoint('large+') {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+

@@ -1,0 +1,8 @@
+if (data && thisWidget)
+    section
+        h2.top(id="section-" + thisWidget.id) Keywords
+        div.section-paragraph.linked-article
+            ul.rlist.keywords-list.inline-bullet-list
+                each item, i in data.Items
+                    li
+                        a(href=item.URL title=item.label) !{item.label}

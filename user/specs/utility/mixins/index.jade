@@ -1,0 +1,25 @@
+﻿extends /specs/page-structure/layout.jade
+
+block cssLastInHead
+    include ../page-structure/css-lastin-head.jade
+
+block jsLastInBody
+    include ../page-structure/js-lastin-body.jade
+
+block content
+    h1 Starting Spec Page Template
+    .source_info
+        p All mixins specs should be added here
+
+    section.source_section
+        h2 Mixins specs
+        a.source_a_hl(href='/docs/spec') Spec Page Documentation
+        p Useful notes.
+        .source_example
+            p Rendered code examples.
+        p
+            | This spec uses
+            code index.src.html
+            |  template, view it's
+            a(href='index.src.html') source
+            | .

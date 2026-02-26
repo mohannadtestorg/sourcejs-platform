@@ -1,0 +1,47 @@
+{
+    "title": "Teaser (Creative work)",
+    "template": "doc",
+    "tag": ["components"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Creative work (Journal Home Page)",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/teaser/teaser-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/components/teaser/templates/data/creative-work.json"
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Creative work (Home Page)",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["top-content__home"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/teaser/teaser-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/creative-work-home.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+/***
+
+Empty container for full width promo box.
+
+```
+<div class="m-full-promo-blank"></div>
+```
+
+***/
+.m-full-promo-blank {
+  margin-top: 40px;
+  padding-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 60px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 56px;
+  }
+}
+
+/* old class name, to deprecate */
+.g-cta-subscribe {
+  @extend .m-full-promo-blank;
+}

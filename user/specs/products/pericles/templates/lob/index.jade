@@ -1,0 +1,138 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 MRW home page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200480' target="_blank">`LIT-200480`</a>
+
+    section.source_section
+        h2 MRW home page
+
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+            style.
+                .dropzone {
+                    display: none;
+                }
+
+
+
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        h1.is-accessible.visuallyhidden
+                            | Book Series
+                        div
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard
+                                            script.
+                                                googletag.cmd.push(function () {
+                                                    googletag.display('advert-leaderboard');
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                a(href='/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Fseries%2F9891&placeholderId=1015&productId=101018', target='_blank')
+                                                    img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=728x90&tile=1&c=$random')
+                            style(type='text/css').
+                                li.menu-item[aria-label="Accepted Articles"] {
+                                    display: none;
+                                }
+                            style(type='text/css').
+                                li.menu-item[aria-label="Early View"] {
+                                    display: none;
+                                }
+                            section.journal-page-header.card.card--light-shadow(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            .col-sm-2
+                                                .remove-margin(data-widget-def='UX3CoverImage', data-widget-id='ed17d203-b844-48f4-91aa-391a129d8bb4')
+                                                    ul.rlist.loc
+                                                        li.grid-item.cover-image
+                                                            .cover-image__image
+                                                                img(src='//wol-prod-cdn.literatumonline.com/cms/attachment/ceef1258-65f7-4486-8763-7c00ae71af0d/default_cover.gif', alt='Cover image')
+                                            .col-sm-10
+                                                h1 Advanced Micro and Nanosystems
+                                                .info-block
+                                                    span.info-label Series Online ISSN:
+                                                    | 1865-3715
+                                                    br
+                                                    span.info-label Series DOI:
+                                                    |  10.1002/SERIES9891
+                                            .info-block(data-widget-def='general-html', data-widget-id='d08b12af-2d1c-44ea-ae5f-87e80f701049')
+                                            a(href='/journal/', title=' homepage')
+                                                h1#journal-banner-text(style='margin: 0; font-size: 0')
+                                                img#journal-banner-image.journal-banner-image(alt=' banner', src='//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/.jpg', style='margin-bottom: 15px; display: none')
+                                            script.
+                                                var image = new Image();
+                                                image.onload = function () {
+                                                    // if the image exists
+                                                    document.getElementById("journal-banner-image").style.display = "block";
+                                                }
+                                                image.onerror = function () {
+                                                    // if the image does not exist
+                                                    document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                                    document.getElementById("journal-banner-text").style.fontSize = "22px";
+                                                }
+                                                image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/.jpg";
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                        section.journal-body.journal-page-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .gutterless--xs.gutterless--sm.col-md-12
+                                        .main-content.col-md-8
+                                            h2.section__mainHeader--mid
+                                                | About this Book series
+                                            .aboutBook.sub
+                                                | The book series
+                                                i Advanced Micro & Nanosystems (AMN)
+                                                |  provides cutting-edge reviews and detailed case studies by top authors from science and industry, covering technologies, devices and advanced systems from the micro and nano worlds, which together have an immense innovative application potential that opens up with control of shape and function from the atomic level right up to the visible world without any technological gaps.
+                                            | !{pb.render('book-series', 'demo/book-series', 'data.json', 'pericles')}
+
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            #rich-text-f4f43b99-fee7-44b8-996c-40794464de77.pb-rich-text(style='overflow: auto;')
+                                                .journal-side-section.journal-resources
+                                                    h2.side-section-header Series Editors
+                                                    ul
+                                                        li Henry Baltes
+                                                        li Oliver Brand
+                                                        li Gary K. Fedder
+                                                        li Christofer Hierold
+                                                        li Jan G. Korvink
+                                                        li Osamu Tabata
+                                            .pb-ad
+                                                #advert-rail-1.advert.advert-rail
+                                                    script.
+                                                        googletag.cmd.push(function () {
+                                                            googletag.display('advert-rail-1');
+                                                        });
+                                                    // No JavaScript support is a call to an image
+                                                    noscript
+                                                        a(href='/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fseries%2F9891&placeholderId=1014&productId=101018', target='_blank')
+                                                            img(src='https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                            .pb-ad
+                                                aside
+                                                    #advert-rail-2.advert.advert-rail
+                                                        script.
+                                                            googletag.cmd.push(function () {
+                                                                googletag.display('advert-rail-2');
+                                                            });
+                                                        // No JavaScript support is a call to an image
+                                                        noscript
+                                                            a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fseries%2F9891&placeholderId=1013&productId=101018', target='_blank')
+                                                                img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                // end pagefulltext
+
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}

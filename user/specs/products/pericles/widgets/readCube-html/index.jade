@@ -1,0 +1,33 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/readCube-html/templates/readCube-html/readCube-html-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use the widget.
+
+        +printJson({
+            "data": {
+                "enable": false,
+                "htmlContent": "html"
+            }
+        })
+
+
+    section.source_section
+        h2 Example
+        .source_example
+            .container
+                | !{pb.render('readCube-html', 'data.json', 'pericles')}
+
+
+    | #{''}
+

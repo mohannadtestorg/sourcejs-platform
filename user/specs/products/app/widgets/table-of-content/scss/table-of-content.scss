@@ -1,0 +1,68 @@
+.toc{
+    &-item{
+        &__detail {
+            font-size: .875rem;
+            li{
+                margin-right:0;
+            }
+       }
+        &__footer{
+            .toc-item__detail{
+                font-size: .75rem;
+            }
+
+            i[class*=icon-]{
+                margin-left: 0;
+            }
+
+            .accordion{
+                position: relative;
+
+                @include media('<desktop'){
+                    display: inline-block;
+                }
+                &__control{
+                    font-size: .75rem;
+
+                @include media('>=desktop'){
+                    position: absolute;
+                    top: 7px;
+                    width:auto;
+                }
+
+                }
+            }
+        }
+
+        &__abstract{
+            .left-side-image{
+                img{
+                    @include media('<tablet'){
+                        width:50%;
+                    }
+                }
+            }
+
+        }
+    }
+    &__section{
+        >a {
+            display: inline-block;
+            margin-left: 0px;
+            margin-right: 8px;
+        }
+    }
+    .table-of-content{
+        .issue-item{
+            +.section__header{
+                border-top: 1px solid $borders;
+                padding-top: 20px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.corrections-container{
+    display: inline-block;
+}

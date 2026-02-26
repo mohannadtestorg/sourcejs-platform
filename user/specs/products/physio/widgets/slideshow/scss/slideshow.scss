@@ -1,0 +1,51 @@
+.slideShow {
+    min-height: auto;
+    .owl-next, .owl-prev {
+        left: auto;
+        right: 0;
+        span {
+            display: none;
+        }
+        i {
+            display: inline-block;
+            font-size: 31px;
+            font-weight: 900;
+            opacity: .2;
+            color: $primary-white;
+        }
+    }
+    .owl-prev {
+        right: 50px;
+    }
+    .featured__cover {
+        display: none;
+    }
+}
+
+.owl-carousel {
+    padding: 0;
+    .owl-nav {
+        [class*=owl-] {
+            background: transparent;
+            &:hover {
+                background: transparent !important;
+                i {
+                    opacity: 1;
+                }
+            }
+        }
+        div.owl-nav-active i {
+            color: $primary-white;
+            opacity: .2;
+        }
+        div.owl-nav-active{
+            i{
+                color: $white;
+            }
+
+        }
+    }
+}
+.owl-carousel.slide-removal {
+    display: block;
+}

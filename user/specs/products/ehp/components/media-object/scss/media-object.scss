@@ -1,0 +1,68 @@
+// list
+%media-object--list__style {
+    .grid-item {
+        @include default-box-shadow();
+        padding: $default-inner-padding-y $default-inner-padding-x 0 $default-inner-padding-x;
+        overflow: hidden;
+        margin-bottom: $default-inner-padding-y; // @fixme ? maybe use new variable like $default-vertical-gutter in this case
+    }
+
+    a:not(.btn) {
+        @include make-primary-link();
+    }
+
+    margin-bottom: 32px;
+}
+
+.media-object {
+    @extend %make-media-object;
+    &__body {
+        @extend %make-media-object-body;
+    }
+    &__image {
+        @extend %make-media-object-element;
+        img {
+            max-width: 170px;
+        }
+        padding-bottom: $default-inner-padding-y;
+    }
+    &__title {
+        font-size: $h1-font-size;
+    }
+    &__item {
+        font-size: $h5-font-size;
+        margin-bottom: $default-inner-padding-y;
+    }
+
+    .strong {
+        font-size: $h5-font-size;
+    }
+
+    // list
+    &--list, &--itemWrapper {
+        @extend %media-object--list__style;
+    }
+
+    // meta info
+    .meta__detail {
+        margin-bottom: 10px;
+        li {
+            line-height: 0.875rem;
+
+            margin-right: 10px;
+            padding-right: 10px;
+
+            &:last-child {
+                margin-right: 0;
+                padding-right: 0;
+            }
+        }
+
+        span {
+            color: $secondary-lighten-text-color;
+            margin-right: 3px;
+            border-color: $separators-color;
+        }
+    }
+}
+

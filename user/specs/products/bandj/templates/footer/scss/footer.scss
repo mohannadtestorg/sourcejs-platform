@@ -1,0 +1,157 @@
+footer {
+  padding-top: 55px;
+  color: $footer-color;
+  @include themify($themes) {
+    color: themed('color');
+  }
+  i {
+    color: $footer-color;
+    @include themify($themes) {
+      color: themed('color');
+    }
+    &.icon-facebook {
+      color: $facebook;
+    }
+    &.icon-twitter {
+      color: $twitter;
+    }
+    &.icon-linkedin {
+      color: $linkedin;
+    }
+    &.icon-Rss {
+      color: $rss;
+    }
+  }
+  .border-top {
+    border-color: $footer-color;
+    @include themify($themes) {
+      border-color: themed('color');
+    }
+  }
+  a img {
+    display: block;
+    margin: auto;
+  }
+  main.with-bg + & {
+    background: $tertiary-lighten-bg-color;
+  }
+}
+
+.footer {
+  &-top {
+    padding: 20px 0;
+    background: $footer-bg-color;
+    position: relative;
+    z-index: 1;
+    a {
+      color: $footer-color;
+      @include themify($themes) {
+        color: themed('color');
+      }
+    }
+    @include media('<desktop') {
+      .separator {
+        line-height: 14px;
+        margin-top: 20px;
+        li {
+          padding: 0 15px 0 0;
+        }
+        li ~ li {
+          padding: 0 15px;
+        }
+      }
+      a {
+        font-size: 0.875rem; // 14px
+      }
+    }
+  }
+
+  &-bottom {
+    background: $primary-bg-color;
+    @include themify($themes) {
+      background: themed('color');
+    }
+    padding: 17px 0;
+    color: $tertiary-text-color;
+    font-size: 0.75rem; // 12px
+    .rlist {
+      margin: 0;
+    }
+
+    .separator li ~ li {
+      border-left-color: $footer-color;
+      margin: 0 8px;
+      padding: 0 8px;
+    }
+
+    .rlist--inline.separator > li:not(:last-of-type) {
+      border-right: none;
+    }
+
+    a {
+      color: $footer-lighttext-color;
+    }
+
+
+  }
+  &--contact__list {
+    margin-bottom: 20px;
+    color: $footer-othertext-color;
+    border-color: rgba($primary-dark-text-color, 0.5);
+    a {
+      font-size: 0.8em;
+      opacity: 0.84;
+      font-weight: 300;
+    }
+    li {
+      padding: 0 10px;
+    }
+    &.separator {
+      > li ~ li {
+        border-color: rgba($primary-dark-text-color, 0.5);
+      }
+    }
+  }
+}
+
+.copyright {
+  float: right;
+  color: $footer-lighttext-color;
+  @include media('<desktop') {
+    float: none;
+    margin-top: 5px;
+  }
+}
+
+.sitemap {
+  li {
+    color: $text-onLight;
+    font-size: 0.75rem; // 12px
+    line-height: 1.8;
+  }
+}
+
+.contact {
+  &__address {
+    margin-top: 20px;
+    color: $footer-othertext-color;
+    font-size: 0.8125rem; // 13px
+    line-height: 1.5;
+  }
+  &__nav {
+    margin-top: 20px;
+    li {
+      padding: 0 15px;
+      @include media('>=tablet', '<desktop') {
+        padding: 0 10px;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+    i {
+      font-size: 1.125rem; // 18px
+    }
+  }
+
+}

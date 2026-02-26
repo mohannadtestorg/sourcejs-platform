@@ -1,0 +1,48 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 My Account page
+    .source_info
+
+
+
+    section.source_section
+        h2 My Account page
+
+        h3 Personal information
+        .source_example
+            | !{pb.render('my-account', 'personal-information', {data : data}, 'pericles')}
+
+
+        h3 Address
+        .source_example
+            | !{pb.render('my-account', 'address', {data : data}, 'pericles')}
+
+        h3 Subscriptions
+        .source_example
+            | !{pb.render('my-account', 'subscriptions', {data : data}, 'pericles')}
+
+        h3 Subscription access
+        .source_example
+            | !{pb.render('my-account', 'subscription-access', {data : data}, 'pericles')}
+
+
+        h3 Free access
+        .source_example
+            | !{pb.render('my-account', 'free-access', {data : data}, 'pericles')}
+
+        h3 Manage alerts
+        .source_example
+            | !{pb.render('my-account', 'manage-alerts', {data : data}, 'pericles')}
+
+        h3 Favorites
+        .source_example
+            | !{pb.render('my-account', 'favorites', {data : data}, 'pericles')}
+
+        h3 Saved searches
+        .source_example
+            | !{pb.render('my-account', 'saved-searches', {data : data}, 'pericles')}
+    | #{''}

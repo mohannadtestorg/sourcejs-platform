@@ -1,0 +1,48 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+
+    .source_info
+        markdown
+            p
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/products/pericles/widgets/book-series/templates/book-series/book-series-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use table-of-content template.
+        +printJson({
+            "data": {
+                "series": {
+                    "groups": [
+                        {
+                            "coverImage": {
+                                "src": "/cms/attachment/904901/3540802/9781119198543.cover.gif"
+                            },
+                            "access": "full",
+                            "title": "1",
+                            "volume": "1",
+                            "pubDate": "5-6-1990",
+                            "titleLink": "http://pericles.rdissi.atypon.com:18080/doi/book/10.1002/9781119198543",
+                            "about": "http://pericles.rdissi.atypon.com:18080/doi/abs/10.1002/9781119198543"
+                        }
+                    ]
+                }
+            },
+            "errors": []
+        })
+
+
+    section.source_section
+        h2 Example
+        .source_example
+            .container
+                | !{pb.render('book-series', 'demo/book-series', 'data.json', 'pericles')}
+
+    | #{''}

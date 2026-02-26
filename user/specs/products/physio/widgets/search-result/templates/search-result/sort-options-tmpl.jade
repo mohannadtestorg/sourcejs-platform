@@ -1,0 +1,23 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/sort-options-tmpl.jade
+
+block sortLabel
+    a.inline-icon(href="#" data-db-target-for="sort" data-db-parent-of="sort" data-db-switch="rotate")
+        i.icon-Icons_Sorting(aria-hidden="true")
+        span.sort-by Sort:
+        | #{' '}
+
+        if(thisWidget && thisWidget.properties && data.widgetData && data.widgetData.sortLinks )
+            if (data.widgetData.sortLinks.relevancy && data.widgetData.sortLinks.relevancy.selected && thisWidget.properties.relevancy)
+                - var selected = thisWidget.properties.relevancyLabel
+
+            if (data.widgetData.sortLinks.Earliest && data.widgetData.sortLinks.Earliest.selected && thisWidget.properties.Ppub)
+                - selected = thisWidget.properties.PpubLabel ? thisWidget.properties.PpubLabel : 'Date'
+
+            if (data.widgetData.sortLinks.downloaded && data.widgetData.sortLinks.downloaded.selected && thisWidget.properties.downloaded)
+                - selected = thisWidget.properties.downloadedLabel
+
+            if (data.widgetData.sortLinks.cited && data.widgetData.sortLinks.cited.selected && thisWidget.properties.cited)
+                - selected = thisWidget.properties.citedLabel
+
+        span.sort-by !{selected}
+        i.icon-section_arrow_d(aria-hidden="true")

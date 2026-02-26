@@ -1,0 +1,177 @@
+.meta__body {
+    h1 {
+        font-size: 1.88rem;
+    }
+}
+
+.journal-banner {
+    font-family: $secondary-font-family;
+    padding: 30px;
+    margin-top: 30px;
+    @include media("<desktop") {
+        &.meta__body.card {
+            margin: 60px auto;
+        }
+    }
+
+    // from will-ux3.css
+    .meta__left-side img {
+        @include media("<desktop") {
+            display: block;
+            min-height: 85px;
+            min-width: 85px;
+            height: 170px;
+            width: initial;
+        }
+        padding-bottom: 0;
+    }
+
+    .meta__title {
+        line-height: 2.63rem;
+        // from will-ux3.css
+        line-height: 1;
+        min-height: 30px;
+    }
+    .meta__info {
+        font-size: 0.94rem;
+        color: $tertiary-text-color;
+        margin-bottom: 0; // from will-ux3.css
+        font-weight: 500;
+    }
+    .quote-text {
+        margin-bottom: 6px;
+
+        max-height: 42px;
+        overflow: hidden;
+
+        //from will-ux3
+        margin-top: 15px;
+        font-style: italic;
+        font-size: 15px;
+    }
+    .quote-attribution {
+        font-size: 0.81rem;
+        font-weight: bold;
+    }
+    .banner-note {
+        font-size: 0.94rem;
+        margin-top: 15px;
+        color: $primary-text-color;
+    }
+}
+.table-of-content {
+    .issue-item {
+        &__title {
+            color: $primary-btn-color;
+            font-size: 1rem;
+            font-weight: 300;
+            font-family: $secondary-font-family;
+        }
+    }
+    .loa {
+        .trunc-read-more {
+            .icon-section_arrow_d {
+                display: none;
+            }
+        }
+    }
+}
+
+ul.toc-item__detail {
+    &.separator {
+        li {
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}
+
+.toc-item__footer {
+    ul.toc-item__detail {
+        font-family: $secondary-font-family;
+        font-weight: normal;
+        float: left;
+        a,
+        span,
+        i {
+            color :$primary-text-color;
+        }
+        span {
+            margin-right: 0px;
+
+            ~i:before {
+                margin-left: 10px;
+            }
+        }
+        i {
+            font-size: 1rem;
+            margin-right: 0px;
+
+            ~span {
+                margin-left: 10px;
+            }
+        }
+    }
+    .accordion {
+        clear: both;
+    }
+}
+
+.toc-item__abstract {
+    font-family: Lago, sans-serif;
+    font-size: 13px;
+}
+
+.loi__banner.loi--res {
+    top: 60px;
+}
+
+.loi__banner {
+    [class*=__ctrl] {
+        font-weight: 600;
+    }
+    [class*=__block] {
+        background: $loi__banner_db_bg;
+        font-weight: 500;
+    }
+}
+
+#loi-banner {
+    > a {
+        font-weight: 600;
+        font-family: $secondary-font-family;
+    }
+}
+
+.loi__currentIssue,
+.loi__aop,
+.loi__archive {
+    &:before {
+        font-family: icomoon!important;
+        margin: 0 5px 0 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+}
+
+.loi__currentIssue {
+    &:before {
+        content: '\e609';
+    }
+}
+
+.loi__aop {
+    &:before {
+        content: "\e611";
+    }
+}
+
+.loi__archive {
+    &:before {
+        content: '\e61b';
+    }
+    &:after {
+        content: "";
+    }
+}

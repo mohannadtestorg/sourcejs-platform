@@ -1,0 +1,30 @@
+.alphanumeric-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $wiley-blue-color;
+    margin-right: 8px;
+    padding: 2px;
+    text-align: center;
+    width: 28px;
+
+    @media screen and (max-width: ($screen-lg - 1px)) {
+        margin-right: 5px;
+    }
+
+
+    &:not([href]) {
+        color: $wiley-gray-color;
+
+        &:hover {
+            background: transparent;
+            color: $wiley-gray-color;
+        }
+    }
+
+    &:hover, &.is--selected {
+        background: $wiley-blue-color;
+        color: $white;
+    }
+}
+
+

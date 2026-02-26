@@ -1,0 +1,265 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        font-weight: 600;
+    }
+
+    td, th {
+        text-align: left;
+        padding: 1em;
+    }
+
+    th {
+        color: $secondary-text-color;
+    }
+
+    &.stacked {
+        @include media('<phone') {
+            th {
+                display: none;
+            }
+
+            td, tbody, thead, tr {
+                display: block;
+                width: 100%;
+                border: none;
+            }
+
+            td {
+                padding: 5px 0;
+
+                &:first-child {
+                    padding-top: 20px;
+                    border-top: 1px solid $separators-color;
+                }
+
+                &:not(.unlabeled) {
+                    &:before {
+                        content: attr(data-thead) ":  ";
+                        display: block;
+                        float: left;
+                        color: $secondary-text-color;
+                        margin-right: 5px;
+                    }
+                }
+
+                &.action {
+                    display: inline-block;
+                    padding-bottom: 10px;
+                    width: auto;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.separator {
+    td, th {
+        border-bottom: 1px solid $separators-color;
+        padding: 1.8em 1em 1.8em 0;
+    }
+
+    th {
+        padding-bottom: 1em;
+    }
+}
+
+.table-responsive {
+    @include media('<phone') {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        //border: 1px solid $header-separators-color;
+        overflow-x: auto;
+    }
+}
+
+
+
+
+
+// Expanding tables styling
+.expandable {
+    @include media('<tablet') {
+        tbody tr {
+            &:not(.hidden) {
+                display: block;
+            }
+            padding: 1.8em 0;
+            border-bottom: 1px solid $separators-color;
+        }
+
+        td {
+            padding: 0;
+            border: 0;
+
+            &:not(.hidden):first-child { //first column has no heading
+                display: block;
+
+                &:before {
+                    content: attr(data-thead);
+                    display: block;
+                    color: $secondary-text-color;
+                }
+            }
+
+
+            &:not(:first-child) {
+                display: block;
+
+                &:before {
+                    content: attr(data-thead) ":  ";
+                    display: block;
+                    float: left;
+                    color: $secondary-text-color;
+                    margin-right: 5px;
+                }
+                &:after {
+                    clear: both;
+                    content: '';
+                    display: block;
+                }
+            }
+        }
+
+        th {
+            display: none;
+        }
+
+        .to_hide {
+            padding-top: 10px;
+        }
+    }
+
+    .table__control__button {
+        position: relative;
+        z-index: 99;
+        float: right;
+        padding: 0 15px;
+
+        i {
+            display: none;
+            font-size: 0.3125rem; //5px;
+            margin-top: 5px;
+            font-weight: bold;
+            color: $primary-text-color;
+
+            @include media('<phone'){
+                display: block;
+            }
+        }
+    }
+
+    .unlabeled {
+        &:before {
+            display: none;
+        }
+    }
+
+    .js--expanded {
+        i {
+            -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
+        }
+
+        @include media('<phone') {
+            td {
+                padding-bottom: 0;
+                border: none;
+            }
+        }
+    }
+}
+
+
+
+//table with actions
+.table-actions{
+
+    @include media('<tablet') {
+        tbody tr {
+            padding: 1em 0 0;
+
+        }
+        .js--expanded {
+            .to_hide{
+                display: block !important;
+            }
+
+            .icon-arrow_d_n{
+                transform: rotate(180deg);
+            }
+        }
+
+        td{
+            &.table__td--dropdown:before{
+                content: " ";
+            }
+            &:not(:first-child):before{
+                content: attr(data-thead);
+                float: none;
+            }
+
+            &.to_hide{
+                display: none !important;
+            }
+
+        }
+
+
+    }
+    .icon-arrow_d_n{
+        font-size: .4rem;
+        margin-top: 10px;
+    }
+}
+
+
+
+// Tables with checkboxes
+.table-checkboxes {
+    @include media('<phone') {
+        &.expandable {
+            td:first-child { //first column has no heading
+                &:before {
+                    display: none;
+                }
+            }
+
+            .to_hide {
+                padding-left: 28px;
+            }
+        }
+    }
+}
+
+.table {
+    &__mark {
+        max-width: 50px;
+
+        @include media('<phone') {
+            .jcf-checkbox {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                line-height: 15px;
+                float: left;
+                -webkit-transition: .4s;
+                transition: .4s;
+            }
+        }
+    }
+
+    &__action {
+        @include media('>=desktop') {
+            background: transparent;
+            color: $secondary-text-color;
+            border: 0;
+        }
+    }
+}

@@ -1,0 +1,104 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 trunk8
+    .source_info
+        p trunk8 is an intelligent text truncation plugin to jQuery. When applied to a large block of text, trunk8 will cut off just enough text to prevent it from spilling over.
+        p Unlike conventional truncation that just limits the character length of text, trunk8 measures the content area for spill-over and intelligently chooses the text that best fits in the given space.
+
+    section.source_section
+        h2 Default
+        markdown
+           p `$('#t8-default').trunk8();`
+           p In its simplest form, trunk8 maximizes the amount of text visible in one line, without wrapping or overflowing.
+
+        .source_example
+            #t8-default Sodales quis leo nibh hac eget placerat elit habitant vivamus, ut volutpat velit dictumst fusce duis lobortis ligula eget, nisl diam himenaeos habitasse congue vehicula enim placerat. Platea convallis curabitur vehicula rhoncus vulputate rutrum fringilla vestibulum habitant elementum, vivamus a sagittis mauris cras leo ad neque nunc donec eget, suspendisse etiam nisl blandit nisi sem iaculis id hac.
+
+    section.source_section
+        h2 Multi-Line
+        markdown
+            p `$('#t8-lines').trunk8({
+               |   lines: 2
+               | });`
+            p By default, trunk8 will maximize one line of text in its container.
+            p Change the number of `lines` by supplying an integer greather than or equal to one to the lines property.
+            p Dynamically add or remove lines with the controls below.
+
+        .source_example
+            p.btn-group
+                button#t8-lines-less.btn(data-event='click|trunk8|Demo|Lines Less', title='-1 Line')
+                    i.icon.icon-minus
+                button#t8-lines-more.btn(data-event='click|trunk8|Demo|Lines More', title='+1 Line')
+                    i.icon.icon-plus
+            #t8-lines In felis tristique bibendum laoreet conubia taciti, aenean gravida praesent dapibus rutrum nisi, semper donec eget phasellus turpis. Arcu sed viverra congue varius duis lectus cubilia ante, primis lacus euismod vel fringilla euismod. Ipsum mi curae nullam a massa consectetur luctus donec, nisi felis magna faucibus enim sit curabitur praesent a, amet vel pellentesque porta ac eros proin.
+
+    section.source_section
+        h2 Custom Fill
+        markdown
+            p `$('#t8-fill').trunk8({
+                |   fill: '&hellip;'
+                | });`
+            p trunk8 will automatically add an ellipsis (`&hellip;`) after the truncated text.
+
+            p Change the fill text by supplying a string to the `fill` property. This property supports HTML.
+
+        .source_example
+            select#t8-fill-select(data-event='change|trunk8|Demo|Fill - ')
+                option(value='&hellip;', selected='') &hellip;
+                option(value='&nbsp;&raquo;&nbsp;') &nbsp;&raquo;&nbsp;
+                option(value='[snip]') [snip]
+                option(value='<span class="t8-fill">snip</span>') &lt;span class="t8-fill"&gt;snip&lt;/span&gt;
+                option(value='&hellip;&nbsp;<a href="javascript: void(0)">read more</a>&nbsp;') &hellip;&nbsp;<a href="javascript: void(0)">read more</a>&nbsp;
+
+            #t8-fill Curabitur neque lorem aliquam vivamus lacinia arcu cras primis, id volutpat vel arcu mi diam tristique, inceptos turpis cras nulla quis a nam. Volutpat tellus iaculis varius imperdiet nec nam commodo sem, donec nisl vestibulum curabitur quisque proin pulvinar litora, imperdiet adipiscing purus urna porta libero dictum. Cursus velit suspendisse cras vitae nec gravida, nullam suspendisse nam at.
+
+    section.source_section
+        h2 Toggle
+        markdown
+            p `$('#t8-toggle').trunk8({
+                |   fill: '&hellip; <a id="read-more" href="#">read more</a>'
+                | });
+                | $(document).on('click', '#read-more', function (event) {
+                |   $(this).parent().trunk8('revert').append(' <a id="read-less" href="#">read less</a>');
+                |   return false;
+                | });
+                | $(document).live('click', '#read-less', function (event) {
+                |   $(this).parent().trunk8();
+                |   return false;
+                | });`
+            p trunk8 comes with a `revert` method that returns the element to its original, untruncated state.
+
+            p Using this method, it's easy to toggle between the original and truncated texts.
+
+        .source_example
+            select#t8-fill-select(data-event='change|trunk8|Demo|Fill - ')
+                option(value='&hellip;', selected='') &hellip;
+                option(value='&nbsp;&raquo;&nbsp;') &nbsp;&raquo;&nbsp;
+                option(value='[snip]') [snip]
+                option(value='<span class="t8-fill">snip</span>') &lt;span class="t8-fill"&gt;snip&lt;/span&gt;
+                option(value='&hellip;&nbsp;<a href="javascript: void(0)">read more</a>&nbsp;') &hellip;&nbsp;<a href="javascript: void(0)">read more</a>&nbsp;
+
+            #t8-toggle Rutrum vivamus ad sociosqu mi aliquam phasellus class consequat nunc, ultrices interdum aliquam erat aliquet ut vestibulum cras, suscipit sapien nullam himenaeos morbi inceptos semper inceptos. Dui quisque at laoreet in netus tortor ligula praesent leo etiam senectus, ad et ultricies cursus tincidunt felis rhoncus volutpat purus ante. Ut urna fames augue accumsan blandit, ut hac vivamus semper.
+
+
+    | #{''}
+
+script.
+    $(window).on('load', function (){
+
+        $('#t8-default').dotdotdot();
+
+        $('#t8-lines').dotdotdot({
+            ellipsis: ' ... ',
+            wrap: 'word',
+            after: "a.readmore",
+            watch: true,
+            height: 52
+        });
+
+
+
+
+
+    });

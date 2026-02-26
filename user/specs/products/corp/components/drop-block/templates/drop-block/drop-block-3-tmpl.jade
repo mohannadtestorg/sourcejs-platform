@@ -1,0 +1,15 @@
+- if (!id) id="p3"
+- if (!label) label="Button"
+.dropBlock
+    a.btn.btn--dropdown(href="#", data-db-target-for="#{id}", data-db-switch="rotate")
+        i.icon-calendar.secondary-btn-color
+        | #{label}
+        i.icon-caret.right
+    .dropBlock__holder(data-db-target-of="#{id}")
+        ul.rlist
+            li
+                a(href="#") Lorem ipsum
+            li
+                a(href="#") Lorem ipsum
+            li
+                a(href="#") Lorem ipsum

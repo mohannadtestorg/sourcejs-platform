@@ -1,0 +1,42 @@
+header.header.base
+        .container.header--first-row
+            .pull-left
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/acm/templates/header/Images/logo1.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo1"]}}}})}
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/acm/templates/header/Images/logo2.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo2"]}}}})}
+
+
+            .pull-right
+                .institution-wrapper
+                    | !{pb.render('institution-banner', {"model": {"data": {"image":"/specs/products/acm/templates/header/Images/insti.png","itemUrl": "#", "institution": "Carnegie Mellon University", "introText": "Access by"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                .header__quick-menu.text-onDark
+                    ul.rlist--inline
+                        li.advanced-search-link.hidden-lg.hidden-md
+                            a(href="#" title="Advanced Search") Advanced Search
+                        li.show-on-mobile
+                            a(href="#" title="Browse") Browse
+                        li.show-on-mobile
+                            a(href="#" title="Announcements") Announcements
+                        li.show-on-mobile
+                            a(href="#" title="About") About
+                        li
+                            .dropBlock.loginBar.login-open
+                                a.loginBar__ctrl(data-db-target-for="loginBar-list")
+                                    span.icon-person_outline
+                                .dropBlock__holder.loginBar__dropBlock__holder(data-db-target-of="loginBar-list")
+                                    ul.rlist--inline
+                                        li
+                                            a.show-login(href='/action/showLogin?uri=%2F')
+                                                span.sign-in-label Log in
+                                        li.register-link
+                                                a.btn(href="#" title="Register") Register
+
+
+
+
+
+
+
+
+
+        .container.header--second-row
+            | !{pb.render('menu', 'demo/demo-responsive-menu', 'responsiveMenu.json')}

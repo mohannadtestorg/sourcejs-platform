@@ -1,0 +1,37 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Go to section
+
+    .source_info
+        markdown
+            p list of actions "links" styled based on <a href='https://jira.atypon.com/browse/LIT-193327' target="_blank">`LIT-193327`</a>
+
+    section.source_section
+        h2 example
+        .source_example
+            .journal-side-section.journal-actions-container
+                h2.side-section-header.hidden-lg.hidden-md Tools
+                ul.unordered-list-icons
+                    li#Browsefreesampleissue.cloned
+                        a(href='/toc/10.1002/(ISSN)1939-005X/free-sample')
+                            i.icon-sample_issue(aria-hidden='true')
+                            | Browse free sample issue
+                    li#Getcontentalerts.cloned
+                        a(href='/action/doUpdateAlertSettings?action=addJournal&journalCode=1939005x')
+                            i.icon-alert(aria-hidden='true')
+                            | Get content alerts
+                    li#Recommendtoalibrarian.cloned
+                        a(href='/action/recommendation?doi=10.1002/(ISSN)1939-005X')
+                            i.icon-recommend(aria-hidden='true')
+                            | Recommend to a librarian
+                    li
+                        a#subscribeLink.cloned(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=1939-005X&doi=10.1002/(ISSN)1939-005X')
+                            i.icon-subscribe(aria-hidden='true')
+                            | Subscribe to this journal
+
+
+
+
+    | #{''}

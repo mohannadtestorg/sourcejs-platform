@@ -1,0 +1,27 @@
+.show-exam {
+    .radio--primary {
+        span:before {
+            @include themify($themes) {
+                border-color: themed('color');
+            }
+        }
+    }
+
+    &__questions {
+        &-item {
+            li {
+                &:before {
+                    @include themify($themes) {
+                        border-color: themed('color');
+                    }
+                }
+            }
+        }
+    }
+
+    &__credit {
+        @include themify($themes) {
+            border-color: themed('color');
+        }
+    }
+}

@@ -1,0 +1,112 @@
+﻿h1 How to use UX3 components
+section.source_section
+
+    include ../../page-structure/helpers/print-json-mixin.jade
+    include ../../page-structure/helpers/print-template-include-mixin.jade
+    include ../../page-structure/helpers/print-js-code-mixin.jade
+
+    h2 Usage
+
+    h3 files structure
+    code.src-js.source_visible
+        ||--component/ folder ( component's main container )
+        ||  |--templates/ folder
+        ||  |  |--data/ folder
+        ||  |  |  |--data.json / data file that you can use it as reference
+        ||  |  |--component/ folder
+        ||  |  |  |--component-tmpl.jade / template file
+        ||  |--index.jade/ file used by sourcejs to represent components options and their html code
+        ||  |--info.json/ data file used by sourcejs
+
+    h3 json files structure
+    markdown
+        p We are compiling html code using json files by passing data and templates to `$pug`
+    +printJson({"$pug": {
+                   "template": "..",
+                   "data": {
+
+                   }
+               }})
+    markdown
+        p include template file`"template": "full/path/to/component/templates/component/component-tmpl.jade"`
+        p you can pass the data as json code using `"body": [{}]`
+        p or passing the data from an external reference file using `"$ref": "path/to/data/file.json"`
+
+    h3 Data structure
+    +printJson({"config": {
+                   "class": {
+                       "addClassNames": ["class__name"]
+                   },
+                   "class": {
+                       "useClassNames": ["class__name"]
+                   }
+               },
+               "body": [
+                   {
+                       "data-elment": "value",
+                   }
+               ]})
+    markdown
+        p In `"config"` object we provide the css classes that will be used for different template components, either you add a class by passing the value to `"addClassNames"` so it will be added to the template default classes, or you override the default classes that is already declared in the template by passing the value to `"useClassNames"`
+        p in `"data"` object we provide the actual data (static data for now) that will be used in the template, we define the `"data-elment"` set that can be used in each template inside the component page
+    h3 Json file example
+    p this is a real example of the heading component
+    h4 passing data object
+    +printJson({"$pug": {
+                   "template": "./templates/headings/headings-tmpl.jade",
+                   "data": {
+                       "config": {
+                           "level": "h2",
+                           "class": {
+                               "addClassNames": ["section__header"]
+                           }
+                       },
+                       "body": [
+                           {
+                               "text": "Latest Articles"
+                           }
+                       ]
+                   }
+               }})
+    h4 Send data as json file by using $ref reference to json file
+    +printJson({"$pug": {
+                   "template": "./templates/headings/headings-tmpl.jade",
+                   "data": {
+                       "config": {
+                           "level": "h2",
+                           "class": {
+                               "addClassNames": ["section__header"]
+                           }
+                       },
+                       "body": [
+                           {
+                                "$ref": "./templates/data/content.json"
+                           }
+                       ]
+                   }
+               }})
+
+
+    h4 Widgets Json structre
+    markdown
+        p
+            b note:
+            | Widgets Json structre must start with `model` object
+    +printJson({
+        "$pug": {
+            "template": "./widgets/most-x/templates/most-x/most-x-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "level": "h2",
+                        "class": {
+                            "addClassNames": ["section__header"]
+                        }
+                    },
+                    "data": {
+                        "$ref": "./templates/data/content.json"
+                    }
+                }
+            }
+        }
+    })

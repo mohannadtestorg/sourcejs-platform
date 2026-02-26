@@ -1,0 +1,984 @@
+/***
+
+With image, not logged in:
+
+```
+<div class="m-result m-result--img">
+  <a href="#" class="m-result__link">
+    <span class="m-result__meta">
+      <span class="m-result__type f-caps">Original Article</span> <em class="m-result__date f-tag">Nov 21, 2016</em> <span class="a-type-tag a-type-tag--archive">Archive</span>
+    </span>
+    <span class="m-result__main">
+      <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+      <em class="m-result__author f-author">L.R. Jamienien M.A.</em>
+      <em class="m-result__publisher f-author">N Engl J Med 2016; 374:1552-1563</em><br>
+      <span class="m-result__img-blurb">
+        <span class="m-result__img">
+          <span class="m-result__img-container">
+            <img srcset="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg 300w, http://nejm.dev.area17.com/testimages/multimedia_1_600.jpg 600w" sizes="(min-width: 1480px) 200px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 2), (min-width: 1024px) calc(((100vw - 390px) / 12) * 2), (min-width: 768px) calc(((100vw - 270px) / 8) * 2), (min-width: 480px) calc(((100vw - 140px) / 6) * 2),calc(((100vw - 112px) / 6) * 2)" width="300">
+          </span>
+          <svg class="icon--interactive" aria-hidden="true"><use xlink:href="#icon--interactive" /></svg>
+        </span>
+        <span class="m-result__blurb f-blurb">
+          Pellentesque ut <mark>zika</mark> mi. Suspendisse feugiat leo a magna rhoncus vehicula. In sed vulputate dui, nec volutpat neque. Donec ac ornare orci.
+        </span>
+      </span>
+    </span>
+    <span class="m-result__icons">
+      <svg class="icon--slideshow" aria-hidden="true"><use xlink:href="#icon--slideshow" /></svg>
+      <svg class="icon--free" aria-hidden="true"><use xlink:href="#icon--free" /></svg>
+    </span>
+  </a>
+  <a href="/endpoints/Login.php" class="m-result__save" data-behavior="ToolTip" data-tooltip="Sign in or register to save this article">
+    <svg class="icon--save" aria-hidden="true"><use xlink:href="#icon--save" /></svg>
+  </a>
+  <a href="#" class="m-result__download" data-behavior="ToolTip" data-tooltip="Download PDF" download>
+    <svg class="icon--download" aria-hidden="true"><use xlink:href="#icon--download" /></svg>
+  </a>
+</div>
+```
+
+***/
+/***
+
+Without image, logged in:
+
+```
+<div class="m-result">
+  <a href="#" class="m-result__link">
+    <span class="m-result__meta">
+      <span class="m-result__type f-caps">Original Article</span> <span class="m-result__subtype f-caps">The Changing Face of Clinical Trials</span> <em class="m-result__date f-tag">Nov 21, 2016</em>
+    </span>
+    <span class="m-result__main">
+      <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+      <em class="m-result__author f-author">L.R. Jamienien M.A.</em>
+      <em class="m-result__publisher f-author">N Engl J Med 2016; 374:1552-1563</em><br>
+      <span class="m-result__img-blurb">
+        <span class="m-result__blurb f-blurb">
+          Pellentesque ut <mark>zika</mark> mi. Suspendisse feugiat leo a magna rhoncus vehicula. In sed vulputate dui, nec volutpat neque. Donec ac ornare orci.
+        </span>
+      </span>
+    </span>
+    <span class="m-result__icons">
+      <svg class="icon--slideshow" aria-hidden="true"><use xlink:href="#icon--slideshow" /></svg>
+      <svg class="icon--free" aria-hidden="true"><use xlink:href="#icon--free" /></svg>
+    </span>
+  </a>
+  <a href="#" data-save-href="/templates/save-article.php" data-delete-href="/endpoints/DeleteSavedArticle.php" class="m-result__save a-save-article-toggle" data-behavior="ToggleSaveArticle ToolTip" data-tooltip="Save to account" aria-label="Save to account toggle - click to save">
+    <svg class="icon--save" aria-hidden="true"><use xlink:href="#icon--save" /></svg>
+    <svg class="icon--saved" aria-hidden="true"><use xlink:href="#icon--saved" /></svg>
+    <svg class="icon--close" aria-hidden="true"><use xlink:href="#icon--close" /></svg>
+  </a>
+  <a href="#" class="m-result__download" data-behavior="ToolTip" data-tooltip="Download PDF" download>
+    <svg class="icon--download" aria-hidden="true"><use xlink:href="#icon--download" /></svg>
+  </a>
+</div>
+```
+
+***/
+/***
+
+If the listing has an image, `.m-result` gets a modifier of `.m-result--img` and contains a `span.m-result__img`.
+
+Logged out save button tooltip prompts to login and links to the login page.
+Logged in save button has a `data-behavior` plus a link to the save toggle action. Plus the button has more icons within it.
+
+If the article is saved, the link has a class of `s-saved` and updated tooltip/aria-labels.
+
+So the save button alone:
+
+```
+<a href="/endpoints/Login.php" class="m-result__save" data-behavior="ToolTip" data-tooltip="Sign in or Register to save this article">
+  <svg class="icon--save" aria-hidden="true"><use xlink:href="#icon--save" /></svg>
+</a>
+```
+
+***/
+/***
+
+If the listing is a figure, there is a figure title and so the listing has different markup:
+(note the publisher and date have moved)
+
+```
+<div class="m-result m-result--img">
+  <a href="#" class="m-result__link">
+    <span class="m-result__meta">
+      <span class="m-result__type f-caps">Original Article</span> <em class="m-result__date f-tag">Nov 21, 2016</em> <span class="a-type-tag a-type-tag--archive">Archive</span>
+    </span>
+    <span class="m-result__main">
+      <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+      <span class="m-result__img-blurb">
+        <span class="m-result__img">
+          <span class="m-result__img-container">
+            <img srcset="http://nejm.dev.area17.com/testimages/multimedia_1_300.jpg 300w, http://nejm.dev.area17.com/testimages/multimedia_1_600.jpg 600w" sizes="(min-width: 1480px) 200px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 2), (min-width: 1024px) calc(((100vw - 390px) / 12) * 2), (min-width: 768px) calc(((100vw - 270px) / 8) * 2), (min-width: 480px) calc(((100vw - 140px) / 6) * 2),calc(((100vw - 112px) / 6) * 2)" width="300">
+          </span>
+          <svg class="icon--interactive" aria-hidden="true"><use xlink:href="#icon--interactive" /></svg>
+        </span>
+        <em class="m-result__figure-title f-h17">Interview with Dr. Anthony Fauci on potencial strategies for conducting clinical trails of Zika virus vaccines.</em> <br>
+        <span class="m-result__figure-blurb f-blurb">Lorem ipsum dolor sit amet, consectetur adipiscing elit vestibulum vitae risus eget lectus pellentesque consectetur integer lectus eros, tempus non magna quis, malesuada aliquet justo.</span> <br>
+        <em class="m-result__author f-author">Honein M.A. and Jamieson D.J.</em>
+        <em class="m-result__publisher f-author">N Engl J Med 2016; 374:1552-1563</em>
+      </span>
+    </span>
+    <span class="m-result__icons">
+      <svg class="icon--slideshow" aria-hidden="true"><use xlink:href="#icon--slideshow" /></svg>
+      <svg class="icon--free" aria-hidden="true"><use xlink:href="#icon--free" /></svg>
+    </span>
+  </a>
+  <a href="/endpoints/Login.php" class="m-result__save" data-behavior="ToolTip" data-tooltip="Sign in or register to save this article">
+    <svg class="icon--save" aria-hidden="true"><use xlink:href="#icon--save" /></svg>
+  </a>
+  <a href="#" class="m-result__download" data-behavior="ToolTip" data-tooltip="Download PDF" download>
+    <svg class="icon--download" aria-hidden="true"><use xlink:href="#icon--download" /></svg>
+  </a>
+</div>
+```
+
+***/
+/***
+
+Logged in:
+
+```
+<a href="#" data-save-href="/templates/save-article.php" data-delete-href="/endpoints/DeleteSavedArticle.php" class="m-result__save a-save-article-toggle" data-behavior="ToggleSaveArticle ToolTip" data-tooltip="Save to account" aria-label="Save to account toggle - click to save">
+  <svg class="icon--save" aria-hidden="true"><use xlink:href="#icon--save" /></svg>
+  <svg class="icon--saved" aria-hidden="true"><use xlink:href="#icon--saved" /></svg>
+  <svg class="icon--close" aria-hidden="true"><use xlink:href="#icon--close" /></svg>
+</a>
+```
+
+***/
+/***
+
+Logged in, saved:
+
+```
+<a href="#" data-save-href="/templates/save-article.php" data-delete-href="/endpoints/DeleteSavedArticle.php" class="m-result__save a-save-article-toggle s-saved" data-behavior="ToggleSaveArticle ToolTip" data-tooltip="SRemove" aria-label="Save to account toggle - click to remove">
+  <svg class="icon--save" aria-hidden="true"><use xlink:href="#icon--save" /></svg>
+  <svg class="icon--saved" aria-hidden="true"><use xlink:href="#icon--saved" /></svg>
+  <svg class="icon--close" aria-hidden="true"><use xlink:href="#icon--close" /></svg>
+</a>
+```
+***/
+/***
+
+Related: .a-save-article-toggle
+
+
+***/
+
+.m-result {
+  display: block;
+  position: relative;
+  margin-top: 16px;
+  padding-top: 16px;
+  padding-bottom: 32px;
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+
+  @include breakpoint('large+') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-top: 24px;
+    padding-bottom: 36px;
+  }
+}
+
+.m-result::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-result:first-child {
+  @include breakpoint('small-') {
+    padding-top: 0;
+
+    &::before {
+      content: none;
+      display: none;
+    }
+  }
+}
+
+.m-title-options-block + .o-results > .m-result:first-child,
+.a-subtitle + .o-results > .m-result:first-child {
+  @include breakpoint('medium+') {
+    margin-top: 0;
+
+    &::before {
+      content: none;
+      display: none;
+    }
+  }
+}
+
+.m-result__link {
+  display: block;
+}
+
+.m-result__meta {
+  display: block;
+  overflow: hidden;
+
+  @include breakpoint('medium+') {
+    width: colspan(8, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(8, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex: 0 0 auto;
+    width: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(2, xxlarge);
+  }
+}
+
+.m-result__type,
+.m-result__subtype {
+  float: left;
+  color: $color__accent;
+
+  @include breakpoint('xlarge+') {
+    display: block;
+    float: none;
+  }
+}
+
+.m-result__subtype {
+  margin-left: 8px;
+  color: $color__link-primary;
+
+  @include breakpoint('xlarge+') {
+    margin-left: 0;
+  }
+}
+
+a.m-result__type:hover,
+a.m-result__subtype:hover {
+  color: $color__accent;
+  text-decoration: underline;
+}
+
+a.m-result__subtype:hover {
+  color: $color__link-primary;
+}
+
+.m-result__date {
+  float: left;
+  margin-left: 8px;
+  color: $color__text--quaternary;
+
+  @include breakpoint('xlarge+') {
+    display: block;
+    float: none;
+    margin-top: 4px;
+    margin-left: 0;
+  }
+}
+
+.m-result__meta .a-type-tag {
+  top: -3px;
+  margin-left: 8px;
+
+  @include breakpoint('xlarge+') {
+    top: 1px;
+    margin-left: 0;
+  }
+}
+
+.m-result__main {
+  display: block;
+  margin-top: 8px;
+
+  @include breakpoint('small+') {
+    margin-top: 12px;
+  }
+
+  @include breakpoint('medium+') {
+    position: relative;
+    min-height: 125px;
+    margin-top: 0;
+    padding-top: 8px;
+    padding-right: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    padding-top: 12px;
+    padding-right: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    flex: 0 0 auto;
+    width: colspan(6, xlarge, map-get($inner-gutters, xlarge));
+    padding-top: 0;
+    padding-right: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(6, xxlarge, map-get($inner-gutters, xxlarge));
+    padding-right: map-get($inner-gutters, xxlarge);
+  }
+
+  .m-result--img & {
+
+    @include breakpoint('medium+') {
+      padding-right: colspan(2, medium, map-get($inner-gutters, medium));
+    }
+
+    @include breakpoint('large+') {
+      padding-right: colspan(2, large, map-get($inner-gutters, xlarge));
+    }
+
+    @include breakpoint('xlarge+') {
+      padding-right: colspan(2, xlarge, map-get($inner-gutters, xlarge));
+    }
+
+    @include breakpoint('xxlarge') {
+      padding-right: colspan(2, xxlarge, map-get($inner-gutters, xxlarge));
+    }
+  }
+}
+
+.m-result__title {
+  color: $color__text--headlines;
+}
+
+.m-result__title.f-h4 {
+  position: relative;
+  top: -1px;
+
+  @include breakpoint('small+') {
+    top: 1px;
+  }
+
+  @include breakpoint('medium+') {
+    position: static;
+  }
+}
+
+.m-result__title.f-h5 {
+  position: relative;
+  top: -1px;
+
+  @include breakpoint('small+') {
+    top: 0;
+  }
+
+  @include breakpoint('medium+') {
+    top: -1px;
+  }
+}
+
+.m-result__link:hover .m-result__title.f-h4 {
+  @include text-underline(1em);
+
+  @include breakpoint('small+') {
+    @include text-underline();
+  }
+}
+
+.m-result__link:hover .m-result__title.f-h5 {
+  @include text-underline(1em);
+
+  @include breakpoint('small+') {
+    @include text-underline(.85em);
+  }
+
+  @include breakpoint('medium+') {
+    @include text-underline(1em);
+  }
+}
+
+.m-result__title mark {
+  display: inline;
+  background-color: transparent;
+  outline: none;
+}
+
+
+.m-result__figure-title {
+  display: block;
+  color: $color__text--headlines;
+}
+
+.m-result__figure-blurb {
+  display: block;
+  color: $color__text;
+
+  .m-result__figure-title + br + & {
+    margin-top: 12px;
+  }
+}
+
+
+
+.m-result__author {
+  display: block;
+  margin-top: 4px;
+  color: $color__text--quaternary;
+}
+
+.m-result__publisher {
+  display: block;
+  color: $color__text--quaternary;
+}
+
+.m-result__publisher + br {
+  display: none;
+}
+
+
+
+ .m-result__img-blurb {
+  display: block;
+  clear: left;
+  margin-top: 4px;
+  overflow: hidden;
+
+  @include breakpoint('small+') {
+    margin-top: 8px;
+  }
+
+  @include breakpoint('medium+') {
+    overflow: visible;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 12px;
+  }
+}
+
+.m-result__img-blurb > br {
+  display: none;
+}
+
+.m-result__blurb {
+  display: block;
+  color: $color__text;
+}
+
+.m-result__blurb mark {
+  background-color: transparent;
+  color: $color__text--headlines;
+  font-weight: 700;
+  outline: none;
+}
+
+
+.m-result__img {
+  @include ratio-image;
+  display: none;
+  float: right;
+  width: colspan(2, xsmall);
+  margin-top: 4px;
+  margin-bottom: map-get($inner-gutters, xsmall) / 2;
+  margin-left: map-get($inner-gutters, xsmall);
+  overflow: hidden;
+
+  .m-result--img & {
+    display: block;
+  }
+
+  @include breakpoint('small+') {
+    width: colspan(2, small);
+    margin-bottom: map-get($inner-gutters, small) / 2;
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    position: absolute;
+    right: 0;
+    top: 0;
+    float: none;
+    width: colspan(2, medium);
+    margin-bottom: 0;
+    margin-left: 0;
+    overflow: hidden;
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(2, xxlarge);
+  }
+}
+
+
+.m-result__img svg {
+  display: none;
+
+  @include breakpoint('small+') {
+    display: block;
+  }
+}
+
+
+.m-result__icons {
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  color: $color__text--headlines;
+
+  @include breakpoint('xlarge+') {
+    left: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    left: colspan(2, xxlarge);
+  }
+}
+
+.m-result__icons svg {
+  height: 16px;
+  margin-right: 9px;
+}
+
+.m-result__keywords {
+  display: block;
+  width: 100%;
+  margin-top: 32px;
+
+  @include breakpoint('xlarge+') {
+    padding-left: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: colspan(2, xxlarge);
+  }
+}
+
+.m-result__keywords strong {
+  display: block;
+  color: $color__text--headlines;
+  font-weight: 700;
+}
+
+.m-result__keywords a:hover {
+  text-decoration: underline;
+}
+
+.m-result__saved-on {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  color: $color__text--quaternary;
+
+  @include breakpoint('xlarge+') {
+    padding-left: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: colspan(2, xxlarge);
+  }
+}
+
+.m-result__download,
+.m-result__save,
+.m-result__delete,
+.m-result__edit-keywords {
+  position: absolute;
+  z-index: 1;
+  right: 36px;
+  bottom: 0;
+  height: 34px;
+  border: 5px solid transparent;
+  color: $color__text--headlines;
+  opacity: .2;
+}
+
+.m-result__save,
+.m-result__delete {
+  right: 0;
+}
+
+.m-result__delete {
+  top: 16px;
+  bottom: auto;
+  opacity: 1;
+}
+
+.m-result__edit-keywords {
+  top: 16px;
+  bottom: auto;
+  opacity: 1;
+}
+
+.m-result__download:hover,
+.m-result__save:hover {
+  opacity: 1;
+}
+
+
+
+/***
+
+Variant: `m-result--full-width`
+As used in the homepage commentary area
+
+```
+<ul class="o-results">
+  <li class="m-result m-result--full-width">
+    <span class="m-result__meta">
+      <a href="#" class="m-result__type f-caps">Article Type</a> <em class="m-result__date f-tag">Nov 21, 2016</em>
+    </span>
+    <a href="#" class="m-result__link">
+      <span class="m-result__main">
+        <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+        <em class="m-result__author f-author">L.R. Jamienien M.A.</em>
+      </span>
+    </a>
+  </li>
+</ul>
+```
+
+***/
+
+
+.m-result--full-width {
+  padding-bottom: 0;
+
+  @include breakpoint('medium+') {
+    margin-top: 12px;
+    padding-top: 16px;
+    padding-bottom: 8px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 16px;
+    padding-top: 20px;
+    padding-bottom: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-bottom: 0;
+  }
+}
+
+.m-result--full-width .m-result__main {
+  @include breakpoint('medium+') {
+    min-height: 0;
+    padding-top: 4px;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: 100%;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: 100%;
+  }
+}
+
+.m-result--full-width .m-result__meta {
+
+  @include breakpoint('medium+') {
+    width: 100%;
+  }
+
+  @include breakpoint('large+') {
+    width: 100%;
+  }
+
+  @include breakpoint('xlarge+') {
+    flex: none;
+    width: 100%;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: 100%;
+  }
+}
+
+.m-result--full-width .m-result__meta + .m-result__link {
+  margin-top: 4px;
+}
+
+.m-result--full-width .m-result__type,
+.m-result--full-width .m-result__date {
+  display: block;
+  float: none;
+  margin-left: 0;
+  margin-top: 0;
+
+  @include breakpoint('small+') {
+    float: left;
+  }
+}
+
+.m-result--full-width .m-result__type + .m-result__date {
+  margin-left: 0;
+
+  @include breakpoint('small+') {
+    margin-left: 12px;
+  }
+}
+
+.m-result--full-width .m-result__icons {
+  display: block;
+  position: static;
+  height: 16px;
+  margin-top: 8px;
+}
+
+.m-result--full-width .m-result__keywords,
+.m-result--full-width .m-result__saved-on {
+  @include breakpoint('xlarge+') {
+    padding-left: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: 0;
+  }
+}
+
+.o-results--commentary .m-result--full-width .m-result__date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  float: none;
+  margin-left: 0;
+
+  @include breakpoint('xlarge+') {
+    margin-top: 0;
+  }
+}
+
+.o-results--commentary .m-result--full-width .m-result__blurb {
+  display: none;
+
+  @include breakpoint('medium+') {
+    display: block;
+  }
+}
+
+/***
+
+Variant: `m-result--full-width` inside a `o-results--commentary`
+As used in the homepage commentary area
+
+```
+<ul class="o-results o-results--commentary">
+  <li class="m-result m-result--full-width">
+    <span class="m-result__meta">
+      <a href="#" class="m-result__type f-caps">Article Type</a> <em class="m-result__date f-tag">Nov 21, 2016</em>
+    </span>
+    <a href="#" class="m-result__link">
+      <span class="m-result__main">
+        <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+        <em class="m-result__author f-author">L.R. Jamienien M.A.</em>
+      </span>
+    </a>
+  </li>
+  <li class="m-result m-result--full-width">
+    <span class="m-result__meta">
+      <a href="#" class="m-result__type f-caps">Article Type</a> <em class="m-result__date f-tag">Nov 21, 2016</em>
+    </span>
+    <a href="#" class="m-result__link">
+      <span class="m-result__main">
+        <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+        <em class="m-result__author f-author">L.R. Jamienien M.A.</em>
+      </span>
+      <span class="m-result__icons">
+        <svg class="icon--audio" data-behavior="ToolTip" data-tooltip="Full Text Audio" aria-hidden="true"><use xlink:href="#icon--audio" /></svg>
+        <svg class="icon--free" aria-hidden="true"><use xlink:href="#icon--free" /></svg>
+      </span>
+    </a>
+  </li>
+  <li class="m-result m-result--full-width m-result--img">
+    <span class="m-result__meta">
+      <a href="#" class="m-result__type f-caps">Article Type</a> <em class="m-result__date f-tag">Nov 21, 2016</em>
+    </span>
+    <a href="#" class="m-result__link">
+      <span class="m-result__main">
+        <b class="m-result__title f-h4">Considerations for Developing a Zika Virus Vaccine</b> <br>
+        <em class="m-result__author f-author">L.R. Jamienien M.A.</em>
+        <span class="m-result__img-blurb">
+          <span class="m-result__img">
+            <span class="m-result__img-container">
+              <img
+                srcset="http://placehold.dev.area17.com/image/300x200 300w,
+                        http://placehold.dev.area17.com/image/450x300 450w"
+                sizess="(min-width: 1480px) 120px, (min-width: 1280px) 8.3vw, (min-width: 1024px) 8.3vw, (min-width: 768px) 12.5vw, (min-width: 480px) calc(((100vw - 140px) / 6) * 2), calc(((100vw - 112px) / 6) * 2)"
+                width="300">
+            </span>
+            <svg class="icon--audio" aria-hidden="true"><use xlink:href="#icon--audio" /></svg>
+          </span>
+          <span class="m-result__blurb f-blurb">
+            Pellentesque ut mi. Suspendisse feugiat leo a magna rhoncus vehicula. In sed vulputate dui, nec volutpat neque. Donec ac ornare orci.
+          </span>
+        </span>
+      </span>
+      <span class="m-result__icons">
+        <svg class="icon--audio" data-behavior="ToolTip" data-tooltip="Full Text Audio" aria-hidden="true"><use xlink:href="#icon--audio" /></svg>
+        <svg class="icon--free" aria-hidden="true"><use xlink:href="#icon--free" /></svg>
+      </span>
+    </a>
+  </li>
+</ul>
+```
+
+***/
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .m-result--full-width.m-result--img
+//
+
+.m-result--full-width.m-result--img .m-result__main {
+  min-height: 92px;
+  padding-right: colspan(2, xsmall, map-get($inner-gutters, xsmall));
+
+  @include breakpoint('small+') {
+    min-height: 152px;
+    padding-right: colspan(2, small, map-get($inner-gutters, small));
+  }
+
+  @include breakpoint('medium+') {
+    min-height: 84px;
+    padding-right: colspan(2, medium);
+  }
+
+  @include breakpoint('large+') {
+    padding-right: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-right: colspan(1, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-right: colspan(1, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.m-result--full-width.m-result--img .m-result__img svg {
+  @include breakpoint('small-') {
+    display: none;
+  }
+}
+
+.m-result--full-width .m-result__img {
+  position: absolute;
+  right: 0;
+  top: 24px;
+  float: none;
+  width: colspan(2, xsmall);
+  margin-top: 0;
+
+  @include breakpoint('small+') {
+    width: colspan(2, small);
+  }
+
+  @include breakpoint('medium+') {
+    top: 0;
+    width: colspan(1, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(1, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(1, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(1, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+/***
+
+Variant: `m-result--no-blurb`
+As used in the recent published listing
+
+***/
+
+.m-result--no-blurb .m-result__main {
+
+  @include breakpoint('medium+') {
+    min-height: 0;
+    padding-bottom: 1px;
+  }
+}
+
+.m-result--no-blurb .m-result__author,
+.m-result--no-blurb .m-result__publisher {
+  display: block;
+
+  @include breakpoint('medium+') {
+    display: inline-block;
+  }
+}
+
+.m-result--no-blurb .m-result__author + .m-result__publisher {
+  @include breakpoint('medium+') {
+    margin-left: 10px;
+    padding-left: 9px;
+    border-left: 1px solid $color__rules;
+  }
+}
+
+/***
+
+Variant: `m-result--no-icons`
+As used in my account pages
+
+***/
+
+.m-result--no-icons {
+  padding-bottom:0;
+
+  @include breakpoint('xlarge+') {
+    padding-bottom:0;
+  }
+}
+
+/***
+
+Variant: `m-result--tools-top`
+As used in my account pages
+
+***/
+
+.m-result--tools-top .m-result__main {
+  padding-right: 80px;
+
+  @include breakpoint('medium+') {
+    padding-right: 80px;
+  }
+
+  @include breakpoint('large+') {
+    padding-right: 80px;
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-right: 80px;
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-right: 80px;
+  }
+}

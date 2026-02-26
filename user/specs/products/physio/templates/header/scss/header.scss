@@ -1,0 +1,224 @@
+.header {
+    padding-right: 0;
+    &.fixed {
+        background: none;
+        > div:not(.header--second-row) {
+            background: $primary-text-color;
+        }
+    }
+    &__quick-menu {
+        white-space: normal;
+        text-align: right;
+    }
+    .quick-menu__item > span {
+        color: $primary-white;
+    }
+    &__quick-menu > ul {
+        color: $primary-white;
+    }
+    &--first-row {
+        padding: 8px 0;
+        .main-nav {
+            display: inline-block;
+        }
+        nav.drawer__nav {
+            width: auto;
+        }
+    }
+    &--second-row {
+        background: $breadcrumb-bg;
+        a {
+            color: $primary-white;
+        }
+    }
+    .menu-header {
+        display: none;
+    }
+    .menu-parent {
+        i {
+            font-size: 6px;
+            color: $primary-white;
+            margin-left: 5px;
+            padding: 3px 0 3px 3px;
+        }
+    }
+    .quick-search {
+        .col-md-2 {
+            width: 25%;
+            min-width: 100px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .col-md-8 {
+            width: 47.33333%;
+        }
+        &__button {
+            font-size: 0.55rem;
+            height: 28px;
+            @include media('>desktop') {
+                padding: 10px 8px 8px 14px;
+                top: 0;
+            }
+        }
+        .dropBlock {
+            i {
+                display: none;
+            }
+            a {
+                pointer-events: none;
+                padding: 7px;
+                line-height: 12px;
+            }
+        }
+        input {
+            height: 28px;
+        }
+        .quick-search {
+            .tab__content{
+                position: relative;
+            }
+        }
+    }
+    .icon-profile_empty {
+        display: none;
+    }
+    .sign-in-label{
+        text-transform: uppercase;
+        padding: 6px 10px;
+        background: $primary-red;
+        font-weight: bold;
+        font-size: 14px;
+        min-width: 75px;
+    }
+    .menu-home {
+        color: $primary-white;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 7px 15px 7px 0;
+        border-right: 1px solid $publication;
+        i {
+            display: none;
+        }
+    }
+    .loginBar {
+        max-width: 63px;
+    }
+    .main-nav {
+        i {
+            color: $primary-white;
+        }
+    }
+    .main-nav.menu--res a[data-toggle=nav] {
+        padding: 13px 15px;
+        box-sizing: content-box;
+        height: 17px;
+    }
+}
+
+.header-demo {
+    .col-xs-3, .col-xs-6 {
+        padding: 0;
+    }
+}
+
+.quick-menu__item {
+    padding: 4px 15px;
+    vertical-align: middle;
+    i {
+        font-size: 1.45rem;
+    }
+}
+
+.ad-container {
+    padding: 24px 0 10px;
+}
+
+@include media('<tablet') {
+    header {
+        .header__quick-menu {
+            padding: 10px 26px 10px 0px;
+        }
+        .quick-menu__item, .quick-search__item {
+            padding: 0px 8px;
+        }
+    }
+}
+
+@include media('>tablet') {
+    header {
+        .header__quick-menu {
+            padding: 6px 0px 5px 0px;
+        }
+    }
+}
+
+@include media('<desktop') {
+    .header {
+        .pull-right {
+            max-width: 100%;
+            margin-right: 20px;
+        }
+        .menu-home {
+            span {
+                display: none;
+            }
+            i {
+                display: inline-block;
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+        .header--first-row {
+            padding-right: 0;
+        }
+        .institution--res {
+            background: $primary-white;
+            padding: 6px 0;
+            min-height: 30px;
+            .institution-wrapper {
+                display: block;
+            }
+        }
+        .quick-search {
+            .col-md-8 {
+                width: 100%;
+                padding: 0;
+            }
+            .col-md-2 {
+                width: 100%;
+                padding: 0;
+            }
+            &__button {
+                height: 23px;
+            }
+        }
+        .ad-container {
+            display: none;
+        }
+        .quick-search {
+            .quick-search-advanced-link {
+                color: $primary-red;
+            }
+
+        }
+    }
+    .loginBar {
+        .sign-in-label {
+            display: block;
+            min-width: 60px;
+            font-size: 12px;
+            padding: 6px 3px;
+        }
+    }
+    .cartLabel{
+        padding: 0 6px;
+    }
+}
+
+@include media('<tablet') {
+    .header {
+        .pull-right {
+            margin-right: 0px;
+        }
+    }
+}

@@ -1,0 +1,131 @@
+//@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+
+a:focus {
+    outline: 2px dashed $navigation-links-hover-color;
+}
+a::-moz-focus-inner{
+    border: 2px dashed $navigation-links-hover-color;
+}
+
+ > * {
+    font-family: $default-font-family;
+    color: $primary-body-font-color;
+    font-size: 1.125rem;
+    @include media('<desktop') {
+        font-size: 1rem;
+    }
+}
+ select {
+    font-family: $default-font-family;
+ }
+
+.dark-region {
+    background: $primary-bg-color;
+    color: $text-onDark;
+    a,i {
+        color: $text-onDark;
+    }
+}
+
+a {
+    color: $primary-links-color;
+}
+
+p,
+.section-paragraph {
+    line-height: 1.5rem;
+    margin-top: 12px;
+}
+
+.centered {
+    text-align: center;
+}
+
+section {
+    margin-bottom: 48px;
+
+    section {
+        margin-bottom: 16px;
+    }
+    @include media('>=phone') {
+        margin-bottom: 55px;
+    }
+    hr {
+        display: block;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        border: 1px solid $borders;
+    }
+}
+
+.highlighted {
+    padding: 30px 32px;
+    background: $accordion-body-bg;
+    max-width: 530px;
+}
+
+.bulleted {
+    &:after {
+        content: "•";
+        color: $inline-bullet-list;
+        display: inline-block;
+        width: 6px;
+        margin-left: 5px;
+        font-size: 1.25rem;
+        height: 18px;
+        line-height: 21px;
+        margin-bottom: 6px;
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+}
+
+.inline-it {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.static-md {
+    @include media('<desktop') {
+        position: static;
+    }
+}
+
+
+.locked {
+    position: fixed;
+}
+
+.body__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 102;
+}
+
+.pb-normal-view {
+    .header{
+        &.fixed {
+            position: static!important;
+        }
+
+        &__wrapper {
+            &>div {
+                height: auto;
+            }
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: $scrollbar-bg;
+}

@@ -1,0 +1,20 @@
+extends ../../../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl
+
+
+block slideShowPrefix
+    if (data.widget && data.widget.background && data.widget.background != "")
+        - var backgroundStyle ="background-image:url("+ (data.widget.background) +")"
+        -var slidBackgroundImage="slideShow--background"
+    else
+        - var backgroundStyle = "";
+
+
+
+block slideShow
+    .slideShow(style=backgroundStyle,class=slidBackgroundImage)
+        div.owl-carousel(data-items=items data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=indicators data-arrow=arrow data-controls=controls)
+            each item, k in data.widget.slides
+                block slideShowDropZone
+                    div.slide-item
+                        | !{pb.renderDropzone(thisWidget, item)}
+        block slideShowFooter

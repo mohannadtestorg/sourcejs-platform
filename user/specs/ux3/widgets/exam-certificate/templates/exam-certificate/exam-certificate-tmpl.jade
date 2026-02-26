@@ -1,0 +1,46 @@
+- var momentEnabled = false
+if (typeof moment === "function")
+    - momentEnabled = true
+
+div.exam-certificate-message
+    block exam-certificate-logo
+        if (data && data.exam && data.currentPerson)
+            //- This dropzone is intended for a publisher logo
+            | !{pb.renderDropzone(thisWidget, "logo-dropzone")}
+
+    block exam-certificate-message
+        if (data && data.exam && data.currentPerson)
+            div.exam-certificate-message__heading
+                | Certification
+            if (data.currentPerson.displayName)
+                div.exam-certificate-message__name
+                    | !{data.currentPerson.displayName}
+            if (data.exam.title)
+                div.exam-certificate-message__text 
+                    | has successfully completed the exam
+                div.exam-certificate-message__title 
+                    | !{data.exam.title}
+            if (data.exam.response && data.exam.response.creditsEarned)
+                div.exam-certificate-message__credit 
+                    | For this accomplishment 
+                    span.exam-certificate-message__points 
+                        | !{data.exam.response.creditsEarned}
+                    //- Change the language based on one credit vs multiple or fractional
+                    if (data.exam.response.creditsEarned == 1)
+                        |  credit was received.
+                    else
+                        |  credits were received.
+
+            if (data.exam.response && data.exam.response.completedDate)
+                div.exam-certificate-message__date
+                    //- If we enable MomentJS, this template will use the formatted date. Otherwise, use date from JSON
+                    if (momentEnabled)
+                        | !{pb.render('date', 'formatted-date', {date: data.exam.response.completedDate, format: 'd MMMM YYYY'})}
+                    else
+                        | !{data.exam.response.completedDate}
+
+
+block exam-printable-link.no-print
+    if ( data.exam.title  && data )
+        button.exam-certificate-message__link.btn.btn--inverse.no-print(title="View Printable Certificate" onClick="UX.examCertificate.printCertificate()") 
+            | Printable certificate

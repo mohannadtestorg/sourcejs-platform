@@ -1,0 +1,65 @@
+html {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  min-height: 100%;
+  margin-right: -50vw;
+  margin-left: -50vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+  @include serif;
+  @include font-smoothing(on);
+  position: relative;
+  background: $color__white;
+  color: $color__text;
+  font-size: 62.5%;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: 'kern', 'lnum', 'liga';
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+
+  &::after {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 1px;
+    height: 1px;
+    margin: -1px 0 0 -1px;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+  }
+}
+
+@each $name, $point in $breakpoints {
+  @include breakpoint('#{$name}') {
+    head {
+      font-family: '#{$name}';
+    }
+
+    body::after {
+      content: '#{$name}';
+    }
+  }
+}
+
+
+@media print {
+  html {
+    right: 0;
+    left: 0;
+    width: auto;
+    min-height: 0;
+    margin: 0;
+    overflow: auto;
+  }
+}

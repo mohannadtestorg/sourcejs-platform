@@ -1,0 +1,267 @@
+/***
+
+```
+<h2 class="a-subtitle">Subtitle</h2>
+<h3 class="a-subtitle"><a href="#">Subtitle with link</a></h3>
+<h4 class="a-subtitle"><a href="#">Subtitle with arrow link <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a></h4>
+<p class="a-subtitle a-subtitle--alt">Subtitle, no border bottom</p>
+<h2 class="a-subtitle>
+  Clinical Pearls
+  <a href="#" class="a-subtitle__icon-link">
+    <svg class="icon--logo-resident-360"><use xlink:href="#icon--logo-resident-360" /></svg>
+    <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+  </a>
+</h2>
+<h2 class="a-subtitle a-subtitle--subtle">Article Types (1812 - 1989)</h2>
+<h2 class="a-subtitle a-subtitle--type"><a href="#">Perspective</a></h2>
+<h2 class="a-subtitle>
+  1990-Present
+  <a href="#" class="a-subtitle__side-link">Current Issue</a>
+</h2>
+```
+
+***/
+
+.a-subtitle {
+  @include f-h11;
+  display: block;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    margin-bottom: 0;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 28px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+
+    @include breakpoint('medium+') {
+      margin-top: 0;
+    }
+  }
+}
+
+.a-subtitle::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__black--90;
+}
+
+.a-subtitle::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.a-subtitle a {
+  display: block;
+  margin-top: -19px;
+  margin-bottom: -17px;
+  padding-top: 19px;
+  padding-bottom: 17px;
+  color: inherit;
+
+  @include breakpoint('small+') {
+    margin-top: -18px;
+    margin-bottom: -18px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+}
+
+.a-subtitle a:hover {
+  text-decoration: underline;
+}
+
+.a-subtitle .icon--arrow,
+.a-subtitle .icon--arrow--45deg {
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  color: $color__black;
+}
+
+.a-subtitle .a-subtitle__icon-link {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+
+  @include breakpoint('small+') {
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+.a-subtitle .a-subtitle__icon-link:hover {
+  text-decoration: none;
+}
+
+.a-subtitle__icon-link .icon--arrow {
+  position: static;
+}
+
+.a-subtitle__icon-link .icon--logo-resident-360 {
+  position: relative;
+  top: -2px;
+}
+
+.a-subtitle__icon-link .icon--logo-resident-360 + .icon--arrow,
+.a-subtitle .icon--arrow--external {
+  transform: rotate(315deg);
+}
+
+.a-subtitle .a-subtitle__side-link {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight:normal;
+  color:$color__link-primary;
+
+  @include breakpoint('small+') {
+    margin-top: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+}
+
+.a-subtitle .a-subtitle__icon-link:hover {
+  text-decoration: none;
+}
+
+// -------------------------------------
+// variant .a-subtitle--subtle
+//
+
+.a-subtitle--subtle::before {
+  background-color: $color__rules;
+}
+
+.o-curated-area + .a-subtitle--subtle {
+  margin-top: 32px;
+}
+
+// -------------------------------------
+// inside .m-cta
+//
+
+.m-cta .a-subtitle::before {
+  background-color: $color__rules;
+}
+
+.o-curated-area .m-cta .a-subtitle::before,
+.o-col--secondary .m-cta .a-subtitle::before {
+  background-color: $color__text--headlines;
+}
+
+// -------------------------------------
+// alt, has no border bottom
+//
+
+.a-subtitle--alt {
+  margin-bottom: -2px;
+  padding-bottom: 0;
+}
+
+.a-subtitle--alt::after {
+  content: none;
+  display: none;
+}
+
+// -------------------------------------
+// .a-subtitle--type
+//
+
+.a-subtitle--type {
+  @include f-caps;
+  margin-bottom: 0;
+  padding-top: 17px;
+  padding-bottom: 15px;
+  color: $color__accent;
+
+  @include breakpoint('small+') {
+    margin-bottom: 0;
+    padding-top: 17px;
+    padding-bottom: 15px;
+  }
+}
+
+.a-subtitle--type a {
+  margin-top: -17px;
+  margin-bottom: -15px;
+  padding-top: 17px;
+  padding-bottom: 15px;
+  color: $color__accent;
+
+  @include breakpoint('small+') {
+    margin-top: -17px;
+    margin-bottom: -15px;
+    padding-top: 17px;
+    padding-bottom: 15px;
+  }
+}
+
+// -------------------------------------
+// following a `m-intro-block`
+//
+
+.m-intro-block + .a-subtitle {
+  margin-top: 32px;
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+}
+
+// -------------------------------------
+// following a colset
+//
+
+*[class*=colset] + .a-subtitle {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 32px;
+  }
+}
+
+// -------------------------------------
+// inside .m-data-table
+//
+
+.m-data-table > .a-subtitle {
+  margin-top: 0;
+}
+
+.m-data-table > .a-subtitle:first-child::before,
+.m-data-table > .a-subtitle:first-child::after {
+  background-color: $color__rules;
+}

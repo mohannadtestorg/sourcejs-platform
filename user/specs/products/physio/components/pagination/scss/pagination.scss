@@ -1,0 +1,40 @@
+.pagination__btn--prev , .pagination__btn--next{
+    color: $primary-red;
+    a {
+      display: none;
+    }
+}
+.pagination__list a{
+  margin: 0px 10px;
+  padding: 0px 13px;
+  font-size: $primary-text-size;
+  color: $gray-2;
+}
+.pagination__list a.active {
+  text-decoration: none;
+  background: $primary-red;
+  padding: 4px 7px;
+  margin: 0 16px;
+  color: $primary-white;
+}
+.pagination__list a:hover {
+  text-decoration: none;
+  background: $default-bg-color;
+  padding: 4px 7px;
+  margin: 0 16px;
+  color: $primary-red;
+}
+.pagination__btn--prev:before , .pagination__btn--next:after{
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.pagination {
+    &__btn {
+        &--prev {
+            &.disabled {
+                color: $secondary-text-color;
+            }
+        }
+    }
+}

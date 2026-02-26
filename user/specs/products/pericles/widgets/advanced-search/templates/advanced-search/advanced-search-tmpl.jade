@@ -1,0 +1,99 @@
+extends ../../../../../../ux3/widgets/advanced-search/templates/advanced-search/advanced-search-tmpl
+
+block searchInFiledsSelect
+    select(id='searchArea' + (numOfTerms + 1) )
+        if(data.searchInDropdown)
+            each item, i in data.searchInDropdown
+                if(item.label)
+                    option(value=item.value) !{item.label}
+
+block advancedSearchReferenceFields
+    .advanced-search--referenceFields
+        h5 Advanced search fields for Reference Works
+        fieldset.row
+            legend.is-accessible Search Terms
+        hr.separator
+
+
+block advancedSearchInMixin
+    if (data.searchIn)
+
+        -var searchInNumber = data.searchIn.length
+        if searchInNumber != 0 && !searchInNumber
+            - searchInNumber = data.searchIn.size()
+
+    if (data.searchIn &&  searchInNumber )
+        +searchInSetFileds()
+    else
+        +searchInFileds()
+
+block publicationDate
+    if (data.appliedFilters) && (data.appliedFilters[0]) && (data.appliedFilters[0].Ppub)
+        input(id=i type='radio' name='Ppub' value="" checked= i == 'staticRange' ? true : false)
+    else if !(data.appliedFilters && data.appliedFilters[0] && (data.appliedFilters[0].AfterMonth || data.appliedFilters[0].AfterYear || data.appliedFilters[0].BeforeMonth || data.appliedFilters[0].BeforeYear))
+        input(id=i type='radio' name='Ppub' value="" checked= i == 'anyDate' ? true : false)
+
+block rangeDate
+    if (item.timeFrame)
+        - var item = item.timeFrame
+        .input-group.time-frame.dateFilterSelect
+            label.radio--primary(for='customRange')
+                if (data.appliedFilters && data.appliedFilters[0] && (data.appliedFilters[0].AfterMonth || data.appliedFilters[0].AfterYear || data.appliedFilters[0].BeforeMonth || data.appliedFilters[0].BeforeYear))
+                    input#customRange(type='radio' name='Ppub' value="" checked=true)
+                else
+                    input#customRange(type='radio' name='Ppub' value="")
+                span.label-txt !{item.label}
+            label.is-accessible(for='fromMonth') Select starting month
+            input#fromMonth.inline.month-range.AfterMonth(name="AfterMonth" placeholder="MM" value= (data.appliedFilters && data.appliedFilters[0] && data.appliedFilters[0].AfterMonth) ? data.appliedFilters[0].AfterMonth : '' )
+            label.is-accessible(for='fromYear') Select starting year
+            input#fromYear.inline.year-range.AfterYear(name="AfterYear" placeholder="YYYY" value= (data.appliedFilters && data.appliedFilters[0] && data.appliedFilters[0].AfterYear) ? data.appliedFilters[0].AfterYear : '' )
+            div.timeFrame-to
+                div.separator-label to
+                label.is-accessible(for='toMonth') Select ending month
+                input#toMonth.inline.month-range.BeforeMonth(name="BeforeMonth" placeholder="MM" value= (data.appliedFilters && data.appliedFilters[0] && data.appliedFilters[0].BeforeMonth) ? data.appliedFilters[0].BeforeMonth : '')
+                label.is-accessible(for='toYear') Select ending year
+                input#toYear.inline.year-range.BeforeYear(name="BeforeYear" placeholder="YYYY" value= (data.appliedFilters && data.appliedFilters[0] && data.appliedFilters[0].BeforeMonth) ? data.appliedFilters[0].BeforeMonth : '')
+
+
+block advancedSearchInputs
+    .input-group.left-side-label
+        label(for=item["data-id"]) !{item.label}
+        if i == 'ConceptID'
+            input(type='hidden' name='ConceptID')
+            input.magicsuggest.search-term(id=item["data-id"] type='text' name=item["data-id"] placeholder=item.placeholder data-auto-complete-target=item["data-auto-complete-target"])
+        else
+            if (data.appliedFilters && data.appliedFilters[0])
+                //each appliedFilter, l in data.appliedFilters[0]
+                    //input(type='hidden' name=item["data-id"] value=appliedFilter.filterValue )
+                    //input.appliedFilter.search-term(id=item["data-id"] type='text' name=item["data-id"] + '-name' value=data.appliedFilters[0].displayValue data-auto-complete-target=item["data-auto-complete-target"] placeholder=item.placeholder)
+                input.magicsuggest.appliedFilter.search-term(id=item["data-id"] type='text' name=item["data-id"] data-label=data.appliedFilters[0].displayValue value=data.appliedFilters[0].filterValue data-auto-complete-target=item["data-auto-complete-target"] placeholder=item.placeholder)
+
+            else
+                input.magicsuggest.search-term(id=item["data-id"] type='text' name=item["data-id"] placeholder=item.placeholder data-auto-complete-target=item["data-auto-complete-target"])
+
+
+block advancedSearchIn
+    fieldset
+        legend.is-accessible Search Terms
+        +searchIn()
+
+block advancedSearchFilters
+    fieldset
+        +searchFilters()
+    hr.separator
+
+block pubDateLabel
+    if(item.label)
+        legend !{item.label}
+    else
+        legend Publication Date
+
+
+block staticRangeSelectBlock
+    select#staticRangeSelect.inline.staticRange(name="" value=(data.appliedFilters && data.appliedFilters[0] && data.appliedFilters[0].Ppub) ? data.appliedFilters[0].Ppub : '' )
+        block staticRangeBlock
+            if(item.staticRangeDropdown)
+                each option, i in item.staticRangeDropdown
+                    if(option.label)
+                        option(value=option.value selected=( (data.appliedFilters && data.appliedFilters[0] && data.appliedFilters[0].Ppub ) && option.value == data.appliedFilters[0].Ppub ) ? true : false) !{option.label}
+

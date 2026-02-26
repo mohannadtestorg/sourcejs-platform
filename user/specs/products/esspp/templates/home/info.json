@@ -1,0 +1,47 @@
+{
+    "title": "Home page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header-home-page/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header-home-page/templates/data/header.json"
+                }
+            }
+        },
+        "tabs":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "./templates/demo/demo-tabs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "./templates/data/default-tabs.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}
+

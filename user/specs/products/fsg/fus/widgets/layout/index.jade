@@ -1,0 +1,96 @@
+extends /specs/products/fsg/fus/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/layout/templates/layout/layout-tmpl.jade')
+        markdown
+            p The following data structure must exist to be able to use layout template.
+        +printJson({
+                "model": {
+                    "config": {
+                        "colNumber": "2",
+                        "stack": "mobile",
+                        "gutterless": "true",
+                        "contained": "true",
+                        "isList": "true"
+                    },
+                    "data": {
+                        "columns": [
+                            {
+                                "config": {
+                                    "width": "4"
+                                },
+                                "data": "Column with width 4"
+
+                            },
+                            {
+                                "config": {
+                                    "width": "unspecified",
+                                    "className": ["pull-right"]
+                                },
+                                "data": "Column with unspecified width and pull-left class"
+
+                            }
+                        ]
+                    }
+                }
+        })
+        markdown
+            p Wrapper configuration,
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `colNumber`
+                        td Dropdown, number of columns in one row
+                    tr
+                        td `stack`
+                        td Dropdown, choose what device the columns to stack on "full width columns"
+                    tr
+                        td `gutterless`
+                        td Checkbox, adding class `gutterless`
+                    tr
+                        td `contained`
+                        td Checkbox, adding wrapper with class `container` to the row
+                    tr
+                        td `isList`
+                        td Checkbox, adding `ul` as wrapper to the columns and make the columns markup `li`
+
+
+            p Columns configuration,
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `width`
+                        td Dropdown, from 1-12 width of the column
+                    tr
+                        td `markup`
+                        td Dropdown, column markup
+                    tr
+                        td `className`
+                        td Text field, adding class name to the column
+
+    | #{''}
+
+    section.source_section
+        h2 Usage
+        each item, l in data.items
+            h3!= item.title
+            .source_example
+                | !{item.body}
+
+    | #{''}
+

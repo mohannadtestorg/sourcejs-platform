@@ -1,0 +1,25 @@
+extends ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+
+//block teaser
+//    div.creative-work
+//        .delayLoad
+//            block teaserAltmetric
+//            if (item.title)
+//                if (item.best)
+//                    a(href=item.best title=item.title)
+//                        h5.creative-work__title !{item.title}
+//                else
+//                    h5.creative-work__title !{item.title}
+//
+//            block authors
+//                if (item.contribs)
+//                    | !{item.contribs}
+//            +meta(item)
+//
+//        +loading(image)
+
+block teaserAltmetric
+    if (item.image)
+        - image = 'true';
+
+        img.creative-work__img(src=item.image alt=item.title title=item.title)

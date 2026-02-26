@@ -1,0 +1,101 @@
+.owl {
+    &-carousel {
+        padding: 0 30px;
+
+        .viewport-slider &{
+            display: block;
+        }
+
+        .pb-dropzone-mode &{
+            z-index:auto;
+        }
+
+        .owl-nav {
+            margin: 0;
+
+            div.owl-nav-active {
+                i {
+                    color: $black;
+                    opacity: .5;
+                }
+            }
+
+            [class*="owl-"] {
+                position: absolute;
+                top: 50%;
+                margin: 0;
+                margin-top: -15px;
+                font-weight: bold;
+
+                &:hover {
+                    background: $slider-nav-hover-bg-color !important;
+                }
+
+                @include media('<phone') {
+                    color: darken($slider-nav-bg-color, 10%);
+                    background: transparent !important;
+
+                    i {
+                        font-weight: bold;
+                    }
+                    &:hover {
+                        color: darken($slider-nav-bg-color, 10%);
+                        background: transparent !important;
+
+                    }
+                }
+            }
+        }
+    }
+
+    &-prev {
+        left: 0;
+    }
+
+    &-next {
+        right: 0;
+    }
+
+    &-controls {
+        margin-top: 10px;
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+
+        [class*="owl-"] {
+            color: $text-onDark;
+            font-size: 0.875rem;
+            margin: 5px;
+            padding: 4px 7px;
+            background: $slider-nav-bg-color;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 3px;
+            font-weight: bold;
+
+            &:hover {
+                background: $slider-nav-hover-bg-color;
+            }
+        }
+
+    }
+}
+
+.slideShow {
+    min-height: 215px;
+
+    @include media('<tablet') {
+        min-height: 100px;
+    }
+}
+
+@include media('<phone') {
+    .left-side-image {
+
+        .owl-item img {
+            width: 100%;
+        }
+
+    }
+
+}
+

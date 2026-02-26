@@ -1,0 +1,33 @@
+.site-branding {
+    position: relative;
+    z-index: 99;
+
+    .site-title {
+        margin: 0;
+        font-size: 1px;
+        line-height: 1px;
+    }
+
+    svg {
+        height: 22px;
+        fill: $primary-text-color;
+        @include media('>=desktop') {
+            height: 19px;
+        }
+    }
+    &--secondary {
+        svg{
+            fill: $secondary-text-color;
+        }
+    }
+    &--tertiary {
+        svg{
+            fill: $tertiary-text-color;
+        }
+    }
+    &--inverse {
+        svg{
+            fill: $white;
+        }
+    }
+}

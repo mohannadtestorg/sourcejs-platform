@@ -1,0 +1,82 @@
+.paginationSlideshow {
+    .slideShow {
+        background-color: $secondary-lighten-bg-color;
+    }
+    &__text {
+        text-align: left;
+        margin: 15px 16px;
+        font-weight: 400;
+        line-height: 20px;
+        font-size:1rem;
+    }
+    &__player {
+        margin: 15px 16px;
+    }
+    .owl-nav {
+        margin: 33px 0;
+        position: absolute;
+        width: 100%;
+
+        [class*=owl-] {
+            position: static;
+            padding: 4px 16px;
+
+            i {
+                font-size: 14px;
+                @include themify($themes) {
+                    color: themed('color') !important;
+                }
+                opacity: 1;
+            }
+
+            &:hover {
+                background: transparent !important;
+            }
+        }
+    }
+    .owl-prev {
+        float: left;
+    }
+    .owl-next {
+        float: right;
+    }
+
+    .owl-dots {
+        border-top: 1px solid #bfbfbf;
+        padding: 10px 20px;
+        margin: 0 16px;
+        .owl-dot {
+            float: left;
+            span {
+                width: auto;
+                min-width: 25px;
+                padding: 0 3px;
+                margin: 4px;
+                height: 30px;
+                border-radius: 0;
+                font-weight: 600;
+                border: 2px solid;
+                background-color: transparent;
+                @include themify($themes) {
+                    color: themed('color');
+                    border-color: themed('color');
+                }
+            }
+
+            &:hover, &:focus {
+                span {
+                    background-color: transparent;
+                }
+            }
+            &.active {
+                span {
+                    color: $text-onDark;
+                    @include themify($themes) {
+                        background-color: themed('color');
+                    }
+                }
+            }
+        }
+    }
+}
+

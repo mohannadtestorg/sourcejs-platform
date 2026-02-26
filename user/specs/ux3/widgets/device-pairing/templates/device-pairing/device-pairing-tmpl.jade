@@ -1,0 +1,86 @@
+block prefixDevicePairing
+
+block hiddenTablesClass
+ -var hiddenClass="hidden"
+
+block devicePairingClass
+    -var devicesTableClasses="expandable"
+    -var devicesContainerClasses=""
+
+.device-pairing
+    #widgetId.hidden !{thisWidget.id}
+    span.serviceNameHidden.hidden !{data.serviceName}
+    span.userEmailHidden.hidden !{data.user.personEmail}
+    span.antiForgeryToken.hidden
+
+
+    .device-pairing__info
+        if(data.user)
+            block showEmail
+            if(data.user.personDisplayName)
+                .input-group
+                    label Name:
+                    span !{data.user.personDisplayName}
+
+    block pairDevice
+        .device-pairing__new-device
+            h5.title Pair a Device
+            form(action='/action/pairDevice', id='pairDevice',name='pairDevice',method='post').device-pairing__form
+                input.hidden(value='selectInstEmailAction',name='action')
+                input.hidden(value='true',name='profile')
+                input.hidden(value='/action/showPreferences?menuTab=devices',name='redirectUri')
+                button.btn(name='submit',type='submit') Pair a new device
+
+
+    .device-pairing__devices.clearfix(class=devicesContainerClasses)
+                h5.title Paired Devices
+
+                table.separator.pairedDevicesTable(class=hiddenClass + " " +devicesTableClasses)
+                    block devicePairingTableHeaders
+                        thead
+                            tr
+                                th
+                                th Device Name
+                                th Paired On
+                                th Email
+                                th Institution
+                    tbody
+                        block pairedDevicesRows
+                .no-result.hidden
+                    | None
+
+
+                .buttonsPanel
+                    .unpairButtonsPanel.pull-right(class=hiddenClass)
+                         button#instAdminUnpairSelected.btn--inverse(type='submit', name='instAdminUnpairSelected',  disabled='',href='#unpairDevicesDialogForm', data-toggle='modal', data-target='#unpairDevicesDialogForm' ) Unpair Selected
+                         button#instAdminUnpairAll.btn--cancel(type='submit', name='instAdminUnpairAll',href='#unpairDevicesDialogForm', data-toggle='modal', data-target='#unpairDevicesDialogForm') Unpair All
+
+
+
+    block extraContent
+
+
+    .ux-modal-container
+        #unpairDevicesDialogForm.modal(role="dialog")
+            .modal__dialog
+                .modal__header
+                    h1.title Delete/unpair device(s)?
+                .modal__body
+                    ul.device-pairing__selectedList
+
+
+                .modal__footer
+                    button.btn--cancel.pull-right(type='button', data-dismiss='modal')  Cancel
+                    button.btn.pull-right#ConfirmUnpairDevices(type='button')  Confirm
+
+    .ux-modal-container
+        #devicePairingError.modal(role="dialog")
+            .modal__dialog
+                .modal__header
+                    h1 Error occurred
+                .modal__body
+                    .message
+
+                .modal__footer
+                    button.pull-right(type='button', data-dismiss='modal')  OK
+

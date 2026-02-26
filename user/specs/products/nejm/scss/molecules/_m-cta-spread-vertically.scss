@@ -1,0 +1,101 @@
+/***
+
+spreads things vertically using flex
+
+***/
+
+.o-cta-spread__spread {
+  display: none;
+}
+
+@include breakpoint('large+') {
+  .o-cta-spread {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+  }
+
+  .o-cta-spread__gather {
+    flex: 0 0 auto;
+  }
+
+  .o-cta-spread__spread {
+    display: block;
+    position: relative;
+    flex: 1 1 auto;
+  }
+
+  .o-cta-spread__spread > * {
+    margin-top: 0 !important;
+    margin-bottom: 0;
+  }
+
+  .o-cta-spread__spread.s-sticky-fixed > * {
+    position: fixed;
+    right: 50%;
+    top: 80px;
+    margin-right: calc((100vw / -2) + #{map-get($outer-gutters, large)});
+  }
+
+  .o-cta-spread__spread.s-sticky-bottom > * {
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0;
+  }
+}
+
+@include breakpoint('xlarge+') {
+  .o-cta-spread__spread.s-sticky-fixed > * {
+    margin-right: calc((100vw / -2) + #{map-get($outer-gutters, xlarge)});
+  }
+}
+
+@include breakpoint('xxlarge') {
+  .o-cta-spread__spread.s-sticky-fixed > * {
+    margin-right: calc( #{map-get($main-col-widths, xxlarge) / -2} );
+  }
+}
+
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .o-cta-spread__spread {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &.s-sticky-fixed > * {
+      width: colspan(4, large);
+    }
+  }
+
+  @include breakpoint('xlarge+') {
+    &.s-sticky-fixed > * {
+      width: colspan(4, xlarge);
+    }
+  }
+
+  @include breakpoint('xxlarge') {
+    &.s-sticky-fixed > * {
+      width: colspan(4, xxlarge);
+    }
+  }
+}

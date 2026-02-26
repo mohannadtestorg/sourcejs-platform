@@ -1,0 +1,22 @@
+//mixin header(section)
+//    if (section.header)
+//        if (section.headerAttr)
+//            #{section.header}.section__title&attributes(section.headerAttr) !{section.title}
+//        else
+//            #{section.header}.section__title !{section.title}
+//    else
+//        if (section.headerAttr)
+//            h2.section__title&attributes(section.headerAttr) !{section.title}
+//        else
+//            h2.section__title !{section.title}
+//
+//each section, k in data.sections
+//    section.section
+//        +header(section)
+//        div.section__body !{section.body}
+//
+//    if (section.separator) && section.separator == 'true'
+//        if section.separator
+//            hr.section__separator
+if(data.sections)
+  | !{data.sections}

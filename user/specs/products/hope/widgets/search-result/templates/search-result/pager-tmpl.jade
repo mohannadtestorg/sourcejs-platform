@@ -1,0 +1,37 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/pager-tmpl
+
+- var  temp = pb.updateParam(data.searchParams, "pageSize", data.search.pageSize)
+
+block pagerNumbers
+    if( i > 0)
+        if data.search && i >= data.search.startPage - 1 && i <= data.search.startPage + 3
+            - counter = counter + 1;
+            li
+                if  i == data.search.startPage + 1
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a.active(href= newurl, title=i) !{i}
+                else
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a(href= newurl, title=i) !{i}
+        else if data.search && data.search.startPage >= 0 && data.search.startPage < 3 && i >= 4 && i < 6
+            - counter = counter + 1;
+            li
+                - newurl = pb.updateParam(temp,"startPage",pageId)
+                - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                a(href= newurl, title=i) !{i}
+    if i < pages && counter < 5
+        +callBack(i+1, pages)
+
+block previousPage
+    span
+        - var prevPageId = data.search.startPage -1;
+        - newurl = pb.updateParam(temp,"startPage",prevPageId)
+        a.pagination__btn--prev(href= newurl, title='Previous Page')
+
+block nextPage
+    span
+        - var nextPageId = data.search.startPage +1;
+        - newurl = pb.updateParam(temp,"startPage",nextPageId)
+        a.pagination__btn--next(href= newurl, title='Next page')

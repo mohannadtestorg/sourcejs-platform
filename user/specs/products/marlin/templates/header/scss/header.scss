@@ -1,0 +1,66 @@
+header {
+    width: 100%;
+    background-color: $white;
+    border-bottom: 2px solid $header-border;
+
+    .header__wrapper {
+        position: relative;
+        height: 64px;
+        > div {
+            height: 64px;
+        }
+        @include media('>=phone') {
+            height: 80px;
+            > div {
+                height: 80px;
+            }
+        }
+    }
+
+    .quick-search .search-drawer {
+        display: block;
+        margin-right: 22px;
+        @include media('>=tablet') {
+            margin-right: 5px;
+        }
+        @include media('<tablet') {
+            margin-right: 3px;
+        }
+        i {
+            font-size: 20px;
+            display: block;
+        }
+    }
+
+    .journal-logos {
+        display: block;
+        margin-left: 0;
+        position: relative;
+        top: 50%;
+        transform: translateY( -50% );
+
+        @include media('>=tablet') {
+            margin-left: 16px;
+        }
+    }
+
+    &.fixed {
+        position: fixed;
+        top: 0;
+        z-index: 895;
+    }
+}
+
+.header {
+    box-shadow: 0 2px 0 0 #ebebeb;
+
+    &__nav {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .quick-search {
+
+    }
+}

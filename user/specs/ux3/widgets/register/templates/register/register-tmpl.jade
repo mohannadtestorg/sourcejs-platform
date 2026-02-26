@@ -1,0 +1,106 @@
+.container
+    .registration__personal.registration-form
+        form
+            h4.section__header.border-bottom Personal information*
+            .row.clearfix
+                .col-md-9.gutterless
+                    .col-md-6
+
+                        .input-group
+                            label(for='register__first-name') First name
+                            input#register__first-name(type='text', placeholder='type your first name')
+
+                        .input-group
+                            label(for='register__surname') Surname
+                            input#register__surname(type='text', placeholder='type your surname')
+
+                        .input-group
+                            label Title
+                            select.jcf.registration__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                                option Lorem
+                                option Ipsum
+                                option Dolor
+
+                        .input-group
+                            label(for='register__username') Username
+                            input#register__username(type='text', placeholder='type your username')
+                    .col-md-6
+                        .input-group.error
+                            label(for='register__email') Email *
+                            input#register__email(type='email', placeholder='type your email' required)
+                            a(href="#" title="enter correct email" class="form__links") enter correct email
+
+                        .input-group
+                            label(for='register__surname') Password *
+                            input#register__password(type='password', placeholder='type your password' required)
+
+                        .input-group
+                            label(for='register__phone') Phone
+                            input#register__phone(type='tel', placeholder='(ex. +1415 91 72 6354)')
+
+                        .input-group
+                            label Country
+                            select.jcf.registration__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                                option Lorem
+                                option Ipsum
+                                option Dolor
+
+                        .input-group
+                            label State
+                            select.jcf.registration__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                                option Lorem
+                                option Ipsum
+                                option Dolor
+            h4.section__header.border-bottom Professional information
+            .row.clearfix
+                .col-md-7.gutterless
+                    .col-md-6
+                        .input-group
+                            label Discipline *
+                            select.jcf.registration__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' required)
+                                option Lorem
+                                option Ipsum
+                                option Dolor
+                    .col-md-6
+                        .input-group
+                            label Specialization *
+                            select.jcf.registration__select(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}' required)
+                                option Lorem
+                                option Ipsum
+                                option Dolor
+                    .col-md-12
+                        .input-group
+                            label(for='register__organization') Organization
+                            input#register__organization(type='text', placeholder='type your organization')
+
+                        .input-group
+                            label(for='register__position') Position
+                            input#register__position(type='text', placeholder='type your position')
+
+                        .input-group
+                            label(for='register__department') Department
+                            input#register__department(type='text', placeholder='type your department')
+
+                        .input-group
+                            label(for='register__email_professional') Professional email
+                            input#register__email_professional(type='email', placeholder='type your professional email (verification is needed)')
+
+                        .input-group
+                            label(for='register__phone_professional') Professional phone
+                            input#register__phone_professional(type='tel', placeholder='(ex. +1415 91 72 6354)')
+            h4.section__header.border-bottom Get notified
+            .row.clearfix
+                .col-md-7.gutterless
+                    .col-md-12
+                        .input-group
+                            label
+                                input.jcf(type='checkbox')
+                                span.label-txt
+                                    | Your subscription will let us send you monthly newsletters with the latest news and with our special offers!
+                                    small.clearfix You can unsubscribe from our mailing list at any time
+                .col-md-12
+                    hr.separator.clearfix
+
+                    .actions
+                        button.btn--submit(type='submit') Register
+                        button.btn--cancel Cancel

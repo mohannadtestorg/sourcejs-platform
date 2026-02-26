@@ -1,0 +1,74 @@
+.adplaceholder {
+    position: relative;
+    margin-top: 20px;
+
+    &:before {
+        content: "Advertisement";
+        position: absolute;
+        top: -20px;
+        font-size: 0.75rem;
+        color: lighten($wiley-gray, 10%);
+        left: 0;
+        font-weight: normal;
+    }
+}
+
+.sticko-ads {
+    .js--sticko {
+        background: transparent;
+        width: 300px !important;
+    }
+}
+
+.advert {
+    $spacing: 28px;
+    font-size: 0.75rem;
+    line-height: $spacing;
+    color: $section-border;
+    margin: 0 auto 10px;
+    overflow: hidden;
+    background: center center url(/pb-assets/images/ajax-loader-1508882270133.gif) no-repeat;
+    position: relative;
+
+    p {
+        margin: 0;
+        position: absolute;
+    }
+
+    &:before {
+        display: block;
+        content: 'Advertisement';
+        position: absolute;
+    }
+
+    &-rail {
+        padding-top: $spacing;
+        display: block;
+        height: #{250px + $spacing};
+        width: 300px;
+
+        &:before {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &-leaderboard {
+        margin: 15px 0;
+        padding-left: $spacing;
+        max-height 	: 90px;
+        max-width 	: #{300px + $spacing};
+        min-height 	: 30px;
+
+        &:before {
+            transform: rotate(-90deg);
+            bottom: $spacing;
+            left: -$spacing;
+        }
+
+        @media screen and ( min-width : 768px ) {
+            max-width: #{728px + $spacing};
+            min-height: 90px;
+        }
+    }
+}

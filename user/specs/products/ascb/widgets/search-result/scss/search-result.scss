@@ -1,0 +1,32 @@
+.search{
+    &__item{
+     h4{
+         @include themify($themes) {
+             color: themed('color');
+         }
+     }
+    }
+&__follow{
+  i{
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+}
+
+  &-result{
+    &__meta__top{
+      i{
+        @include themify($themes) {
+          color: themed('color');
+        }
+      }
+    }
+  }
+
+  &__sort__drop{
+    @include themify($themes) {
+      border-color: themed('color');
+    }
+  }
+}

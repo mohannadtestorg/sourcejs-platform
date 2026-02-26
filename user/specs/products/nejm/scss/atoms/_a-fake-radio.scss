@@ -1,0 +1,56 @@
+/***
+
+a-fake-radio
+=============
+
+```
+<a href="#" class="a-fake-radio">CME</a><br>
+<a href="#" class="a-fake-radio s-checked">CME</a><br>
+<span class="a-fake-radio s-disabled">CME</span>
+```
+
+
+***/
+
+.a-fake-radio {
+  @include f-ui;
+  display: inline-block;
+  position: relative;
+  padding-left: 22px;
+  color: $color__text;
+  cursor: pointer;
+}
+
+.a-fake-radio::before,
+.a-fake-radio::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color__input-border;
+  border-radius: 50%;
+}
+
+.a-fake-radio::after {
+  border: 0 none;
+  background-color: $color__link-primary;
+  opacity: 0;
+  transform: scale(.1);
+  transition: all .25s $bezier__bounce;
+}
+
+.a-fake-radio:hover::before {
+  border-color: $color__input-border--hover;
+}
+
+.a-fake-radio.s-checked::after {
+  opacity: 1;
+  transform: scale(.5);
+}
+
+.a-fake-radio.s-disabled {
+  opacity: .5;
+  pointer-events: none;
+}

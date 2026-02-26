@@ -1,0 +1,6 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        form(action="#", method="post")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            button.btn.btn--submit.btn--inverse(type="button", data-action=data.reviewLink) Begin Review

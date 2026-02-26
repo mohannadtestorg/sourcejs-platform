@@ -1,0 +1,41 @@
+- var labelLink = "Select one";
+- var labelText = "Drag and drop new PDF File or";
+- var uploaded = "0";
+
+if (data.inputs && data.inputs.file && data.inputs.file.value != "")
+    - labelLink = ""
+    - labelText = "File successfully uploaded. Drag and drop or select to replace the existing file"
+    - uploaded = "1"
+
+-var uploaderData = {"name":"pdf.path", "uploaded":uploaded, "labelLink":labelLink, "labelText":labelText, "uploaderButton":"true", "accept":"application/pdf"}
+
+mixin table(d)
+    table(class='expandable separator ')
+        thead
+            tr
+                th File Name
+        tbody
+            tr
+                td.pd-pdf__output
+                    if(d.inputs && d.inputs.file && d.inputs.file.value != "")
+                        | !{d.inputs.file.value}
+
+.row
+    .col-md-12
+        .pd-pdf
+            h4.border-bottom Add Preprint/Poster PDF
+            | !{pb.render("file-uploader", {data: uploaderData, AjaxWidgetData: data})}
+
+
+            if(data.inputs && data.inputs.file && data.inputs.file.value != "")
+                .table-responsive.pd-pdf__table
+                    +table(data)
+            else
+                .table-responsive.pd-pdf__table.hidden
+                    +table(data)
+
+
+
+
+
+

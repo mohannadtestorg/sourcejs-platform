@@ -1,0 +1,110 @@
+.profile-menu {
+
+  margin-bottom: 50px;
+  background-color: $primary-lighten-bg-color;
+  padding: 10px 0;
+
+
+  .tab__nav{
+    background-color: $primary-lighten-bg-color;
+    color: $standard-color;
+
+    li{
+      display: block;
+
+    }
+    a{ padding-left: 15px;}
+
+    .active a{
+      color: $standard-color;
+    }
+  }
+
+  &.profile-menu--res{
+    padding:0;
+    .active{
+      background-color: $secondary-bg-color;
+      color: $standard-color;
+
+    }
+  }
+
+  .active{
+    border-left-color:$standard-color;
+    color: $standard-color;
+  }
+
+
+  a{
+    color:$standard-color;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  li {
+    &.active  {
+      border-left:4px solid $standard-color;
+      color: $standard-color;
+    }
+
+  }
+
+  &--dropBlock{
+
+    text-transform: uppercase;
+    a{
+      padding: 10px 30px;
+    }
+    >a{
+      font-size: 1rem;
+      background: $standard-color;
+      color: $text-onDark;
+      &:hover,&:focus{
+      background: $standard-color;
+        color: $text-onDark;
+    }
+      a{
+        &:hover,&:focus{
+           background:$primary-lighten-bg-color;
+           color: $standard-color;
+        }
+      }
+    }
+    i{
+      color: $text-onDark;
+    }
+    li{
+      padding:0;
+    }
+  }
+}
+
+.menu-title{
+  color: $standard-color;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding-left: 15px;
+  background: $primary-lighten-bg-color;
+  margin-bottom: -1px;
+  padding-top: 25px;
+
+  @include media('<tablet'){
+    display: none;
+  }
+}
+
+.institution-menu{
+  border-top:1px solid white ;
+
+  .menu-title{
+    margin-bottom: 10px;
+  }
+
+  .rlist:nth-child(2):not(:empty) {
+    border-top: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+}

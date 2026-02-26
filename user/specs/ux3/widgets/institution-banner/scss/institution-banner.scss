@@ -1,0 +1,49 @@
+
+.institution {
+    color: $primary-text-color;
+    font-size: .75rem;
+    line-height: 1.5;
+    margin: 0;
+    border-right: 1px solid $header-separators-color;
+
+    &__image {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &--block {
+
+
+        .institution__image {
+            margin-right: 20px;
+        }
+
+        .institution-info-wrapper {
+            display: inline-block;
+        }
+    }
+
+    &__name {
+        padding-left: 5px;
+        font-weight: bold;
+    }
+
+
+    &-info-wrapper {
+        //display: inline-block;
+        vertical-align: middle;
+    }
+
+    @include media('>=desktop') {
+
+        text-align: right;
+        padding: 7px 15px;
+        display: inline-block;
+
+        &__name {
+            display: block;
+        }
+
+    }
+}
+

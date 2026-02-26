@@ -1,0 +1,49 @@
+.accordion {
+  &-tabbed {
+    &__tab {
+      &:not(:first-child) {
+        border-color: $secondary-border-color;
+      }
+    }
+
+    &__content {
+      border: none;
+    }
+    &__control {
+      color: $text-onLight;
+      font-size: .875rem;
+      font-weight: 500;
+    }
+
+  }
+
+  &__control {
+    color: $transparent-black-color;
+    font-size: .875rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+
+    i[class*=icon-] {
+      font-size: .5rem;
+      font-weight: 900;
+    }
+
+    + .accordion__content {
+      display: none;
+    }
+
+  }
+
+  &__content {
+    background-color: $secondary-lighten-bg-color;
+    padding: 15px;
+    p {
+      margin: 0;
+    }
+    h6 {
+      margin: 0;
+    }
+  }
+}
+
+

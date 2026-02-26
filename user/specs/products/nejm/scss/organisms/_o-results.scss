@@ -1,0 +1,70 @@
+.o-results {
+  margin-top: 16px;
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+  }
+}
+
+.o-col--primary .o-results:first-child {
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+  }
+
+  & > .m-result:first-child {
+
+    @include breakpoint('medium+') {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-title-options-block + .o-results,
+.a-subtitle + .o-results {
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+  }
+}
+
+.o-results .m-article:first-child {
+  margin-top: 0;
+  padding-top: 16px;
+  border-top: 0 none;
+
+  @include breakpoint('medium+') {
+    padding-top: 20px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// o-results--commentary, as used on the homepage
+// /
+
+.o-results--commentary {
+  margin-top: 0;
+}
+
+.o-results--commentary .m-result__link{
+  width:100%
+}
+
+.o-results--commentary > .m-result:first-child {
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-top: 0;
+  }
+
+  &::before {
+    content: none;
+    display: none;
+  }
+}

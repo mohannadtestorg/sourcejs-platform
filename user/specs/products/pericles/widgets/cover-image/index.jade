@@ -1,0 +1,521 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    .source_info
+    section.source_section
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use images template.
+        h3 Single Cover
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "actions": "nothing",
+                    "includeMetaData": true,
+                    "mostRecentCover": false
+                }
+            },
+            "data": {
+                "coverImage": {
+                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png"
+                },
+                "single": [
+                    {
+                        "type": "Issue",
+                        "volume": "0",
+                        "issue": "ja",
+                        "lastModifiedDate": "10 January 2018",
+                        "tocUrl": "/toc/13480421/0/ja",
+                        "serial": {
+                            "title": "Microbiology and Immunology",
+                            "journalUrl": "/journal/13480421"
+                        },
+                        "issueLabel": "Accepted Articles",
+                        "issueText": "Accepted, unedited articles published online and citable. The final edited and typeset version of record will appear in the future."
+                    }
+                ]
+            },
+            "errors": []
+
+        })
+
+        h3 Latest issues
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "actions": "linkToLatestIssue",
+                    "mostRecentCover": true,
+                    "numberOfCoverToDisplay": 1,
+                    "includeMetaData": true
+                }
+            },
+            "data": {
+                "single": [
+                    {
+                        "type": "Journal",
+                        "title": "Tectonics",
+                        "recent": [
+                            {
+                                "coverImage": {
+                                    "src": "/cms/attachment/7671d117-c047-4618-b7d2-24918b9861df/tect.v37.1.cover.jpg"
+                                },
+                                "largeCoverImage": {
+                                    "src": "/cms/attachment/7671d117-c047-4618-b7d2-24918b9861df/tect.v37.1.cover.jpg"
+                                },
+                                "type": "Issue",
+                                "title": "Geodynamics, Crustal and Lithospheric Tectonics, and active deformation in the Mediterranean Regions (A tribute to Prof. Renato Funiciello)",
+                                "coverDate": "Jan 8, 2018",
+                                "issueType": "NORMAL",
+                                "lastModifiedDate": "13 February 2018",
+                                "virtual_issue_tags": [],
+                                "pageRange": "",
+                                "tocUrl": "/doi/toc/10.1002/(ISSN)1944-9194.MEDITERR1",
+                                "serial": {
+                                    "title": "Tectonics",
+                                    "journalUrl": "/journal/19449194"
+                                }
+                            },
+                            {
+                                "coverImage": {
+                                    "src": "/cms/attachment/7671d117-c047-4618-b7d2-24918b9861df/tect.v37.1.cover.jpg"
+                                },
+                                "largeCoverImage": {
+                                    "src": "/cms/attachment/7671d117-c047-4618-b7d2-24918b9861df/tect.v37.1.cover.jpg"
+                                },
+                                "type": "Issue",
+                                "coverDate": "January 2018",
+                                "volume": "37",
+                                "issue": "1",
+                                "issueType": "NORMAL",
+                                "lastModifiedDate": "21 February 2018",
+                                "virtual_issue_tags": [],
+                                "pageRange": "1-399",
+                                "tocUrl": "/toc/19449194/37/1",
+                                "serial": {
+                                    "title": "Tectonics",
+                                    "journalUrl": "/journal/19449194"
+                                }
+                            }
+                        ],
+                        "latestIssue": {
+                            "coverImage": {
+                                "src": "pericles.pericles-prod.literatumonline.com/tect.v37.1.cover.jpg"
+                            },
+                            "volume": "37",
+                            "issue": "1",
+                            "coverDate": "January 2018",
+                            "tocUrl": "/toc/19449194/37/1"
+                        },
+                        "journalUrl": "/journal/19449194"
+                    }
+                ]
+            },
+            "errors": []
+
+        })
+
+        h3 AOP
+        +printJson({
+            "thisWidget": {
+                "id": "pbr",
+                "properties": {
+                    "actions": "linkToSeriesHome",
+                    "MoreLink": false,
+                    "moreLinkLable": "more >",
+                    "moreLinkUrl": "#",
+                    "includeMetaData": true
+                }
+            },
+            "data": {
+                "single": [
+                    {
+                        "type": "Issue",
+                        "volume": "0",
+                        "issue": "ja",
+                        "coverImage": {
+                            "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png",
+                            "caption": "Biopolymers Online with Editor in Chief Alexander Steinbüchel provides a comprehensive overview of the occurrence, metabolism, and applications of all important biopolymer classes. This reference work treats processes for biotechnological production, isolation from organisms and modification, material properties and technical uses in areas such as ch...emical and food industries, medicine, pharmacy, and materials science."
+                        },
+                        "lastModifiedDate": "10 January 2018",
+                        "virtual_issue_tags": [],
+                        "tocUrl": "/toc/13480421/0/ja",
+                        "serial": {
+                            "title": "Microbiology and Immunology",
+                            "journalUrl": "/journal/13480421"
+                        },
+                        "issueLabel": "Accepted Articles",
+                        "issueText": "Accepted, unedited articles published online and citable. The final edited and typeset version of record will appear in the future."
+                    }
+                ]
+            },
+            "errors": []
+        })
+
+        h3 Virtual
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "actions": "linkToIssueOrBook",
+                    "includeMetaData": true
+                }
+            },
+            "data": {
+                "single": [
+                    {
+                        "type": "Issue",
+                        "coverDate": "January 2016",
+                        "editors": "",
+                        "title": "January 2015: Beyond 2015: The Future of Women's Health Globally",
+                        "coverImage": {
+                            "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                        },
+                        "description": "BookSeriies Title 11 Biopolymers Online with Editor in Chief Alexander Steinbüchel provides a comprehensive overview of the occurrence, metabolism, and applications of all important biopolymer classes. This reference work treats processes for biotechnological production, isolation from organisms and modification, material properties and technical uses in areas such as ch...emical and food industries, medicine, pharmacy, and materials science.",
+                        "volume": "85",
+                        "issue": "1",
+                        "issueType": "NORMAL",
+                        "lastModifiedDate": "2 October 2017",
+                        "virtual_issue_tags": [
+                            {
+                                "label": "vi-categories-13652656-tag",
+                                "link": "/topic/vi-categories-13652656/vi-categories-13652656-tag"
+                            }
+                        ],
+                        "tocUrl": "/toc/13652656/85/1",
+                        "serial": {
+                            "title": "Journal of Animal Ecology",
+                            "journlaUrl": "/journal/13652656"
+                        }
+                    }
+                ]
+            },
+            "errors": []
+        })
+
+        h3 Most Recent Covers
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "actions": "linkToIssueOrBook",
+                    "mostRecentCover": true,
+                    "numberOfCoverToDisplay": 3,
+                    "includeMetaData": true
+                }
+            },
+            "data": {
+                "single": [
+                    {
+                        "type": "Journal",
+                        "title": "Journal of Animal Ecology",
+                        "recent": [
+                            {
+                                "type": "Issue",
+                                "coverDate": "Jan 2017",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "86",
+                                "issue": "1",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/86/1",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            },
+                            {
+                                "type": "Issue",
+                                "coverDate": "Nov 2016",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "85",
+                                "issue": "6",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/85/6",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            },
+                            {
+                                "type": "Issue",
+                                "coverDate": "Sep 2016",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "85",
+                                "issue": "5",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/85/5",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            }
+                        ],
+                        "latestIssue": {
+                            "volume": "86",
+                            "issue": "1",
+                            "coverDate": "01 January 2017"
+                        },
+                        "journalUrl": "http://mhamdan:18080/journal/13652656"
+                    },
+                    {
+                        "type": "Journal",
+                        "title": "Journal of Animal Ecology",
+                        "recent": [
+                            {
+                                "type": "Issue",
+                                "coverDate": "Jan 2017",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "86",
+                                "issue": "1",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/86/1",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            },
+                            {
+                                "type": "Issue",
+                                "coverDate": "Nov 2016",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "85",
+                                "issue": "6",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/85/6",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            },
+                            {
+                                "type": "Issue",
+                                "coverDate": "Sep 2016",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "85",
+                                "issue": "5",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/85/5",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            }
+                        ],
+                        "latestIssue": {
+                            "volume": "86",
+                            "issue": "1",
+                            "coverDate": "01 January 2017"
+                        },
+                        "journalUrl": "http://mhamdan:18080/journal/13652656"
+                    },
+                    {
+                        "type": "Journal",
+                        "title": "Journal of Animal Ecology",
+                        "recent": [
+                            {
+                                "type": "Issue",
+                                "coverDate": "Jan 2017",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "86",
+                                "issue": "1",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/86/1",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            },
+                            {
+                                "type": "Issue",
+                                "coverDate": "Nov 2016",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "85",
+                                "issue": "6",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/85/6",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            },
+                            {
+                                "type": "Issue",
+                                "coverDate": "Sep 2016",
+                                "coverImage": {
+                                    "src": "http://ux3-proto.literatumonline.com/resources/cms/settings/fus/publications/fmc/cover.png"
+                                },
+                                "volume": "85",
+                                "issue": "5",
+                                "issueType": "NORMAL",
+                                "tocUrl": "http://mhamdan:18080/toc/13652656/85/5",
+                                "serial": {
+                                    "title": "Journal of Animal Ecology",
+                                    "journlaUrl": "http://mhamdan:18080/journal/13652656"
+                                }
+                            }
+                        ],
+                        "latestIssue": {
+                            "volume": "86",
+                            "issue": "1",
+                            "coverDate": "01 January 2017"
+                        },
+                        "journalUrl": "http://mhamdan:18080/journal/13652656"
+                    }
+                ]
+            },
+            "errors": []
+
+        })
+
+        markdown
+            p Widget Properties
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `actions`
+                        td Cover Click Action, `nothing`, `showCoverDetails` : the details appear as popup using dropblock functionality, `showLargeCover` : Displays a larger, high-res version of the cover image using figure viewr functionality, `linkToIssueOrBook` , `linkToSeriesHome` : Link to a user-specified location
+
+
+            p Widget Properties
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `coverImage.src`
+                        td Cover image source path
+                    tr
+                        td `coverImage.alt`
+                        td Cover image alt attribute value
+                    tr
+                        td `linkURL`
+                        td Link to a user-specified location
+
+
+    section.source_section
+
+        h2 Examples
+
+        h3 Single Cover image
+        .source_example
+            .container
+                | !{pb.render('cover-image', 'single-cover-image.json', 'pericles')}
+
+        h3 Single with Details - dropblock
+        markdown
+            p use `showCoverDetails` as action and enable `includeMetaData` checkbox in widget property to display the details in popup
+            small note: click on the image to show details
+        .source_example
+            .container
+                | !{pb.render('cover-image', 'dropblock.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["dropBlock"]}}}})}
+
+
+        h3 Single with Details - Figure
+        markdown
+            p enabled `showLargeCover` checkbox in widget property to display a larger image
+        .source_example
+            .container
+                | !{pb.render('cover-image', 'figure.json', 'pericles')}
+
+        h3 Latest Issue
+        markdown
+            p use `linkToLatestIssue` as action to display the Latest Issue
+        .source_example
+            .container
+                | !{pb.render('cover-image', 'latest-issue.json', 'pericles')}
+
+        h3 Just Accepted and Ahead of Print
+        markdown
+            p contain `issueLabel` and `issueText` in json
+            p these details have been added based on <a href='https://jira.atypon.com/browse/LIT-201786' target="_blank">`LIT-201786`</a>
+        .source_example
+            .container
+                | !{pb.render('cover-image', 'ja.json', 'pericles')}
+
+
+        .source_example
+            .container
+                | !{pb.render('cover-image' , 'aop.json', 'pericles')}
+
+
+        h3 Virtual issue cover image
+        markdown
+            p use the alternative widget `alt-virtual-issue-cover-image` and add a wrapper class `cover-image__virtual-issue` for the following example
+            p this option have been added based on <a href='https://jira.atypon.com/browse/LIT-184142' target="_blank">`LIT-184142`</a>
+        .source_example
+            .container
+                | !{pb.render('cover-image', 'cover-image/alternative/alt-virtual-issue-cover-image', 'virtual-cover-image.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["cover-image__virtual-issue"]}}}})}
+
+        h3 List of Covers given block grid classes
+        markdown
+            p use block grid classes to have the grid view
+            small note: the example bellow uses `grid-lg-2 grid-md-2 grid-sm-2 grid-xs-1` classes
+        .source_example
+            .container
+                | !{pb.render('cover-image' , 'recent-issues.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-lg-2 grid-md-2 grid-sm-2 grid-xs-1"]}}}})}
+
+
+        h3 Most recent
+        markdown
+            p used `cover-image--parentInfo` class in the example bellow
+        .source_example
+            .container
+                | !{pb.render('cover-image' , 'most-recent.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-lg-2 grid-md-2 grid-sm-2 grid-xs-1 cover-image--parentInfo"]}}}})}
+
+
+        h3 New example
+        .source_example
+            .container
+                | !{pb.render('cover-image' , 'new.json', 'pericles')}
+
+
+        h3 Slider of cover images
+        markdown
+            p use `slider` as action to display the cover images in slide effect
+            small note: we have two designs for the slider cover images
+                ul
+                    li use `slider-covers` as a wrapper class to display arrows
+                    li use `slider-covers--light` as a wrapper class to hide the arrows
+
+        h3 Slider of cover images
+        .source_example
+            .container
+                | !{pb.render('cover-image' , 'slider-tab.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["slider-covers"]}}}})}
+
+        h3 Slider of cover images - light
+        .source_example
+            .container
+                | !{pb.render('cover-image' , 'slider-tab-light.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["slider-covers--light"]}}}})}
+
+        h3 test case
+        .source_example
+            .container
+                .col-md-8
+                    | !{pb.render('cover-image' , 'slider-tab.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["slider-covers"]}}}})}
+                .col-md-4
+                    | !{pb.render('cover-image' , 'slider-tab-light.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": ["slider-covers--light"]}}}})}
+    | #{''}

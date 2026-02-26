@@ -1,0 +1,159 @@
+extends ../../../../../../ux3/widgets/usage-reports/templates/usage-reports/usage-reports-tmpl
+block pageTitle
+block sushiDetails
+    p
+        strong.lighten-black-text-color Our SUSHI request URL is:
+        |  !{data.sushiRequestUrl}
+    p
+        strong.lighten-black-text-color Your Requestor ID is:
+        |  !{data.sushiRequestId}
+    p
+        strong.lighten-black-text-color Your customerReference ID is:
+        |  !#{data.sushiCustomerRefId}
+
+block customerLegacyReports
+
+block emailNotifications
+    h4 Email Notifications
+    if(data.settingsUpdated)
+        div.success
+            | !{data.settingsUpdated}
+    div.input-group
+        label
+            input(type="checkbox" name="counterEnabled" id="chk_counterEnabled" checked=data.emailCounterEnabled == 1)
+            span.label-txt= data.emailCounterEnabledLabel
+    .input-group
+        button.btn.btn-sm(type='submit' name='notify' value='update')= data.usageReportSaveButtonValue
+
+block delivery
+    h4 Delivery
+    if (data.recipients && data.recipients.success)
+        div.success
+            | !{data.recipients.success}
+    ul.rlist
+        li#dateRange
+            block dropdownClasses
+                -var dropdownClasses=""
+                -var monthDreodoenClasses=""
+
+            block  dateRanges
+                p
+                    strong= "1. " + data.rangeHeading + ":"
+                - var months = ['January','February','March','April','May','June','July', 'August', 'September', 'October', 'November', 'December']
+                - var years = data.yearsRange;
+
+                if (years)
+                    - var yearsNo = years.length
+
+                if(data.monthRange)
+                    - var monthRange = data.monthRange.monthRangeRadioOption == '' ? false : data.monthRange.monthRangeRadioOption
+                    if(data.monthRange.error && data.monthRange.error!="")
+                        p.error
+                            | !{data.monthRange.error}
+
+                if (years && yearsNo > 0)
+                    div.input-group.year-select
+                        label
+                            input(type="radio" name="yearOnly" value="true" id="year-date" checked=!monthRange)
+                            span.label-txt Select year:
+                        div
+                            span Year:
+                            select(class=dropdownClasses name="year" id="yearOnlyRadioOption")
+                                each year in years
+                                    option(value=year)= year
+                div.input-group.ranges-selects
+                    label
+                        input(type="radio" name="yearOnly" value="false" id="range-date" checked=(monthRange || !years || yearsNo == 0))
+                        span.label-txt Select range:
+                    p.error_msg
+                    div
+                        span From:
+                        select(class=dropdownClasses+" "+monthDreodoenClasses  name="startMonth" size="1" id="startMonthId")
+                            if(months)
+                                each month,i in months
+                                    if (data.monthRange)  && i + 1 != data.monthRange.startMonth
+                                        option(value=i + 1)= month
+                                    else
+                                        option(value=i + 1 selected)= month
+
+                        if (years && yearsNo > 0)
+                            select(class=dropdownClasses name="startYear" size="1" id="startYear")
+                                if(years)
+                                    each year in years
+                                        if (data.monthRange) && year != data.monthRange.startYear
+                                            option(value=year)= year
+                                        else
+                                            option(value=year selected)= year
+                    div
+                        span To:
+                        select(class=dropdownClasses+" "+monthDreodoenClasses name="endMonth" size="1" id="endMonthId")
+                            if(months)
+                                each month,i in months
+                                    if (data.monthRange) &&  i + 1 != data.monthRange.endMonth
+                                        option(value=i + 1)= month
+                                    else
+                                        option(value=i + 1 selected)= month
+
+                        if (years && yearsNo > 0)
+                            select(class=dropdownClasses name="endYear" size="1" id="endYear")
+                                if(years)
+                                    each year in years
+                                        if (data.monthRange) &&  year != data.monthRange.endYear
+                                            option(value=year)= year
+                                        else
+                                            option(value=year selected)= year
+
+        li#reports
+            p
+                strong 2. Select Reports:
+            p.error_msg
+            if(data.reports && data.reports.error && data.reports.error != "")
+                p.error !{data.reports.error}
+            ul.rlist.alert__list
+                if(data.reports && data.reports.counterIds)
+                    each report,counterId in data.reports.counterIds
+                        li
+                            .input-group
+                                label
+                                    input(type='radio' checked=report.value == '' ? false : report.value  value=report.name id="counterIds" + report.name)
+                                    span.label-txt= report.label
+
+
+        li#formats
+            p
+                strong 3. Select Formats:
+            p.error_msg
+            if(data.formats && data.formats.error && data.formats.error != "")
+                p.error !{data.formats.error}
+            ul.rlist.alert__list
+                if(data.formats)
+                    each format in data.formats
+                        li
+                            .input-group
+                                label
+                                    input(type='radio' checked=format.value == '' ? false : format.value name="format" value=format.name id="format" + format.name)
+                                    span.label-txt= format.name
+
+        li#recipients
+            p
+                strong 3. Select the Recipient(s):
+            if(data.recipients)
+                - var recipients = data.recipients.emailAllAdminsTrue == '' ? false : data.recipients.emailAllAdminsTrue
+                ul.rlist.alert__list
+                    li
+                        .input-group
+                            label
+                                input(type="radio" name="emailAllAdmins" value="false" checked=!recipients)
+                                block emailAddress
+                                    if(data.recipients)
+                                        input(type="text" name="emailAddresses" value= data.recipients.usageReportEmailAddress)
+                    li
+                        .input-group
+                            label
+                                input(type="radio" name="emailAllAdmins" value="true" checked=recipients id="emailAllAdminsTrue")
+                                span.label-txt All administrators of this organization
+
+
+    p.error_msg
+    block submitButton
+        button.btn.btn-sm(type='submit' name='sendMail')= data.sendMailLabel

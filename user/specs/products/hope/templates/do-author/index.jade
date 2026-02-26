@@ -1,0 +1,31 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Digital Object Page
+    section.source_section
+        h2 Digital Object Page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.do-author
+                .container
+                   | !{pb.render("html", data.socialLinks)}
+
+                .container
+                    .row
+                        .col-sm-8
+                              | !{data.doAuthor}
+                              | !{pb.render("html", data.recentPost)}
+                              | !{data.searchresult}
+
+                         .col-md-4.col-sm-4
+                             //here the right PB widget
+
+
+
+            | !{data.footer}
+    | #{''}

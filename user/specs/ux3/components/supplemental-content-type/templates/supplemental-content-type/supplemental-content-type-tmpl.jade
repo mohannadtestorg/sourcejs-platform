@@ -1,0 +1,44 @@
+if(data.type=="list" || data.type=="nojcf-list")
+    select.submission__select(id=data.listId, name=data.listId, datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}', class=data.type=="list"?"jcf " + inputClass:"future-jcf "+ inputClass)
+        option(value="") -- Select --
+        option(value="dataset" selected=(data.value=="dataset"?true:false))
+            | Data set
+        option(value="software" selected=(data.value == "software" ? true : false))
+            | Software
+        option(value="publication" selected=(data.value == "publication" ? true : false))
+            | Publication
+        option(value="preprint" selected=(data.value == "preprint" ? true : false))
+            | Preprint
+        option(value="eposter" selected=(data.value == "eposter" ? true : false))
+            | E-poster
+        option(value="video" selected=(data.value == "video" ? true : false))
+            | Video file
+        option(value="audio" selected=(data.value == "audio" ? true : false))
+            | Audio file
+        option(value="image" selected=(data.value == "image" ? true : false))
+            | Image
+        option(value="other" selected=(data.value == "other" ? true : false))
+            | Other
+
+else
+    -var typeclass="td-text"
+    if data.value == "dataset"
+        div(class=typeclass) Data set
+    else if data.value == "software"
+        div(class=typeclass) Software
+    else if data.value == "publication"
+        div(class=typeclass) Publication
+    else if data.value == "preprint"
+        div(class=typeclass) Preprint
+    else if data.value == "eposter"
+        div(class=typeclass) E-poster
+    else if data.value == "video"
+        div(class=typeclass) Video file
+    else if data.value == "audio"
+        div(class=typeclass) Audio file
+    else if data.value == "image"
+        div(class=typeclass) Image
+    else if data.value == "other"
+        div(class=typeclass) Other
+    else if data.value == "{{2}}"
+        div(class=typeclass) {{2_type}}

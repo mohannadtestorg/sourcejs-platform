@@ -1,0 +1,98 @@
+extends ../../../../../../ux3/widgets/ip-ranges/templates/ip-ranges/ip-ranges-tmpl
+
+block ipRangePrefix
+    - var cols = []
+    - cols.push({"content": description})
+    - cols.push({"content": ranges})
+
+    - var popover_trigger = '<button class="icon-trash-can popover-toggle" title="Delete IP Range"></button>'
+    - var popover_desc = '<p>Are you sure you want to delete this IP range?</p>'
+    - var popover_desc_buttons = '<div class="border-top"><button class="popover-close">NO, DON\'T DELETE IT</button><button class="btn trigger-delete">YES, DELETE IT</button></div>';
+    - var popover_content = '<div class="popover-content card card--light-shadow">'+popover_desc+popover_desc_buttons+'</div>';
+    - var popover = '<div class="popover">'+popover_trigger+popover_content+'</div>'
+
+    - cols.push({"content": popover})
+
+    if ch_id || ch_id == 0
+        - rows.push({"cols": cols,"ch_name":ch_name,"ch_id": ch_name+ch_id,"ch_value":ch_id})
+    else
+        - rows.push({"cols": cols})
+
+
+block tableHead
+    - var headings = [{"content": data.descLabel},{"content": data.ipRangesTitle},{"content": ''}];
+    - tableData.headings = headings
+
+block tableBody
+    each record,i in source.records
+        - var description = '<input class="smalltextfield" name="description'+(i)+'" value="'+record.ipRangeUserDescription+'">'
+        - var ranges = '<input class="smalltextfield" name="ipRange'+(i)+'" value="'+record.ipRangeUserDisplayName+'">'
+        +ranges_cols(tableData.rows,description,ranges,"",'indexes', i)
+
+block updateIPRanges
+    h2.section__header !{data.updateSectionTitle}
+    form(action='/action/institutionMultiIpChange' name="InstitutionAdmin_MultiIpChange" id="institutionMultiIpChange" method='post')
+        input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+        div.textSection
+            +ranges_table(data)
+            input.hidden(type="checkbox" name="force" value="0")
+        .form-btn
+            input.btn(type='submit' name='update' value=data.ipChangeUpdateChecked disabled)
+            input.btn.hidden(type='submit' name='delete' value=data.ipChangeDeleteChecked)
+
+block addIPRanges
+    h2.section__header !{data.addSectionTitle}
+    form(action='/action/institutionMultiIpChange' name="InstitutionAdmin_MultiIpChange" id="institutionMultiIpAdd" method='post')
+        input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken )
+        input.hidden(type="checkbox" name="force" value="0")
+        .row
+            .col-sm-2
+                label(for="addDescription") !{data.descLabel}:
+            .col-sm-10
+                input(type='text' name='description' id="addDescription")
+        .row
+            .col-sm-2
+                label(for="addRanges") !{data.ipRangesTitle}:
+            .col-sm-10
+                input(type='text' class="smalltextfield" name='ipRanges' id="addRanges")
+                .ipexamples
+                    span !{data.ipChangeExLabel}
+                    if data.ipChangeEx1 != ''
+                        span.example !{data.ipChangeEx1}
+                    if data.ipChangeEx2 != ''
+                        span.example !{data.ipChangeEx2}
+                    if data.ipChangeEx3 != ''
+                        span.example !{data.ipChangeEx3}
+                    if data.ipChangeEx4 != ''
+                        span.example !{data.ipChangeEx4}
+        .form-btn
+            input.btn.js__addIpRange(type='submit' name='add' value='ADD IP RANGE')
+            input(type='hidden' name='mail' id='mail')
+
+
+block ipRangesMain
+    .ip-ranges
+        if (data.ErrorMsg)
+            .infoBox
+                i.icon-notice(aria-hidden="true")
+                span.error !{data.ErrorMsg}
+        if (data.SuccessMsg)
+            .infoBox
+                i.icon-notice(aria-hidden="true")
+                span.success !{data.SuccessMsg}
+        .card
+            h2.section__header Manage IP addresses
+            .sub
+                | !{pb.renderDropzone(thisWidget, "ipRangesDesc")}
+            .infoBox.transparent
+                i.icon-notice(aria-hidden="true")
+                span !{data.ipRangesInfo}
+
+        .card
+            +updateIPRanges()
+
+        .card
+            +addIPRanges()
+
+        - var modalData = {"data": {"id":"rangeConflict","title": "IP range(s) conflict","content": "<p>One of these IP range's overlaps with another Customer. Please check your entry before continuing. If you have any questions about overlapping IPs, please contact Customer Service.</p><div class=\"border-top form-btn\"><button class=\"cancelSubmit\">CANCEL</button><button class=\"btn continueSubmit\">SUBMIT</button></div>"}}
+        | !{pb.render("modal", {data : modalData.data})}

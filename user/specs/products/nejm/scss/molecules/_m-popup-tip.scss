@@ -1,0 +1,83 @@
+/***
+
+`data-popup-tip-content` would be empty and is populated by JS - with content from elsewhere in the page.
+See `data-behavior="PopUpTip"`
+
+```
+<div class="m-popup-tip" id="tip_1" data-behavior="PopUpTip">
+  <div class="m-popup-tip__content" data-popup-tip-content>
+    <p class="f-body--xs">A complete list of investigators in the Tracking Non–Small-Cell Lung Cancer Evolution through Therapy (TRACERx) Consortium is provided in <a href="#">Supplementary Appendix 1</a>, available at NEJM.org.</p>
+  </div>
+  <button aria-label="Close tip" class="m-popup-tip__close" data-popup-close>
+    <svg class="icon--close" aria-hidden="true"><use xlink:href="#icon--close" /></svg>
+  </button>
+</div>
+```
+
+***/
+
+.m-popup-tip {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  width: 300px;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  text-align: left;
+  opacity: 0;
+  box-shadow: 0 0 3px 0 $color__rules;
+
+  @include breakpoint('xxlarge') {
+    #a17 & {
+      margin-left: calc( (100vw - #{map-get($main-col-widths, xxlarge)}) / -2 );
+    }
+  }
+}
+
+.m-popup-tip__content {
+  max-height: 49vh;
+  padding: 16px 52px 20px 19px;
+  overflow-y: auto;
+  -webkit-overflow-scroll: touch;
+  word-break: normal;
+}
+
+.m-popup-tip__content a{
+  word-break: break-word;
+  .isIE & {
+    word-break: break-all;
+    word-wrap: break-word;
+    display: inline-block; // IE cannot break words otherwise
+  }
+} 
+.m-popup-tip__content *:first-child {
+  margin-top: 0;
+}
+
+.m-popup-tip__content hr{
+  display: none;
+}
+
+.m-popup-tip__close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  background: 0 none;
+  cursor: pointer;
+  opacity: .4;
+}
+
+.m-popup-tip__close:hover {
+  opacity: 1;
+}
+
+#demo .m-popup-tip {
+  display: block;
+  position: relative;
+  opacity: 1;
+}

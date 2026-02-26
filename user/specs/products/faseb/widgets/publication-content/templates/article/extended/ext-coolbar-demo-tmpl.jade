@@ -1,0 +1,23 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-coolbar-demo-tmpl.jade
+
+block coolbarPrefix
+    - var original = data;
+    - var coolbarData = {"sections": {"icon": "icon-Icon_Section-menu","label": "Sections"},"download": {"icon": "icon-Icon_Download","label": "Full text", "url": data.item.formats.fullText}, "pdf": {"icon": "icon-pdf","label": "PDF", "url": data.item.formats.pdf}, "extra": [{"content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-favorites\"></i><span>Add to Favorites</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-Email\"></i><span>Email a Friend</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-track\"></i><span>Track Citations</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-permissions\"></i><span>Permissions</span></a></li></ul>"},{"content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"}]};
+    - data  = coolbarData;
+
+block coolbarDropZoneTransplant
+    div.transplant.showit(data-target="article .tab .tab__nav, .coolBar__ctrl__download, .coolBar__ctrl__pdf" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+block downloadCoolbarSection
+    if(data.download && data.download.url)
+        li.coolBar__section.coolBar--download
+            a.coolBar__ctrl.coolBar__ctrl__download(href= data.download.url )
+                i(class= data.download.icon aria-hidden="true")
+                span !{data.download.label}
+
+block addtionalCoolbarSection
+    if(data.pdf && data.pdf.url)
+        li.coolBar__section.coolBar--pdf
+            a.coolBar__ctrl.coolBar__ctrl__pdf(href= data.pdf.url )
+                i(class= data.pdf.icon aria-hidden="true")
+                span !{data.pdf.label}

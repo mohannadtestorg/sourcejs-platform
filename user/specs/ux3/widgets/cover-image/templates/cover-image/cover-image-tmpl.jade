@@ -1,0 +1,113 @@
+block coverImageWrapperClass
+    -var CoverImageWrapperClass="cover-image"
+
+- var details = false
+- var imageClass =  'cover-image__image'
+- var  imageDetailsClasses="cover-image__details"
+
+
+mixin coverDetails(cover)
+    block coverDetails
+        if details
+            div(class=imageDetailsClasses)
+               block parentItemTemplate
+                 | !{pb.render('parent-item', {data: cover})}
+
+
+mixin cover(cover, index)
+    block coverCheckDetails
+        if (thisWidget.properties.includeMetaData) && ((cover.coverDate) || (cover.issue) || (cover.volume) || ((cover.serial) && (cover.serial.type)))
+            - details = true
+            - imageClass = imageClass+' hasDetails'
+    if(thisWidget.properties)
+        if (cover.type == "Book")
+            -imageDetailsClasses=imageDetailsClasses + " book"
+        if thisWidget.properties.actions == 'nothing'
+            block coverImage
+                block defaultImageNothing
+                    if (cover.coverImage && cover.coverImage.src)
+                        div(class=imageClass)
+                            if(cover.coverImage && cover.coverImage.src && cover.serial && cover.serial.serialTitle)
+                                img(src=cover.coverImage.src alt=cover.serial.serialTitle + " cover image")
+                +coverDetails(cover)
+
+        else if thisWidget.properties.actions == 'linkToIssueOrBook' || thisWidget.properties.actions == 'linkToSeriesHome'
+            block coverImageLink
+                if (((cover.serial) && cover.serial.type == "Journal") && (cover.serial.serialTitle) && (cover.volume) && (cover.issue))
+                    - var altValue = "View Table of Contents for " + cover.serial.serialTitle + " volume "+cover.volume+" issue "+ cover.issue;
+                if (cover.type == "Book" && (cover.serial.serialTitle))
+                    - var altValue = "View Table of Contents for "+cover.serial.serialTitle;
+                block defaultImagelinkToIssueOrBookOrSeriesHome
+                    -var url=""
+                    if(cover.tocUrl )
+                        -url=cover.tocUrl
+                    if(cover.bookUrl)
+                        -url=cover.bookUrl
+                    block customCoverURL
+                    if (url && cover.coverImage && cover.coverImage.src)
+                        div(class=imageClass)
+                            block bookCoverUpper
+                            a(href=url title=altValue)
+                                if(cover.coverImage && cover.coverImage.src)
+                                    img(src=cover.coverImage.src alt=altValue)
+                +coverDetails(cover)
+
+
+        else if thisWidget.properties.actions == 'showCoverDetails'
+            block coverImageDetails
+                .base
+                    if (cover.coverImage && cover.coverImage.src)
+                        div(class=imageClass)
+                            if(cover.serial && cover.serial.serialTitle)
+                                a(href="#" title="View details for " + cover.serial.serialTitle + " cover image" data-db-target-for=thisWidget.id + index)
+                                    if(cover.coverImage && cover.coverImage.src)
+                                        img(src=cover.coverImage.src alt="View details for " + cover.serial.serialTitle + " cover image")
+                    div.dropBlock__holder(data-db-target-of=thisWidget.id+ index)
+                        +coverDetails(cover)
+
+
+        else if thisWidget.properties.actions == 'showLargeCover'
+            block coverImageLarge
+                figure.figure
+                    if(cover.coverImage && cover.coverImage.src && cover.serial && cover.serial.serialTitle)
+                        img.figure__image(src=cover.coverImage.src alt="View large " + cover.serial.serialTitle + " cover image")
+                    figcaption
+                        .figure__caption
+                            +coverDetails(cover)
+
+                include ../../../../components/figure-viewer/templates/figure-viewer/figure-viewer-tmpl.jade
+
+
+block coverImagePrefix
+block coverImageMain
+    if(thisWidget && thisWidget.properties)
+        if thisWidget.properties.displayStyle == 'singleCover'
+                if data.single
+                    - var cover = data.single
+                    div(class=CoverImageWrapperClass)
+                        +cover(cover, 0)
+                        block singleCoverSuffix
+
+        else if thisWidget.properties.displayStyle == 'coverGallery'
+            if data.journal && data.journal.gallery
+                - var covers = data.journal.gallery
+                ul.rlist.loc
+                    each cover, l in covers
+                        li.grid-item(class=CoverImageWrapperClass)
+                            +cover(cover, l)
+
+        else if thisWidget.properties.displayStyle == 'mostRecentCover'
+            if data.journal && data.journal.recent
+                - var covers = data.journal.recent
+                ul.rlist.loc
+                    each cover, l in covers
+                        li.grid-item(class=CoverImageWrapperClass)
+                            +cover(cover, l)
+    else
+        p.error No widget properties set for cover image.
+
+
+
+
+
+

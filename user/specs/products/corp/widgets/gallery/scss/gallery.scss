@@ -1,0 +1,37 @@
+.gallery {
+    max-width: 1008px;
+    display: flex;
+    flex-direction: row;
+
+    figure {
+        margin: 0;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+
+    &__main {
+        width:100%;
+        @include media('>=phone') {
+            width: 66%;
+        }
+    }
+    &__aside {
+        width: 33%;
+        margin-right: 8px;
+        display: none;
+        @include media('>=phone') {
+            display: block;
+        }
+
+        figure {
+            overflow: hidden;
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

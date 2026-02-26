@@ -1,0 +1,70 @@
+//extends ../../../../../../ux3/widgets/manage-alerts/templates/alerts/citation-tmpl.jade
+
+
+block citationTopSection
+    .infoDropZone(data-pb-dropzone="citationDropZone")
+        | !{pb.renderDropzone(thisWidget, "citationDropZone")}
+
+form(id="citationAlerts" method="post" action="/action/doUpdateAlertSettings")
+    input(type="hidden" name="action" value="removeArticle")
+    input(type="hidden" name="type" value="citation")
+    input(type="hidden" name="backURI" value="/action/showPreferences?menuTab=Alerts&type=citation")
+    .section__separator
+        block alertsToolBar
+            .alert__sort.input-group.left-side-label
+                label
+                    i.icon-icon-Icons_Sorting(aria-hidden="true")
+                    | Sorted by:
+                select.alertSort.jcf(id="citationsortby" name="sortBy")
+                    option(value="ITEM_TITLE",selected= (data.sortBy && data.sortBy == "ITEM_TITLE") ? "true" : undefined) Article title
+                    option(value="SERIAL_TITLE",selected= (data.sortBy && data.sortBy == "SERIAL_TITLE") ? "true" : undefined) Publication
+                    option(value="EPUB_DATE",selected= (data.sortBy && data.sortBy == "EPUB_DATE") ? "true" : undefined) Publication date
+
+    block citationTable
+        .table-responsive.separator.js-pages
+            table.expandable.alert__list.citation__alerts
+                thead
+                    tr
+                        th.hidden
+                        th(width="40%") Article Title
+                        th(width="35%") Publication
+                        th(width="20%") Publication Date
+                        th(width="5%")
+                tbody
+                    if (data) && (data.currentPerson) && (data.currentPerson.alerts) && (data.currentPerson.alerts.citations)
+
+                        - var page = 0
+                        - var pageSize = 3
+                        - var numberOfUsers = data.currentPerson.alerts.citations.length
+                        - var pages = data.currentPerson.alerts.citations.length / 3
+                        - var rest = numberOfUsers % pageSize
+                        if rest > 0
+                            - pages++
+
+                        each citation, l in data.currentPerson.alerts.citations
+
+                            if l % pageSize == 0
+                                - page++
+
+                            tr(data-page=page)
+                                - var id = citation.ID ? citation.ID : l
+                                td.table__mark.hidden
+                                    label.checkbox--primary
+                                        input(type="checkbox" id="cit"+id name="citId" value=id)
+                                        span
+                                td(data-thead='Article Title')
+                                    a(href=citation.content.bestUrl) !{citation.content.title}
+
+                                td(data-thead='Publication')
+                                    | !{pb.render('manage-alerts', "alerts/extended/ext-parent-item", {data: citation.content.group}, 'pericles')}
+
+
+                                td.epubDate(data-thead='Publication date')
+                                    |   !{citation.content.epubDate}
+
+                                td.removeItem
+                                    a.js__citActions(href="#" data-value='removeArticle')
+                                        i.icon-trash-can(aria-hidden="true")
+
+            | !{pb.render('pagination', 'pagination/client-pagination', {pages: pages}, 'pericles')}
+            //include ../../../../components/pagination/templates/pagination/client-pagination-tmpl

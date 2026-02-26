@@ -1,0 +1,292 @@
+/***
+
+```
+<div class="m-audio-player" data-behavior="AudioPlayer">
+  <audio preload controls="controls">
+    <source src="audio.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <button class="m-audio-player__play" data-audio-player-play>
+    <svg class="icon--play" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--play"></use></svg>
+    <svg class="icon--pause" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--pause"></use></svg>
+  </button>
+  <span class="m-audio-player__current f-ui" data-audio-player-current>00:00</span>
+  <div class="m-audio-player__progress" data-audio-player-progress>
+    <input class="m-audio-player__range" type="range" min="0" max="100" value="0" />
+    <span class="m-audio-player__tocomplete"></span>
+    <span class="m-audio-player__done" data-audio-player-done></span>
+  </div>
+  <span class="m-audio-player__duration f-ui" data-audio-player-duration>00:00</span>
+  <button class="m-audio-player__volume" data-audio-player-volume>
+    <svg class="icon--audio" aria-hidden="true"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--audio"></use></svg>
+    <svg class="icon--audio-muted" aria-hidden="true"><use xlink:href="#icon--audio-muted" /></svg>
+  </button>
+  <div class="m-audio-player__volume-slider" data-audio-player-volume-slider>
+    <input class="m-audio-player__range" type="range" min="0" max="100" value="100" />
+    <span class="m-audio-player__tocomplete"></span>
+  </div>
+</div>
+```
+
+***/
+
+.m-audio-player {
+  display: flex;
+  flex-flow: row nowrap;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.m-audio-player__play,
+.m-audio-player__volume {
+  background:transparent;
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  color:$color__text--headlines;
+  top: -2px;
+  position: relative;
+
+  svg {
+    vertical-align:middle;
+  }
+
+  &:hover {
+    color: $color__text--tertiary;
+  }
+}
+
+.m-audio-player audio {
+  display:none;
+}
+
+.m-audio-player__play,
+.m-audio-player__volume,
+.m-audio-player input,
+.m-audio-player__current,
+.m-audio-player__duration {
+  height:55px;
+  line-height:55px;
+  vertical-align:top;
+  display:inline-block;
+}
+
+.m-audio-player__play {
+  /*background-color: $color__white;*/
+  width:55px;
+  margin-left:19px;
+
+  @include breakpoint('small+') {
+    margin-left:20px;
+  }
+
+  .icon--pause {
+    display:none;
+  }
+
+  .icon--play {
+    display:inline;
+  }
+
+  &.s-play--active {
+    .icon--play {
+      display:none;
+    }
+
+    .icon--pause {
+      display:inline;
+    }
+  }
+}
+
+.m-audio-player__volume {
+  display: none;
+
+  @include breakpoint('small+') {
+    display: inline-block;
+    width: 55px;
+    margin-right: 20px;
+  }
+
+  .icon--audio-muted {
+    display: none;
+  }
+}
+
+
+
+.m-audio-player__volume.s-volume--mute {
+
+  .icon--audio {
+    display: none;
+  }
+
+  .icon--audio-muted {
+    display: inline-block;
+  }
+}
+
+.m-audio-player__current,
+.m-audio-player__duration {
+  padding:0 15px;
+  min-width:65px;
+  color: $color__text--quaternary;
+
+  @include breakpoint('small+') {
+    padding:0 25px;
+    min-width:85px;
+  }
+}
+
+@mixin input-range-slider-thumb() {
+    -webkit-appearance: none;
+    border-radius:50%;
+    background:black;
+    cursor: pointer;
+    height:10px;
+    width:10px;
+    margin-top:-3px;
+    border:0 none;
+}
+
+@mixin input-range-slider-track() {
+    height:4px;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+    border: 0;
+}
+
+@mixin input-range-slider-progress() {
+    height:4px;
+    background: $color__orange;
+    cursor: pointer;
+    border: 0;
+    margin-top: 0;
+    width:0%;
+}
+
+.m-audio-player__progress {
+  flex: 1 1 auto;
+  margin:0;
+  padding:0;
+  width: 100%;
+  position:relative;
+}
+
+.m-audio-player__done {
+  width:0;
+  position: absolute;
+  left: 0;
+  pointer-events:none;
+  @include input-range-slider-progress;
+  top:50%;
+  margin-top: -2px;
+  z-index:0;
+}
+
+.m-audio-player__tocomplete {
+  width:0;
+  position:absolute;
+  pointer-events:none;
+  @include input-range-slider-track;
+  background: $color__black--10;
+  top:50%;
+  margin-top: -2px;
+  z-index:0;
+  left:0;
+  right:0;
+}
+
+.m-audio-player__range {
+
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  margin:0;
+  padding:0;
+  position:relative;
+  z-index:1;
+
+  &::-webkit-slider-thumb {
+    @include input-range-slider-thumb;
+  }
+
+  &::-moz-range-thumb {
+    @include input-range-slider-thumb;
+  }
+
+  &::-ms-thumb {
+    @include input-range-slider-thumb;
+    margin-top: 0;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include input-range-slider-track;
+  }
+
+  /*
+  &::-webkit-slider-runnable-track {
+    @include input-range-slider-progress;
+  }
+  */
+
+  &::-moz-range-track {
+    @include input-range-slider-track;
+  }
+
+  &::-ms-track {
+    @include input-range-slider-track;
+  }
+
+  &::-ms-fill-lower {
+    background: $color__orange;
+    border-radius: 0;
+  }
+
+  &::-ms-fill-upper {
+    background: $color__black--10;
+    border-radius: 0;
+  }
+
+  /*
+  &::-moz-range-progress {
+    @include input-range-slider-progress;
+  }
+  */
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+}
+
+.m-audio-player__volume-slider {
+  display: none;
+  position: relative;
+  flex: 1 1 auto;
+  width: 100px;
+  margin: 0 20px 0 0;
+  padding: 0;
+
+  @include breakpoint('small+') {
+    display: inline-block;
+  }
+}
+
+.m-audio-player__volume-slider .m-audio-player__range::-ms-fill-lower {
+  background: $color__black--10;
+}

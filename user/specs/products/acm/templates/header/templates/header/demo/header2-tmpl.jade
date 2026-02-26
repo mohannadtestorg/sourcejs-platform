@@ -1,0 +1,50 @@
+header.header.base
+        .container.header--first-row
+            .pull-left
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/acm/templates/header/Images/logo1.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo1"]}}}})}
+                | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "/specs/products/acm/templates/header/Images/logo2.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo2"]}}}})}
+
+
+            .pull-right
+                .institution-wrapper
+                    | !{pb.render('institution-banner', {"model": {"data": {"image":"/specs/products/acm/templates/header/Images/insti.png","itemUrl": "#", "institution": "Carnegie Mellon University", "introText": "Access by"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                .header__quick-menu.text-onDark
+                    ul.rlist--inline
+                        li.advanced-search-link.hidden-lg.hidden-md
+                            a(href="#" title="Advanced Search") Advanced Search
+                        li.show-on-mobile
+                            a(href="#" title="Browse") Browse
+                        li.show-on-mobile
+                            a(href="#" title="Announcements") Announcements
+                        li.show-on-mobile
+                            a(href="#" title="About") About
+                        li
+                            .loginBar.login-open
+                                span.individualUser
+                                    span.welcome-label
+                                    a#indivLogin.indivLogin(href='/action/showPreferences')
+                                        span.icon-person
+                                        span.profile-text Duha Hamdan
+                            .navigation-login-dropdown-container.hidden
+                                .navigation-login-dropdown
+                                    ul
+                                        li
+                                            a(href='/action/showPreferences' title="My Profile") My Profile
+                                        li
+                                            a(href='#' title="My Binders") My Binders
+                                        li
+                                            a(href='#' title="My Saved Searches") My Saved Searches
+                                        li
+                                            a(href='/action/doLogout' title="Log out") Log out
+                                .navigation-login-background.hidden-lg.hidden-md.overlay-fixed
+
+
+
+
+
+
+
+
+
+        .container.header--second-row
+            | !{pb.render('menu', 'demo/demo-responsive-menu', 'responsiveMenu.json')}

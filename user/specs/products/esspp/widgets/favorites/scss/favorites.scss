@@ -1,0 +1,130 @@
+.favoriteShortlist {
+    select {
+        padding: 0;
+        border: 0;
+    }
+
+    .checkbox--primary .label-txt {
+        border-right: 1px solid #212121;
+    }
+
+    .separator td, .separator th {
+        padding: 1.8em 1em;
+    }
+
+    .selectMenuLabel {
+        display: inline-block;
+        margin: 0 10px;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+
+        label { margin-bottom: 0; }
+    }
+    .jcf-select {
+        width: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 32px;
+        min-width: initial;
+        border: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    @include media('<phone') {
+        .tab--res.tab--slide .tab__content {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .section__separator {
+            .pull-left + .pull-right { margin: 0 }
+            .jcf-select { margin-bottom: 0; }
+        }
+    }
+}
+
+.section__separator {
+    .jcf-select {
+        width: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 32px;
+        min-width: initial;
+        border: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.checkbox--primary {
+    .jcf-checkbox {
+        border: 1px solid $shadow-color;
+        margin-right: 0px;
+        float: none;
+        border-radius: 4px;
+        &.jcf-checked {
+            border-color: $submitted-bg-color;
+        }
+        span {
+            border: none;
+            border-radius: 0 0 0 0;
+            margin: 0;
+            &:before {
+                border: none;
+            }
+        }
+    }
+    .label-txt {
+        padding-right: 10px;
+        .hidden-xs {
+            display: inline-block;
+            margin-top: 0;
+        }
+    }
+}
+
+@include media('<=phone') {
+    .checkbox--primary span:before, .radio--secondary span:before {
+        margin-right: 0;
+    }
+    .jcf-select:before, .jcf-select:after {
+        padding: 0;
+    }
+    .favoriteShortlist .jcf-select {
+        padding-right: 14px;
+    }
+    .favoriteShortlist {
+        .selectMenuLabel:first-child {
+
+            .checkbox--primary .label-txt {
+                border-right: none;
+                padding-right: 0;
+            }
+        }
+    }
+
+    .favoriteShortlist .section__separator .pull-left + .pull-right {
+        float: right;
+    }
+}
+.favorites__list {
+    tr {
+        th{
+            &:nth-child(1) {
+                width: 40px;
+            }
+            &:nth-child(3) {
+                width: 120px;
+            }
+            &:nth-child(4) {
+                width: 140px;
+                white-space: nowrap;
+            }
+        }
+    }
+}

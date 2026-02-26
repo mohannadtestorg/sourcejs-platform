@@ -1,0 +1,44 @@
+{
+    "title": "Slide Presentations Full",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "slideshow":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/slideshow/templates/demo/slideshow-demo-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/slideshow/templates/data/presentations-slider.json"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

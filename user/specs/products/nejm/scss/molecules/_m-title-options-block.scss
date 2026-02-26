@@ -1,0 +1,200 @@
+/***
+
+```
+<div class="m-title-options-block">
+  <h2 class="m-title-options-block__title f-h11">February 2nd, 2017</h2>
+  <p class="m-title-options-block__note f-ui">Showing 1-20 of 56 Articles</p>
+</div>
+```
+
+***/
+/***
+
+Variant 'm-title-options-block--with-social-links'
+
+```
+<div class="m-title-options-block m-title-options-block--with-social-links">
+  <p class="m-title-options-block__title f-h11">February 2, 2017</p>
+  <ul class="m-title-options-block__options">
+    <li class="m-title-options-block__option u-hide@medium-">
+      <ul class="m-boxed-icon-links">
+        <li><a href="#"><svg class="icon--facebook" aria-label="Facebook"><use xlink:href="#icon--facebook" /></svg></a></li>
+        <li><a href="#"><svg class="icon--twitter" aria-label="Twitter"><use xlink:href="#icon--twitter" /></svg></a></li>
+        <li><a href="#"><svg class="icon--linkedin" aria-label="LinkedIn"><use xlink:href="#icon--linkedin" /></svg></a></li>
+        <li><a href="#"><svg class="icon--more" aria-label="More share options"><use xlink:href="#icon--more" /></svg></a></li>
+      </ul>
+    </li>
+    <li class="m-title-options-block__option u-hide@large+">
+      <span aria-title="Share page" class="a-dropdown" data-behavior="Dropdown ToolTip" data-tooltip="Share page" data-tooltip-direction="bottom" data-tooltip-breakpoints="large xlarge xxlarge" tabindex="0">
+        <button tabindex="-1"><svg class="icon--share" aria-label="Share article"><use xlink:href="#icon--share" /></svg></button>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Google+</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Email</a></li>
+          <li><a href="#" data-behavior="CopyUrl">Copy URL</a></li>
+        </ul>
+      </span>
+    </li>
+    <li class="m-title-options-block__option u-hide@medium-">
+      <a href="#" data-behavior="ToolTip" data-tooltip="Download slide" data-tooltip-direction="bottom" data-tooltip-breakpoints="large xlarge xxlarge">
+        <svg class="icon--download" aria-label="Download PDF"><use xlink:href="#icon--download" /></svg>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+***/
+/***
+
+```
+<div class="m-title-options-block">
+  <h2 class="m-title-options-block__title f-h11">Most Viewed</h2>
+  <ul class="m-title-options-block__options m-pipe-links f-ui">
+    <li class="s-active"><a href="#most_viewed_week">Week</a></li>
+    <li><a href="#most_viewed_month">Month</a></li>
+  </ul>
+</div>
+```
+
+***/
+
+.m-title-options-block {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  margin-top: 0;
+  padding-top: 16px;
+  padding-bottom: 20px;
+
+  &.m-title-options-block--with-social-links {
+    @include breakpoint('large+') {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+}
+
+.m-title-options-block::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__black--90;
+}
+
+.m-title-options-block::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-title-options-block__title {
+  flex: 0 0 auto;
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-title-options-block__note {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 16px;
+  margin-top: 0;
+  color: $color__text--quaternary;
+
+  @include breakpoint('large+') {
+    display: block;
+  }
+
+  .m-title-options-block--with-drop-downs & {
+    @include breakpoint('large+') {
+      top: 28px;
+    }
+  }
+}
+
+.m-title-options-block__options {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  flex-flow: row nowrap;
+  height: 24px;
+  margin-top: 0;
+  margin-left: auto;
+  color: $color__text--quaternary;
+}
+
+.m-title-options-block__options.f-ui {
+  height: auto;
+  margin-bottom: -4px;
+}
+
+.m-title-options-block__option {
+  flex: 0 0 auto;
+  margin-left: 20px;
+}
+
+.m-title-options-block__option > a {
+  display: block;
+  color: $color__text--headlines;
+}
+
+.m-title-options-block__option > a svg {
+  display: block;
+}
+
+.m-title-options-block__option > a:hover {
+  opacity: .6;
+}
+
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown {
+  border: 0 none;
+}
+
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > em,
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > strong,
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > button {
+  height: 24px;
+  line-height: 24px;
+}
+
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > button {
+  height: 24px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > button::after {
+  display: none;
+}
+
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > button svg {
+  margin-right: 0;
+}
+
+.m-title-options-block--with-social-links .m-title-options-block__option .a-dropdown > ul {
+  left: auto;
+  right: 0;
+  width: 200px;
+  margin-top: 8px;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// .m-title-options-block that follows .m-intro-block
+//
+
+.m-intro-block + .m-title-options-block {
+  margin-top: 48px;
+}

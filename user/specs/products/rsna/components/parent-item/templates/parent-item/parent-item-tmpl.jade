@@ -1,0 +1,25 @@
+extends ../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl
+
+block parentDate
+    if (data) && (data.coverDate)
+        span.coverDate
+            span !{data.coverDate}
+            if(data.isLegacy)
+                i.icon-legacy
+
+block volume
+    if data.url
+        a(href=data.url)
+            if (data) && (data.volume)
+                span.volNo
+                    span
+                        | Vol. #{data.volume}
+                    if (data) && (data.issue)
+                        span  Issue #{data.issue}
+    else
+        if (data) && (data.volume)
+            span.volNo
+                span
+                    | Vol. #{data.volume}
+                if (data) && (data.issue)
+                    span  Issue #{data.issue}

@@ -1,0 +1,12 @@
+div.toc
+    form(method="get", action="").toc_form
+        label Sort By:
+        select.jcf(name="sortBy", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+            option(value="page") Page
+            option(value="date") Date
+
+    h6.toc_group-heading#SPOTLIGHTS SPOTLIGHT
+    | !{pb.render("issue-item", "issue-item.json")}
+    h6.toc_group-heading#PERSPECTIVES PERSPECTIVES
+    | !{pb.render("issue-item", "issue-item.json")}
+    | !{pb.render("issue-item", "issue-item.json")}

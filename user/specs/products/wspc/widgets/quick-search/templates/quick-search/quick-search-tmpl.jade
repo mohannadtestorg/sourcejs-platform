@@ -1,0 +1,33 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+block quickSearch
+
+    .tab.row.clearfix
+        .col-md-2
+            ul.rlist.tab__nav.dropblock--tab(role="tablist")
+                if(data.dropdown)
+                    each item, i in data.dropdown
+                        li
+                            if(thisWidget.properties && item.label)
+                                a(href="#pane-" + thisWidget.properties.id + i aria-controls="#pane-" + i role="tab" data-toggle="tab" title=item.label id="pane-" + thisWidget.properties.id + i + "-con" aria-expanded="false") !{item.label}
+        .col-md-8.gutterless
+            ul.rlist.tab__content(role="tablist")
+                each item, i in data.dropdown
+                    +checkCurrentSearchTerm()
+                    if (item.dataSearchIn == 'default')
+                        +anywhereSearch(item, i)
+                    else if (item.dataSearchIn == 'thisJournal')
+                        +journalSearch(item, i)
+                    else if (item.dataSearchIn == 'citation')
+                        +citationSearch(item, i)
+                    else if (item.dataSearchIn == 'thisBook' || item.dataSearchIn == 'thisIssue')
+                        +bookSearch(item,i)
+                    -currentSearchTermFilled=true
+
+
+
+
+        .col-md-2
+            block advancedSearch
+                | !{pb.renderDropzone(thisWidget, "TestDropZone")}
+            //a.pull-right.quick-search-advanced-link(href="#" title="Advanced Search") Advanced Search

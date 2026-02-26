@@ -1,0 +1,35 @@
+extends /specs/products/faseb/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 LOI page
+    .source_info
+
+
+
+    section.source_section
+        h2 LOI page
+        markdown
+        .source_example
+            | !{data.header}
+            main.content.journal-home
+                .meta-wrapper
+
+                .container
+                    | !{data.meta}
+                    .row.separator
+                        .col-sm-7.col-md-8.col-lg-9
+                            h3.section__header.border-bottom LIST OF ALL ISSUES
+                            | !{data.loi}
+
+                        .col-sm-5.col-md-4.col-lg-3
+                            h3.section__header.border-bottom.section__header__top-margin-xs newsletter
+                            | !{data.nl}
+                            //mpu ad
+                            .mpu
+                            | !{data.tweets}
+
+            | !{data.footer}
+    | #{''}

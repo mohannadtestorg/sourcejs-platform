@@ -1,0 +1,180 @@
+/***
+
+```
+<ol class="m-article-references">
+  <li class="m-article-references__item" id="cite_note_1">
+    <p class="f-body--sm">Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.</p>
+    <ul class="m-article-references__links f-body--sm">
+      <li><a href="#">Cross Ref</a></li>
+      <li><a href="#">Web of Science</a></li>
+      <li><a href="#">Medline</a></li>
+    </ul>
+  </li>
+</ol>
+```
+
+***/
+/***
+
+Variant: `m-article-references--num-in-html` ← the `ol` stops displaying its counter, the "counter" is instead in the html
+
+```
+<ol class="m-article-references m-article-references--num-in-html">
+  <li class="m-article-references__item" id="cite_note_1">
+    <p class="f-body--sm"><strong class="m-article-references__number">1. </strong>Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis.</p>
+    <ul class="m-article-references__links f-body--sm">
+      <li><a href="#">Cross Ref</a></li>
+      <li><a href="#">Web of Science</a></li>
+      <li><a href="#">Medline</a></li>
+    </ul>
+  </li>
+</ol>
+```
+
+***/
+
+.m-article-references {
+  margin-top: 24px;
+  padding-left: 1.1em;
+  counter-reset: references;
+
+  @include breakpoint('large+') {
+    margin-top: 28px;
+  }
+}
+
+.a-subtitle + .m-article-references {
+  margin-top: 0;
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+#article_recommended_reading {
+  .m-article-references__item {
+    padding-left: 0;
+  }
+}
+
+.m-article-references__item {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-left: 32px;
+  list-style-type: none;
+}
+
+.m-article-references__item::before {
+  counter-increment: references;
+  content: counter(references) '.';
+
+  .m-article-references--num-in-html & {
+    display: none;
+  }
+}
+
+.m-article-references__item::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: -32px;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-article-references__item:first-child {
+  margin-top: 0;
+}
+
+.a-subtitle + .m-article-references,
+.o-article-body__collapsible-content .m-article-references {
+  .m-article-references__item:first-child::after {
+    display:none;
+  }
+}
+
+.m-article-references__item > *:first-child {
+  margin-top: 0;
+}
+
+.m-article-references__links {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 4px;
+}
+
+.m-article-references__links li {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.m-article-references__links li:not(:last-child) {
+  position: relative;
+  margin-right: 10px;
+  padding-right: 9px;
+}
+
+.m-article-references__links li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: $color__rules;
+}
+
+.m-article-references__number,
+.m-article-references__item::before {
+  @extend %f-h11;
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
+
+.m-popup-tip .m-article-references__number {
+  position: static;
+}
+
+.m-article-reference__action {
+  position:relative;
+  margin-top: 20px;
+  padding-top: 20px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: -32px;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: $color__rules;
+  }
+}
+
+// Variant in metrics page
+
+.m-article-references--source-info {
+  padding-left:0;
+}
+
+.m-article-references--source-info .m-article-references__item {
+  padding-left:40px;
+  margin-top: 16px;
+}
+
+.m-article-references--source-info .m-article-references__item:first-child {
+  margin-top:0;
+}
+
+.m-article-references--source-info .m-article-references__number,
+.m-article-references--source-info .m-article-references__item::before {
+  @include f-body--sm;
+  font-weight:700;
+  top: 20px;
+  color:$color__text--headlines;
+}

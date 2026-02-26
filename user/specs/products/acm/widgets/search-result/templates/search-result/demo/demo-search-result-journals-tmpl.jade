@@ -1,0 +1,94 @@
+extends ../search-result-journals-tmpl
+
+block searchResultMain
+    block resultsListClassesXSLT
+        - var ulClasses = "search-result__body items-results container " +searchlistClass
+    ul(class=ulClasses)
+        - var n = 0
+        while n < 6
+            -n=n+1
+            li.clearfix.search__item.journal
+                img.journal-image(src="/specs/products/acm/templates/browse-journals/images/bj-black.png" alt="Journal CSUR ")
+                .journal-item-body.csuracm-journal
+                    .search__item-title
+                        h4
+                          a.journal-link(href="#" title="Computing Surveys (CSUR)")
+                                span.journal-code Csuracm
+                                span.journal-title Computing Surveys (CSUR)
+                    .meta
+                        .meta__abstract
+                           p These comprehensive, readable tutorials and survey papers give guided tours through the literature and explain topics to those who seek to learn the basics of areas outside their specialties. The carefully planned and presented introductions in Computing Surveys (CSUR) are also an excellent way for professionals to develop perspectives on, and identify trends in complex technologies. Recent issues have covered image understanding, software reusability, and object and relational database topics.
+
+                        .meta__editor
+                            span.editor-label Editor:
+                            ul.rlist--inline.loa.comma
+                                li
+                                    a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                            img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author1.jpg" alt="Nick Gayeski")
+                                            span.author-name Nick Gayeski
+                                li
+                                    a(href='/author/search/url?q=Sally', title='Sally')
+                                        img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author2.jpg" alt="Nick Gayeski")
+                                        span.author-name Sally
+                                li
+                                    a(href='/author/search/url?q=Nick Gayeski', title='Julian')
+                                        img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author1.jpg" alt="Julian")
+                                        span.author-name Julian
+
+
+                    .more-link
+                            a(href='/more', title='More journals') More ⟶
+
+
+                    .colored-block__dash
+
+            li.clearfix.search__item.journal
+                    img.journal-image(src="/specs/products/acm/templates/browse-journals/images/bj-red.png" alt="Journal JEA")
+                    .journal-item-body.jea-journal
+                        .search__item-title
+                            h4
+                                a.journal-link(href="#" title="Journal of Experimental Algorithmics (JEA)")
+                                    span.journal-code JEA
+                                    span.journal-title  Journal of Experimental Algorithmics (JEA)
+                        .meta
+                            .meta__abstract
+                                p JDIQ's mission is to publish high quality articles that make a significant and novel contribution to the field of data and information quality. JDIQ welcomes research contributions on the following areas, but not limited to: Information Quality in the Enterprise Context; Database related technical solutions for Information Quality; Information Quality in the context of Computer Science and Information Technology; Information Curation.
+
+                            .meta__editor
+                                span.editor-label Editor:
+                                ul.rlist--inline.loa.comma
+                                    li
+                                        a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                            img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author1.jpg" alt="Nick Gayeski")
+                                            span.author-name  Nick Gayeski
+
+                        .more-link
+                                a(href='/more', title='More journals') More ⟶
+
+                        .colored-block__dash
+
+            li.clearfix.search__item.journal
+                img.journal-image(src="/specs/products/acm/templates/browse-journals/images/bj-yellow.png" alt="Journal JECM")
+                .journal-item-body.bj-journal
+                    .search__item-title
+                        h4
+                            a.journal-link(href="#" title="Proceedings of the ACM on Human Computer Interaction")
+                                span.journal-code JECM
+                                span.journal-title  Proceedings of the ACM on Human Computer Interaction
+                    .meta
+                        .meta__abstract
+                            p The Journal of the ACM (JACM) provides coverage of the most significant work on principles of computer science, broadly construed. The scope of research covered encompasses contributions of lasting value to any area of computer science. To be accepted, a paper must be judged to be truly outstanding in its field. JACM is interested in work in core computer science and in work at the boundaries, both the boundaries of subdisciplines of computer science and the boundaries between computer science and other fields.
+
+                        .meta__editor
+                            span.editor-label Editor:
+                            ul.rlist--inline.loa.comma
+                                li
+                                    a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                        img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author1.jpg" alt="Nick Gayeski")
+                                        span.author-name Nick Gayeski
+
+                    .more-link
+                            a(href='/more', title='More journals') More ⟶
+
+                    .colored-block__dash
+

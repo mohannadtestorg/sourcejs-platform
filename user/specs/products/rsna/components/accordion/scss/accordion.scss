@@ -1,0 +1,19 @@
+.accordion {
+    &-tabbed {
+        &__tab {
+            & > a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &:first-child {
+                & > a {
+                    padding-top: 0px;
+                }
+            }
+            &:not(:first-child) {
+                border-top: 1px solid $primary-border-color;
+            }
+        }
+    }
+}

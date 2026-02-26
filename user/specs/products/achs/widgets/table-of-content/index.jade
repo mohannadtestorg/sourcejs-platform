@@ -1,0 +1,14 @@
+﻿extends /specs/products/achs/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Table of content
+        h3 Table of content (Widget)
+        .source_example
+            | !{pb.render("table-of-content", "table-of-content.json")}
+        h3 Markup (xslt)
+        .source_example
+            | !{data.markup}
+
+    | #{''}

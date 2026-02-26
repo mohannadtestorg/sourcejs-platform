@@ -1,0 +1,37 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Podcast category page
+    section.source_section
+        h2 Podcast category page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.podcast-category
+                .container
+                   | !{pb.render("html", data.socialLinks)}
+
+                .container
+                    .row
+                        .col-sm-12
+                            h1.main-title Podcasts
+                            | !{pb.render("html", data.topicInfo)}
+
+
+                    .row
+                        .col-sm-8
+                            | !{data.searchresult}
+                         .col-md-4.col-sm-4
+                           div.sidebar-region
+                             each facet, l in data.podcastCategory
+                                 | !{facet}
+
+
+
+
+            | !{data.footer}
+    | #{''}

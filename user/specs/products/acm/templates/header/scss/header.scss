@@ -1,0 +1,156 @@
+.header {
+  background-color: $primary-bg-color;
+  height: 124px;
+  z-index: 100;
+
+  @include media('<tablet') {
+    height: 64px;
+
+    .institution-wrapper {
+      display: none;
+    }
+    .show-on-mobile, .quick-search,.advanced-search-link {
+      display: none;
+    }
+    .quick-search-mobile {
+      border-bottom: 1px solid $primary-border-color;
+      padding: 0 15px;
+      .input-group {
+        margin: 0;
+      }
+      .quick-search {
+        &--input {
+          background-color: transparent;
+          width: calc(100% - 40px);
+        }
+        &__button {
+          background: $primary-bg-color;
+          border: none;
+          position: absolute;
+          font-size: 1.4rem;
+          padding: 16px 14px 34px;
+          right: 0;
+          top: 0px
+        }
+        &__input {
+          border-color: transparent;
+          height: 60px;
+          font-size: 1rem;
+          padding: 25px 0;
+          &::-webkit-input-placeholder {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  &--first-row {
+    padding: 0 15px;
+    @include media('>=tablet') {
+      height: 62px;
+    }
+    &.container {
+      max-width:100%;
+      width: 100%;
+    }
+
+    .pull-left {
+      @include media('<tablet') {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  &--second-row {
+    padding: 0 15px;
+    border-top: 1px solid $primary-border-color;
+
+    &.container {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .register-link {
+      font-weight: bold;
+    }
+
+    .responsive-menu-container {
+      @include media('<large') {
+        margin-left: -15px;
+      }
+      @include media('<tablet') {
+        height: 0;
+        .quick-menu__item {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__logo1 {
+    display: inline-block;
+    width: 150px;
+    border-right: 1px solid $primary-border-color;
+    padding: 17px 15px 8px 0;
+    margin-left: 0px;
+    margin-right: 10px;
+    @include media('<large') {
+      margin-left: 0;
+    }
+    @include media('<desktop') {
+      width: 110px;
+      padding: 22px 15px 13px 0;
+    }
+    @include media('<tablet') {
+      border-right: none;
+      margin-left: 36%;
+      width: 150px;
+      padding: 15px 15px 10px 0;
+    }
+  }
+  &__logo2 {
+    display: inline-block;
+    width: 130px;
+    vertical-align: sub;
+    @include media('<desktop') {
+      display: none;
+    }
+  }
+
+  &__quick-menu {
+    display: inline-block;
+    font-size: .75rem;
+
+    >.rlist--inline >li {
+      padding: 23px 0 22px 15px;
+      margin-left: 12px;
+      border-left: 1px solid $primary-border-color;
+      position: relative;
+      @include media('<tablet') {
+        position: static;
+        margin: 0;
+        padding: 18px 0 15px 15px;
+      }
+    }
+
+    .btn {
+      color: $light-blue-text-color;
+    }
+  }
+
+  .quick-search {
+    &--input {
+      background-color: $primary-lighten-bg-color;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+    &__button, &__icon, &__input {
+      color: $text-onDark;
+    }
+  }
+
+}
+

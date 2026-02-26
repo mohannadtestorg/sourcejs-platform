@@ -1,0 +1,26 @@
+// used in colsets
+
+.o-col {
+}
+
+.o-col--keyline-top {
+  position: relative;
+}
+
+.o-col--keyline-top::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+
+.o-col--pad-bottom {
+  @include breakpoint('small+') {
+    padding-bottom: 16px;
+  }
+}

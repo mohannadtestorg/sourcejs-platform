@@ -1,0 +1,71 @@
+mixin submissionHistory(history)
+    each item, i in history
+        .history-item
+            | [
+            a.link(href=item.link) #{item.version}
+            | ]
+            | #{" "} #{item.date}
+            | #{" "} (#{item.filesize})
+
+mixin topics(topics)
+    each item, i in topics
+        if (i>0)
+            | , #{" "}
+        a.link(href=item.link) #{item.label}
+
+
+block detailsTabTopDropzone
+    | !{pb.renderDropzone(thisWidget, "detailsDropZoneTop")}
+    hr.section__separator
+
+block detailsTabSubmissionHistory
+    section.details-tab__history
+        strong.section__title
+            | Submission History
+        .section__body
+            +submissionHistory(original.item.details.history)
+
+    hr.section__separator
+
+block detailsTabTopics
+    section.details-tab__topics
+        strong.section__title
+            | Topics
+        .section__body
+            +topics(original.item.details.topics)
+
+    hr.section__separator
+
+block detailsTabLicense
+    if (original.item.ids && original.item.ids.doi)
+        section.details-tab__doi
+            strong.section__title
+                .title DOI
+            .section__body
+                a(href="https://doi.org/"+original.item.ids.doi.value) !{original.item.ids.doi.value}
+        hr.section__separator
+
+    if (original.item.license)
+        section.details-tab__license
+            strong.section__title
+                .title License
+                if (original.item.license.ccType)
+                    if (original.item.license.ccType == "essoar")
+                        if (original.item.license.ccLegalCodeUrl)
+                            a(href=original.item.license.ccLegalCodeUrl, target="_blank") Non-exclusive
+                        else
+                            span Non-exclusive
+                    else
+                        if (original.item.license.ccLegalCodeUrl)
+                            a(href=original.item.license.ccLegalCodeUrl, target="_blank", class="cc-icon cc-icon--#{original.item.license.ccType}")
+                        else
+                            span(class="cc-icon cc-icon--#{original.item.license.ccType}")
+
+            .section__body
+                if (original.item.license.statement)
+                    | !{original.item.license.statement}
+
+                if (original.item.license.ccUrl)
+                    a.link(href=original.item.license.ccUrl) Learn more
+
+        hr.section__separator

@@ -1,0 +1,81 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+        h2 Examples
+
+        h3 Short Info
+        .source_example.source_visible
+            | !{data.items[4].body}
+
+        h3 Collection of Short Info Blocks
+        .source_example.source_visible
+            .container.short-info-container
+                .row
+                    .col-md-4.col-sm-6.col-xs-12
+                        | !{data.items[4].body}
+                    .col-md-4.col-sm-6.col-xs-12
+                        | !{data.items[4].body}
+                    .col-md-4.col-sm-6.col-xs-12
+                        | !{data.items[4].body}
+                    .col-md-4.col-sm-6.col-xs-12
+                        | !{data.items[4].body}
+                    .col-md-4.col-sm-6.col-xs-12
+                        | !{data.items[4].body}
+                    .col-md-4.col-sm-6.col-xs-12
+                        | !{data.items[4].body}
+        h3 Short Info (bigger)
+        .source_example.source_visible
+            | !{data.items[5].body}
+
+        h3 Collection of Short Info (Bigger)
+        .source_example.source_visible
+            .container.short-info-big-container
+                .row
+                    .col-md-6.col-sm-6.col-xs-12
+                        | !{data.items[5].body}
+                    .col-md-6.col-sm-6.col-xs-12
+                        | !{data.items[5].body}
+                    .col-md-6.col-sm-6.col-xs-12
+                        | !{data.items[5].body}
+                    .col-md-6.col-sm-6.col-xs-12
+                        | !{data.items[5].body}
+                    .col-md-6.col-sm-6.col-xs-12
+                        | !{data.items[5].body}
+                    .col-md-6.col-sm-6.col-xs-12
+                        | !{data.items[5].body}
+
+        h3 Article Preview for Slider
+        .source_example
+            .container
+                .row
+                    .col-md-12
+                        | !{data.items[0].body}
+        h3 Article Preview - Image on right
+        .source_example
+            .container
+                .row
+                    .col-md-12
+                        | !{data.items[1].body}
+        h3 Article Preview - Image on left
+        .source_example
+            .container
+                .row
+                    .col-md-12
+                        | !{data.items[2].body}
+        h3 Article Detail
+        .source_example
+            section.section
+                .container
+                    .row
+                        .col-md-12
+                            | !{data.items[3].body}
+        h3 Article (Title left, Text right)
+        .source_example
+            section.section
+                .container
+                    .row
+                        .col-md-12
+                            | !{data.items[6].body}

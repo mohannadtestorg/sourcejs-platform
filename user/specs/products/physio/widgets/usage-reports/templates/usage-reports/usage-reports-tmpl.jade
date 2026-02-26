@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/widgets/usage-reports/templates/usage-reports/usage-reports-tmpl.jade
+
+block emailNotifications
+    h3.section__header.border-bottom e-mail Notifications
+    div.input-group
+        label.checkbox--primary
+            input(type="checkbox" name="counterEnabled" id="chk_counterEnabled" checked=data.emailCounterEnabled)
+            span.label-txt= data.emailCounterEnabledLabel
+    button.btn(type='submit' name='notify')= data.usageReportSaveButtonValue
+
+block submitButton
+    button.btn(type='submit' name='sendMail')= data.sendMailLabel

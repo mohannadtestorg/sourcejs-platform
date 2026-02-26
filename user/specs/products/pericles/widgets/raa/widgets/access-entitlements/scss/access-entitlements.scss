@@ -1,0 +1,128 @@
+.accessEntitlementsSearchFields {
+    position: relative;
+
+    .accessWidgetInstTxtBox {
+        padding-right: 62px;
+    }
+
+    .accessWidgetInstSubButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 44px;
+        width: 58px;
+        font-size: 1.75rem;
+        padding: 0;
+    }
+}
+
+#accessEntitlementsDownloadInfo {
+    margin-top: 20px;
+}
+
+[data-widget-def="eCommerceAccessEntitlementWidget"] {
+    margin-bottom: 72px;
+}
+
+.eCommerceAccessEntitlementWidget {
+    .table-responsive {
+        .note, tbody {
+            font-weight: 400;
+            color: $wiley-typography-color;
+            font-size: 0.725rem;
+        }
+
+        .expired {
+            color: $wiley-red;
+        }
+
+        table {
+            margin-bottom: 48px;
+        }
+
+        .pagination {
+            margin-top: 0;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 24px;
+        }
+    }
+    .subscriptions-form{
+        .quick-search__button{
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 44px;
+            width: 58px;
+            font-size: 28px;
+            font-size: 1.75rem;
+            padding: 0;
+            background: $wiley-blue-color;
+            box-shadow:none;
+            border:none;
+        }
+    }
+    .tab__pane{
+        padding-top:12px;
+    }
+}
+
+.controlsPanel {
+    .section__separator {
+        margin-top: 12px;
+        margin-bottom: 40px;
+    }
+
+
+    .left-side-label {
+        margin-bottom: 14px;
+
+        &:before {
+            display: inline-block;
+            content: '\e93b';
+            font-family: icomoon;
+            color: $wiley-blue-color;
+            margin-right: 10px;
+        }
+    }
+
+    .pagination {
+        margin-top: 24px;
+    }
+}
+
+.licensesTable {
+    th {
+        padding-bottom: 24px;
+    }
+
+    @include media('<tablet') {
+        tr {
+            position: relative;
+        }
+
+        td {
+            padding: 0;
+            font-size: 0.75rem;
+        }
+
+    }
+}
+.entitlements-table {
+    th {
+        font-size: 12px;
+        padding-bottom: 24px;
+    }
+}
+#accessEntitlementsSearch + #subscriptionPanel {
+    tr:last-child td {
+        border-bottom: 0px;
+    }
+    .pagination {
+        margin-top: 0px;
+        padding-top: 25px;
+        border-top: 1px solid $tertiary-bg-color;
+        margin: 0 -20px;
+    }
+}

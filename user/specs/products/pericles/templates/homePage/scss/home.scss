@@ -1,0 +1,224 @@
+/*** Homepage Search ***/
+
+.homepage-search {
+    &-container {
+        background: url(../images/homepage-search-bg.png) no-repeat center center, $wiley-gradient-color;
+        background-size: cover;
+        margin-bottom: 38px;
+        padding-top: 81px;
+        padding-bottom: 18px;
+
+        .advanced-search-link-wrapper {
+            float: right;
+        }
+        .advanced-search-link {
+            color: $white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .quick-search {
+            padding: 0;
+            padding-bottom: 8px;
+        }
+    }
+
+    &-headings {
+        margin-top: 77px;
+        border-top: 1px solid $white;
+        font-weight: 600;
+        font-size: 1.5rem;
+        text-align: center;
+        padding-top: 19px;
+        line-height: 1.5rem;
+
+        a {
+            color: $white;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+
+            @include media('<desktop') {
+                line-height: 1.4em;
+                font-size: 1rem;
+            }
+
+            &:hover {
+                border-bottom-color: $white;
+            }
+        }
+
+    }
+}
+
+.search-header-section {
+    margin-bottom: 1.125rem;
+
+    .intro-text {
+        color: $white;
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin: 0;
+        margin-bottom: 0.75rem;
+        line-height: 20px;
+
+        &--search {
+            color: $white;
+            font-size: 2.25rem;
+            font-weight: 400;
+            margin: 0;
+            font-family: $secondary-font-family;
+            line-height: 1.15em;
+        }
+    }
+}
+
+.resources-container {
+    margin-bottom: 60px;
+    color: $wiley-green-color;
+
+    h5 {
+        font-size: 1.125rem;
+        margin-bottom: 7px;
+    }
+
+    a {
+        color: $wiley-green-color;
+    }
+
+    li ~ li {
+        margin-top: 0.625rem;
+    }
+
+    .list--bordered-left {
+        @include media('<desktop') {
+            padding-left: 0;
+            border-left: none;
+
+            .collapsible-menu-body {
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
+
+        }
+    }
+}
+
+.subjects-container {
+    margin-bottom: 75px;
+
+    .accordion-tabbed {
+        &__tab {
+            & ~ .accordion-tabbed__tab {
+                border-top: none;
+                margin-top: 4px;
+            }
+
+            &.js--open {
+                .accordion-tabbed__control {
+                    background: $wiley-green-color;
+                }
+
+                .icon-chevron-down:before {
+                    content: "\e903";
+                }
+            }
+        }
+
+        &__control {
+            color: $white;
+            padding: 16px 25px 13px 21px;
+            background: $wiley-blue-color;
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 22px;
+
+            [class*="icon-chevron"] {
+                float: right;
+
+                @include media('<desktop') {
+                    position: absolute;
+                    right: 12px;
+                    top: calc(50% - 12px);
+                }
+            }
+
+            @include media('<desktop') {
+                line-height: 30px;
+                padding-right: 40px;
+                position: relative;
+            }
+        }
+
+        &__content {
+            @extend .clearfix;
+            border: 1px solid $wiley-green-color;
+            border-top: none;
+            font-weight: 300;
+            color: $wiley-blue-color;
+            font-size: 1rem;
+            padding: 25px 40px 30px;
+
+            li ~ li {
+                margin-top: 10px;
+            }
+
+            @include media('<desktop') {
+                .col-md-6 ~ .col-md-6 {
+                    li:first-child {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.featured-container {
+    background: $wiley-gradient-color;
+    padding-top: 48px;
+    padding-bottom: 63px;
+
+    .section__mainHeader {
+        color: $white;
+    }
+
+    .new-issue {
+        text-align: center;
+        color: $white;
+
+        img {
+            display: inline-block;
+        }
+
+        h5 {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        a {
+            color: $white;
+        }
+    }
+
+    &--btn {
+        text-align: center;
+        margin-top: 20px;
+
+        a {
+            display: inline-block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: $white;
+            border: 1px solid $white;
+            padding: 12px 20px;
+        }
+    }
+}
+
+@include media('<desktop') {
+
+    html {
+        overflow-x: hidden;
+    }
+}

@@ -1,0 +1,457 @@
+p.m-deflist__intro.f-body--sm
+  | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  | consequat.
+h2.a-subtitle OpenAthens Users
+.m-deflist
+  dl.m-deflist__dl
+    dt.m-deflist__dt.f-body--sm
+      a(href='#') Login via OpenAthens
+    dd.m-deflist__dd.f-body--sm
+      | Access is available using your OpenAthens username and password. Contact your library if you do not have an OpenAthens username and password.
+  dl.m-deflist__dl
+    dt.m-deflist__dt.f-body--sm
+      a(href='#') OpenAthens registered sites
+    dd.m-deflist__dd.f-body--sm List of OpenAthens registered sites, including contact details.
+h2.a-subtitle Institution Users
+p.m-deflist__intro.f-body--sm
+  | If you are a member of one of the institution's displayed below, you can log in using your institution username and password.
+.m-deflist
+  dl.m-deflist__dl
+    dt.m-deflist__dt.f-body--sm
+      strong Geographic Region
+      em
+        | To log in using your institution's credentials, select a geographic region. If your institution is not listed, please contact your librarian.
+    dd.m-deflist__dd.f-body--sm
+      .m-deflist__select.m-deflist__select--full
+        span.a-form-select
+          select(name='federationSelect', data-behavior='ShowHideConnectSelector')
+            option(value='') Select Region / Group
+            option(value='List all Institutions') List all Institutions
+            option(value='German Higher Education (DFN-AAI)') German Higher Education (DFN-AAI)
+            option(value='Ireland - Edugate Federation') Ireland - Edugate Federation
+            option(value='Italy - IDEM GARR') Italy - IDEM GARR
+            option(value='OpenAthens Federation') OpenAthens Federation
+            option(value='UK Higher Education') UK Higher Education
+      .m-deflist__select.m-deflist__select--full.s-hidden(data-select-id='German Higher Education (DFN-AAI)')
+        span.a-form-select
+          select(name='federationSelect-german', data-behavior='RedirectToSelectValue')
+            option(value='') Select Institution
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fwww.sso.uni-erlangen.de%2Fsimplesaml%2Fsaml2%2Fidp%2Fmetadata.php&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Friedrich-Alexander-Universität Erlangen-Nürnberg
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Faai-integration.dfn.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') German National Research and Education Network, DFN
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.uni-duesseldorf.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Heinrich Heine University Duesseldorf
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hebis.de%2Funi-frankfurt&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Johann Wolfgang Goethe-Universität Frankfurt am Main
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibboleth-idp.uni-wuerzburg.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Julius-Maximilians-Universität Würzburg
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fweblogin.uni-marburg.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Philipps-University Marburg
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Flogin.slub-dresden.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') SLUB Dresden
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Ftumidp.lrz.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Technical University of Munich (TUM)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Faai.rz.uni-leipzig.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Leipzig
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.uni-heidelberg.de&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Universität Heidelberg (Ruprecht-Karls-Universität)
+      .m-deflist__select.m-deflist__select--full.s-hidden(data-select-id='Ireland - Edugate Federation')
+        span.a-form-select
+          select(name='federationSelect-ireland', data-behavior='RedirectToSelectValue')
+            option(value='') Select Institution
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp2.dcu.ie%2Fidp%2Fprofile%2FMetadata%2FSAML&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Dublin City University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nuim.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Maynooth University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nuigalway.ie%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') National University of Ireland, Galway
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rcpi.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal College of Physicians of Ireland
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fhidp.ucc.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University College Cork
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fsso.ucd.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University College Dublin
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ul.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Limerick
+      .m-deflist__select.m-deflist__select--full.s-hidden(data-select-id='Italy - IDEM GARR')
+        span.a-form-select
+          select(name='federationSelect-italy', data-behavior='RedirectToSelectValue')
+            option(value='') Select Institution
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp-cro.irccs.garr.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') IRCCS CRO di Aviano
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.izs.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Istituto Zooprofilattico Sperimentale dell'Abruzzo e del Molise "G. Caporale"
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibidp.cca.unipd.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Padova
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibidp.unipr.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Parma
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.unipi.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Pisa
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fgiasso.univr.it%2Fidp%2Fidem&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Verona
+      .m-deflist__select.m-deflist__select--full.s-hidden(data-select-id='OpenAthens Federation')
+        span.a-form-select
+          select(name='federationSelect-openathens', data-behavior='RedirectToSelectValue')
+            option(value='') Select Institution
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.aiims.ac.in%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') AIIMS New Delhi
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.medlinet.amedd.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') AMEDD Virtual Library (AVL)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.atlantichealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ATLANTIC HEALTH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') AZHIN Athens
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.iuhealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Aacademic Health Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https.%2F%2Fidp.seha.ae%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Abu Dhabi Health Services Seha
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.amnch.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Adelaide & Meath Hospital Inc. National Children's Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.einstein.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Albert Einstein Healthcare Network
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.alfredhealth.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Alfred Health
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ada.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') American Dental Association
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Anglian Community Enterprise CIC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.af.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Army-BAMC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dhss.delaware.gov%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') BAYHEALTH MEDICAL CENTER
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dhss.delaware.gov%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') BEEBE HEALTHCARE
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') BEECHES EDUCATION CENTRE
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') BLACKPOOL VICTORIA HOSP
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.health.vic.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Ballarat Health Service
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Banner Health Arizona
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Banner Health Libraries
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bhsi.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Baptist Health Lexington
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.baptisthealth.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Baptist Health South Florida
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Basildon & Thurrock Univ Hosp NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.baycare.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') BayCare Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Bedford Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bendigohealthcare.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Bendigo Healthcare Group
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.brcn.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Blessing Health Professions Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bpthosp.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Bridgeport Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.carilionclinic.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CARILION
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.carilionclinic.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CARILION CLINIC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CENTRAL/NORTHWEST LONDON
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CHELSEA & WESTMNSTER
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CHRISTIE HOSPITAL NHS TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CITY GENERAL HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ckn.qldhealth.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') CKN CAIRNS HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.cabrini.com.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Cabrini Health
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.calicolifesciences.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Calico Life Sciences LLC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Cambridge Univ Hosp NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Cambridgeshire & Peterborough NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Cambridgeshire Community Service NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.canterbury.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Canterbury Christ Church University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Carondelet Health Network
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.centrahealth.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Centra
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Central Essex Community Services CIC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.centralgippslandhealth.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Central Gippsland Health Service
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Central Meddlesex
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Chesterfield Royal Hospital NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Cobre Valley Regional Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Colchester Hospital Univ NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.crh.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Columbus Regional Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.chguv.san.gva.es%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Consorcio Hospital General Universitario de Valencia
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dhss.delaware.gov%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') DE DIVISION OF SUBSTANCE ABUSE & MENTAL HLTH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') DIANA PRINCESS OF WALES HOSPTL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') DIGNITY HEALTH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dsi.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Daiichi Sankyo
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Defense Centers of Excellence
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.tma.osd.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Defense Medical Virtual Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.state.de.us%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Delaware Department of Health and Social Services
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Department of Health
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Derby Hospitals NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.desertregional.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Desert Regional Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dha.gov.ae%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Dubai Health Authority - UAE
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') EAST KENT HOSPITAL UNIVERSITY
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Ealing Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East Coast Community Healthcare CIC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East and North Hertfordshire NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East of England Ambulance Service (Beds & Herts)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East of England Ambulance Service (Cambs)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East of England Ambulance Service (Essex)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East of England Ambulance Service (Norfolk)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') East of England Ambulance Service (Suffolk)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.echn.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Eastern Connecticut Health Network
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eduserv.org.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Eduserv Athens
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') FRIMLEY HEALTH NHS FOUNDATION TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ferring.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Ferring Pharmaceuticals
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.flhosp.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Florida Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.genesiscare.com.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GENESIS CARE
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GPS Practice & CCG staff in Hertfordfordshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GPS Practice Staff & CCG staff in Bedfordshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GPs Practice Staff and CCG Staff Norfolk & Waveney
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GPs Practice Staff and CCG Staff in Cambs
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GPs Practice Staff and CCG Staff in Essex
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GPs Practice Staff and CCG staff in Suffolk
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.gsk.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') GSK
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.gilead.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Gilead Sciences, Inc
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.goulburnvalleyhealth.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Goulburn Valley Health
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.gbmc.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Greater Baltimore Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ghs.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Greenville Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.greenwichhospital.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Greenwich Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hmc.org.qa%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HAMAD MEDICAL CORPORATION
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HEALTH EDUCATION WESSEX
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bibliosalut.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HOSPITAL UNIVERSITARI SON ESPASES
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE Dublin Kildare Wicklow
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE Dublin Mid-Leinster
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE Dublin North East
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE Mid-West (Limerick)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE North (Sligo, Letterkenny, Donegal)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE South
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE South East
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSE West (Galway, Mayo, Roscommon)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hshs.org.openathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HSHS St Mary's Hospital Decatur
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hackensackumc.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') HackensackUMC Samuel and Sandra Hekemian Medical Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.halozyme.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Halozyme
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hmh.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hardin Memorial Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Health Education East of England
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Health Service Executive (Ireland)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hertfordshire Community NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hertfordshire Partnership NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hillingdon Hospitals NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hinchingbrooke Health Care NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.holyname.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Holy Name Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.oc.mde.es%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hospital Central de la Defensa Gomez Ulla
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.riojasalud.es%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hospital San Pedro
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hshs.org.openathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hospital Sisters Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.shsny.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hunter-Rice Health Sciences Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.huntingtonhospital.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Huntington Memorial Hospital, Health Sciences Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hurleymc.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Hurley Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ida.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') IDA (Institute for Defense Analyses)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.iuhealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') IU HEALTH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Imperial College Healthcare
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.inova.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Inova Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.iner.salud.gob.mx%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Instituto Nacional De Enfermedades Respiratoriasias
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Ipswich Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.carilionclinic.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') JEFFERSON
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ramsayhealth.com.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') JOONDALUP HEALTH CAMPUS LIBRARY
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') James Paget University Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') John C Lincoln Health Network
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') KING'S HEALTH PARTNERS
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.virtuskuwait.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Kuwait University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') LANCASHIRE TEACHING HOSPITALS NHS TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') LONDON AMBULANCE SERVICE NHS TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.lvn.se%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Landstinget Vasternorrland
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.leememorial.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') LeeHealth
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.cadencehealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Libraries of Northwestern Medicine - West Region
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.lipscomb.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Lipscomb University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ph.lacounty.gov%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Los Angeles County Department of Public Health
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Luke Air Force Base Clinic
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Luton & Dunstable Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bshsi.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') MARY IMMACULATE HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.milliman.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') MCG Health, LLC.
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.medstar.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') MEDSTAR HEALTH SYSTEM LIBRARIES
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mmikuwait.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') MMI Kuwait Dabbous Cardiac Centre
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nejm.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') MMS University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mrc.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') MRC HeadOffice
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ckn.qldhealth.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mackay Health District
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.marian.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Marian University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Maricopa Integrated Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mater.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mater Misericordiae University Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mathematica-mpr.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mathematica Policy Research
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mclean.harvard.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') McLean Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.genesiscare.com.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Medphys
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mercyhealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mercy Fitzgerald Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mercy.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mercy Hospital St. Louis, Thomas F. Frawley Medical Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mercyhealth1.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mercy Hospital of Philadelphia
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mid Essex Hospital Services  NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mountainsidehosp.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Mountainside Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fwslhd.health.nsw.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NEPEAN BLUE MOUNTAINS LHD
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NHS Essex CSU
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NHS FOUNDATION TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NHS Healthcare Provider Organisations in Beds.
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NHS Healthcare Provider Organisations in Suffolk
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NHS Hertfordshire Integrated CSU
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NORTH EAST STRATEGIC HEALTH AUTHORITY
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') NORTH MIDDLESEX HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.wblnhrc.med.navy.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Naval Health Research Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nmcp.med.navy.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Naval Medical Center Portsmouth, Library Services
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nmcsd.med.navy.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Naval Medical Center San Diego
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nmotc.navy.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Navy Medicine Operational Training Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nbi.barnabashealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Newark Beth Israel Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Norfolk & Suffolk NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Norfolk & Waveney CSU
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Norfolk Community Healthcare NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Norfolk and Norwich University Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') North Essex Partnership NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Northampton General Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Northamptonshire Healthcare NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Northamptonshire Teaching PCT
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.northeasthealthwangaratta.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Northeast Health Wangaratta
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Northwick Park
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Nottingham University Hospitals NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.novanthealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Novant Health
+            option(value='https://www.nejm.org/action/ssostart?idp=http%3A%2F%2Fidp.athoaftest.eduserv.org.uk&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OAFTO-1
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.osazzz.osakidetza.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OSAKIDETZA Servicio Vasco de Salud
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.osahuat.osakidetza.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OSI Araba
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.osahdb.osakidetza.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OSI Bilbao-Basurto
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.osachd.osakidetza.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OSI Donostialdea
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.osakhc.osakidetza.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OSI Ezkerraldea-Enkarterri-Cruces
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OWD NHSBT
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ohiohealth.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') OhioHealth
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.omsb.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Oman Medical Speciality Board
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Other Commissioning Org East England inc LATs etc
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Other Healthcare Provider Organisations in EoE
+            option(value='https://www.nejm.org/action/ssostart?idp=http%3A%2F%2Fidp.pfizer.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') PFIZER C/O SENTINEL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') PUBLIC HEALTH ENGLAND
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.wales.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') PUBLIC HEALTH WALES NHS TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.lankenau.mainlinehealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Paoli Memorial Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Papworth Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.peninsulahealth.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Peninsula Health
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.pacollege.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Pennsylvania College of Health Sciences
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Peterborough and Stamford Hospitals
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.philips.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Philips Research
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Phoenix Children's Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Phoenix Indian Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.plannedparenthood.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Planned Parenthood Federation of America
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.pehrc.co.za%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Port Elizabeth Health Resource Centre
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.miamivalleyhospital.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Premier Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.phs.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Presbyterian Healthcare Services
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.resurrection.presencehealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Presence Resource Bucket 1
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.stjo.presencehealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Presence Resource Bucket 2
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.reshealthcare.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Presence Resource Bucket 3
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.smemc.reshealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Presence Resource Bucket 4
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Princess Alexandra Hospital NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.promedica.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ProMedica Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.providence.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Providence Health & Services
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Public Health Organisation in Bedfordshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Public Health Organisation in Cambridgeshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Public Health Organisations in Essex
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Public Health Organisations in Hertfordshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Public Health Staff in Norfolk
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Public Health Staff in Suffolk
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') QUEEN ELIZABETH HOSP BIRMINGHAM LIB
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ckn.qldhealth.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') QUEENSLAND HEALTH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Queen Elizabeth Hospital King's Lynn NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.unchealth.unc.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') REX Healthcare
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ROYAL ALBERT EDWARD INFIRMARY
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ROYAL LIVERPOOL & BROADGREEN UNIV HOSPS  NHS TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rti.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') RTI International
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.skane.se%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Region Skane
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.healthpartners.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Regions Hospital Medical Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rwjuh.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Robert Wood Johnson University Hospital Somerset
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rotunda.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Rotunda Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rcgp.org.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal College of General Practitioners
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rcplondon.ac.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal College of Physicians of London
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rvc.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal Veterinary College
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fsaintlukeshealthsystem.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') SAINT LUKES HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') SALFORD ROYAL HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') SHEFFIELD CHILDRENS NHS FOUNDATION TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') SOUTHPORT & ORMSKIRK HOSP NHS TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dhss.delaware.gov%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ST FRANCIS HOSPITAL WILMINGTON
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ascensionhealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ST JOHN PROVIDENCE HEALTH SYSTEM
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hshs.org.openathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ST JOHNS HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fsaintlukeshealthsystem.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ST LUKE COLLEGE OF HEALTH SCIENCES
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hse.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') ST LUKES INST CANCER RSCH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.sbmc.barnabashealth.org&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Saint Barnabas Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.stthomas.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Saint Thomas Health Services, TN
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.smh.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Sarasota Memorial Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Scottsdale Healthcare
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.seattlegenetics.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Seattle Genetics, Inc.
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Sherwood Forest Hospitals NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.sgrh.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Sir Ganga Ram Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') South Essex Partnership NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.southwesthealthcare.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') South West Healthcare
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Southend University Hospital NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dignityhealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St Joseph's Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.stvincents.ie%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St Vincent's University Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.stcharleshealthcare.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St. Charles Health System (SCHS)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.stjoeshealth.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St. Joseph Mercy Health System
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.sjhmc.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St. Joseph's Healthcare System (NJ)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.stmaryhealthcare.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St. Mary Medical Center PA
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ssmhc.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St. Mary's Hospital, Madison
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Suffolk Mental Health Partnership NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.snp.com.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Sullivan & Nicolaides Pathology
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Summit Regional Medical Center
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.swan.ac.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Swansea University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') TMC Healthcare
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (ASA)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (ASB)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (ASC)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (CAN)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (EUB)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (EUC)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (EUE)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (EUN)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (EUW)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (ISR)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (LAT)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (PAC)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (USC)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (USE)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.teva.co.il%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Teva Pharmaceutical Industries LTD (USW)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.library.tmc.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Texas Medical Center Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.tsrh.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Texas Scottish Rite Hospital for Children / Medical Library
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.jointcommission.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') The Joint Commission
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.usoncology.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') The Oncology Portal, LLC
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.toh.on.ca%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') The Ottawa Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.royalchildrenshospital.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') The Royal Children's Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.royalvictorianeyeandear.gov.au%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') The Royal Victorian Eye and Ear Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.thermofisher.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Thermo Fisher Scientific
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mercyhealth2.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Trinity Health - St Mary's - Grand Rapids
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mercyhealth2.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Trinity Health - St. Joseph Regional - Mishawaka
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mercyhealth2.com%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Trinity Health- Merch Health Muskegon
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') UNI HOS BRISTOL NHS FOUN TRUST
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nmel.med.navy.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') UNIFORMED SERVICES UNIV OF HEALTH SCIENCES
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') US Aeromedical Research Laboratory
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') US Army Institute of Surgical Research
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') US Army Med Research
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') US Army Medical Research
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') US Army Medical Research & Materiel Command
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') US Army Research Institute of Chemical Defense
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') United Lincolnshire Hospitals NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Univ Hosp Leicester NHS Trust LRI LGH & Glenfield
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.herts.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Hertfordshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.salford.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Salford
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fwww.surrey.ac.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Surrey
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.va.gov%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') VA LIBRARY NETWORK
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.carilionclinic.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') VIRGINIA TECH
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.virtua.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Virtua
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.us.army.mil%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') WALTER REED NATIONAL MED CTR
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') WHITTINGTON HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') WOLVERHAMPTON MEDICAL INSTIT
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') WYTHENSHAWE HOSPITAL
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.waikatodhb.health.nz%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Waikato District Health Board
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.wsu.ac.za%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Walter Sisulu University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') West Hertfordshire Hospitals NHS Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') West London Mental Health NHS
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') West Middlesex University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') West Suffolk  NHS Foundation Trust
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.wphospital.org%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') White Plains Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.commonwealthhealth.net%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Wilkes-Barre General Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.wgh.on.ca%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Woodstock Hospital
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ahsl.arizona.edu%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Yuma Regional Medical Center
+      .m-deflist__select.m-deflist__select--full.s-hidden(data-select-id='UK Higher Education')
+        span.a-form-select
+          select(name='federationSelect-uk', data-behavior='RedirectToSelectValue')
+            option(value='') Select Institution
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fopenathens.aston.ac.uk%2Foala%2Fmetadata&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Aston University OpenAthens
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.canterbury.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Canterbury Christ Church University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fcas.cuni.cz%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Charles University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Flogin.library.dmu.ac.uk%2Foala%2Fmetadata&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') De Montfort University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp2.dcu.ie%2Fidp%2Fprofile%2FMetadata%2FSAML&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Dublin City University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ebi.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') European Molecular Biology Laboratory - EMBL-EBI
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fwww.sso.uni-erlangen.de%2Fsimplesaml%2Fsaml2%2Fidp%2Fmetadata.php&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Friedrich-Alexander-Universität Erlangen-Nürnberg
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.uni-duesseldorf.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Heinrich Heine University Duesseldorf
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp-cro.irccs.garr.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') IRCCS CRO di Aviano
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibboleth.imperial.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Imperial College London
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.izs.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Istituto Zooprofilattico Sperimentale dell'Abruzzo e del Molise "G. Caporale"
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.hebis.de%2Funi-frankfurt&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Johann Wolfgang Goethe-Universität Frankfurt am Main
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibboleth-idp.uni-wuerzburg.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Julius-Maximilians-Universität Würzburg
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fkiidp.ki.se%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Karolinska Institutet
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fopenathens.keele.ac.uk%2Foala%2Fmetadata&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Keele University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fkclidp.kcl.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') King's College London
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.lancs.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Lancaster University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nuim.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Maynooth University
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.mrc.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Medical Research Council
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.nuigalway.ie%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') National University of Ireland, Galway
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.shibboleth.qmul.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Queen Mary, University of London
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rcpi.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal College of Physicians of Ireland
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.rcplondon.ac.uk%2Fopenathens&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal College of Physicians of London
+            option(value='https://www.nejm.org/action/ssostart?idp=http%3A%2F%2Fidp.rhul.ac.uk%2Foala&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Royal Holloway, University of London
+            option(value='https://www.nejm.org/action/ssostart?idp=urn%3Amace%3Aac.uk%3Asdss.ac.uk%3Aprovider%3Aidentity%3Ashibboleth-i.sgul.ac.uk&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') St George's, University of London
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Ftumidp.lrz.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Technical University of Munich (TUM)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshib-idp.ucl.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') UCL (University College London)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fhidp.ucc.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University College Cork
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fsso.ucd.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University College Dublin
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibserv.abdn.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Aberdeen
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bath.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Bath
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fbrad.ac.uk%2Foala%2Fmetadata&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Bradford
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.bris.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Bristol
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshib.raven.cam.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Cambridge
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.dundee.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Dundee
+            option(value='https://www.nejm.org/action/ssostart?idp=urn%3Amace%3Aac.uk%3Asdss.ac.uk%3Aprovider%3Aidentity%3Adur.ac.uk&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Durham
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Flogin.uea.ac.uk%2Fentity&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of East Anglia (UEA)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Felibrary.exeter.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Exeter
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.gla.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Glasgow
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.herts.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Hertfordshire
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fpassport01.leeds.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Leeds
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Faai.rz.uni-leipzig.de%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Leipzig
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.ul.ie%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Limerick
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshib.manchester.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Manchester
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibidp.cca.unipd.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Padova
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fshibidp.unipr.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Parma
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.unipi.it%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Pisa
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Ffam.salford.ac.uk%2Foala%2Fmetadata&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Salford (Network Username)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fwebauth.soton.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Southampton
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.st-andrews.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of St Andrews
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fnetlogin.strath.ac.uk%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Strathclyde
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Foala.surrey.ac.uk%2Foala%2Fmetadata&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Surrey
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fgiasso.univr.it%2Fidp%2Fidem&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Verona
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.warwick.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Warwick
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.wmin.ac.uk%2Fentity&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of Westminster
+            option(value='https://www.nejm.org/action/ssostart?idp=urn%3Amace%3Aac.uk%3Asdss.ac.uk%3Aprovider%3Aidentity%3Auhi.ac.uk&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') University of the Highlands and Islands
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.uni-heidelberg.de&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Universität Heidelberg (Ruprecht-Karls-Universität)
+            option(value='https://www.nejm.org/action/ssostart?idp=https%3A%2F%2Fidp.sanger.ac.uk%2Fidp%2Fshibboleth&redirectUri=http%3A%2F%2Fwww.nejm.org%2F') Wellcome Trust Sanger Institute

@@ -1,0 +1,99 @@
+mixin printIcon(item,classSuffix)
+    i(class= item.icon aria-hidden="true")
+
+mixin  printItem(item, classSuffix)
+    li(class="article-tools__item article-tools__"+ classSuffix )
+        if item.links
+            if item.links.length == 1
+                a.article-tools__ctrl(href=item.links[0].url title=item.links[0].label)
+                    +printIcon(item,classSuffix)
+                    span.basic !{item.label}
+                        if (item.links[0].size)
+                            | #{" "}[!{item.links[0].size}]
+                    span.alternative Download !{item.label}
+                        if (item.links[0].size)
+                            | #{" "}[!{item.links[0].size}]
+            else
+                div(class="dropBlock article-tools__dropblock " + "article-tools__" + classSuffix)
+                    if classSuffix == "pdf"
+                        a.article-tools__ctrl(href="#" title="open " + item.label + " menu" data-db-target-for="article-tools-" + classSuffix)
+                            +printIcon(item,classSuffix)
+                            span.basic !{item.label}
+                            span.alternative Download !{item.label}
+                    else
+                        a.article-tools__ctrl(href="#" title="open " + item.label + " menu" data-db-target-for="article-tools-" + classSuffix)
+                            +printIcon(item,classSuffix)
+                            span !{item.label}
+                    .dropBlock__holder.article-tools__dropblock__holder(data-db-target-of="article-tools-" + classSuffix)
+                        ul.rlist.article-tools__sub-list
+                            each link, l in item.links
+                                li.article-tools__sub-item
+                                    - var specialClass = ""
+                                    if (classSuffix=="figures" && l == 0)
+                                        - specialClass = "js--openFigureViewer"
+                                    if classSuffix == "save" && l == 0
+                                        - specialClass = "mendeley"
+                                    a(href=link.url title=link.label class=specialClass)
+                                        | !{link.label}
+                                        if (link.size)
+                                            | #{" "}[!{link.size}]
+                                    if classSuffix == "save" && l == 0
+                                        span.powered-by
+                                            span Powered By
+                                            i.icon-mendeley
+                                            span Mendeley
+        else
+            a.article-tools__ctrl(href=item.url title=item.label)
+                +printIcon(item,classSuffix)
+                span !{item.label}
+
+mixin printLink(item, classSuffix)
+    a(href=item.url title=item.label)
+        +printIcon(item,classSuffix)
+        span !{item.label}
+
+if (data)
+    .article-tools
+        .article-tools__wrapper
+            span.article-tools__header
+                //.transplant(data-target="article h1" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-transplant="content")
+            .article-tools__holder.pull-right
+                if ( data && data.pdf )
+                    if ( data.pdf.links &&  data.pdf.links[0].url)
+                        a.article-tools__pdf--link(href=data.pdf.links[0].url) Download PDF
+                    else
+                        a.article-tools__pdf(href=data.pdf.url) Download PDF
+                ul.rlist.rlist--inline.article-tools__list
+                    if (data.items)
+                        if (data.items.pdf)
+                            +printItem(data.items.pdf, "pdf")
+                        if (data.items.figures)
+                            +printItem(data.items.figures, "figures")
+                        if (data.items.purchase)
+                            +printItem(data.items.purchase, "purchase")
+                        if (data.items.subscribe)
+                            +printItem(data.items.subscribe, "subscribe")
+                        if (data.items.save)
+                            +printItem(data.items.save, "save")
+                        block articleTools-dropzone
+                            li.article-tools__item
+                                | !{pb.renderDropzone(thisWidget, 'coolbarDropZone1')}
+                        if (data.items.reprints || data.items.request)
+                            li
+                                div(class="dropBlock article-tools__dropblock " + "article-tools__more")
+                                    a.article-tools__ctrl(href="#" title="Show more tools" + " menu" data-db-target-for="article-tools-more")
+                                        i(class= "icon-dots-three-horizontal" aria-hidden="true")
+                                        span more
+                                    .dropBlock__holder.article-tools__dropblock__holder(data-db-target-of="article-tools-more")
+                                        ul.rlist
+                                            if (data.items.reprints)
+                                                li
+                                                    +printLink(data.items.reprints, "reprints")
+                                            if (data.items.request)
+                                                li
+                                                    +printLink(data.items.request, "request")
+
+                    li
+                        a.back-to-top(href="#")
+                            i.icon-arrow_u_p(aria-hidden="true")
+                            span Top

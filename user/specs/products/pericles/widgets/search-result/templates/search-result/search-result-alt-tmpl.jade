@@ -1,0 +1,60 @@
+extends ./search-result-tmpl.jade
+
+block searchResultTop
+
+block searchFilterDropBlock
+    .search--filter.dropBlock
+        a(href = "#" class="visible-xs visible-sm visible-md result__ctrl__filters w-slide__btn" data-slide-clone="self" data-slide-target="#filter")
+            i(class="icon-list-unordered" aria-hidden="true")
+            span Browse by topic
+            i(class="icon-arrow_r" aria-hidden="true")
+
+
+
+block searchResultTopShowPublications
+    if (data.serviceName == "doSearch")
+        div.search-result__meta.search-result__mrw-browse
+            div.search-result__meta__top.clearfix
+                div.search__bottom
+                    +filterSearch()
+
+
+                block searchResultTopShowPublicationsLeftSide
+                    .books__search-meta.pull-left
+                        if data.search.hitsLength > 0
+                            span.result__current
+                                b !{resultFrom}-!{resultTo}
+                            span.result__sep !{' of '}
+                            span.result__count
+                                b !{data.search.formattedHitsLength}
+                                if (data.widgetData.refineSearch.searchInTopic)
+                                    | !{' results in '}
+                                    b !{data.widgetData.refineSearch.searchInTopic}
+                                else
+                                    | !{' results'}
+                        else
+                            span.result__current No results
+                            span.result__sep !{' of '}
+                            span.result__count
+                                if (data.widgetData.refineSearch.searchInTopic)
+                                    b !{data.widgetData.refineSearch.searchInTopic}
+
+                    if (data.widgetData.sortLinks)
+                        -var sortLinkCnt = 0;
+                        each sortLink , i in data.widgetData.sortLinks
+                            if (sortLink.selected)
+                                if sortLink.selected == 'true'
+                                    -sortLinkCnt++
+
+                        if (sortLinkCnt > 1)
+                            | !{pb.render("search-result", "search-result/sort-options", {data: data,thisWidget: thisWidget})}
+
+
+block aboutBookWrapper
+    if (item.content.issueLink && item.content.issueLink != "")
+        div.accordion.search-result__about-issue
+            block aboutBookLabel
+                a(href="#" class="accordion__control" title="show About this issue")
+                    span About this issue
+                    i.icon-section_arrow_d(aria-hidden="true")
+            div.accordion__content(data-aboutIssue="/pb/issueSuppl/getDescription?doi" + item.content.issueLink)

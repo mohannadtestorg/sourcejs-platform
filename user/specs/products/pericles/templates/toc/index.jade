@@ -1,0 +1,689 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Table Of Content page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200348' target="_blank">`LIT-200348`</a> and <a href='https://jira.atypon.com/browse/LIT-201345' target="_blank">`LIT-201345`</a> for MRW toc
+
+    section.source_section
+        h2 Table Of Content page
+
+        h3 Table Of Content page
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+            style.
+                .dropzone {
+                    display: none;
+                }
+
+
+
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            h1.hidden  Journal list menu
+                            .pages-nav--sticky.pages-nav.hidden-lg
+                                .pages-nav--res
+                                    .container
+                                        ul.rlist--inline.pull-left
+                                            li
+                                                a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                    i.icon-toc(aria-hidden='true')
+                                                    span Journal
+                                                #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-1, #menu-item-main-menu-1-2, #menu-item--1, #menu-item--2, .journal-featured', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    a.dropdown__toggle(href='#', title='More from this journal')
+                                                        span More from this journal
+                                                    .transplant.showit(data-target='.journal-resources', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                            li
+                                                a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                                    i.article-img-icon
+                                                        img(src='//wol-test-cdn.literatumonline.com/pb-assets/hub-assets/pericles/articles_1-1499257321163.png')
+                                                    span Articles
+                                                #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-3, #menu-item-main-menu-1-4, #menu-item--3', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(href='#', data-db-target-for='actions-list', data-db-switch='icon-close_thin')
+                                                    span Actions
+                                                    i.icon-chevron-down(aria-hidden='true')
+                                                #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                    h2.side-section-header.hiddenLabel--lg Tools
+                                                    .transplant.showit(data-target='.journal-actions-container li:nth-child(1), .journal-actions-container li:nth-child(2), .journal-actions-container li:nth-child(3), .journal-actions-container li:nth-child(4), .journal-actions-container li:nth-child(5), #subscribeLink', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    h2.side-section-header.hiddenLabel--lg Follow journal
+                                                    .transplant.showit(data-target='#alert-link, #facebook-link, #twitter-link, #most-recent-link, #most-read-link, #most-cited-link', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard
+                                            script.
+                                                googletag.cmd.push(function () {
+                                                    googletag.display('advert-leaderboard');
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                a(href='/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Ftoc%2F10970142%2F77%2F2&pubId=40106032&placeholderId=1015&productId=101018', target='_blank')
+                                                    img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=728x90&tile=1&c=$random')
+                            style(type='text/css').
+                                li.menu-item[aria-label="Accepted Articles"] {
+                                    display: none;
+                                }
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            a(href='/journal/10970142', title='Cancer homepage')
+                                                h1#journal-banner-text(style='margin: 0; font-size: 0') Cancer
+                                                img#journal-banner-image.journal-banner-image(alt='Cancer banner', src='//wol-test-cdn.literatumonline.com/pb-assets/journal-banners/10970142-1501384658597.jpg', style='margin-bottom: 15px; display: none')
+                                            script.
+                                                var image = new Image();
+                                                image.onload = function () {
+                                                    // if the image exists
+                                                    document.getElementById("journal-banner-image").style.display = "block";
+                                                }
+                                                image.onerror = function () {
+                                                    // if the image does not exist
+                                                    document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                                    document.getElementById("journal-banner-text").style.fontSize = "22px";
+                                                }
+                                                image.src = "//wol-test-cdn.literatumonline.com/pb-assets/journal-banners/10970142-1501384658597.jpg";
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+
+                            | !{pb.render('menu', 'mainMenu.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}}})}
+
+                        section.publications-page-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .gutterless--md.gutterless--sm.gutterless--xs.col-md-12
+                                        .gutterless--xs.gutterless--sm.gutterless--md.main-content.col-md-8
+                                            .cover-widget-section(data-widget-def='ux3-layout-widget', data-widget-id='37ffca8d-3653-4f3a-a0e1-e8138dac6006')
+                                                .card.card--gutterless
+                                                    .cover-image--parentInfo.no-dateLabel.cover-image--tocPage(data-widget-def='UX3CoverImage', data-widget-id='5ea3d0f2-cb36-4d9b-8ef0-23b1fc2bf1c8')
+                                                        ul.rlist.loc
+                                                            li.grid-item.cover-image
+                                                                .cover-image__image.hasDetails
+                                                                    img(src='//wol-test-cdn.literatumonline.com/cms/attachment/a594e2c5-6aec-4795-99ac-23e84e33fe25/cncr.v124.5.cover.jpg', alt='Cover image')
+                                                                .cover-image__details
+                                                                    span.cover-image__type Issue
+                                                                    .cover-image__parent-item
+                                                                        span.comma Volume 77,
+                                                                        | Issue 2
+                                                                    .cover-image__pageRange
+                                                                        label Pages: 
+                                                                        span fmi, i, 421-419
+                                                                    .cover-image__date
+                                                                        span 15 January 1996
+                                                    .toc-go-section
+                                                        nav.toc__section
+                                                            a.w-slide__btn(href='#', data-db-target-for='sections', data-db-switch='icon-close_thin', title='Go To Sections', data-slide-target='#sections')
+                                                                i.icon-toc
+                                                                span GO TO SECTION
+                                                            #sections
+                                                                ul.sections__drop.rlist.separator(data-db-target-of='sections')
+                                            | !{pb.render('table-of-content', 'table-of-content.json', 'pericles')}
+
+
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            .journal-sidebar(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    .journal-side-section.journal-actions-container
+                                                        h2.side-section-header.hidden-lg.hidden-md Tools
+                                                        ul.unordered-list-icons
+                                                            li#SubmitanArticle
+                                                                a(href='http://mc.manuscriptcentral.com/cancer')
+                                                                    i.icon-submit_article(aria-hidden='true')
+                                                                    | Submit an Article
+                                                            li#Browsefreesampleissue
+                                                                a(href='/toc/10.1002/(ISSN)1097-0142/free-sample')
+                                                                    i.icon-sample_issue(aria-hidden='true')
+                                                                    | Browse free sample issue
+                                                            li#Getcontentalerts
+                                                                a(href='/action/doUpdateAlertSettings?action=addJournal&journalCode=10970142')
+                                                                    i.icon-alert(aria-hidden='true')
+                                                                    | Get content alerts
+                                                            li#Recommendtoalibrarian
+                                                                a(href='/action/recommendation?doi=10.1002/(ISSN)1097-0142')
+                                                                    i.icon-recommend(aria-hidden='true')
+                                                                    | Recommend to a librarian
+                                                    .journal-side-section
+                                                        ul.unordered-list-icons
+                                                            li
+                                                                a#subscribeLink(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=1097-0142&doi=10.1002/(ISSN)1097-0142')
+                                                                    i.icon-subscribe(aria-hidden='true')
+                                                                    | Subscribe to this journal
+                                                    .card--bordered.my-4.sidebar-society-logo(data-widget-def='UX3HTMLWidget', data-widget-id='5e6f26aa-d597-4688-9154-94c250dbfcf6')
+                                                        #societyText
+                                                            p Published on behalf of the American Cancer Society
+                                                            a(href='http://www.wiley.com/trackthrough?urlcode=455642', target='_blank')
+                                                                img.societyLogo(alt='American Cancer Society', src='//wol-test-cdn.literatumonline.com/pb-assets/assets/10970142/acs_logo2-1509715847000.jpg')
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='34b422cb-ba89-427c-a100-4daf72930bc0')
+                                                        h2.section__mainHeader--small
+                                                            | More from this Journal
+                                                        .journal-side-section.journal-resources
+                                                            ul.unordered-bordered-list
+                                                                li#News
+                                                                    a(href='/page/journal/10970142/homepage/news.html') News
+                                                                li#SupplementsPolicyandInstructions
+                                                                    a(href='/page/journal/10970142/homepage/supp_policy_instrux.htm') Supplements: Policy and Instructions
+                                                                li#CancerSupplements
+                                                                    a(href='/page/journal/10970142/homepage/supplements.htm') Cancer Supplements
+                                                                li#SpecialIssueAdvancesinMelanomaBiology
+                                                                    a(href='/toc/10970142/123/S11') Special Issue: Advances in Melanoma Biology
+                                                                li#2016ThankYoutoReviewers
+                                                                    a(href='/doi/10.1002/cncr.30434/full') 2016 Thank You to Reviewers
+                                                                li#CancerexaminestheAffordableCareAct
+                                                                    a(href='http://olabout.wiley.com/WileyCDA/Section/id-829660.html', target='_blank') Cancer examines the Affordable Care Act
+                                                                li#LandmarksinHistoryofCancer
+                                                                    a(href='/page/journal/10970142/homepage/landmarks_in_history_of_cancer.htm') Landmarks in History of Cancer
+                                                                li#SurvivorshipVirtualIssue
+                                                                    a(href='/topic/browse/000091') Survivorship Virtual Issue
+                                                                li#BreastCancerAwarenessVirtualIssue
+                                                                    a(href='/topic/browse/000091') Breast Cancer Awareness Virtual Issue
+                                                                li#CancerScopeArticles
+                                                                    a(href='/page/journal/10970142/homepage/cancerscope_articles.htm') CancerScope Articles
+                                                                li#2015TopCitedArticles
+                                                                    a(href='/page/journal/10970142/homepage/2015_top_cited_articles.htm') 2015 Top Cited Articles
+                                                                li#SubmittoCancer
+                                                                    a(href='http://olabout.wiley.com/WileyCDA/Section/id-829865.html', target='_blank') Submit to Cancer
+                                                                li#EditorsHighlights
+                                                                    a(href='/page/journal/10970142/homepage/editorshighlights.html') Editors' Highlights
+                                                                li#Jobs
+                                                                    a(href='/page/journal/10970142/homepage/jobs.html') Jobs
+                                                    .pb-ad
+                                                        #advert-rail-1.advert.advert-rail
+                                                            script.
+                                                                googletag.cmd.push(function () {
+                                                                    googletag.display('advert-rail-1');
+                                                                });
+                                                            // No JavaScript support is a call to an image
+                                                            noscript
+                                                                a(href='/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Ftoc%2F10970142%2F77%2F2&pubId=40106032&placeholderId=1014&productId=101018', target='_blank')
+                                                                    img(src='https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                                    .pb-ad
+                                                        aside
+                                                            #advert-rail-2.advert.advert-rail
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-2');
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Ftoc%2F10970142%2F77%2F2&pubId=40106032&placeholderId=1013&productId=101018', target='_blank')
+                                                                        img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+
+
+
+
+
+        h3 Table Of Content Book page
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+            style.
+                .dropzone {
+                    display: none;
+                }
+
+
+
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            h1.hidden  Journal list menu
+                            .pages-nav--sticky.pages-nav.hidden-lg
+                                .pages-nav--res
+                                    .container
+                                        ul.rlist--inline.pull-left
+                                            li
+                                                a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                    i.icon-toc(aria-hidden='true')
+                                                    span Journal
+                                                #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-1, #menu-item-main-menu-1-2, #menu-item--1, #menu-item--2, .journal-featured', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    a.dropdown__toggle(href='#', title='More from this journal')
+                                                        span More from this journal
+                                                    .transplant.showit(data-target='.journal-resources', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                            li
+                                                a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                                    i.article-img-icon
+                                                        img(src='//wol-test-cdn.literatumonline.com/pb-assets/hub-assets/pericles/articles_1-1499257321163.png')
+                                                    span Articles
+                                                #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-3, #menu-item-main-menu-1-4, #menu-item--3', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(href='#', data-db-target-for='actions-list', data-db-switch='icon-close_thin')
+                                                    span Actions
+                                                    i.icon-chevron-down(aria-hidden='true')
+                                                #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                    h2.side-section-header.hiddenLabel--lg Tools
+                                                    .transplant.showit(data-target='.journal-actions-container li:nth-child(1), .journal-actions-container li:nth-child(2), .journal-actions-container li:nth-child(3), .journal-actions-container li:nth-child(4), .journal-actions-container li:nth-child(5), #subscribeLink', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    h2.side-section-header.hiddenLabel--lg Follow journal
+                                                    .transplant.showit(data-target='#alert-link, #facebook-link, #twitter-link, #most-recent-link, #most-read-link, #most-cited-link', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard
+                                            script.
+                                                googletag.cmd.push(function () {
+                                                    googletag.display('advert-leaderboard');
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                a(href='/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Ftoc%2F10970142%2F77%2F2&pubId=40106032&placeholderId=1015&productId=101018', target='_blank')
+                                                    img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=728x90&tile=1&c=$random')
+                            style(type='text/css').
+                                li.menu-item[aria-label="Accepted Articles"] {
+                                    display: none;
+                                }
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            .col-sm-2
+                                                ul.rlist.loc
+                                                    li.grid-item.cover-image
+                                                        .cover-image__image
+                                                            a(href='/doi/book/10.1002/9780470132470', title='View Table of Contents for Inorganic Syntheses')
+                                                                img(src='//wol-prod-cdn.literatumonline.com/cms/attachment/e64e486a-8050-4f15-94a3-f53676f2c300/9780470132470.cover.gif', alt='View Table of Contents for Inorganic Syntheses')
+                                            .col-sm-10
+                                                h1
+                                                    span.title Inorganic Syntheses
+                                                // Temporary styles to clean up the contribs
+                                                style(type='text/css').
+                                                    .book-header .info_value ul.rlist--inline.loa.comma.loa-authors-trunc {
+                                                        display: inline;
+                                                        font-size: 12px;
+                                                    }
+
+                                                    .book-header ul.rlist--inline.loa.comma {
+                                                        display: inline;
+                                                        font-size: .75rem;
+                                                        padding-left: 4px;
+                                                    }
+                                                .info-block.book-header
+                                                    span.info_label Editors(s):
+                                                    span.info_value
+                                                        ul.rlist--inline.loa.comma
+                                                            li
+                                                                span(title='Fred Basolo', data-slide-target='sb-1') Fred Basolo
+                                                .info-block
+                                                    span.info_label First published:
+                                                    span.info_value 5 January 2007
+                                                .info-block
+                                                    span.info_label Print ISBN:
+                                                    span.info_value 9780470131787 |
+                                                    span.info_label Online ISBN:
+                                                    span.info_value 9780470132470 |
+                                                    span.info_label DOI:
+                                                    span.info_value 10.1002/9780470132470
+                                                .info-block
+                                                    span.info_value
+                                                        | Copyright © 1976 by McGraw‐Hill, Inc.
+                                                .info-block
+                                                    span.info_label Book Series:
+                                                    span.info_value
+                                                        a(href='/series/2146') Inorganic Syntheses
+                                            .info-block(data-widget-def='general-html', data-widget-id='d08b12af-2d1c-44ea-ae5f-87e80f701049')
+                                            a(href='/journal/', title=' homepage')
+                                                h1#journal-banner-text(style='margin: 0px 0px 15px; font-size: 22px;')
+                                                img#journal-banner-image.journal-banner-image(alt=' banner', src='//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/.jpg', style='margin-bottom: 15px; display: none')
+                                            script.
+                                                var image = new Image();
+                                                image.onload = function () {
+                                                    // if the image exists
+                                                    document.getElementById("journal-banner-image").style.display = "block";
+                                                }
+                                                image.onerror = function () {
+                                                    // if the image does not exist
+                                                    document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                                    document.getElementById("journal-banner-text").style.fontSize = "22px";
+                                                }
+                                                image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/.jpg";
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+
+
+                            | !{pb.render('menu', 'mainMenu.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}}})}
+
+                        section.publications-page-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .gutterless--md.gutterless--sm.gutterless--xs.col-md-12
+                                        .gutterless--xs.gutterless--sm.gutterless--md.main-content.col-md-8
+                                            .cover-widget-section(data-widget-def='ux3-layout-widget', data-widget-id='37ffca8d-3653-4f3a-a0e1-e8138dac6006')
+                                                .card.card--gutterless
+                                                    .cover-image--parentInfo.no-dateLabel.cover-image--tocPage(data-widget-def='UX3CoverImage', data-widget-id='5ea3d0f2-cb36-4d9b-8ef0-23b1fc2bf1c8')
+                                                        ul.rlist.loc
+                                                            li.grid-item.cover-image
+                                                                .cover-image__image.hasDetails
+                                                                    img(src='//wol-test-cdn.literatumonline.com/cms/attachment/a594e2c5-6aec-4795-99ac-23e84e33fe25/cncr.v124.5.cover.jpg', alt='Cover image')
+                                                                .cover-image__details
+                                                                    span.cover-image__type Issue
+                                                                    .cover-image__parent-item
+                                                                        span.comma Volume 77,
+                                                                        | Issue 2
+                                                                    .cover-image__pageRange
+                                                                        label Pages: 
+                                                                        span fmi, i, 421-419
+                                                                    .cover-image__date
+                                                                        span 15 January 1996
+                                                    ul.rlist--inline.toc-book__nav
+                                                        li.toc-go-section
+                                                            .toc__section
+                                                                a.w-slide__btn(href='#', data-db-target-for='sections', data-db-switch='icon-close_thin', title='Go To Sections', data-slide-target='#sections')
+                                                                    i.icon-toc
+                                                                    span GO TO PART
+                                                                #sections.cloned
+                                                                    ul.sections__drop.rlist.separator(data-db-target-of='sections')
+                                                                        li(role='menuitem')
+                                                                            a(href='#heading-level-1-1')
+                                                                                span
+                                                                                    | Part
+                                                                                    | I
+                                                                                    | : The QOS Realm
+                                                                        li(role='menuitem')
+                                                                            a(href='#heading-level-1-1')
+                                                                                span
+                                                                                    | Part
+                                                                                    | II
+                                                                                    | : Tools
+                                                                        li(role='menuitem')
+                                                                            a(href='#heading-level-1-1')
+                                                                                span
+                                                                                    | Part
+                                                                                    | III
+                                                                                    | : Case Studies
+                                                        li
+                                                            a(title='Download full book', href='/doi/pdf/10.1002/9781119109136')
+                                                                img.pdf-img(src='/products/pericles/releasedAssets/images/pdf-icon.png')
+                                                                span DOWNLOAD FULL BOOK
+
+
+                                            | !{pb.render('table-of-content', 'table-of-content-book.json', 'pericles')}
+
+
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            .journal-sidebar(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    .journal-side-section.journal-actions-container
+                                                        h2.side-section-header.hidden-lg.hidden-md Tools
+                                                        ul.unordered-list-icons
+                                                            li#SubmitanArticle
+                                                                a(href='http://mc.manuscriptcentral.com/cancer')
+                                                                    i.icon-submit_article(aria-hidden='true')
+                                                                    | Submit an Article
+                                                            li#Browsefreesampleissue
+                                                                a(href='/toc/10.1002/(ISSN)1097-0142/free-sample')
+                                                                    i.icon-sample_issue(aria-hidden='true')
+                                                                    | Browse free sample issue
+                                                            li#Getcontentalerts
+                                                                a(href='/action/doUpdateAlertSettings?action=addJournal&journalCode=10970142')
+                                                                    i.icon-alert(aria-hidden='true')
+                                                                    | Get content alerts
+                                                            li#Recommendtoalibrarian
+                                                                a(href='/action/recommendation?doi=10.1002/(ISSN)1097-0142')
+                                                                    i.icon-recommend(aria-hidden='true')
+                                                                    | Recommend to a librarian
+                                                    .journal-side-section
+                                                        ul.unordered-list-icons
+                                                            li
+                                                                a#subscribeLink(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=1097-0142&doi=10.1002/(ISSN)1097-0142')
+                                                                    i.icon-subscribe(aria-hidden='true')
+                                                                    | Subscribe to this journal
+                                                    .card--bordered.my-4.sidebar-society-logo(data-widget-def='UX3HTMLWidget', data-widget-id='5e6f26aa-d597-4688-9154-94c250dbfcf6')
+                                                        #societyText
+                                                            p Published on behalf of the American Cancer Society
+                                                            a(href='http://www.wiley.com/trackthrough?urlcode=455642', target='_blank')
+                                                                img.societyLogo(alt='American Cancer Society', src='//wol-test-cdn.literatumonline.com/pb-assets/assets/10970142/acs_logo2-1509715847000.jpg')
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='34b422cb-ba89-427c-a100-4daf72930bc0')
+                                                        h2.section__mainHeader--small
+                                                            | More from this Journal
+                                                        .journal-side-section.journal-resources
+                                                            ul.unordered-bordered-list
+                                                                li#News
+                                                                    a(href='/page/journal/10970142/homepage/news.html') News
+                                                                li#SupplementsPolicyandInstructions
+                                                                    a(href='/page/journal/10970142/homepage/supp_policy_instrux.htm') Supplements: Policy and Instructions
+                                                                li#CancerSupplements
+                                                                    a(href='/page/journal/10970142/homepage/supplements.htm') Cancer Supplements
+                                                                li#SpecialIssueAdvancesinMelanomaBiology
+                                                                    a(href='/toc/10970142/123/S11') Special Issue: Advances in Melanoma Biology
+                                                                li#2016ThankYoutoReviewers
+                                                                    a(href='/doi/10.1002/cncr.30434/full') 2016 Thank You to Reviewers
+                                                                li#CancerexaminestheAffordableCareAct
+                                                                    a(href='http://olabout.wiley.com/WileyCDA/Section/id-829660.html', target='_blank') Cancer examines the Affordable Care Act
+                                                                li#LandmarksinHistoryofCancer
+                                                                    a(href='/page/journal/10970142/homepage/landmarks_in_history_of_cancer.htm') Landmarks in History of Cancer
+                                                                li#SurvivorshipVirtualIssue
+                                                                    a(href='/topic/browse/000091') Survivorship Virtual Issue
+                                                                li#BreastCancerAwarenessVirtualIssue
+                                                                    a(href='/topic/browse/000091') Breast Cancer Awareness Virtual Issue
+                                                                li#CancerScopeArticles
+                                                                    a(href='/page/journal/10970142/homepage/cancerscope_articles.htm') CancerScope Articles
+                                                                li#2015TopCitedArticles
+                                                                    a(href='/page/journal/10970142/homepage/2015_top_cited_articles.htm') 2015 Top Cited Articles
+                                                                li#SubmittoCancer
+                                                                    a(href='http://olabout.wiley.com/WileyCDA/Section/id-829865.html', target='_blank') Submit to Cancer
+                                                                li#EditorsHighlights
+                                                                    a(href='/page/journal/10970142/homepage/editorshighlights.html') Editors' Highlights
+                                                                li#Jobs
+                                                                    a(href='/page/journal/10970142/homepage/jobs.html') Jobs
+                                                    .pb-ad
+                                                        #advert-rail-1.advert.advert-rail
+                                                            script.
+                                                                googletag.cmd.push(function () {
+                                                                    googletag.display('advert-rail-1');
+                                                                });
+                                                            // No JavaScript support is a call to an image
+                                                            noscript
+                                                                a(href='/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Ftoc%2F10970142%2F77%2F2&pubId=40106032&placeholderId=1014&productId=101018', target='_blank')
+                                                                    img(src='https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                                    .pb-ad
+                                                        aside
+                                                            #advert-rail-2.advert.advert-rail
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-2');
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Ftoc%2F10970142%2F77%2F2&pubId=40106032&placeholderId=1013&productId=101018', target='_blank')
+                                                                        img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+
+
+
+
+            | !{pb.render('footer', 'pericles')}
+
+
+        h3 Table Of Content MRW page
+        .source_example
+            | !{pb.render('header', {data: data.header, page: 'article'}, 'pericles')}
+
+            style.
+                .dropzone {
+                    display: none;
+                }
+
+
+
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            h1.hidden  Journal list menu
+                            .pages-nav--sticky.pages-nav.hidden-lg
+                                .pages-nav--res
+                                    .container
+                                        ul.rlist--inline.pull-left
+                                            li
+                                                a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                    i.icon-toc(aria-hidden='true')
+                                                    span Journal
+                                                #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-1, #menu-item-main-menu-1-2, #menu-item--1, #menu-item--2, .journal-featured', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    a.dropdown__toggle(href='#', title='More from this journal')
+                                                        span More from this journal
+                                                    .transplant.showit(data-target='.journal-resources', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                            li
+                                                a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                                    i.article-img-icon
+                                                        img(src='//wol-test-cdn.literatumonline.com/pb-assets/hub-assets/pericles/articles_1-1499257321163.png')
+                                                    span Articles
+                                                #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-3, #menu-item-main-menu-1-4, #menu-item--3', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(href='#', data-db-target-for='actions-list', data-db-switch='icon-close_thin')
+                                                    span Actions
+                                                    i.icon-chevron-down(aria-hidden='true')
+                                                #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                    h2.side-section-header.hiddenLabel--lg Tools
+                                                    .transplant.showit(data-target='.journal-actions-container li:nth-child(1), .journal-actions-container li:nth-child(2), .journal-actions-container li:nth-child(3), .journal-actions-container li:nth-child(4), .journal-actions-container li:nth-child(5), #subscribeLink', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    h2.side-section-header.hiddenLabel--lg Follow journal
+                                                    .transplant.showit(data-target='#alert-link, #facebook-link, #twitter-link, #most-recent-link, #most-read-link, #most-cited-link', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            .hidden-md.hidden-sm.hidden-xs.col-sm-2
+                                                ul.rlist.loc
+                                                    li.grid-item.cover-image
+                                                        .cover-image__image
+                                                            a(href='/doi/book/10.1002/9781118960608', title="View Table of Contents for Bergey's Manual of Systematics of Archaea and Bacteria")
+                                                                img(src='//wol-prod-cdn.literatumonline.com/cms/attachment/82383e25-f9bc-412a-931b-33d971a3f61d/0471922021.cover.jpg', alt="View Table of Contents for Bergey's Manual of Systematics of Archaea and Bacteria")
+                                            .col-sm-10
+                                                a(href='/doi/book/10.1002/9781118960608', title="Bergey's Manual of Systematics of Archaea and Bacteria homepage")
+                                                    h1#banner-text(style='margin: 0; font-size: 0') Bergey's Manual of Systematics of Archaea and Bacteria
+                                                    img#banner-image.journal-banner-image(alt="Bergey's Manual of Systematics of Archaea and Bacteria", src='//wol-prod-cdn.literatumonline.com/pb-assets/mrw-banners/10.1002/9781118960608-1514489973173.jpg', style='margin-bottom: 15px; display: block;')
+                                                script.
+                                                    var image = new Image();
+                                                    image.onload = function () {
+                                                        // if the image exists
+                                                        document.getElementById("banner-image").style.display = "block";
+                                                    }
+                                                    image.onerror = function () {
+                                                        // if the image does not exist
+                                                        document.getElementById("banner-text").style.marginBottom = "15px";
+                                                        document.getElementById("banner-text").style.fontSize = "22px";
+                                                    }
+                                                    image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/mrw-banners/10.1002/9781118960608-1514489973173.jpg";
+                                                .accessLogo
+                                                    img.accessIconLocation(src='//wol-prod-cdn.literatumonline.com/pb-assets/images/full-1505500700867.png', alt='Full Access')
+                                                // Temporary styles to clean up the contribs
+                                                style(type='text/css').
+                                                    .book-header .info_value ul.rlist--inline.loa.comma.loa-authors-trunc {
+                                                        display: inline;
+                                                        font-size: 12px;
+                                                    }
+
+                                                    .book-header ul.rlist--inline.loa.comma {
+                                                        display: inline;
+                                                        font-size: .75rem;
+                                                        padding-right: 3px;
+                                                        padding-left: 3px;
+                                                    }
+                                                .info-block.book-header
+                                                // else if data.book.editors
+                                                // span.info_label Editors(s):&nbsp;
+                                                // span.info_value
+                                                // | !{data.book.editors}
+                                                .info-block
+                                                    span.info_label First published: 
+                                                    span.info_value 17 April 2015
+                                                .info-block
+                                                    span.info_label Online ISBN: 
+                                                    span.info_value 9781118960608
+                                                    span.info_label
+                                                    span.info_label DOI: 
+                                                    span.info_value 10.1002/9781118960608
+                                                .info-block
+                                                    span.info_label
+                                                        | Copyright © 2015 Bergey's Manual Trust. All rights reserved.
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+
+
+                            | !{pb.render('menu', 'mainMenu.json', 'pericles', {"shared": {"model": {"config": { "wrapper": "true","className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}} })}
+
+                        section.publications-page-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .gutterless--md.gutterless--sm.gutterless--xs.col-md-12
+                                        .gutterless--sm.gutterless--md.main-content.col-md-8
+
+
+                                            .mrw-toc-accordion
+                                                | !{pb.render('mrw-toc', 'demo/mrw-toc', 'data.json', 'pericles')}
+
+
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            .journal-sidebar(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    .journal-side-section.journal-actions-container.cloned
+                                                        h2.side-section-header.hidden-lg.hidden-md Tools
+                                                        ul.unordered-list-icons
+                                                            li
+                                                                a(href='/page/mrw/how-to-order')
+                                                                    i.icon-subscribe(aria-hidden='true')
+                                                                    | License this reference work
+                                                            li
+                                                                a(href='/action/recommendation?doi=10.1002/9781118960608')
+                                                                    i.icon-recommend(aria-hidden='true')
+                                                                    | Recommend to a librarian
+                                                    .pb-ad
+                                                        #advert-rail-1.advert.advert-rail(data-google-query-id='CN-q7eCym9oCFc-jswodd40KUQ', style='display: none;')
+                                                            script.
+                                                                googletag.cmd.push(function () {
+                                                                    googletag.display('advert-rail-1');
+                                                                });
+                                                            div(id='google_ads_iframe_/2215/undefined-site/undefined-zone_1__container__', style='border: 0pt none;')
+                                                                iframe(id='google_ads_iframe_/2215/undefined-site/undefined-zone_1', title='3rd party ad content', name='google_ads_iframe_/2215/undefined-site/undefined-zone_1', width='300', height='250', scrolling='no', marginwidth='0', marginheight='0', frameborder='0', srcdoc='', style='border: 0px; vertical-align: bottom;')
+                                                            // No JavaScript support is a call to an image
+                                                            noscript
+                                                                | <a href="/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fbrowse%2Fbook%2F10.1002%2F9781118960608%2Ftoc&pubId=61880963&placeholderId=1014&productId=101018" target="_blank">
+                                                                | <img src="https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&amp;sz=160x600|160x320|160x160|120x600&amp;tile=2&amp;c=$random">
+                                                                | </a>
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='d4c99a14-f731-4a95-ab2a-670b958c4c3c')
+                                                        h2.section__mainHeader--small
+                                                            | More from this reference work
+                                                        div
+                                                            ul
+                                                                li
+                                                                    a(href='http://onlinelibrary.wiley.com/book/10.1002/9781118960608/homepage/Taxonomic_Outline_October_2017.pdf') Taxonomic Outline
+                                                                li
+                                                                    a(href='http://onlinelibrary.wiley.com/book/10.1002/9781118960608/homepage/A_Z_170327.pdf') A-Z listing of articles
+                                                    .pb-ad
+                                                        aside
+                                                            #advert-rail-2.advert.advert-rail(data-google-query-id='COCq7eCym9oCFc-jswodd40KUQ', style='display: none;')
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-2');
+                                                                    });
+                                                                div(id='google_ads_iframe_/2215/undefined-site/undefined-zone_2__container__', style='border: 0pt none;')
+                                                                    iframe(id='google_ads_iframe_/2215/undefined-site/undefined-zone_2', title='3rd party ad content', name='google_ads_iframe_/2215/undefined-site/undefined-zone_2', width='300', height='250', scrolling='no', marginwidth='0', marginheight='0', frameborder='0', srcdoc='', style='border: 0px; vertical-align: bottom;')
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    | <a href="/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fbrowse%2Fbook%2F10.1002%2F9781118960608%2Ftoc&pubId=61880963&placeholderId=1013&productId=101018" target="_blank">
+                                                                    | <img src="http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&amp;sz=160x600|160x320|160x160|120x600&amp;tile=2&amp;c=$random">
+                                                                    | </a>
+
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}

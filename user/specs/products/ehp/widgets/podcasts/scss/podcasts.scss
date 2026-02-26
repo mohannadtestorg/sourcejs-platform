@@ -1,0 +1,75 @@
+// teaser like or in slider style
+.podcasts {
+    @include default-box-shadow();
+    padding: $default-inner-padding-y $default-inner-padding-x 0 $default-inner-padding-x;
+    overflow: hidden;
+
+    a:hover &__title {
+        color: $creative-title-color;
+    }
+
+    .section__header.border-bottom + & {
+        margin-top: -20px;
+    }
+
+    a:not(.btn) {
+        @include make-primary-link();
+    }
+
+    &__img {
+        margin: (-$default-inner-padding-y) (-$default-inner-padding-x) (10px) (-$default-inner-padding-x);
+        max-width: calc(100% + #{$default-inner-padding-x}*2);
+        height: auto;
+    }
+
+    p {
+        clear: left;
+    }
+}
+
+// list
+.podcasts-list {
+    .grid-item {
+        @include default-box-shadow();
+        padding: $default-inner-padding-y $default-inner-padding-x 0 $default-inner-padding-x;
+        overflow: hidden;
+        margin-bottom: $default-inner-padding-y; // @fixme ? maybe use new variable like $default-vertical-gutter in this case
+    }
+
+    .podcasts-item {
+        border-bottom: 1px solid $separators-color;
+
+        .meta__links {
+            text-align: right;
+        }
+        .meta__footer {
+            margin-bottom: $default-inner-padding-y;
+        }
+        .meta__detail {
+            margin-bottom: 10px;
+            li {
+                line-height: 0.875rem;
+
+                margin-right: 10px;
+                padding-right: 10px;
+
+                &:last-child {
+                    margin-right: 0;
+                    padding-right: 0;
+                }
+            }
+
+            span {
+                color: $secondary-lighten-text-color;
+                margin-right: 3px;
+                border-color: $separators-color;
+            }
+        }
+    }
+
+    a:not(.btn) {
+        @include make-primary-link();
+    }
+
+    margin-bottom: 32px;
+}

@@ -1,0 +1,74 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../../../variables/aliases/colors.yaml
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    primary-bg-color:
+      value: "{!RED_0}"
+    primary-btn-color:
+      value: "{!RED_0}"
+    headings-primary-color:
+      value: "{!RED_0}"
+    table-header-font-color:
+      value: "{!BLUE_0}"
+    table-border-color:
+      value: "{!PURPLE_0}"
+    download-links-color:
+      value: "{!BLUE_1}"
+    figure-viewer-active-color:
+      value: "{!RED_0}"
+    section-tale-access:
+      value: "{!ORANGE_0}"
+    section-default-header:
+      value: "{!RED_1}"
+    section-secondary-header:
+      value: "{!BLUE_2}"
+    #journals branding colors
+    lanonc-jounral:
+      value: "{!RED_2}"
+    lanres-journal:
+      value: "{!BLUE_3}"
+    lanpsy-journal:
+      value: "{!BLUE_4}"
+    langlo-journal:
+      value: "{!PINK_0}"
+    lanchi-journal:
+      value: "{!PINK_1}"
+    laninf-journal:
+      value: "{!PURPLE_1}"
+    lanhiv-journal:
+      value: "{!PURPLE_2}"
+    lanhae-journal:
+      value: "{!ORANGE_1}"
+    lancet-journal:
+      value: "{!GREEN_0}"
+    laneur-journal:
+      value: "{!GREEN_1}"
+    landia-journal:
+      value: "{!GREEN_2}"
+    langas-journal:
+      value: "{!GREEN_3}"
+    lanpub-journal:
+      value: "{!GREEN_4}"
+    lanplh-journal:
+      value: "{!GREEN_5}"
+    article-header-head-1:
+      value: "#ffffff"

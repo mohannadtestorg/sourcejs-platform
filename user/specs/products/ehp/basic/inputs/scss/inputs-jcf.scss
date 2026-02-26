@@ -1,0 +1,37 @@
+.jcf-range{
+  .jcf-range-handle {
+    border-radius: 0;
+    background-color: $white;
+    width: 12px;
+    height: 20px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.2);
+  }
+  .jcf-range-track {
+    margin-right: 13px;
+  }
+}
+.jcf-select {
+  background-image: none;
+  &:before,
+  &:after {
+    content: "\e60b";
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 100%;
+    padding: 0 10px;
+    font-family: 'icomoon' !important;
+    font-size: 7px;
+    transform: translateY(-50%);
+  }
+
+  &:before {
+    color: transparent;
+  }
+  &:after {
+    color: $primary-link-color;
+    transition: transform .3s ease;
+  }
+}

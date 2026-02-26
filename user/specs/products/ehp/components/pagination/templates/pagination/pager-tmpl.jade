@@ -1,0 +1,29 @@
+
+
+div.pagination.pager
+
+    if (data.prevButton) && (data.prevButton.itemUrl) && (data.prevButton.title)
+        a.pagination__btn--prev(href=data.prevButton.itemUrl title="Previous")
+            span.pagination__btn--prev__title #{data.prevButton.title}
+    else
+        span.pagination__btn--prev.disabled
+            span.pagination__btn--prev__title
+                if (data.prevButton) && (data.prevButton.title)
+                    | #{data.prevButton.title}
+                else
+                    | Prev
+
+    span.back-to-top
+        | Back to top
+
+
+    if (data.nextButton) && (data.nextButton.itemUrl) && (data.nextButton.title)
+        a.pagination__btn--next(href=data.nextButton.itemUrl title="Next")
+            span.pagination__btn--next__title #{data.nextButton.title}
+    else
+        span.pagination__btn--next.disabled
+            span.pagination__btn--next__title
+                if (data.nextButton) && (data.nextButton.title)
+                    | #{data.nextButton.title}
+                else
+                    | Next

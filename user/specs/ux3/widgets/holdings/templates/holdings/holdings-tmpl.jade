@@ -1,0 +1,13 @@
+div.holdings
+    block HoldingsContent
+        p This file lists the publications available on our site in a tab-separated format.
+
+        a.downloadHoldings(href="/action/institutionAdmin?iuid="+data.institutionId+"&page=sfxreport&action=downloadHolding")
+            i.icon-download2(aria-hidden="true")
+            span Our kbart holding file
+
+        if data.errorMsg != ''
+            p.error= data.errorMsg
+
+        if data.successMsg != ''
+            p.success= data.successMsg

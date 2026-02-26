@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Slab:400,700|Roboto:300,400,500,600,700');
+
+body {
+    transition: transform 250ms;
+}
+
+.dark {
+    background: $primary-lighten-bg-color;
+    padding: 40px 0 60px;
+}
+
+.content {
+    padding-top: 175px;
+
+    @include media('<tablet'){
+            padding-top: 98px;
+    }
+}
+
+.quote {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $qoutation-color;
+    font-family:  $secondary-font-family;
+    font-style: normal;
+    letter-spacing: 2px;
+    padding-left: 60px;
+    @include media("<tablet") {
+        padding-left: 15px;
+    }
+
+    &:before {
+        content: "“";
+    }
+    &:after {
+        content: "”";
+    }
+}
+
+.ads {
+    &--top {
+        margin-top: 37px;
+        @include media('<desktop') {
+            margin-bottom: 40px;
+        }
+        img {
+            margin: 0 auto;
+            display: block;
+        }
+    }
+    img {
+        margin: 0 auto;
+        display: block;
+    }
+    @include media('<desktop') {
+        margin-bottom: 40px;
+    }
+}
+
+.no-top-margin{
+    margin-top: 0;
+}
+
+
+
+.clearfix-sm {
+    @include media('>=tablet', '<desktop') {
+        clear: both;
+    }
+}
+
+[class$="primary-topic"]{
+    padding-left: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: $standard-color;
+    font-family: $secondary-font-family;
+
+    @include media('<phone'){
+        padding-left: 0;
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+.secondary-font{
+    font-family: $secondary-font-family;
+}
+
+
+.visible-hidden{
+    visibility: hidden;
+}
+
+.text{
+    &--default{
+        color: $standard-color;
+    }
+    &--journal{
+        color: $standard-color;
+    }
+    &--blog{
+        color: $standard-color;
+    }
+}
+
+.clear-margin{
+    margin: 0 -15px;
+}

@@ -1,0 +1,51 @@
+{
+    "title": "My Account page",
+    "tag": [
+        "templates"
+    ],
+    "clearview": true,
+    "templateData": {
+        "header": {
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "body": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "profile-pages"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/templates/my-account/templates/my-account/extended/ext-tabs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "./templates/data/tabs.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "footer": {
+            "$pug": {
+                "template": "../../../../ux3/templates/footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}
+

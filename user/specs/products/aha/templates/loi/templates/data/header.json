@@ -1,0 +1,263 @@
+{
+    "logo": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "true",
+                        "className": ["header__logo"]
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/images/templates/images/images-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "link": "/",
+                                            "src": "/specs/products/aha/images/logo-journal.svg",
+                                            "alt": "logo"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "logo_mobile": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "true",
+                        "className": ["header__logo"]
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/images/templates/images/images-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "link": "/",
+                                            "src": "/specs/products/aha/images/logo-main-mobile.svg",
+                                            "alt": "logo"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "institution": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/institution-banner/templates/institution-banner/institution-banner-tmpl.jade",
+                                "data": {
+                                    "model": {
+                                        "data": {
+                                            "itemUrl": "#",
+                                            "institution": "Atypon Institution",
+                                            "introText": "brought to you by"
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "search": {
+        "$pug": {
+            "template": "../../widgets/quick-search/templates/quick-search/demo/demo-quick-search-menu-tmpl.jade",
+            "data": {
+                "$ref": "../../../../widgets/quick-search/templates/data/quick-search.json"
+            }
+        }
+    },
+    "cart": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+            "data": {
+                "thisWidget": {
+                    "id":"shoppingCart1",
+                    "properties": {
+                        "render": "html",
+                        "html": "<a href=\"/user/cart\" class=\"quick-menu__item\" title=\"My Cart\"><i class=\"icon-shopping_cart block-icon\" aria-hidden=\"true\"></i><span>My Cart</span></a>"
+                    }
+                }
+            }
+        }
+    },
+    "user": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/user-login-bar/templates/logged-out-panel/logged-out-panel.jade",
+                                "data": {
+                                    "$ref": "../../../../ux3/widgets/user-login-bar/templates/data/user-panel-logged-out.json"
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "mainmenu": {
+        "$pug": {
+            "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+            "data": {
+                "model": {
+                    "config": {
+                        "wrapper": "false"
+                    },
+                    "data": {
+                        "content": {
+                            "$pug": {
+                                "template": "../../widgets/menu/templates/demo/demo-menu-tmpl.jade",
+                                "data": {
+                                    "thisWidget": {
+                                        "properties": {
+                                            "vPort": "medium"
+                                        }
+                                    },
+                                    "data": {
+
+                                        "id": "main0",
+                                        "list": [
+                                            {
+                                                "text": "AHA Journals",
+                                                "link": "#",
+                                                "current": "true"
+                                            },
+                                            {
+                                                "text": "Informations",
+                                                "link": "#",
+                                                "list": [
+                                                    {
+                                                        "text": "About the AHA/ASA",
+                                                        "link": "#",
+                                                        "list": [
+                                                            {
+                                                                "text": "About the AHA/ASA",
+                                                                "link": "#",
+                                                                "current": "false"
+                                                            },
+                                                            {
+                                                                "text": "Customer service and ordering informations",
+                                                                "link": "#",
+                                                                "current": "false"
+                                                            },
+                                                            {
+                                                                "text": "AHA Journals RSS Feed",
+                                                                "link": "#",
+                                                                "current": "false"
+                                                            },
+                                                            {
+                                                                "text": "AHA Journal Alerts",
+                                                                "link": "#",
+                                                                "current": "false"
+                                                            },
+                                                            {
+                                                                "text": "For International users",
+                                                                "link": "#",
+                                                                "current": "false"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "text": "Customer service and ordering informations",
+                                                        "link": "#"
+                                                    },
+                                                    {
+                                                        "text": "AHA Journals RSS Feed",
+                                                        "link": "#",
+                                                        "current": "false"
+                                                    },
+                                                    {
+                                                        "text": "AHA Journal Alerts",
+                                                        "link": "#",
+                                                        "current": "false"
+                                                    },
+                                                    {
+                                                        "text": "For International users",
+                                                        "link": "#",
+                                                        "current": "false"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "text": "Subscriptions",
+                                                "link": "#",
+                                                "current": "false"
+                                            },
+                                            {
+                                                "text": "For Authors & Reviewers",
+                                                "link": "#",
+                                                "current": "false"
+                                            },
+                                            {
+                                                "text": "Policies",
+                                                "link": "#",
+                                                "current": "false"
+                                            },
+                                            {
+                                                "text": "News & Events",
+                                                "link": "#",
+                                                "current": "false"
+                                            },
+                                            {
+                                                "text": "Education",
+                                                "link": "#",
+                                                "current": "false"
+                                            },
+                                            {
+                                                "text": "All issues",
+                                                "link": "#",
+                                                "current": "true"
+
+                                            }
+                                        ]
+
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

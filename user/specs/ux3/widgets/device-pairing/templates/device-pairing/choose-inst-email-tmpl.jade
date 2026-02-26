@@ -1,0 +1,27 @@
+.device-pairing
+    .device-pairing__choose-email
+        h5.title Access through your institution
+        div.description
+            p If your institution requires signing in through Shibboleth/Open Athens you will be taken directly to the institution’s login page.
+            p Please add or select your institution email address
+
+        if (data.emailSelectError)
+            div.error
+               p Please select an email before proceeding
+
+        if (data.pairingExistsError)
+          div.error
+               p This device has already been paired with institution: !{data.instName} using email: !{data.pairDeviceInstEmailAttr}
+
+        form(action='/action/pairDevice',method='post')
+            input.hidden(value='instEmailSelectedAction',name='action')
+            input.hidden(value=data.redirectUri,name='redirectUri')
+            input.hidden(value=data.profile,name='profile')
+
+            label.checkbox--primary
+                input.instEmailSelected-checkbox(type='checkbox', name='instEmailSelected', value=data.instEmail)
+                span.label-txt !{data.instEmail}
+
+            div.formButtons
+                input.btn.selectEmailInstButton(value='Use selected email',name='submitbutton',type='submit' disabled='disabled')
+                input.btn.btn--inverse(value='Enter another email',name='submitbutton',type='submit')

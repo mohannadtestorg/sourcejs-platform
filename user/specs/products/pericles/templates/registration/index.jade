@@ -1,0 +1,1439 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 My Account page
+    .source_info
+
+
+
+    section.source_section
+        h2 My Account page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render('header', {data: data.header, page: 'article'}, 'pericles')}
+
+            .pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        .fullwidth-header.card.card--light-shadow(data-widget-def='ux3-layout-widget', data-widget-id='06ab8352-e2c4-416b-aee9-2b2b15c69e8b')
+                            .container
+                                .row
+                                    div
+                                        .gutterless.col-md-6.gutterless
+                                            h1.account-page__header
+                                                | Register as a new user
+                                            div
+                                        .col-md-6.gutterless
+                        div(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .card.card--light-shadow.col-md-12
+                                        form(action='/action/registration', method='post')
+                                            input(type='hidden', name='source', value='')
+                                            input(type='hidden', name='redirectUri', value='/')
+                                            input(type='hidden', name='current', value='/action/registration')
+                                            .pb-dropzone.formDropZone(data-pb-dropzone='formDropZone')
+                                                h2
+                                                    | Login information
+                                                section.login-info
+                                                    input(type='hidden', name='login.id', value='21b9f991-012b-4bfc-a9df-cc4543d35eaa')
+                                                    input(type='hidden', name='section', value='login')
+                                                    .row
+                                                        .col-md-6
+                                                            .input-group
+                                                                .label
+                                                                    label(for='login.email')
+                                                                        | Email
+                                                                        span *
+                                                                        span.required-marker *
+                                                                input.email(id='login.email', type='text', name='login.email', value='', size='15', placeholder='ex. user@institution.edu')
+                                                            .input-group
+                                                                .label
+                                                                    label(for='login.email2')
+                                                                        | Retype email
+                                                                        span.required-marker *
+                                                                input.email2(id='login.email2', type='text', name='login.email2', value='', size='15', placeholder='ex. user@institution.edu')
+                                                            p.note
+                                                                | A one-time confirmation e-mail will be sent to this address. Your e-mail will serve as your login.
+                                                        .col-md-6
+                                                            .input-group
+                                                                .label
+                                                                    label(for='login.password')
+                                                                        | Password
+                                                                        span *
+                                                                        span.required-marker *
+                                                                input.pass-hint(id='login.password', type='password', name='login.password', value='', autocomplete='off', placeholder='Type your password')
+                                                                span.password-eye-icon.icon-eye.hidden
+                                                                .password-strength-indicator(data-min='10', data-max='32', data-strength='3')
+                                                                    span.text.too-short Too Short
+                                                                    span.text.weak Weak
+                                                                    span.text.medium Medium
+                                                                    span.text.strong Strong
+                                                                    span.text.very-strong Very Strong
+                                                                    span.text.too-long Too Long
+                                                            .input-group
+                                                                .label
+                                                                    label(for='login.password2')
+                                                                        | Confirm Password
+                                                                        span.required-marker *
+                                                                input(id='login.password2', type='password', name='login.password2', value='', autocomplete='off', placeholder='Re-type your password')
+                                                                span.password-eye-icon.icon-eye.hidden
+                                                            p.note
+                                                                | Must be at least 10 characters long, and contain at least three of following:
+                                                                br
+                                                                |  Lowercase letter (a-z) | Uppercase letter (A-Z) | Number (0-9) | Special Character
+                                                hr.separator
+                                                h2
+                                                    | Personal profile
+                                                div
+                                                .row.personal-information--wrapper(data-widget-def='ux3-layout-widget', data-widget-id='e9d6cc2f-c94f-466b-bd64-aa0326ec4ded')
+                                                    .col-md-6
+                                                        section.personal-information
+                                                            input(type='hidden', name='personal.id')
+                                                            input(type='hidden', name='section', value='personal')
+                                                            .input-group
+                                                                label(for='personal.givenNames')
+                                                                    | First Name
+                                                                    span.required-marker *
+                                                                input(type='text', name='personal.givenNames', id='personal.givenNames')
+                                                            .input-group
+                                                                label(for='personal.surname')
+                                                                    | Last Name
+                                                                    span.required-marker *
+                                                                input(type='text', name='personal.surname', id='personal.surname')
+                                                        .note(data-widget-def='general-rich-text', data-widget-id='d1f628b0-9ad6-4852-80ba-74e2625a2fad')
+                                                            #rich-text-d1f628b0-9ad6-4852-80ba-74e2625a2fad.pb-rich-text(style='overflow: auto;')
+                                                                p
+                                                                    | First name and last name should be alphanumeric with the following allowed characters: hypen(-), single quote('), space and dot.
+                                                    .col-md-6
+                                                        section.taxonomies
+                                                            input(type='hidden', name='taxonomy.id', value='c8cf2681-ef5e-49bf-9fce-58a811ce937b')
+                                                            input(type='hidden', name='section', value='taxonomies')
+                                                            input(type='hidden', name='taxonomy[0].code', value='user-profile-country', data-maxtags='1.')
+                                                            .input-group
+                                                                .label
+                                                                    label(for='taxonomy[0].values')
+                                                                        | Country/Location
+                                                                        span.required-marker *
+                                                                select.jcf(id='taxonomy[0].values', name='taxonomy[0].values')
+                                                                    option(value='')
+                                                                        | SELECT YOUR COUNTRY OR LOCATION
+                                                                    option(value='country-af')
+                                                                        | AFGHANISTAN
+                                                                    option(value='country-ax')
+                                                                        | ÅLAND ISLANDS
+                                                                    option(value='country-al')
+                                                                        | ALBANIA
+                                                                    option(value='country-dz')
+                                                                        | ALGERIA
+                                                                    option(value='country-as')
+                                                                        | AMERICAN SAMOA
+                                                                    option(value='country-ad')
+                                                                        | ANDORRA
+                                                                    option(value='country-ao')
+                                                                        | ANGOLA
+                                                                    option(value='country-ai')
+                                                                        | ANGUILLA
+                                                                    option(value='country-aq')
+                                                                        | ANTARCTICA
+                                                                    option(value='country-ag')
+                                                                        | ANTIGUA AND BARBUDA
+                                                                    option(value='country-ar')
+                                                                        | ARGENTINA
+                                                                    option(value='country-am')
+                                                                        | ARMENIA
+                                                                    option(value='country-aw')
+                                                                        | ARUBA
+                                                                    option(value='country-au')
+                                                                        | AUSTRALIA
+                                                                    option(value='country-at')
+                                                                        | AUSTRIA
+                                                                    option(value='country-az')
+                                                                        | AZERBAIJAN
+                                                                    option(value='country-bs')
+                                                                        | BAHAMAS
+                                                                    option(value='country-bh')
+                                                                        | BAHRAIN
+                                                                    option(value='country-bd')
+                                                                        | BANGLADESH
+                                                                    option(value='country-bb')
+                                                                        | BARBADOS
+                                                                    option(value='country-by')
+                                                                        | BELARUS
+                                                                    option(value='country-be')
+                                                                        | BELGIUM
+                                                                    option(value='country-bz')
+                                                                        | BELIZE
+                                                                    option(value='country-bj')
+                                                                        | BENIN
+                                                                    option(value='country-bm')
+                                                                        | BERMUDA
+                                                                    option(value='country-bt')
+                                                                        | BHUTAN
+                                                                    option(value='country-bo')
+                                                                        | BOLIVIA
+                                                                    option(value='country-ba')
+                                                                        | BOSNIA AND HERZEGOVINA
+                                                                    option(value='country-bw')
+                                                                        | BOTSWANA
+                                                                    option(value='country-bv')
+                                                                        | BOUVET ISLAND
+                                                                    option(value='country-br')
+                                                                        | BRAZIL
+                                                                    option(value='country-io')
+                                                                        | BRITISH INDIAN OCEAN TERRITORY
+                                                                    option(value='country-bn')
+                                                                        | BRUNEI DARUSSALAM
+                                                                    option(value='country-bg')
+                                                                        | BULGARIA
+                                                                    option(value='country-bf')
+                                                                        | BURKINA FASO
+                                                                    option(value='country-bi')
+                                                                        | BURUNDI
+                                                                    option(value='country-kh')
+                                                                        | CAMBODIA
+                                                                    option(value='country-cm')
+                                                                        | CAMEROON
+                                                                    option(value='country-ca')
+                                                                        | CANADA
+                                                                    option(value='country-cv')
+                                                                        | CAPE VERDE
+                                                                    option(value='country-ky')
+                                                                        | CAYMAN ISLANDS
+                                                                    option(value='country-cf')
+                                                                        | CENTRAL AFRICAN REPUBLIC
+                                                                    option(value='country-td')
+                                                                        | CHAD
+                                                                    option(value='country-cl')
+                                                                        | CHILE
+                                                                    option(value='country-cn')
+                                                                        | CHINA
+                                                                    option(value='country-cx')
+                                                                        | CHRISTMAS ISLAND
+                                                                    option(value='country-cc')
+                                                                        | COCOS (KEELING) ISLANDS
+                                                                    option(value='country-co')
+                                                                        | COLOMBIA
+                                                                    option(value='country-km')
+                                                                        | COMOROS
+                                                                    option(value='country-cg')
+                                                                        | CONGO
+                                                                    option(value='country-cd')
+                                                                        | CONGO, THE DEMOCRATIC REPUBLIC OF THE
+                                                                    option(value='country-ck')
+                                                                        | COOK ISLANDS
+                                                                    option(value='country-cr')
+                                                                        | COSTA RICA
+                                                                    option(value='country-ci')
+                                                                        | CÔTE D'IVOIRE
+                                                                    option(value='country-hr')
+                                                                        | CROATIA
+                                                                    option(value='country-cu')
+                                                                        | CUBA
+                                                                    option(value='country-cy')
+                                                                        | CYPRUS
+                                                                    option(value='country-cz')
+                                                                        | CZECH REPUBLIC
+                                                                    option(value='country-dk')
+                                                                        | DENMARK
+                                                                    option(value='country-dj')
+                                                                        | DJIBOUTI
+                                                                    option(value='country-dm')
+                                                                        | DOMINICA
+                                                                    option(value='country-do')
+                                                                        | DOMINICAN REPUBLIC
+                                                                    option(value='country-ec')
+                                                                        | ECUADOR
+                                                                    option(value='country-eg')
+                                                                        | EGYPT
+                                                                    option(value='country-sv')
+                                                                        | EL SALVADOR
+                                                                    option(value='country-gq')
+                                                                        | EQUATORIAL GUINEA
+                                                                    option(value='country-er')
+                                                                        | ERITREA
+                                                                    option(value='country-ee')
+                                                                        | ESTONIA
+                                                                    option(value='country-et')
+                                                                        | ETHIOPIA
+                                                                    option(value='country-fk')
+                                                                        | FALKLAND ISLANDS (MALVINAS)
+                                                                    option(value='country-fo')
+                                                                        | FAROE ISLANDS
+                                                                    option(value='country-fj')
+                                                                        | FIJI
+                                                                    option(value='country-fi')
+                                                                        | FINLAND
+                                                                    option(value='country-fr')
+                                                                        | FRANCE
+                                                                    option(value='country-gf')
+                                                                        | FRENCH GUIANA
+                                                                    option(value='country-pf')
+                                                                        | FRENCH POLYNESIA
+                                                                    option(value='country-tf')
+                                                                        | FRENCH SOUTHERN TERRITORIES
+                                                                    option(value='country-ga')
+                                                                        | GABON
+                                                                    option(value='country-gm')
+                                                                        | GAMBIA
+                                                                    option(value='country-ge')
+                                                                        | GEORGIA
+                                                                    option(value='country-de')
+                                                                        | GERMANY
+                                                                    option(value='country-gh')
+                                                                        | GHANA
+                                                                    option(value='country-gi')
+                                                                        | GIBRALTAR
+                                                                    option(value='country-gr')
+                                                                        | GREECE
+                                                                    option(value='country-gl')
+                                                                        | GREENLAND
+                                                                    option(value='country-gd')
+                                                                        | GRENADA
+                                                                    option(value='country-gp')
+                                                                        | GUADELOUPE
+                                                                    option(value='country-gu')
+                                                                        | GUAM
+                                                                    option(value='country-gt')
+                                                                        | GUATEMALA
+                                                                    option(value='country-gg')
+                                                                        | GUERNSEY
+                                                                    option(value='country-gn')
+                                                                        | GUINEA
+                                                                    option(value='country-gw')
+                                                                        | GUINEA-BISSAU
+                                                                    option(value='country-gy')
+                                                                        | GUYANA
+                                                                    option(value='country-ht')
+                                                                        | HAITI
+                                                                    option(value='country-hm')
+                                                                        | HEARD ISLAND AND MCDONALD ISLANDS
+                                                                    option(value='country-va')
+                                                                        | HOLY SEE (VATICAN CITY STATE)
+                                                                    option(value='country-hn')
+                                                                        | HONDURAS
+                                                                    option(value='country-hk')
+                                                                        | HONG KONG
+                                                                    option(value='country-hu')
+                                                                        | HUNGARY
+                                                                    option(value='country-is')
+                                                                        | ICELAND
+                                                                    option(value='country-in')
+                                                                        | INDIA
+                                                                    option(value='country-id')
+                                                                        | INDONESIA
+                                                                    option(value='country-ir')
+                                                                        | IRAN, ISLAMIC REPUBLIC OF
+                                                                    option(value='country-iq')
+                                                                        | IRAQ
+                                                                    option(value='country-ie')
+                                                                        | IRELAND
+                                                                    option(value='country-im')
+                                                                        | ISLE OF MAN
+                                                                    option(value='country-il')
+                                                                        | ISRAEL
+                                                                    option(value='country-it')
+                                                                        | ITALY
+                                                                    option(value='country-jm')
+                                                                        | JAMAICA
+                                                                    option(value='country-jp')
+                                                                        | JAPAN
+                                                                    option(value='country-je')
+                                                                        | JERSEY
+                                                                    option(value='country-jo')
+                                                                        | JORDAN
+                                                                    option(value='country-kz')
+                                                                        | KAZAKHSTAN
+                                                                    option(value='country-ke')
+                                                                        | KENYA
+                                                                    option(value='country-ki')
+                                                                        | KIRIBATI
+                                                                    option(value='country-kp')
+                                                                        | KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF
+                                                                    option(value='country-kr')
+                                                                        | KOREA, REPUBLIC OF
+                                                                    option(value='country-xk')
+                                                                        | KOSOVO, REPUBLIC OF
+                                                                    option(value='country-kw')
+                                                                        | KUWAIT
+                                                                    option(value='country-kg')
+                                                                        | KYRGYZSTAN
+                                                                    option(value='country-la')
+                                                                        | LAO PEOPLE'S DEMOCRATIC REPUBLIC
+                                                                    option(value='country-lv')
+                                                                        | LATVIA
+                                                                    option(value='country-lb')
+                                                                        | LEBANON
+                                                                    option(value='country-ls')
+                                                                        | LESOTHO
+                                                                    option(value='country-lr')
+                                                                        | LIBERIA
+                                                                    option(value='country-ly')
+                                                                        | LIBYAN ARAB JAMAHIRIYA
+                                                                    option(value='country-li')
+                                                                        | LIECHTENSTEIN
+                                                                    option(value='country-lt')
+                                                                        | LITHUANIA
+                                                                    option(value='country-lu')
+                                                                        | LUXEMBOURG
+                                                                    option(value='country-mo')
+                                                                        | MACAO
+                                                                    option(value='country-mk')
+                                                                        | MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF
+                                                                    option(value='country-mg')
+                                                                        | MADAGASCAR
+                                                                    option(value='country-mw')
+                                                                        | MALAWI
+                                                                    option(value='country-my')
+                                                                        | MALAYSIA
+                                                                    option(value='country-mv')
+                                                                        | MALDIVES
+                                                                    option(value='country-ml')
+                                                                        | MALI
+                                                                    option(value='country-mt')
+                                                                        | MALTA
+                                                                    option(value='country-mh')
+                                                                        | MARSHALL ISLANDS
+                                                                    option(value='country-mq')
+                                                                        | MARTINIQUE
+                                                                    option(value='country-mr')
+                                                                        | MAURITANIA
+                                                                    option(value='country-mu')
+                                                                        | MAURITIUS
+                                                                    option(value='country-yt')
+                                                                        | MAYOTTE
+                                                                    option(value='country-mx')
+                                                                        | MEXICO
+                                                                    option(value='country-fm')
+                                                                        | MICRONESIA, FEDERATED STATES OF
+                                                                    option(value='country-md')
+                                                                        | MOLDOVA, REPUBLIC OF
+                                                                    option(value='country-mc')
+                                                                        | MONACO
+                                                                    option(value='country-mn')
+                                                                        | MONGOLIA
+                                                                    option(value='country-me')
+                                                                        | MONTENEGRO
+                                                                    option(value='country-ms')
+                                                                        | MONTSERRAT
+                                                                    option(value='country-ma')
+                                                                        | MOROCCO
+                                                                    option(value='country-mz')
+                                                                        | MOZAMBIQUE
+                                                                    option(value='country-mm')
+                                                                        | MYANMAR
+                                                                    option(value='country-na')
+                                                                        | NAMIBIA
+                                                                    option(value='country-nr')
+                                                                        | NAURU
+                                                                    option(value='country-np')
+                                                                        | NEPAL
+                                                                    option(value='country-nl')
+                                                                        | NETHERLANDS
+                                                                    option(value='country-an')
+                                                                        | NETHERLANDS ANTILLES
+                                                                    option(value='country-nc')
+                                                                        | NEW CALEDONIA
+                                                                    option(value='country-nz')
+                                                                        | NEW ZEALAND
+                                                                    option(value='country-ni')
+                                                                        | NICARAGUA
+                                                                    option(value='country-ne')
+                                                                        | NIGER
+                                                                    option(value='country-ng')
+                                                                        | NIGERIA
+                                                                    option(value='country-nu')
+                                                                        | NIUE
+                                                                    option(value='country-nf')
+                                                                        | NORFOLK ISLAND
+                                                                    option(value='country-mp')
+                                                                        | NORTHERN MARIANA ISLANDS
+                                                                    option(value='country-no')
+                                                                        | NORWAY
+                                                                    option(value='country-om')
+                                                                        | OMAN
+                                                                    option(value='country-pk')
+                                                                        | PAKISTAN
+                                                                    option(value='country-pw')
+                                                                        | PALAU
+                                                                    option(value='country-ps')
+                                                                        | PALESTINIAN TERRITORY, OCCUPIED
+                                                                    option(value='country-pa')
+                                                                        | PANAMA
+                                                                    option(value='country-pg')
+                                                                        | PAPUA NEW GUINEA
+                                                                    option(value='country-py')
+                                                                        | PARAGUAY
+                                                                    option(value='country-pe')
+                                                                        | PERU
+                                                                    option(value='country-ph')
+                                                                        | PHILIPPINES
+                                                                    option(value='country-pn')
+                                                                        | PITCAIRN
+                                                                    option(value='country-pl')
+                                                                        | POLAND
+                                                                    option(value='country-pt')
+                                                                        | PORTUGAL
+                                                                    option(value='country-pr')
+                                                                        | PUERTO RICO
+                                                                    option(value='country-qa')
+                                                                        | QATAR
+                                                                    option(value='country-re')
+                                                                        | REUNION
+                                                                    option(value='country-ro')
+                                                                        | ROMANIA
+                                                                    option(value='country-ru')
+                                                                        | RUSSIAN FEDERATION
+                                                                    option(value='country-rw')
+                                                                        | RWANDA
+                                                                    option(value='country-bl')
+                                                                        | SAINT BARTHÉLEMY
+                                                                    option(value='country-sh')
+                                                                        | SAINT HELENA
+                                                                    option(value='country-kn')
+                                                                        | SAINT KITTS AND NEVIS
+                                                                    option(value='country-lc')
+                                                                        | SAINT LUCIA
+                                                                    option(value='country-mf')
+                                                                        | SAINT MARTIN
+                                                                    option(value='country-pm')
+                                                                        | SAINT PIERRE AND MIQUELON
+                                                                    option(value='country-vc')
+                                                                        | SAINT VINCENT AND THE GRENADINES
+                                                                    option(value='country-ws')
+                                                                        | SAMOA
+                                                                    option(value='country-sm')
+                                                                        | SAN MARINO
+                                                                    option(value='country-st')
+                                                                        | SAO TOME AND PRINCIPE
+                                                                    option(value='country-sa')
+                                                                        | SAUDI ARABIA
+                                                                    option(value='country-sn')
+                                                                        | SENEGAL
+                                                                    option(value='country-rs')
+                                                                        | SERBIA
+                                                                    option(value='country-sc')
+                                                                        | SEYCHELLES
+                                                                    option(value='country-sl')
+                                                                        | SIERRA LEONE
+                                                                    option(value='country-sg')
+                                                                        | SINGAPORE
+                                                                    option(value='country-sk')
+                                                                        | SLOVAKIA
+                                                                    option(value='country-si')
+                                                                        | SLOVENIA
+                                                                    option(value='country-sb')
+                                                                        | SOLOMON ISLANDS
+                                                                    option(value='country-so')
+                                                                        | SOMALIA
+                                                                    option(value='country-za')
+                                                                        | SOUTH AFRICA
+                                                                    option(value='country-gs')
+                                                                        | SOUTH GEORGIA AND THE SOUTH SANDWICH  ISLANDS
+                                                                    option(value='country-ss')
+                                                                        | SOUTH SUDAN
+                                                                    option(value='country-es')
+                                                                        | SPAIN
+                                                                    option(value='country-lk')
+                                                                        | SRI LANKA
+                                                                    option(value='country-sd')
+                                                                        | SUDAN
+                                                                    option(value='country-sr')
+                                                                        | SURINAME
+                                                                    option(value='country-sj')
+                                                                        | SVALBARD AND JAN MAYEN
+                                                                    option(value='country-sz')
+                                                                        | SWAZILAND
+                                                                    option(value='country-se')
+                                                                        | SWEDEN
+                                                                    option(value='country-ch')
+                                                                        | SWITZERLAND
+                                                                    option(value='country-sy')
+                                                                        | SYRIAN ARAB REPUBLIC
+                                                                    option(value='country-tw')
+                                                                        | TAIWAN
+                                                                    option(value='country-tj')
+                                                                        | TAJIKISTAN
+                                                                    option(value='country-tz')
+                                                                        | TANZANIA, UNITED REPUBLIC OF
+                                                                    option(value='country-th')
+                                                                        | THAILAND
+                                                                    option(value='country-tl')
+                                                                        | TIMOR-LESTE
+                                                                    option(value='country-tg')
+                                                                        | TOGO
+                                                                    option(value='country-tk')
+                                                                        | TOKELAU
+                                                                    option(value='country-to')
+                                                                        | TONGA
+                                                                    option(value='country-tt')
+                                                                        | TRINIDAD AND TOBAGO
+                                                                    option(value='country-tn')
+                                                                        | TUNISIA
+                                                                    option(value='country-tr')
+                                                                        | TURKEY
+                                                                    option(value='country-tm')
+                                                                        | TURKMENISTAN
+                                                                    option(value='country-tc')
+                                                                        | TURKS AND CAICOS ISLANDS
+                                                                    option(value='country-tv')
+                                                                        | TUVALU
+                                                                    option(value='country-ug')
+                                                                        | UGANDA
+                                                                    option(value='country-ua')
+                                                                        | UKRAINE
+                                                                    option(value='country-ae')
+                                                                        | UNITED ARAB EMIRATES
+                                                                    option(value='country-gb')
+                                                                        | UNITED KINGDOM
+                                                                    option(value='country-us')
+                                                                        | UNITED STATES
+                                                                    option(value='country-um')
+                                                                        | UNITED STATES MINOR OUTLYING ISLANDS
+                                                                    option(value='country-uy')
+                                                                        | URUGUAY
+                                                                    option(value='country-uz')
+                                                                        | UZBEKISTAN
+                                                                    option(value='country-vu')
+                                                                        | VANUATU
+                                                                    option(value='country-ve')
+                                                                        | VENEZUELA, BOLIVARIAN REPUBLIC OF
+                                                                    option(value='country-vn')
+                                                                        | VIET NAM
+                                                                    option(value='country-vg')
+                                                                        | VIRGIN ISLANDS, BRITISH
+                                                                    option(value='country-vi')
+                                                                        | VIRGIN ISLANDS, U.S.
+                                                                    option(value='country-wf')
+                                                                        | WALLIS AND FUTUNA
+                                                                    option(value='country-eh')
+                                                                        | WESTERN SAHARA
+                                                                    option(value='country-ye')
+                                                                        | YEMEN
+                                                                    option(value='country-zm')
+                                                                        | ZAMBIA
+                                                                    option(value='country-zw')
+                                                                        | ZIMBABWE
+                                                            input(type='hidden', name='taxonomy[1].code', value='profile-interest', data-maxtags='1.')
+                                                            .input-group
+                                                                .label
+                                                                    label(for='taxonomy[1].values')
+                                                                        | Area of interest
+                                                                        span.required-marker *
+                                                                select.jcf(id='taxonomy[1].values', name='taxonomy[1].values')
+                                                                    option(value='')
+                                                                        | SELECT YOUR AREA OF INTEREST
+                                                                    option(value='ba00-h', disabled='disabled')
+                                                                        | --- --- Business, Economics, Finance and Accounting --- ---
+                                                                    option(value='accounting')
+                                                                        | Accounting
+                                                                    option(value='business (general)')
+                                                                        | Business (general)
+                                                                    option(value='economics')
+                                                                        | Economics
+                                                                    option(value='finance and investments')
+                                                                        | Finance and Investments
+                                                                    option(value='industrial and labor relations')
+                                                                        | Industrial and Labor Relations
+                                                                    option(value='management')
+                                                                        | Management
+                                                                    option(value='marketing and sales')
+                                                                        | Marketing and Sales
+                                                                    option(value='non-profit organizations')
+                                                                        | Non-Profit Organizations
+                                                                    option(value='public administration and management')
+                                                                        | Public Administration and Management
+                                                                    option(value='risk management and insurance')
+                                                                        | Risk Management and Insurance
+                                                                    option(value='training and human resource development')
+                                                                        | Training and Human Resource Development
+                                                                    option(value='ch00-h', disabled='disabled')
+                                                                        | --- --- Chemistry --- ---
+                                                                    option(value='analytical chemistry')
+                                                                        | Analytical Chemistry
+                                                                    option(value='biochemistry')
+                                                                        | Biochemistry
+                                                                    option(value='chemical engineering')
+                                                                        | Chemical Engineering
+                                                                    option(value='chemistry (general)')
+                                                                        | Chemistry (general)
+                                                                    option(value='computational chemistry and molecular modeling')
+                                                                        | Computational Chemistry and Molecular Modeling
+                                                                    option(value='crystallography')
+                                                                        | Crystallography
+                                                                    option(value='environmental chemistry')
+                                                                        | Environmental Chemistry
+                                                                    option(value='food science and technology')
+                                                                        | Food Science and Technology
+                                                                    option(value='industrial chemistry')
+                                                                        | Industrial Chemistry
+                                                                    option(value='inorganic chemistry')
+                                                                        | Inorganic Chemistry
+                                                                    option(value='organic chemistry')
+                                                                        | Organic Chemistry
+                                                                    option(value='pharmaceutical and medicinal chemistry')
+                                                                        | Pharmaceutical and Medicinal Chemistry
+                                                                    option(value='physical chemistry')
+                                                                        | Physical Chemistry
+                                                                    option(value='spectroscopy')
+                                                                        | Spectroscopy
+                                                                    option(value='toxicology')
+                                                                        | Toxicology
+                                                                    option(value='es00-h', disabled='disabled')
+                                                                        | --- --- Earth and Environmental Science --- ---
+                                                                    option(value='agriculture')
+                                                                        | Agriculture
+                                                                    option(value='aquaculture and fisheries')
+                                                                        | Aquaculture and Fisheries
+                                                                    option(value='climatology and meteorology')
+                                                                        | Climatology and Meteorology
+                                                                    option(value='earth and environmental science (general)')
+                                                                        | Earth and Environmental Science (general)
+                                                                    option(value='environmental science')
+                                                                        | Environmental Science
+                                                                    option(value='geology and geophysics')
+                                                                        | Geology and Geophysics
+                                                                    option(value='oceanography')
+                                                                        | Oceanography
+                                                                    option(value='ed00-h', disabled='disabled')
+                                                                        | --- --- Education --- ---
+                                                                    option(value='education (general)')
+                                                                        | Education (general)
+                                                                    option(value='higher education')
+                                                                        | Higher Education
+                                                                    option(value='special education')
+                                                                        | Special Education
+                                                                    option(value='eng0-h', disabled='disabled')
+                                                                        | --- --- Engineering --- ---
+                                                                    option(value='architecture')
+                                                                        | Architecture
+                                                                    option(value='biomedical engineering')
+                                                                        | Biomedical Engineering
+                                                                    option(value='civil engineering')
+                                                                        | Civil Engineering
+                                                                    option(value='communication technology')
+                                                                        | Communication Technology
+                                                                    option(value='control systems technology')
+                                                                        | Control Systems Technology
+                                                                    option(value='electrical and electronics engineering')
+                                                                        | Electrical and Electronics Engineering
+                                                                    option(value='electronic materials')
+                                                                        | Electronic Materials
+                                                                    option(value='energy')
+                                                                        | Energy
+                                                                    option(value='engineering (general)')
+                                                                        | Engineering (general)
+                                                                    option(value='environmental engineering')
+                                                                        | Environmental Engineering
+                                                                    option(value='hydrology and water resources')
+                                                                        | Hydrology and Water Resources
+                                                                    option(value='industrial engineering')
+                                                                        | Industrial Engineering
+                                                                    option(value='mechanical engineering')
+                                                                        | Mechanical Engineering
+                                                                    option(value='systems engineering')
+                                                                        | Systems Engineering
+                                                                    option(value='ss00-h', disabled='disabled')
+                                                                        | --- --- Humanities and Social Sciences --- ---
+                                                                    option(value='ancient history and classical studies')
+                                                                        | Ancient History and Classical Studies
+                                                                    option(value='anthropology')
+                                                                        | Anthropology
+                                                                    option(value='archaeology')
+                                                                        | Archaeology
+                                                                    option(value='art and applied arts')
+                                                                        | Art and Applied Arts
+                                                                    option(value='classical studies')
+                                                                        | Classical Studies
+                                                                    option(value='communication and cultural studies')
+                                                                        | Communication and Cultural Studies
+                                                                    option(value='development studies')
+                                                                        | Development Studies
+                                                                    option(value='family and childhood studies')
+                                                                        | Family and Childhood Studies
+                                                                    option(value='geography')
+                                                                        | Geography
+                                                                    option(value='history')
+                                                                        | History
+                                                                    option(value='language and linguistics')
+                                                                        | Language and Linguistics
+                                                                    option(value='literature')
+                                                                        | Literature
+                                                                    option(value='philosophy')
+                                                                        | Philosophy
+                                                                    option(value='politics')
+                                                                        | Politics
+                                                                    option(value='religion and theology')
+                                                                        | Religion and Theology
+                                                                    option(value='social policy and welfare')
+                                                                        | Social Policy and Welfare
+                                                                    option(value='social sciences (general)')
+                                                                        | Social Sciences (general)
+                                                                    option(value='sociology')
+                                                                        | Sociology
+                                                                    option(value='urban studies')
+                                                                        | Urban Studies
+                                                                    option(value='cs00-h', disabled='disabled')
+                                                                        | --- --- Information Science and Computing --- ---
+                                                                    option(value='computer science (general)')
+                                                                        | Computer Science (general)
+                                                                    option(value='information and library science')
+                                                                        | Information and Library Science
+                                                                    option(value='information technologies')
+                                                                        | Information Technologies
+                                                                    option(value='programming and software development')
+                                                                        | Programming and Software Development
+                                                                    option(value='la00-h', disabled='disabled')
+                                                                        | --- --- Law and Criminology --- ---
+                                                                    option(value='criminology')
+                                                                        | Criminology
+                                                                    option(value='law (general)')
+                                                                        | Law (general)
+                                                                    option(value='ls00-h', disabled='disabled')
+                                                                        | --- --- Life Sciences --- ---
+                                                                    option(value='anatomy and physiology')
+                                                                        | Anatomy and Physiology
+                                                                    option(value='bioinformatics')
+                                                                        | Bioinformatics
+                                                                    option(value='biological anthropology')
+                                                                        | Biological Anthropology
+                                                                    option(value='biology')
+                                                                        | Biology
+                                                                    option(value='biotechnology')
+                                                                        | Biotechnology
+                                                                    option(value='cell and molecular biology')
+                                                                        | Cell and Molecular Biology
+                                                                    option(value='ecology')
+                                                                        | Ecology
+                                                                    option(value='genetics and evolution')
+                                                                        | Genetics and Evolution
+                                                                    option(value='genomics')
+                                                                        | Genomics
+                                                                    option(value='life sciences (general)')
+                                                                        | Life Sciences (general)
+                                                                    option(value='microbiology and virology')
+                                                                        | Microbiology and Virology
+                                                                    option(value='neuroscience')
+                                                                        | Neuroscience
+                                                                    option(value='plant science')
+                                                                        | Plant Science
+                                                                    option(value='zoology')
+                                                                        | Zoology
+                                                                    option(value='ma00-h', disabled='disabled')
+                                                                        | --- --- Mathematics and Statistics --- ---
+                                                                    option(value='applied mathematics')
+                                                                        | Applied Mathematics
+                                                                    option(value='applied probability and statistics')
+                                                                        | Applied Probability and Statistics
+                                                                    option(value='computational and graphical statistics')
+                                                                        | Computational and Graphical Statistics
+                                                                    option(value='data analysis and management')
+                                                                        | Data Analysis and Management
+                                                                    option(value='mathematics (general)')
+                                                                        | Mathematics (general)
+                                                                    option(value='numerical methods')
+                                                                        | Numerical Methods
+                                                                    option(value='probability and mathematical statistics')
+                                                                        | Probability and Mathematical Statistics
+                                                                    option(value='regression analysis')
+                                                                        | Regression Analysis
+                                                                    option(value='statistics (general)')
+                                                                        | Statistics (general)
+                                                                    option(value='statistics experimental design')
+                                                                        | Statistics Experimental Design
+                                                                    option(value='md00-h', disabled='disabled')
+                                                                        | --- --- Medical, Veterinary and Health Sciences --- ---
+                                                                    option(value='allergy and respiratory medicine')
+                                                                        | Allergy and Respiratory Medicine
+                                                                    option(value='anesthesia, intensive care and pain medicine')
+                                                                        | Anesthesia, Intensive Care and Pain Medicine
+                                                                    option(value='audiology')
+                                                                        | Audiology
+                                                                    option(value='cardiology and cardiovascular medicine')
+                                                                        | Cardiology and Cardiovascular Medicine
+                                                                    option(value='clinical microbiology')
+                                                                        | Clinical Microbiology
+                                                                    option(value='dentistry')
+                                                                        | Dentistry
+                                                                    option(value='dermatology')
+                                                                        | Dermatology
+                                                                    option(value='emergency medicine and trauma')
+                                                                        | Emergency Medicine and Trauma
+                                                                    option(value='endocrinology and diabetes')
+                                                                        | Endocrinology and Diabetes
+                                                                    option(value='epidemiology, public health and statistics')
+                                                                        | Epidemiology, Public Health and Statistics
+                                                                    option(value='evidence-based medicine')
+                                                                        | Evidence-based Medicine
+                                                                    option(value='gastroenterology and hepatology')
+                                                                        | Gastroenterology and Hepatology
+                                                                    option(value='geriatric medicine')
+                                                                        | Geriatric Medicine
+                                                                    option(value='health and social care')
+                                                                        | Health and Social Care
+                                                                    option(value='hematology')
+                                                                        | Hematology
+                                                                    option(value='imaging')
+                                                                        | Imaging
+                                                                    option(value='immunology')
+                                                                        | Immunology
+                                                                    option(value='intellectual disability')
+                                                                        | Intellectual Disability
+                                                                    option(value='medicine (general)')
+                                                                        | Medicine (general)
+                                                                    option(value='mental health')
+                                                                        | Mental Health
+                                                                    option(value='neurology')
+                                                                        | Neurology
+                                                                    option(value='nursing')
+                                                                        | Nursing
+                                                                    option(value='nutrition and dietetics')
+                                                                        | Nutrition and Dietetics
+                                                                    option(value='obstetrics and gynecology')
+                                                                        | Obstetrics and Gynecology
+                                                                    option(value='occupational therapy')
+                                                                        | Occupational Therapy
+                                                                    option(value='oncology and radiotherapy')
+                                                                        | Oncology and Radiotherapy
+                                                                    option(value='ophthalmology and optometry')
+                                                                        | Ophthalmology and Optometry
+                                                                    option(value='oral and maxillofacial surgery')
+                                                                        | Oral and Maxillofacial Surgery
+                                                                    option(value='otolaryngology')
+                                                                        | Otolaryngology
+                                                                    option(value='pathology and laboratory medicine')
+                                                                        | Pathology and Laboratory Medicine
+                                                                    option(value='pediatrics')
+                                                                        | Pediatrics
+                                                                    option(value='pharmacology')
+                                                                        | Pharmacology
+                                                                    option(value='psychiatry')
+                                                                        | Psychiatry
+                                                                    option(value='public health/general')
+                                                                        | Public Health/General
+                                                                    option(value='renal medicine')
+                                                                        | Renal Medicine
+                                                                    option(value='rheumatology')
+                                                                        | Rheumatology
+                                                                    option(value='surgery')
+                                                                        | Surgery
+                                                                    option(value='transplantation')
+                                                                        | Transplantation
+                                                                    option(value='urology')
+                                                                        | Urology
+                                                                    option(value='veterinary medicine')
+                                                                        | Veterinary Medicine
+                                                                    option(value='ph00-h', disabled='disabled')
+                                                                        | --- --- Physics and Astronomy --- ---
+                                                                    option(value='astronomy and astrophysics')
+                                                                        | Astronomy and Astrophysics
+                                                                    option(value='atomic, molecular and optical physics')
+                                                                        | Atomic, Molecular and Optical Physics
+                                                                    option(value='general and introductory physics')
+                                                                        | General and Introductory Physics
+                                                                    option(value='quantum physics and field theory')
+                                                                        | Quantum Physics and Field Theory
+                                                                    option(value='solid state physics')
+                                                                        | Solid State Physics
+                                                                    option(value='thermal physics and statistical mechanics')
+                                                                        | Thermal Physics and Statistical Mechanics
+                                                                    option(value='py00-h', disabled='disabled')
+                                                                        | --- --- Polymers and Materials Science --- ---
+                                                                    option(value='abnormal psychology')
+                                                                        | Abnormal Psychology
+                                                                    option(value='applied psychology')
+                                                                        | Applied Psychology
+                                                                    option(value='biomaterials')
+                                                                        | Biomaterials
+                                                                    option(value='clinical psychology')
+                                                                        | Clinical Psychology
+                                                                    option(value='developmental and infant-child psychology')
+                                                                        | Developmental and Infant-Child Psychology
+                                                                    option(value='educational psychology')
+                                                                        | Educational Psychology
+                                                                    option(value='general materials science')
+                                                                        | General Materials Science
+                                                                    option(value='nanotechnology and nanomaterials')
+                                                                        | Nanotechnology and Nanomaterials
+                                                                    option(value='polymer science and technology')
+                                                                        | Polymer Science and Technology
+                                                                    option(value='ps00')
+                                                                        | --- Psychology ---
+                                                                    option(value='psychology (general)')
+                                                                        | Psychology (general)
+                                                                    option(value='psychotherapy')
+                                                                        | Psychotherapy
+                                                                    option(value='social psychology')
+                                                                        | Social Psychology
+                                                                    option(value='structural materials')
+                                                                        | Structural Materials
+                                                hr.separator
+                                                h2
+                                                    | Sign up for Email lists
+                                                section.marketable
+                                                    input(type='hidden', name='marketable.id', value='aff32d52-ac9c-41a7-b8d8-5d7d3e487962')
+                                                    input(type='hidden', name='section', value='marketable')
+                                                    .notified-group
+                                                        .input-group
+                                                            label.radio--primary
+                                                                input(id='marketable.value', type='radio', name='marketable.value', value='true')
+                                                                span.label-txt Yes... send me email on Wiley publications in my Area of Interest
+                                                        .input-group
+                                                            label.radio--primary
+                                                                input(id='marketable.value', type='radio', name='marketable.value', value='false', checked='checked')
+                                                                span.label-txt No, thank you... I do not wish to receive promotional email from Wiley
+                                                .note(data-widget-def='general-rich-text', data-widget-id='03b07872-c72a-4f86-86d0-035d66405108')
+                                                    #rich-text-03b07872-c72a-4f86-86d0-035d66405108.pb-rich-text(style='overflow: auto;')
+                                                        p
+                                                            | You may unsubscribe from our mailing list any time. View our
+                                                            a(href='http://www.wiley.com/privacy', title='Wiley Privacy Policy') Privacy Policy
+                                                            | .
+                                                hr.separator
+                                                .accordion
+                                                    ul.accordion-tabbed.rlist
+                                                        li.accordion-tabbed__tab.print-mail-list
+                                                            a.accordion-tabbed__control(href='#', title='Sign up for print mail lists  <i aria-hidden="true" class="icon-section_arrow_d"></i>', aria-expanded='false', aria-controls='986ad45f-60b6-4be7-9dfc-1b18ede6bd180')
+                                                                | Sign up for print mail lists
+                                                                i.icon-section_arrow_d(aria-hidden='true')
+                                                            #986ad45f-60b6-4be7-9dfc-1b18ede6bd180.accordion-tabbed__content
+                                                                .addresses(data-widget-def='addressWidget', data-widget-id='afaa6e71-84ba-4ebf-985c-1a58bd52101e')
+                                                                    #address
+                                                                        section.edit
+                                                                            input(type='hidden', name='address.id', value='afaa6e71-84ba-4ebf-985c-1a58bd52101e')
+                                                                            input(type='hidden', name='section', value='address')
+                                                                            input(type='hidden', name='address.uuid', value='')
+                                                                            .printMailing-dropzone(data-pb-dropzone='printMailingdropzone')
+                                                                                section.printMailing
+                                                                                    input(type='hidden', name='printMailing.id', value='284a2487-a9f6-4d0d-9d9f-e2d290d7560f')
+                                                                                    input(type='hidden', name='section', value='printMailing')
+                                                                                    .notified-group
+                                                                                        .input-group
+                                                                                            label.checkbox--primary
+                                                                                                input(id='printMailing.value', type='checkbox', name='printMailing.value', value='true')
+                                                                                                span.label-txt
+                                                                                                    | Please include me on your mailing list to receive brochures and other printed information about books and journals in my subject area.
+                                                                            .input-group.hidden
+                                                                                label.checkbox--primary
+                                                                                    input(type='checkbox', name='printMail', checked='')
+                                                                                    span.label-txt
+                                                                                        | Please include me on your mailing list to receive brochures and other printed information about books and journals in my subject area.
+                                                                            .row
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.organization') Organization
+                                                                                        input.dynamic(id='address.organization', type='text', name='address.organization', value='', size='15', placeholder='')
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.department') Department
+                                                                                        input.dynamic(id='address.department', type='text', name='address.department', value='', size='15', placeholder='')
+                                                                            .row
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.address1')
+                                                                                                | Address line 1
+                                                                                                span.required-marker *
+                                                                                        input(id='address.address1', type='text', name='address.address1', value='', size='15', placeholder='')
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.address2') Address line 2
+                                                                                        input(id='address.address2', type='text', name='address.address2', value='', size='15', placeholder='')
+                                                                            .row
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.city')
+                                                                                                | City/Town
+                                                                                                span.required-marker *
+                                                                                        input(id='address.city', type='text', name='address.city', value='', size='15', placeholder='')
+                                                                                .col-md-6
+                                                                                    .input-group.hidden
+                                                                                        .label
+                                                                                            label(for='address.state')
+                                                                                                | State/Province
+                                                                                                span.required-marker *
+                                                                                        select.state.CA(id='address.state', name='address.state', disabled='disabled')
+                                                                                            option(value='')
+                                                                                            option(value='AB') Alberta
+                                                                                            option(value='BC') British Columbia
+                                                                                            option(value='MB') Manitoba
+                                                                                            option(value='NB') New Brunswick
+                                                                                            option(value='NL') Newfoundland and Labrador
+                                                                                            option(value='NT') Northwest Territories
+                                                                                            option(value='NS') Nova Scotia
+                                                                                            option(value='NU') Nunavut
+                                                                                            option(value='ON') Ontario
+                                                                                            option(value='PE') Prince Edward Island
+                                                                                            option(value='QC') Quebec
+                                                                                            option(value='SK') Saskatchewan
+                                                                                            option(value='YT') Yukon Territory
+                                                                                        select.state.US(id='address.state', name='address.state', disabled='disabled')
+                                                                                            option(value='')
+                                                                                            option(value='AL') Alabama
+                                                                                            option(value='AK') Alaska
+                                                                                            option(value='AS') American Samoa
+                                                                                            option(value='AZ') Arizona
+                                                                                            option(value='AR') Arkansas
+                                                                                            option(value='CA') California
+                                                                                            option(value='CO') Colorado
+                                                                                            option(value='CT') Connecticut
+                                                                                            option(value='DE') Delaware
+                                                                                            option(value='DC') District Of Columbia
+                                                                                            option(value='FL') Florida
+                                                                                            option(value='GA') Georgia
+                                                                                            option(value='GU') Guam
+                                                                                            option(value='HI') Hawaii
+                                                                                            option(value='ID') Idaho
+                                                                                            option(value='IL') Illinois
+                                                                                            option(value='IN') Indiana
+                                                                                            option(value='IA') Iowa
+                                                                                            option(value='KS') Kansas
+                                                                                            option(value='KY') Kentucky
+                                                                                            option(value='LA') Louisiana
+                                                                                            option(value='ME') Maine
+                                                                                            option(value='MH') Marshall Islands
+                                                                                            option(value='MD') Maryland
+                                                                                            option(value='MA') Massachusetts
+                                                                                            option(value='MI') Michigan
+                                                                                            option(value='FM') Micronesia
+                                                                                            option(value='MN') Minnesota
+                                                                                            option(value='MS') Mississippi
+                                                                                            option(value='MO') Missouri
+                                                                                            option(value='MT') Montana
+                                                                                            option(value='NE') Nebraska
+                                                                                            option(value='NV') Nevada
+                                                                                            option(value='NH') New Hampshire
+                                                                                            option(value='NJ') New Jersey
+                                                                                            option(value='NM') New Mexico
+                                                                                            option(value='NY') New York
+                                                                                            option(value='NC') North Carolina
+                                                                                            option(value='ND') North Dakota
+                                                                                            option(value='MP') Northern Mariana Islands
+                                                                                            option(value='OH') Ohio
+                                                                                            option(value='OK') Oklahoma
+                                                                                            option(value='OR') Oregon
+                                                                                            option(value='PW') Palau
+                                                                                            option(value='PA') Pennsylvania
+                                                                                            option(value='PR') Puerto Rico
+                                                                                            option(value='RI') Rhode Island
+                                                                                            option(value='SC') South Carolina
+                                                                                            option(value='SD') South Dakota
+                                                                                            option(value='TN') Tennessee
+                                                                                            option(value='TX') Texas
+                                                                                            option(value='UT') Utah
+                                                                                            option(value='VT') Vermont
+                                                                                            option(value='VI') Virgin Islands
+                                                                                            option(value='VA') Virginia
+                                                                                            option(value='WA') Washington
+                                                                                            option(value='WV') West Virginia
+                                                                                            option(value='WI') Wisconsin
+                                                                                            option(value='WY') Wyoming
+                                                                                            option(value='AA') Armed Forces (AA)
+                                                                                            option(value='AE') Armed Forces (AE)
+                                                                                            option(value='AP') Armed Forces (AP)
+                                                                            .row
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.country')
+                                                                                                | Country/Location
+                                                                                                span.required-marker *
+                                                                                        select.country.jcf.jcf-hidden(id='address.country', name='address.country')
+                                                                                            option(value='', selected='selected') Select your country
+                                                                                            option(value='AF') Afghanistan
+                                                                                            option(value='AX') Aland Islands
+                                                                                            option(value='AL') Albania
+                                                                                            option(value='DZ') Algeria
+                                                                                            option(value='AS') American Samoa
+                                                                                            option(value='AD') Andorra
+                                                                                            option(value='AO') Angola
+                                                                                            option(value='AI') Anguilla
+                                                                                            option(value='AQ') Antarctica
+                                                                                            option(value='AG') Antigua and Barbuda
+                                                                                            option(value='AR') Argentina
+                                                                                            option(value='AM') Armenia
+                                                                                            option(value='AW') Aruba
+                                                                                            option(value='AU') Australia
+                                                                                            option(value='AT') Austria
+                                                                                            option(value='AZ') Azerbaijan
+                                                                                            option(value='BS') Bahamas
+                                                                                            option(value='BH') Bahrain
+                                                                                            option(value='BD') Bangladesh
+                                                                                            option(value='BB') Barbados
+                                                                                            option(value='BY') Belarus
+                                                                                            option(value='BE') Belgium
+                                                                                            option(value='BZ') Belize
+                                                                                            option(value='BJ') Benin
+                                                                                            option(value='BM') Bermuda
+                                                                                            option(value='BT') Bhutan
+                                                                                            option(value='BO') Bolivia
+                                                                                            option(value='BQ') Bonaire, Sint Eustatius and Saba
+                                                                                            option(value='BA') Bosnia and Herzegovina
+                                                                                            option(value='BW') Botswana
+                                                                                            option(value='BV') Bouvet Island
+                                                                                            option(value='BR') Brazil
+                                                                                            option(value='IO') British Indian Ocean Territory
+                                                                                            option(value='BN') Brunei Darussalam
+                                                                                            option(value='BG') Bulgaria
+                                                                                            option(value='BF') Burkina Faso
+                                                                                            option(value='BI') Burundi
+                                                                                            option(value='KH') Cambodia
+                                                                                            option(value='CM') Cameroon
+                                                                                            option(value='CA') Canada
+                                                                                            option(value='CV') Cape Verde
+                                                                                            option(value='KY') Cayman Islands
+                                                                                            option(value='CF') Central African Republic
+                                                                                            option(value='TD') Chad
+                                                                                            option(value='CL') Chile
+                                                                                            option(value='CN') China
+                                                                                            option(value='CX') Christmas Island
+                                                                                            option(value='CC') Cocos (Keeling) Islands
+                                                                                            option(value='CO') Colombia
+                                                                                            option(value='KM') Comoros
+                                                                                            option(value='CG') Congo
+                                                                                            option(value='CD') Congo, The Democratic Republic of the
+                                                                                            option(value='CK') Cook Islands
+                                                                                            option(value='CR') Costa Rica
+                                                                                            option(value='CI') Cote D'ivoire
+                                                                                            option(value='HR') Croatia
+                                                                                            option(value='CU') Cuba
+                                                                                            option(value='CW') Curaçao
+                                                                                            option(value='CY') Cyprus
+                                                                                            option(value='CZ') Czech Republic
+                                                                                            option(value='DK') Denmark
+                                                                                            option(value='DJ') Djibouti
+                                                                                            option(value='DM') Dominica
+                                                                                            option(value='DO') Dominican Republic
+                                                                                            option(value='EC') Ecuador
+                                                                                            option(value='EG') Egypt
+                                                                                            option(value='SV') El Salvador
+                                                                                            option(value='GQ') Equatorial Guinea
+                                                                                            option(value='ER') Eritrea
+                                                                                            option(value='EE') Estonia
+                                                                                            option(value='ET') Ethiopia
+                                                                                            option(value='FK') Falkland Islands (Malvinas)
+                                                                                            option(value='FO') Faroe Islands
+                                                                                            option(value='FJ') Fiji
+                                                                                            option(value='FI') Finland
+                                                                                            option(value='FR') France
+                                                                                            option(value='GF') French Guiana
+                                                                                            option(value='PF') French Polynesia
+                                                                                            option(value='TF') French Southern Territories
+                                                                                            option(value='GA') Gabon
+                                                                                            option(value='GM') Gambia
+                                                                                            option(value='GE') Georgia
+                                                                                            option(value='DE') Germany
+                                                                                            option(value='GH') Ghana
+                                                                                            option(value='GI') Gibraltar
+                                                                                            option(value='GR') Greece
+                                                                                            option(value='GL') Greenland
+                                                                                            option(value='GD') Grenada
+                                                                                            option(value='GP') Guadeloupe
+                                                                                            option(value='GU') Guam
+                                                                                            option(value='GT') Guatemala
+                                                                                            option(value='GG') Guernsey
+                                                                                            option(value='GN') Guinea
+                                                                                            option(value='GW') Guinea-Bissau
+                                                                                            option(value='GY') Guyana
+                                                                                            option(value='HT') Haiti
+                                                                                            option(value='HM') Heard Island and Mcdonald Islands
+                                                                                            option(value='VA') Holy See (Vatican City State)
+                                                                                            option(value='HN') Honduras
+                                                                                            option(value='HK') Hong Kong
+                                                                                            option(value='HU') Hungary
+                                                                                            option(value='IS') Iceland
+                                                                                            option(value='IN') India
+                                                                                            option(value='ID') Indonesia
+                                                                                            option(value='IR') Iran, Islamic Republic of
+                                                                                            option(value='IQ') Iraq
+                                                                                            option(value='IE') Ireland
+                                                                                            option(value='IM') Isle of Man
+                                                                                            option(value='IL') Israel
+                                                                                            option(value='IT') Italy
+                                                                                            option(value='JM') Jamaica
+                                                                                            option(value='JP') Japan
+                                                                                            option(value='JE') Jersey
+                                                                                            option(value='JO') Jordan
+                                                                                            option(value='KZ') Kazakhstan
+                                                                                            option(value='KE') Kenya
+                                                                                            option(value='KI') Kiribati
+                                                                                            option(value='KP') Korea, Democratic People's Republic of
+                                                                                            option(value='KR') Korea, Republic of
+                                                                                            option(value='XK') Kosovo
+                                                                                            option(value='KW') Kuwait
+                                                                                            option(value='KG') Kyrgyzstan
+                                                                                            option(value='LA') Lao People's Democratic Republic
+                                                                                            option(value='LV') Latvia
+                                                                                            option(value='LB') Lebanon
+                                                                                            option(value='LS') Lesotho
+                                                                                            option(value='LR') Liberia
+                                                                                            option(value='LY') Libyan Arab Jamahiriya
+                                                                                            option(value='LI') Liechtenstein
+                                                                                            option(value='LT') Lithuania
+                                                                                            option(value='LU') Luxembourg
+                                                                                            option(value='MO') Macau
+                                                                                            option(value='MK') Macedonia, The Former Yugoslav Republic of
+                                                                                            option(value='MG') Madagascar
+                                                                                            option(value='MW') Malawi
+                                                                                            option(value='MY') Malaysia
+                                                                                            option(value='MV') Maldives
+                                                                                            option(value='ML') Mali
+                                                                                            option(value='MT') Malta
+                                                                                            option(value='MH') Marshall Islands
+                                                                                            option(value='MQ') Martinique
+                                                                                            option(value='MR') Mauritania
+                                                                                            option(value='MU') Mauritius
+                                                                                            option(value='YT') Mayotte
+                                                                                            option(value='MX') Mexico
+                                                                                            option(value='FM') Micronesia, Federated States of
+                                                                                            option(value='MD') Moldova, Republic of
+                                                                                            option(value='MC') Monaco
+                                                                                            option(value='MN') Mongolia
+                                                                                            option(value='ME') Montenegro
+                                                                                            option(value='MS') Montserrat
+                                                                                            option(value='MA') Morocco
+                                                                                            option(value='MZ') Mozambique
+                                                                                            option(value='MM') Myanmar
+                                                                                            option(value='NA') Namibia
+                                                                                            option(value='NR') Nauru
+                                                                                            option(value='NP') Nepal
+                                                                                            option(value='NL') Netherlands
+                                                                                            option(value='AN') Netherlands Antilles
+                                                                                            option(value='NC') New Caledonia
+                                                                                            option(value='NZ') New Zealand
+                                                                                            option(value='NI') Nicaragua
+                                                                                            option(value='NE') Niger
+                                                                                            option(value='NG') Nigeria
+                                                                                            option(value='NU') Niue
+                                                                                            option(value='NF') Norfolk Island
+                                                                                            option(value='MP') Northern Mariana Islands
+                                                                                            option(value='NO') Norway
+                                                                                            option(value='OM') Oman
+                                                                                            option(value='PK') Pakistan
+                                                                                            option(value='PW') Palau
+                                                                                            option(value='PS') Palestinian Territory, Occupied
+                                                                                            option(value='PA') Panama
+                                                                                            option(value='PG') Papua New Guinea
+                                                                                            option(value='PY') Paraguay
+                                                                                            option(value='PE') Peru
+                                                                                            option(value='PH') Philippines
+                                                                                            option(value='PN') Pitcairn
+                                                                                            option(value='PL') Poland
+                                                                                            option(value='PT') Portugal
+                                                                                            option(value='PR') Puerto Rico
+                                                                                            option(value='QA') Qatar
+                                                                                            option(value='RE') Reunion
+                                                                                            option(value='RO') Romania
+                                                                                            option(value='RU') Russian Federation
+                                                                                            option(value='RW') Rwanda
+                                                                                            option(value='BL') Saint Barthelemy
+                                                                                            option(value='SH') Saint Helena
+                                                                                            option(value='KN') Saint Kitts and Nevis
+                                                                                            option(value='LC') Saint Lucia
+                                                                                            option(value='MF') Saint Martin
+                                                                                            option(value='PM') Saint Pierre and Miquelon
+                                                                                            option(value='VC') Saint Vincent and the Grenadines
+                                                                                            option(value='WS') Samoa
+                                                                                            option(value='SM') San Marino
+                                                                                            option(value='ST') Sao Tome and Principe
+                                                                                            option(value='SA') Saudi Arabia
+                                                                                            option(value='SN') Senegal
+                                                                                            option(value='RS') Serbia
+                                                                                            option(value='SC') Seychelles
+                                                                                            option(value='SL') Sierra Leone
+                                                                                            option(value='SG') Singapore
+                                                                                            option(value='SX') Sint Maarten (Dutch part)
+                                                                                            option(value='SK') Slovakia
+                                                                                            option(value='SI') Slovenia
+                                                                                            option(value='SB') Solomon Islands
+                                                                                            option(value='SO') Somalia
+                                                                                            option(value='ZA') South Africa
+                                                                                            option(value='GS') South Georgia and the South Sandwich Islands
+                                                                                            option(value='SS') South Sudan
+                                                                                            option(value='ES') Spain
+                                                                                            option(value='LK') Sri Lanka
+                                                                                            option(value='SD') Sudan
+                                                                                            option(value='SR') Suriname
+                                                                                            option(value='SJ') Svalbard and Jan Mayen
+                                                                                            option(value='SZ') Swaziland
+                                                                                            option(value='SE') Sweden
+                                                                                            option(value='CH') Switzerland
+                                                                                            option(value='SY') Syrian Arab Republic
+                                                                                            option(value='TW') Taiwan
+                                                                                            option(value='TJ') Tajikistan
+                                                                                            option(value='TZ') Tanzania, United Republic of
+                                                                                            option(value='TH') Thailand
+                                                                                            option(value='TL') Timor-Leste
+                                                                                            option(value='TG') Togo
+                                                                                            option(value='TK') Tokelau
+                                                                                            option(value='TO') Tonga
+                                                                                            option(value='TT') Trinidad and Tobago
+                                                                                            option(value='TN') Tunisia
+                                                                                            option(value='TR') Turkey
+                                                                                            option(value='TM') Turkmenistan
+                                                                                            option(value='TC') Turks and Caicos Islands
+                                                                                            option(value='TV') Tuvalu
+                                                                                            option(value='UG') Uganda
+                                                                                            option(value='UA') Ukraine
+                                                                                            option(value='AE') United Arab Emirates
+                                                                                            option(value='GB') United Kingdom
+                                                                                            option(value='US') United States
+                                                                                            option(value='UM') United States Minor Outlying Islands
+                                                                                            option(value='UY') Uruguay
+                                                                                            option(value='UZ') Uzbekistan
+                                                                                            option(value='VU') Vanuatu
+                                                                                            option(value='VE') Venezuela
+                                                                                            option(value='VN') Vietnam
+                                                                                            option(value='VG') Virgin Islands, British
+                                                                                            option(value='VI') Virgin Islands, U.S.
+                                                                                            option(value='WF') Wallis and Futuna
+                                                                                            option(value='EH') Western Sahara
+                                                                                            option(value='YE') Yemen
+                                                                                            option(value='ZM') Zambia
+                                                                                            option(value='ZW') Zimbabwe
+                                                                                .col-md-6
+                                                                                    .input-group
+                                                                                        .label
+                                                                                            label(for='address.zipCode')
+                                                                                                | Post/Zip Code
+                                                                                                span.required-marker *
+                                                                                        input(id='address.zipCode', type='text', name='address.zipCode', value='', size='15', placeholder='')
+                                                hr.separator
+                                                h2
+                                                    | Terms of use *
+                                                section.terms-section
+                                                    input(type='hidden', name='terms.id', value='c15c8b44-90cf-4fd3-9b50-58f507499e1f')
+                                                    input(type='hidden', name='section', value='terms')
+                                                    .terms-of-use
+                                                        .terms-message.note
+                                                            p Please review our Terms & Conditions of Use prior to completing registration.
+                                                        .input-group
+                                                            label.checkbox--primary
+                                                                input(id='terms.value', type='checkbox', name='terms.value', value='true')
+                                                                span.label-txt(style='font-size: 14px;')
+                                                                    | I have read and accept the
+                                                                    a(href='/termsAndConditions', target='_blank') Wiley Online Library Terms and Conditions of Use
+                                                hr.separator
+                                                h2
+                                                    | Verify registration
+                                                script(src='//www.google.com/recaptcha/api.js?render=explicit&onload=loadRecaptcha', async='', defer='')
+                                                .g-recaptcha(data-sitekey='6Lc4HR8TAAAAAPFSxfchztMruqn2dTwPIQ9vaX9b')
+                                            .actions.registration-actions.form-btn
+                                                p.small-txt.float-left * Marks a required field
+                                                input.button.btn.primary.float-right(type='submit', name='submit', value='REGISTER')
+                                                a.linkBtn(href='/') CANCEL
+                        div
+                // end pagefulltext
+
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}

@@ -1,0 +1,89 @@
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+    &__body {
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
+        width: 250px;
+        background-color: $white;
+        color: $black;
+        border: 1px solid $black;
+        border-radius: 2px;
+        box-shadow: -2px 2px 0 0 rgba(0,0,0,.12);
+        transition: opacity .3s ease;
+        @include media('<tablet') {
+            border: none;
+            box-shadow: none;
+        }
+    }
+    &:hover {
+        .tooltip__body {
+            @include media('>=phone') {
+                display: block;
+                opacity: 1;
+                visibility: visible;
+                top: -8px;
+                left: calc(100% + 16px);
+                width: 250px;
+                height:  auto;
+            }
+        }
+    }
+
+    &__title {
+        display: none;
+        position: relative;
+        padding: 10px $gutter-size/2;
+        text-align: left;
+        background: #000;
+        color: #fff;
+        font-size: 1.2rem;
+        @include media(">=tablet") {
+            display: block;
+        }
+
+        h5{
+            margin: 0;
+        }
+    }
+
+    &__text {
+        padding: 0 $gutter-size/2;
+        font-size: .875rem;
+        font-weight: normal;
+        text-transform: none;
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+
+.circled-sign {
+    display: inline-block;
+
+    &:before {
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-left: 1ex;
+        color: #fff;
+        background-color: rgba(0,0,0,.27);
+        border-radius: 100%;
+        text-align: center;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1;
+    }
+    &--help{
+        &:before {
+            content: '?';
+        }
+    }
+    span{
+        display: none;
+    }
+}

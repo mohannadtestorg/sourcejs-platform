@@ -1,0 +1,200 @@
+/***
+
+```
+<aside class="g-cta-subscribe">
+  <p class="g-cta-subscribe__title">Get an invaluable insight into medicine</p>
+  <p class="g-cta-subscribe__subtitle">Subscribe today to tap into ground breaking, clinically relevant research and peer-reviewed content.</p>
+  <ul class="g-cta-subscribe__actions">
+    <li class="g-cta-subscribe__actions-primary">
+      <a href="#" class="a-btn a-btn--primary">
+        Subscribe
+        <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+      </a>
+    </li>
+    <li><a href="#">Renew</a></li>
+    <li><a href="#">Benefits</a></li>
+  </ul>
+  <picture class="g-cta-subscribe__picture">
+    <source srcset="/pb-assets/images/g-cta-subscribe--large.jpg 1x, /pb-assets/images/g-cta-subscribe--large@2x.jpg 2x" media="(min-width: 1024px)">
+    <source srcset="/pb-assets/images/g-cta-subscribe--medium.jpg 1x, /pb-assets/images/g-cta-subscribe--medium@2x.jpg 2x" media="(min-width: 768px) and (max-width: 1023px)">
+    <source srcset="/pb-assets/images/g-cta-subscribe--small.jpg 1x, /pb-assets/images/g-cta-subscribe--small@2x.jpg 2x" media="(max-width: 767px)">
+    <img>
+  </picture>
+  <p class="g-cta-subscribe__login">Already subscribed? <a href="#">Sign in</a></p>
+</aside>
+```
+
+***/
+
+.g-cta-subscribe {
+  @include background-fill;
+  margin-top: 40px;
+  padding-top: 20px;
+  background-color: $color__background;
+
+  @include breakpoint('medium+') {
+    min-height: 319px;
+    margin-top: 60px;
+    padding-top: 33px;
+  }
+
+  @include breakpoint('large+') {
+    min-height: 376px;
+    margin-top: 56px;
+    padding-top: 41px;
+  }
+
+  @include breakpoint('xlarge+') {
+    min-height: 324px;
+  }
+}
+
+.g-cta-subscribe__title {
+  @include serif(30, 32, bold);
+  margin-top: 0;
+  color: $color__text--headlines;
+  letter-spacing: -.01em;
+
+  @include breakpoint('medium+') {
+    font-size: 42px;
+    line-height: 48px;
+  }
+}
+
+.g-cta-subscribe__subtitle {
+  @include serif(16, 20);
+  margin-top: 10px;
+  color: $color__text;
+
+  @include breakpoint('medium+') {
+    width: 400px;
+    margin-top: 14px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.g-cta-subscribe__actions {
+  @include sans-serif(15, 40);
+  margin-top: 18px;
+  overflow: hidden;
+
+  @include breakpoint('medium+') {
+    margin-top: 29px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 25px;
+  }
+}
+
+.g-cta-subscribe__actions li {
+  float: left;
+}
+
+.g-cta-subscribe__actions li:not(:last-child)::after {
+  content: '';
+  margin-right: 8px;
+  padding-right: 8px;
+  border-right: 1px solid $color__rules;
+}
+
+.g-cta-subscribe__actions .g-cta-subscribe__actions-primary {
+  display: block;
+  width: 100%;
+  padding-bottom: 5px;
+
+  @include breakpoint('medium+') {
+    display: inline;
+    width: auto;
+    padding-right: map-get($inner-gutters, medium) - 5px;
+    padding-bottom: 0;
+  }
+
+  @include breakpoint('large+') {
+    padding-right: map-get($inner-gutters, large) - 5px;
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-right: map-get($inner-gutters, xlarge) - 5px;
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-right: map-get($inner-gutters, xxlarge) - 5px;
+  }
+}
+
+.g-cta-subscribe__actions .g-cta-subscribe__actions-primary::after {
+  content: none;
+  display: none;
+}
+
+.g-cta-subscribe__actions .a-btn {
+  display: block;
+  width: 100%;
+
+  @include breakpoint('medium+') {
+    @include width(2, medium);
+    display: inline-block;
+    min-width: 0;
+  }
+
+  @include breakpoint('large+') {
+    @include width(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    @include width(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    @include width(2, xxlarge);
+  }
+}
+
+.g-cta-subscribe__picture {
+  display: block;
+  width: 250px;
+  height: 160px;
+  margin: 8px auto 0;
+
+  @include breakpoint('medium+') {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 340px;
+    height: 180px;
+    margin: 0;
+  }
+
+  @include breakpoint('large+') {
+    width: 500px;
+    height: 290px;
+  }
+}
+
+.g-cta-subscribe__login {
+  @include sans-serif(15, 55);
+  margin: 0 (- map-get($inner-gutters, xsmall));
+  padding: 0 map-get($inner-gutters, xsmall);
+  border-top: 1px solid $color__rules;
+  color: $color__text--quaternary;
+
+  @include breakpoint('medium+') {
+    position: absolute;
+    left: 0;
+    bottom: 22px;
+    margin: 0;
+    padding: 0;
+    border-top: 0;
+    line-height: 25px;
+  }
+
+  @include breakpoint('large+') {
+    bottom: 31px;
+  }
+}
+
+.g-cta-subscribe a:not(.a-btn):hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,45 @@
+.searchIn {
+    &--field {
+
+        .jcf-select {
+            width: 40%;
+            height: 38px;
+        }
+
+        input {
+            width: 50%;
+        }
+    }
+}
+
+.frmSearch {
+    width: 100%;
+    margin-bottom: 15px;
+
+    @include media('<desktop') {
+        .btn {
+            float: none;
+            margin-left: auto;
+            display: block;
+        }
+    }
+}
+
+@include media('<tablet') {
+    .searchIn {
+        &--field {
+
+            .jcf-select {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            input {
+                width: 93%;
+                margin-left: 0px;
+            }
+        }
+
+
+    }
+}

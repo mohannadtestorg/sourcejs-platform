@@ -1,0 +1,139 @@
+/* ========================================
+Purchase options container
+======================================== */
+
+.purchase-options-container {
+  border-top: 1px dashed $tertiary-border-color;
+  margin: 10px 0px;
+  padding: 10px 0px 0px 0px;
+  border-bottom: 1px solid $tertiary-border-color;
+
+  .add-article-to-cart {
+    border: 1px solid $tertiary-border-color;
+
+    &__title {
+      @include media('<tablet') {
+        font-size: $h6-font-size;
+      }
+    }
+
+    &__price {
+      border-left: 1px solid $tertiary-border-color;
+      @include media('<tablet') {
+        font-size: $h6-font-size;
+      }
+    }
+  }
+
+  header a {
+    margin: -1px 0px;
+  }
+
+  .add-journal-to-cart {
+    margin-bottom: 10px;
+
+    header a {
+      background-color: #ffffff;
+
+      .title, .price {
+        width: auto;
+        border-left: none;
+      }
+
+    }
+
+    .journal-options-expanded {
+      margin-top: 10px;
+      .content-access-section-header {
+        display: none;
+      }
+      .tab-nav {
+        display: none;
+      }
+    }
+  }
+
+  .purchase-items {
+    margin-bottom: 10px;
+    header a {
+      @include themify($themes) {
+        color: themed('color');
+      }
+      //padding: $spacing-medium $spacing-large;
+    }
+  }
+
+  .addedMessage {
+    font-size: 0px;
+    margin: 0px;
+
+    .article-title {
+      padding: 15px 8px;
+      background-color: $default-bg-color;
+      display: block;
+      font-weight: 700;
+      @include media("<tablet") {
+        text-align: center;
+      }
+      font-size: $default-font-size;
+      @include themify($themes) {
+        border: 1px solid themed('color');
+      }
+      vertical-align: top;
+      &-content{
+        @include media(">=tablet") {
+          width: calc(100% - 118px);
+          display: inline-block;
+        }
+        .icon-check {
+          font-size: $h1-font-size;
+          vertical-align: middle;
+          margin-right: 10px;
+          @include themify($themes) {
+            color: themed('color');
+          }
+        }
+        .text{
+          font-weight: normal;
+          @include media(">=tablet") {
+            vertical-align: middle;
+            display: inline-block;
+            width: calc(100% - 41px);
+            text-align: left;
+          }
+        }
+      }
+
+    }
+
+    .show-cart-link {
+      display: block;
+      text-align: center;
+      color: $text-onDark;
+      padding: 20px;
+      margin: 0;
+      font-weight: 700;
+      font-size: $default-font-size;
+      @include themify($themes) {
+        background-color: themed('color');
+      }
+
+      @include media("<desktop") {
+        display: block;
+        text-align: center;
+      }
+      @include media(">=tablet") {
+        display: inline-block;
+        padding: 12px;
+      }
+      @include media("<tablet") {
+        margin-top: 10px;
+        padding: 10px;
+      }
+    }
+
+  }
+
+}
+
+

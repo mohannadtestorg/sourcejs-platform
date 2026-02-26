@@ -1,0 +1,92 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p We are using the #[a(href="/specs/plugins/owl-carousel/") Owl Carousel plugin] in the <strong>slideshow</strong> widget.
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl.jade')
+
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use slideshow template.
+        +printJson({
+            "data": {
+                "widget": {
+                    "items": "2",
+                    "autoplay": "true",
+                    "speed": "2000",
+                    "animation": "fade",
+                    "indicators": "true",
+                    "arrow": "true",
+                    "controls": "true",
+                    "slides": [
+                        {},
+                        {},
+                        {}
+                    ]
+                }
+            }
+
+        })
+        markdown
+            p Use the `slides` array to provide content for the individual slides.
+
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                        td Default values
+                tbody
+                    tr
+                        td `items`
+                        td Integer value, the number of items per slide.
+                        td `1`
+                    tr
+                        td `speed`
+                        td Integer value, transition slide speed
+                        td `250`
+                    tr
+                        td `autoplay`
+                        td `true`, `false`, Autoplay
+                        td `true`
+                    tr
+                        td `animation`
+                        td `fade`, `slide`, Animation
+                        td `slide`
+                    tr
+                        td `arrow`
+                        td `true`, `false`, Show Arrows
+                        td `false`
+                    tr
+                        td `indicators`
+                        td `true`, `false`, Show indicators
+                        td `true`
+                    tr
+                        td `controls`
+                        td `true`, `false`, Show controls
+                        td `false`
+
+
+
+    | #{''}
+
+
+    section.source_section
+        h2 Example
+
+        each item, l in data.items
+            h3!= item.title
+
+            .source_example
+                div.container
+                    | !{item.body}
+
+
+    | #{''}

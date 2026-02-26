@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if IE 7]>         <html class="ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if IE 9]>         <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title><%= title %></title>
+
+    <script src="/source/assets/js/require.bundle.js" data-source="core"></script>
+
+    <%- headCssLinks %>
+    <%- headCssStyles %>
+
+    <% if(!nojs) { %>
+        <%- headScripts %>
+    <% } %>
+</head>
+<body class="source_clarify __clear">
+    <div class="source_clarify_content">
+        <% for(var i = 0; i < sections.length; i++) { %>
+            <% for(var j = 0; j < sections[i].html.length; j++) { %>
+                <%- sections[i].html[j] %>
+            <% } %>
+        <% } %>
+    </div>
+
+    <%- bodyCssLinks %>
+    <%- bodyCssStyles %>
+
+    <% if(!nojs) { %>
+        <%- bodyScripts %>
+    <% } %>
+    <script>
+        window.onload = function () {
+//            (function(d){if(self!=top||d.getElementById('toolbar')&&d.getElementById('toolbar').getAttribute('data-resizer'))return false; d.write(' <!DOCTYPE HTML> <html style="opacity:0;"> <head><meta charset="utf-8"/>\x3Cscript src="http://lab.maltewassermann.com/viewport-resizer/resizer.min.js">\x3C/script></head> <body> <a data-viewport="320x480" data-icon="mobile"> Mobile (e.g. Apple iPhone)</a> <a data-viewport="320x568" data-icon="mobile" data-version="5"> Apple iPhone 5</a> <a data-viewport="600x800" data-icon="small-tablet"> Small Tablet</a> <a data-viewport="768x1024" data-icon="tablet"> Tablet (e.g. Apple iPad 2-3rd, mini)</a> <a data-viewport="1280x800" data-icon="notebook"> Widescreen</a>  </body> </html>'); })(document);
+        };
+    </script>
+</body>
+</html>

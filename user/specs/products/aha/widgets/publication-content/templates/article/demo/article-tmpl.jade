@@ -1,0 +1,20 @@
+extends ../article-tmpl.jade
+include ../map/map-article-tmpl.jade
+
+block articleRow
+    .row
+        .col-xs-12.col-sm-8.col-lg-9
+            .citation__top.hidden-xs.hidden-sm
+                | !{pb.render('breadcrumbs', 'breadcrumbs', {"data": data.item}, "aha")}
+            .row
+                .col-xs-12.col-md-3.col-lg-2.citation__top
+                    | !{pb.render('access-icon', 'access-icon/access-icon', {"data": {"access": data.item.license.type,"license": data.item.license,"type": data.item.type}}), "aha"}
+                    include ./demo-coolbar-tmpl
+
+                .col-xs-12.col-md-9.col-lg-10.article__content
+                    include ../extended/ext-citation-tmpl
+                    +articleBody()
+                    | !{pb.render("content-navigation" , "content-navigation/demo/demo-content-navigation", navigator )}
+
+        .col-sm-4.col-lg-3.hidden-xs.sticko__parent.article-row-right.gutterless
+            include ./ext-tabs-tmpl

@@ -1,0 +1,1167 @@
+// search results
+.search {
+    &-result {
+        /*meta section*/
+        &__meta {
+
+            background: none;
+            padding: 0;
+            margin: 0;
+
+            .doSearch & {
+                margin-top: 20px;
+
+            }
+
+            .tab__nav {
+                padding: 0 35px;
+                margin: 0 -35px;
+                border-bottom-color: $wiley-blue-color;
+                margin-bottom: 35px;
+
+                a {
+                    padding: 10px;
+                }
+            }
+
+            &__top {
+                margin: 0;
+                margin-bottom: 1rem;
+                border-bottom: none;
+                padding: 0;
+
+
+                .icon-section_arrow_d {
+                    font-weight: 700;
+                    margin-left: 15px;
+                    color: $wiley-blue-color;
+                    font-size: 0.5rem !important;
+                    vertical-align: middle;
+                }
+
+                .search__sort a,
+                .search__result a {
+                    color: $wiley-text-color;
+                    font-size: 0.875rem;
+                    font-weight: 400;
+                    padding: 12px 15px;
+                    text-transform: none;
+
+                    > i:first-child {
+                        color: $wiley-blue-color;
+                        padding-right: 10px;
+                        transform: rotate(0);
+
+                        &.js--rotated {
+                            transform: rotate(0);
+                        }
+                    }
+                }
+                .search__sort a {
+                    > i:first-child {
+                        font-size: 18px;
+                        line-height: 1.4;
+                        margin: 0;
+                        padding-right: 6px;
+                    }
+                }
+                .search__result a {
+                    > i:first-child {
+                        font-size: 1.15rem !important;
+                    }
+                }
+            }
+        }
+
+        &__body {
+
+            a {
+                color: $wiley-blue-color;
+            }
+
+            .meta {
+                &__title {
+                    color: $primary-light-text-color;
+                    font-weight: 600;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    font-size: 1rem;
+                    line-height: 22px;
+
+                }
+
+                &__details {
+                    font-size: 13px;
+                }
+
+            }
+
+            .accordion__control {
+                color: $primary-light-text-color;
+                font-weight: 400;
+                i {
+                    font-size: 0.375rem;
+                }
+            }
+        }
+
+        &__refine {
+
+            @include media('<desktop') {
+                margin-left: 0;
+            }
+
+            @include media('<phone') {
+                span {
+                    margin-right: 0;
+                }
+            }
+
+            i {
+                transform: rotate(0deg);
+            }
+
+            &-search {
+                .refineSearch__content {
+                    @extend .card;
+                    background: $white;
+                    margin: 0;
+                    padding: 0;
+                    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+                    .refineSearch__texts {
+                        padding: 0 20px;
+                    }
+                    .refineSearch__date {
+                        padding: 0 20px;
+                        .refineSearch__date__title {
+                            border-bottom: none;
+                            margin-bottom: 0;
+                            color: $wiley_text_color;
+                        }
+                        .label-text {
+                            color: $wiley_text_color;
+                        }
+                    }
+                    .refineSearch__ctrl {
+                        padding: 25px;
+                        border-top: 1px solid $wiley-gray-color;
+                        text-align: right;
+                        .refineSearch__button {
+                            padding: 15px 53px 16px;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        .search__result {
+            padding: 0;
+            border: none;
+
+            .search-result__refine {
+                background: $white;
+                border: 1px solid $wiley-blue-color;
+
+                span {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        &s-left {
+            margin-top: 172px;
+        }
+
+        &__top-section {
+            background: $white;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                background: $white;
+                width: 100vw;
+                left: 0;
+                height: 100%;
+                z-index: -1;
+            }
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                background: $white;
+                width: 100vw;
+                height: 100%;
+                right: 0;
+                z-index: -1;
+            }
+        }
+
+        &__nav {
+            border-bottom: none;
+            margin-bottom: 0;
+
+            .search-result__nav__item {
+                width: 50%;
+                padding: 15px;
+                text-align: center;
+                font-size: 1rem;
+
+                @include media('<desktop') {
+                    font-size: 0.75rem;
+
+                    span {
+                        display: block;
+                    }
+                }
+
+                &.active {
+                    border: none;
+                    color: $white;
+                    background: $wiley-blue-color;
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: -10px;
+                        width: 0;
+                        height: 0;
+                        border-left: 20px solid transparent;
+                        border-right: 20px solid transparent;
+                        border-top: 20px solid $wiley-blue-color;
+                        text-align: center;
+                        margin: 0 auto;
+                    }
+                }
+                &:not(.active) {
+                    border: 1px solid $wiley-extralightGray-color;
+                    border-bottom: none;
+                }
+            }
+        }
+
+        &-page-body {
+            .modal__header {
+                .close {
+                    background: none;
+                }
+            }
+        }
+
+        &__follow {
+            padding: 20px 0 10px;
+        }
+
+        .pagination {
+            margin-top: 25px;
+        }
+
+        .result__sep {
+            font-weight: 300;
+        }
+
+        &__mrw-browse {
+            .search-result__meta__top {
+                margin: 0;
+                margin-left: 10px;
+            }
+            .meta__epubDate {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+        @include media('<desktop') {
+            &__mrw-browse {
+                margin: 0;
+
+                .search-result__meta__top {
+                    margin: 0;
+                }
+
+                .search__bottom {
+                    background: $white;
+                    box-shadow: 0 1px 2px 0 #d0cfcf;
+                    padding: 10px 15px;
+
+                    .search--filter {
+                        .result__ctrl__filters {
+                            margin: 0;
+                            border: 0;
+                            text-transform: uppercase;
+                            font-weight: 400;
+                            font-size: 0.75rem; // 12px;
+                            color: $info-text-color;
+                            span {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+
+                .search-result__meta {
+                    margin: 0;
+                }
+
+                .books__search-meta {
+                    margin: 1.5rem 0;
+                }
+
+                i {
+                    &.icon-list-unordered {
+                        font-size: 1rem;
+                        padding: 2px;
+                        color: $wiley-blue-color;
+                    }
+
+                    &.icon-arrow_r {
+                        float: right;
+                        font-size: 0.7rem;
+                        color: $wiley-blue-color;
+                        margin: 0;
+                    }
+                }
+
+            }
+
+            &.showPublications {
+                .search--filter {
+                    width: 100%;
+                }
+            }
+        }
+
+        .meta__info {
+            margin-bottom: 0;
+
+            .meta__details {
+                a {
+                    color: $wiley-gray;
+                }
+            }
+            .meta__eissn, .meta__issns, .meta__eisbn {
+                display: none;
+            }
+            ul {
+                &:nth-child(2) {
+                    > li {
+                        &:first-child {
+                            margin-right: 5px;
+                            padding-right: 5px;
+                        }
+                    }
+                }
+            }
+
+            .accordion {
+                i[class*=icon-] {
+                    margin-left: 10px;
+                    vertical-align: middle;
+                }
+
+                .article-section__header, .article-section__sub-title {
+                    font-size: 0.875rem;
+                }
+
+                &__content {
+                    padding: 15px;
+                }
+            }
+        }
+
+    }
+
+    &__item {
+        @include card(24px, $white);
+
+        @include media('<desktop') {
+            padding: 15px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .item__body {
+            border-bottom: none;
+
+
+            .meta__book {
+                color: $wiley-gray;
+                display: inline-block;
+
+            }
+
+            .meta__type {
+                color: #888;
+                font-size: 0.875rem;
+                margin-right: 15px;
+                vertical-align: middle;
+            }
+
+            .meta__details {
+
+                margin-top: 10px;
+                margin-bottom: 10px;
+
+                a {
+                    &:not(:last-child), &:nth-child(2) {
+                        &:after {
+                            content: '';
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+                }
+
+                .meta__serial.meta__serial {
+                    &:after {
+                        content: "|";
+                        margin-left: 4px;
+                        margin-right: 4px;
+                    }
+                }
+            }
+            @include media('<desktop') {
+                .meta__details {
+                    display: inline;
+                }
+            }
+        }
+
+        .meta__serial, .meta__volume, .meta__epubDate {
+            line-height: 22px;
+        }
+
+
+        .meta__authors {
+            line-height: 22px;
+            margin-top: 10px;
+
+            a {
+                color: $wiley-gray;
+            }
+
+            &.comma {
+                > li:not(:last-child) {
+                    &:after {
+                        margin: 0;
+                    }
+                }
+            }
+
+        }
+
+        .content-item-format-links {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .meta__epubDate {
+            display: block;
+            color: #333;
+            margin-top: 10px;
+
+            span {
+                color: $wiley-gray;
+            }
+
+        }
+
+        @include media('<desktop') {
+
+            .search-result__body & {
+
+                .accordion {
+                    .icon-section_arrow_d {
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+
+        .accordion {
+            .accordion__control {
+                color: $wiley-blue-color;
+                margin-bottom: 5px;
+                font-size: .875rem;
+
+                i {
+                    vertical-align: middle;
+                }
+
+                i, span {
+                    font-weight: 600;
+                }
+                @include media('<desktop') {
+                    margin-top: 15px;
+                }
+            }
+        }
+
+        .article-section__content {
+            font-size: 0.875rem;
+        }
+    }
+
+    &__result {
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        font-weight: 400;
+        a {
+            color: $wiley_text_color;
+            text-transform: capitalize;
+        }
+        &.active {
+            background: $white;
+            border-color: $wiley-blue-color;
+        }
+
+        &--space {
+            font-size: 1.25rem;
+            border: none;
+            color: $wiley-gray;
+
+            .result__count{
+                padding-left: 0;
+            }
+
+            .result__count, .result__suffix {
+                color: $wiley-typography-color;
+                font-weight: 600;
+                @include media('<desktop') {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+
+    &__follow {
+        font-size: 0.75rem;
+
+        span {
+            color: $wiley-text-color;
+        }
+
+        &__item ~ .search__follow__item {
+            margin-left: 30px;
+            padding-left: 25px;
+        }
+    }
+
+    &--filter {
+        //position: relative;
+        .dropBlock__holder {
+            @include media('<desktop') {
+
+                box-shadow: none;
+                top: auto !important;
+                margin-top: 10px;
+                width:100% !important;
+                overflow-y: auto;
+                height: 100vh;
+
+                @media (width: $screen-tablet) {
+                    width:auto !important;
+                    left: -15px !important;
+                    right: -15px !important;
+
+                }
+
+            }
+        }
+
+
+    }
+
+    &__modal {
+        .modal__body {
+            margin-top: 0;
+            border-top: none;
+            padding-top: 0;
+        }
+    }
+
+    &__sort {
+        a.js--open {
+            border-color: $wiley-blue-color;
+        }
+        &__drop {
+            max-width: 100%;
+            min-width: 110px;
+            padding: 0;
+            right: 0;
+
+            li {
+                padding: 0 16px;
+            }
+            li + li {
+                border-top: 1px solid $wiley-extralightGray-color;
+            }
+        }
+
+        &.dropBlock {
+            border: 0;
+
+            .sort-by {
+                display: inline-block;
+            }
+
+            .sort-by--label {
+                color: $wiley-blue-color;
+                //font-weight: 700;
+            }
+
+            & > a.inline-icon {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                &.js--open {
+                    .js--rotated {
+                        &.icon-section_arrow_d {
+                            -webkit-transform: rotate(180deg);
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+
+            &__drop {
+                padding: 0;
+                right: 0;
+                border-top: 1px solid $wiley-blue-color;
+
+            }
+        }
+    }
+
+    &-entries {
+        .search-entry {
+            margin-bottom: 8px;
+
+            a {
+                color: $wiley-blue-color;
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+.search-results-wrapper {
+    z-index: 8;
+}
+
+.single_highlight_class {
+    background-color: rgba(106, 211, 255, 0.3);
+    padding: 2px;
+    color: $wiley-blue-color;
+}
+
+
+.books__search-meta, .books__search-meta + .search__sort {
+    margin-top: 1rem;
+}
+
+.books__search-meta {
+    font-size: 20px;
+    font-weight: 300;
+
+    b {
+        font-weight: 600;
+    }
+}
+
+
+.refineSearch {
+    margin-top: 62px;
+
+    &__text {
+        padding-top: 11px;
+        padding-bottom: 10px;
+    }
+
+    &__top {
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+        padding: 0 20px;
+        .refineSearch__nav {
+            display: inline-block;
+            vertical-align: middle;
+
+            .refineSearch__nav-item {
+                display: inline-block;
+                float: none;
+                color: $wiley-blue-color;
+                vertical-align: middle;
+                padding: 15px 5px;
+                font-weight: 600;
+            }
+
+            &:after {
+                content: '';
+                display: inline-block;
+                border-right: 1px solid #ccc;
+                height: 20px;
+                margin: 0 10px;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__title {
+        border-width: 4px;
+    }
+}
+
+.add-ctrl-field {
+    .icon-circle-plus {
+        &:before {
+            content: "\e924";
+        }
+    }
+}
+
+.left-side-label {
+    .time-frame label {
+        min-width: 50px;
+    }
+}
+
+.advancedSearch__tabs__nav {
+    li {
+        @include media('<desktop') {
+
+            width: calc(33.3% - 10px);
+        }
+    }
+}
+
+.advanced-search {
+
+    &__tabs {
+        @include card(35px);
+        margin-top: 55px;
+
+        @include media('<desktop') {
+            margin: 70px -15px 20px;
+        }
+
+        .advanced-search-container {
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    fieldset {
+        padding: 0;
+        border: 0;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .agu-hub & {
+        button, [type=submit], [type=button], .btn {
+            background-color: $agu-branding;
+        }
+    }
+
+    input {
+        border-color: $wiley-gray-color;
+    }
+}
+
+.publications-page-body {
+
+    .search-result {
+        &__top-section {
+            &:after {
+                height: 100px;
+            }
+            &:before {
+                height: 100px;
+            }
+        }
+    }
+}
+
+.publication-results-left {
+    + .col-md-9 {
+        z-index: 8;
+    }
+}
+
+.filter-date.left-side-label {
+
+    @include media('<desktop') {
+        border: 0;
+    }
+}
+
+a.search__follow__icon {
+    color: $wiley_text_color;
+    i {
+        font-size: 0.875rem;
+        margin-right: 10px;
+        color: $wiley-blue-color;
+    }
+}
+
+@include media('<phone') {
+    .search-result__meta__top .search__result a {
+        padding: 12px 8px;
+    }
+    .search-result__meta__top .search__sort a {
+        padding: 12px 0;
+    }
+    .search-result__meta__top .search__sort a > i:first-child,
+    .search-result__meta__top .search__result a > i:first-child {
+        padding-right: 5px;
+    }
+}
+
+.publication-result-meta {
+    font-size: 0.875rem;
+    @include media('>=desktop'){
+        padding: 15px 0 25px;
+
+    }
+
+    h2 {
+        color: $wiley-typography-color;
+        display: inline-block;
+        margin: 0;
+
+        @include media('>=desktop') {
+            &.separator {
+                margin-right: 1rem;
+                padding-right: 1rem;
+                border-right: 1px solid $tertiary-bg-color;
+            }
+        }
+    }
+
+    b {
+        padding: 0 3px;
+        font-weight: 600;
+    }
+
+    &__info {
+        display: inline-block;
+    }
+}
+
+
+@include media('>=desktop') {
+
+    .publication-results-left {
+        margin-top: 100px;
+
+    }
+}
+
+@include media('<desktop') {
+    #filter {
+        background: $secondary-bg-color;
+
+        .facets__title {
+            display: none;
+        }
+
+        a {
+            padding: 0;
+        }
+        .show-more {
+            font-size: .75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: $wiley-blue-color;
+
+            i {
+                font-size: .4rem !important;;
+            }
+        }
+
+        .clear {
+            i {
+                font-size: 0.625rem !important;;
+            }
+        }
+
+        > .facets__title ~ .facet {
+            padding-top: 20px;
+        }
+    }
+
+    .facet {
+        &__title {
+            margin-bottom: 7px;
+        }
+
+        &__label {
+            color: $wiley-blue-color;
+            font-size: 0.75rem; // 12px;
+            font-weight: 600;
+        }
+
+        &__counter {
+            font-size: 0.75rem;
+        }
+    }
+
+    .search-results-wrapper {
+        @media (width: $screen-tablet) {
+            .main-content {
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+        }
+        .search-result__top-section {
+            //margin: 0 -20px;
+            padding:0 15px;
+        }
+
+        .search__result--space {
+            font-size: 0.875rem;
+            .result__count {
+                font-size: inherit;
+            }
+        }
+
+        .search-result__nav {
+            display: flex;
+            flex-direction: row;
+
+            &__item {
+                text-transform: uppercase;
+                padding: 6px 13px;
+                display: flex;
+                min-height: 50px;
+                vertical-align: middle;
+                flex-direction: column;
+                justify-content: center;
+
+                &.active {
+                    &:after {
+                        border: none;
+                    }
+                }
+            }
+
+            &__follow {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-bottom: 15px
+            }
+        }
+
+        .search__bottom {
+            background: $wiley-blue-color;
+            margin: 0 -15px 15px;
+
+            @include media('<desktop') {
+                float: none;
+                padding: 10px 15px;
+
+
+                &.scrolled {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 1;
+                }
+            }
+        }
+        .result__ctrl__filters {
+            border: 0;
+            color: $white;
+            font-weight: normal;
+
+            + .dropBlock__holder .facet__title--main {
+                display: none;
+            }
+            i {
+                margin-right: 8px;
+            }
+
+            .icon-filter_list {
+                &:before {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .search__follow {
+            float: right;
+            padding: 0;
+
+            &__item {
+                margin: 0;
+                padding: 0;
+                border: 0;
+
+                &__last-child {
+
+                    .search__follow__icon {
+                        i {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+
+            a, i {
+                margin: 0;
+                padding: 0;
+            }
+            .search__follow__icon {
+                i {
+                    padding: 7px;
+                    background: $white;
+                    border-radius: 50%;
+                    margin: 0 8px;
+                    display: inline-block;
+                }
+            }
+        }
+
+    }
+
+    .publications-page-body {
+        .col-sm-8 {
+            padding: 0;
+        }
+        .search-result__follow {
+            .publication-result-meta {
+                padding: 100px 15px 10px 15px;
+            }
+        }
+    }
+
+    .result__ctrl__filters {
+        + .dropBlock__holder .facet__title--main {
+            display: none;
+        }
+    }
+
+    .search-result__meta__top {
+        padding: 0 15px;
+    }
+
+    .advanced-search--searchIn {
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .doSearch {
+        .result__ctrl__filters {
+            padding: 6px 0;
+            float: none;
+            width: 100%;
+        }
+        .search--filter .dropBlock__holder{
+            padding-bottom: 100px;
+        }
+    }
+    .search__follow {
+        text-align: right;
+    }
+    .search__follow,
+    .search--filter {
+        width: 50%;
+        display: inline-block;
+
+        .dropBlock__holder.js--open {
+
+            .search__filters {
+                margin: 0;
+            }
+        }
+    }
+
+    .search__follow__item ~ .search__follow__item {
+        margin-left: 0;
+    }
+
+    .search-result__follow {
+        padding: 16px 0 14px;
+        margin: 0 ;
+    }
+
+    .search__item {
+        border-bottom: 0;
+    }
+
+    .showPublications .search--filter {
+        .result__ctrl__filters {
+            padding: 6px 0;
+            float: none;
+            width: 100%;
+        }
+
+        //.dropBlock__holder {
+        //    margin-top: 0;
+        //}
+    }
+}
+
+.input-group {
+    .remove-ctrl-field, .add-ctrl-field {
+        padding: 0;
+    }
+}
+
+.item__image {
+    width: 17%;
+
+    img {
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.search__item .item__image+.item__body {
+    width: 83%;
+}
+
+.search__filters {
+    margin: 0;
+}
+
+.icon-icon-Icons_Sorting {
+    color: $wiley-blue-color;
+}
+
+.search-result__body.separator {
+    .search__item {
+        padding: 25px 0;
+        margin: 0 25px;
+
+        & ~ .search__item {
+            border-color: $secondary-bg-color;
+        }
+    }
+}
+
+.showPublications {
+    @include media('>=desktop') {
+
+        .publication-result-meta {
+            padding: 15px 0 25px 25px;
+        }
+    }
+
+    @include media('<desktop') {
+
+        .search-result__follow {
+            padding: 16px 0 14px;
+            margin: 0;
+        }
+    }
+
+}

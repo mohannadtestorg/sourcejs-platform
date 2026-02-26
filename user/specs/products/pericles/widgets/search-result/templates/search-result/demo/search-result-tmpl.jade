@@ -1,0 +1,11 @@
+extends ../search-result-tmpl.jade
+
+block searchResultTop__refine
+    span.result__suffix "!{data.widgetData.refineSearch.searchIn[0].searchTerm}"
+
+block advancedSearchTabs
+    | !{pb.render("search-result", "search-result/demo/ext-tabs", {data: data, thisWidget: thisWidget}, 'pericles')}
+
+block searchResultDropZone
+block searchResultPager
+    include ./pager-tmpl

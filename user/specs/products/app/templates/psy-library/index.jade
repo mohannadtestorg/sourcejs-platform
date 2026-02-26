@@ -1,0 +1,65 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Psychotherapy Library
+    .source_info
+
+
+    section.source_section
+        h2 Psychotherapy Library
+        markdown
+        .source_example
+            | !{data.header}
+            main.pl-theme.content
+                .container.psy-library.page-top-margin
+                    .col-lg-9.col-md-8
+                        h5.font-weight-light.border-bottom NEWS
+                        .books-main-slider.slider__container.responsiveSlider3-1-1
+                          | !{data.MainSlides}
+
+
+                        h5.font-weight-light.border-bottom Discover Psychotherapy Library Titles
+
+                        .books-container.row
+
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                  | !{data.coverImage2}
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                   | !{data.coverImage}
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                  | !{data.coverImage2}
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                   | !{data.coverImage}
+
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                   | !{data.coverImage}
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                   | !{data.coverImage2}
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                   | !{data.coverImage}
+                               .col-lg-3.col-md-4.col-sm-4.clearfix
+                                   | !{data.coverImage2}
+
+
+
+                    .col-lg-3.col-md-4
+                        h5.font-weight-light.border-bottom BOOK OF THE MONTH
+                        .book-of-month.two-column
+                           | !{data.BookofMonth}
+
+                        .newsletter__wrapper
+                            h5.font-weight-light.section__header.border-bottom newsletter
+                            |  !{data.nl}
+
+
+                        .advertisement.center
+                            a(href="#" title="adv")
+                                img(src="/specs/products/app/widgets/publication-content/images/articleAdv.jpg")
+
+
+
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,98 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    primary-body-font-color:
+      value: "{!GRAY_0}"
+    primary-btn-color:
+      value: "{!BLACK}"
+    primary-links-color:
+      value: "{!BLUE_2}"
+    navigation-links-color:
+      value: "{!GRAY_10}"
+    navigation-links-hover-color:
+      value: "{!GRAY_4}"
+    headings-primary-color:
+      value: "{!GRAY_0}"
+    footer-social-links-color:
+      value: "{!GRAY_1}"
+    footer-social-links-border:
+      value: "{!GRAY_2}"
+    generic-bottom-border:
+      value: "{!GRAY_2}"
+    h4-font-color:
+      value: "{!GRAY_3}"
+    links-border-color:
+      value: "{!WHITE_1}"
+    table-border-color:
+      value: "{!BLUE_1}"
+    table-header-font-color:
+      value: "{!BLUE_2}"
+    table-figures-top-border:
+      value: "{!GRAY_4}"
+    table-highlighted-bg:
+      value: "{!GRAY_4}"
+    figure-viewer-bg:
+      value: "{!BLACK_0}"
+    figure-viewer-active-color:
+      value: "{!GRAY_0}"
+    figure-navs-bg:
+      value: "{!GRAY_1}"
+    transparent-border:
+      value: "{!GRAY_5}"
+    accordion-body-bg:
+      value: "{!GRAY_2}"
+    media-player-bg:
+      value: "{!GRAY_6}"
+    media-player-buffer:
+      value: "{!GRAY_7}"
+    inline-bullet-list:
+      value: "{!GRAY_1}"
+    username-color:
+      value: "{!GRAY_1}"
+    access-font-color:
+      value: "{!ORANGE_1}"
+    article-tools-active:
+      value: "{!GRAY_4}"
+    nav-bg:
+      value: "{!GRAY_2}"
+    nav-bg-active:
+      value: "{!GRAY_8}"
+    ad-background:
+      value: "{!GRAY_9}"
+    supplemental-information-body:
+      value: "{!GRAY_11}"
+    supplemental-borders:
+      value: "{!GRAY_12}"
+    upsell-box-body:
+      value: "{!WHITE_2}"
+    upsell-box-border:
+      value: "{!GRAY_11}"
+    jwplayer-ctrl:
+      value: "{!BLUE_3}"
+    scrollbar-bg:
+      value: "{!BLACK_1}"
+    navigation-arrow:
+      value: "{!GRAY_13}"
+    navigation-back-arrow:
+      value: "{!GRAY_14}"
+    header-border:
+      value: "{!GRAY_2}"

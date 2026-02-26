@@ -1,0 +1,35 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p We are using the #[a(href="/specs/plugins/owl-carousel/") Owl Carousel plugin] in the <strong>Announcementsok
+        </strong> widget.
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+            h3 Data
+            markdown
+                p The following data structure must exist to be able to use announcements template.
+            +printJson({
+                "data": {
+                    "$pug": {
+                        "template": "../../widgets/announcements/templates/announcements/announcements-tmpl.jade",
+                        "data": {
+                            "$ref": "../../widgets/announcements/templates/data/data.json"
+                        }
+                    }
+                }
+
+            })
+
+        markdown
+        code.src-html
+        .source_example
+            .container.announcements-container.hidden-xs
+                | !{data.announcements}
+
+    | #{''}
+

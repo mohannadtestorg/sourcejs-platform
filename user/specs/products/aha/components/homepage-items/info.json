@@ -1,0 +1,52 @@
+{
+    "title": "homepage html widgets",
+    "tag": ["htmlStructure"],
+    "templateData": {
+      "social_networks": [
+        {
+            "title": "Facebook",
+            "link": "#",
+            "icon": "icon-facebook-square"
+        },
+        {
+            "title": "Twitter",
+            "link": "#",
+            "icon": "icon-twitter-square"
+        },
+        {
+            "title": "Youtube",
+            "link": "#",
+            "icon": "at-icon-wrapper icon-youtube"
+        },
+        {
+            "title": "RSS",
+            "link": "#",
+            "icon": "icon-Rss"
+        }
+      ],
+      "multimedia_items": {
+        "$pug": {
+          "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+          "data": {
+            "model": {
+              "config": {
+                "wrapper": "true",
+                "className": ["grid-md-2 grid-lg-1 grid-xlg-3 card gutterless"]
+              },
+              "data": {
+                "content": {
+                  "$pug": {
+                    "template": "./templates/multimedia-tmpl.jade",
+                    "data": {
+                      "$ref": "./templates/data/multimedia.json"
+                    }
+                  }
+                }
+              }
+            }
+
+          }
+        }
+      }
+    }
+}

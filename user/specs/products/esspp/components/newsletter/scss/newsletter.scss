@@ -1,0 +1,57 @@
+.newsletter {
+    h2 {
+        font-size: 1.875rem; // 30px
+        margin-bottom: 8px;
+        color: inherit;
+    }
+
+    p {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    button {
+        margin-top: 25px;
+    }
+
+    @include media('<desktop') {
+        margin-top: 20px;
+    }
+}
+
+.static-page__aside {
+    .newsletter {
+        background: url('../images/newsletter-bg.jpg') 50% 50% no-repeat;
+        padding: 140px 0 290px;
+        background-size: cover;
+        color: #fff;
+
+        &__content {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: $default-font-size;
+            line-height: 1;
+            strong {
+                font-size: 33px;
+                display: block;
+                text-transform: uppercase;
+            }
+        }
+        p {
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: right;
+            letter-spacing: .07em;
+        }
+        button {
+            background: #fff;
+            color: #47828F;
+            font-size: 1rem;
+            letter-spacing: .11em;
+            text-transform: uppercase;
+        }
+    }
+}

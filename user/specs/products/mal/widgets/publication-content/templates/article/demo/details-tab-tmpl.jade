@@ -1,0 +1,20 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/details-tab-tmpl
+block detailsTabTopDropzone
+    div.article-cover-image.section__separator
+        each item, l in data.nav
+            if item.class == "details"
+                | !{pb.render("cover-image" , "cover-image/cover-image--article" , item.content , "mal" )}
+    section.section__separator
+        h6
+            | Metrics
+        span
+            | Download:50
+
+block detailsDropZoneBottom
+    section
+        h6
+            | Publication History
+        div Received 11 March 2017
+        div Accepted 19 March 2017
+        div Published online 17 April 2017
+        div Published in print 1 June 2017

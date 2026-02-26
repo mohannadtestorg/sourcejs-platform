@@ -1,0 +1,18 @@
+.issue-attachments
+    if(data.attachments && data.attachments.length >0)
+        -var orders=["cover","toc-esp","ed-board","fm","bm","advert","admin"]
+        .issue-attachments__label
+            span.issue-attachments__pdf-image
+            span Download PDFs:
+        ul.rlist--inline.separator.issue-attachments__list
+            each order in orders
+                  each attach in data.attachments
+                       if(order== attach.key)
+                           li
+                               a(href=attach.link,title=attach.name target='_blank')
+                                   span !{attach.name}
+
+
+
+            block extraIssueItems
+                | !{pb.renderDropzone(thisWidget, "extraIssueItems")}

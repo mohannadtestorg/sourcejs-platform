@@ -1,0 +1,210 @@
+@media (max-width: 531px) {
+    #institutionUsageReport ol {
+        -webkit-padding-start: 0;
+    }
+    .checkbox--secondary span {
+        padding-right: 3em;
+    }
+}
+
+.usageReports {
+    color: $info-text-color;
+    & + & {
+        margin-top: 1em;
+    }
+
+    &, input, label, select {
+        color: $info-text-color;
+        font-size: 0.875rem;
+        font-weight: 400;
+    }
+    input {
+        max-width: 320px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .report_delivery {
+        text-align: right;
+    }
+
+    .small__header {
+        color: $wiley-gray;
+        margin-bottom: 0;
+        & + p {
+            margin-top: 0;
+            margin-bottom: 2em;
+        }
+    }
+    .report_delivery {
+        .section__header {
+            margin-bottom: 0;
+        }
+
+        ol {
+            li {
+                &:nth-child(3), &:nth-child(4) {
+                    .input-group {
+                        &:last-child {
+                            .checkbox--primary, .radio--primary {
+                                margin-bottom: 4px;
+                            }
+                            margin-bottom: 0;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .section__header {
+        text-align: left;
+    }
+
+    .rlist.separator {
+        margin: 0 -20px 20px;
+        padding: 0;
+        text-align: left;
+
+        & > li {
+            padding: 20px;
+            margin: 0;
+            &:last-of-type {
+                border-bottom: 1px solid $tertiary-bg-color;
+            }
+        }
+    }
+    .markAll {
+        border-bottom: 2px solid $wiley-gray;
+        margin-bottom: 40px;
+
+        .input-group {
+            margin-bottom: 0;
+        }
+    }
+
+    .alert__list label {
+        font-size: 0.875rem;
+        color: inherit;
+    }
+
+    .dateRange {
+        select {
+            @include media('>=desktop') {
+                max-width: calc(50% - 46px);
+                margin: 5px;
+                font-size: 12px;
+
+                &:nth-child(3n) {
+                    margin: 5px 17px 5px 23px;
+                }
+            }
+
+            margin-bottom: 15px;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+
+        span {
+            display: inline-block;
+            min-width: 40px;
+
+            &.label {
+                @include media('<desktop') {
+                    margin-top: 10px;
+                    margin-bottom: 17px;
+                }
+            }
+        }
+        .input-group {
+            margin-bottom: 0;
+        }
+    }
+
+    .info-message {
+        @include media('>=desktop') {
+            padding-left: 2em;
+        }
+
+        position: relative;
+
+        .icon-notice {
+            @include media('>=desktop') {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            font-size: 1.2rem;
+            color: $wiley-blue-color;
+        }
+    }
+
+    .checkbox--secondary {
+        input:checked ~ span:before {
+            background-color: transparent;
+        }
+        span {
+
+            @include media('>=desktop') {
+                padding-right: 6em;
+
+                &:before {
+                    top: 0;
+                }
+                &:after {
+                    top: 3px;
+                }
+            }
+
+            @include media('<desktop') {
+                padding-right: 0;
+                padding-bottom: 25px;
+
+                &:before {
+                    left: 0;
+                    bottom: -20px;
+                }
+                &:after {
+                    left: 22px;
+                    bottom: -17px;
+                }
+
+            }
+        }
+
+        @include media('<desktop') {
+
+            input:checked ~ span:after {
+                left: 4px;
+            }
+        }
+
+    }
+    .report_delivery {
+        text-align: right;
+        .radio--primary {
+            #emailAllAdminsTrue {
+                + .label-txt {
+                    vertical-align: sub;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .checkbox--secondary {
+        #chk_counterEnabled {
+            + .label-txt {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+#institutionUsageReport button {
+    font-size: 0.75rem;
+    font-weight: 600;
+}

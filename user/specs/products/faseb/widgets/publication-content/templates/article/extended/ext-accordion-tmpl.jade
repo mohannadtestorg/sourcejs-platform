@@ -1,0 +1,9 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-accordion-tmpl
+
+block RecommendedTab
+    li.accordion-tabbed__tab
+        block Recommended
+            a.accordion-tabbed__control(href="#" title="Similar" aria-expanded="false" aria-controls="relatedTab3")
+                | Recommended
+            .accordion-tabbed__content(id= "relatedTab3")
+                | !{pb.renderDropzone(thisWidget, "recommendedDropZone")}

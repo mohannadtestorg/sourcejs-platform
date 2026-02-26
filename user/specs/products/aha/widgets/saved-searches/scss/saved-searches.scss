@@ -1,0 +1,77 @@
+.saved-searches {
+    .icon-delete_filled {
+        font-size: 24px;
+        color: $primary-blue-color;
+    }
+    th {
+        color: $primary-text-color;
+        font-weight: 900;
+    }
+    td, th {
+        vertical-align: top;
+        &:first-child {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+    td {
+        &:first-child {
+            width: 42%;
+        }
+    }
+    a {
+        color: $primary-blue-color;
+        font-size: 16px;
+    }
+    tbody {
+        td {
+            font-weight: 400;
+        }
+    }
+}
+
+@include media('>tablet') {
+    .saved-searches {
+        td, th {
+            padding: .8em;
+            text-align: center;
+            &:first-child {
+                text-align: left;
+            }
+            &:last-child {
+                text-align: right;
+            }
+        }
+    }
+
+}
+
+@include media('<tablet') {
+    .saved-searches, .search-history {
+        table {
+            td {
+                &:last-child {
+                    text-align: left;
+                    padding: 0;
+                }
+            }
+        }
+    }
+    .saved-searches {
+        td {
+            &:not(:first-child) {
+                padding-left: 0;
+            }
+        }
+    }
+    .expandable td {
+        &:last-child {
+            &:before {
+                content: "";
+                margin: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,185 @@
+@import "variables";
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$icomoon-font-path}/icomoon.eot?asurbo');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?asurbo#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/icomoon.ttf?asurbo') format('truetype'),
+    url('#{$icomoon-font-path}/icomoon.woff?asurbo') format('woff'),
+    url('#{$icomoon-font-path}/icomoon.svg?asurbo#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin icomoon($icon: false) {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  @if $icon { content: $icon; }
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  @include icomoon();
+}
+
+.icon-arrow-down {
+  &:before {
+    content: $icon-arrow-down;
+  }
+}
+
+.icon-arrow-down--style-2 {
+  &:before {
+    content: $icon-arrow-down--style-2;
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
+.icon-arrow-left--style-2 {
+  &:before {
+    content: $icon-arrow-left--style-2;
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+.icon-arrow-right--style-2 {
+  &:before {
+    content: $icon-arrow-right--style-2;
+  }
+}
+.icon-arrow-up {
+  &:before {
+    content: $icon-arrow-up;
+  }
+}
+.icon-arrow-up--style-2 {
+  &:before {
+    content: $icon-arrow-up--style-2;
+  }
+}
+.icon-atypon-favicon {
+  &:before {
+    content: $icon-atypon-favicon;
+  }
+}
+.icon-calendar {
+  &:before {
+    content: $icon-calendar;
+  }
+}
+.icon-check {
+  &:before {
+    content: $icon-check;
+  }
+}
+.icon-circled-check {
+  &:before {
+    content: $icon-circled-check;
+  }
+}
+.icon-circled-minus {
+  &:before {
+    content: $icon-circled-minus;
+  }
+}
+.icon-circled-plus {
+  &:before {
+    content: $icon-circled-plus;
+  }
+}
+.icon-circled-x {
+  &:before {
+    content: $icon-circled-x;
+  }
+}
+.icon-clock {
+  &:before {
+    content: $icon-clock;
+  }
+}
+.icon-document {
+  &:before {
+    content: $icon-document;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-layers {
+  &:before {
+    content: $icon-layers;
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin;
+  }
+}
+.icon-message {
+  &:before {
+    content: $icon-message;
+  }
+}
+.icon-phone {
+  &:before {
+    content: $icon-phone;
+  }
+}
+.icon-pin {
+  &:before {
+    content: $icon-pin;
+  }
+}
+.icon-pin-outline {
+  &:before {
+    content: $icon-pin-outline;
+  }
+}
+.icon-print {
+  &:before {
+    content: $icon-print;
+  }
+}
+.icon-search {
+  &:before {
+    content: $icon-search;
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter;
+  }
+}
+.icon-x {
+  &:before {
+    content: $icon-x;
+  }
+}
+.icon-close_thin {
+  &:before {
+    content: $icon-x;
+  }
+}
+.icon-menu2 {
+  &:before {
+    content: $icon-atypon-favicon;
+  }
+}
+

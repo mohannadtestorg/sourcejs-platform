@@ -1,0 +1,37 @@
+
+div.search__content-type.dropBlock
+
+    a.inline-icon(href="#" data-db-target-for="contentType" data-db-parent-of="contentType" data-db-switch="rotate") Content Type
+        | #{' '}
+
+        if( data.widgetData && data.widgetData.contentTypes )
+            - var selected ="All"
+            if (data.widgetData.contentTypes.ha_policybrief && data.widgetData.contentTypes.ha_policybrief.selected )
+                -  selected = "Brief"
+
+            if (data.widgetData.contentTypes.ha_event && data.widgetData.contentTypes.ha_event.selected )
+                - selected = "Event"
+
+            if (data.widgetData.contentTypes.ha_podcast && data.widgetData.contentTypes.ha_podcast.selected )
+                - selected = "Podcast"
+
+            if (data.widgetData.contentTypes.ha_blog && data.widgetData.contentTypes.ha_blog.selected )
+                - selected = "Blog"
+
+        span.search__content-type--selected  (!{selected})
+        i.icon-section_arrow_d(aria-hidden="true")
+    div.dropBlock__holder.search__content-type__drop(data-db-target-of="contentType")
+        ul.rlist
+            if(data.widgetData && data.widgetData.contentTypes )
+                if (data.widgetData.contentTypes.ha_policybrief && !data.widgetData.contentTypes.ha_policybrief.selected )
+                    li
+                        a(href="&contentType=policybrief") Brief
+                if (data.widgetData.contentTypes.ha_event && !data.widgetData.contentTypes.ha_event.selected )
+                    li
+                        a(href="&contentType=event") Event
+                if (data.widgetData.contentTypes.ha_podcast && !data.widgetData.contentTypes.ha_podcast.selected)
+                    li
+                        a(href= "&contentType=podcast") Podcast
+                if (data.widgetData.contentTypes.ha_blog && !data.widgetData.contentTypes.ha_blog.selected )
+                    li
+                        a(href= "&contentType=blog") Blog

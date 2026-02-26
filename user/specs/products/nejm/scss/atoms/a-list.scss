@@ -1,0 +1,40 @@
+/***
+
+Basic styles to both `ul` and `ol`
+
+```
+<ul class="a-list">
+  <li>Check your spelling</li>
+  <li>Try searching for fewer terms to broaden your results.</li>
+</ul>
+<ol class="a-list">
+  <li>Check your spelling</li>
+  <li>Try searching for fewer terms to broaden your results.</li>
+</ol>
+```
+
+***/
+
+.a-list {
+  margin-top: 24px;
+  padding-left: 1.1em;
+
+  @include breakpoint('large+') {
+    margin-top: 28px;
+  }
+}
+
+ul.a-list > li {
+  list-style-type: disc;
+}
+
+
+ol.a-list > li {
+  list-style-type: decimal;
+}
+
+.a-list > li > *:first-child,
+.m-data-table th .a-list:first-child,
+.m-data-table td .a-list:first-child {
+  margin-top: 0;
+}

@@ -1,0 +1,46 @@
+extends /specs/products/marlin/cell/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section.source_section__open.__loaded
+        h2 Examples
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            //!{pb.render("story-card-stack", "content.json")}
+                            | !{data.singleAudio}
+
+    section.source_section.source_section__open.__loaded
+        h2 multiple Audio Example
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            //!{pb.render("story-card-stack", "content.json")}
+                            | !{data.audio}
+    section.source_section.source_section__open.__loaded
+        h2 Single Video Example
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            //!{pb.render("story-card-stack", "content.json")}
+                            | !{data.singleVideo}
+
+    section.source_section.source_section__open.__loaded
+        h2 Multiple Video Example
+        .source_example
+            .ux3
+                .container
+                    article
+                        .col-sm-7
+                            //!{pb.render("story-card-stack", "content.json")}
+                            | !{data.video}
+
+    | #{''}

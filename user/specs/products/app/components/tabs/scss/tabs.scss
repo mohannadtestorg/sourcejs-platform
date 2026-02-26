@@ -1,0 +1,27 @@
+.tab__nav {
+    a{
+        padding:8px 5px;
+    }
+
+    i{
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    .active {
+        a{
+            @include themify($themes) {
+                color: themed('color');
+                border-bottom-color:themed('color');
+            }
+
+            i{
+                @include themify($themes) {
+                    color: themed('color');
+                    border-bottom-color:themed('color');
+                }
+            }
+        }
+    }
+}

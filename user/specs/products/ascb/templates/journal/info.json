@@ -1,0 +1,215 @@
+{
+    "title": "Journal home page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "meta":{
+          "$pug": {
+              "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+              "data": {
+                  "thisWidget": {
+                      "id": "htmlAssetwrapper",
+                      "properties": {
+                          "render": "html",
+                          "html": "<div class=\"card card--gutter card--shadow meta__body\"><div class=\"meta__left-side\"><h1 class=\"meta__title\">Journal of Aerospace Engineering</h1><div class=\"meta__info\"><p>ISSN (print): 0893-1321 | ISSN (online): 1943-5525</p><p>Frequency: Bimonthly | Sponsored by the Aerospace Division</p></div><p class=\"meta__contrib\">Editor : <span>Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</span></p></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--primary\">Submit an article</a></div></div>"
+                      }
+                  }
+              }
+          }
+        },
+        "journal_cover": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                "data": {
+                    "$ref": "./templates/data/MBoC-LSE-Latest-Issue-Cover.json"
+                }
+            }
+        },
+        "articles":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false",
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "HIGHLIGHTS ARTICLES",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/home/templates/data/most-x-grid.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "advertisement": {
+          "$pug": {
+              "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+              "data": {
+                  "model": {
+                      "config": {
+                          "wrapper": "true",
+                          "className": ["card--primary"]
+                      },
+                      "data": {
+                          "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/ad-placeholder/templates/ad-placeholder/ad-placeholder-tmpl.jade",
+                                "data": {
+                                    "data":{
+                                      "ad":"ADVERTISER AD",
+                                      "exists": true,
+                                      "edit": true,
+                                      "debug": false
+                                    }
+                                }
+                            }
+                          }
+                      }
+                  }
+              }
+          }
+        },
+        "advertisement2": {
+          "$pug": {
+              "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+              "data": {
+                  "model": {
+                      "config": {
+                          "wrapper": "true",
+                          "className": ["card--dark card--sm"]
+                      },
+                      "data": {
+                          "content": {
+                            "$pug": {
+                                "template": "../../../../ux3/widgets/ad-placeholder/templates/ad-placeholder/ad-placeholder-tmpl.jade",
+                                "data": {
+                                    "data":{
+                                      "ad":"ADVERTISER AD",
+                                      "exists": true,
+                                      "edit": true,
+                                      "debug": false,
+                                      "customClass": "adplaceholder--sm"
+                                    }
+                                }
+                            }
+                          }
+                      }
+                  }
+              }
+          }
+        },
+        "news":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2 grid-lg-2 featured"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "News",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/home/templates/data/most-x-featured.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "tweets":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false",
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "Twitter",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/tweets/templates/tweets/tweets-tmpl.jade",
+                                    "data": {
+                                        "body": [
+                                            {
+                                                "screenName": "TwitterDev",
+                                                "theme": "dark",
+                                                "height": "800"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "issues":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-5 grid-xs-margin--extra"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+
+                        },
+                        "data": {
+                            "title": "JOURNAL LATEST ISSUES",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/templates/home/templates/data/cover.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}
+

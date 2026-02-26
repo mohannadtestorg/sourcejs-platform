@@ -1,0 +1,25 @@
+mixin pageItems(x)
+    if x == 1
+        - aClass = "active"
+    else if pages > 7 && x >= 7 && x != pages
+        - aClass = "hidden"
+    else
+        - aClass = ""
+    li
+        a(href="#" data-target-page=x title=x class=aClass ) !{x}
+
+    if x < pages
+        +pageItems(x + 1)
+
+if pages > 1
+    .pagination.js-pager
+        if pages > 7
+            span
+                a.pagination__btn--prev(href="#" title='Previous Page')
+        ul.rlist--inline.pagination__list
+            - var x = 1
+            +pageItems(x)
+
+        if  pages > 7
+            span
+                a.pagination__btn--next(href="#" title='Next page')

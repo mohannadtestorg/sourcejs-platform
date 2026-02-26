@@ -1,0 +1,118 @@
+.main-nav {
+    background-color: $wiley-blue-color;
+    position: relative;
+
+    li {
+        padding: 10px 0;
+        vertical-align: middle;
+
+        &:last-child {
+            a {
+                border-right: none;
+            }
+        }
+    }
+
+    a {
+        color: $text-onDark;
+        padding: 8px 20px;
+        font-weight: 600;
+        font-size: 0.75rem;
+        border-right: 1px solid $text-onDark;
+        display: inline-block;
+        /*overflow: hidden; its cutting off the text*/
+    }
+
+    @include media('<desktop') {
+        a {
+            padding: 0;
+            border-right: none;
+        }
+    }
+
+    &.menu--res {
+        ul {
+            a {
+                width: 100%;
+            }
+        }
+
+        .dropdown__menu li {
+            border: none;
+        }
+
+        .menu-header {
+            display: block;
+
+            i {
+                top: 0;
+
+                &:before {
+                    content: "\e92a";
+                }
+            }
+        }
+
+    }
+}
+
+.keyDown .drawer__nav a:focus {
+    box-shadow: 0 0 10px $tertiary-bg-color;
+}
+
+.dropdown {
+    &.hover, &:hover, &:focus {
+        background-color: darken($wiley-blue-color, 7%);
+        @include media('<desktop') {
+            background-color: transparent;
+        }
+    }
+
+    &__menu {
+        background-color: $white;
+        border: 2px solid $wiley-blue-color;
+
+        li {
+
+            &.menu-item, &.menu-parent {
+                padding: 0;
+
+                > a {
+                    padding: 15px 20px;
+                    width: 100%;
+                }
+
+                @include media('<tablet') {
+                    padding: 0;
+                }
+            }
+
+            margin: 0;
+            border-bottom: 1px solid $tertiary-bg-color;
+
+            &.hover, &:hover, &:focus {
+                background-color: $wiley-blue-color;
+                border-color: $wiley-blue-color;
+
+                > a {
+                    color: $white;
+                }
+            }
+        }
+
+        a {
+            color: $wiley_text_color;
+            border: none;
+            font-size: .81rem;
+            text-transform: none;
+            line-height: 1rem;
+            font-weight: 500;
+        }
+
+        .dropdown__menu {
+            left: 100%;
+            top: 0;
+        }
+    }
+
+}

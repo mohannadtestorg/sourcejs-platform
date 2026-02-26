@@ -1,0 +1,118 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /serial-publication-history/templates/serial-publication-history/serial-publication-history-tmpl.jade')
+        h3 Data
+        p The following data structure must exist to be able to use Search result template.
+
+        +printJson({
+            "thisWidget": {
+                "properties": {
+                    "displaySuccessors": true,
+                    "displayDate": true,
+                    "displayContinueRelation": true,
+                    "displayChangeGenreRelation": true,
+                    "displaySplitRelation": true,
+                    "displayAbsorbRelation": true,
+                    "displaySplitAbsorbRelation": true,
+                    "displayMergeRelation": true,
+                    "displaySpinOffRelation": true
+                }
+            },
+            "data": {
+                "journal": {
+                    "title": "British Journal of Inebriety",
+                    "code": "13600443c",
+                    "issn": "0366-0796",
+                    "successors": [
+                        {
+                            "relationshipType": "CONTINUE",
+                            "relatedJournal": {
+                                "code": "13600443b",
+                                "title": "Library Management CONTINUE"
+                            },
+                            "relationshipDate": "1903/01/01"
+                        },
+                        {
+                            "relationshipType": "CHANGE_GENRE",
+                            "relatedJournal": {
+                                "code": "13600443a",
+                                "title": "Library Management CHANGE_GENRE"
+                            },
+                            "relationshipDate": "1947/01/01"
+                        },
+                        {
+                            "relationshipType": "SPLIT",
+                            "relatedJournal": {
+                                "code": "13600443",
+                                "title": "Library Management SPLIT"
+                            },
+                            "relationshipDate": "1980/01/01"
+                        },
+                        {
+                            "relationshipType": "ABSORB",
+                            "relatedJournal": {
+                                "code": "lm",
+                                "issn": "0143-5124",
+                                "title": "Library Management ABSORB"
+                            },
+                            "relationshipDate": "1999/12/31"
+                        },
+                        {
+                            "relationshipType": "SPLIT-ABSORB",
+                            "relatedJournal": {
+                                "code": "13600443a",
+                                "title": "Library Management SPLIT-ABSORB"
+                            },
+                            "relationshipDate": "1947/01/01"
+                        },
+                        {
+                            "relationshipType": "MERGE",
+                            "relatedJournal": {
+                                "code": "13600443",
+                                "title": "Library Management MERGE"
+                            },
+                            "relationshipDate": "1980/01/01"
+                        },
+                        {
+                            "relationshipType": "SPINOFF",
+                            "relatedJournal": {
+                                "code": "lm",
+                                "issn": "0143-5124",
+                                "title": "Library Management SPINOFF"
+                            },
+                            "relationshipDate": "1999/12/31"
+                        }
+                    ],
+                    "predecessors": [
+                        {
+                            "relationshipType": "ABSORB",
+                            "relatedJournal": {
+                                "code": "lm",
+                                "issn": "0143-5124",
+                                "title": "Library Management"
+                            },
+                            "relationshipDate": "1999/12/31"
+                        }
+                    ]
+                }
+            },
+            "errors": []
+        })
+
+
+    section.source_section
+        h2 Example
+
+        .source_example
+            .card
+                h3 Publication history
+                | !{pb.render('serial-publication-history', 'data.json')}
+

@@ -1,0 +1,65 @@
+.profile-pages {
+    &__heading {
+        &.card {
+            background: white;
+            /* Fixed for issue 2 and 3 in LIT-197155 */
+            padding: 34px 0px 32px 0px;
+            box-shadow: 0 0 4px 0 rgba(0,0,0,0.32);
+            h3 {
+                margin-bottom: 0px;
+            }
+        }
+
+        label, select {
+            margin: 0;
+        }
+
+        label {
+            margin-right: 10px;
+            line-height: 44px;
+        }
+
+        .profile-main__label {
+            margin: 0;
+
+            label {
+                font-size: 0.95rem;
+            }
+        }
+
+        @include media('<tablet'){
+
+            .institutionListBlock {
+                .pull-right {
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+@include media('<tablet'){
+    .profile-pages {
+        &__heading {
+            margin-bottom: 0;
+            padding-bottom:15px;
+
+            + .container {
+                .row {
+                    .gutterless {
+                        .card {
+                            margin-top: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include media('>=tablet'){
+    .profile-pages {
+        &__heading.card {
+            margin-bottom: 17px;
+        }
+    }
+}

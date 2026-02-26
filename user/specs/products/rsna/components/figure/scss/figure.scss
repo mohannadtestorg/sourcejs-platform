@@ -1,0 +1,47 @@
+.figure {
+    &-extra {
+        border-bottom: 1px solid $primary-border-color;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+
+        a {
+            @include themify($themes) {
+                color: themed('color');
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        a:not(:first-child) {
+            @include themify($themes) {
+                border-left: 1px solid themed('color');
+            }
+            padding-left: 10px;
+            margin-left: 8px;
+        }
+    }
+
+    &__title {
+        &:empty {
+            display: none;
+        }
+    }
+    &__caption {
+        .captionLabel {
+            font-weight: bold;
+        }
+    }
+
+    &__image {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.article__tabFigure {
+    &:not(:first-child) {
+        padding-top: 0px;
+    }
+}

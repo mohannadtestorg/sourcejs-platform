@@ -1,0 +1,72 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# font
+  global:
+    type: "size"
+    category: "sizing"
+    cssProperties:
+    - 'font*'
+  jsGroupe: "base"
+  strip: "false"
+  props:
+    default-font-family:
+      value: "'Open Sans', sans-serif"
+    default-font-size:
+      value: "1rem"
+      suffix: "9pt"
+    h1-font-size:
+      value: "2rem"
+      suffix: "32px 16pt"
+    h1-sm-font-size:
+      value: "1.5rem"
+      suffix: "24px 12pt"
+    h2-font-size:
+      value: "2.25rem"
+      suffix: "36px 18pt"
+    h2-sm-font-size:
+      value: "1.5rem"
+      suffix: "24px 12pt"
+    h3-font-size:
+      value: "1rem"
+      suffix: "16px 8pt"
+    h3-sm-font-size:
+      value: "0.875rem"
+      suffix: "14px 7pt"
+    h4-font-size:
+      value: "1.125rem"
+      suffix: "18px 9pt"
+    h4-sm-font-size:
+      value: "0.875rem"
+      suffix: "14px 7pt"
+    h5-font-size:
+      value: "1rem"
+      suffix: "16px"
+    h6-font-size:
+      value: "0.875rem"
+      suffix: "14px"
+    icon-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    small-font-size:
+      value: "0.65rem"
+      suffix: "12px"
+    gutter-size:
+      value: "32px"
+    gutter-extra-size:
+      value: "60px"
+    dt-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    dd-font-size:
+      value: "1.125rem"
+      suffix: "18px"
+    content-top-padding:
+      value: "0"

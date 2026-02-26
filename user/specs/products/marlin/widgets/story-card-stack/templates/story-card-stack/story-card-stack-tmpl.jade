@@ -1,0 +1,13 @@
+if (data && thisWidget)
+    if (thisWidget.properties.templateId == "AUDIO")
+        include ./audio-tmpl
+    if (thisWidget.properties.templateId == "VIDEO")
+        include ./video-tmpl
+    if (thisWidget.properties.templateId == "CLINIC")
+        section
+            h2.top#relatedClinic Related Clinic
+            if (data && data.Items)
+                a(href=data.Items[0].URI, title=data.Items[0].title) !{data.Items[0].title}
+else
+    if (thisWidget && thisWidget.id)
+        div.ux3DeferredWidget(data-pb-widget-type="ux3-storyCard", data-widget-id= thisWidget.id)

@@ -1,0 +1,60 @@
+.support-images {
+    text-align: center;
+    border-top: 1px solid $primary-border-color;
+    a {
+        img {
+            display: inline-block;
+            margin: 20px 32px;
+            @include media('<tablet') {
+                margin: 10px;
+            }
+        }
+    }
+    &__text {
+        margin-bottom: 20px;
+        font-size: $xx-small-font-size;
+    }
+}
+
+header {
+    .support-images {
+        display: inline-block;
+        border-top: none;
+        margin: 0 15px;
+
+        a {
+            img {
+                margin: 0 5px;
+                width: 53px;
+            }
+        }
+
+        @include media('<desktop') {
+            display: none;
+        }
+
+    }
+}
+
+footer {
+    .support-images {
+        text-align: left;
+        display: inline-block;
+        border-top: none;;
+        margin-left: 10px;
+        width: calc(100% - 115px);
+        a {
+            img {
+                margin: 0 5px;
+                width: 15%;
+            }
+        }
+
+        @include media('<desktop') {
+            display: none;
+        }
+
+    }
+
+}
+

@@ -1,0 +1,211 @@
+{
+    "title": "Home page",
+    "tag": ["templates"],
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "breadcrumbs":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["hidden-sm","hidden-xs"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/breadcrumbs/templates/breadcrumbs/breadcrumbs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/breadcrumbs/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "slideshow":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/slideshow/templates/data/image-slides.json"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+            }
+        },
+        "announcements":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["top-content__home", "top-content__without-img", "grid-lg-3", "grid-md-1"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "ANNOUNCEMENTS",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/top-content/templates/demo/demo-announcements-top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/top-content/data/data-announcements.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "news":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["top-content__home", "grid-lg-3", "grid-md-1"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "RSNA NEWS",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/top-content/templates/demo/demo-news-top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/top-content/data/data-news.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "features":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["top-content__home", "grid-lg-3", "grid-md-1"],
+                            "headingLevel": "h3",
+                            "headingClass": ["section__header border-bottom"]
+                        },
+                        "data": {
+                            "title": "JOURNAL FEATURES",
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/top-content/templates/demo/demo-features-top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/top-content/data/data-features.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "infoboxes":{
+            "$pug": {
+                "template": "./templates/html/infoboxes.jade",
+                "data": {}
+            }
+        },
+        "Ad":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"pb-ad\"><a href=\"#\"><img src=\"/specs/products/rsna/images/ad.svg\"></a></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "video":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"podcasts-video\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/0h5QfV0dJ8o\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe><span>Listen to our new Podcast on Radiology</span></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}
+

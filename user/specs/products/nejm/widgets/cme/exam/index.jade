@@ -1,0 +1,15 @@
+extends /specs/products/nejm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Exam
+        .source_example.source_visible.o-col--primary
+            | !{data.exam}
+
+        h3 Alert Bar
+        .source_example.source_visible
+            p.a-alert-bar.a-alert-bar--success.a-alert-bar--multi
+                | Congratulations! Your CME credit selection has been issued. A copy of the certificate has been sent to bpairaktaridis@atypon.com. 
+                a(href='/templates/cme-exam-certificate.php', data-behavior='OpenInModal', data-modal-class='large') View Certificate
+                a(href='/templates/cme-exam-evaluation.php', data-behavior='OpenInModal') Exam Evaluation
+

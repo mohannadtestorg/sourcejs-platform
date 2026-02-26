@@ -1,0 +1,31 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+
+    section.source_section
+        h2 Alerts
+
+        h3 Success
+        markdown
+            p `alert alert--successs`
+        .source_example
+            .alert.alert--success(role="alert")
+                button(type="button", data-dismiss="alert", ria-label="Close").alert-close
+                    i(aria-hidden="true").icon-x
+                | This is an alert
+        h3 Error
+        markdown
+            p `alert alert--error`
+        .source_example
+            .alert.alert--error(role="alert")
+                button(type="button", data-dismiss="alert", ria-label="Close").alert-close
+                    i(aria-hidden="true").icon-x
+                | This is an alert
+        h3 Information
+        markdown
+            p `alert alert--info`
+        .source_example
+            .alert.alert--info(role="alert")
+                button(type="button", data-dismiss="alert", ria-label="Close").alert-close
+                    i(aria-hidden="true").icon-x
+                | This is an alert

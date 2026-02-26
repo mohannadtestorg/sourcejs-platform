@@ -1,0 +1,108 @@
+/***
+
+```
+<nav class="m-comment-filters">
+  <ul class="m-comment-filters__items">
+    <li class="m-comment-filters__item f-ui">Showing 1–5 of 13 comments</li>
+    <li class="m-comment-filters__item f-ui">
+      <a href="#"><svg class="icon--clock" aria-hidden="true"><use xlink:href="#icon--clock"></use></svg>Contributors</a>
+    </li>
+    <li class="m-comment-filters__item f-ui">
+      <span aria-title="sort by" class="a-dropdown" data-behavior="Dropdown" tabindex="0">
+       <strong>Newest</strong>
+       <ul>
+          <li><a href="#">Newest</a></li>
+          <li><a href="#">Oldest</a></li>
+          <li><a href="#">Most Cited</a></li>
+       </ul>
+      </span>
+    </li>
+  </ul>
+</nav>
+```
+
+***/
+
+.m-comment-filters {
+  display: none;
+  position: relative;
+  margin-top: 16px;
+  padding-top: 16px;
+
+  @include breakpoint('medium+') {
+    display: block;
+    margin-top: 36px;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-top: 24px;
+  }
+}
+
+
+.m-comment-filters{
+  &:first-child{
+    padding-top: 0;
+    &::before{
+      display: none;
+    }
+  }
+}
+
+
+.m-comment-filters::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-comment-filters__items {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+}
+
+.m-comment-filters__item {
+  display: block;
+  flex: 0 0 auto;
+  margin-right: 20px;
+}
+
+.m-comment-filters__item:first-child {
+  flex-grow: 1;
+}
+
+.m-comment-filters__item:last-child {
+  margin-right: 0;
+}
+
+.m-comment-filters__item .icon--clock {
+  position: relative;
+  top: 2px;
+  margin-right: 6px;
+}
+
+.m-comment-filters__item .a-dropdown {
+
+  @include breakpoint('medium+') {
+    width: colspan(2, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(2, xxlarge);
+  }
+}

@@ -1,0 +1,33 @@
+.nav-accordion {
+    .accordion-tabbed {
+        &__tab:not(:first-child) {
+            border-color: #fff;
+        }
+        &__control:not(.external) {
+            background-color: $primary-bg-color;
+            color: #fff;
+            padding-right: 0.875rem;
+            padding-left: 0.875rem;
+            position: relative;
+            &:after {
+                content: "\e61c";
+                font-family: icomoon;
+                position: absolute;
+                right: 0.875rem;
+                top: 0;
+                font-size: 0.5rem;
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+        }
+        &__tab.js--open .accordion-tabbed__control:not(.external):after {
+            content: "\e61d";
+        }
+        &__content {
+            background-color: #efefef;
+            padding-right: 0.875rem;
+            padding-left: 0.875rem;
+        }
+    }
+}

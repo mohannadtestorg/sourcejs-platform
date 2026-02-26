@@ -1,0 +1,161 @@
+footer {
+    //margin-top: 40px;
+    border-top: 1px solid $tertiary-border-color;
+    padding-top: 0px;
+
+    .footer-top {
+        padding: 15px 0px;
+
+        .footer__logo-contact > div{
+            max-width: 315px;
+
+            @include media('<tablet') {
+                max-width: none;
+            }
+        }
+
+        // Logo
+        a img {
+            margin: 0px;
+            height: 40px;
+        }
+
+        .contact {
+            &__nav {
+                margin-top: 10px;
+
+                @include media('<tablet') {
+                    margin-top: 15px;
+                }
+
+                .separated-list {
+                    border-top: 1px solid $tertiary-border-color;
+                    border-bottom: 1px solid $tertiary-border-color;
+                    padding: 10px 15px;
+                    margin-bottom: 15px;
+
+                    @include media('<tablet') {
+                        margin-top: 15px;
+                    }
+
+                    li {
+                        border-right: 1px solid $tertiary-border-color;
+                        line-height: 1.1;
+                        margin-right: 15px;
+                        padding-left: 0px;
+
+                        &:last-child {
+                            border-right: none;
+                            margin-right: 0px;
+                            padding-right: 0px;
+                        }
+
+                        a {
+                            font-size: 0.875rem;
+                            font-weight: 400;
+                        }
+                    }
+
+                    // Social media
+                    ~ul li {
+                        padding: 0px 24px 0px 0px;
+                        vertical-align: bottom;
+
+                        &:last-child {
+                            padding-right: 0px;
+                        }
+
+                        &:first-child {
+                            padding-right: 18px;
+                        }
+
+                        .icon-facebook {
+                            color: #3B5998;
+                            font-size: 1.1875rem;
+                        }
+                        .icon-twitter {
+                            color: #00B6F1;
+                            font-size: $icon-font-size ;
+                        }
+                        .icon-linkedin {
+                            color: #007BB6;
+                            font-size: 1.125rem;
+                        }
+                        .icon-Rss {
+                            color: #FF6600;
+                            font-size: 1.0625rem;
+                        }
+                    }
+                }
+
+
+
+            }
+
+            &__address {
+                margin-top: 10px;
+                font-weight: 600;
+                font-size: $x-small-font-size;
+                color: $secondary-text-color;
+            }
+        }
+
+        .sitemap {
+
+            h5.border-top {
+                border-top-width: 1px;
+                margin-bottom: 10px;
+                font-size: $small-font-size;
+
+                ~ul li a{
+                    font-weight: bold;
+                    color: $secondary-text-color;
+
+                    @include media('<desktop') {
+                        font-size: $x-small-font-size;
+                    }
+
+                    &:hover {
+                        color: $primary-link-color;
+                        transition: all 0.3s;
+                    }
+                }
+            }
+
+            .sitemap_col {
+                padding: 0px 0px 0px 80px;
+
+                @include media('<desktop') {
+                    padding: 0px 0px 0px 30px;
+                }
+            }
+        }
+
+
+    }
+
+    .footer-bottom {
+        padding: 15px 0px;
+        font-weight: bold;
+
+        * {
+            color: $text-onDark;
+        }
+
+        .rlist--inline {
+
+            li {
+                padding: 0px 0px 0px 8px;
+                margin: 0px 0px 0px 8px;
+                border-left: 1px solid $default-border-color;
+
+                &:first-child {
+                    border-left: none;
+                    margin-left: 0px;
+                    padding-left: 0px;
+                }
+            }
+        }
+
+    }
+}

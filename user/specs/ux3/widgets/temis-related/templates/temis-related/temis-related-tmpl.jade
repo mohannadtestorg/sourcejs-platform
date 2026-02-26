@@ -1,0 +1,54 @@
+block temisProperties
+    - var properties = {"displaySeeMoreLink":"","displayAuthors":"","displaySeriesName":"","displayDate":"","seeMoreLabel":""};
+    if(thisWidget && thisWidget.properties)
+        - properties.displaySeeMoreLink = thisWidget.properties.displaySeeMoreLink ? thisWidget.properties.displaySeeMoreLink : properties.displaySeeMoreLink;
+        - properties.displayAuthors = thisWidget.properties.displayAuthors ? thisWidget.properties.displayAuthors : properties.displayAuthors;
+        - properties.displaySeriesName = thisWidget.properties.displaySeriesName ? thisWidget.properties.displaySeriesName : properties.displaySeriesName;
+        - properties.displayDate = thisWidget.properties.displayDate ? thisWidget.properties.displayDate : properties.displayDate;
+        - properties.seeMoreLabel = thisWidget.properties.seeMoreLabel ? thisWidget.properties.seeMoreLabel : properties.seeMoreLabel;
+
+div.temis-related
+    if(data && data.items[0])
+        ul.rlist.temis-related__list
+            each item in data.items
+                li
+                    h5.temis-related__title
+                        if(item.title)
+                            if(item.best)
+                                a(href=item.best)
+                                    | !{item.title}
+                            else
+                                | !{item.title}
+                    if(properties.displayAuthors)
+                        div.temis-related__contribs
+                            if(item.contribs)
+                                | !{item.contribs}
+                            else if(item.temisContribs)
+                                ul.rlist.temis-related__contribs-list
+                                    each author in item.temisContribs
+                                        li !{author}
+                    div.temis-related__meta
+                        if(item.group)
+                            div.temis-related__meta-first-row
+                                if(item.group.serial && item.group.serial.title && properties.displaySeriesName)
+                                    span.temis-related__serial
+                                        | !{item.group.serial.title}
+                                if(properties.displayDate)
+                                    span.temis-related__epubDate
+                                        if(item.epubDate)
+                                            | !{item.epubDate}
+                                        else if(item.ppubDate)
+                                            | !{item.ppubDate}
+                            div.temis-related__meta-second-row
+                                if(item.group.volume)
+                                    span.temis-related__volume
+                                        | Volume: !{item.group.volume}
+                                if(item.group.issue)
+                                    span.temis-related__issue
+                                        | Issue: !{item.group.issue}
+                                if(item.group.pages)
+                                    span.temis-related__pages
+                                        | pp. !{item.group.pages}
+
+    if(properties.seeMoreLabel && properties.displaySeeMoreLink && data.seeMoreLink)
+        a.temis-related__more(href=data.seeMoreLink) !{properties.seeMoreLabel}

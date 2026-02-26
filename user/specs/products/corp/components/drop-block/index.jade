@@ -1,0 +1,19 @@
+﻿extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Drop Down Example
+        h3 Button as dropdown trigger
+        markdown
+            p The data attribute `data-db-switch` has `rotate` as a value which made the icon rotate.
+            p In the example below we have added `btn` to the dropdown trigger item.
+        .source_example
+            | !{data.example1}
+        h3 Link as dropdown trigger
+        .source_example
+            | !{data.example2}
+        h3
+        p In the example below we have added `btn btn--dropdown` to the dropdown trigger item.
+        .source_example
+            | !{data.example3}
+    | #{''}

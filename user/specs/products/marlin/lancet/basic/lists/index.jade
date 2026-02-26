@@ -1,0 +1,45 @@
+extends /specs/products/marlin/lancet/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+
+    section.source_section
+        h2 List variations
+
+        h3 Numbered list
+        .source_example
+            .ux3
+                .container
+                    ol
+                        li The formin FMN2 generates a perinuclear actin/adhesion system
+                        li FMN2 regulates nuclear position during 2D migration
+                        li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                        li FMN2 promotes metastasis of melanoma cells to the lung
+
+
+        h3 Bullets list
+        markdown
+            p In the example below we've used the default styles.
+        .source_example
+            .ux3
+                .container
+                    ul
+                        li The formin FMN2 generates a perinuclear actin/adhesion system
+                        li FMN2 regulates nuclear position during 2D migration
+                        li FMN2 protects against DNA damage and cell death during invasive 3D migration
+                        li FMN2 promotes metastasis of melanoma cells to the lung
+
+        h3 Download list
+        markdown
+            p In the example below we've used `download-links` class to add a borders above and below the list
+        .source_example
+            .ux3
+                .container
+                    ul.rlist--inline.separator.download-links
+                        li
+                            a(href="#") Figure Viewer
+                        li
+                            a(href="#") View Hi-Res Image
+                        li.hidden-xs
+                            a(href="#") Download (PPT)
+    | #{''}

@@ -1,0 +1,46 @@
+.static-page {
+    margin-top: 24px;
+    @include media('>=phone') {
+        margin-top: 35px;
+    }
+
+    h5 {
+        text-transform: uppercase;
+        color: $ess-secondary-text-color;
+    }
+
+    h6 {
+        font-size: 1rem;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+
+    &__section{
+      margin-bottom: 30px;
+      text-align: justify;
+      @include media('<=phone') {
+        margin-top: 30px;
+        margin-bottom: 0px;
+      }
+    }
+
+    .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 5px 0;
+        }
+    }
+    &__main-col {
+
+    }
+    &__aside {
+
+    }
+
+}

@@ -1,0 +1,18 @@
+.device-pairing__auth-email
+
+    div.description
+        p An email containing an authorization link has been sent to !{data.institutionEmail}. You must click the link in that email within !{data.expireMinutes} minutes.
+        p If you do not receive the email in the next 5 minutes, please click the Resend Email button below.
+        p If you received the email and have confirmation that your device is paired, please click the Received Email and Clicked Link button below to be taken to the content you are trying to access.
+
+    form(action='/action/pairDevice',method='post')
+        input.hidden(value=data.institutionEmail,name='instEmailSelected')
+        input.hidden(value=data.institutionId,name='institutionId')
+        input.hidden(value=data.deviceName,name='deviceName')
+        input.hidden(value='sendAuthEmailAction',name='action')
+        input.hidden(value=data.redirectUri,name='redirectUri')
+        input.hidden(value=data.profile,name='profile')
+
+        div.formButtons
+            input.btn.btn--inverse(value='Resend Email',name='submitbutton',type='submit')
+            input.btn(value='Received Email and Clicked Link',name='submitbutton',type='submit')

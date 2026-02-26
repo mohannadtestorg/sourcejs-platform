@@ -1,0 +1,144 @@
+.g-search {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 215px;
+  width: 100vw;
+  height: 74px;
+  padding: 12px map-get($outer-gutters, large) 0;
+  border-top: 1px solid $color__rules;
+  border-bottom: 1px solid $color__rules;
+  background-color: $color__background;
+
+  @include breakpoint('xlarge+') {
+    padding-right: map-get($outer-gutters, xlarge);
+    padding-left: map-get($outer-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: map-get($main-col-widths, xxlarge);
+    padding-right: 0;
+    padding-left: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: -1px;
+      bottom: -1px;
+      width: 100vw;
+      margin-left: -50vw;
+      border-top: 1px solid $color__rules;
+      border-bottom: 1px solid $color__rules;
+      background-color: inherit;
+      pointer-events: none;
+    }
+  }
+}
+
+
+.g-search form {
+  display: flex;
+  position: relative;
+  flex-flow: row nowrap;
+  padding-left: colspan(2, large, map-get($inner-gutters, large));
+
+  @include breakpoint('xlarge+') {
+    padding-left: colspan(2, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: colspan(2, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.g-search label {
+  display: none;
+}
+
+.g-search .g-search__submit-btn,
+.g-search__advanced-search-link,
+.g-search fieldset input {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.g-search input[type=text] {
+  display: block;
+  width: colspan(8, large, -49px);
+  height: 48px;
+  margin: 0;
+  padding: 0 15px;
+  font-size: 16px;
+
+  @include breakpoint('xlarge+') {
+    width: colspan(8, xlarge, -49px);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(8, xxlarge, -49px);
+  }
+}
+
+.g-search__submit-btn {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid $color__rules;
+  border-left: 0 none;
+  background: $color__white;
+  color: $color__black;
+  cursor: pointer;
+  appearance: none;
+}
+
+.g-search__submit-btn:hover {
+  color: $color__text--tertiary;
+}
+
+.g-search__submit-btn.s-loading {
+  @extend .a-loader;
+
+  &::after {
+    width: 32px;
+    height: 32px;
+  }
+
+  svg {
+    display: none;
+  }
+}
+
+.g-search__advanced-search-link {
+  @include sans-serif(15, 49);
+  display: block;
+  height: 48px;
+  margin-left: 16px;
+}
+
+.g-search__advanced-search-link:hover {
+  text-decoration: underline;
+}
+
+.g-search .m-search-suggestions {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: colspan(2, large, map-get($inner-gutters, large));
+  top: calc(100% + 8px);
+  width: colspan(8, large, -49px);
+
+  @include breakpoint('xlarge+') {
+    left: colspan(2, xlarge, map-get($inner-gutters, xlarge));
+    width: colspan(8, xlarge, -49px);
+  }
+
+  @include breakpoint('xxlarge') {
+    left: colspan(2, xxlarge, map-get($inner-gutters, xxlarge));
+    width: colspan(8, xxlarge, -49px);
+  }
+}

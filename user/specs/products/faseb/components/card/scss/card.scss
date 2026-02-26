@@ -1,0 +1,32 @@
+.card {
+    &--shadow {
+        margin-top: 30px;
+        padding: 15px 15px 30px 15px;
+    }
+
+    &--dark {
+        background-color: $primary-bg-color;
+        padding: 30px 0;
+    }
+
+    &.journal-banner {
+        div.meta__info {
+            margin-bottom: 0px;
+
+            @include media('<tablet') {
+                font-size: $h6-font-size;
+            }
+
+            br {
+                display: none;
+            }
+        }
+        p.meta__contrib {
+            margin-top: 45px;
+
+            @include media('<tablet') {
+                margin-top: 15px;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+if(data.search)
+    - var pages = data.search.hitsLength / data.search.pageSize
+    - var rest = data.search.hitsLength % data.search.pageSize
+    if rest > 0
+        - pages++
+    - var resultFrom = 1 + (data.search.startPage) * (data.search.pageSize)
+    - var resultTo = resultFrom + data.search.pageSize -1
+
+    div.author-index__container.clearfix
+        if data.search.hitsLength > 0
+            div.col-md-12.author-index__results
+                span Showing:
+                span.result__current  !{resultFrom} - !{resultTo}
+                span.result__sep of
+                span.result__count !{data.search.hitsLength}
+
+            div.visible-xs.visible-sm.w-slide__btn.author-index__browse-alpha
+                a(href='#', data-slide-target='#filter')
+                    i.icon-filter_list.inline-icon(aria-hidden='true')
+                    span BROWSE ALPHABETICALLY
+            div.visible-xs.visible-sm.author-index__alphanumeric
+                span LETTER :
+
+
+
+            if(data.search.results)
+                div.author-index__list.clearfix
+                    each item , i in data.search.results
+                        .col-sm-4
+                            a.link(href="/action/doSearch?target=default&ContribAuthorStored="+item.name title=item.name) !{item.name}
+
+
+        block pager
+           include ../../../search-result/templates/search-result/pager-tmpl.jade

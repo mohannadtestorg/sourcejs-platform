@@ -1,0 +1,76 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        form(action="#", method="post")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            | !{pb.renderDropzone(thisWidget, "advisorInReviewDropZone")}
+            button.btn.btn--inverse(type="button", data-toggle="modal", data-target="#modalInReviewChange") Change Category
+            button.btn.btn--reject--inverse(type="button", data-toggle="modal", data-target="#modalInReviewReject") Reject Submission
+            button.btn.btn--approval--inverse(type="button", data-toggle="modal", data-target="#modalInReviewApprove") Approve Submission
+
+            .ux-modal-container
+                #modalInReviewCancel.modal(role="dialog")
+                    .modal__dialog
+                        .modal__body
+                            | Are you sure you want to cancel review process?
+
+                        .modal__footer
+                            button.btn--cancel(data-redirect="/action/showAdvisorDashboard?state=submitted") Yes
+                            button.btn(data-dismiss="modal") No
+
+            .ux-modal-container
+                #modalInReviewChange.modal(role="dialog")
+                    .modal__dialog.modal__dialog--form
+                        .modal__body
+                            .input-group.left-side-label
+                                label Change Article Category:
+                                select.jcf(name="category", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                                    option(value="") -- Select --
+                                    each item, l in data.categories
+                                        option(value=item.name, selected=data.category == item.label ? true : false )
+                                            | #{item.label}
+
+                        .modal__footer
+                            button.btn--cancel(data-dismiss="modal") Cancel
+                            button.btn(data-action=data.changeCategoryLink) Change
+
+            .ux-modal-container
+                #modalInReviewReject.modal(role="dialog")
+                    .modal__dialog.modal__dialog--form
+                        .modal__header
+                            h5.modal__title--important Reject Submission
+                            strong #{data.title}
+                        .modal__body
+                            if (data && data.rejectionReasons)
+                                .input-group.left-side-label.__top
+                                    h5.modal__title--important Reasons:
+                                    .radio-group.js-defaultComments(data-defaultcommenttarget="#defaultCommentTarget")
+                                        each item, l in data.rejectionReasons
+                                            label.radio.radio--primary
+                                                input(type="radio", name="rejection-reason", value=item.name, data-defaultcomment=item.comment)
+                                                span(class="label-txt")
+                                                    | #{item.label}
+                            br
+
+                            .note.note--yellow.border
+                                | Write your comments <strong>to the authors</strong> (400 characters max)
+
+                            .js-counter
+                                textarea#defaultCommentTarget.js-counter__input(rows="5", cols="100", name="rejection-comment", data-maxchars = 400)
+                                .error
+                                    span.js-counter__output null
+                                    | #{" "} characters left
+
+                        .modal__footer
+                            button.btn--cancel(data-dismiss="modal") Cancel
+                            button.btn--reject(data-action=data.rejectLink) Reject
+
+            .ux-modal-container
+                #modalInReviewApprove.modal(role="dialog")
+                    .modal__dialog
+                        .modal__body
+                            | Are you sure you would like to approve this submission?
+
+                        .modal__footer
+                            button.btn--cancel(data-dismiss="modal") No
+                            button.btn--approval(data-action=data.approveLink) Yes

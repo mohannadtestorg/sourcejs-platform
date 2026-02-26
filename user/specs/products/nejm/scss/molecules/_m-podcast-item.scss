@@ -1,0 +1,83 @@
+/***
+
+```
+<p class="m-podcast-item">
+  <a href="/templates/audio-window.php" class="m-podcast-item__play-link" data-behavior="PopUpWindow">
+    <strong class="m-podcast-item__title">NEJM This Week - April 13, 2017</strong> <br>
+    <em class="m-podcast-item__meta">April 5, 2017 &mdash; 13:12</em> <br>
+    <span class="m-podcast-item__icon"><svg class="icon--play" aria-label="play"><use xlink:href="#icon--play" /></svg></span>
+  </a>
+  <a href="#"  class="m-podcast-item__download-link" data-behavior="ToolTip" data-tooltip="Download MP3" data-tooltip-direction="top" download><svg class="icon--download" aria-label="Download MP3"><use xlink:href="#icon--download" /></svg></a>
+</p>
+```
+
+***/
+
+.m-podcast-item {
+  position: relative;
+  margin-top: 16px;
+  padding-top: 15px;
+  padding-right: 60px;
+  border-top: 1px solid $color__rules;
+}
+
+.m-podcast-item__play-link {
+  display: block;
+  position: relative;
+  padding-left: 68px;
+}
+
+.m-podcast-item__play-link > br {
+  display: none;
+}
+
+.m-podcast-item__title {
+  display: block;
+  color: $color__text--headlines;
+
+  .m-podcast-item__play-link:hover & {
+    text-decoration: underline;
+  }
+}
+
+.m-podcast-item__meta {
+  display: block;
+  color: $color__text--quaternary;
+}
+
+.m-podcast-item__icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 48px;
+  border: 1px solid $color__rules;
+  border-radius: $border-radius;
+  background: $color__background;
+}
+
+.m-podcast-item__icon .icon--play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  color: $color__text--headlines;
+}
+
+.m-podcast-item__download-link {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: 48px;
+  height: 48px;
+}
+
+.m-podcast-item__download-link .icon--download {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+  color: $color__text--headlines;
+}

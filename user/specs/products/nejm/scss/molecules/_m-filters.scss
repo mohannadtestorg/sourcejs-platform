@@ -1,0 +1,130 @@
+
+
+.m-filters {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 12px;
+  padding-bottom: 24px;
+
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+}
+
+.m-filters:first-child {
+  margin-top: 0;
+}
+
+.m-filters::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__black--90;
+}
+
+.m-intro-block + .m-data-table .m-filters::before {
+  background-color: $color__rules;
+}
+
+.m-filters::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-filters__note {
+  margin-top: 0;
+  color: $color__text--quaternary;
+
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+  }
+}
+
+.m-filters__options {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  flex-flow: row nowrap;
+  height: 24px;
+  margin-top: 20px;
+  margin-left: map-get($inner-gutters, xsmall) * -1;
+
+  @include breakpoint('small+') {
+    margin-left: map-get($inner-gutters, small) * -1;
+  }
+
+  @include breakpoint('medium+') {
+    flex: 0 0 auto;
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.m-filters__option {
+  flex: 0 0 auto;
+  width: calc(50% - #{map-get($inner-gutters, xsmall)});
+  margin-left: map-get($inner-gutters, xsmall);
+
+  @include breakpoint('small+') {
+    width: calc(50% - #{map-get($inner-gutters, small)});
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: 200px;
+    margin-left: 20px;
+  }
+
+  @include breakpoint('large') {
+    width: auto;
+  }
+}
+
+.m-filters__option--link {
+  order: 1;
+
+  @include breakpoint('medium+') {
+    order: 0;
+    width: auto;
+    margin-left: 20px;
+  }
+
+  @include breakpoint('large+') {
+    width: auto;
+  }
+}
+
+.m-filters__option > a {
+  display: block;
+  color: $color__text--headlines;
+}
+
+.m-filters__option > a svg {
+  display: block;
+}
+
+.m-filters__option > a:hover {
+  opacity: .6;
+}
+
+.m-filters__option .a-dropdown {
+  top: -8px;
+}
+
+.m-filters__option .a-dropdown > ul {
+  left: auto;
+  right: -1px;
+}

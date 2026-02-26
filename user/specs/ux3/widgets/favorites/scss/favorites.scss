@@ -1,0 +1,54 @@
+.favoriteShortlist {
+  select {
+    padding: 0;
+    border: 0;
+  }
+
+  .checkbox--primary .label-txt{
+    border-right: 1px solid #212121;
+  }
+
+  .separator td, .separator th {
+    padding: 1.8em 1em;
+  }
+
+  .selectMenuLabel {
+    display: inline-block;
+    margin: 0 10px;
+    label {margin-bottom: 0;}
+  }
+
+  .jcf-select {
+    width: auto;
+    padding: 0;
+    border: none;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  @include media('>=phone') {
+    .checkbox--primary .label-txt {
+      padding-right: 10px;
+      .hidden-xs {
+        display: inline-block;
+        margin-top: 0;
+      }
+    }
+  }
+  @include media('<phone') {
+    .tab--res.tab--slide .tab__content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .section__separator {
+      .pull-left + .pull-right {
+        float: left;
+        margin: 20px 0;
+      }
+
+      .jcf-select {margin-bottom: 0;}
+    }
+  }
+}

@@ -1,0 +1,14 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl
+
+block MenuDropZone
+
+
+block mainNavBlock
+    div.main-nav
+        a(href="#" + data.id data-target=data.id data-toggle="nav" title="menu drawer")
+            block navIcons
+                i.icon-menu2(aria-hidden="true")
+                i.icon-close_thin(aria-hidden="true")
+        nav.drawer__nav.gutterless(role="navigation" id=data.id class=viewPortClass data-ctrl-res=viewPort)
+            a.menu-header(href='#' class=viewPortInvertClass) Home
+            +menu(data.list, false)

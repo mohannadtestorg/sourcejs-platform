@@ -1,0 +1,8 @@
+extends ../../../../../components/issue-item/templates/issue-item/issue-item-tmpl
+
+block doiItem
+    if (item && item.doi && data.widget.showDoi)
+        li.coverDoi
+            label DOI:
+            span
+                a(href=item.best) !{' ' + item.doi}

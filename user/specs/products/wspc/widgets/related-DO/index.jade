@@ -1,0 +1,27 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section.source_section__open.__loaded
+        h2 Examples
+        .source_example
+            .ux3
+                h3 NYP
+                    | !{data.nypRelation}
+        .source_example
+            .ux3
+                h3 Related Books
+                | !{data.relatedBook}
+
+        .source_example
+            .ux3
+                h3 Book Set
+                | !{data.bookSetRelation}
+        .source_example
+            .ux3
+                h3 Book
+                | !{data.bookwuRelation}
+
+    | #{''}

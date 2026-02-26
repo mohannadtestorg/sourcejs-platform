@@ -1,0 +1,242 @@
+.coolBar {
+    width: 100%;
+    margin-bottom: 0px;
+    z-index: 9;
+
+    i {
+        font-size:inherit;
+        display: inline-block;
+        text-align: left;
+        color: inherit ;
+        margin-left: 0px;
+        float: left;
+    }
+
+    &__section {
+        color: $aha_black;
+        float: none;
+        position: relative;
+        padding: 0;
+        top: 0px;
+        margin-top:10px;
+        > a {
+            margin-left: 15px;
+            padding: 0;
+            display: block;
+            font-weight: 700;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__drop {
+        max-height: 455px;
+        overflow: auto;
+    }
+
+    &__drop,
+    [class*="__block"] {
+        padding: 15px;
+        width: 250px;
+        background: $aha_white;
+        a {
+            color: $aha_black;
+            &:hover {
+                color: $aha_red;
+                i {
+                  color: $aha_red;
+                }
+            }
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        i {
+            color: $aha_black;
+        }
+
+        i + span {
+            margin-left: 10px;
+        }
+    }
+
+    [class*="__ctrl"] {
+        padding: 12px 0;
+        display: inline-flex;
+        align-items: center;
+        font-weight: normal;
+        font-size: 14px;
+        border-bottom:none;
+        font-family:Helvetica;
+        @include media('>=desktop') {
+            &.js--open {
+                color: $aha_red;
+                border-bottom: 2px solid $aha_red;
+                margin-bottom: 0px;
+                padding-bottom: 10px;
+            }
+        }
+        +ul.js--open {
+          margin-top: 0px;
+        }
+    }
+
+    i + span {
+        margin-left: 10px;
+        float: left;
+    }
+
+    .showit {
+        display: block !important;
+    }
+
+    &__wrapper {
+        background: $aha_white;
+        border-bottom: none;
+        padding-top:0px;
+    }
+
+    .dropzone {
+        min-height: 37px;
+        min-width: 100px;
+    }
+    .dropzone {
+        margin-top: 10px;
+    }
+
+    &--res {
+        position: relative;
+        z-index: 3;
+        left: 0;
+
+        .coolBar--sections {
+            margin-left: 10px;
+        }
+        .coolBar__drop {
+            max-height: none;
+        }
+
+        .tab__nav,
+        .coolBar__drop,
+        .article-tools__block,
+        .share__block {
+            font-size: 1rem;
+            background: transparent;
+            box-shadow: none;
+
+            li {
+                background: $aha_white;
+                display: block;
+                margin-bottom: 0px;
+                &:first-child {
+                    margin-top: 10px;
+                }
+            }
+
+            i {
+                display: inline-block;
+                color: $aha_black;
+            }
+
+            a {
+                color: $aha_black;
+                display: block;
+                padding: 10px 15px;
+                line-height: 1.69rem;
+                i {
+                    font-weight: normal;
+                }
+            }
+
+            .active {
+                a {
+                    font-weight:  normal;
+                }
+                i {
+                    color: $aha_red;
+                }
+            }
+
+            &.fixed {
+                left: 0;
+                overflow-y: scroll;
+                padding: 0 0 102px;
+                position: absolute;
+                top: 35px;
+                bottom: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            span {
+                line-height: 1.69rem;
+            }
+        }
+        .coolBar__section {
+            position: static;
+        }
+
+        .coolBar__wrapper {
+            box-sizing: content-box;
+            padding: 0 15px;
+            border-bottom: 0;
+            width: 100%;
+        }
+
+        [class*="__ctrl"] {
+            padding: 8px 0px;
+        }
+
+        .coolBar__second {
+            .coolBar__section {
+                padding: 0;
+            }
+            [class*="__ctrl"] {
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .dropzone {
+            margin-top: 0px;
+        }
+
+    }
+
+    &__first {
+        float: none;
+        width:100%;
+        color: $aha_black;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        border-top: 1px solid $aha_grey;
+        border-bottom: 1px solid $aha_grey;
+        >li {
+            display: inline-block;
+            float: left;
+            font-size: 14px;
+            font-weight:normal;
+            width: 100%;
+            >a {
+                width: 100%;
+                border:none;
+                font-weight:normal;
+                border: none;
+            }
+        }
+    }
+
+
+}
+
+.stickybar {
+    &--sticky {
+        min-height:initial;
+    }
+}

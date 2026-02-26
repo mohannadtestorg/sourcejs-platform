@@ -1,0 +1,77 @@
+{
+    "title": "Patient Education",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/pol-header-patient.json"
+                }
+            }
+        },
+        "imageCover": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "patient-education__book",
+                                "clearfix"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../widgets/cover-image/templates/cover-image/demo/demo-pe-cover-image-alt-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/widgets/cover-image/templates/data/book.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "nl": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "card--dark",
+                                "card--gutter"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/components/newsletter/templates/data/newsletter.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pol-footer.json"
+                }
+            }
+        }
+    }
+}

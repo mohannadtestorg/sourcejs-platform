@@ -1,0 +1,56 @@
+.userLoginBar {
+    text-align: left;
+    float: left;
+
+    & > a {
+        display: inline-block;
+        padding: 0px 15px;
+        border-right: 1px solid $primary-border-color;
+        color: $primary-link-color;
+        transition: background-color 0.3s;
+        float: left;
+
+        @include media('<desktop') {
+            padding: 0px 0px 0px 15px;
+            border-right: none;
+        }
+        @include media('<tablet') {
+            padding: 0px 10px;
+        }
+
+        &:hover {
+            background-color: $secondary-lighten-bg-color;
+
+            @include media('<tablet') {
+                background-color: transparent;
+            }
+        }
+
+        i {
+            margin: 0px;
+            font-size: $h3-font-size;
+            line-height: 36px;
+            float: left;
+
+            @include media('<tablet') {
+                font-size: $icon-font-size;
+                line-height: normal;
+            }
+        }
+
+        i.icon-person_outline {
+            @include media('<tablet') {
+                font-size: $icon-font-size;
+                line-height: normal;
+            }
+        }
+
+        span {
+            line-height: 36px;
+            color: $primary-link-color;
+            float: left;
+            padding-left: 10px;
+        }
+
+    }
+}

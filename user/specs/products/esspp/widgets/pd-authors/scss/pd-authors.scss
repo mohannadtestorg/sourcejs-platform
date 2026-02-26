@@ -1,0 +1,26 @@
+.submission{
+  &-authors{
+    .ORCID-icon{
+      margin-right: 5px;
+    }
+
+    .author{
+      &__corresponding{
+        background-color: $note-bg-secondary-color;
+        border-left: 5px solid $note-bg-color;
+      }
+
+      &__full-name{
+        @include media('<tablet'){
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  &__modal{
+    .ORCID-icon{
+      line-height: initial;
+      margin-right: 5px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.pairing-management__filter.clearfix.border-bottom
+    .emailFilter.border-bottom
+
+            h5 Select Emails
+            .input-group
+                label(class="radio--primary")
+                    input#allEmailsFilter(type='radio', name='emailFilter', value='All emails', checked='checked')
+                    span(class="label-txt") All emails
+
+                label(class="radio--primary")
+                    input#externalEmailType(type='radio', name='emailFilter', value='External emails only')
+                    span(class="label-txt") External emails only
+                label(class="radio--primary")
+                    input#institutionEmailType(type='radio', name='emailFilter', value='Institution emails only')
+                    span(class="label-txt") Institution emails only
+    .permissionFilter.border-bottom
+            h5 Choose Pairing Permission
+            .input-group
+                label(class="radio--primary")
+                    input#anyPermission(type='radio', name='permissionFilter', value='All emails')
+                    span(class="label-txt") Any
+
+                label(class="radio--primary")
+                    input#allowedPairingPermission(type='radio', name='permissionFilter', value='Allowed', checked='checked')
+                    span(class="label-txt") Allowed
+
+                label(class="radio--primary")
+                    input#expiredPairingPermission(type='radio', name='permissionFilter', value='Expired')
+                    span(class="label-txt") Expired
+
+                label(class="radio--primary")
+                    input#revokedPairingPermission(type='radio', name='permissionFilter', value='Revoked')
+                    span(class="label-txt") Revoked
+    .small-block.clearfix
+        .otherFillter
+              .input-group
+                label(for="emailAddress") Email:
+                input.emailFilterTextInput(id="emailAddress" type='text', name='emailAddress', value='', size='15', placeholder='Email address')
+              .input-group
+                label(for="name") Name:
+                input.nameFilterTextInput(id="name" type='text', name='name', value='', size='15', placeholder='Name')
+
+        .dateFilter
+            label.dateFilterLabel Last action date
+            .input-group
+                label(for="fromDate") From:
+                input.datepicker.fromDate(type="text", id="fromDate",name="fromDate", value="" readonly)
+                i.calendar.icon-calendar
+            .input-group
+                label(for="toDate") To:
+                input.datepicker.toDate(type="text", id="toDate",name="toDate", value="" readonly)
+                i.calendar.icon-calendar
+
+        .refresh-button.pull-right
+            button#refreshButton Refresh
+
+
+
+

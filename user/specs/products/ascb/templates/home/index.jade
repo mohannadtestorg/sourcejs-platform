@@ -1,0 +1,60 @@
+extends /specs/products/ascb/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Home page
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        p Use json file to render Home page info
+
+        +printJson({
+
+        })
+
+
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+
+            | !{data.header}
+            main.content.mboc-theme
+                .top-image
+                .container
+                    | !{data.meta}
+
+                    .row.separator
+                        .col-md-9
+                          .row
+                            .col-sm-6.gutterless
+                                | !{pb.render("cover-image", "MBoC-LSE-Latest-Issue-Cover.json")}
+
+                            .col-sm-6
+                              | !{data.articles}
+                        .col-md-3
+                            .row.separator
+                              .col-xs-12.gutterless
+                                | !{data.advertisement}
+                            .row.separator
+                              .col-xs-12.gutterless
+                                | !{data.advertisement2}
+                              
+                        
+                    .row.separator--extra
+                        .col-md-8.col-sm-7.gutterless.news
+                            | !{data.news}
+
+                        .col-md-4.col-sm-5
+                            | !{data.tweets}
+
+            .mboc-theme
+                 | !{data.footer}
+    | #{''}

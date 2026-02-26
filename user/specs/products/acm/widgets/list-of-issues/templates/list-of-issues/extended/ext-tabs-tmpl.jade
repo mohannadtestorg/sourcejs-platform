@@ -1,0 +1,23 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+
+
+
+block IssueState
+
+block pageRange
+
+
+block issueWrapperClasses
+    -var issueWrapperClasses=""
+
+block loIssues
+    if (items)
+            if (flag)
+                each volume, v in items
+                    .loi__vol-title.left-bordered-title.long !{year} , Volume !{volume.VolNo}
+                    ul.rlist.row.issues-list
+                       +issues(volume.issues, volume)
+            else
+                ul.rlist.row
+                    +issues(items, null)

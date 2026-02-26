@@ -1,0 +1,86 @@
+/***
+
+```
+<div class="m-renew-cme">
+  <div class="m-renew-cme__blurb">
+    <h5 class="f-h5">Renew today to save 50% and recieve 20 CME exams</h5>
+
+    <ul class="m-pipe-links f-ui">
+      <li><a href="#">Subscribe Now</a></li>
+      <li><a href="#">Activate Your Print Subscription</a></li>
+    </ul>
+  </div>
+
+  <a href="#" class="a-btn a-btn--primary">Renew <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+  </a>
+</div>
+```
+
+***/
+
+.m-renew-cme {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  & + [class*=colset] {
+    margin-top: 44px;
+  }
+}
+
+.m-renew-cme .a-btn {
+  margin-top: 20px;
+}
+
+.m-renew-cme__title {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+@include breakpoint('medium+') {
+  .m-renew-cme {
+    .m-renew-cme__blurb {
+      float: left;
+    }
+
+    .a-btn {
+      float: right;
+      margin-top: 5px;
+    }
+  }
+}
+
+
+.m-renew-cme__links {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 8px;
+}
+
+.m-renew-cme__links li {
+  display: inline;
+
+  @include breakpoint('medium+') {
+    display: block;
+  }
+}
+
+.m-renew-cme__links li:not(:first-child) {
+  @include breakpoint('medium+') {
+    margin-left: 10px;
+    padding-left: 9px;
+    border-left: 1px solid $color__rules;
+  }
+}
+
+.m-renew-cme__links a {
+  color: $color__link-primary;
+}
+
+.m-renew-cme__links a:hover {
+  text-decoration: underline;
+}

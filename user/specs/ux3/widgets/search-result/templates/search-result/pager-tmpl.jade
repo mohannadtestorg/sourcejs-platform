@@ -1,0 +1,57 @@
+block topPager
+    - var counter = 0
+    - var newurl = ""
+
+- var  temp = data.searchParams
+
+mixin pageItem(i, pages)
+    - var pageId = i - 1;
+
+    block pagerNumbers
+        if( i > 0)
+            if data.search && i >= data.search.startPage - 1 && i <= data.search.startPage + 5
+                - counter = counter + 1;
+                li
+                    if  i == data.search.startPage + 1
+                        - newurl = pb.updateParam(temp,"startPage",pageId)
+                        - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                        a.active(href= newurl, title=i) !{i}
+                    else
+                        - newurl = pb.updateParam(temp,"startPage",pageId)
+                        - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                        a(href= newurl, title=i) !{i}
+            else if data.search && data.search.startPage >= 0 && data.search.startPage < 5 && i >= 6 && i < 8
+                - counter = counter + 1;
+                li
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a(href= newurl, title=i) !{i}
+        if i < pages && counter < 7
+            +callBack(i + 1, pages)
+
+mixin callBack(j,pages)
+    +pageItem(j, pages)
+
+block pagerMain
+    .pagination
+        -pages=pages | 0
+        - var nextPageId = data.search.startPage +1;
+        - var prevPageId = data.search.startPage -1;
+        if prevPageId >= 0
+            block previousPage
+                span
+                    - var prevPageId = data.search.startPage -1;
+                    - newurl = pb.updateParam(temp,"startPage",prevPageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a.pagination__btn--prev(href= newurl, title='Previous Page')
+        if(pages >1)
+            ul.rlist--inline.pagination__list
+                - var i = 1
+                +pageItem( data.search.startPage - 2, pages )
+        if nextPageId < pages
+            block nextPage
+                span
+                    - var nextPageId = data.search.startPage +1;
+                    - newurl = pb.updateParam(temp,"startPage",nextPageId)
+                    - newurl = pb.updateParam(newurl,"pageSize",data.search.pageSize)
+                    a.pagination__btn--next(href= newurl, title='Next page')

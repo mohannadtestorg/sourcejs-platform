@@ -1,0 +1,28 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+
+block quickSearch
+
+    .tab.row.clearfix
+        .col-md-2.col-lg-1.gutterless.quick-search__list
+            ul.rlist.tab__nav.dropblock--tab(role="tablist")
+                if(data.dropdown)
+                    each item, i in data.dropdown
+                        li
+                            if(thisWidget.properties && item.label)
+                                a(href="#pane-" + thisWidget.properties.id + i aria-controls="#pane-" + i role="tab" data-toggle="tab" title=item.label id="pane-" + thisWidget.properties.id + i + "-con" aria-expanded="false") !{item.label}
+        .col-md-8.col-lg-9.quick-search__dropdown
+            ul.rlist.tab__content(role="tablist")
+                each item, i in data.dropdown
+                    if (item.dataSearchIn == 'default')
+                        +anywhereSearch(item, i)
+                    if (item.dataSearchIn == 'thisJournal')
+                        +journalSearch(item, i)
+                    if (item.dataSearchIn == 'citation')
+                        +citationSearch(item, i)
+
+
+        .col-md-2.quick-search__advanced-link
+            block advancedSearch
+                | !{pb.renderDropzone(thisWidget, "TestDropZone")}
+

@@ -1,0 +1,237 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200479' target="_blank">`LIT-200479`</a>
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/list-of-issues-links/templates/list-of-issues-links/list-of-issues-links-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use list of issues links template.
+        +printJson({
+            "data": {
+                "widget": {
+                    "template": "default"
+                },
+                "nav": {},
+                "order": "descending",
+                "loi": {
+                    "groupType": "decade",
+                    "journalTitle": "Cancer",
+                    "content": [
+                        {
+                            "label": "1990-1999",
+                            "content": [
+                                {
+                                    "year": "1995",
+                                    "volumes": [
+                                        {
+                                            "1939005x": {
+                                                "journalTitle": "Wiley Interdisciplinary Reviews: Systems Biology and Medicine",
+                                                "journalCode": "1939005x",
+                                                "VolNo": "10",
+                                                "issues": [
+                                                    {
+                                                        "issue": "5",
+                                                        "url": "/toc/10970142/124/5",
+                                                        "seq": -1,
+                                                        "title": "",
+                                                        "pageRange": "871-1086",
+                                                        "isLegacy": false,
+                                                        "isCurrent": true,
+                                                        "inProgress": false,
+                                                        "access": "FULL_ACCESS",
+                                                        "coverDate": "March 1, 2018",
+                                                        "coverImage": "http://pericles.rdissi.atypon.com:18080/cms/attachment/a594e2c5-6aec-4795-99ac-23e84e33fe25/cncr.v124.5.cover.jpg"
+                                                    },
+                                                    {
+                                                        "issue": "4",
+                                                        "url": "/toc/10970142/124/4",
+                                                        "seq": -1,
+                                                        "title": "",
+                                                        "pageRange": "651-869",
+                                                        "isLegacy": true,
+                                                        "isCurrent": false,
+                                                        "inProgress": false,
+                                                        "access": "FULL_ACCESS",
+                                                        "coverDate": "February 15, 2018",
+                                                        "coverImage": "http://pericles.rdissi.atypon.com:18080/cms/attachment/d7ae8ee4-a82d-475a-bab3-5baa9c01fedf/cncr.v124.4.cover.jpg"
+                                                    },
+                                                    {
+                                                        "issue": "3",
+                                                        "url": "/toc/10970142/124/3",
+                                                        "seq": -1,
+                                                        "title": "",
+                                                        "pageRange": "437-649",
+                                                        "isLegacy": true,
+                                                        "isCurrent": false,
+                                                        "inProgress": false,
+                                                        "access": "FULL_ACCESS",
+                                                        "coverDate": "February 01, 2018",
+                                                        "coverImage": "http://pericles.rdissi.atypon.com:18080/cms/attachment/26a793d3-b91d-4c04-bb3b-2b7625d5d803/cncr.v124.3.cover.jpg"
+                                                    },
+                                                    {
+                                                        "issue": "2",
+                                                        "url": "/toc/10970142/124/2",
+                                                        "seq": -1,
+                                                        "title": "",
+                                                        "pageRange": "217-436",
+                                                        "isLegacy": true,
+                                                        "isCurrent": false,
+                                                        "inProgress": false,
+                                                        "access": "FULL_ACCESS",
+                                                        "coverDate": "January 15, 2018",
+                                                        "coverImage": "http://pericles.rdissi.atypon.com:18080/cms/attachment/d4904aa4-7f2a-4f62-84b1-505fb489fb18/cncr.v124.2.cover.jpg"
+                                                    },
+                                                    {
+                                                        "issue": "1",
+                                                        "url": "/toc/10970142/124/1",
+                                                        "seq": -1,
+                                                        "title": "",
+                                                        "pageRange": "1-216",
+                                                        "isLegacy": true,
+                                                        "isCurrent": false,
+                                                        "inProgress": false,
+                                                        "access": "FULL_ACCESS",
+                                                        "coverDate": "January 1, 2018",
+                                                        "coverImage": "http://pericles.rdissi.atypon.com:18080/cms/attachment/fe0cad64-4838-4595-b76e-733bcb02154e/cncr.v124.1.cover.jpg"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "navMenu": {
+                    "2018": {
+                        "active": true,
+                        "label": "2018 - Volume 124",
+                        "url": "/loi/10970142/year/2018"
+                    },
+                    "2017": {
+                        "active": false,
+                        "label": "2017 - Volume 123",
+                        "url": "/loi/10970142/year/2017"
+                    },
+                    "2016": {
+                        "active": false,
+                        "label": "2016 - Volume 122",
+                        "url": "/loi/10970142/year/2016"
+                    },
+                    "2015": {
+                        "active": false,
+                        "label": "2015 - Volume 121",
+                        "url": "/loi/10970142/year/2015"
+                    },
+                    "2014": {
+                        "active": false,
+                        "label": "2014 - Volume 120",
+                        "url": "/loi/10970142/year/2014"
+                    },
+                    "2013": {
+                        "active": false,
+                        "label": "2013 - Volume 119",
+                        "url": "/loi/10970142/year/2013"
+                    },
+                    "2012": {
+                        "active": false,
+                        "label": "2012 - Volume 118",
+                        "url": "/loi/10970142/year/2012"
+                    },
+                    "2011": {
+                        "active": false,
+                        "label": "2011 - Volume 117",
+                        "url": "/loi/10970142/year/2011"
+                    },
+                    "2010": {
+                        "active": false,
+                        "label": "2010 - Volume 116",
+                        "url": "/loi/10970142/year/2010"
+                    },
+                    "2000-2009": {
+                        "sub": {
+                            "2009": {
+                                "active": false,
+                                "label": "2009 - Volume 115",
+                                "url": "/loi/10970142/year/2009"
+                            },
+                            "2008": {
+                                "active": false,
+                                "label": "2008 - Volume 112 - 113",
+                                "url": "/loi/10970142/year/2008"
+                            },
+                            "2007": {
+                                "active": false,
+                                "label": "2007 - Volume 109 - 110",
+                                "url": "/loi/10970142/year/2007"
+                            },
+                            "2006": {
+                                "active": false,
+                                "label": "2006 - Volume 106 - 107",
+                                "url": "/loi/10970142/year/2006"
+                            },
+                            "2005": {
+                                "active": false,
+                                "label": "2005 - Volume 103 - 104",
+                                "url": "/loi/10970142/year/2005"
+                            },
+                            "2004": {
+                                "active": false,
+                                "label": "2004 - Volume 100 - 101",
+                                "url": "/loi/10970142/year/2004"
+                            },
+                            "2003": {
+                                "active": false,
+                                "label": "2003 - Volume 97 - 98",
+                                "url": "/loi/10970142/year/2003"
+                            },
+                            "2002": {
+                                "active": false,
+                                "label": "2002 - Volume 94 - 95",
+                                "url": "/loi/10970142/year/2002"
+                            },
+                            "2001": {
+                                "active": false,
+                                "label": "2001 - Volume 91 - 92",
+                                "url": "/loi/10970142/year/2001"
+                            },
+                            "2000": {
+                                "active": true,
+                                "label": "2000 - Volume 88 - 89",
+                                "url": "/loi/10970142/year/2000"
+                            }
+                        },
+                        "startYear": 2000,
+                        "active": true,
+                        "label": "2000 - 2009",
+                        "endYear": 2009
+                    }
+                }
+            }
+        })
+
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+        .source_example
+            .container
+                .col-md-8
+                    | !{pb.render('list-of-issues-links', 'loi-data-new.json', 'pericles')}
+
+
+    | #{''}

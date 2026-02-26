@@ -1,0 +1,15 @@
+extends ../list-of-issues-tmpl.jade
+block loiPrefix
+    if (loi)
+        - data = loi.data
+        - loi.data.loi.thisWidget = thisWidget;
+        - thisWidget = loi.thisWidget
+        - var order = "ascending";
+        - if (data.order == "descending") order = "descending"
+
+
+block loitabs
+    | !{pb.render("list-of-issues", "list-of-issues/demo/ext-tabs", {originaldata: data} , 'physio')}
+
+block loitabsUncollapse
+    | !{pb.render("list-of-issues", "list-of-issues/extended/ext-tabs", {originaldata: data}, 'physio')}

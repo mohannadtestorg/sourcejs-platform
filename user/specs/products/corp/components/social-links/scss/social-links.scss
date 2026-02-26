@@ -1,0 +1,22 @@
+.social-links {
+    @include media('<desktop') {
+        margin-top: 22px;
+    }
+
+    a {
+        display: inline-block;
+        margin: 0 8px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

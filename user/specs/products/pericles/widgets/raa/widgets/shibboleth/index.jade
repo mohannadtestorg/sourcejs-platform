@@ -1,0 +1,32 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        markdown
+            p Its Legacy widget, the following structure used for demonstration purposes
+
+
+
+    section.source_section
+        h2 Examples
+
+        h3 Shibboleth
+        markdown
+            p JSP file
+                | `/_ux3/_pericles/pb2/widgets/passport/profile/shibboleth.jsp`
+
+        .source_example
+            .container
+                | !{pb.render('shibboleth', 'data.json', 'pericles')}
+
+
+        h3 raa/Shibboleth
+        markdown
+            p JSP file
+                | `/_ux3/_pericles/pb2/widgets/pageBuilderLiteratum/profile/raa/shibboleth.jsp`
+
+        .source_example
+            .container
+                | !{pb.render('shibboleth', 'shibboleth/raa/shibboleth', 'data.json', 'pericles')}
+    | #{''}
+

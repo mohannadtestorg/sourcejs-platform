@@ -1,0 +1,38 @@
+.s-modal-open {
+  position: fixed;
+  overflow: hidden;
+
+  body {
+    position: fixed;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .g-mask {
+    z-index: 20;
+    right: 0;
+    bottom: 0;
+    opacity: .3;
+  }
+
+  .g-modal {
+    display: block;
+    z-index: 21;
+    box-shadow: 0 0 2px 0 $color__black--40;
+  }
+}
+
+.s-modal-open-imc{
+  .g-mask{
+    background: #000;
+    opacity: .7;
+  }
+  .g-modal--imcDO{
+    background: none;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: none;
+  }
+}

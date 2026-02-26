@@ -1,0 +1,14 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-accordion-tmpl
+
+
+block relatedTabBlock
+
+block RecommendedTab
+     | !{pb.renderDropzone(thisWidget, "recommendedDropZone")}
+
+
+block citedByTitle
+     a.accordion-tabbed__control(href="#" title="Cited By" aria-expanded="false" aria-controls="relatedTab1")
+          | Cited By
+          if(data.item.citations)
+               |(!{data.item.citations})

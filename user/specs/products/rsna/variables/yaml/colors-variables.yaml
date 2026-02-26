@@ -1,0 +1,150 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    profile-primary-color:
+      value: "{!PRIMARY}"
+    facets-applied:
+      value: "{!PRIMARY}"
+
+    # Basic Colors
+    primary:
+      value: "{!PRIMARY}"
+    radiology:
+      value: "{!RADIOLOGY}"
+    radiology-secondary-bg-color:
+      value: "{!GREEN_01}"
+    radiographics:
+      value: "{!RADIOGRAPHICS}"
+    radiographics-secondary-bg-color:
+      value: "{!GRAY_16}"
+
+    # backgrounds
+    default-bg-color:
+      value: "{!WHITE}"
+    primary-bg-color:
+      value: "{!PRIMARY}"
+    primary-lighten-bg-color:
+      value: "{!GRAY_14}"
+    primary-darken-bg-color:
+      value: "{!GRAY_01}"
+    secondary-bg-color:
+      value: "{!GRAY_09}"
+    secondary-lighten-bg-color:
+      value: "{!GRAY_10}"
+    tertiary-bg-color:
+      value: "{!GRAY_02}"
+    tertiary-darken-bg-color:
+          value: "{!BLUE_01}"
+
+    tertiary-lighten-bg-color:
+      value: "{!WHITE}"
+    footer-bg-color:
+      value: "{!BLUE_01}"
+    button-bg:
+      value: "{!PRIMARY}"
+    menu-background:
+      value: "{!WHITE}"
+    search-bg-color:
+      value: "{!GRAY_09}"
+    radiographics-bg-color:
+      value: "{!RADIOGRAPHICS}"
+    radiology-bg-color:
+      value: "{!RADIOLOGY}"
+    #==============================
+    journal-bg-color-radiographics:
+      value: "{!RADIOGRAPHICS}"
+    journal-bg-color-radiology:
+      value: "{!RADIOLOGY}"
+
+
+    # Text
+    primary-text-color:
+      value: "{!BLACK}"
+    primary-darken-text-color:
+      value: "{!GRAY_08}"
+    primary-lighten-text-color:
+      value: "{!GRAY_05}"
+    secondary-text-color:
+      value: "{!GRAY_12}"
+    secondary-lighten-text-color:
+      value: "{!GRAY_07}"
+    secondary-darken-text-color:
+      value: "{!GRAY_01}"
+    tertiary-text-color:
+      value: "{!GRAY_11}"
+    tertiary-darken-color:
+      value: "{!GRAY_15}"
+    text-onLight:
+      value: "{!BLACK}"
+    text-onDark:
+      value: "{!WHITE}"
+    primary-link-color:
+      value: "{!PRIMARY}"
+
+    creative-loa-color:
+      value: "{!GRAY_12}"
+    creative-color:
+      value: "{!GRAY_12}"
+    creative-title-color:
+      value: "{!PRIMARY}"
+    footer-color:
+      value: "{!PRIMARY}"
+    primary-dark-text-color:
+      value: "{!GRAY_12}"
+    facets-text:
+      value: "{!PRIMARY}"
+
+    #=========================
+    footer-lighttext-color:
+      value: "{!WHITE}"
+
+    # Borders
+    default-border-color:
+      value: "{!WHITE}"
+    primary-border-color:
+      value: "{!GRAY_02}"
+    primary-dark-border-color:
+      value: "{!GRAY_06}"
+    secondary-border-color:
+      value: "{!PRIMARY}"
+    secondary-light-border-color:
+      value: "{!GRAY_04}"
+    tertiary-border-color:
+      value: "{!GRAY_13}"
+    tertiary-light-border-color:
+      value: "{!GRAY_03}"
+    border-onLight:
+      value: "{!BLACK}"
+
+    separators-color:
+      value: "{!GRAY_02}"
+    teaser-border-color:
+      value: "{!GRAY_02}"
+    header-separators-color:
+      value: "{!GRAY_13}"
+
+    #========================
+
+    # Links color
+
+    primary-link-hover-color:
+      value: "{!GRAY_17}"

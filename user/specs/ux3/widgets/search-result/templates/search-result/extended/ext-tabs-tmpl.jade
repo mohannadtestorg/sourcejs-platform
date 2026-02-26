@@ -1,0 +1,41 @@
+extends ../../../../../components/tabs/templates/tabs/tabs-tmpl.jade
+block tabsPrefix
+    - var original = data;
+    - var fakeId = {"id": "srw"}
+    - var config = {"type": "default","vPort":"xsmall","effect": "slide"};
+    - var tabsData = {"nav":[{"text": "Advanced Options","content": "","class": "advanced"},{"text": "Search History","content": "","class": "searchHistory"},{"text": "Saved Searches","class": "savedSearches","content": ""}]};
+    - data = tabsData;
+
+
+block tabsLinks
+    a(class= item.class + "-tab" href="#pane-" + fakeId.id + l aria-controls="#pane-" + fakeId.id + l role="tab" data-toggle="tab" title=item.text id="pane-" + fakeId.id + l + "con")
+        +item(item)
+
+block tabsPanes
+    ul.rlist.tab__content.sticko__child
+        - var i = 0
+        if(data.nav)
+            each item, I in data.nav
+                if (i == 0)
+                    li.tab__pane.tab__pane--clear(id="pane-" + fakeId.id + i  aria-labelledby="pane-" + fakeId.id + i + "con" role="tabpanel")
+                        if(original && original.widgetData)
+                            block advancedSearchForm
+                                | !{pb.render("advanced-search", "advanced-search/advanced-search", {data: original.widgetData.refineSearch})}
+                else if (i == 1)
+                    li.tab__pane(id="pane-" + fakeId.id + i  aria-labelledby="pane-" + fakeId.id + i + "con" role="tabpanel")
+                        | !{pb.renderDropzone(thisWidget, "searchHistoryDropZone")}
+                else if (i == 2)
+                    li.tab__pane(id="pane-" + fakeId.id + i  aria-labelledby="pane-" + fakeId.id + i + "con" role="tabpanel")
+                        | !{pb.renderDropzone(thisWidget, "savedSearchDropZone")}
+                - i++
+
+block tabsMain
+    div.tab.advancedSearch__tabs(class=classNames)
+        ul.rlist.tab__nav.advancedSearch__tabs__nav
+            +nav()
+        +pane()
+block tabs
+    +tabs()
+
+block tabsSuffix
+    - data = original

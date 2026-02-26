@@ -1,0 +1,41 @@
+extends ./teaser-tmpl
+
+mixin teaser(item)
+    block teaser
+        div.creative-work
+            .delayLoad(data-lazyload=false)
+                block teaserAltmetric
+
+                if (item && item.image)
+                    img(src=item.image)
+                if ((item && item.contentType) || (item && item.title))
+                    .thumbnail-description
+                        if (item && item.contentType)
+                            p.creative-work__content-type
+                                | !{item.contentType}
+
+                        if (item.title)
+                            if (item.best)
+                                a(href=item.best title=item.title)
+                                    h5.creative-work__title !{item.title}
+                            else
+                                h5.creative-work__title !{item.title}
+
+mixin render(items)
+    block teaserWrapper
+        - var itemNo = items.length
+        if itemNo > 1
+            ul.rlist.grid-xs-1.grid-xlg-3
+                each item, l in items
+                    if (l > 1)
+                        li.grid-item.hidden-sm.hidden-md
+                            +teaser(item)
+                    else
+                        li.grid-item
+                            +teaser(item)
+        else
+            each item, l in items
+                +teaser(item)
+
+if ((data) && (data.items))
+    +render(data.items)

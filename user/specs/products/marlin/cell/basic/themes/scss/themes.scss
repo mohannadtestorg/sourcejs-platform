@@ -1,0 +1,141 @@
+$themes: (
+        ajhg: (
+                color: $ajhg-journal,
+                font-color: $white,
+                background: "../images/CellPress-AJHG-Overlay.png",
+                headings: $ajhg-journal,
+        ),
+        bpj: (
+                color: $bpj-journal,
+                font-color: $white,
+                background: "../images/CellPress-BPJ-Overlay.png",
+                headings: $bpj-journal,
+        ),
+        chember: (
+                color: $chember-journal,
+                font-color: $white,
+                background: "../images/CellPress-PhysicalSci-Overlay.png",
+                headings: $chember-journal,
+        ),
+        isci: (
+                color: $isci-journal,
+                font-color: $white,
+                background: "../images/CellPress-PhysicalSci-Overlay.png",
+                headings: $isci-journal,
+        ),
+        joul: (
+                color: $joul-journal,
+                font-color: $white,
+                background: "../images/CellPress-PhysicalSci-Overlay.png",
+                headings: $joul-journal,
+        ),
+        neuron: (
+                color: $neuron-journal,
+                font-color: $white,
+                background: "../images/CellPress-PhysicalSci-Overlay.png",
+                headings: $neuron-journal,
+        ),
+        stem: (
+                color: $stem-journal,
+                font-color: $white,
+                background: "../images/CellPress-PhysicalSci-Overlay.png",
+                headings: $stem-journal,
+        ),
+        molp: (
+                color: $molp-journal,
+                font-color: $white,
+                background: "../images/CellPress-MOLP-Overlay.png",
+                headings:  $molp-journal,
+        ),
+        stemcr: (
+                color: $stemcr-journal,
+                font-color: $white,
+                background: "../images/CellPress-STEMCR-Overlay.png",
+                headings:  $stemcr-journal,
+        ),
+        asgct: (
+                color: $asgct-journal,
+                font-color: $white,
+                background: "../images/CellPress-ASGCT-Overlay.png",
+                headings:  $asgct-journal,
+        ),
+        omtm: (
+                color: $omtm-journal,
+                font-color: $white,
+                background: "../images/CellPress-ASGCT-Overlay.png",
+                headings:  $omtm-journal,
+        ),
+        omtn: (
+                color: $omtn-journal,
+                font-color: $white,
+                background: "../images/CellPress-ASGCT-Overlay.png",
+                headings:  $omtn-journal,
+        ),
+        omto: (
+                color: $omto-journal,
+                font-color: $white,
+                background: "../images/CellPress-ASGCT-Overlay.png",
+                headings:  $omto-journal,
+        ),
+        ymthe: (
+                color: $ymthe-journal,
+                font-color: $white,
+                background: "../images/CellPress-ASGCT-Overlay.png",
+                headings:  $ymthe-journal,
+        ),
+        physicalsci: (
+                color: $others-journals,
+                font-color: $white,
+                background: "../images/CellPress-PhysicalSci-Overlay.png"
+        ),
+        lifesci: (
+                color: $lifesci-journal,
+                font-color: $white,
+                background: "../images/CellPress-LifeSci-Overlay.png",
+                headings:  $lifesci-journal,
+        ),
+        others: (
+                color: $primary-bg-color,
+                font-color: $white,
+                background: "../images/CellPress-LifeSci-Overlay.png",
+                headings:  $headings-primary-color,
+        )
+) !default;
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    button {
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+    a {
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}
+
+.background-container {
+    @include themify($themes) {
+        color: themed('color');
+    }
+}

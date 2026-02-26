@@ -1,0 +1,15 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block coverImageWrapperClass
+    -var CoverImageWrapperClass="cover-image alt"
+
+block parentItemTemplate
+    | !{pb.render('parent-item','parent-item/parent-item-alt', {data: cover,thisWidget:thisWidget},'app')}
+
+
+block singleCoverSuffix
+    .cover-image__extra-info
+        | !{pb.renderDropzone(thisWidget, "coverImageDropZone_"+thisWidget.id)}
+
+block bookCoverUpper
+    | !{pb.renderDropzone(thisWidget, "coverUpperZone"+thisWidget.id)}

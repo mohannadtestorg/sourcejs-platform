@@ -1,0 +1,159 @@
+{
+    "data": {
+        "numOfDefaultSearchTerms": "1",
+        "searchInDropdown": [
+            {
+                "label": "Anywhere",
+                "value": "AllField"
+            },
+            {
+                "label": "Title",
+                "value": "PubTitle"
+            },
+            {
+                "label": "Author",
+                "value": "Contrib"
+            },
+            {
+                "label": "Keywords",
+                "value": "Keyword"
+            }
+        ],
+        "searchIn": [
+            {
+                "searchTerm": "test",
+                "searchField": "AllField"
+            },
+            {
+                "searchTerm": "john",
+                "searchField": "Contrib"
+            }
+        ],
+        "filters": {
+            "ConceptID": {
+                "label": "Topic",
+                "placeholder": "e.g. Genetic Anomalies",
+                "data-id": "ConceptID",
+                "data-auto-complete-target": "topic",
+                "data-auto-complete-within": "bms030"
+            },
+            "publication":
+                  [
+                      {
+                          "param" : "SeriesKey",
+                          "value" : "hlthaff",
+                          "label" : "Health Affairs Journal"
+                      },
+                      {
+                          "param" : "DOResourceTypeId",
+                          "value" : "blog",
+                          "label" : "Health Affairs Blog"
+                      }
+                  ],
+
+            "publicationDate": {
+                "label": "Publication Date",
+                "placeholder": "e.g. 2001-2005 or 11-2004",
+                "radioButtons": [
+                    {
+                        "anyDate": {
+                            "label": "All dates"
+                        }
+                    },
+                    {
+                        "staticRange": {
+                            "label": "Last: ",
+                            "staticRangeDropdown": [
+                                {
+                                    "value": "20170313-20170413",
+                                    "label": "month"
+                                },
+                                {
+                                    "value": "20161013-20170413",
+                                    "label": "6 months"
+                                },
+                                {
+                                    "value": "20160413-20170413",
+                                    "label": "year"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "timeFrame": {
+                    "label": "Custom range: ",
+                    "afterYear": {
+                        "label": "From",
+                        "fromDropDown": [
+                            "2016",
+                            "2015",
+                            "2014",
+                            "2013",
+                            "2012",
+                            "2011",
+                            "2010",
+                            "2009",
+                            "2008",
+                            "2007",
+                            "2006",
+                            "2005",
+                            "2004",
+                            "2003",
+                            "2002",
+                            "2001",
+                            "2000"
+                        ]
+                    },
+                    "beforeYear": {
+                        "label": "From",
+                        "fromDropDown": [
+                            "2016",
+                            "2015",
+                            "2014",
+                            "2013",
+                            "2012",
+                            "2011",
+                            "2010",
+                            "2009",
+                            "2008",
+                            "2007",
+                            "2006",
+                            "2005",
+                            "2004",
+                            "2003",
+                            "2002",
+                            "2001",
+                            "2000"
+                        ]
+                    }
+                }
+            }
+        },
+        "advancedFilters": [
+            {
+                "earlycite": {
+                    "label": "Pre-print",
+                    "value": "on"
+                }
+            },
+            {
+                "accessFilterRadioButtons": [
+                    {
+                        "label": "All content",
+                        "id": "All content"
+                    },
+                    {
+                        "label": "Open access content only",
+                        "id": "openAccess",
+                        "value": "18"
+                    },
+                    {
+                        "label": "Only content I have full access to",
+                        "id": "accessOnly",
+                        "value": "user"
+                    }
+                ]
+            }
+        ]
+    }
+}

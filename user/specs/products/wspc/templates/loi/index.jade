@@ -1,0 +1,39 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 LOI page
+    .source_info
+
+
+
+    section.source_section
+        h2 LOI page
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content.journal-home
+                .meta-wrapper
+
+                .container
+                    | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<div class=\"card card--gutter card--shadow journal-head meta__body\"><div class=\"meta__left-side\"><a href=\"#\" title=\"cover\"><img alt=\"cover\" src=\"http://ux3-proto.literatumonline.com/resources/cms/settings/fum/publications/fca/cover.png\"></a><h1 class=\"meta__title\">Journal of Aerospace Engineering</h1><div class=\"meta__info\"><p><span class='meta__info-item'>ISSN (print):</span> 0893-1321 | <span class='meta__info-item'>ISSN (online):</span> 1943-5525</p><p><span class='meta__info-item'>Frequency:</span> Bimonthly | Sponsored by the Aerospace Division</p></div><p class=\"meta__contrib\">Editor: Wieslaw Binienda, Ph.D., F.ASCE, University of Akron</p></div><div class=\"meta__right-side\"><a href\"#=\"href\" #\"=\"\" class=\"btn btn--inverse\">Submit an article</a><a href\"#=\"href\" #\"=\"\"class=\"btn btn--inverse\">Subscribe</a></div></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    | !{pb.render('list-of-issues', 'list-of-issues/demo/list-of-issues-demo', 'loi-decade.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    | !{pb.render('list-of-issues', 'list-of-issues/demo/list-of-issues-demo', 'loi-decade.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    .row.separator
+                        .col-lg-9.col-md-9.col-sm-12.gutterless
+                            h3.section__header.border-bottom LIST OF ALL ISSUES
+                            | !{pb.render('list-of-issues', 'list-of-issues/demo/list-of-issues-demo', 'loi-decade-uncollapsible.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+
+                        .col-lg-3.col-md-3.col-sm-12
+                            .row
+                                .col-lg-12.col-md-12.col-sm-6.col-xs-12
+                                    h3.section__header.border-bottom newsletter
+                                    | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+                                    //mpu a
+                                .col-lg-12.col-md-12.col-sm-6.col-xs-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

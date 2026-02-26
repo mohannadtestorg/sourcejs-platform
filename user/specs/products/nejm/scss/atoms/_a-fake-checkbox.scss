@@ -1,0 +1,63 @@
+/***
+
+a-fake-checkbox
+=============
+
+```
+<a href="#" class="a-fake-checkbox">CME</a><br>
+<a href="#" class="a-fake-checkbox s-checked">CME</a><br>
+<span class="a-fake-checkbox s-disabled">CME</span>
+```
+
+
+***/
+
+.a-fake-checkbox {
+  @include f-ui;
+  display: inline-block;
+  position: relative;
+  padding-left: 22px;
+  color: $color__text;
+  cursor: pointer;
+}
+
+.a-fake-checkbox::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $color__input-border;
+  background-color: $color__white;
+}
+
+.a-fake-checkbox::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 12px;
+  border: 2px solid $color__black;
+  border-top: 0 none;
+  border-left: 0 none;
+  background-color: transparent;
+  opacity: 0;
+  transform: rotate(45deg) scale(.1);
+  transition: all .25s $bezier__bounce;
+}
+
+.a-fake-checkbox:hover::before {
+  border-color: $color__input-border--hover;
+}
+
+.a-fake-checkbox.s-checked::after {
+  opacity: 1;
+  transform: rotate(45deg) scale(1);
+}
+
+.a-fake-checkbox.s-disabled {
+  opacity: .5;
+  pointer-events: none;
+}

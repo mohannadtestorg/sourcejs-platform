@@ -1,0 +1,30 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-parent-item-tmpl
+
+
+
+
+block volume
+    .loi__volume
+       if data.url
+           a(href=data.url)
+               if (data) && (data.volume)
+                   span.comma Volume #{data.volume}
+
+               if (data) && (data.issue)
+                   | Issue #{data.issue}
+       else
+           if (data) && (data.volume)
+               span.comma Volume #{data.volume}
+
+           if (data) && (data.issue)
+               | Issue #{data.issue}
+
+    if (data) && (data.coverDate)
+      .loi__coverDate
+         if data.url
+             a(href=data.url)
+                 span  !{data.coverDate}
+         else
+             span  !{data.coverDate}
+
+block parentDate

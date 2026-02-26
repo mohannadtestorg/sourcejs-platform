@@ -1,0 +1,345 @@
+﻿include ../../page-structure/helpers/print-json-mixin
+include ../../page-structure/helpers/print-js-code-mixin
+    include ../../page-structure/helpers/print-html-code-mixin
+
+include data/data-include.jade
+
+.source_info
+    p Instructions for developers creating Atypon Literatum UX3 Styleguide components.
+
+section.source_section
+    h2 Setting up your intellij
+    p We will be using jade, es6 and scss in the UX3 project, please make sure you read on them.
+    | scss should be supported in newer Intellij versions by default or you would need a plugin to support the syntax.
+    | In order to stop getting syntax errors on es6 code. go to settings -> languages and frameworks -> javascript. change the javascript language  version to ECMAScript 6
+    | As for jade, go to settings -> plugins -> install jetbrains plugins -> search for pug. install the Pug (ex-Jade plugin)
+
+
+section.source_section
+    h2 Sourcejs folders creation
+    p There are two types of folders in sourcejs:
+    h3 Spec folders
+    p it is a spec document, just like this one you are reading.
+    p Check
+        a(href="/specs/documents/starting-spec/")  Starting spec template documentation.
+    h3 List folder
+    p A folder to group various spec folders
+
+    p Check
+        a(href="/specs/documents/starting-list/")  Starting list template documentation.
+
+
+
+
+
+
+section.source_section
+    h2 Project Creation
+    p Create a new folder under Spec folder using the starting list page template
+    p Projects inner  structure: (No need to use on plugins and documents folder or any standalone modules)
+    ul
+        li scss
+        li js
+        li templates
+        li images
+        li fonts
+        li atoms
+        li molecules
+        li organisms
+
+    h3 SCSS
+    p This is the main scss entry point . It includes build.scss file which is the master import file that would import all styling that need to be on the project check ux3/scss/build.scss.
+    | note that whenever the gulp task runner find a build.scss it will build this scss and any imported scss within
+    | scss/build.scss  can import from the project itself or from other projects (utility, plugins...)
+
+    p The import order should be as follow
+    ol
+        li Plugins imports: each project should only include plugins styles for plugins that will be used on the project (cherry pick)
+        li Utility imports (we can either import the whole utility styles by importing utility/scss/build.scss or specifically importing the utility modules we would like to include on a project )
+        li Atom imports
+        li Molecules imports
+        li Organisms imports
+
+    p The build destination is project/releasedAssets/css
+
+    h3 js
+
+    p The main entry point for the the js build process is project/js/main.js which would include a list of imports of all components js files that are to be included on the project. (we are using es6 imports for modules inclusion). check ux3/page-structure/js-lastin-body.jade
+    | The build destination is project/releasedAssets/js
+
+    p Note that we are using es6 with help of system js and JSPM
+
+    h3 Templates
+    p Each project should have a templates folder which would include the basic templates needed to set up the default pages structure.The default page structure is defined in project/page-structure/layout.jade. project modules will be extending layout.jade
+    p Layout.jade includes different templates that mainly are concerned with built js/css inclusion and location of inclusion
+    p Following is an elaboration on the structure:
+
+    p html
+
+    p head
+        p css-lastin-head.jade
+        p It includes build.scss  file which is the final result of the css build process,
+        p Not that currently you need to set the paths to point to your project manually (specs/PROJECT/releasedAssets/css/build.css)
+
+        p js-lastin-head.jade
+        p scripts that must be in head only can be added here (not part of the build process)
+        p /head
+        p body
+        p include js-firstin-body.jade
+        p scripts that must come after the body element can be added here (not part of the build process)
+
+        p include js-lastin-body.jade
+        p it includes system js and configurations for browsers that do not support es6 to have it transpile with babel, in addition the the main.bundle.js which is the final result of the js build process,
+        p Note that you need to include the initial project/js/main.js after main.bundle.js as can be seen on specs/page-structure/js-lastin-body.jade
+        p Not that currently you need to set the paths to point to your project js files manually for main.bundle.js and main.js (ie:specs/PROJECT/releasedAssets/js/main.bundle.js , specs/PROJECT/js/main.js)
+        p /body
+        p /html
+    h3 Images
+    p include your images in project/images, however attach them to your project from project/releasedAssets/images so you would attach the minifed versions
+
+    h3 Fonts
+    p Add any fonts files here (not currently part of the build process)
+
+    h3 Atomic design structure
+    ul
+        li
+            a(href="http://bradfrost.com/blog/post/atomic-web-design/#atoms") Atoms
+        li
+            a(href="http://bradfrost.com/blog/post/atomic-web-design/#molecules") Molecules
+        li
+            a(href="http://bradfrost.com/blog/post/atomic-web-design/#organisms") Organisms
+
+
+
+section.source_section
+    h2 How the style guide will be used, what will be exported?
+    p We should be exporting the following to prototypes and products
+    ul
+        li Asset files
+            ul
+                li project/releasedAssets/css/build.css (css source maps are being exported within this file),
+                li project/releasedAssets/js/main.bundle.js
+                li project/releasedAssets/js/main.bundle.js.map
+                li project/js/main.js
+                li project/releasedAssets/images
+                li fonts
+            p it is not allowed to do any edits to these files from within products or prototypes, once a new project structure is set up we will set up a task to continually copy these files so products will get any edits/ additions added within the style guide module.
+        li Jade Templates
+            p As for jade templates they will need to be included within products and switch the dummy json content, to a json like string actual context, FE should not be doing any markup changes, this applies to all widgets except content driven ones that their content cannot be served with json but derived from the XML and need to do an xsl transformations in order to structure it as intended
+            | when that's the case FE will need to follow the markup structure exactly. if for any reason they couldn't they need to get back to the UI team, to figure out a solution that would work for both.
+
+            p Prototypes living in ux3-proto will be getting the css/js the same products would, we will need to define where we should be copying them to though.
+            | as for templates, prototypes won't be using the jade templates, they will be using the actual generated HTML of different molecules and organisms.
+
+
+
+
+section.source_section
+    h2 Spec creation and structure
+    p Create a new spec folder under specs folder or one of it's subfolders.
+    p Create index.jade and info.json in the spec folder
+    p index.jade should extend the default project layout.jade template
+    p Component templates should be with the same name as the component itself (eg. templates/citation). they should always generate well-formed, semantically correct and accessible HTML. Component template file name should end with *-tmpl.jade (eg. citation-tmpl.jade), component mixin file name should end with *-mixin.jade (eg. citation-mixin.jade).
+    p Create "Examples" section with a few typical use cases (eg. component rendered when all data is available vs. component rendered when some of the data fields are missing).
+    p Create scss folder for stylesheets if needed, if it was a standalone plugin that sets withing the plugins module it can have a css folder (stand alone modules will not have a build step )
+    p scss files within a spec scss folder should contain components-name.scss. Any assigned variables need to be kept in a separate file component-name-variables.scss.
+    p note that we are not going to follow with the media query based file structures. media queries for breakpoints or tweakpoints should be added within component-name.scss (we need to having them added with some set mixins)
+    p if a component depends on another component  or is utilizing some other component we need to mention that on the component spec, same applies for js
+    p Whenever you add a new component spec scss you need to make sure to include it, if is not a standalone component , you need to make sure to inject it in the importing flow of the project. otherwise you can include it on the standalone component jade template directly
+    p Create js folder for javascript if needed
+    p components script naming should follow the name of the component (component-name.js). components should be included to projects importing flow in the project main.js unless they were a standalone components which in that case they can be included directly in the component jade template directly.
+
+    p Create templates folder for extra Jade templates if needed
+    p if you needed to add further jade templates for a certain component, add them in the templates folder and refer to them from your component index.jade
+
+    p add a data folder  for component sample data. This data is used to render examples on the spec page.
+
+    p Create test folder for unit tests
+    p Check /specs/ux3/components/citation/ for the full folder structure.
+
+
+section.source_section
+    h2 When build files are generated?
+    p The build task traverse the whole directory structure and is not limited to certain directory levels.
+    p You can find additional info on the tasks performed in the gulpfile.js here (a link to the document that lukas is creating)
+    p A build folder will be generated in the following cases:
+    ul
+        li once it find a /scss/build.scss it will generate a releasedAssets/scss/build.css which would include all the imported scss files and minimize them and perform some further operations like auto prefixing, media query packing
+        li Once it find a jade template that it's file name contain "tmpl" which would transform it to HTML in order to perform some accessibility tests and code style checks
+        li once it find images folder under the project directory
+
+
+section.source_section
+    h2 Jade templates
+    p We are using #[a(href="https://pugjs.org/") Jade] (recently renamed to Pug) templates to write our Styleguide specs.
+
+    h3 Template folder structure
+    p Jade templates for your component's spec live in the <code>templates</code> folder and it's subfolders. The spec page layout is defined in <code>layout.jade</code> template which includes other templates and the main content block from <code>index.jade</code>.
+    p Component templates should be in a subfolder with the same name as the component itself (eg. <code>templates/citation</code>) and they should always generate well-formed, semantically correct and accessible HTML. Component template file name should end with <code>*-tmpl.jade</code> (eg. <code>citation-tmpl.jade</code>), component mixin file name should end with <code>*-mixin.jade</code> (eg. <code>citation-mixin.jade</code>).
+    p Use <code>templates/data</code> folder for component sample data. This data is used to render examples on the spec page.
+    p Optionaly you can create other subfolders in <code>templates</code> folder (eg. <code>page-structure/helpers</code> for helper templates and mixins).
+
+    h3 Main template
+    p Main template for your spec is <code>index.jade</code> in your component's root folder (eg. <code>/citation/index.jade</code>). This template extends <code>templates/layout.jade</code> and includes other templates from <code>template</code> folder and it's subfolders to render content of the spec page.
+    p Here you should provide information about the required component data structure, template location and instructions for template invocation/rendering.
+    p You should also create "Examples" section with a few typical use cases (eg. component rendered when all data is available vs. component rendered when some of the data fields are missing).
+    p Add the following line after each <code>section.source_section</code> block in main spec template. The line must start at the same level as the preceding <code>section.source_section</code> block, ie. same indentation.
+    code.src-js.source_visible
+        || #{"#{''}"}
+
+section.source_section
+    h2 Extending component/widget templates
+    p When you are creating Jade template for a component or widget, and you need to include another template (for example "Quick search" template includes "Refine search" template), use the <code>block</code> element with a name for the included template. This will help us when overriding and customising templates for a new product.
+    p For example we can easily extend the default template for "Quick search" and override only the included part. Please check the <a href="/specs/products/fum/ux3/components/quick-search/">sample implementation for FUM product</a>.
+    p Our default template for Quick search looks like this:
+    code.src-js.source_visible
+        | #{"div.quick-search.json"}
+        | #{"  from"}
+        | #{"    select.jcf.quickSearch__select( datajcf='{\"wrapNative\": false, \"wrapNativeOnMobile\": false}')"}
+        | #{"      each item, i in data.options"}
+        | #{"        option !{item.text}"}
+        | #{"    ..."}
+        | #{""}
+        | #{"  block refineSearch"}
+        | #{"    include ../../../refine-search/templates/refine-search/refine-search-tmpl.jade"}
+    p And the custom template for a specific product just extends the default template and overrides the include:
+    code.src-js.source_visible
+        | #{"extends ../../../../../../../ux3/components/quick-search/templates/quick-search/quick-search-tmpl"}
+        | #{""}
+        | #{"block refineSearch"}
+        | #{"  include ../../../refine-search/templates/refine-search/refine-search-tmpl.jade"}
+
+
+section.source_section
+    h2 Core template customization
+    p SourceJS spec pages can be customized by overriding the default view templates.
+    p Steps to update SourceJS views:
+    ol
+        li Create or update the views in <code>~/source/BRANCH/atypon/styleguide/ux3/user/core/views/</code>, these will override the default views from <code>~/apps64/sourcePlatform/core/views/</code>
+        li Create a symlink (if it doesn't exist yet) <code>ln -s ~/source/{branch}/atypon/styleguide/ux3/user/core ~/apps64/sourcePlatform/user/core</code>
+        li Stop local server if it was running, and run <code>npm start</code> to run it again
+
+section.source_section
+    h2 Template data
+    p We have created SourceJS middleware which checks data dependencies defined in <code>info.json</code>, resolves JSON references, pre-generates the content of sub-components (if required), and injects the data into spec page template. There's no need to include sample data manually. Spec page developers only need to define the dependencies in <code>info.json</code> and the required data will be available as properties of a global <code>data</code> object in the spec template (<code>index.jade</code>).
+    h3 Example
+    +printJson(infoJson)
+    p In this example the content of <code>siteNav.json</code> will be available in <code>data.var1</code> in the spec template. Any references in the JSON file will be resolved. For the second part the middleware will compile <code>nav-tmpl.jade</code> template and pass <code>siteNav.json</code> data to it. The generated HTML output will be available in <code>data.var2</code>.
+    h3 Middleware installation
+    h4 Middleware for JSON Refs' resolution and Jade/Pug templates' pre-rendering
+    p Create a symlink <code>ln -s ~/source/{branch}/atypon/styleguide/ux3/user/sourcejs-add-data ~/apps64/sourcePlatform/user/sourcejs-add-data</code> and run
+    +printJsCode('npm install sourcejs-add-data --save')
+
+section.source_section
+    h2 Dropzones
+    p We have created SourceJS middleware which renders dropzones in our Pug templates.
+    h3 Middleware installation
+    p Create a symlink <code>ln -s ~/source/{branch}/atypon/styleguide/ux3/user/sourcejs-replace-dropzones ~/apps64/sourcePlatform/user/sourcejs-replace-dropzones</code> and run
+    +printJsCode('npm install sourcejs-replace-dropzones --save')
+    p The middleware will be loaded automatically after restarting your app. To disable it, remove npm module and restart the app.
+    h3 Usage
+    p You can use the <code>pb.renderDropzone()</code> helper function to render dropzones in your templates.
+    +printJsCode('!{pb.renderDropzone(thisWidget, "DropzoneName")}')
+    p This will render the following HTML snippet in your template's output.
+    +printHtmlCode('<div class="dropzone" data-name="DropzoneName"></div>')
+
+section.source_section
+    h2 Inline rendering
+    p We have created SourceJS middleware to render Pug templates for our components inline.
+    h3 Middleware installation
+    p Create a symlink <code>ln -s ~/source/{branch}/atypon/styleguide/ux3/user/sourcejs-inline-render-pug ~/apps64/sourcePlatform/user/sourcejs-inline-render-pug</code> and run
+        +printJsCode('npm install sourcejs-inline-render-pug --save')
+        p The middleware will be loaded automatically after restarting your app. To disable it, remove npm module and restart the app.
+    h3 Usage
+    p You can use the <code>pb.render()</code> helper function to render components in you Pug templates.
+    +printJsCode('!{pb.render(componentName, templateName, context, product)}')
+    p The function accepts 4 arguments, some of them are optional, see the table below.
+    table
+        thead
+            tr
+                th Name
+                th Required
+                th Value
+                th Description
+        tbody
+            tr
+                td
+                    code componentName
+                td yes
+                td string
+                td Component folder name inside atoms/components/widgets
+            tr
+                td
+                    code templateName
+                td no
+                td string
+                td Path to component template inside the component's "templates" folder if it's different than &lt;componentName&gt;/templates/&lt;componentName&gt;/&lt;componentName&gt;-tmpl.jade
+            tr
+                td
+                    code context
+                td yes
+                td JSON object
+                td Data required to render the template
+            tr
+                td
+                    code product
+                td no
+                td string
+                td Product name, if omitted, default ux3 component template is used, the same if the template doesn’t exist for the specified product
+    h3 Examples
+    +printJsCode('!{pb.render("parent-item", {"title": "Nanomedicine", "volume": 3, "issue": 11}, "fum")}')
+    +printJsCode('!{pb.render("list-of-issues", "list-of-issues/extended/ext-tabs", {...})}')
+
+
+section.source_section
+    h2 Stylesheets
+    p We are using #[a(href="http://sass-lang.com/") SASS extension] for our component's stylesheets.
+    h3 Rules and constraints (this should be moved to coding guidelines)
+    p You shouldn't use more than 3 class names on a single HTML element. If that's needed, ask for code review or component design change.
+    p You should avoid deep nesting in CSS selectors. If you need more than 3 levels in your selector to target the element, ask for code review or component design change.
+
+section.source_section
+    h2 Extending core assets
+    p SourceJS provides a patching feature to extend core Front-end assets, that are stored in <code>~/apps64/sourcePlatform/assets</code>.
+    p Steps to update SourceJS assets:
+    ol
+        li Create or update the assets in <code>~/source/BRANCH/atypon/styleguide/ux3/user/assets/</code>, these will override the default assets from <code>~/apps64/sourcePlatform/assets/</code>
+        li Create a symlink (if it doesn't exist yet) <code>ln -s ~/source/{branch}/atypon/styleguide/ux3/user/assets ~/apps64/sourcePlatform/user/assets</code>
+        li Stop local server if it was running, and run <code>npm start</code> to run it again
+
+section.source_section
+    h2 Testing
+    p We are using #[a(href="https://mochajs.org/") Mocha], #[a(href="http://chaijs.com/") Chai] and #[a(href="https://cheerio.js.org/") Cheerio] to write unit tests for our components. Unit tests should cover all use cases of the Styleguide component.
+    h3 Prepare the data and test cases
+    p Go to <code>test</code> folder under your component's root folder and create <code>index.js</code>,  <code>test.js</code> and <code>data.json</code>. <code>data.json</code> contains all variations of the component data object (all data available, some fields missing, etc.). <code>index.js</code> is used to initialise the test environment and run the tests. <code>test.js</code> is where you include your component's Jade template and test data, and define the test cases.
+    p If you want to use JSON References in your data file, create a <code>data-ref.json</code> file. We have a Gulp task that resolves the references and generates <code>data.json</code> for you.
+    h3 Run the tests
+    p Open the terminal, navigate to <code>test</code> folder under your component's root folder a run:
+    code.src-js.source_visible node index.js
+    p Make sure all tests pass, fix failing tests.
+
+section.source_section
+    h2 Sourcejs Clarify testing
+    p #[a(href="https://sourcejs.com/docs/clarify/") Clarify] is SourceJS middleware, that allows to open separate documentation examples in custom or clean environment for component testing and development.
+    p Clarify testing environment can be modified by updating the Clarify view templates.
+    p Steps to update the testing environment:
+    ol
+        li Create or update the views in <code>~/source/BRANCH/atypon/styleguide/ux3/user/core/views/clarify/</code>, these will override the default views from <code>~/apps64/sourcePlatform/core/views/clarify/</code>
+        li Create a symlink (if it doesn't exist yet) <code>ln -s ~/source/{branch}/atypon/styleguide/ux3/user/core ~/apps64/sourcePlatform/user/core</code>
+        li Stop local server if it was running, and run <code>npm start</code> to run it again
+
+    h3 Direct Clearview
+    p Page templates can be opened directly in clean environment (clearview), ie. no need to open the template spec page first and then click the <code>Clear</code> link. You need to update <code>info.json</code> for the page template with <code>"clearview": true</code> to enable this feature.
+
+
+
+
+
+
+
+
+
+
+
+
+

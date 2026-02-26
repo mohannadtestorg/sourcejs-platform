@@ -1,0 +1,55 @@
+footer {
+    position: relative;
+    font-size: 0.88rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .hidden-xs {
+        display: inline-block;
+        @include media('<phone') {
+            display: none !important;
+        }
+    }
+
+    .privacy-policy {
+        color: $secondary-link-color;
+        &:hover {
+            color: $secondary-link-color;
+            text-decoration: none;
+            box-shadow: inset 0 -2px 0 0 $secondary-link-color;
+        }
+    }
+
+    .social-links {
+        a {
+            margin: 0 1ex 0 0;
+        }
+
+        @include media('>=desktop') {
+            float: right;
+            a {
+                margin: 0 0 0 1ex;
+            }
+        }
+    }
+
+    .watemark {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        fill: #fcfcfc;
+    }
+
+    .cc {
+        display: block;
+        @include media('>=phone') {
+            display: inline;
+        }
+    }
+
+    .slash {
+        display: inline-block;
+        margin: 0 1.5ex;
+    }
+}

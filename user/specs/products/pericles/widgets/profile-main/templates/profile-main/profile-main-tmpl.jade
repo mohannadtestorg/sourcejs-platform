@@ -1,0 +1,8 @@
+extends ../../../../../../ux3/widgets/profile-main/templates/profile-main/profile-main-tmpl.jade
+
+block institutionList
+    select#institutionList
+        option(value='#') Select
+        each item, I in data.institutionList
+            if(item.InstitutionName)
+              option(value=item.InstitutionUrl selected=item.selected) !{item.InstitutionName}

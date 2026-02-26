@@ -1,0 +1,12 @@
+extends ../../../publication-list/templates/publication-list/publication-list-tmpl.jade
+
+block versionHeading
+    span.version-heading-label !{item.versionHeading}
+
+block coverDateLabel
+    label Version of Record online:
+
+block requestPermission
+    if(item.permissions)
+        li.request-permission-link
+            a(href=item.permissions title="Request permissions") Request permissions

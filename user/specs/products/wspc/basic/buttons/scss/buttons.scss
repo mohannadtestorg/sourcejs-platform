@@ -1,0 +1,71 @@
+.button, [type='submit'], [type='button'], button, .btn {
+    background-color: $secondary-color;
+    font-size: 0.75rem;
+    &:hover, &:focus {
+        background-color: $primary-bg-color;
+    }
+
+    &[disabled="true"], &[disabled], &.disabled, &:disabled {
+        &:hover, &:focus {
+            background-color: $badge-bg-color;
+        }
+    }
+}
+
+.btn--inverse, .button--inverse {
+    color: $secondary-color;
+    border: 1px solid $secondary-color;
+    background-color: transparent;
+    padding: 15px 25px;
+    max-height: none;
+    font-size: 1rem;
+    &:hover, &:focus {
+        background-color: $primary-bg-color;
+        color: #fff;
+    }
+    &.extra-border {
+        border-width: 1px;
+        padding: 10px 14px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+.administratorsWidget {
+    input {
+        &.btn--inverse {
+            color: $secondary-color;
+            border: 1px solid $secondary-color;
+            background-color: transparent;
+            padding: 10px 14px;
+            &:hover, &:focus {
+                background-color: $primary-bg-color;
+                color: $white;
+
+            }
+        }
+    }
+}
+
+#institutionMultiIpChange {
+    input[name="delete"] {
+        color: $secondary-color;
+        border: 1px solid $secondary-color;
+        background-color: transparent;
+        padding: 10px 14px;
+        max-height: none;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+}
+
+.trusted-proxy-form [type=submit] {
+    &:hover, &:focus {
+        background-color: $primary-bg-color;
+        color: $white;
+    }
+}
+
+.downloadHoldings {
+    padding: 10px 14px;
+}

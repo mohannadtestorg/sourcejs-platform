@@ -1,0 +1,135 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/corp/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='/specs/ux3/basic/icon-fonts/scss/helpers/icons.css')
+
+block content
+    include /specs/page-structure/helpers/print-html-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        p We are using #[a(href="https://icomoon.io/") IcoMoon] font to render icons in our templates (<code>specs/fonts</code>).
+        p Use <code>i</code> tag with icon class name to add an icon in your code. here you can find complete list of icons for reference.
+        h3 Example
+        +printHtmlCode('<i class="icon-facebook" aria-hidden="true"></i>')
+    | #{''}
+
+    section.source_section
+        h2 IcoMoon icons
+        .source_example
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-down
+                    p icon-arrow-down
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-down--style-2
+                    p  icon-arrow-down--style-2
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-left
+                    p  icon-arrow-left
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-left--style-2
+                    p  icon-arrow-left--style-2
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-right
+                    p  icon-arrow-right
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-right--style-2
+                    p  icon-arrow-right--style-2
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-up
+                    p  icon-arrow-up
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-arrow-up--style-2
+                    p  icon-arrow-up--style-2
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-atypon-favicon
+                    p  icon-atypon-favicon
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-calendar
+                    p  icon-calendar
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-check
+                    p  icon-check
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-circled-check
+                    p  icon-circled-check
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-circled-minus
+                    p  icon-circled-minus
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-circled-plus
+                    p  icon-circled-plus
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-circled-x
+                    p  icon-circled-x
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-clock
+                    p  icon-clock
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-document
+                    p  icon-document
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-facebook
+                    p  icon-facebook
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-layers
+                    p  icon-layers
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-linkedin
+                    p  icon-linkedin
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-message
+                    p  icon-message
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-phone
+                    p  icon-phone
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-pin
+                    p  icon-pin
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-pin-outline
+                    p  icon-pin-outline
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-print
+                    p  icon-print
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-search
+                    p  icon-search
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-twitter
+                    p  icon-twitter
+            .col-md-4
+                .clearfix.bshadow0.pbs
+                    i(aria-hidden="true").icon-x
+                    p  icon-x
+
+    | #{''}
+

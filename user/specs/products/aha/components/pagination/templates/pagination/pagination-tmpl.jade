@@ -1,0 +1,31 @@
+div.pagination
+    span.pagination__btn--prev
+        if (data.prevButton) && (data.prevButton.itemUrl)
+            a.btn.btn-sm.btn--primary(href=data.prevButton.itemUrl title="Previous")
+                span.hidden-xs.hidden-sm.hidden-md Previous
+                span.hidden-lg
+                    i.icon-arrow_l
+        else
+            span.hidden-xs.hidden-sm.hidden-md Previous
+            span.hidden-lg
+                i.icon-arrow_l
+
+    block pagerBlock
+        ul.rlist--inline.pagination__list
+            each item, l in data.pager
+                li
+                    if (item.active) && item.active == 'true'
+                        a(href=item.itemUrl class="active" title=item.text) !{item.text}
+                    else
+                        a(href=item.itemUrl title=item.text) !{item.text}
+
+    span.pagination__btn--next
+        if (data.nextButton) && (data.nextButton.itemUrl)
+            a.btn.btn-sm.btn--primary(href=data.nextButton.itemUrl title="Next")
+                span.hidden-xs.hidden-sm.hidden-md Next
+                span.hidden-lg
+                    i.icon-arrow_r
+        else
+            span.hidden-xs.hidden-sm.hidden-md Next
+            span.hidden-lg
+                i.icon-arrow_r

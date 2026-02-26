@@ -1,0 +1,17 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    h1 Additional Citation Info
+    .source_info
+        markdown
+            p Its XSL content provided by FE
+            p Styles changed based the instructions in <a href='https://jira.atypon.com/browse/LIT-191365' target="_blank">`LIT-191365`</a> and <a href='https://jira.atypon.com/browse/LIT-200484' target="_blank">`LIT-200484`</a>
+
+    section.source_section
+
+        h2 Example
+        .source_example
+            .container
+                | !{pb.render("additional-citation-info", "data.json", "pericles")}
+
+

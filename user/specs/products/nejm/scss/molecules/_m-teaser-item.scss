@@ -1,0 +1,154 @@
+/***
+
+```
+<div class="m-teaser-item" data-behavior="TeaserReveal">
+  <a href="#" class="m-teaser-item__link">
+    <strong class="m-teaser-item__title f-h4">Considerations for Developing a Zika Virus Vaccine</strong><br>
+    <em class="m-teaser-item__author f-author">L.R. Jamienien M.A.</em><br>
+    <span class="m-teaser-item__blurb f-blurb" aria-hidden="true" data-teaser-hidden>
+      Maecenas eget nisl velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit aliquam neque quam, interdum sed metus ut, ullamcorper ullamcorper ligula.
+    </span>
+    <span class="m-teaser-item__infos">
+      <em class="m-teaser-item__pages f-caps">1312-1337</em> <svg class="icon--slideshow" aria-hidden="true"><use xlink:href="#icon--slideshow" /></svg> <svg class="icon--free" aria-hidden="true"><use xlink:href="#icon--free" /></svg>
+    </span>
+    <button class="m-teaser-item__reveal-btn" data-teaser-reveal>
+      <svg class="icon--plus"><use xlink:href="#icon--plus" /></svg>
+      <svg class="icon--minus"><use xlink:href="#icon--minus" /></svg>
+    </button>
+  </a>
+</div>
+```
+
+***/
+
+.m-teaser-item {
+  display: block;
+  position: relative;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.m-teaser-item::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-teaser-item__link {
+  display: block;
+  position: relative;
+  min-height: 132px;
+  padding-right: 80px;
+  padding-bottom: 40px;
+}
+
+.m-teaser-item__link > br {
+  display: none;
+}
+
+.m-teaser-item__title {
+  color: $color__text--headlines;
+}
+
+.m-teaser-item__link:hover .m-teaser-item__title.f-h4 {
+  @include text-underline(1em);
+
+  @include breakpoint('small+') {
+    @include text-underline();
+  }
+}
+
+.m-teaser-item__author {
+  display: block;
+  margin-top: 4px;
+  padding-bottom: 16px;
+  color: $color__text--quaternary;
+}
+
+.m-teaser-item__blurb {
+  display: none;
+  color: $color__text;
+}
+
+.m-teaser-item.s-reveal .m-teaser-item__blurb {
+  display: block;
+}
+
+.m-teaser-item__infos {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  color: $color__text--headlines;
+}
+
+.m-teaser-item__pages {
+  color: $color__text--quaternary;
+}
+
+.m-teaser-item__infos svg {
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: text-bottom;
+}
+
+.m-teaser-item__reveal-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 3px;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  color: $color__black;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.m-teaser-item__reveal-btn .icon--minus {
+  display: none;
+}
+
+.m-teaser-item.s-reveal .m-teaser-item__reveal-btn .icon--plus {
+  display: none;
+}
+
+.m-teaser-item.s-reveal .m-teaser-item__reveal-btn .icon--minus {
+  display: block;
+}
+
+.m-teaser-item {
+  .m-result__save,
+  .m-result__download {
+    display:none;
+  }
+}
+
+.m-teaser-item.s-reveal {
+  .m-result__save,
+  .m-result__download {
+    display:block;
+  }
+}
+
+
+// -------------------------------------
+//  Inside .o-results after .a-subtitle
+//
+
+.a-subtitle + .o-results > .m-teaser-item:first-child {
+  padding-top: 0;
+}
+
+.a-subtitle + .o-results > .m-teaser-item:first-child::before {
+  content: none;
+  display: none;
+}

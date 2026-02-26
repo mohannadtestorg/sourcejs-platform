@@ -1,0 +1,27 @@
+.journal-home__tab {
+    .section__header {
+        display: none;
+    }
+
+    // tab customization for journal
+    .tab__content {
+        .tab__pane {
+            padding-top: 0;
+        }
+    }
+    .tab__nav {
+        border-bottom: 1px solid $separators-color;
+        @include make-tabs-variant(
+                $tab-nav-active-color: $tab-primary-nav-active-color,
+                $tab-nav-active-bg: $tab-primary-nav-active-bg
+        );
+        li {
+            margin-bottom: 0;
+            a {
+                border-width: 0;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+}

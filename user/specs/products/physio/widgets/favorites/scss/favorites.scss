@@ -1,0 +1,102 @@
+.favoriteShortlist {
+    .section__separator{
+        .jcf-select{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .input-group{
+            margin-bottom: 0;
+        }
+        th {
+            color: $primary-text-color;
+            font-weight: 900;
+            padding: 0 1em 1em 0;
+        }
+        td {
+            padding: 1em 1em 1em 0;
+            vertical-align: top;
+        }
+    }
+    tbody{
+        tr{
+            &:hover{
+                background-color: $default-bg-color;
+            }
+        }
+        td{
+            vertical-align: top;
+            &:nth-child(1){
+                background: $primary-white;
+            }
+        }
+    }
+    td {
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .jcf-select{
+        margin: 0;
+        vertical-align: bottom;
+    }
+    td:nth-child(2) {
+        width: 39%;
+    }
+    td:nth-child(4) {
+        width: 20%;
+        font-size: 14px;
+    }
+}
+@include media('<tablet') {
+    .favoriteShortlist {
+        tbody {
+            td {
+                &:nth-child(1) {
+                    background: inherit;
+                    display: inline;
+                }
+            }
+        }
+        table {
+            .checkbox--primary .jcf-checkbox {
+                box-shadow: 0 0 0 2px $primary-text-color;
+                margin-top: 4px;
+                margin: 0 10px 0 3px;
+            }
+        }
+        td:nth-child(4) {
+            width: auto;
+        }
+        td:nth-child(2) {
+            display: inline;
+        }
+        .tab__nav {
+            display: table;
+            padding-bottom: 15px;
+            width: 100%;
+        }
+        .tab--flex {
+            .tab__nav {
+                li {
+                    display: table-cell;
+                }
+            }
+
+        }
+        .tab--res.tab--slide .tab__content {
+            visibility: initial;
+            opacity: 1;
+        }
+
+        .section__separator .pull-left + .pull-right {
+            margin: 0;
+        }
+        .expandable {
+            td:not(:first-child) {
+                display: inline;
+            }
+            .expandable td {
+                display: inline;
+            }
+        }
+    }
+}

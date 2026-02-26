@@ -1,0 +1,191 @@
+.registration-page {
+
+    .notified-group {
+        .input-group {
+            margin-bottom: 0.875rem;
+        }
+    }
+
+    .accordion__control {
+
+        h2 {
+            font-size: 1.125rem;
+        }
+
+        i {
+            font-size: 0.375rem;
+            vertical-align: middle;
+            color: $wiley-blue-color;
+            font-weight: 900;
+        }
+    }
+
+    .accordion-tabbed__content {
+        border-top: 0;
+    }
+
+    .print-mail-list {
+        a {
+            &.accordion-tabbed__control {
+                i {
+                    font-size: 0.4rem;
+                    margin-left: 12px;
+                    vertical-align: middle;
+                    color: $wiley-blue-color;
+                }
+            }
+        }
+    }
+
+    .accordion-tabbed__control,
+    h2 {
+        font-size: 1.125rem;
+        line-height: 1.45;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding: 0;
+        color: $info-text-color;
+    }
+
+    .accordion-tabbed__control {
+        &:hover, &:focus, &:active {
+            color: $wiley-typography-color;
+        }
+        .icon {
+            color: $wiley-blue-color;
+        }
+    }
+
+    .actions {
+        margin: 0;
+        padding: 0 4px 4px;
+        border: 0;
+
+        .linkBtn, .btn {
+            line-height: 20px;
+            min-width: 110px;
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+    .validationDiv {
+        width: 50%;
+        float: left;
+        margin-right: 15px;
+    }
+    .LBD_CaptchaDiv {
+        float: right;
+    }
+
+    .login-info {
+        :not(:last-child) .note {
+            margin-bottom: 2rem;
+        }
+    }
+
+    .note {
+        line-height: 22px;
+        max-width: 420px;
+    }
+
+    .input-group {
+
+        .required-marker {
+            margin-left: 3px;
+        }
+
+        span {
+
+            &.label-txt {
+                font-size: 0.875rem;
+            }
+        }
+        
+    }
+
+    @include media('<tablet') {
+        .actions {
+            margin-bottom: -20px;
+
+            .button, .cancel {
+                float: none;
+                display: block;
+                width:100%;
+            }
+            p.small-txt {
+                margin-bottom:2rem;
+                font-size:0.8rem;
+            }
+        }
+
+        .form-btn {
+            text-align: center;
+
+            .linkBtn, .btn {
+                width: 100%;
+                line-height: 20px;
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    @include media('>=tablet') {
+        .login-info {
+            .input-group {
+                padding: 0;
+            }
+        }
+
+        input, + .note , select{
+            max-width: 420px;
+        }
+    }
+
+    select {
+        min-height: 44px;
+    }
+    .password-eye-icon{
+        top: 43px;
+        right: 91px;
+    }
+}
+
+.addresses .state:disabled {
+    display: none;
+}
+
+.accountInfo {
+    .notified-group {
+
+        .label-txt {
+            display: inline-block;
+        }
+
+        @include media('<tablet') {
+            .radio--primary {
+                span {
+                    &:before {
+                        border: 2px solid $white;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media('<tablet') {
+    .printMailing-dropzone {
+        margin-bottom: 13px;
+    }
+    .login-info {
+        .row {
+            .col-md-6:first-child {
+                .note {
+                    margin-bottom: 13px;
+                }
+            }
+        }
+    }
+}

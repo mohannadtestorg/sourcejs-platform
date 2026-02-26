@@ -1,0 +1,37 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+
+block quickSearch
+    div.main-search-field-wrapper
+        each item, i in data.dropdown
+            if item.dataSearchIn == 'citation'
+                .citationSearchContainer.advanced-search-container
+                    form#citationSearchForm(action="/action/quickLink" name="citationQuickSearch" method="get" title="Quick Search")
+                        h5 Citation search
+
+                        .clearfix.fields
+                            input.autocomplete(type="search" name="quickLinkJournal" placeholder= thisWidget.properties.publicationText data-auto-complete-max-words = data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles value=currentSearchTerm)
+
+                            .small
+                                input(type="search" name="quickLinkYear" autoComplete="false" placeholder= thisWidget.properties.yearText)
+
+                            .small
+                                input(type="search" name="quickLinkVolume" autoComplete="false" placeholder= thisWidget.properties.volumeText)
+
+                            .small
+                                input(type="search" name="quickLinkIssue" autoComplete="false" placeholder= thisWidget.properties.issueText)
+
+                            .small
+                                input(type="search" name="quickLinkPage" autoComplete="false" placeholder= thisWidget.properties.pageText)
+
+                            .small
+                                input(type="search" name="quickLinkCitation" autoComplete="false" placeholder='Citation #')
+
+                        input(type="hidden" name="quickLink" value="true")
+                        .form-btn
+                            button(type="submit" class="btn") SEARCH
+
+
+block quickSearchWrapper
+    div.quick-search.quick-search--citation.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+        +search()

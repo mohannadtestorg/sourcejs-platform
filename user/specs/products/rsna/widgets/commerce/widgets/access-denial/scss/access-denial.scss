@@ -1,0 +1,235 @@
+.responsiveAccessDenialWidget {
+    .citation__title {
+        margin-top: 20px;
+
+        h1 {
+            font-weight: bold;
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.purchaseArea {
+
+    background: $secondary-bg-color;
+    border: 1px solid $tertiary-border-color;
+    margin:30px 0px;
+    padding: 20px 20px 10px 20px;
+
+    /* ========================================
+    General style
+    ======================================== */
+
+    a {
+        font-size: $h6-font-size;
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    .button {
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+
+    h2 {
+        color: $text-onDark;
+        margin: -21px -21px 20px -21px;
+        padding: 10px 20px;
+        font-size: $h2-font-size;
+
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+
+    hr {
+        display: none;
+    }
+
+    input[type="text"], input[type="password"] {
+        background-color: $default-bg-color;
+    }
+
+    /* ----------------------------------------
+    Purchase Description
+    ---------------------------------------- */
+    .purchaseDescription {
+        display: block;
+        color: $primary-text-color;
+        font-size: $h6-font-size;
+        padding: 0px 0px 20px 0px;
+    }
+
+    /* ----------------------------------------
+    Restore Content Access Explanatory Text
+    ---------------------------------------- */
+    .restoreContentAccessExplanatoryText {
+        display: inline-block;
+        font-size: $h6-font-size;
+        color: $secondary-text-color;
+    }
+
+    /* ----------------------------------------
+    List Style
+    ---------------------------------------- */
+
+    .rlist {
+        padding: 10px 0;
+        border-top: 1px solid $tertiary-border-color;
+    }
+
+    /* ========================================
+    Expand links
+    ======================================== */
+
+    .expand-link , #purchaseLink {
+        font-size:  $h6-font-size;
+        cursor: pointer;
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+    .expand-link.active, #purchaseLink.purchaseAreaList_expand.active {
+        font-weight: bold;
+    }
+
+    /* ========================================
+    Login form
+    ======================================== */
+
+    .login-form {
+        border-top: 1px dashed $tertiary-border-color;
+        margin: 10px 0px;
+        padding: 20px 0px 0px 0px;
+        border-bottom: 1px solid $tertiary-border-color;
+    }
+
+    /* ========================================
+    Claim options
+    ======================================== */
+
+
+    .claim-options {
+        padding: 0px;
+
+        .content {
+            border-top: 1px dashed $tertiary-border-color;
+            margin: 10px 0px;
+            padding: 20px 0px 10px 0px;
+            border-bottom: 1px solid $tertiary-border-color;
+        }
+
+        #accessTokenForm .submit {
+            float: none;
+        }
+    }
+
+    .content {
+        padding-bottom: 10px;
+    }
+
+}
+
+.eCommercePurchaseAccessWidgetContainer {
+
+    .purchase-item{
+        min-height: 50px;
+        padding: 18px 10px;
+    }
+    .add-journal-to-cart {
+        header {
+            line-height: inherit;
+            padding: 0;
+            border: none;
+            position: relative;
+            .purchaseMessage {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                color: $text-onDark;
+                padding: 0;
+
+                @include themify($themes) {
+                    background-color: themed('color');
+                }
+
+                p.itemAddedMsgBox {
+                    border: none;
+                    line-height: 60px;
+                    margin: 0;
+                    padding: 0px;
+                    @include media('<tablet'){
+                        line-height: 40px;
+                    }
+                    h3 {
+                        font-size: $h6-font-size;
+                        font-weight: 600;
+                        color: $text-onDark;
+                    }
+                    &:before {
+                        font-size: $h4-font-size;
+                        vertical-align: middle;
+                        position: static;
+                        display: inline;
+                        margin: 0 10px 0 0;
+                    }
+                }
+            }
+            .add-to-cart-msg{
+                display: none;
+                opacity: 0.8;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-size: $h6-font-size;
+                font-weight: 600;
+                color: $text-onDark;
+                line-height: 55px;
+                margin-left: 0px;
+                margin-bottom: 0px;
+
+                @include themify($themes) {
+                    background-color: themed('color');
+                }
+
+                @include media('<tablet'){
+                    line-height: 40px;
+                }
+
+                [class^="icon-"]{
+                    font-size: $h4-font-size;
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+                &.added{
+                    @include themify($themes) {
+                        background-color: themed('color');
+                    }
+                }
+            }
+            &:hover{
+                position: relative;
+                .add-to-cart-msg:not(.added){
+                    display: block;
+                    padding: 0px;
+                }
+            }
+        }
+    }
+}
+
+
+.AccessDenialMessage{
+    padding: 15px;
+}
+
+

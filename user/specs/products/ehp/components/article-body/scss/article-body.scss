@@ -1,0 +1,71 @@
+.article {
+    &-table-content {
+        border: 1px solid $table-border-color;
+    }
+
+    &-table-caption {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    &-section {
+        &__table {
+
+            background-color: $table-bg-color;
+
+            thead {
+                background-color: $table-head-bg-color;
+            }
+            th, td {
+                padding: $table-cell-padding;
+            }
+            th {
+                border: 1px solid $table-border-color;
+                border-top-width: 0;
+            }
+
+            // make table stripped as default for this project
+            @extend .table-stripped;
+        }
+
+        &__content {
+            p {
+                line-height: 2;
+            }
+        }
+
+        &__inline-figure {
+            figure {
+                width: auto;
+                float: none;
+            }
+        }
+    }
+
+    &__crossmark {
+        [class^=icon-], [class*=" icon-"] {
+            color: $primary-icons-color;
+        }
+    }
+
+    &__keyword {
+        a {
+            background-color: $primary-btn-bg;
+            color: $primary-btn-color;
+        }
+    }
+
+    &__author-affiliations {
+        .accordion {
+            &__content {
+                background-color: $secondary-lighten-bg-color;
+                padding: $default-inner-padding-y $default-inner-padding-x;
+                .affList {
+                    margin: 0;
+                    padding-left: $default-inner-padding-x;
+                }
+            }
+        }
+    }
+
+}

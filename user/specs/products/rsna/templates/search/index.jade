@@ -1,0 +1,32 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Search Result page
+    section.source_section
+        h2 Search Result page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                div.container
+                    | !{data.breadcrumbs}
+
+                div.quickSearchRegion.dark
+                    div.container
+                        | !{data.quickSearch}
+
+                div.container
+                    div.row
+                        div.col-md-4.col-sm-5
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                        div.col-md-8.col-sm-7
+                            | !{data.searchresult}
+
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,133 @@
+.facets {
+  &__title {
+    color: $standard-color;
+
+    &--main {
+      font-family: $secondary-font-family;
+      border-bottom: 1px solid $text-onDark;
+      text-transform: capitalize;
+      margin: 10px -15px;
+      font-size: 2rem;
+      font-weight: 100;
+      padding: 0 15px 10px;
+
+      @include media('<desktop') {
+        font-size: 1.5rem;
+      }
+
+    }
+  }
+}
+
+.facet {
+  border-color: $text-onDark;
+  margin: 0 -15px;
+  padding: 0 15px 15px;
+
+  @include media('<tablet') {
+    padding: 0px 0px 10px;
+    border-bottom: 1px solid $tertiary-bg-color;
+    margin: 10px 0 0;
+  }
+
+  &__label {
+    padding-top: 2px;
+    display: inline-block;
+  }
+
+  &__counter {
+    margin-left: auto;
+  }
+
+  &.accordion {
+    @include media('<tablet') {
+      margin-top: 30px;
+    }
+  }
+
+  .show-more {
+    @extend .facet-label;
+    text-transform: capitalize;
+  }
+
+  &__list {
+    @extend .facet-label;
+
+    &.expanded {
+      max-height: 400px;
+      overflow-y: scroll;
+      padding-right: 10px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      @include media('<tablet') {
+        font-size: 1rem;
+      }
+    }
+    li {
+      line-height: 20px;
+    }
+
+    &--applied {
+      li {
+        color: $standard-color;
+        background: transparent;
+        padding-top: 0;
+        @extend .facet-label;
+      }
+
+      .icon-tools_close {
+        color: $standard-color;
+        font-size: .5rem;
+      }
+    }
+  }
+
+  &__title {
+    font-size: .875rem;
+    color: $standard-color;
+    &:focus, &:hover {
+      color: $standard-color;
+    }
+  }
+
+  &:last-child {
+    border: none;
+  }
+
+  .clear {
+    color: $secondary-text-color;
+    font-size: 0.875rem;
+    margin-top: 0;
+  }
+
+  .dropdown__toggle {
+    cursor: pointer;
+  }
+
+  &__toggle {
+    margin-right: 8px;
+  }
+}
+
+.facet-label {
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding-left: 10px;
+  color: $standard-color;
+  font-family: $secondary-font-family;
+  @include media('<desktop') {
+    font-size: 1rem;
+  }
+}
+
+.w-slide__content {
+  .facet {
+    &__ctrl {
+      border: none;
+      margin: 0;
+    }
+  }
+}

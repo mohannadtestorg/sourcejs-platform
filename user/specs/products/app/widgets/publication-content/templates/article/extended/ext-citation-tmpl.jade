@@ -1,0 +1,56 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+
+block citationAuthors
+    if(data.authors)
+        if(data.type == "chapter")
+            .citation__authors
+                span.bold Edited by:
+                | !{data.authors}
+        else
+            | !{data.authors}
+
+
+block articleCorrections
+
+block citationTocHeading
+    .citation__top.clearfix
+        block citation__tocHeading
+            span.article__breadcrumbs
+                | !{pb.renderDropzone(thisWidget, "breadcrumbs")}
+            span.citation__top__item.article__tocHeading.article__tocHeading--title !{data.tocHeading}
+
+        span.citation__top__item.article__access
+                if(original.item && original.item.license)
+                    block citationLicense
+                        span.article__access__type
+                            -var accessLabel ="";
+                            if (original.item.license.type == "open-access" || original.item.access == "FREE_ACCESS" ||original.item.access == "FULL_ACCESS")
+                                -accessLabel = "Full Access";
+                                i.citation__acess__icon.icon-lock_open
+                            else
+                                -accessLabel = "No Access";
+                                i.citation__acess__icon.icon-Icon_Permissions-Locked
+                            span.citation__access__type(class=original.item.license.type) !{accessLabel}
+                    if (original.item.license.ccType)
+                        if (original.item.license.ccType == "cc-by")
+                            span.article__cc
+                                i.citation__top__item.icon-cc_large2
+                    else
+                        if original.item.license.type == "open-access"
+                            span.article__cc
+                                i.citation__top__item.icon-cc_large2
+
+                    if(original.item.tags && original.item.tags["taxonomy-code"] == "app-publication-features" && original.item.tags["tag-code"] == "cm")
+                         span.article__cme | CME
+block citationTitle
+    h1.citation__title
+        if (data.itemUrl)
+            a(href=data.itemUrl title=data.title)
+                if(data.type == "chapter" && original.item.titles.chapterNumber)
+                    | !{original.item.titles.chapterNumber}
+                | !{data.title}
+        else
+            if(data.type == "chapter" && original.item.titles.chapterNumber)
+                | !{original.item.titles.chapterNumber}
+            | !{data.title}

@@ -1,0 +1,597 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p Its XSL content provided by FE
+        p Styles changed based the instructions in <a href='https://jira.atypon.com/browse/LIT-196020' target="_blank">`LIT-196020`</a> and values form
+            | !{''}
+            a(href="https://codepen.io/sallen/full/zPQrgm/") Design
+
+    section.source_section
+        h2 Article Citation
+        .source_example
+            .container
+                article
+                    .article-citation
+                        .citation
+                            .pb-dropzone(data-pb-dropzone='publicaitonContent-series-title')
+                            .doi-access-container.clearfix
+                                span.primary-heading Commentary
+                                .doi-access-wrapper
+                                    .full-access.access-type
+                                        i.icon-icon-lock_open(aria-hidden='true')
+                                        .doi-access
+                                            .doi-access.hidden-xs.hidden-sm.hidden-md(tabindex='0') Full Access
+                                .doi-access-wrapper
+                                    a.access-icon-wrapper(target='_blank', href='http://creativecommons.org/licenses/by-nc-nd/4.0/')
+                                        span.access-icon.icon-cc(aria-hidden='true')
+                                        span.access-icon.icon-by(aria-hidden='true')
+                                        span.access-icon.icon-nd(aria-hidden='true')
+                                        span.access-icon.icon-nc(aria-hidden='true')
+                            h2.citation__title
+                                | Recommendations for a step‐wise comparative approach to the evaluation of new screening
+                                | tests for colorectal cancer
+                            .accordion.corrections-container
+                                a.accordion__control.corrections-label(href='#', title='Single Accordion Controller', aria-expanded='false')
+                                    i.icon-notice(aria-hidden='true')
+                                    span Correction(s) for this article
+                                    i.icon-keyboard_arrow_down(aria-hidden='true')
+                                .accordion__content.corrections-body.hidden-xs.hidden-sm(style='display: none;')
+                                    ul.rlist.seperator
+                                        li
+                                            a(href='/doi/10.1111/psyp.12444')
+                                                h6 Corrigendum
+                                            .parent-item
+                                                ul.rlist--inline.separator
+                                                    li
+                                                        span.comma Volume 52
+                                                        span.comma Issue 5
+                                                        span Psychophysiology
+                                                    li
+                                                        span pages: 726-726
+                                                    li First Published online: April 13, 2015
+                                        li
+                                            a(href='/doi/10.1111/psyp.12444')
+                                                h6 Corrigendum
+                                            .parent-item
+                                                ul.rlist--inline.separator
+                                                    li
+                                                        span.comma Volume 52
+                                                        span.comma Issue 5
+                                                        span Psychophysiology
+                                                    li
+                                                        span pages: 726-726
+                                                    li First Published online: April 13, 2015
+
+                            .rlist--inline.loa.comma.visible-xs.mobile-authors.loa-authors-trunc
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am1_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Young%2C+Graeme+P', data-id='am1', data-db-target-for='am1', aria-controls='am1', aria-haspopup='true')
+                                        span
+                                            | Graeme P. Young MD, FRACP, FTSE, AGAF
+                                            i.icon-mail_outline(aria-hidden='true')
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am1.author-info.accordion-tabbed__content(data-db-target-of='am1', aria-labelledby='am1_Ctrl')
+                                        p.author-type Corresponding Author
+                                        p
+                                            | Flinders Center for Innovation in Cancer, Flinders University, Adelaide, South Australia, Australia
+                                        .bottom-info
+                                            b Corresponding author
+                                            | : Graeme P. Young, MD, FRACP, Flinders Center for Innovation in Cancer, Flinders University,
+                                            |                Level 3, Flinders Medical Center, Bedford Park, Adelaide, SA 5042, Australia; Fax:
+                                            |                (011) 61‐8‐8204‐3943;
+                                            span E-mail address:
+                                            a(title='\
+                                            Link to email address\
+                                            ', href='mailto:graeme.young@flinders.edu.au') graeme.young@flinders.edu.au
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Young%2C+Graeme+P') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am2_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Senore%2C+Carlo', data-id='am2', data-db-target-for='am2', aria-controls='am2', aria-haspopup='true')
+                                        span Carlo Senore MD, MSc
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am2.author-info.accordion-tabbed__content(data-db-target-of='am2', aria-labelledby='am2_Ctrl')
+                                        p
+                                            | Reference Center for Epidemiology and Cancer Prevention, Piedmont Regional Center
+                                            | for Preventive Oncology, City Health and Science University Hospital of Turin, Turin, Italy
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Senore%2C+Carlo') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am3_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Mandel%2C+Jack+S', data-id='am3', data-db-target-for='am3', aria-controls='am3', aria-haspopup='true')
+                                        span Jack S. Mandel PhD, MPH
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am3.author-info.accordion-tabbed__content(data-db-target-of='am3', aria-labelledby='am3_Ctrl')
+                                        p
+                                            | Environmental and Occupational Medicine, University of Minnesota, Minneapolis, Minnesota
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Mandel%2C+Jack+S') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am4_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Allison%2C+James+E', data-id='am4', data-db-target-for='am4', aria-controls='am4', aria-haspopup='true')
+                                        span James E. Allison MD, FACP, AGAF
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am4.author-info.accordion-tabbed__content(data-db-target-of='am4', aria-labelledby='am4_Ctrl')
+                                        p
+                                            | Division of Gastroenterology, University of California, San Francisco and Kaiser Division of Research, Oakland, California
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Allison%2C+James+E') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am5_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Atkin%2C+Wendy+S', data-id='am5', data-db-target-for='am5', aria-controls='am5', aria-haspopup='true')
+                                        span Wendy S. Atkin MPH, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am5.author-info.accordion-tabbed__content(data-db-target-of='am5', aria-labelledby='am5_Ctrl')
+                                        p Gastrointestinal Epidemiology, Imperial College, London, United Kingdom
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Atkin%2C+Wendy+S') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am6_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Benamouzig%2C+Robert', data-id='am6', data-db-target-for='am6', aria-controls='am6', aria-haspopup='true')
+                                        span Robert Benamouzig MD, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am6.author-info.accordion-tabbed__content(data-db-target-of='am6', aria-labelledby='am6_Ctrl')
+                                        p
+                                            | Gastroenterology Department, Avicenne Hospital, Paris 13 University, Paris, France
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Benamouzig%2C+Robert') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am7_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Bossuyt%2C+Patrick+M+M', data-id='am7', data-db-target-for='am7', aria-controls='am7', aria-haspopup='true')
+                                        span Patrick M. M. Bossuyt PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am7.author-info.accordion-tabbed__content(data-db-target-of='am7', aria-labelledby='am7_Ctrl')
+                                        p Academic Medical Center, University of Amsterdam, Amsterdam, The Netherlands
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Bossuyt%2C+Patrick+M+M') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am8_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Silva%2C+Mahinda+de', data-id='am8', data-db-target-for='am8', aria-controls='am8', aria-haspopup='true')
+                                        span Mahinda De Silva MB, BS, FRACP
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am8.author-info.accordion-tabbed__content(data-db-target-of='am8', aria-labelledby='am8_Ctrl')
+                                        p
+                                            | Department of Gastroenterology, Repatriation General Hospital, Adelaide, South Australia, Australia
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Silva%2C+Mahinda+de') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am9_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Guittet%2C+Lydia', data-id='am9', data-db-target-for='am9', aria-controls='am9', aria-haspopup='true')
+                                        span Lydia Guittet MD, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am9.author-info.accordion-tabbed__content(data-db-target-of='am9', aria-labelledby='am9_Ctrl')
+                                        p
+                                            | Unit 1086, French National Institute for Health and Medical Research, Cancers and
+                                            | Preventions Center, Caen University Hospital, Caen, France
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Guittet%2C+Lydia') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am10_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Halloran%2C+Stephen+P', data-id='am10', data-db-target-for='am10', aria-controls='am10', aria-haspopup='true')
+                                        span Stephen P. Halloran MBE, FRCPath
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am10.author-info.accordion-tabbed__content(data-db-target-of='am10', aria-labelledby='am10_Ctrl')
+                                        p
+                                            | Faculty of Health and Medical Sciences, University of Surrey, Guildford, United Kingdom
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Halloran%2C+Stephen+P') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am11_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Haug%2C+Ulrike', data-id='am11', data-db-target-for='am11', aria-controls='am11', aria-haspopup='true')
+                                        span Ulrike Haug PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am11.author-info.accordion-tabbed__content(data-db-target-of='am11', aria-labelledby='am11_Ctrl')
+                                        p
+                                            | Department of Clinical Epidemiology, Leibniz Institute for Prevention Research and Epidemiology, Bremen, Germany
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Haug%2C+Ulrike') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am12_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Hoff%2C+Geir', data-id='am12', data-db-target-for='am12', aria-controls='am12', aria-haspopup='true')
+                                        span Geir Hoff MB, ChB, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am12.author-info.accordion-tabbed__content(data-db-target-of='am12', aria-labelledby='am12_Ctrl')
+                                        p
+                                            | Telemark Hospital, Skein Cancer Registry of Norway, University of Oslo, Oslo, Norway
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Hoff%2C+Geir') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am13_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Itzkowitz%2C+Steven+H', data-id='am13', data-db-target-for='am13', aria-controls='am13', aria-haspopup='true')
+                                        span Steven H. Itzkowitz MD, FACP, FACG, AGAF
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am13.author-info.accordion-tabbed__content(data-db-target-of='am13', aria-labelledby='am13_Ctrl')
+                                        p
+                                            | Gastrointestinal Division, Icahn School of Medicine at Mount Sinai, New York, New York
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Itzkowitz%2C+Steven+H') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am14_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Leja%2C+Marcis', data-id='am14', data-db-target-for='am14', aria-controls='am14', aria-haspopup='true')
+                                        span Marcis Leja MD, MBA, PhD, AGAF
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am14.author-info.accordion-tabbed__content(data-db-target-of='am14', aria-labelledby='am14_Ctrl')
+                                        p
+                                            | Digestive Diseases Center, GASTRO, Faculty of Medicine, University of Latvia, Riga, Latvia
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Leja%2C+Marcis') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am15_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Levin%2C+Bernard', data-id='am15', data-db-target-for='am15', aria-controls='am15', aria-haspopup='true')
+                                        span Bernard Levin MB, BCh, FACP
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am15.author-info.accordion-tabbed__content(data-db-target-of='am15', aria-labelledby='am15_Ctrl')
+                                        p
+                                            | Division of Cancer Prevention, The University of Texas MD Anderson Cancer Center, Houston, Texas
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Levin%2C+Bernard') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am16_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Meijer%2C+Gerrit+A', data-id='am16', data-db-target-for='am16', aria-controls='am16', aria-haspopup='true')
+                                        span Gerrit A. Meijer MD, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am16.author-info.accordion-tabbed__content(data-db-target-of='am16', aria-labelledby='am16_Ctrl')
+                                        p Netherlands Cancer Institute, Amsterdam, The Netherlands
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Meijer%2C+Gerrit+A') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am17_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=O%27Morain%2C+Colm+A', data-id='am17', data-db-target-for='am17', aria-controls='am17', aria-haspopup='true')
+                                        span Colm A. O'Morain MD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am17.author-info.accordion-tabbed__content(data-db-target-of='am17', aria-labelledby='am17_Ctrl')
+                                        p Faculty of Health Science, Trinity College Dublin, Dublin, Ireland
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=O%27Morain%2C+Colm+A') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am18_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Parry%2C+Susan', data-id='am18', data-db-target-for='am18', aria-controls='am18', aria-haspopup='true')
+                                        span Susan Parry MbCHB, FRACP18
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am18.author-info.accordion-tabbed__content(data-db-target-of='am18', aria-labelledby='am18_Ctrl')
+                                        p
+                                            | Ministry of Health Bowel Cancer Program, Auckland Hospital, Auckland, New Zealand
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Parry%2C+Susan') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am19_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Rabeneck%2C+Linda', data-id='am19', data-db-target-for='am19', aria-controls='am19', aria-haspopup='true')
+                                        span Linda Rabeneck MD, MPH, FRCPC
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am19.author-info.accordion-tabbed__content(data-db-target-of='am19', aria-labelledby='am19_Ctrl')
+                                        p
+                                            | Prevention and Cancer Control, Cancer Care Ontario, and University of Toronto, Toronto, Ontario, Canada
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Rabeneck%2C+Linda') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am20_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Rozen%2C+Paul', data-id='am20', data-db-target-for='am20', aria-controls='am20', aria-haspopup='true')
+                                        span Paul Rozen MD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am20.author-info.accordion-tabbed__content(data-db-target-of='am20', aria-labelledby='am20_Ctrl')
+                                        p
+                                            | Department of Gastroenterology, Sestopali Fund for Gastrointestinal Cancer Prevention, Tel Aviv, Israel
+                                        | Deceased.
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Rozen%2C+Paul') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am21_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Saito%2C+Hiroshi', data-id='am21', data-db-target-for='am21', aria-controls='am21', aria-haspopup='true')
+                                        span Hiroshi Saito MD, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am21.author-info.accordion-tabbed__content(data-db-target-of='am21', aria-labelledby='am21_Ctrl')
+                                        p
+                                            | Research Center for Cancer Prevention and Screening, National Cancer Center, Tokyo, Japan
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Saito%2C+Hiroshi') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am22_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Schoen%2C+Robert+E', data-id='am22', data-db-target-for='am22', aria-controls='am22', aria-haspopup='true')
+                                        span Robert E. Schoen MD, MPH
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am22.author-info.accordion-tabbed__content(data-db-target-of='am22', aria-labelledby='am22_Ctrl')
+                                        p
+                                            | Department of Medicine and Epidemiology, University of Pittsburgh, Pittsburgh, Pennsylvania
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Schoen%2C+Robert+E') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am23_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Seaman%2C+Helen+E', data-id='am23', data-db-target-for='am23', aria-controls='am23', aria-haspopup='true')
+                                        span Helen E. Seaman BSc, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am23.author-info.accordion-tabbed__content(data-db-target-of='am23', aria-labelledby='am23_Ctrl')
+                                        p
+                                            | National Health Service Bowel Cancer Screening Southern Program Hub, Royal Surrey County Hospital, Guildford, United Kingdom
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Seaman%2C+Helen+E') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am24_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Steele%2C+Robert+J+C', data-id='am24', data-db-target-for='am24', aria-controls='am24', aria-haspopup='true')
+                                        span Robert J. C. Steele MD, FRCS
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am24.author-info.accordion-tabbed__content(data-db-target-of='am24', aria-labelledby='am24_Ctrl')
+                                        p Department of Surgery, University of Dundee, Dundee, Scotland
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Steele%2C+Robert+J+C') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am25_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Sung%2C+Joseph+J+Y', data-id='am25', data-db-target-for='am25', aria-controls='am25', aria-haspopup='true')
+                                        span Joseph J. Y. Sung MD, PhD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am25.author-info.accordion-tabbed__content(data-db-target-of='am25', aria-labelledby='am25_Ctrl')
+                                        p
+                                            | Office of the Vice Chancellor, The Chinese University of Hong Kong, Shatin, China
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Sung%2C+Joseph+J+Y') Search for more papers by this author
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am26_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Winawer%2C+Sidney+J', data-id='am26', data-db-target-for='am26', aria-controls='am26', aria-haspopup='true')
+                                        span Sidney J. Winawer MD
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am26.author-info.accordion-tabbed__content(data-db-target-of='am26', aria-labelledby='am26_Ctrl')
+                                        p
+                                            | Gastroenterology and Nutrition Service, Department of Medicine, Memorial Sloan‐Kettering Cancer Center, New York, New York
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Winawer%2C+Sidney+J') Search for more papers by this author
+                            .loa-wrapper.loa-authors.hidden-xs
+                                #sb-1.accordion
+                                    .accordion-tabbed
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a1_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Young%2C+Graeme+P', data-id='a1', data-db-target-for='a1', aria-controls='a1', aria-haspopup='true')
+                                                span
+                                                    | Graeme P. Young MD, FRACP, FTSE, AGAF
+                                                    i.icon-mail_outline(aria-hidden='true')
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a1.author-info.accordion-tabbed__content(data-db-target-of='a1', aria-labelledby='a1_Ctrl')
+                                                p.author-type Corresponding Author
+                                                p
+                                                    | Flinders Center for Innovation in Cancer, Flinders University, Adelaide, South Australia, Australia
+                                                .bottom-info
+                                                    b Corresponding author
+                                                    | : Graeme P. Young, MD, FRACP, Flinders Center for Innovation in Cancer, Flinders University,
+                                                    |                      Level 3, Flinders Medical Center, Bedford Park, Adelaide, SA 5042, Australia; Fax:
+                                                    |                      (011) 61‐8‐8204‐3943;
+                                                    span E-mail address:
+                                                    a(title='\
+                                                    Link to email address\
+                                                    ', href='mailto:graeme.young@flinders.edu.au') graeme.young@flinders.edu.au
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Young%2C+Graeme+P') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a2_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Senore%2C+Carlo', data-id='a2', data-db-target-for='a2', aria-controls='a2', aria-haspopup='true')
+                                                span Carlo Senore MD, MSc
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a2.author-info.accordion-tabbed__content(data-db-target-of='a2', aria-labelledby='a2_Ctrl')
+                                                p
+                                                    | Reference Center for Epidemiology and Cancer Prevention, Piedmont Regional Center
+                                                    | for Preventive Oncology, City Health and Science University Hospital of Turin, Turin, Italy
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Senore%2C+Carlo') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a3_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Mandel%2C+Jack+S', data-id='a3', data-db-target-for='a3', aria-controls='a3', aria-haspopup='true')
+                                                span Jack S. Mandel PhD, MPH
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a3.author-info.accordion-tabbed__content(data-db-target-of='a3', aria-labelledby='a3_Ctrl')
+                                                p
+                                                    | Environmental and Occupational Medicine, University of Minnesota, Minneapolis, Minnesota
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Mandel%2C+Jack+S') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a4_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Allison%2C+James+E', data-id='a4', data-db-target-for='a4', aria-controls='a4', aria-haspopup='true')
+                                                span James E. Allison MD, FACP, AGAF
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a4.author-info.accordion-tabbed__content(data-db-target-of='a4', aria-labelledby='a4_Ctrl')
+                                                p
+                                                    | Division of Gastroenterology, University of California, San Francisco and Kaiser Division of Research, Oakland, California
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Allison%2C+James+E') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a5_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Atkin%2C+Wendy+S', data-id='a5', data-db-target-for='a5', aria-controls='a5', aria-haspopup='true')
+                                                span Wendy S. Atkin MPH, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a5.author-info.accordion-tabbed__content(data-db-target-of='a5', aria-labelledby='a5_Ctrl')
+                                                p Gastrointestinal Epidemiology, Imperial College, London, United Kingdom
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Atkin%2C+Wendy+S') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a6_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Benamouzig%2C+Robert', data-id='a6', data-db-target-for='a6', aria-controls='a6', aria-haspopup='true')
+                                                span Robert Benamouzig MD, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a6.author-info.accordion-tabbed__content(data-db-target-of='a6', aria-labelledby='a6_Ctrl')
+                                                p
+                                                    | Gastroenterology Department, Avicenne Hospital, Paris 13 University, Paris, France
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Benamouzig%2C+Robert') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a7_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Bossuyt%2C+Patrick+M+M', data-id='a7', data-db-target-for='a7', aria-controls='a7', aria-haspopup='true')
+                                                span Patrick M. M. Bossuyt PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a7.author-info.accordion-tabbed__content(data-db-target-of='a7', aria-labelledby='a7_Ctrl')
+                                                p Academic Medical Center, University of Amsterdam, Amsterdam, The Netherlands
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Bossuyt%2C+Patrick+M+M') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a8_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Silva%2C+Mahinda+de', data-id='a8', data-db-target-for='a8', aria-controls='a8', aria-haspopup='true')
+                                                span Mahinda De Silva MB, BS, FRACP
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a8.author-info.accordion-tabbed__content(data-db-target-of='a8', aria-labelledby='a8_Ctrl')
+                                                p
+                                                    | Department of Gastroenterology, Repatriation General Hospital, Adelaide, South Australia, Australia
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Silva%2C+Mahinda+de') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a9_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Guittet%2C+Lydia', data-id='a9', data-db-target-for='a9', aria-controls='a9', aria-haspopup='true')
+                                                span Lydia Guittet MD, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a9.author-info.accordion-tabbed__content(data-db-target-of='a9', aria-labelledby='a9_Ctrl')
+                                                p
+                                                    | Unit 1086, French National Institute for Health and Medical Research, Cancers and
+                                                    | Preventions Center, Caen University Hospital, Caen, France
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Guittet%2C+Lydia') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a10_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Halloran%2C+Stephen+P', data-id='a10', data-db-target-for='a10', aria-controls='a10', aria-haspopup='true')
+                                                span Stephen P. Halloran MBE, FRCPath
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a10.author-info.accordion-tabbed__content(data-db-target-of='a10', aria-labelledby='a10_Ctrl')
+                                                p
+                                                    | Faculty of Health and Medical Sciences, University of Surrey, Guildford, United Kingdom
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Halloran%2C+Stephen+P') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a11_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Haug%2C+Ulrike', data-id='a11', data-db-target-for='a11', aria-controls='a11', aria-haspopup='true')
+                                                span Ulrike Haug PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a11.author-info.accordion-tabbed__content(data-db-target-of='a11', aria-labelledby='a11_Ctrl')
+                                                p
+                                                    | Department of Clinical Epidemiology, Leibniz Institute for Prevention Research and Epidemiology, Bremen, Germany
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Haug%2C+Ulrike') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a12_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Hoff%2C+Geir', data-id='a12', data-db-target-for='a12', aria-controls='a12', aria-haspopup='true')
+                                                span Geir Hoff MB, ChB, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a12.author-info.accordion-tabbed__content(data-db-target-of='a12', aria-labelledby='a12_Ctrl')
+                                                p
+                                                    | Telemark Hospital, Skein Cancer Registry of Norway, University of Oslo, Oslo, Norway
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Hoff%2C+Geir') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a13_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Itzkowitz%2C+Steven+H', data-id='a13', data-db-target-for='a13', aria-controls='a13', aria-haspopup='true')
+                                                span Steven H. Itzkowitz MD, FACP, FACG, AGAF
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a13.author-info.accordion-tabbed__content(data-db-target-of='a13', aria-labelledby='a13_Ctrl')
+                                                p
+                                                    | Gastrointestinal Division, Icahn School of Medicine at Mount Sinai, New York, New York
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Itzkowitz%2C+Steven+H') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a14_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Leja%2C+Marcis', data-id='a14', data-db-target-for='a14', aria-controls='a14', aria-haspopup='true')
+                                                span Marcis Leja MD, MBA, PhD, AGAF
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a14.author-info.accordion-tabbed__content(data-db-target-of='a14', aria-labelledby='a14_Ctrl')
+                                                p
+                                                    | Digestive Diseases Center, GASTRO, Faculty of Medicine, University of Latvia, Riga, Latvia
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Leja%2C+Marcis') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a15_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Levin%2C+Bernard', data-id='a15', data-db-target-for='a15', aria-controls='a15', aria-haspopup='true')
+                                                span Bernard Levin MB, BCh, FACP
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a15.author-info.accordion-tabbed__content(data-db-target-of='a15', aria-labelledby='a15_Ctrl')
+                                                p
+                                                    | Division of Cancer Prevention, The University of Texas MD Anderson Cancer Center, Houston, Texas
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Levin%2C+Bernard') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a16_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Meijer%2C+Gerrit+A', data-id='a16', data-db-target-for='a16', aria-controls='a16', aria-haspopup='true')
+                                                span Gerrit A. Meijer MD, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a16.author-info.accordion-tabbed__content(data-db-target-of='a16', aria-labelledby='a16_Ctrl')
+                                                p Netherlands Cancer Institute, Amsterdam, The Netherlands
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Meijer%2C+Gerrit+A') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a17_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=O%27Morain%2C+Colm+A', data-id='a17', data-db-target-for='a17', aria-controls='a17', aria-haspopup='true')
+                                                span Colm A. O'Morain MD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a17.author-info.accordion-tabbed__content(data-db-target-of='a17', aria-labelledby='a17_Ctrl')
+                                                p Faculty of Health Science, Trinity College Dublin, Dublin, Ireland
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=O%27Morain%2C+Colm+A') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a18_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Parry%2C+Susan', data-id='a18', data-db-target-for='a18', aria-controls='a18', aria-haspopup='true')
+                                                span Susan Parry MbCHB, FRACP18
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a18.author-info.accordion-tabbed__content(data-db-target-of='a18', aria-labelledby='a18_Ctrl')
+                                                p
+                                                    | Ministry of Health Bowel Cancer Program, Auckland Hospital, Auckland, New Zealand
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Parry%2C+Susan') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a19_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Rabeneck%2C+Linda', data-id='a19', data-db-target-for='a19', aria-controls='a19', aria-haspopup='true')
+                                                span Linda Rabeneck MD, MPH, FRCPC
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a19.author-info.accordion-tabbed__content(data-db-target-of='a19', aria-labelledby='a19_Ctrl')
+                                                p
+                                                    | Prevention and Cancer Control, Cancer Care Ontario, and University of Toronto, Toronto, Ontario, Canada
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Rabeneck%2C+Linda') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a20_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Rozen%2C+Paul', data-id='a20', data-db-target-for='a20', aria-controls='a20', aria-haspopup='true')
+                                                span Paul Rozen MD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a20.author-info.accordion-tabbed__content(data-db-target-of='a20', aria-labelledby='a20_Ctrl')
+                                                p
+                                                    | Department of Gastroenterology, Sestopali Fund for Gastrointestinal Cancer Prevention, Tel Aviv, Israel
+                                                | Deceased.
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Rozen%2C+Paul') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a21_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Saito%2C+Hiroshi', data-id='a21', data-db-target-for='a21', aria-controls='a21', aria-haspopup='true')
+                                                span Hiroshi Saito MD, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a21.author-info.accordion-tabbed__content(data-db-target-of='a21', aria-labelledby='a21_Ctrl')
+                                                p
+                                                    | Research Center for Cancer Prevention and Screening, National Cancer Center, Tokyo, Japan
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Saito%2C+Hiroshi') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a22_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Schoen%2C+Robert+E', data-id='a22', data-db-target-for='a22', aria-controls='a22', aria-haspopup='true')
+                                                span Robert E. Schoen MD, MPH
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a22.author-info.accordion-tabbed__content(data-db-target-of='a22', aria-labelledby='a22_Ctrl')
+                                                p
+                                                    | Department of Medicine and Epidemiology, University of Pittsburgh, Pittsburgh, Pennsylvania
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Schoen%2C+Robert+E') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a23_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Seaman%2C+Helen+E', data-id='a23', data-db-target-for='a23', aria-controls='a23', aria-haspopup='true')
+                                                span Helen E. Seaman BSc, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a23.author-info.accordion-tabbed__content(data-db-target-of='a23', aria-labelledby='a23_Ctrl')
+                                                p
+                                                    | National Health Service Bowel Cancer Screening Southern Program Hub, Royal Surrey County Hospital, Guildford, United Kingdom
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Seaman%2C+Helen+E') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a24_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Steele%2C+Robert+J+C', data-id='a24', data-db-target-for='a24', aria-controls='a24', aria-haspopup='true')
+                                                span Robert J. C. Steele MD, FRCS
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a24.author-info.accordion-tabbed__content(data-db-target-of='a24', aria-labelledby='a24_Ctrl')
+                                                p Department of Surgery, University of Dundee, Dundee, Scotland
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Steele%2C+Robert+J+C') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a25_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Sung%2C+Joseph+J+Y', data-id='a25', data-db-target-for='a25', aria-controls='a25', aria-haspopup='true')
+                                                span Joseph J. Y. Sung MD, PhD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a25.author-info.accordion-tabbed__content(data-db-target-of='a25', aria-labelledby='a25_Ctrl')
+                                                p
+                                                    | Office of the Vice Chancellor, The Chinese University of Hong Kong, Shatin, China
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Sung%2C+Joseph+J+Y') Search for more papers by this author
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a26_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Winawer%2C+Sidney+J', data-id='a26', data-db-target-for='a26', aria-controls='a26', aria-haspopup='true')
+                                                span Sidney J. Winawer MD
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a26.author-info.accordion-tabbed__content(data-db-target-of='a26', aria-labelledby='a26_Ctrl')
+                                                p
+                                                    | Gastroenterology and Nutrition Service, Department of Medicine, Memorial Sloan‐Kettering Cancer Center, New York, New York
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Winawer%2C+Sidney+J') Search for more papers by this author
+                            .epub-sections
+                                .epub-section
+                                    span.epub-state First published: 
+                                    span.epub-date 1 February 2016
+                                .epub-section
+                                    a.epub-doi(href='https://doi.org/10.1002/cncr.29865') https://doi.org/10.1002/cncr.29865
+                            span.openUrl
+                                a.sfxLink(href='/servlet/linkout?suffix=&dbid=16384&type=tocOpenUrl&url=www.google.com%3Fsid%3Dpericles%26iuid%3D1059', title='OpenURL ACID Test (Atypon)', onclick='newWindow(this.href);return false')
+                                    img(src='https://pericles.pericles-prod.literatumonline.com/userimages/1059/sfxbutton', alt='OpenURL ACID Test (Atypon)')
+                            span.openUrl
+                                a.sfxLink(href='/servlet/linkout?suffix=&dbid=16384&type=tocOpenUrl&url=http%3A%2F%2Fyandex.ru%3Fsid%3Dpericles%26iuid%3D3702', title='OpenURL Wiley Institution', onclick='newWindow(this.href);return false') OpenURL
+                            .epub-sections
+                                #cncr29865-note-0004.article-header__references-container
+                                    p
+                                        | Members of the original working party responsible for the consensus process underlying
+                                        | these recommendations were convened by the World Endoscopy Organization Colorectal
+                                        | Cancer Screening Committee and were: G.P. Young, J. Mandel, J.J.Y. Sung, J.E. Allison,
+                                        | W. Atkin, R. Benamouzig, G. Hoff, S.H. Itzkowitz, T.R. Levin, E.G. McFarlane, C. O'Morain,
+                                        | S. Parry, L. Rabeneck, P. Rozen, H. Saito, R.E. Schoen, C. Senore, R.J.C. Steele,
+                                        | S.J. Winawer, and B.C.Y. Wong. The listed authors were members of the World Endoscopy
+                                        | Organization/World Gastroenterology Organization New Screening Tests Expert Working
+                                        | Party and met the criteria for authorship of this article.
+
+
+    section.source_section
+        h2 Book Citation
+        .source_example
+            .container
+                article
+                    .article-citation
+                        .citation
+                            span.chapter-number Chapter 2
+                            .doi-access-container.clearfix
+                                .doi-access-wrapper
+                                    .full-access.access-type
+                                        i.icon-icon-lock_open(aria-hidden='true')
+                                        .doi-access
+                                            .doi-access.hidden-xs.hidden-sm.hidden-md(tabindex='0') Full Access
+                            h2.citation__title Organizational Structures
+                            .pb-dropzone(data-pb-dropzone='publicaitonContent-versions')
+                            .rlist--inline.loa.comma.visible-xs.mobile-authors.loa-authors-trunc
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am2_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa', data-id='am2', data-db-target-for='am2', aria-controls='am2', aria-haspopup='true')
+                                        span Lisa Norris
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am2.author-info.accordion-tabbed__content(data-db-target-of='am2', aria-labelledby='am2_Ctrl')
+                                        p Transplant Leadership Institute LLC, San Antonio, TX, USA
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa') Search for more papers by this author
+                            .loa-wrapper.loa-authors.hidden-xs
+                                #sb-1.accordion
+                                    .accordion-tabbed
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a2_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa', data-id='a2', data-db-target-for='a2', aria-controls='a2', aria-haspopup='true')
+                                                span Lisa Norris
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a2.author-info.accordion-tabbed__content(data-db-target-of='a2', aria-labelledby='a2_Ctrl')
+                                                p Transplant Leadership Institute LLC, San Antonio, TX, USA
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa') Search for more papers by this author
+                            .rlist--inline.loa.comma.visible-xs.mobile-authors.loa-authors-trunc
+                                .accordion-tabbed__tab-mobile.accordion__closed
+                                    a#am1_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa', data-id='am1', data-db-target-for='am1', aria-controls='am1', aria-haspopup='true')
+                                        span Lisa Norris MS, MBA
+                                        i.icon-section_arrow_d(aria-hidden='true')
+                                    #am1.author-info.accordion-tabbed__content(data-db-target-of='am1', aria-labelledby='am1_Ctrl')
+                                        p
+                                            | Managing Director and Principal, Transplant Leadership Institute LLC, San Antonio,
+                                            | TX, USA
+                                        a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa') Search for more papers by this author
+                            .loa-wrapper.loa-authors.hidden-xs
+                                #sb-1.accordion
+                                    .accordion-tabbed
+                                        | Book Author(s):
+                                        .accordion-tabbed__tab-mobile.accordion__closed
+                                            a#a1_Ctrl.author-name.accordion-tabbed__control(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa', data-id='a1', data-db-target-for='a1', aria-controls='a1', aria-haspopup='true')
+                                                span Lisa Norris MS, MBA
+                                                i.icon-section_arrow_d(aria-hidden='true')
+                                            #a1.author-info.accordion-tabbed__content(data-db-target-of='a1', aria-labelledby='a1_Ctrl')
+                                                p
+                                                    | Managing Director and Principal, Transplant Leadership Institute LLC, San Antonio,
+                                                    | TX, USA
+                                                a.moreInfoLink(href='/action/doSearch?ContribAuthorStored=Norris%2C+Lisa') Search for more papers by this author
+                            .epub-sections
+                                .epub-section
+                                    span.epub-state First published: 
+                                    span.epub-date 14 February 2014
+                                .epub-section
+                                    a.epub-doi(href='https://doi.org/10.1002/9781118391976.ch2') https://doi.org/10.1002/9781118391976.ch2
+
+
+
+    | #{''}

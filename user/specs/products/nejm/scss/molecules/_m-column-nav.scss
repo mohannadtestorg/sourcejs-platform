@@ -1,0 +1,248 @@
+/***
+
+```
+<div class="m-column-nav" data-behavior="ColumnNav">
+  <p class="m-column-nav__trigger">
+    <button class="m-column-nav__trigger-btn f-ui" data-column-nav-reveal-trigger>Author Center</button>
+  </p>
+  <ul class="m-column-nav__sections">
+    <li class="m-column-nav__section">
+      <p class="m-column-nav__section-title f-ui">Overview</p>
+      <ul class="m-column-nav__section-links f-ui">
+        <li class="s-active"><a href="#">Author Center</a></li>
+        <li><a href="#">What To Expect</a></li>
+        <li><a href="#">Determine Your Article Type</a></li>
+        <li><a href="#">Review Multimedia Graphics</a></li>
+        <li><a href="#">Frequently Asked Questions</a></li>
+      </ul>
+    </li>
+    <li class="m-column-nav__section">
+      <p class="m-column-nav__section-title f-ui">Disclosure and Release Forms</p>
+      <ul class="m-column-nav__section-links f-ui">
+        <li><a href="#"><svg class="icon--download"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--download"></use></svg>Disclosure Form</a></li>
+        <li><a href="#"><svg class="icon--download"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--download"></use></svg>Sample Disclosure Form</a></li>
+        <li><a href="#"><svg class="icon--download"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon--download"></use></svg>Photographs of Identifiable Patients</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+```
+
+***/
+
+.m-column-nav {
+  margin-top: 20px;
+
+  @include breakpoint('medium-') {
+    .u-hide\@medium\- + & {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-column-nav:first-child {
+  margin-top: 0;
+}
+
+.m-column-nav__trigger {
+  position: relative;
+  margin-top: 0;
+
+  @include breakpoint('large+') {
+    display: none;
+  }
+}
+
+.m-column-nav__trigger::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+  pointer-events: none;
+}
+
+.m-column-nav__trigger::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: $color__rules;
+  pointer-events: none;
+}
+
+.m-column-nav__trigger-btn {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  padding: 2px 0 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: $color__text--headlines;
+  line-height: 60px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+.m-column-nav__trigger-btn::after {
+  content: '';
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -1px;
+  border-width: 4px 4px 0;
+  border-style: solid;
+  border-color: $color__input-border transparent transparent;
+
+  .s-show-column-nav & {
+    transform: rotate(180deg);
+  }
+}
+
+.m-column-nav__trigger-btn::after {
+  border-color: $color__input-border--hover transparent transparent;
+}
+
+.m-column-nav__sections {
+  display: none;
+  margin-top: 0;
+  padding-bottom: 16px;
+
+  .s-show-column-nav & {
+    display: block;
+  }
+
+  .a-subtitle--alt + & {
+    margin-top: 16px;
+  }
+
+  @include breakpoint('large+') {
+    display: block;
+  }
+}
+
+.m-column-nav__section {
+  position: relative;
+  margin-top: 32px;
+  padding-top: 20px;
+}
+
+.m-column-nav__section:first-child {
+  margin-top: 0;
+}
+
+.m-column-nav__section::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-column-nav__section:first-child::before {
+  @include breakpoint('small-') {
+    display: none;
+  }
+}
+
+.m-column-nav__section-title {
+  margin-top: 0;
+  color: $color__text--headlines;
+  font-weight: bold;
+}
+
+.m-column-nav__section-links {
+  margin-top: 16px;
+}
+
+.m-column-nav__section-links > li {
+  margin-top: 4px;
+}
+
+.m-column-nav__section-links a:hover {
+  text-decoration: underline;
+}
+
+.m-column-nav__section-links .s-active a,
+.m-column-nav__section-links .s-active a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.m-column-nav__section-links svg {
+  margin-right: 8px;
+  color: $color__text--quaternary;
+  vertical-align: middle;
+}
+
+.m-column-nav__section-links svg.icon--download {
+  position: relative;
+  top: -1px;
+}
+
+
+// -------------------------------------
+// at medium, make it 2 cols
+//
+
+@include breakpoint('medium') {
+
+  .m-column-nav__trigger-btn {
+    text-align: center;
+  }
+
+  .m-column-nav__trigger-btn::after {
+    display: inline-block;
+    position: static;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .m-column-nav__sections {
+    flex-flow: row wrap;
+  }
+
+  .s-show-column-nav .m-column-nav__sections {
+    display: flex;
+  }
+
+  .m-column-nav__section {
+    flex: 1 0 colspan(4, medium);
+    width: colspan(4, medium);
+  }
+
+  .m-column-nav__section:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .m-column-nav__section:nth-child(even) {
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  .m-column-nav__section:nth-child(1)::before,
+  .m-column-nav__section:nth-child(2)::before {
+    display: none;
+  }
+
+  .m-column-nav__section:nth-child(even)::before {
+    left: - map-get($inner-gutters, medium);
+  }
+}

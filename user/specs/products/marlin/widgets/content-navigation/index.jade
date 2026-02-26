@@ -1,0 +1,56 @@
+extends /specs/products/marlin/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-template-include-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/content-navigation/templates/content-navigation/content-navigation-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Content Navigation Widget template.
+
+        +printJson({
+            "thisWidget": {
+                "id": "id6"
+            },
+            "data": {
+                "content": {
+                    "type": "Article",
+                    "next": {
+                        "title": "Treatment gaps in Parkinson&#x2019;s disease care in the Philippines",
+                        "itemUrl": "https://www.futuremedicine.com/doi/10.2217/nmt-2017-0014",
+                        "bookUrl": "https://www.futuremedicine.com/doi/book/10.2217/9781780840222",
+                        "tocUrl": "https://www.futuremedicine.com/toc/nmt/7/2",
+                        "citationLine": "Vol. 7, No. 2"
+                    },
+                    "previous": {
+                        "title": "Treatment gaps in Parkinson&#x2019;s disease care in the Philippines",
+                        "itemUrl": "https://www.futuremedicine.com/doi/10.2217/nmt-2017-0014",
+                        "bookUrl": "https://www.futuremedicine.com/doi/book/10.2217/9781780840222",
+                        "tocUrl": "https://www.futuremedicine.com/toc/nmt/7/2",
+                        "citationLine": "Vol. 7, No. 2"
+                    }
+                }
+            }
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+        each item, l in data.items
+            h3!= item.title
+            .source_example
+                .ux3
+                    .sample(style="height: 500px; width: 2000px; position:relative")
+                        .container
+                            | !{item.body}
+
+    | #{''}

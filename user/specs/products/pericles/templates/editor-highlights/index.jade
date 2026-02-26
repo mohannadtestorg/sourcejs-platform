@@ -1,0 +1,928 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Publication Browse page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200262' target="_blank">`LIT-200262`</a>
+
+    section.source_section
+        h2 Publication Browse page
+
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+            .pageBody.hub-page-body(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            .hubpage-menu
+                                nav.container.hubpage-menu__nav.visible-lg.dropBlock__holder(role='navigation', data-db-target-of='hub-menu')
+                                    ul.pull-left.rlist--inline
+                                        li.dropdown.menu-parent
+                                            a#main1-1.dropdown__toggle.w-slide__btn(target='_blank', href='#', title='Journals', data-toggle='dropdown', data-slide-target='#hubMain-sub-1')
+                                                span Journals
+                                                i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+                                            #hubMain-sub-1.dropdown__menu(aria-labelledby='main1-1', aria-hidden='true', role='menu')
+                                                .menu-items-container
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earths Future')
+                                                            a(href='/journal/23284277', title="Earth's Future")
+                                                                span Earth's Future
+                                                                .doi-access-wrapper
+                                                                    .access-type.open-access
+                                                                        i.icon-lock_open(aria-hidden='true')
+                                                                        .doi-access Open access
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth and Space Science')
+                                                            a(href='/journal/23335084', title='Earth and Space Science')
+                                                                span Earth and Space Science
+                                                                .doi-access-wrapper
+                                                                    .access-type.open-access
+                                                                        i.icon-lock_open(aria-hidden='true')
+                                                                        .doi-access Open access
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry, Geophysics, Geosystems')
+                                                            a(href='/journal/15252027', title='Geochemistry, Geophysics, Geosystems')
+                                                                span Geochemistry, Geophysics, Geosystems
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='GeoHealth')
+                                                            a(href='/journal/24711403', title='GeoHealth')
+                                                                span GeoHealth
+                                                                .doi-access-wrapper
+                                                                    .access-type.open-access
+                                                                        i.icon-lock_open(aria-hidden='true')
+                                                                        .doi-access Open access
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysical Research Letters')
+                                                            a(href='/journal/19448007', title='Geophysical Research Letters')
+                                                                span Geophysical Research Letters
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Global Biogeochemical Cycles')
+                                                            a(href='/journal/19449224', title='Global Biogeochemical Cycles')
+                                                                span Global Biogeochemical Cycles
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                                            a(href='/journal/19422466', title='Journal of Advances in Modeling Earth Systems (JAMES)')
+                                                                span Journal of Advances in Modeling Earth Systems (JAMES)
+                                                                .doi-access-wrapper
+                                                                    .access-type.open-access
+                                                                        i.icon-lock_open(aria-hidden='true')
+                                                                        .doi-access Open access
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography and Paleoclimatology')
+                                                            a(href='/journal/19449186', title='Paleoceanography and Paleoclimatology')
+                                                                span Paleoceanography and Paleoclimatology
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Radio Science')
+                                                            a(href='/journal/1944799x', title='Radio Science')
+                                                                span Radio Science
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Reviews of Geophysics')
+                                                            a(href='/journal/19449208', title='Reviews of Geophysics')
+                                                                span Reviews of Geophysics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather')
+                                                            a(href='/journal/15427390', title='Space Weather')
+                                                                span Space Weather
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather Quarterly')
+                                                            a(href='/journal/23254432', title='Space Weather Quarterly')
+                                                                span Space Weather Quarterly
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Tectonics')
+                                                            a(href='/journal/19449194', title='Tectonics')
+                                                                span Tectonics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Water Resources Research')
+                                                            a(href='/journal/19447973', title='Water Resources Research')
+                                                                span Water Resources Research
+                                                    div
+                                                        p Eos
+                                                        ul.rlist
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org')
+                                                                a(target='_blank', href='https://eos.org', title='Eos.org')
+                                                                    span Eos.org
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org Eos Archives (1920-2014)')
+                                                                a(href='/journal/23249250', title='Eos.org Eos Archives (1920-2014)')
+                                                                    span Eos.org Eos Archives (1920-2014)
+                                                    div
+                                                        p Journal of Geophysical Research
+                                                        ul.rlist
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheres')
+                                                                a(href='/journal/21698996', title='Atmospheres')
+                                                                    span Atmospheres
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Biogeosciences')
+                                                                a(href='/journal/21698961', title='Biogeosciences')
+                                                                    span Biogeosciences
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Surface')
+                                                                a(href='/journal/21699011', title='Earth Surface')
+                                                                    span Earth Surface
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Oceans')
+                                                                a(href='/journal/21699291', title='Oceans')
+                                                                    span Oceans
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Planets')
+                                                                a(href='/journal/21699100', title='Planets')
+                                                                    span Planets
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Solid Earth')
+                                                                a(href='/journal/21699356', title='Solid Earth')
+                                                                    span Solid Earth
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Physics')
+                                                                a(href='/journal/21699402', title='Space Physics')
+                                                                    span Space Physics
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Journal of Geophysical Research (1896-1977)')
+                                                                a(href='/journal/21562202', title='Journal of Geophysical Research (1896-1977)')
+                                                                    span Journal of Geophysical Research (1896-1977)
+                                                    div
+                                                        p Partnered Journals
+                                                        ul.rlist
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Chinese Journal of Geophysics (2000-2018)')
+                                                                a(href='/journal/23260440', title='Chinese Journal of Geophysics (2000-2018)')
+                                                                    span Chinese Journal of Geophysics (2000-2018)
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth Interactions')
+                                                                a(target='_blank', href='http://www.earthinteractions.org', title='Earth Interactions')
+                                                                    span Earth Interactions
+                                                                    i.icon-export_citation
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Earth and Planetary Physics')
+                                                                a(href='/journal/20963955', title='Earth and Planetary Physics')
+                                                                    span Earth and Planetary Physics
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Geophysics')
+                                                                a(target='_blank', href='http://library.seg.org/journal/gpysa7', title='Geophysics')
+                                                                    span Geophysics
+                                                                    i.icon-export_citation
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='International Journal of Geomagnetism and Aeronomy')
+                                                                a(target='_blank', href='http://elpub.wdcb.ru/journals/ijga', title='International Journal of Geomagnetism and Aeronomy')
+                                                                    span International Journal of Geomagnetism and Aeronomy
+                                                                    i.icon-export_citation
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Interpretation')
+                                                                a(target='_blank', href='http://library.seg.org/journal/inteio', title='Interpretation')
+                                                                    span Interpretation
+                                                                    i.icon-export_citation
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='Nonlinear Processes in Geophysics')
+                                                                a(target='_blank', href='http://www.nonlinear-processes-in-geophysics.net', title='Nonlinear Processes in Geophysics')
+                                                                    span Nonlinear Processes in Geophysics
+                                                                    i.icon-export_citation
+                                                            li.menu-item(role='menuitem', tabindex='-1', aria-label='The Leading Edge')
+                                                                a(target='_blank', href='http://seg.org/Publications/The-Leading-Edge', title='The Leading Edge')
+                                                                    span The Leading Edge
+                                                                    i.icon-export_citation
+                                        li.dropdown.menu-parent
+                                            a#main1-2.dropdown__toggle.w-slide__btn(href='#', title='Topics', data-toggle='dropdown', data-slide-target='#hubMain-sub-2')
+                                                span Topics
+                                                i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+                                            #hubMain-sub-2.dropdown__menu(aria-labelledby='main1-2', aria-hidden='true', role='menu')
+                                                .menu-items-container
+                                                    p Atmospheric Composition
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheric Composition and Structure')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/04ade3cf-2dba-30ce-863b-d9d67f96012a', title='Atmospheric Composition and Structure')
+                                                                span Atmospheric Composition and Structure
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Atmospheric Processes')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/b67d499c-f736-3919-a2d4-5e48b9610c07', title='Atmospheric Processes')
+                                                                span Atmospheric Processes
+                                                    p Biogeosciences
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Biogeosciences')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/4a75c07e-8776-33ce-8757-773d19c55d82', title='Biogeosciences')
+                                                                span Biogeosciences
+                                                    p Education
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Education')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/e0dbad18-d41b-37f0-872b-bc2940f169be', title='Education')
+                                                                span Education
+                                                    p Engineering and Applied Geophysics
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Electromagnetics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/047c4646-965a-3338-9963-b785272a7ee1', title='Electromagnetics')
+                                                                span Electromagnetics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Radio Science')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/e2465fa8-0b0d-3aa6-b31a-db6386e6c378', title='Radio Science')
+                                                                span Radio Science
+                                                    p Geochemistry, Mineralogy, Volcanology
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochemistry')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/2647d1a0-787b-3094-8401-0baeeb9417e5', title='Geochemistry')
+                                                                span Geochemistry
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geochronology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/8fbb95ae-bec5-3c08-afe0-f6030010f422', title='Geochronology')
+                                                                span Geochronology
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Information Related to Geologic Time')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/9fde41d9-736d-395e-b6ea-564121a0183b', title='Information Related to Geologic Time')
+                                                                span Information Related to Geologic Time
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Mineral Physics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/a4c3343f-8da3-3248-888b-26239c126fb7', title='Mineral Physics')
+                                                                span Mineral Physics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Mineralogy and Petrology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/2163bbbe-b158-372d-b5ef-0e03e7a20e2c', title='Mineralogy and Petrology')
+                                                                span Mineralogy and Petrology
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Volcanology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/ce9c5924-9be7-32fe-b181-93879fc9d03c', title='Volcanology')
+                                                                span Volcanology
+                                                    p Geology and Geophysics
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Exploration Geophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/0458cf9e-97b1-3e32-ad5f-8543635dab65', title='Exploration Geophysics')
+                                                                span Exploration Geophysics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geodesy and Gravity')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/6ba4071c-a190-3bbb-9f37-9dae836fab06', title='Geodesy and Gravity')
+                                                                span Geodesy and Gravity
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Geomagnetism and Paleomagnetism')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/42a39b45-6bd0-3c7f-860c-ccdf90a87955', title='Geomagnetism and Paleomagnetism')
+                                                                span Geomagnetism and Paleomagnetism
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='History of Geophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/910273e0-3605-35ea-9af8-c5c1db9dcdf9', title='History of Geophysics')
+                                                                span History of Geophysics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Marine Geology and Geophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/52b22739-ac37-3130-9f35-3190bc8cacad', title='Marine Geology and Geophysics')
+                                                                span Marine Geology and Geophysics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Physical Properties of Rocks')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/ca3dbcf1-9052-3ce7-8a9c-d0685207a43e', title='Physical Properties of Rocks')
+                                                                span Physical Properties of Rocks
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Seismology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/6e64e83d-5a5b-3fb4-9315-b2f5eff2d803', title='Seismology')
+                                                                span Seismology
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Structural Geology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/c4830235-f9be-3500-820c-6da47727f19f', title='Structural Geology')
+                                                                span Structural Geology
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Tectonophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/6221141d-cacb-363f-9dac-51558cb65bd2', title='Tectonophysics')
+                                                                span Tectonophysics
+                                                    p Global Change
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Global Change')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/8bbab78d-1851-38ce-aebb-d5081d7a64a1', title='Global Change')
+                                                                span Global Change
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Paleoceanography')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/a7f0ceaa-0767-3738-a27c-587bbc95b268', title='Paleoceanography')
+                                                                span Paleoceanography
+                                                    p Hydrology, Cryosphere and Earth Surface
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Cryosphere')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/31753692-4890-3c64-bdcf-685938743085', title='Cryosphere')
+                                                                span Cryosphere
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Hydrology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/65e440c3-7c1c-3c8a-98a5-8f657c07b60b', title='Hydrology')
+                                                                span Hydrology
+                                                    p Mathematical Geophysics
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Computational Geophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/fc050816-bf8d-3af4-ac91-ed6da62b6e3d', title='Computational Geophysics')
+                                                                span Computational Geophysics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Informatics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/352e1e37-c7b8-3609-8d36-e9d6f17930de', title='Informatics')
+                                                                span Informatics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Mathematical Geophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/b7735ff1-8528-3c28-a487-d9d898433017', title='Mathematical Geophysics')
+                                                                span Mathematical Geophysics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Nonlinear Geophysics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/ff5fcf6d-0e76-3c6f-aadc-009b70c83b36', title='Nonlinear Geophysics')
+                                                                span Nonlinear Geophysics
+                                                    p Natural Hazards
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Natural Hazards')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/69d98904-af28-381f-a4d4-8d2b4cb93c78', title='Natural Hazards')
+                                                                span Natural Hazards
+                                                    p Ocean Science
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Biological and Chemical Oceanography')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/cd93da19-2242-3ce0-b419-c33a5214cae6', title='Biological and Chemical Oceanography')
+                                                                span Biological and Chemical Oceanography
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='General Oceanography')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/f7a5b827-7df7-32fe-ad57-fed1fc503df9', title='General Oceanography')
+                                                                span General Oceanography
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Physical Oceanography')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/34c5b638-57d6-3a36-9aad-109b86a6b043', title='Physical Oceanography')
+                                                                span Physical Oceanography
+                                                    p Planetary Science
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Interplanetary Physics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/531b2d37-0613-3567-af0e-40ffc8867f98', title='Interplanetary Physics')
+                                                                span Interplanetary Physics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Astrobiology')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/efbb14e6-01fc-3504-a8b7-1b590a738502', title='Astrobiology')
+                                                                span Astrobiology
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Comets and Small Bodies')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/98a21daa-d9c4-3722-90b2-efe9b5d40e2d', title='Comets and Small Bodies')
+                                                                span Comets and Small Bodies
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Fluid Planets')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/07293311-161e-3b3d-af53-2c46d889f412', title='Fluid Planets')
+                                                                span Fluid Planets
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Solar Systems Objects')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/23ae236f-a690-39ae-8a91-8c661e5cb309', title='Solar Systems Objects')
+                                                                span Solar Systems Objects
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Solid Surface Planets')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/c4143191-5137-3ebb-be99-b023fb592004', title='Solid Surface Planets')
+                                                                span Solid Surface Planets
+                                                    p Policy and Funding
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Policy Sciences')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/054f471e-b56c-3318-8624-6b75d0070bd8', title='Policy Sciences')
+                                                                span Policy Sciences
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Public Issues')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/4d3f0aa2-c0a4-3e1b-9611-554319f52c19', title='Public Issues')
+                                                                span Public Issues
+                                                    p Space Sciences and Space Physics
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Ionosphere')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/07d7e873-62b4-3e8c-9f10-ec6b5177c301', title='Ionosphere')
+                                                                span Ionosphere
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Magnetospheric Physics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/3e983e9e-a139-3399-8e27-b7ea592f8b70', title='Magnetospheric Physics')
+                                                                span Magnetospheric Physics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Solar Physics, Astrophysics and Astronomy')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/c83e32a9-948b-3fef-8055-f49358bac3a4', title='Solar Physics, Astrophysics and Astronomy')
+                                                                span Solar Physics, Astrophysics and Astronomy
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Plasma Physics')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/88b148ac-931e-3db4-99db-b545efce709b', title='Space Plasma Physics')
+                                                                span Space Plasma Physics
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Space Weather')
+                                                            a(href='/results/2dc820d3-3443-3933-98f0-0c9f57556905/e72f674d-20e3-3d2a-a44a-3d2fb7fde83c', title='Space Weather')
+                                                                span Space Weather
+                                        li
+                                            a(href='/hub/books') Books
+                                        li.dropdown.menu-parent
+                                            a#main1-3.dropdown__toggle.w-slide__btn(href='#', title='EOS', data-toggle='dropdown', data-slide-target='#hubMain-sub-3')
+                                                span EOS
+                                                i.icon-section_arrow_d.pull-right.visible-lg(aria-hidden='true')
+                                            #hubMain-sub-3.dropdown__menu(aria-labelledby='main1-3', aria-hidden='true', role='menu')
+                                                .menu-items-container
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org')
+                                                            a(href='http://www.eos.org', target='_blank', title='Eos.org')
+                                                                span Eos.org
+                                                    ul.rlist
+                                                        li.menu-item(role='menuitem', tabindex='-1', aria-label='Eos.org Eos Archives (1920-2014)')
+                                                            a(href='/journal/23249250', title='Eos.org Eos Archives (1920-2014)')
+                                                                span Eos.org Eos Archives (1920-2014)
+                                    .pull-right
+                                        .social-media.pull-left.visible-lg
+                                            a(target='_blank', href='https://about.agu.org/get-social/')
+                                                i.icon-facebook-round
+                                            a(target='_blank', href='https://about.agu.org/get-social/')
+                                                i.icon-twitter-round
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(target='_blank', href='http://membership.agu.org') Membership
+                                            li
+                                                a(target='_blank', href='http://www.agu.org') AGU.org
+                                        .social-media.hiddenLabel--lg
+                                            a(target='_blank', href='https://about.agu.org/get-social/')
+                                                i.icon-facebook-round
+                                            a(target='_blank', href='https://about.agu.org/get-social/')
+                                                i.icon-twitter-round
+                        h1.hidden  Journal list menu
+                        .pages-nav--sticky.pages-nav.hidden-lg
+                            .pages-nav--res
+                                .container
+                                    ul.rlist--inline.pull-left
+                                        li
+                                            a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                i.icon-toc(aria-hidden='true')
+                                                span Journal
+                                            #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                .transplant.showit(data-target='#menu-item-main-menu-1-0, #menu-item-main-menu-1-4', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                        li
+                                            a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                                i.article-img-icon
+                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/pericles/articles_1-1499257321163.png')
+                                                span Articles
+                                            #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                                .transplant.showit(data-target='#menu-item-main-menu-1-2, #menu-item-main-menu-1-1, #menu-item-main-menu-1-3', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                    ul.rlist--inline.pull-right
+                                        li
+                                            a(href='#', data-db-target-for='actions-list', data-db-switch='icon-close_thin')
+                                                span Actions
+                                                i.icon-chevron-down(aria-hidden='true')
+                                            #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                h2.side-section-header.hiddenLabel--lg Tools
+                                                .transplant.showit(data-target='.journal-actions-container li:nth-child(1), .journal-actions-container li:nth-child(2), .journal-actions-container li:nth-child(3), .journal-actions-container li:nth-child(4), .journal-actions-container li:nth-child(5), #subscribeLink', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                h2.side-section-header.hiddenLabel--lg Follow journal
+                                                .transplant.showit(data-target='#alert-link, #facebook-link, #twitter-link, #most-recent-link, #most-read-link, #most-cited-link', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                        section.hub-journal-bar
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard
+                                            script.
+                                                googletag.cmd.push(function () {
+                                                    googletag.display('advert-leaderboard');
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                a(href='/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Fjournal%2F19448007%2Feditor-highlights%3F&placeholderId=1015&productId=101018', target='_blank')
+                                                    img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=728x90&tile=1&c=$random')
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            a(href='/journal/19448007', title='Geophysical Research Letters homepage')
+                                                h1#journal-banner-text(style='margin: 0; font-size: 0') Geophysical Research Letters
+                                                img#journal-banner-image.journal-banner-image(alt='Geophysical Research Letters banner', src='//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/19448007-1515755173620.jpg', style='margin-bottom: 15px; display: none')
+                                            script.
+                                                var image = new Image();
+                                                image.onload = function () {
+                                                    // if the image exists
+                                                    document.getElementById("journal-banner-image").style.display = "block";
+                                                }
+                                                image.onerror = function () {
+                                                    // if the image does not exist
+                                                    document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                                    document.getElementById("journal-banner-text").style.fontSize = "22px";
+                                                }
+                                                image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/19448007-1515755173620.jpg";
+                                            #rich-text-e03ba8e6-06cc-4490-b847-6d5c33096048.pb-rich-text(style='overflow: auto;')
+                                                p.MsoNormal
+                                                    strong
+                                                        span(lang='EN-US') Geophysical Research Letters
+                                                    span(lang='EN-US')
+                                                        | publishes high-impact, innovative, and timely communications-length articles on major advances spanning all of the major geoscience disciplines.
+                                                    span(lang='EN-US')
+                                                        | Papers should have broad and immediate implications meriting rapid decisions and high visibility.
+                                                    span(lang='EN-US', style="font-size: 12.0pt; font-family: 'Times New Roman','serif'; mso-fareast-font-family: 'Times New Roman';")
+                                                        o:p
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            ul.rlist.loc.mostRecent
+                                                li.grid-item.cover-image.cover-image__latestIssue
+                                                    .cover-image__image.hasDetails
+                                                        a(href='/toc/19448007/45/4', title='View Table of Contents for Geophysical Research Letters volume 45 issue 4')
+                                                            img(src='//wol-prod-cdn.literatumonline.com/cms/attachment/a1e91917-6d7a-491c-ab72-244cf34caec0/grl.v45.4.cover.jpg', alt='View Table of Contents for Geophysical Research Letters volume 45 issue 4')
+                                                    .cover-image__details
+                                                        a.cover-image__link(href='/toc/19448007/45/4', title='Go to latest issue') LATEST ISSUE >
+                                                        div
+                                                            span.comma Volume 45, 
+                                                            | Issue 4
+                                                        div
+                                                            span 28 February 2018
+
+
+
+                            | !{pb.render('menu', 'mainMenu.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}}})}
+                            style.
+                                .dropzone {
+                                    display: none;
+                                }
+                        .hub-main-content(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .agu-hub.col-md-12
+                                        .gutterless--xs.gutterless--sm.gutterless--md.main-content.col-md-8
+                                            .browse-highlights(data-widget-def='ux3-layout-widget', data-widget-id='280d87eb-0ecc-474a-a457-e3ad277c9654')
+                                                div
+                                                    .browse-highlights-header(data-widget-def='general-html', data-widget-id='413e45ca-3565-4299-9392-26190a15d69c')
+                                                        h2.section__mainHeader--mid
+                                                            | Browse highlights
+                                                        p
+                                                            | Highlights include enriched and related content of notable journal articles presented in Geophysical Research Letters
+                                                    .search-result.journalHighlight
+                                                        .search-result__top-section
+                                                            .search-result__follow.clearfix
+                                                        ul.rlist.search-result__body.items-results
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2016GL069917/editor-highlight/10.5555/MIG-HO.96f50283-6593-4446-8bc6-e71bfc3507b1') Eliminating Uncertainty One Cloud at a Time
+                                                                .publicationContentAuthor Shannon Hall, Freelance Writer
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 26 September 2016
+                                                                .content
+                                                                    | From Eos.org: Research Spotlights—The impact of clouds on climate change has been a scientific mystery for decades. Now researchers are fighting to gain the upper hand.  When it comes to forecasting climate change, there’s one huge wild card: clouds. By reflecting, absorbing, and emitting radiation, clouds (and fine particles known as aerosols) play a major role in the planet’s energy balance and thus in setting Earth’s temperature. And yet whether an individual cloud warms the planet or cools
+                                                                    a.readmore(href='/article/10.1002/2016GL069917/editor-highlight/10.5555/MIG-HO.96f50283-6593-4446-8bc6-e71bfc3507b1') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL076644/editor-highlight/10.5555/11442744-c4ee-45fe-9f0a-2a337ab24f47') Ice-age echoes affect present-day sea level
+                                                                .publicationContentAuthor Pat Brennan
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 March 2018
+                                                                .content
+                                                                    | Blog—
+                                                                    | A new study has, for the first time, cut a clear path through a nettlesome problem: accurately measuring a powerful effect on global sea level that lingers from the last ice age.
+                                                                    | Just how quickly Earth’s deep, rocky mantle is rebounding from the heavy burden of ancient ice sheets and oceans remains somewhat uncertain. But this rebound effect, known as glacial isostatic adjustment (GIA), is critical to properly understanding the causes of sea level change.
+                                                                    | Even getting a solid h
+                                                                    a.readmore(href='/article/10.1002/2017GL076644/editor-highlight/10.5555/11442744-c4ee-45fe-9f0a-2a337ab24f47') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL076640/editor-highlight/10.5555/1e21dc32-e302-464b-856b-adcf8d6be919') Modeling Storm Evolution
+                                                                .publicationContentAuthor Sarah Witman, Freelance Writer
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 March 2018
+                                                                .content
+                                                                    | Research Spotlight—
+                                                                    | A “moist shell” makes all the difference in how some storms evolve.
+                                                                    | Just like people are often divided into two opposing categories—early birds and night owls, introverts and extroverts—meteorologists designate two main types of storms. Storms that form through organized convection are long-lived, cover a large area, generate and accumulate more clusters of clouds with time, take place in environments with large-scale circulation, and a
+                                                                    a.readmore(href='/article/10.1002/2017GL076640/editor-highlight/10.5555/1e21dc32-e302-464b-856b-adcf8d6be919') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075380/editor-highlight/10.5555/428189cb-b8ef-4038-8d94-2fa02ee5fdb1') Pinpointing Effects of Hadley Cell Expansion
+                                                                .publicationContentAuthor Sarah Witman, Freelance Writer
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 February 2018
+                                                                .content
+                                                                    | Research Spotlight—
+                                                                    | As a major atmospheric circulation system spreads farther poleward, some regions are drying out. But as time passes, will this drying be symmetrical across the globe?
+                                                                    | Hadley cells, first theorized by the English physicist and meteorologist George Hadley in 1735, are large-scale atmospheric circulations caused by warm air rising in the tropics and flowing toward the poles and then cooling off, descending, and flowing back toward the equator. These wind cells&
+                                                                    a.readmore(href='/article/10.1002/2017GL075380/editor-highlight/10.5555/428189cb-b8ef-4038-8d94-2fa02ee5fdb1') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075571/editor-highlight/10.5555/77ec92ec-c292-492d-94b0-e1f5b4de05eb') Scientists Find Massive Reserves of Mercury Hidden in Permafrost
+                                                                .publicationContentAuthor
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 February 2018
+                                                                .content
+                                                                    | Press Release—
+                                                                    | New study finds more than 15 million gallons of mercury is frozen in permafrost in the Northern hemisphere—roughly 10 times the amount mercury emissions over the last 30 years.Researchers have discovered permafrost in the northern hemisphere stores massive amounts of natural mercury, a finding with significant implications for human health and ecosystems worldwide.
+                                                                    | In a new study, scientists measured mercury concentrations in permafrost cores from Alaska and estim
+                                                                    a.readmore(href='/article/10.1002/2017GL075571/editor-highlight/10.5555/77ec92ec-c292-492d-94b0-e1f5b4de05eb') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL076278/editor-highlight/10.5555/789e6c84-9c10-4705-91d4-126673811e01') Fossilized feature records Moon’s slow retreat from Earth
+                                                                .publicationContentAuthor Trent Knoss
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 February 2018
+                                                                .content
+                                                                    | Blog
+                                                                    | New research provides insight into the Moon’s excessive equatorial bulge, a feature that solidified in place over four billion years ago as the Moon gradually distanced itself from the Earth.
+                                                                    | A new study published in Geophysical Research Letters, a journal of the American Geophysical Union, sets parameters on how quickly the Moon could have receded from the Earth and suggests the nascent planet’s hydrosphere was either non-existent or still frozen at the time
+                                                                    a.readmore(href='/article/10.1002/2017GL076278/editor-highlight/10.5555/789e6c84-9c10-4705-91d4-126673811e01') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL074702/editor-highlight/10.5555/9cc9f3fc-092e-4d9f-b103-ace9324a7308') Satellite Quantifies Carbon Dioxide from Coal-Fired Power Plants
+                                                                .publicationContentAuthor Katherine Kornei, Freelance Science Journalist
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 February 2018
+                                                                .content
+                                                                    | Commentary—
+                                                                    | Using data from NASA’s Orbiting Carbon Observatory 2 satellite, researchers measured emissions of the greenhouse gas from individual coal plants in the United States, India, and South Africa.
+                                                                    | Despite the increasing popularity of renewable energies like wind and solar power, countries around the world continue to build power plants fueled by coal. Now, researchers have analyzed satellite observations of plants in three countries to test whether the space-based measurements
+                                                                    a.readmore(href='/article/10.1002/2017GL074702/editor-highlight/10.5555/9cc9f3fc-092e-4d9f-b103-ace9324a7308') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075721/editor-highlight/10.5555/a1d997da-42d3-4439-8667-3c50d2df3f73') How Do Deep-Sea Gravity Currents Transport Sediment So Far?
+                                                                .publicationContentAuthor Terri Cook, Freelance Writer
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 March 2018
+                                                                .content
+                                                                    | Research Spotlight—
+                                                                    | The first field measurements of turbidity currents flowing around submarine channel bends indicate spiral flow plays a key role in keeping sediment suspended for hundreds of kilometers.
+                                                                    | Like river canyons, steep-sided submarine channels are effective transportation systems capable of carrying billions of tons of sediment across distances of hundreds of kilometers. Although previous studies have shown that helical (spiraling) flow around meander bends
+                                                                    a.readmore(href='/article/10.1002/2017GL075721/editor-highlight/10.5555/a1d997da-42d3-4439-8667-3c50d2df3f73') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075198/editor-highlight/10.5555/a2150ac1-d9af-43df-81c5-919db591c5fc') Two Paired Eddies Travel Faster and Further Than One
+                                                                .publicationContentAuthor Janet Sprintall, Editor, Geophysical Research Letters
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 February 2018
+                                                                .content
+                                                                    | Editors' Highlight—
+                                                                    | The first observational evidence of dipole eddy pairs (modons) in the southern midlatitude ocean reveals that they move faster, live longer, and travel greater distances compared to single eddies.
+                                                                    | Typical ocean eddies travel predominantly westwards at speeds close to the local baroclinic Rossby wave speed that may be accelerated or decelerated by the speed and direction of the (often) stronger mean background flow. However, an exception to this is theoretically expected
+                                                                    a.readmore(href='/article/10.1002/2017GL075198/editor-highlight/10.5555/a2150ac1-d9af-43df-81c5-919db591c5fc') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL076505/editor-highlight/10.5555/f72bb63b-92fb-45aa-aa74-fd59f644efb7') New Hayward Fault earthquake simulations increase fidelity of ground motions
+                                                                .publicationContentAuthor Anne M. Stark
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 2 March 2018
+                                                                .content
+                                                                    | Blog—
+                                                                    | In the next 30 years, there is a two-thirds (67 percent) chance that the Hayward fault will rupture with a 6.7 magnitude or higher earthquake, according to the United States Geologic Survey (USGS).  Such an earthquake will cause widespread damage to structures, transportation and utilities, as well as economic and social disruption in the East Bay.
+                                                                    | Now, Lawrence Livermore and Lawrence Berkeley National Laboratory scientists have used some of the world’s most powerful super
+                                                                    a.readmore(href='/article/10.1002/2017GL076505/editor-highlight/10.5555/f72bb63b-92fb-45aa-aa74-fd59f644efb7') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075323/editor-highlight/10.5555/fc1e1373-1dc7-4ff3-80b8-5b1c9f6ffaf1') Evidence of surprising ocean warming around Galápagos corals
+                                                                .publicationContentAuthor Mari N. Jensen
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 2 March 2018
+                                                                .content
+                                                                    | Blog—
+                                                                    | The ocean around the Galápagos Islands has been warming since the 1970s, according to a new analysis of the natural temperature archives stored in coral reefs.
+                                                                    | The finding surprised the University of Arizona-led research team, because the sparse instrumental records for sea surface temperature for that part of the eastern tropical Pacific Ocean did not show warming.
+                                                                    | “People didn’t know that the Galápagos or eastern Pacific was warming. People theorized or su
+                                                                    a.readmore(href='/article/10.1002/2017GL075323/editor-highlight/10.5555/fc1e1373-1dc7-4ff3-80b8-5b1c9f6ffaf1') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL076794/editor-highlight/10.5555/fcc99c5e-4a35-4256-9ca7-a6c07a44d26a') Urban heating punches city-shaped holes in fog over India
+                                                                .publicationContentAuthor Lauren Lipuma
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 2 March 2018
+                                                                .content
+                                                                    | Blog—
+                                                                    | Scientists have observed discrete holes in widespread fog directly above cities in India, other regions of Asia and Europe. The fog holes increase in size as city populations increase, and the researchers suspect the urban heat island effect is likely to blame for the striking phenomenon.
+                                                                    | Air pollution can increase fog formation, and widespread fog is known to affect several densely-populated areas around the world. In late fall and winter, areas like the North China Plain, Californi
+                                                                    a.readmore(href='/article/10.1002/2017GL076794/editor-highlight/10.5555/fcc99c5e-4a35-4256-9ca7-a6c07a44d26a') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL076763/editor-highlight/10.5555/fd12f3df-6e58-4583-bb2b-99450120167d') 2017 North American wildfire pollution comparable to moderate volcanic eruption
+                                                                .publicationContentAuthor Brendan Bane
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 7 March 2018
+                                                                .content
+                                                                    | Blog—
+                                                                    | Compare volcanoes to wildfires, and it’s no competition. In many cases, volcanoes are vastly more powerful, and their eruptions’ effects on climate are much more pronounced. But in August 2017, the tables turned.
+                                                                    | The 2017 North American fire season was one of the most destructive in recent history, breaking numerous regional records for acreage burned and costs incurred. Millions of acres were left smoldering, crumbling hundreds of homes and structures to ash. More t
+                                                                    a.readmore(href='/article/10.1002/2017GL076763/editor-highlight/10.5555/fd12f3df-6e58-4583-bb2b-99450120167d') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075703/editor-highlight/10.5555/MIG-HO.026e45bc-7b5f-429a-a641-4e3c248911bc') Moon’s Crust Underwent Resurfacing after Forming from Magma Ocean
+                                                                .publicationContentAuthor
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 29 November 2017
+                                                                .content
+                                                                    | Blog—The Earth’s Moon had a rough start in life. Formed from a chunk of the Earth that was lopped off during a planetary collision, it spent its early years covered by a roiling global ocean of molten magma before cooling and forming the serene surface we know today.A research team led by The University of Texas at Austin Jackson School of Geosciences took to the lab to recreate the magmatic melt that once formed the lunar surface and uncovered new insights on how the modern moonscape came to b
+                                                                    a.readmore(href='/article/10.1002/2017GL075703/editor-highlight/10.5555/MIG-HO.026e45bc-7b5f-429a-a641-4e3c248911bc') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075001/editor-highlight/10.5555/MIG-HO.0c41100f-9414-4703-a9f7-e1236908c101') Scientists locate whistling space electrons’ origins
+                                                                .publicationContentAuthor
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 17 November 2017
+                                                                .content
+                                                                    | Blog—Scientists have long known that solar-energized particles trapped around the planet are sometimes scattered into Earth’s upper atmosphere where they can contribute to beautiful auroral displays. Yet for decades, no one has known exactly what is responsible for hurling these energetic electrons on their way. Recently, two spacecraft found themselves at just the right places at the right time to witness first hand both the impulsive electron loss and its cause.New research using
+                                                                    a.readmore(href='/article/10.1002/2017GL075001/editor-highlight/10.5555/MIG-HO.0c41100f-9414-4703-a9f7-e1236908c101') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL074892/editor-highlight/10.5555/MIG-HO.1c9ecd33-03e6-4582-b818-2d53a80e1b98') Scientists capture Earth’s “hum” on ocean floor
+                                                                .publicationContentAuthor Joseph Cariz
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 8 December 2017
+                                                                .content
+                                                                    | Blog—Scientists have long known earthquakes can cause the Earth to vibrate for extended periods of time. However, in 1998 a research team found the Earth also constantly generates a low-frequency vibrational signal in the absence of earthquakes.Since then, seismologists have proposed different theories to explain the existence of this continuous vibration, from atmospheric disturbances to ocean waves moving over the sea floor. They’ve also measured the vibration using seismometers on land, but
+                                                                    a.readmore(href='/article/10.1002/2017GL074892/editor-highlight/10.5555/MIG-HO.1c9ecd33-03e6-4582-b818-2d53a80e1b98') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL073754/editor-highlight/10.5555/MIG-HO.1cc44dfd-3ea8-459f-95cc-54c9eea64626') Angles of Plasma Ropes near Mars Point to Different Origins
+                                                                .publicationContentAuthor Sarah Stanley, Freelance Writer
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 28 November 2017
+                                                                .content
+                                                                    | From Eos.org: Research Spotlights—Variation in the orientation of flux rope features in Mars’s magnetotail suggests that some of them form on the planet’s Sun-facing side and travel to the night side.In its infancy, Mars may have generated a strong magnetic field, much like Earth’s. Today, all that remains is a far less extensive magnetosphere that surrounds Mars. This magnetosphere is shaped, in part, by Mars’s crustal magnetic fields and, in part, by the Sun’s interplanetary magnetic field (I
+                                                                    a.readmore(href='/article/10.1002/2017GL073754/editor-highlight/10.5555/MIG-HO.1cc44dfd-3ea8-459f-95cc-54c9eea64626') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL074506/editor-highlight/10.5555/MIG-HO.21310d6f-d782-4483-b316-4515ee4f1be5') Reducing Errors in Satellite-Derived Arctic Sea Ice Thicknesses
+                                                                .publicationContentAuthor Sarah Witman, Freelance Writer
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 8 December 2017
+                                                                .content
+                                                                    | Research Spotlight—Salty snow throws off satellite-based estimates of Arctic sea ice thickness by up to 25%. A new method seeks to fix that.Each September, Arctic sea ice melts to a minimum point and then refreezes again over the winter. As a result of climate change, the Arctic is warming at a rate faster than the rest of the globe, causing more sea ice to melt during the summer than freezes in the winter.The sea ice minimum has been diminishing by about 13% per decade since 1979 (and perhaps
+                                                                    a.readmore(href='/article/10.1002/2017GL074506/editor-highlight/10.5555/MIG-HO.21310d6f-d782-4483-b316-4515ee4f1be5') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075958/editor-highlight/10.5555/MIG-HO.2a9aa954-6542-4323-b6a8-352d80207298') Algae Reduce Reflectivity, Enhance Greenland Ice Sheet Melting
+                                                                .publicationContentAuthor
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 3 January 2018
+                                                                .content
+                                                                    | Press Release—New research shows algae growing on the Greenland ice sheet significantly reduce the ice sheet’s surface reflectivity and contribute more to its melting than dust or black carbon.New research shows algae growing on the Greenland ice sheet, the Earth’s second-largest ice sheet, significantly reduce the surface reflectivity of the ice sheet’s bare ice area and contribute more to its melting than dust or black carbon. The new findings could influence scientists’ understanding of ice
+                                                                    a.readmore(href='/article/10.1002/2017GL075958/editor-highlight/10.5555/MIG-HO.2a9aa954-6542-4323-b6a8-352d80207298') Continue reading >
+                                                            .ancillary-content.full.listitem
+                                                                .publicationContentTitle
+                                                                    h3
+                                                                        a(href='/article/10.1002/2017GL075446/editor-highlight/10.5555/MIG-HO.50ebb89c-fa18-49b1-8fe2-855066434376') Where Did the Water Go on Mars?
+                                                                .publicationContentAuthor Andrew Yau, Editor, Geophysical Research Letters
+                                                                .publicationContentDate
+                                                                    span.prefix First Published:
+                                                                    | 29 November 2017
+                                                                .content
+                                                                    | Editors' Highlight—Primordial solar storm conditions are believed to have significantly enhanced the loss of water and other atmospheric volatiles in Mars’ history.Liquid water used to exist on the Mars surface long ago, but no longer does today. The question is how Mars lost its atmosphere of water and other volatiles to space, and how this played a significant role in its climate evolution. A planet’s magnetic field would act as a ‘shield’ against such atmospheric losses, while solar storms a
+                                                                    a.readmore(href='/article/10.1002/2017GL075446/editor-highlight/10.5555/MIG-HO.50ebb89c-fa18-49b1-8fe2-855066434376') Continue reading >
+                                                        .pagination
+                                                            ul.rlist--inline.pagination__list
+                                                                // if pages > 7
+                                                                li
+                                                                    a.active(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=0', title='1', aria-label='Page 1') 1
+                                                                li
+                                                                    a(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=1', title='2', aria-label='Page 2') 2
+                                                                li
+                                                                    a(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=2', title='3', aria-label='Page 3') 3
+                                                                li
+                                                                    a(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=3', title='4', aria-label='Page 4') 4
+                                                                li
+                                                                    a(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=4', title='5', aria-label='Page 5') 5
+                                                                li
+                                                                    a(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=5', title='6', aria-label='Page 6') 6
+                                                                li
+                                                                    a(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=6', title='7', aria-label='Page 7') 7
+                                                            span
+                                                                a.pagination__btn--next(href='https://agupubs.pericles-prod.literatumonline.com/journal/19448007/editor-highlights?startPage=1', title='Next page', aria-label='Next page link')
+                                                    //
+                                                        related section
+                                                        html widget
+                                                        +
+                                                        related dos widget [Id]
+                                                    script.
+                                                        //domready
+                                                        !function (e, t) {
+                                                            typeof module != "undefined" ? module.exports = t() : typeof define == "function" && typeof define.amd == "object" ? define(t) : this[e] = t()
+                                                        }("domready", function () {
+                                                            var e = [], t, n = document, r = n.documentElement.doScroll, i = "DOMContentLoaded", s = (r ? /^loaded|^c/ : /^loaded|^i|^c/).test(n.readyState);
+                                                            return s || n.addEventListener(i, t = function () {
+                                                                n.removeEventListener(i, t), s = 1;
+                                                                while (t = e.shift())t()
+                                                            }), function (t) {
+                                                                s ? setTimeout(t, 0) : e.push(t)
+                                                            }
+                                                        })
+                                                        domready(function () {
+                                                            $.getScript("https://cdnjs.cloudflare.com/ajax/libs/jQuery.dotdotdot/1.8.3/jquery.dotdotdot.min.js", function () {
+                                                                $('div.ancillary-content.listitem div.content').dotdotdot({after: "a.readmore"});
+                                                            });
+                                                        });
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            div(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    div
+                                                        style.
+                                                            .dropdownTest-firstdrop {
+                                                                padding: 15px;
+                                                                display: block;
+                                                                color: #005274;
+                                                                cursor: pointer;
+                                                                background-color: #ffffff;
+                                                            }
+
+                                                            .downdownTest-content {
+                                                                display: none;
+                                                            }
+
+                                                            .dropdownTest:hover .downdownTest-content {
+                                                                display: block;
+                                                                background-color: #efeff0;
+                                                            }
+
+                                                            .dropdownTest:hover .downdownTest-content a {
+                                                                color: #005274;
+                                                            }
+
+                                                            .dropdownTest:hover .downdownTest-content a:hover {
+                                                                color: #fff;
+                                                                background-color: #005274;
+                                                            }
+                                                        .journal-side-section.journal-actions-container
+                                                            h2.side-section-header.hidden-lg.hidden-md Tools
+                                                            ul.unordered-list-icons
+                                                                li
+                                                                    a(href='http://grl-submit.agu.org/cgi-bin/main.plex', target='_blank')
+                                                                        i.icon-submit_article(aria-hidden='true')
+                                                                        | Submit an Article
+                                                                li
+                                                                    .dropdownTest
+                                                                        span.dropdownTest-firstdrop
+                                                                            i.icon-alert(aria-hidden='true')
+                                                                            |                    Get Content Alerts
+                                                                        span.downdownTest-content
+                                                                            a.dropdownTest-second(href='/action/doUpdateAlertSettings?action=addJournal&journalCode=19448007', target='_blank', rel='noopener')  Set Alert
+                                                                            a.dropdownTest-third(href='/hub/set-alerts', target='_blank', rel='noopener')
+                                                                                | Alerts by Journal
+                                                                li
+                                                                    a(href='http://onlinelibrary.wiley.com/recommend/to/librarian/doi/10.1002/(ISSN)1944-8007', target='_blank')
+                                                                        i.icon-recommend(aria-hidden='true')
+                                                                        | Recommend to a Librarian
+                                                                li
+                                                                    a(href='/toc/19448007/free-sample')
+                                                                        i.icon-sample_issue(aria-hidden='true')
+                                                                        | Browse Sample Issue
+                                                                li
+                                                                    a(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=1944-8007&doi=10.1111/(ISSN)1944-8007', target='_blank')
+                                                                        i.icon-subscribe(aria-hidden='true')
+                                                                        | Subscribe to this Journal
+                                                    .my-4(data-widget-def='general-html', data-widget-id='ec56f81c-f04b-42ea-b99d-3cfaa074a9fd')
+                                                        h2.side-section-header
+                                                            | New AGU Publications Site
+                                                        .side-section-content.mb-4
+                                                            p
+                                                                | We want to hear from you! Please share your feedback and help us to continually improve our site.
+                                                            ul.unordered-list-icons
+                                                                li
+                                                                    a(href='https://wiley.qualtrics.com/jfe/form/SV_42Qywt0yECz4xbD', target='_blank')
+                                                                        i.icon-ic_mail_solid(aria-hidden='true')
+                                                                        | Share Feedback
+                                                    .my-4(data-widget-def='general-rich-text', data-widget-id='d75128a7-3c40-4009-8e06-55375ebb0260')
+                                                        #rich-text-d75128a7-3c40-4009-8e06-55375ebb0260.pb-rich-text(style='overflow: auto;')
+                                                            p(style='padding-left: 6px;')
+                                                                a(href='https://publications.agu.org/recent-highlights-across-agu-publications/', target='_blank', style="margin: 0px; padding: 0px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: #2e4872; font-weight: bold; outline: 0px; display: block; font-family: 'Open Sans', Arial, Helvetica, 'Lucida Sans Unicode', sans-serif; font-size: 14px;") Recent Highlights across AGU Publications
+                                                    .mt-4(data-widget-def='UX3HTMLWidget', data-widget-id='5ec8bb25-9695-4c24-9163-84bb00449917')
+                                                        h2.side-section-header
+                                                            | Highlights
+                                                        .journal-side-section
+                                                            ul.unordered-list-icons
+                                                                li
+                                                                    a(href='http://agupubs.onlinelibrary.wiley.com/hub/article/10.1002/2017GL074892/editor-highlight/') Scientists capture Earth’s “hum” on ocean floor
+                                                                li
+                                                                    a(href='http://agupubs.onlinelibrary.wiley.com/hub/article/10.1002/2017GL075722/editor-highlight/')
+                                                                        | Dark fiber: Using sensors beneath our feet to tell us about earthquakes, water and other geophysical phenomena
+                                                                li
+                                                                    a(href='http://agupubs.onlinelibrary.wiley.com/hub/article/10.1002/2017GL074954/editor-highlight/') RESEARCH BOLSTERS POSSIBILITY OF PLATE TECTONICS ON EUROPA
+                                                                li
+                                                                    a(href='http://agupubs.onlinelibrary.wiley.com/hub/article/10.1002/2017GL074506/editor-highlight/') Reducing Errors in Satellite-Derived Arctic Sea Ice Thicknesses
+                                                            p
+                                                                a(href='/journal/19448007/editor-highlights', style="margin: 0px; padding: 0px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: #2e4872; font-weight: bold; outline: 0px; display: block; font-family: 'Open Sans', Arial, Helvetica, 'Lucida Sans Unicode', sans-serif; font-size: 13px;") See all »
+                                                    .mb-4(data-widget-def='UX3HTMLWidget', data-widget-id='d4c99a14-f731-4a95-ab2a-670b958c4c3c')
+                                                        h2.side-section-header
+                                                            | Resources
+                                                        .journal-side-section
+                                                            ul.unordered-list-icons
+                                                                li
+                                                                    a(href='/hub/journal/19448007/features/call-for-papers', target='_Blank') Call for Papers
+                                                                li
+                                                                    a(href='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/Geophys_research_letters_1944-8007/2013Special_Section_Proposal-form-1511347559953.pdf', target='_blank') Special Section Proposal Form
+                                                                li
+                                                                    a(href='/hub/set-alerts', target='_blank') Personal Choice
+                                                                li
+                                                                    a(href='/action/showFeed?jc=19448007&type=etoc&feed=rss', target='_blank') Get RSS Feed
+                                                                li
+                                                                    a(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=1944-8007&doi=10.1002/(ISSN)1944-8007', target='_blank') Institutional Subscription Rates
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='8aab1f4e-103e-4b64-bfb1-0c8e49c8040c')
+                                                        h2.side-section-header
+                                                            | Eos.org: Earth & Space Science News
+
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='db225e0a-bc92-4414-8f85-6f294c616f33')
+                                                        h2.side-section-header
+                                                            | Featured Special Collection
+                                                        .journal-side-section
+                                                            section.jhp-widget.jhp-widget--border(style="margin: 0px 0px 1.53846em; padding: 0px 0px 1.53846em; border-width: 0px 0px 1px; border-top-style: initial; border-right-style: initial; border-bottom-style: solid; border-left-style: initial; border-top-color: initial; border-right-color: initial; border-bottom-color: #eeeeee; border-left-color: initial; border-image: initial; outline: 0px; font-size: 13px; vertical-align: baseline; background-image: initial; background-position: 0px 0px; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; min-height: 0px; clear: both; color: #424242; font-family: 'Open Sans', Arial, Helvetica, 'Lucida Sans Unicode', sans-serif;")
+                                                                article.freeform-widget(style='margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;')
+                                                                    .freeform-widget__wrap(style='margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;')
+                                                                        p(style='margin: 0px 0px 1.15385em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; line-height: 1.5em;')
+                                                                            span(data-mce-mark='1', style='margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; clear: both;')
+                                                                                span(style='font-weight: bold; margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px;')
+                                                                                    a(href='http://agupubs.onlinelibrary.wiley.com/hub/issue/10.1002/(ISSN)1944-8007.ATMOS_VARIABILITY/', target='_blank', style='margin: 0px; padding: 0px; vertical-align: baseline; background: 0px 0px; color: #2e4872; text-decoration-line: none; display: block;') A Census of Atmospheric Variability from Seconds to Decades 
+                                                                        p(style='margin: 0px 0px 1.15385em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; line-height: 1.5em;')
+                                                                            span(data-mce-mark='1', style='margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; clear: both;')
+                                                                                span(data-mce-mark='1', style='margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; clear: both;')
+                                                                        p(style='margin: 0px 0px 1.15385em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; line-height: 1.5em;')
+                                                                            | The atmosphere varies naturally on all length scales from millimeters to thousands of kilometers, and on all time scales from seconds to decades and longer.  This special collection of Geophysical Research Letters synthesizes and summarizes that variability through a phenomenological census.  The collection brings together some of the most influential and definitive papers to have been published in this journal in recent years.  The topics covered include turbulence on time scales of seconds and minutes, gravity waves on time scales of hours, weather systems on time scales of days, atmospheric blocking on time scales of weeks, the Madden–Julian Oscillation on time scales of months, the Quasi-Biennial Oscillation and El Niño–Southern Oscillation on time scales of years, and the North Atlantic, Arctic, Antarctic, Pacific Decadal, and Atlantic Multi-decadal Oscillations on time scales of decades.  The collection is accompanied by a Commentary article, which provides an authoritative, concise, and accessible point of reference for the most important modes of atmospheric variability.
+                                                    .pb-ad
+                                                        aside
+                                                            #advert-rail-2.advert.advert-rail
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-2');
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fjournal%2F19448007%2Feditor-highlights%3F&placeholderId=1013&productId=101018', target='_blank')
+                                                                        img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                                    .my-4(data-widget-def='general-rich-text', data-widget-id='03ef2de2-0d96-4800-9dd0-ee5d5d1ff41b')
+                                                        h2.side-section-header
+                                                            | Download the Multi-journal App
+                                                        #rich-text-03ef2de2-0d96-4800-9dd0-ee5d5d1ff41b.pb-rich-text(style='overflow: auto;')
+                                                            p
+                                                                a(href='https://goo.gl/Zs1Kef', target='_blank')
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/App%20Icons/Apple%20Store%20Logo.jpg', width='188', height='62', alt='Apple App Store', style='display: block; margin-left: auto; margin-right: auto;')
+                                                            p
+                                                                a(href='https://goo.gl/aZ9rAc', target='_blank')
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/App%20Icons/Google%20Play%20Image.jpg', width='182', height='62', alt='Google Play Store', style='display: block; margin-left: auto; margin-right: auto;')
+                                                            p
+                                                                a(href='https://goo.gl/rBK7Y7', target='_blank')
+                                                                    img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/agupubs/App%20Icons/360Android%20w%20nam.JPG', width='176', height='61', style='display: block; margin-left: auto; margin-right: auto;')
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='da2b0f8d-7dca-42c6-8099-a00549c0d701')
+                                                        h2.side-section-header
+                                                            | AGU Career Center
+                                                        .journal-side-section
+                                                            p
+                                                                iframe#mdgxWidgetiFrame(src='https://findajob.agu.org/widget/jobs/;i=14', style='width: 100%; border: 0; height: 600px; background: 0;', frameborder='0')
+                                                    div
+                                                        .pb-ad
+                                                            #advert-rail-1.advert.advert-rail
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-1');
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    a(href='/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fjournal%2F19448007%2Feditor-highlights%3F&placeholderId=1014&productId=101018', target='_blank')
+                                                                        img(src='https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                // end pagefulltext
+
+
+            | !{pb.render('footer', 'pericles')}
+        | #{''}

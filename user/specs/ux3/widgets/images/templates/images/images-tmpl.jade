@@ -1,0 +1,10 @@
+
+
+if(thisWidget.properties)
+    if (thisWidget.properties.link)
+        a(href=thisWidget.properties.link title=thisWidget.properties.alt)
+            if(thisWidget.properties.src)
+              img(alt=thisWidget.properties.alt src=thisWidget.properties.src)
+    else
+        if(thisWidget.properties.src)
+          img(alt=thisWidget.properties.alt src=thisWidget.properties.src)

@@ -1,0 +1,53 @@
+﻿extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Usage
+        h3 Data
+        p The following the JSON structure to use pdf uploader widget:
+        +printJson({
+            "data": {
+                "name": "pdf.path",
+                "labelLink": "Select one",
+                "labelText": "Drag and drop new PDF File",
+                "isMultiple": "false",
+                "uploaderButton": "true"
+            },
+
+
+            "AjaxWidgetData": {
+                "uploadLink": "/uploadepdfFile",
+                "doi": "https://doi.org/10.1377/hlthaff.2017.0945",
+                "csrfToken": "123456789",
+                "signature": "11223365",
+                "inputs": {
+                    "file": {
+                        "value": "doi123.pdf"
+                    }
+                }
+            }
+
+        }
+
+        )
+
+    | #{''}
+    section.source_section
+        h2 Example
+
+        each item, l in data.items
+            h3!= item.title
+            markdown
+                p Add `uploader-form` class to form use the pdf uploader widget
+
+            .source_example
+                div.container
+                  form.uploader-form
+                    | !{item.body}
+
+
+    | #{''}

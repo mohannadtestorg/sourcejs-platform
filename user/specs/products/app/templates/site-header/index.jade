@@ -1,0 +1,40 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        p The <strong>Site Header</strong> template contains the following components:
+          | #[a(href="../../widgets/html/") Html widget],
+          | #[a(href="../../widgets/images/") Images widget],
+
+
+
+
+    section.source_section
+        h2 Generic Header
+        .source_example.source_visible
+            | !{data.header}
+    | #{''}
+
+
+    section.source_section
+        h2 AJP Header
+        .source_example.source_visible
+            | !{data.ajpHeader}
+    | #{''}
+
+
+
+    section.source_section
+        h2 POL Header
+        .source_example.source_visible
+            | !{data.polHeader}
+    | #{''}
+
+
+    section.source_section
+        h2 POL Books Header
+        .source_example.source_visible
+            | !{data.polBooksHeader}
+    | #{''}
+

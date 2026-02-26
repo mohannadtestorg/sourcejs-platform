@@ -1,0 +1,44 @@
+div(data-ctrl-res="" class="tab  tab--aside")
+	ul(data-mobile-toggle="dropdown" role="tablist" class="rlist tab__nav")
+		li(role="presentation")
+			a(href="#pane-m1x01" aria-controls="#pane-m1x01" role="tab" data-toggle="tab" title="Access Entitlements" id="pane-m1x01con" aria-selected="true" class="active" aria-expanded="false")
+				span Access Entitlements
+		li(role="presentation")
+			a(href="#pane-m1x11" aria-controls="#pane-m1x11" role="tab" data-toggle="tab" title="Usage Reports" id="pane-m1x11con" aria-selected="false" aria-expanded="false")
+				span Usage Reports
+		li(role="presentation" class="active")
+			a(href="#pane-m1x21" aria-controls="#pane-m1x21" role="tab" data-toggle="tab" title="IP Ranges" id="pane-m1x21con" aria-selected="false" aria-expanded="true")
+				span IP Ranges
+		li(role="presentation")
+			a(href="#pane-m1x31" aria-controls="#pane-m1x31" role="tab" data-toggle="tab" title="Shibboleth" id="pane-m1x31con" aria-selected="false")
+				span Shibboleth
+		li(role="presentation")
+			a(href="#pane-m1x41" aria-controls="#pane-m1x41" role="tab" data-toggle="tab" title="Link Resolver" id="pane-m1x41con" aria-selected="false" aria-expanded="false")
+				span Link Resolver
+		li(role="presentation")
+			a(href="#pane-m1x51" aria-controls="#pane-m1x51" role="tab" data-toggle="tab" title="Trusted Proxy Server Setup" id="pane-m1x51con" aria-selected="false" aria-expanded="false")
+				span Trusted Proxy Server Setup
+		li(role="presentation")
+			a(href="#pane-m1x51" aria-controls="#pane-m1x61" role="tab" data-toggle="tab" title="Co-Branding" id="pane-m1x61con" aria-selected="false" aria-expanded="false")
+				span Co-Branding
+		li(role="presentation")
+			a(href="#pane-m1x51" aria-controls="#pane-m1x71" role="tab" data-toggle="tab" title="Holdings File" id="pane-m1x71con" aria-selected="false" aria-expanded="false")
+				span Holdings File
+
+	ul(class="rlist tab__content")
+		li(id="pane-m1x01" aria-labelledby="pane-m1x01con" role="tabpanel" class="tab__pane active")
+			| !{pb.render("entitlements", "data.json")}
+		li(id="pane-m1x11" aria-labelledby="pane-m1x11con" role="tabpanel" class="tab__pane")
+			| !{pb.render("usage-reports", "data.json")}
+		li(id="pane-m1x21" aria-labelledby="pane-m1x21con" role="tabpanel" class="tab__pane")
+			| !{pb.render("ip-ranges", "data.json")}
+		li(id="pane-m1x31" aria-labelledby="pane-m1x31con" role="tabpanel" class="tab__pane")
+			| !{pb.render("shibboleth", "data.json")}
+		li(id="pane-m1x41" aria-labelledby="pane-m1x41con" role="tabpanel" class="tab__pane")
+			| !{pb.render("link-resolver", "default.json")}
+		li(id="pane-m1x51" aria-labelledby="pane-m1x51con" role="tabpanel" class="tab__pane")
+			| !{pb.render("trusted-proxy", "trusted-proxy.json")}
+		li(id="pane-m1x61" aria-labelledby="pane-m1x61con" role="tabpanel" class="tab__pane")
+			| !{pb.render("co-branding", "data.json")}
+		li(id="pane-m1x71" aria-labelledby="pane-m1x71con" role="tabpanel" class="tab__pane")
+			| !{pb.render("holdings", "data.json")}

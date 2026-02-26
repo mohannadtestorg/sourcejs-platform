@@ -1,0 +1,90 @@
+.accordion {
+
+    &-tabbed {
+        font-size: inherit;
+
+        &__control {
+            padding: 0;
+        }
+        &__content {
+            border: none;
+            padding: 0;
+        }
+    }
+
+    &-with-arrow {
+        .accordion-tabbed__control {
+            padding: 0;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            align-items: center;
+            &:after {
+                float:none;
+            }
+        }
+    }
+
+    &--textbox {
+        .accordion__control {
+            position: relative;
+            margin: 0;
+            padding: 2px 14px 2px 34px;
+            font-size: $h6-font-size;
+            font-weight: normal;
+            color: #fff;
+            background-color: $primary-bg-color;
+
+            @include media('>=phone') {
+                padding: 7px 32px;
+            }
+
+            &:hover, &:focus, &:active {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            &:before {
+                content: "+";
+                display: block;
+                position: absolute;
+                left: 14px;
+                @include media('>=phone') {
+                    left: 12px;
+                }
+            }
+
+            &.js--open {
+                &:before{
+                    content: "-";
+                }
+            }
+
+            i {
+                display: none;
+            }
+        }
+
+        .accordion__content {
+            padding: 10px 14px;
+            font-size: 14px;
+            line-height: 24px;
+            background-color: #fcfbfb;
+            border: 1px solid #efefef;
+            @include media('>=phone') {
+                padding: 18px 32px;
+                font-size: 17px;
+                line-height: 30px;
+            }
+        }
+    }
+}
+
+h2 .accordion-tabbed__control {
+    color: $headings-primary-color;
+
+    &:focus,
+    &:hover {
+        color: $headings-primary-color;
+    }
+}

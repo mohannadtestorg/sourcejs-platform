@@ -1,0 +1,82 @@
+.o-generic-modal
+  h1.o-generic-modal__title
+    | CME Exam Evaluation 
+    span(data-form-currentstep='') 1
+    | /4
+  form.o-form-steps(action='/endpoints/SaveEvaluation.php', data-form-steps='0', data-behavior='AjaxFormSubmit FormBySteps')
+    .f-body--sm
+      fieldset.o-form-steps__fieldset(data-form-step='0')
+        p 1. Were the stated program objectives successfully met?
+        ol.o-form-steps__fields-list
+          li
+            ul
+              li
+                span.a-form-radio
+                  input#answer1_1(type='radio', value='yes', name='objectivesmet')
+                  label(for='answer1_1') Yes
+              li
+                span.a-form-radio
+                  input#answer1_2(type='radio', value='no', name='objectivesmet')
+                  label(for='answer1_2') No
+              li
+                span.a-form-radio
+                  input#answer1_3(type='radio', value='partial', name='objectivesmet')
+                  label(for='answer1_3') Partial (explain)
+          li
+            textarea#comment_body(name='objectivesmetTEXT')
+      fieldset.o-form-steps__fieldset(data-form-step='1')
+        p 2. Were the selected article and related questions relevant to your practice?
+        ol.o-form-steps__fields-list
+          li
+            ul
+              li
+                span.a-form-radio
+                  input#answer2_1(type='radio', value='yes', name='relevant')
+                  label(for='answer2_1') Yes
+              li
+                span.a-form-radio
+                  input#answer2_2(type='radio', value='no', name='relevant')
+                  label(for='answer2_2') No (please explain)
+          li
+            textarea#comment_body(name='relevantTEXT')
+      fieldset.o-form-steps__fieldset(data-form-step='2')
+        p
+          | 3. Do you anticipate that participation in this program will result in any behavioral change in your delivery of patient care?
+        ol.o-form-steps__fields-list
+          li
+            ul
+              li
+                span.a-form-radio
+                  input#answer3_1(type='radio', value='yes', name='changecare')
+                  label(for='answer3_1') Yes (please indicate the behavioral change that you anticipate)
+              li
+                span.a-form-radio
+                  input#answer3_2(type='radio', value='no', name='changecare')
+                  label(for='answer3_2') No
+          li
+            textarea#comment_body(name='changecareTEXT')
+      fieldset.o-form-steps__fieldset(data-form-step='3')
+        p
+          | 3. May we contact you by e-mail about this evaluation (which otherwise remains anonymous)?
+        ol.o-form-steps__fields-list
+          li
+            ul
+              li
+                span.a-form-radio
+                  input#answer4_1(type='radio', value='yes', name='contact')
+                  label(for='answer4_1') Yes
+              li
+                span.a-form-radio
+                  input#answer4_2(type='radio', value='no', name='contact')
+                  label(for='answer4_2') No
+          li
+            p Email: thomas@area17.com
+      .o-form-steps__success-msg
+        p CME Exam Evaluation send.
+    .o-form-steps__btns
+      button.a-btn.a-btn--simple(type='button', data-prev-step='0') Previous
+      button.a-btn.a-btn--simple(type='button', data-next-step='3') Next
+      button.a-btn(data-submit-step='3', type='submit')
+        | Submit 
+        svg.icon--arrow(aria-hidden='true')
+          use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--arrow')

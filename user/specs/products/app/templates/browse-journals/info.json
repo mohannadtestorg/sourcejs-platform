@@ -1,0 +1,55 @@
+{
+    "title": "Browse Journals page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/pol-header.json"
+                }
+            }
+        },
+        "topContent":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["grid-sm-2 "]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/top-content/templates/top-content/top-content-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/top-content/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "journal":{
+            "$pug": {
+                "template": "../../widgets/browse-journal/templates/browse-journal/demo//browse-journal-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/browse-journal/templates/data/journal.json"
+                }
+            }
+        },
+
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pol-footer.json"
+                }
+            }
+        }
+    }
+}

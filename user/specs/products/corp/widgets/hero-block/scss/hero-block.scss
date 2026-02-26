@@ -1,0 +1,61 @@
+.hero-block {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    @include media('>desktop') {
+        margin-bottom: 0;
+    }
+
+    &__inner {
+        margin-top: -72px;
+        padding-top: 72px;
+        background: #fff url('../../images/hero-bg-2.jpg') 50% 0 no-repeat;
+        background-size: cover;
+        padding-bottom: 120px;
+        clip-path: polygon(0% 0%, 100% 0, 100% 90%, 24% 100%, 0% 100%);
+        @include media('>=desktop') {
+            clip-path: polygon(0% 0%, 100% 0, 100% 85%, 24% 100%, 0% 100%);
+        }
+
+        .btn {
+            margin-top: .75rem;
+        }
+    }
+
+    &__title {
+        margin-top: 8px;
+        @include media('>desktop') {
+            margin-top: 68px;
+        }
+    }
+
+    &__content {
+        color: $hero-text-color;
+    }
+
+    .skewed-block {
+        display: none;
+
+        @include media('>phone', '<desktop') {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            right: auto;
+            width: 90%;
+            margin: 0 auto;
+            padding: 24px;
+            transform: translate(-50%, 40%) skewY(0);
+            &__inner {
+                transform: skewY(0);
+            }
+        }
+        @include media('>=desktop') {
+            display: block;
+            position: absolute;
+            bottom: 14px;
+            right: 20px;
+            width: 345px;
+        }
+    }
+}

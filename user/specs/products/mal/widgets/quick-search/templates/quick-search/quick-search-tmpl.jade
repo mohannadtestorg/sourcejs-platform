@@ -1,0 +1,43 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl.jade
+
+block quickSearchWrapper
+    if (thisWidget.properties && thisWidget.properties.displayQuickMenuButton == "true")
+        a(href="#" class="quick-menu__item" title="search" data-db-target-for="sb1")
+            i.block-icon(class=thisWidget.properties.quickMenuIcon aria-hidden="true")
+        div.dropBlock__holder.quick-search__dropBlock.quickSearchFormContainer(data-db-target-of="sb1")
+            .container
+                div.quick-search
+                    +search()
+    else
+        div.quick-search
+            +search()
+block quickSearch
+    .tab.row.clearfix
+        .col-md-2.gutterless
+            ul.rlist.tab__nav.dropblock--tab(role="tablist")
+                if(data.dropdown)
+                    each item, i in data.dropdown
+                        li
+                            if(thisWidget.properties && item.label)
+                                a(href="#pane-" + thisWidget.properties.id + i aria-controls="#pane-" + i role="tab" data-toggle="tab" title=item.label id="pane-" + thisWidget.properties.id + i + "-con" aria-expanded="false") !{item.label}
+        .col-md-8
+            ul.rlist.tab__content(role="tablist")
+                each item, i in data.dropdown
+                    +checkCurrentSearchTerm()
+                    if (item.dataSearchIn == 'default')
+                        +anywhereSearch(item, i)
+                    else if (item.dataSearchIn == 'thisJournal')
+                        +journalSearch(item, i)
+                    else if (item.dataSearchIn == 'thisSeries')
+                        +journalSearch(item, i)
+                    else if (item.dataSearchIn == 'thisIssue')
+                        +journalSearch(item, i)
+                    else if (item.dataSearchIn == 'thisBook')
+                        +journalSearch(item, i)
+                    else if (item.dataSearchIn == 'citation')
+                        +citationSearch(item, i)
+                    -currentSearchTermFilled=true
+
+        .col-md-2
+            block advancedSearch
+                | !{pb.renderDropzone(thisWidget, "TestDropZone")}

@@ -1,0 +1,74 @@
+.customBtn,
+button.btn, input.btn, a.btn {
+    background: $wiley-blue-color;
+    &:hover, &:focus, &:active {
+        background: $wiley-darkBlue-color;
+    }
+    font-size: 0.75rem;
+    padding: 12px 20px;
+    border-radius: 0;
+
+    &--inverse {
+        color: $wiley-blue-color;
+        background: transparent;
+        border:none;
+    }
+}
+
+button.btn{
+    &--blue-hover {
+        background: $wiley-extralightGray-color;
+        color: $wiley-typography-color;
+        border: none;
+        font-weight: normal;
+
+        &:hover {
+            background: $wiley-blue-color;
+            color: $white;
+        }
+    }
+
+    &--orange {
+        background: $wiley-orange-color;
+        border-bottom: 3px solid darken($wiley-orange-color, 10%);
+    }
+
+    ~ .btn:not('.btn--full-width') {
+        margin-left: 20px;
+    }
+}
+
+input.btn {
+    ~ .btn:not('.btn--full-width') {
+        margin-left: 20px;
+    }
+}
+
+.quick-search__button.btn {
+    background-color: $wiley-gray-text-color;
+
+    &:before {
+        font-size: 35px;
+        color: $white;
+    }
+
+    .homepage-search-wrapper & {
+        background-color: $wiley-blue-color;
+        color: $white;
+    }
+}
+
+.linkBtn {
+    color: $wiley-blue-color;
+    padding: 12px 27px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+
+    &:hover, &:focus, &:active {
+        color: $wiley-darkBlue-color;
+    }
+
+}
+
+

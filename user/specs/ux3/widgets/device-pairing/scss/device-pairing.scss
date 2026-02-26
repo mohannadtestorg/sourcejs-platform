@@ -1,0 +1,268 @@
+[class^="device-pairing"]{
+
+  label{
+    font-size: .875rem;
+  }
+  .btn{
+    width:auto;
+    &:not(:last-child){
+      margin-right: 10px;
+    }
+
+    @include media('<phone'){
+      display: block;
+      width:100%;
+      margin-bottom: 10px;
+      margin-left: 0;
+      white-space: normal;
+      max-height: 54px;
+    }
+  }
+
+  .formButtons{
+    margin-top: 25px;
+    padding-top: 15px;
+    text-align: right;
+  }
+}
+
+.device-pairing {
+
+  &__new-device{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  &__row{
+    @include media('<desktop'){
+
+      &.expanded{
+        position: relative;
+        padding: .6em 0 .8em 0;
+      }
+
+      &.js--expanded{
+        .to_hide{
+          display: block!important;
+        }
+      }
+      .to_hide{
+        display: none!important;
+      }
+    }
+      .table__control__button{
+        padding: 0 0 0 15px;
+        i{
+          font-size: .5rem;
+          @include media('<desktop'){
+            display: block;
+          }
+        }
+
+      }
+
+  }
+
+&__selectedList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li{
+    padding-bottom: 5px;
+  }
+}
+&__info{
+  margin-bottom: 15px;
+  border-bottom: 1px solid  $separators-color;
+
+  .input-group{
+    margin-bottom: 10px;
+    label{
+        width: 120px;
+        display: inline-block;
+      @include media('<phone') {
+        margin-bottom: 0;
+        display: block;
+        width: 100%;
+      }
+
+    }
+  }
+}
+
+  table {
+    th {
+      padding:.8em 1em .8em 0;
+    }
+    td {
+      padding: 1em 1em 1em 0;
+      @include media('<desktop') {
+        padding: .5em;
+      }
+    }
+
+    tr {
+      @include media('<desktop') {
+        padding: .5em 0;
+      }
+    }
+
+    &.expandable {
+      @include media('<desktop') {
+        .table__mark {
+          display: inline-block;
+          width: 25px;
+          + td {
+            display: inline-block;
+            word-wrap: break-word;
+            width: calc(100% - 25px);
+            &:before{
+              content: ' ';
+            }
+          }
+          ~ td:nth-child(n+3) {
+            margin-left: 25px;
+          }
+
+        }
+
+          th{
+            display: none;
+          }
+          tbody{
+            tr{
+              border-bottom: 1px solid $separators-color;
+              &:not(.hidden){
+                display: block;
+              }
+              td{
+                &:nth-child(2){
+                  width:calc(100% - 25px);
+                }
+                &:last-child{
+                  padding-bottom: 10px;
+                }
+              }
+            }
+            td{
+              border: none;
+              display: block;
+              &:nth-child(n+3):before{
+                content: attr(data-thead) ": ";
+                display: block;
+                float: left;
+                color:$secondary-text-color;
+                margin-right: 5px;
+              }
+              &:not(.table__mark):first-child:before {
+                content: attr(data-thead) ": ";
+                float: left;
+                margin-right: 5px;
+              }
+            }
+          }
+
+
+
+      }
+    }
+
+  }
+
+  .border-bottom {
+    @include media('<tablet') {
+      margin-right: -15px;
+      margin-left: -15px;
+      padding: 0 15px 10px;
+    }
+  }
+
+  &__error {
+    .title{
+    color:red;
+  }
+}
+
+&__verify-confirm{
+
+  .link{
+    text-decoration: underline;
+    padding: 0 5px;
+  }
+  .title{
+    color: green;
+  }
+
+  .cookieSection{
+    margin-top: 30px;
+  }
+}
+
+&__devices{
+  margin-bottom: 25px;
+  margin-top: 20px;
+&.institution-mode{
+  @include media('>=tablet'){
+    width:50%;
+  }
+  table{
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 5px 5px rgba(0,0,0,.14);
+  }
+
+  .table__mark{
+    padding-left: 15px;
+  }
+  th{
+    border-bottom-width: 3px;
+  }
+
+}
+
+.btn{
+  display: inline-block;
+  width: auto;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 0;
+}
+}
+
+  &__form{
+    @include media('<phone'){
+        display: block;
+      }
+
+    display: inline-block;
+    .btn {
+      margin-right: 10px;
+    }
+  }
+
+
+  .side-content{
+    @include media('>=tablet'){
+      width: 70%;
+      display: inline-block;
+    }
+  }
+
+
+&__history{
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid  $separators-color;
+}
+}
+
+.buttonsPanel{
+  float: right;
+  margin-top: 30px;
+  @include media('<phone'){
+    float: none;
+  }
+}
+
+.instEmailSelected-textbox{
+  margin-bottom: 0;
+}

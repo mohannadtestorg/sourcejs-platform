@@ -1,0 +1,64 @@
+extends ../../../../../../../ux3/components/facet/templates/facet/facet-tmpl.jade
+block facetTitle
+    a(href="#" title="Date range filter" aria-controls="titleFacet" class="facet__ctrl accordion__control js--open")
+        h4.facet__title !{data.title}
+        i(aria-hidden="true" class="icon-section_arrow_d")
+
+block facetDateMain
+    div.facet.accordion.Ppub-facet
+        if (data) && (data.title)
+            +facetTitle()
+        if (data) && (data.values)
+            div.facet__content.accordion__content.js--open(id="facet")
+                if nestedList == true
+                    block facetNestedItem
+                        ul.rlist.facet-dropdown__menu(aria-labelledby='facetList-' + nestedListID  aria-hidden='true')
+                            each item, l in data.values
+                                li
+                                    +facetInnerItem(item)
+                        - nestedListID = nestedListID + 1
+                else
+                    ul.rlist.facet__list
+                        each item, l in data.values
+                            li(class=(l > 4 ? 'js--toggle' : ''))
+                                +facetInnerItem(item)
+
+block facetMain
+    if data.title || data.values
+        div.facet.accordion
+            if (data) && (data.title)
+                +facetTitle()
+            if (data) && (data.values)
+                div.facet__content.accordion__content.js--open(id="facet")
+                    +facetUl(data)
+
+block facetTaxMain
+    if (data && data.section)
+        - var showFacet = false;
+        each item, i in data.section
+            if (item.values)
+                - var itemNo = item.values.length
+                if itemNo > 0
+                    - showFacet = true;
+        if (showFacet)
+            div.facet
+                each item, i in data.section
+                    if (item.values)
+                        - var itemNo = item.values.length
+                        if itemNo > 0
+                            div.accordion
+                                a(href="#" title=item.title aria-controls="taxFacet"+i class="facet__ctrl accordion__control js--open")
+                                    h4.facet__title !{item.title}
+                                    i(aria-hidden="true" class="icon-section_arrow_d")
+
+                                div.facet__content.accordion__content.js--open(id="taxFacet"+i)
+                                    +facetUl(item)
+
+block facetItem
+    if (item.link)
+        a(href=item.link title=linkTitle class='dropdown__toggle' id='facetList-' + nestedListID)
+            +item(item, true)
+    else
+        span(class='dropdown__toggle' id='facetList-' + nestedListID)
+            +item(item, true)
+    +facetUl(item, true)

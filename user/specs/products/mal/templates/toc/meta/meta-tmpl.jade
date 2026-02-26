@@ -1,0 +1,26 @@
+.row
+  .col-sm-6.col-md-3
+    img(src=data.journal.coverImage.src , alt=data.journal.title + " cover image")
+
+  .col-sm-6.col-md-9
+      h1.journal-title !{data.journal.title}
+      .editor
+        if data.journal.eic
+          p: strong Editor-in-Chief:
+            | !{data.journal.eic}
+      .text-minute.margin-bottom--small
+          .margin-right
+          if data.journal.issn
+            | ISSN: !{data.journal.issn}
+          if data.journal.eissn
+            |  | Online ISSN: !{data.journal.eissn}
+          if data.journal.published_string
+            |  | Published: !{data.journal.published_string}
+          if data.journal.latestIssue.volume
+            |  | Current Volume: !{data.journal.latestIssue.volume} <hr>
+      h5.impact Latest Impact Factor* is <span class="highlight">
+        if data.journal.impact
+          | !{data.journal.impact}</span><br class="rwd-break"><span class="text-minute"> *2016 Journal Citation Reports® (Clarivate Analytics, 2017)</span><hr>
+      .short-description
+        if data.journal.description
+          | !{data.journal.description}

@@ -1,0 +1,14 @@
+.requestUsername
+    if data.reset
+        form.request-username-form(action='/action/requestUsername', method='post')
+            input(type='hidden', name='redirectUri', value='/?=')
+            input(type='hidden', name='requestUsername', value='true')
+            .input-group
+                .label
+                    label(for='58db408a-cca6-47f4-b64d-ea70c292242d.email') Email
+                input.email(id='58db408a-cca6-47f4-b64d-ea70c292242d.email', type='text', name='email', value='', size='15')
+            script(src='//www.google.com/recaptcha/api.js?render=explicit&onload=loadRecaptcha', async='', defer='')
+            .g-recaptcha(data-sitekey='6Lc4HR8TAAAAAPFSxfchztMruqn2dTwPIQ9vaX9b')
+            input.button.primary.submit(type='submit', name='submit', value='Submit', disabled='disabled')
+    if data.confirm
+        p   An email has been sent to your email containing your username. <br />Received no email? Please follow these steps...<br /> Emails may take up to 30 minutes to deliver <br />Check your spam folder <br />If you are still having trouble finding this email, please contact our customer support team.

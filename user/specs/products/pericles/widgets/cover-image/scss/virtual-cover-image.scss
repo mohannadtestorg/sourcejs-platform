@@ -1,0 +1,47 @@
+.cover-image__virtual-issue {
+        
+    .cover-image {
+        &__title {
+            font-size: 1.125rem;
+            color: $wiley-typography-color;
+            font-weight: 600;
+        }
+
+        &__category-label, &__date {
+            display: inline-block;
+            line-height: 0.75rem;
+        }
+
+        &__category-label {
+            font-size: 0.75rem;
+
+
+            & ~ .cover-image__date {
+                border-left: 1px solid $wiley-gray;
+                margin-left: 5px;
+                padding-left: 5px;
+            }
+        }
+
+        &__date {
+            font-weight: normal;
+
+            label {
+                margin: 0;
+                color: $wiley-gray;
+                display: inline-block;
+            }
+
+            & ~ .cover-image__date {
+                border-left: 1px solid $wiley-gray;
+                margin-left: 5px;
+                padding-left: 5px;
+            }
+        }
+
+        &__image {
+            margin-top: 10px;
+        }
+    }
+
+}

@@ -1,0 +1,55 @@
+
+block loiPrefix
+- data.loi.thisWidget = thisWidget;
+- var order = "ascending";
+- if (data.order == "descending") order = "descending"
+
+
+block loi
+    div(data-db-parent-of=thisWidget.id data-order= order)
+        div.loi__banner.coolBar
+            .coolBar__wrapper.stickybar__wrapper
+                a(class="hidden-lg loi-slide__ctrl w-slide__btn" href="#" data-slide-target="#loi-banner")
+                    i.icon-toc
+                    span Sections
+
+                div.loi__banner-list
+                    if (data.nav)
+                        .res-menu-nav.pull-left
+                            #loi-banner(class="hidden-md hidden-sm hidden-xs pull-left")
+                                block loiExtraLinksLeft
+                                    | !{pb.renderDropzone(thisWidget, "loiExtraLinksLeftDropZone")}
+
+                                each item, k in data.nav
+                                    if k == 'archive'
+                                        a.w-slide__btn(class='loi__' + k href=item.href title=item.label data-db-target-for=thisWidget.id data-slide-target= '#' + thisWidget.id data-slide-clone='self')
+                                            if (item.label)
+                                                | !{item.label}
+
+                                    else if k == 'additionalLinksData'
+                                        each link, l in item
+                                            if link.enabled == 'on' && link.url
+                                                a(class='loi__additionalLink' href=link.url title=link.label)
+                                                    if (link.label)
+                                                        | !{link.label}
+
+                                    else if item.href
+                                        a(class='loi__' + k href=item.href title=item.label)
+                                            if (item.label)
+                                                | !{item.label}
+                                block loiExtraLinksRight
+                                    | !{pb.renderDropzone(thisWidget, "loiExtraLinksRightDropZone")}
+                                    ul.rlist--inline.loi-more
+                                        li.dropdown-more.hidden.dropdown.menu-parent(role='menuitem', aria-haspopup='true', aria-label='More')
+                                            a.dropdown__toggle(href='#', title='More', data-toggle='dropdown')
+                                                span More
+                                                i.icon-section_arrow_d.pull-right.hidden-sm.hidden-xs(aria-hidden='true')
+                                            ul.rlist.dropdown__menu(aria-labelledby='main0-1', aria-hidden='true', role='menu')
+
+                    .loi__banner__right-side.pull-right.res-menu-taken-space
+                        block loiBannerSecond
+                            | !{pb.renderDropzone(thisWidget, "coolbarDropZone")}
+                if (data.loi)
+                    div.dropBlock__holder.dropBlock-loi__holder(id=thisWidget.id data-db-target-of=thisWidget.id data-grouptype=data.loi.groupType)
+                        block loitabs
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-tabs", {originaldata: data})}

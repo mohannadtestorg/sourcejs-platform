@@ -1,0 +1,26 @@
+extends ../../../../../../ux3/widgets/article-tools/templates/article-tools/article-tools-tmpl
+
+mixin tools()
+    block tool
+        if(data && data.order && data.order.labelsOrder)
+            ul.coolBar__drop.fixed.rlist(data-db-target-of=thisWidget.id aria-labelledby=thisWidget.id + "_Ctrl" role="menu"  id=thisWidget.id + "_Pop")
+                - var itemNo = data.order.labelsOrder.length
+
+                if itemNo > 0
+                    - var tools = data.order.labelsOrder
+                    each tool, l in tools
+                        if data.labels[tool]
+                            - var label = data.labels[tool]
+                            - var url = data.urls[tool]
+                            +tool(tool, label, url)
+                else
+                    - var tools = data.labels
+                    each tool, l in tools
+                        - var label = tool
+                        - var url = data.urls[l]
+                        +tool(l, label, url)
+
+block articletoolsController
+    a.coolBar__ctrl(href="#" data-db-target-for=thisWidget.id data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls=thisWidget.id + "_Pop" role="button" id=thisWidget.id + "_Ctrl" data-slide-target= "#" + thisWidget.id + "_Pop")
+        i.icon-Icon_Tools(aria-hidden="true")
+        span Tools

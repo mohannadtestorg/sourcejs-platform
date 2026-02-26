@@ -1,0 +1,50 @@
+.link-toggle {
+    background-color: $shadow-color;
+    position: relative;
+    width: 34px;
+    height: 14px;
+    border-radius: 7px;
+    border: none;
+    margin: 3px;
+
+    .toggle-switch {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        left:  -3px;
+        right: auto;
+        transform: translateY( -50% );
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: inset 0 0 0 2px #212121;
+        margin: 0;
+
+    }
+
+    &.active {
+        background: #97bff6;
+        text-align: inherit;
+
+
+        .toggle-switch {
+            background: $standard-secondary-bg-color;
+            box-shadow: inset 0 0 0 2px $standard-secondary-bg-color;
+            right:  -3px;
+            left: auto;
+        }
+    }
+
+    &.small {
+        width: 34px;
+        height: 14px;
+        border-radius: 7px;
+
+        .toggle-switch {
+            width: 20px;
+            height: 20px;
+
+        }
+    }
+}

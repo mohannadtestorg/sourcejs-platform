@@ -1,0 +1,204 @@
+.publication-version-container {
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .version-heading-label {
+        display: block;
+        color: $wiley-typography-color;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    &.outdated-version > a {
+        color: $white;
+        background: $wiley-orange-color;
+        padding: 5px;
+        //max-width: 500px;
+        width: initial;
+        display: inline-block;
+        margin-bottom: 0;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    .issue-item {
+        padding: 13px 20px 17px;
+        border: 1px solid $wiley-lightGray-color;
+
+        ~ .issue-item {
+            border-top: none;
+            margin-top: 0;
+        }
+
+        &__title {
+            margin-top: 0;
+        }
+    }
+
+}
+
+.corrections-container, .publication-version-container {
+    margin: 10px 0;
+}
+
+.corrections-label.corrections-label, .publication-version-container .version-label {
+    color: $wiley-orange-color;
+    font-size: 0.875rem;
+    display: inline;
+
+    &:hover {
+        color: $wiley-orange-color;
+    }
+
+    span {
+        font-weight: 600;
+    }
+
+    i {
+        vertical-align: middle;
+
+        &.icon-notice {
+            font-size: 1rem;
+            margin: 0;
+            margin-right: 5px;
+            padding: 0;
+        }
+
+        &.icon-keyboard_arrow_down {
+            font-size: 1.25rem;
+            margin: 0;
+            padding: 5px;
+            display: inline-block;
+
+            @include media('<desktop') {
+                font-size: 10px;
+                &:before {
+                    content: '\e92b';
+                }
+            }
+
+        }
+    }
+
+    &.js--open {
+        padding-bottom: 5px;
+        border-bottom: 2px solid $wiley-orange-color;
+
+        i {
+            &.icon-keyboard_arrow_down {
+                @extend .icon-keyboard_arrow_up;
+
+            }
+        }
+    }
+}
+
+.corrections {
+
+    &-body {
+        border: 0;
+
+        > ul.rlist > li {
+            padding: 13px 20px 17px;
+            border: 1px solid $wiley-lightGray-color;
+
+            ~ li {
+                border-top: none;
+                margin-top: 0;
+            }
+        }
+
+        h6 {
+            font-weight: 400;
+            margin-bottom: 0;
+        }
+
+        .parent-item {
+            text-transform: none;
+            font-weight: 400;
+            color: $wiley-gray-text-color;
+
+            li {
+
+                line-height: 14px;
+
+                &:not(:last-of-type) {
+                    border-color: $wiley-gray;
+                    padding-right: 5px;
+                    margin-right: 5px;
+                }
+
+            }
+        }
+
+        .epub-section {
+            margin-bottom: 0;
+        }
+
+    }
+}
+
+.w-slide__content {
+    .issue-item {
+        padding: 13px 20px 17px;
+        border: 1px solid $wiley-lightGray-color;
+
+        ~ .issue-item {
+            border-top: none;
+            margin-top: 0;
+        }
+
+        &__title {
+            margin-top: 0;
+        }
+
+        .doi-access-wrapper {
+            display: block;
+        }
+    }
+
+    .content-item-format-links {
+        .separator>li~li {
+            padding: 0;
+            margin-right: 10px;
+            padding-right: 10px;
+        }
+    }
+    .issue-item__details.separator>li~li {
+        padding: 0;
+        margin-right: 10px;
+        padding-right: 10px;
+    }
+
+    .corrections-list {
+        > li ~ li {
+            border-top: 1px solid $wiley-lightGray-color;
+        }
+        .parent-item {
+            text-transform: none;
+            font-weight: 400;
+            color: $wiley-gray-text-color;
+
+            li {
+                line-height: 22px;
+            }
+        }
+        h6 {
+            font-weight: 400;
+        }
+
+        .separator>li~li {
+            padding: 0;
+        }
+        li:not(:last-of-type) {
+            border: none;
+        }
+    }
+}

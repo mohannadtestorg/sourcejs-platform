@@ -1,0 +1,81 @@
+.header--first-row {
+  padding-left: 17px;
+  padding-right: 17px;
+  &.container {
+    max-width: $container-large-desktop;
+    @include media("<tablet") {
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    }
+    .pull-right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .pull-left {
+      max-width: 400px;
+      a {
+        display: block;
+        @include media("<tablet") {
+          width: 170px;
+          height: auto;
+          img {
+            height: auto;
+          }
+        }
+      }
+
+      @include media(">=desktop") {
+         height: 50px;
+         a {
+           width: auto;
+           height: calc(100% + 1rem);
+           margin: -0.5rem 0;
+           img {
+             height: 100%;
+           }
+         }
+       }
+    }
+  }
+}
+
+.quick-menu__item {
+  [class*="icon-"] {
+    color: $primary-bg-color;
+    height: 17px;
+    width: 17px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .icon-search {
+    font-size: 1rem;
+  }
+  .icon-shopping_cart {
+    font-size: 1.4rem;
+  }
+  span {
+    line-height: normal;
+  }
+}
+.loginBar {
+  display: block;
+  text-align: center;
+  .show-login {
+    padding: 0 10px;
+    display: block;
+  }
+  .icon-profile_empty, .icon-userprofile {
+    height: 17.5px;
+    width: 17.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  span {
+    line-height: normal;
+  }
+}

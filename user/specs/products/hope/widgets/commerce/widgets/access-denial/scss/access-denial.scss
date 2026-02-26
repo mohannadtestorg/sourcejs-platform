@@ -1,0 +1,199 @@
+.purchaseArea {
+
+  background: $secondary-lighten-bg-color;
+  border: $width-border-thin solid $color-border-gray-light;
+  margin:30px 0px;
+  padding: $spacing-large;
+
+  /* ========================================
+  General style
+  ======================================== */
+
+  a {
+    color: $standard-color;
+    font-size: 0.875rem;
+  }
+
+  h2 {
+    color: $text-onDark;
+    background-color: $standard-color;
+    margin: -21px -21px $spacing-large -21px;
+    padding: $spacing-small $spacing-large;
+    font-size: 1.4rem;
+  }
+
+  hr {
+    display: none;
+  }
+
+  input[type="text"], input[type="password"] {
+    background-color: $default-bg-color;
+  }
+
+  /* ----------------------------------------
+  Purchase Description
+  ---------------------------------------- */
+  .purchaseDescription {
+    display: block;
+    color: $primary-text-color;
+    font-size: 0.875rem;
+    padding: 0px 0px $spacing-large 0px;
+  }
+
+  /* ----------------------------------------
+  Restore Content Access Explanatory Text
+  ---------------------------------------- */
+  .restoreContentAccessExplanatoryText {
+    margin: $spacing-large (-$spacing-large) -30px (-$spacing-large);
+    padding: $spacing-x-small $spacing-large;
+    background-color: $secondary-bg-color;
+    border-top: $width-border-thin solid $color-border-gray-light;
+    color: $primary-darken-text-color;
+    font-size: 0.8125rem;
+  }
+
+  /* ----------------------------------------
+  List Style
+  ---------------------------------------- */
+
+  .rlist {
+    padding: $spacing-small 0;
+    border-top: $width-border-thin solid $color-border-gray-lightest;
+  }
+
+  /* ========================================
+  Expand links
+  ======================================== */
+
+  .expand-link , #purchaseLink {
+    color: $standard-color;
+    font-size:  0.875rem;
+    cursor: pointer;
+  }
+  .expand-link.active, #purchaseLink.purchaseAreaList_expand {
+    font-weight: bold;
+  }
+
+  /* ========================================
+  Login form
+  ======================================== */
+
+  .login-form {
+    border-top: 1px dashed $color-border-gray-lightest;
+    margin: $spacing-small 0px;
+    padding: $spacing-large 0px 0px 0px;
+    border-bottom: $width-border-thin solid $color-border-gray-lightest;
+  }
+
+  /* ========================================
+  Claim options
+  ======================================== */
+
+
+  .claim-options {
+    padding: 0px;
+
+    .content {
+      border-top: $width-border-thin dashed $color-border-gray-lightest;
+      margin: $spacing-small 0px;
+      padding: $spacing-large 0px $spacing-small 0px;
+      border-bottom: $width-border-thin solid $color-border-gray-lightest;
+    }
+
+    #accessTokenForm .submit {
+      float: none;
+    }
+  }
+
+}
+
+.eCommercePurchaseAccessWidgetContainer,.purchaseArea {
+
+  .purchase-item{
+    min-height: 50px;
+    padding: 18px 10px;
+  }
+  .add-journal-to-cart {
+    header {
+      line-height: inherit;
+      padding: 0;
+      border: none;
+      position: relative;
+      .purchaseMessage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $standard-color;
+        text-align: center;
+        color: #fff;
+        padding: 0;
+        p.itemAddedMsgBox {
+          border: none;
+          line-height: 60px;
+          margin: 0;
+          padding: 3px 0px 8px 0px;
+          @include media('<tablet'){
+            padding:0;
+            margin-top: -5px;
+          }
+          h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+          }
+          &:before {
+            font-size: 19px;
+            vertical-align: middle;
+            position: static;
+            display: inline;
+            margin: 0 10px 0 0;
+          }
+        }
+      }
+      .add-to-cart-msg{
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $standard-color;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 55px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+        [class^="icon-"]{
+          font-size: 19px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+        &.added{
+          background: $standard-color;
+        }
+      }
+      &:hover{
+        position: relative;
+        .add-to-cart-msg:not(.added){
+          display: block;
+          padding: 0px;
+          @include media('<tablet'){
+            padding:0;
+            margin-top: -5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.AccessDenialMessage{
+  padding: 15px;
+}
+
+

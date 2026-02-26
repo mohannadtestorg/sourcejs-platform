@@ -1,0 +1,49 @@
+extends pd-authors-update-tmpl
+
+block inputInTd
+
+block errorMessage
+
+block Actions
+
+block rowClasses
+    -var rowClasses=""
+
+block firstTd
+       td
+           a(href="#").icon-arrow_d_n.pull-right.hidden-md.hidden-lg.table__control__button
+           div.author__full-name.hidden-md.hidden-lg
+                span Author
+                |!{row["first-name"].value}
+                |!{row["last-name"].value}
+
+
+block SubmissionAuthors
+        .submission-authors
+                 h4.border-bottom Authors
+
+                 .table-responsive.table-actions
+                     table(class='expandable separator sortable-table')
+                         thead
+                             tr
+                                 th
+                                 th
+                                    span.ORCID-icon iD
+                                    |ORCID
+                                 th Auth.Name
+                                 th Auth.Surname
+                                 th Affiliation
+                                 th Contacat Information
+
+
+                         tbody
+                                if (data.forms)
+                                    each row, r in data.forms
+                                        +row(r,row)
+
+
+
+
+
+
+

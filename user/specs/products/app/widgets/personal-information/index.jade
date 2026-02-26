@@ -1,0 +1,21 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    .source_info
+        p Empty
+
+    section.source_section
+        h2 Example
+
+        each item, l in data.items
+            h3!= item.title
+
+            .source_example
+                div.container
+                    | !{item.body}
+
+
+    | #{''}
+
+
+

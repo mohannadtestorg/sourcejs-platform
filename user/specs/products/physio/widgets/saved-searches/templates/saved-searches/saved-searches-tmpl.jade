@@ -1,0 +1,34 @@
+div.saved-searches.separator.expandable(data-queries=maxNo)
+    if !data.searches
+        if (data.noSearchesMessage)
+            p.emptySavedSearches !{data.noSearchesMessage}
+        else
+            p.emptySavedSearches You do not have any saved searches
+    else
+        table(border='0', cellpadding='2', cellspacing='2', width='100%', summary='')
+            tbody
+                tr
+                    th.savedSearch.savedResult
+                       | Saved search name
+                    th.savedSearch.savedResult
+                       | Alert
+                    th.savedSearch.savedResult
+                       | Saved On
+                    th.savedSearch.savedResult
+                       | Last run on
+                    th.savedSearch.savedResult
+            if data.searches
+                each item, l in data.searches
+                    tr
+                        td.savedSearch.savedResult
+                            a(href=item.runUrl)
+                                | !{item.queryName}
+                        td.savedSearch.savedResult(data-thead="Alert")
+                            | !{item.frequency}
+                        td.savedSearch.savedResult(data-thead="Saved on")
+                            | !{item.savedDate}
+                        td.savedSearch.savedResult(data-thead="Last run on")
+                            | !{item.runDate}
+                        td.savedSearch.savedResult
+                            a.savedSearchLink(href=item.deleteUrl)
+                                i.icon-delete_filled

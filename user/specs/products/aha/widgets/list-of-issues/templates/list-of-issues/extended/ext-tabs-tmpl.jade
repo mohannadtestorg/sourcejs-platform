@@ -1,0 +1,51 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl
+
+block tabsPrefix
+    - var dataOld = originaldata.loi;
+    - var thisWidget = originaldata.loi.thisWidget;
+    - var data = originaldata.loi;
+    - var itemText = "";
+
+block tabsLinks
+    - itemText = item.label ? item.label : item.text;
+    - itemText = itemText ? itemText : item.year;
+    - itemText = itemText.replace(/ /g, '-');
+    a(href="#pane-" + thisWidget.id + "-" + itemText aria-controls="#pane-" + thisWidget.id + "-" + itemText role="tab" data-toggle="tab" data-expand=item.label title=item.label id="pane-" + thisWidget.id + "-" + itemText+ "-con")
+        +item(item)
+
+block tabsPanes
+    if(data.content)
+        ul.rlist.tab__content(role="tablist")
+            each item, I in data.content
+                - itemText = item.label ? item.label : item.text;
+                - itemText = itemText ? itemText : item.year;
+                - itemText = itemText.replace(/ /g, '-');
+                if (item.content)
+                    li.tab__pane.nested-tab(id="pane-" + thisWidget.id + "-" + itemText aria-labelledby="pane-" + thisWidget.id + "-" + itemText + "-con" role="tab")
+                        - data = item;
+                        +tabs()
+                        - data = dataOld;
+                else
+                    li.tab__pane(id="pane-" + thisWidget.id + "-" + itemText aria-labelledby="pane-" + thisWidget.id + "-" + itemText + "-con" role="tab")
+                        if (item.issues)
+                            p.tab__item__title
+                                | !{item.label}
+                        if (item.volumes)
+                            +loi(item.volumes, true,I )
+                        else
+                            +loi(item.issues, false,I)
+
+block IssueState
+block issueTitle
+block currentProgressIssue
+block pageRange
+
+block loIssues
+    if (items)
+        ul.row
+            block firstLoiIssue
+            if (flag)
+                each volume, v in items
+                    +issues(volume.issues, volume)
+            else
+                +issues(items, null)

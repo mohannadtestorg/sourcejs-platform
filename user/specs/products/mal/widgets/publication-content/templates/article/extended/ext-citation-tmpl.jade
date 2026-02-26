@@ -1,0 +1,21 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl.jade
+
+block citationTitleSuffix
+    if (original.item)
+        if(original.item.titles && original.item.titles.subtitle)
+            .citation__subtitle
+                | !{original.item.titles.subtitle}
+        if(original.item.related)
+            - var hasCorrectionOrRetraction = 0;
+            - var hasExam = 0;
+            if (original.item.related.items)
+                each item, i in original.item.related.items
+                    if (item.rel_type === "erratum" || item.rel_type === "retraction" )
+                        -hasCorrectionOrRetraction++;
+                    else if(item.rel_type === "hasExam")
+                        -hasExam++;
+
+                block articleCorrections
+                    +corrections(hasCorrectionOrRetraction)
+
+                +relatedExams(hasExam)

@@ -1,0 +1,24 @@
+.clearfix.institutionListBlock
+    if data.institutionList
+        - var optionsNo = data.institutionList.length;
+
+    if ((data.displayInstitutionsAsDropDownList == "true") && ((data.numberOfInstitutions == "moreThanOneInstitution" && optionsNo > 0) || (data.numberOfInstitutions == "anyNumber")))
+        .pull-right
+            .pull-left.profile-main__label
+                label You are managing:
+            if (data.institutionList)
+                .pull-right
+                    block institutionList
+                        select#institutionList.jcf
+                            option(value='#') Select
+                            each item, I in data.institutionList
+                                if(item.InstitutionName)
+                                  option(value=item.InstitutionUrl) !{item.InstitutionName}
+    else
+        .pull-right
+            if (data.institutionList)
+                ul.rlist.profile-main__list
+                    each item, I in data.institutionList
+                        li
+                            if(item.InstitutionUrl)
+                              a(href=item.InstitutionUrl) !{item.InstitutionName}

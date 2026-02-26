@@ -1,0 +1,145 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    shadow-color:
+      value: "rgba(0, 0, 0, 0.16)"
+    # background color
+    default-bg-color:
+      value: "{!WHITE}"
+    primary-bg-color:
+      value: "{!BLUE-1}"
+    primary-hover-bg-color:
+      value: "{!BLUE-8}"
+    primary-second-bg-color:
+      value: "{!BLUE-3}"
+    primary-third-bg-color:
+      value: "{!BLUE-4}"
+    secondary-bg-color:
+      value: "{!BLUE-5}"
+    secondary-hover-bg-color:
+      value: "{!BLUE-9}"
+    secondary-second-bg-color:
+      value: "{!BLUE-6}"
+    tertiary-bg-color:
+      value: "{!GREEN-1}"
+    tertiary-second-bg-color:
+      value: "{!GREEN-2}"
+    tertiary-third-bg-color:
+      value: "{!YELLOW-1}"
+    tertiary-third-hover-bg-color:
+      value: "{!YELLOW-2}"
+    tertiary-fourth-bg-color:
+      value: "{!ORANGE-1}"
+    tertiary-fifth-bg-color:
+      value: "{!GREEN-3}"
+    error-bg-color:
+      value: "{!RED-1}"
+    light-bg-color:
+      value: "{!GRAY-1}"
+    light-second-bg-color:
+      value: "{!GRAY-3}"
+    light-third-bg-color:
+      value: "{!GRAY-6}"
+    light-fourth-bg-color:
+      value: "{!GRAY-5}"
+    light-fifth-bg-color:
+      value: "{!GRAY-7}"
+    light-sixth-bg-color:
+      value: "{!GRAY-9}"
+    light-seventh-bg-color:
+      value: "{!GRAY-8}"
+    dark-bg-color:
+      value: "{!BLACK}"
+    dark-transparent-bg-color:
+      value: "rgba(0,0,0,0.7)"
+    # text color
+    primary-text-color:
+      value: "{!BLACK}"
+    secondary-text-color:
+      value: "{!GRAY-2}"
+    secondary-second-text-color:
+      value: "{!GRAY-1}"
+    secondary-third-text-color:
+      value: "{!GRAY-4}"
+    secondary-fourth-text-color:
+      value: "{!GRAY-5}"
+    secondary-fifth-text-color:
+      value: "{!GRAY-6}"
+    secondary-sixth-text-color:
+      value: "{!GRAY-10}"
+    tertiary-text-color:
+      value: "{!BLUE-5}"
+    tertiary-second-text-color:
+      value: "{!BLUE-6}"
+    tertiary-third-text-color:
+      value: "{!BLUE-1}"
+    tertiary-fourth-text-color:
+      value: "{!BLUE-3}"
+    tertiary-fifth-text-color:
+      value: "{!YELLOW-1}"
+    tertiary-sixth-text-color:
+      value: "{!BLUE-10}"
+    tertiary-seventh-text-color:
+      value: "{!BLUE-4}"
+    tertiary-eighth-text-color:
+      value: "{!GREEN-3}"
+    text-onDark:
+      value: "{!WHITE}"
+    primary-link-color:
+      value: "{!BLUE-2}"
+    primary-second-link-color:
+      value: "{!BLUE-7}"
+    error-text-color:
+      value: "{!RED-1}"
+    # border color
+    default-border-color:
+      value: "{!WHITE}"
+    primary-border-color:
+      value: "{!BLUE-1}"
+    primary-second-border-color:
+      value: "{!BLUE-3}"
+    primary-third-border-color:
+      value: "{!BLUE-4}"
+    secondary-border-color:
+      value: "{!BLUE-5}"
+    secondary-second-border-color:
+      value: "{!BLUE-6}"
+    tertiary-border-color:
+      value: "{!GREEN-1}"
+    tertiary-second-border-color:
+      value: "{!GREEN-2}"
+    tertiary-third-border-color:
+      value: "{!YELLOW-1}"
+    tertiary-fourth-border-color:
+      value: "{!ORANGE-1}"
+    error-border-color:
+      value: "{!RED-1}"
+    light-border-color:
+      value: "{!GRAY-1}"
+    light-second-border-color:
+      value: "{!GRAY-3}"
+    light-third-border-color:
+      value: "{!GRAY-5}"
+    light-fourth-border-color:
+      value: "{!GRAY-8}"
+    dark-border-color:
+      value: "{!BLACK}"

@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/widgets/cover-image/templates/cover-image/cover-image-tmpl
+
+block parentItemTemplate
+    | !{pb.render('parent-item', {data: cover},'app')}
+
+    block coverDescription
+      | !{pb.renderDropzone(thisWidget, "coverDescriptionDropZone_"+thisWidget.id)}
+
+
+block customCoverURL
+    if(cover.customUrl)
+        -url=cover.customUrl

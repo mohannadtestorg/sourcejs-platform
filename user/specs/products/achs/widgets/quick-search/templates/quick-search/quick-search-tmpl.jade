@@ -1,0 +1,38 @@
+- var widgetProperties = {"volumeText":"", "pageText":"", "publicationText":"", "placeHolderText":"", "numOfContributors":"", "numOfTopics":"", "numOfPublicationTitles":"", "numOfHistoryItems":""};
+- var widgetData = {"searchTerm":"", "maxWords":"", "maxChars":"", "journals":[]};
+
+if (data)
+    - widgetData.searchTerm = data.searchTerm ? data.searchTerm : widgetData.searchTerm;
+    if(data.props)
+        - widgetData.maxWords = data.props.maxWords ? data.props.maxWords : widgetData.maxWords;
+        - widgetData.maxChars = data.props.maxChars ? data.props.maxChars : widgetData.maxChars;
+    if(data.journals[0])
+        - widgetData.journals = data.journals[0] ? data.journals : widgetData.journals;
+
+if(thisWidget && thisWidget.properties)
+    - widgetProperties.volumeText = thisWidget.properties.volumeText ? thisWidget.properties.volumeText : widgetProperties.volumeText;
+    - widgetProperties.pageText = thisWidget.properties.pageText ? thisWidget.properties.pageText : widgetProperties.pageText;
+    - widgetProperties.publicationText = thisWidget.properties.publicationText ? thisWidget.properties.publicationText : widgetProperties.publicationText;
+    - widgetProperties.placeHolderText = thisWidget.properties.placeHolderText ? thisWidget.properties.placeHolderText : widgetProperties.placeHolderText;
+    - widgetProperties.numOfContributors = thisWidget.properties.numOfContributors ? thisWidget.properties.numOfContributors : widgetProperties.numOfContributors;
+    - widgetProperties.numOfTopics = thisWidget.properties.numOfTopics ? thisWidget.properties.numOfTopics : widgetProperties.numOfTopics;
+    - widgetProperties.numOfPublicationTitles = thisWidget.properties.numOfPublicationTitles ? thisWidget.properties.numOfPublicationTitles : widgetProperties.numOfPublicationTitles;
+    - widgetProperties.numOfHistoryItems = thisWidget.properties.numOfHistoryItems ? thisWidget.properties.numOfHistoryItems : widgetProperties.numOfHistoryItems;
+
+div.quick-search
+    a.quick-search_mobile-icon.icon-search(href="#")
+    div.quick-search_content
+        form.quick-search_default(action="/action/doSearch" name="defaultQuickSearch" method="get" title="Quick Search")
+            input.quick-search_all-field.autocomplete(type="search" autocomplete="off" name="AllField" placeholder=widgetProperties.placeHolderText data-auto-complete-max-words=widgetData.maxWords data-auto-complete-max-chars=widgetData.maxChars data-contributors-conf=widgetProperties.numOfContributors data-topics-conf=widgetProperties.numOfTopics data-publication-titles-conf=widgetProperties.numOfPublicationTitles data-history-items-conf=widgetProperties.numOfHistoryItems value=widgetData.searchTerm)
+            button.icon-search(type="submit" title="Search")
+        p OR SEARCH CITATIONS
+        form.quick-search_citation(action="/action/quickLink" name="citationQuickSearch" method="get" title="Quick Search")
+            input(type="hidden" name="quickLink" value="true")
+            select.quick-search_journals-select.jcf(name="quickLinkJournal" datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                option(value="") Journals
+                each journal in widgetData.journals
+                    if(journal.label && journal.code)
+                        option(value=journal.code) !{journal.label}
+            input(type="search" name="quickLinkVolume" autoComplete="false" placeholder=widgetProperties.volumeText)
+            input(type="search" name="quickLinkPage" autoComplete="false" placeholder=widgetProperties.pageText)
+            button.icon-search(type="submit" title="Search")

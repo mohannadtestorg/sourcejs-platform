@@ -1,0 +1,14 @@
+extends ../../../../../../ux3/widgets/slideshow/templates/slideshow/slideshow-tmpl
+
+block slideShowPrefix
+    -var originalData = data
+    -var dataSlider = {"widget": {"responsive" : '{"xsMin":{"items":1},"smMin":{"items":2},"mdMin":{"items":4}}', "arrow": true, "slides": []}}
+
+    each item, l in data.items
+        -dataSlider.widget.slides.push(item)
+
+    - data = dataSlider
+
+block slideShowDropZone
+    div.slide-item
+        | !{pb.render("publication-list", "publication-list/publication-single", {item: item}, 'physio')}

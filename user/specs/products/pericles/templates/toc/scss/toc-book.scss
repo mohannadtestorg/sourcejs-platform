@@ -1,0 +1,220 @@
+.listOfBooks {
+
+    .card {
+        padding: 15px 0;
+    }
+
+    .issue-item {
+        padding: 15px 0 10px 0;
+        margin: 0;
+        border-bottom-color: $wiley-extralightGray-color;
+    }
+}
+
+.toc-book__nav {
+    border-top: 1px solid $tab-border;
+
+    .toc-go-section {
+        border-top: none;
+    }
+
+    @include media('>=desktop') {
+        padding-top: 10px;
+    }
+    font-size: 0.75rem;
+    font-weight: 600;
+
+
+    .pdf-img {
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 21px;
+    }
+
+    i {
+        line-height: 20px;
+        vertical-align: middle;
+        padding: 0;
+        padding-right: 5px;
+    }
+
+    > li {
+        @include media('<desktop') {
+            display: block;
+
+
+            i[class*=icon-] {
+                width: auto;
+            }
+
+            & ~ li {
+                border-top: 1px solid $tab-border;
+                padding-top: 10px;
+            }
+        }
+
+        @include media('>=desktop') {
+            border-right: 1px solid $tab-border;
+            padding-right: 25px;
+            margin-right: 25px;
+
+            &:last-child {
+                border-right: none;
+                margin-right: 0;
+                padding-right: 0;
+            }
+
+
+        }
+
+    }
+
+    a {
+        margin: 0;
+    }
+
+    .toc__section {
+        > a {
+            padding: 0;
+        }
+
+        @include media('<desktop') {
+            padding: 10px 0;
+        }
+    }
+    @include media('>=desktop') {
+        .toc__section {
+
+            position: relative;
+            padding: 0;
+
+            > a {
+                border-bottom: 4px solid transparent;
+                padding: 0;
+
+                &.js--open {
+                    border-bottom-color: $wiley-blue-color;
+                    color: $wiley-blue-color;
+                }
+                & + div {
+                    position: absolute;
+                    top: 100%;
+                }
+            }
+
+            ul {
+                border: 2px solid $wiley-blue-color;
+                padding: 0;
+
+                li {
+                    margin: 0;
+                    padding: 0;
+                }
+
+                a {
+                    padding: 15px 20px;
+                    display: block;
+
+                    &:hover {
+                        background-color: $wiley-blue-color;
+                        color: $white;
+                    }
+
+
+                }
+            }
+        }
+    }
+}
+
+
+
+.read-more, .read-less {
+    font-size: 0.875rem;
+    color: $wiley-blue-color;
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+
+    i[class*=icon-] {
+        font-size: 5px;
+        font-weight: 600;
+        vertical-align: middle;
+        margin-left: 5px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        color: $wiley-blue-color;
+    }
+}
+
+article .toc-go-section {
+    position: relative;
+
+    .sections__drop {
+        top: 30px;
+    }
+
+    .rlist.separator>li~li {
+        border-left: 0;
+        padding-left: 0;
+        margin-left: 0;
+    }
+}
+.chapterNumber {
+    font-size: 0.75rem;
+    margin: 15px 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.book-toc-content {
+
+    .toc__heading {
+        padding-left: 10px;
+        border-left: 5px solid $wiley-green-color;
+    }
+
+    @include media('<desktop') {
+        margin-top: 20px;
+    }
+
+    .table-of-content {
+
+        .loa.comma {
+            padding-left: 0;
+        }
+
+        .toc__heading + .issue-item {
+            border-top: 0;
+            padding-top: 0;
+        }
+    }
+}
+
+.aboutBook  #read-more i {
+    font-size: 6px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.aboutBook +.card
+{
+    .issue-item:last-child{
+        border-bottom:0;
+    }
+}
+
+.cover-silver-light-heading{
+   font-size:14px;
+}
+
+.journal-page-header.border-bottom {
+    border-bottom: 1px solid #ccc;
+}

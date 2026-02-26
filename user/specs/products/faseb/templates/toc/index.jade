@@ -1,0 +1,36 @@
+extends /specs/products/faseb/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Table Of Content page
+
+
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.toc
+                .meta-wrapper
+
+                .container
+                    | !{data.meta}
+                    .row.separator
+                        .col-sm-7.col-md-8.col-lg-9
+                            | !{data.toc}
+
+                        .col-sm-5.col-md-4.col-lg-3
+                            h3.section__header.border-bottom newsletter
+                            | !{data.nl}
+
+                            //mpu ad
+                            .mpu
+                            | !{data.news}
+                            | !{data.tweets}
+
+            | !{data.footer}
+    | #{''}

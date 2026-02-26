@@ -1,0 +1,401 @@
+.loi {
+    background: $loi-bg-color;
+    padding: 0 15px 15px;
+    position: relative;
+    color: $primary-bg-color;
+
+    .loi {
+        padding: 0;
+
+    }
+
+    .tab__content {
+        border-top: 2px solid $loi-button-bg-color;
+        // LIT-162677
+        overflow: auto;
+        @include media('>=tablet') {
+            max-height: 300px;
+            max-height: 40vh;
+        }
+    }
+
+    &__banner {
+        background: $loi-banner-bg-color;
+        font-size: 0.875rem; // 14px;
+        @include media('<desktop', '>=tablet') {
+            font-size: 0.75rem; // 12px;
+        }
+        font-weight: bold;
+        //padding: 10px 5px;
+        z-index: 9;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+
+        &-list {
+            &:after {
+                content: " ";
+                display: table;
+                clear: both;
+            }
+        }
+
+        &.loi--res {
+            position: fixed;
+            top:55px;
+            width: 100%;
+            left: 0;
+
+            .loi__banner-list {
+                float: right;
+            }
+
+            &.uncollapsible{
+                position: static;
+                display: block;
+                .loi--res{
+                    position: static;
+                    display: block;
+                }
+            }
+
+        }
+
+        .coolBar__wrapper {
+            width: 100%;
+            padding: 16px 5px;
+        }
+    }
+    &.loi--res {
+        display: none;
+    }
+    &__list {
+        font-size: 1rem;
+        text-align: center;
+        min-width: 100%;
+        padding-right: 20px;
+
+        span {
+            line-height: 1rem;
+        }
+
+        li {
+            margin-bottom: 0;
+        }
+
+        a {
+            padding: 20px 20px 16px;
+            border: none;
+            line-height: 12px;
+            .loi--res & {
+                padding: 20px 15px 16px;
+            }
+        }
+
+        .active {
+            border-bottom: 3px solid $primary-bg-color;
+        }
+    }
+
+    .coverDate {
+        margin-right: 5px;
+        padding-right: 5px;
+        border-right: 2px solid;
+        line-height: 15px;
+        display: inline-block;
+    }
+
+    &__archive {
+        &:after  {
+            color: $archive-button;
+            font-size: 0.4375rem; // 10px
+            padding-left: 10px;
+            @include media('<desktop', '>=tablet') {
+                padding-left: 5px;
+            }
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            content: "\e61c";
+            width: 20px;
+            display: inline-block;
+        }
+        &.js--open {
+            &:after {
+                content: "\e60c";
+            }
+        }
+    }
+
+    &__issue {
+        margin-bottom: 32px;
+        font-size: 1rem;
+
+        h6 {
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+
+        .status {
+            font-size: $h6-font-size;
+            font-weight: 600;
+        }
+
+
+        i {
+            font-size: 1.1875rem;
+            padding-right: 5px;
+            float: left;
+            line-height: 16px;
+
+            & + .loi__access {
+                border-left: 2px solid;
+                padding-left: 5px;
+                float: left;
+            }
+        }
+
+    }
+
+    .parent-item {
+        font-size: 1rem;
+    }
+
+    .date {
+        display: inline-block;
+    }
+
+    .date, .parent-item {
+        color: $primary-text-color;
+        font-weight: bold;
+    }
+
+    .iPageRange {
+        padding: 0 5px;
+    }
+
+    .iPageRange {
+        clear: left;
+        padding-left: 0;
+        font-size: 0.75rem;
+    }
+    &__access {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+    }
+
+
+    .tab__pane{
+        padding-right: 0;
+        padding-left: 0;
+        font-size: 1rem;
+        &:not(.nested-tab) {
+            padding-top: 35px;
+        }
+
+        li.col-md-4 {
+            &:nth-child(3n+1) {
+                clear: left;
+            }
+        }
+        &.nested-tab {
+            padding-top: 0;
+        }
+    }
+
+    &-list__wrapper {
+        margin: 0 auto;
+        max-width: 800px;
+
+        &:after, &:before {
+            display: none;
+        }
+    }
+    &__banner__right-side {
+        i {
+            font-size: 1.125rem;
+            @include media('<desktop', '>=tablet') {
+                font-size: 1rem;
+            }
+            color: $primary-text-color;
+        }
+
+    }
+
+    &-slide__ctrl {
+        .coolBar--res & {
+            display: inline-block;
+            padding: 0;
+        }
+        i {
+            font-size: 0.875rem;
+            color: $primary-text-color;
+            margin-right: 15px;
+            display: inline-block;
+        }
+    }
+}
+
+.coolBar__wrapper {
+    .loi--res & {
+        padding: 14px 5px
+    }
+}
+
+[class*="loi__btn"] {
+    position: absolute;
+    padding: 19px 10px 15px;
+    font-size: 0.8125rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    &.inactive {
+        i {
+            opacity: 0.6;
+        }
+
+    }
+
+    &[class*="prev"] {
+        left: -1px;
+        box-shadow: 10px 0 10px -5px rgba($loi-bg-color, 0.63);
+        background: rgba($loi-bg-color,1);
+        background: -moz-linear-gradient(left, rgba($loi-bg-color,1) 0%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,0.85) 76%, rgba($loi-bg-color,0.73) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba($loi-bg-color,1)), color-stop(50%, rgba($loi-bg-color,1)), color-stop(76%, rgba($loi-bg-color,0.85)), color-stop(100%, rgba($loi-bg-color,0.73)));
+        background: -webkit-linear-gradient(left, rgba($loi-bg-color,1) 0%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,0.85) 76%, rgba($loi-bg-color,0.73) 100%);
+        background: -o-linear-gradient(left, rgba($loi-bg-color,1) 0%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,0.85) 76%, rgba($loi-bg-color,0.73) 100%);
+        background: -ms-linear-gradient(left, rgba($loi-bg-color,1) 0%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,0.85) 76%, rgba($loi-bg-color,0.73) 100%);
+        background: linear-gradient(to right, rgba($loi-bg-color,1) 0%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,0.85) 76%, rgba($loi-bg-color,0.73) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3c3c', endColorstr='#3c3c3c', GradientType=1 );
+
+
+    }
+
+    &[class*="next"] {
+        right: -1px;
+        box-shadow: -10px 0 10px -5px rgba($loi-bg-color, 0.63);
+        background: rgba($loi-bg-color,0.73);
+        background: -moz-linear-gradient(left, rgba($loi-bg-color,0.73) 0%, rgba($loi-bg-color,0.85) 24%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba($loi-bg-color,0.73)), color-stop(24%, rgba($loi-bg-color,0.85)), color-stop(50%, rgba($loi-bg-color,1)), color-stop(100%, rgba($loi-bg-color,1)));
+        background: -webkit-linear-gradient(left, rgba($loi-bg-color,0.73) 0%, rgba($loi-bg-color,0.85) 24%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,1) 100%);
+        background: -o-linear-gradient(left, rgba($loi-bg-color,0.73) 0%, rgba($loi-bg-color,0.85) 24%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,1) 100%);
+        background: -ms-linear-gradient(left, rgba($loi-bg-color,0.73) 0%, rgba($loi-bg-color,0.85) 24%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,1) 100%);
+        background: linear-gradient(to right, rgba($loi-bg-color,0.73) 0%, rgba($loi-bg-color,0.85) 24%, rgba($loi-bg-color,1) 50%, rgba($loi-bg-color,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3c3c', endColorstr='#3c3c3c', GradientType=1 );
+
+
+    }
+}
+
+.loi__banner {
+    .dropBlock-loi__drop {
+        background: $primary-bg-color;
+        left: 0;
+        overflow-y: scroll;
+        padding: 0 0 40px;
+        position: fixed;
+        top: 52px;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+
+        a {
+            display: block;
+            padding: 17px 17px 13px;
+            color: $loi-banner-content-text-color;
+            background: $loi-banner-content-bg-color;
+            border-bottom:  1px solid $loi-banner-lighten-bg-color;
+            font-size: 0.75rem;
+
+            span {
+                border-left: none;
+                padding:0;
+                display: inline-block;
+            }
+        }
+
+        .loi__banner__right-side {
+            margin-top: 15px;
+            border-top:  1px solid $loi-banner-lighten-bg-color;
+            float: none !important;
+
+            li {
+                display: block;
+                padding: 0;
+            }
+
+            i {
+                color: $loi-banner-content-text-color;
+                font-size: 0.875rem;
+                width:15px;
+                margin-right: 5px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            span {
+                font-weight: 600;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
+#loi-banner {
+    > a {
+        padding: 0 10px;
+        @include media('<desktop', '>=tablet') {
+            padding: 0 5px;
+        }
+        display: inline-block;
+        line-height: 0.875rem;
+        color: $primary-light-text-color;
+
+        ~ a {
+            border-left: 2px solid $primary-text-color;
+        }
+
+    }
+}
+
+.w-slide {
+    &__content {
+        .loi.loi--res {
+            display: block;
+        }
+    }
+
+    &--loi__title {
+        background-color: $loi-banner-bg-color;
+        text-align: center;
+        color: $primary-bg-color;
+        font-weight: bold;
+        padding: 16px 0;
+        font-size: 1.125rem;
+    }
+
+    &--loi__content {
+        padding: 60px 0 0;
+    }
+
+    .loi__archive {
+        &:after {
+            float: right;
+            transform: rotate(-90deg);
+            padding-left: 0;
+        }
+    }
+}
+
+[data-order="ascending"] {
+    .scroll {
+        direction:rtl;
+    }
+    .loi__list {
+        text-align: center;
+        direction:rtl;
+    }
+}

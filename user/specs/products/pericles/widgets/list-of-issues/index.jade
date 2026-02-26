@@ -1,0 +1,114 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            small note: this widget has a performance issues, so we are using the <a href="/specs/products/pericles/widgets/list-of-issues-links/"> List of issues links</a> widget instead.
+            small you may found that this widget has some ui issues please refer to <a href="/specs/products/pericles/widgets/list-of-issues-links/"> List of issues links</a>
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use List of issues template.
+        +printJson({
+            "data": {
+                "widget": {
+                    "template": "default"
+                },
+                "nav": {},
+                "loi": {
+                    "groupType": "decade",
+                    "journalTitle": "American Journal of Physiology - Cell Physiology",
+                    "expandFirst": true,
+                    "content": [
+                        {
+                            "label": "2000-2009",
+                            "content": [
+                                {
+                                    "year": "2009",
+                                    "volumes": [
+                                        {
+                                            "VolNo": "297",
+                                            "issues": [
+                                                {
+                                                    "issue": "6",
+                                                    "url": "/toc/ajpcell/297/6",
+                                                    "seq": -1,
+                                                    "pageRange": "C1331-C1332",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "FULL_ACCESS",
+                                                    "coverDate": "December 2009"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "VolNo": "296",
+                                            "issues": [
+                                                {
+                                                    "issue": "6",
+                                                    "url": "/toc/ajpcell/296/6",
+                                                    "seq": -1,
+                                                    "pageRange": "C1245-C1247",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "FULL_ACCESS",
+                                                    "coverDate": "June 2009"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "year": "2008",
+                                    "volumes": [
+                                        {
+                                            "VolNo": "295",
+                                            "issues": [
+                                                {
+                                                    "issue": "6",
+                                                    "url": "/toc/ajpcell/295/6",
+                                                    "seq": -1,
+                                                    "pageRange": "C1473C1473",
+                                                    "isLegacy": true,
+                                                    "isCurrent": false,
+                                                    "inProgress": false,
+                                                    "access": "FULL_ACCESS",
+                                                    "coverDate": "December 2008"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }]
+                        }]
+                }
+            }
+        })
+
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3 List of issues
+        .source_example
+            .container
+                | !{pb.render('list-of-issues', 'loi-data.json', 'pericles')}
+
+        h3 List of issues
+        .source_example
+            .container
+                | !{pb.render('list-of-issues', 'loi-data-new.json', 'pericles')}
+
+
+    | #{''}

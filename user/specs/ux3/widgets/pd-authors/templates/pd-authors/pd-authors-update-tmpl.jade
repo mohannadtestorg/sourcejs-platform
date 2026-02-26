@@ -1,0 +1,182 @@
+mixin td(row, r, jsonFieldName, theadName, classes, isAffTd, isdummyRow)
+
+    - var fieldText=row[jsonFieldName].value
+
+    td(data-thead=theadName class=classes)
+        if (row[jsonFieldName])
+            if (isAffTd)
+                - var affValues="";
+                - var affText="";
+                if (row[jsonFieldName].value == "{{3}}")
+                    -affText=row[jsonFieldName].value
+                    -affValues="{{3_val}}";
+                    .affiliations__hidden-inputs.hidden
+                        | {{3_inputs}}
+                    .td-text !{affText}
+                    .td-affiliations-val.hidden !{affValues}
+
+                else
+                    .affiliations__hidden-inputs.hidden
+                        each val, i in row[jsonFieldName].value
+                            if (val != "" )
+                                input(type="hidden" value=val name="authors[" + r + "]." + jsonFieldName)
+
+                    if (row[jsonFieldName].value && row[jsonFieldName].value.length > 0)
+                        each val, i in row[jsonFieldName].value
+                            if (val != "" )
+                                -affText=affText+ data.affiliations[val];
+                                -affValues=affValues+   val;
+
+                                if (i + 1 != row[jsonFieldName].value.length)
+                                    -affText=affText+ ", ";
+                                    -affValues=affValues+"|#|";
+                                else
+                                    .td-text !{affText}
+                                    .td-affiliations-val.hidden !{affValues}
+                    else
+                        .td-text
+                        .td-affiliations-val.hidden
+
+            else
+                .td-text !{fieldText}
+                block inputInTd
+                    if (isdummyRow)
+                        fakedinput(type="hidden" value=fieldText name="authors[" + r + "]." + jsonFieldName)
+                    else
+                        input(type="hidden" value=fieldText name="authors[" + r + "]." + jsonFieldName)
+
+            block errorMessage
+                if (row[jsonFieldName].message && row[jsonFieldName].message.text )
+                    div(class=row[jsonFieldName].message.type == "error" ? "error" : row[jsonFieldName].message.type == "warning" ? "warning" : "success") !{row[jsonFieldName].message.text}
+
+
+mixin row(r, row, isdummyRow)
+    - var iscorresponding = "false";
+    if (row.corresponding)
+        - iscorresponding = (row.corresponding.value === true || row.corresponding.value == "true" ) ? "true" : "false";
+
+    block rowClasses
+        - var rowClasses = iscorresponding == "true" ?"author__corresponding" : "sortable-row"
+
+    tr.author__row.expanded(data-row-num=r class=rowClasses)
+
+        block firstTd
+            td
+                if (isdummyRow)
+                    fakedinput(type="hidden" value=r name="authors[" + r + "].order" class="author__order")
+                    fakedinput(type="hidden" value=iscorresponding name="authors[" + r + "].corresponding" )
+                else
+                    input(type="hidden" value=r name="authors[" + r + "].order" class="author__order")
+                    input(type="hidden" value=iscorresponding name="authors[" + r + "].corresponding" )
+
+                a(href="#").icon-arrow_d_n.pull-right.hidden-md.hidden-lg.table__control__button
+                if (iscorresponding == "false")
+                    .btn--handle.ui-sortable-handle
+                        i.icon-menu2
+                div.author__full-name.hidden-md.hidden-lg
+                    span Author
+                    | !{row["first-name"].value}
+                    | !{row["last-name"].value}
+
+        +td(row, r, "orcid", "ORCID", "author-orcid-td to_hide", false, isdummyRow)
+        +td(row, r, "first-name", "Author Given Name", "author-name-td to_hide", false, isdummyRow)
+        +td(row, r, "last-name", "Author Surname", "to_hide author-surname-td", false, isdummyRow)
+        +td(row, r, "affiliations", "Affiliations", "to_hide author-affiliation-td", true, isdummyRow)
+        +td(row, r, "email", "Contact Information", "to_hide author-email-td", false, isdummyRow)
+
+        block Actions
+            td(class="table__td--dropdown to_hide")
+                if (iscorresponding == "false")
+                    | !{pb.render('drop-block', 'drop-block/drop-block-actions', {data: {"id": "author__" + r, "actions": [{"label": "Edit", "icon": "icon-pencil", "class": "edit"}, {"label": "Delete","icon": "icon-delete", "class": "delete"}]}})}
+                else
+                    | !{pb.render('drop-block', 'drop-block/drop-block-actions', {data: {"id": "author__" + r, "actions": [{"label": "Edit", "icon": "icon-pencil", "class": "edit"}]}})}
+
+.row
+    .col-md-12
+        block SubmissionAuthors
+            .submission-authors
+                input(type="hidden" name="authors.id",value=thisWidget.id)
+
+                h4.border-bottom Authors
+                    | !{pb.render('tooltip', {data: {"isSliderinMobile": "true", "type": "icon", "title": "Authors", "text": "Enter additional co-authors here. If you add co-author(s), you must provide their full name, email, and affiliation. If you paste in their ORCID identifier first, their information will be entered from ORCID if available."}})}
+
+                .table-responsive.authors__table.table-actions
+                    table(class='expandable separator sortable-table')
+                        thead
+                            tr
+                                th
+
+                                th
+                                    span.ORCID-icon iD
+                                    | ORCID
+                                th First Name
+                                th Last Name
+                                th Affiliation
+                                th Contact Information
+                                th
+
+                        tbody.ui-sortable
+                            if (data.forms)
+                                each row, r in data.forms
+                                    +row(r, row)
+                button#addAuthor.btn.btn--inverse.submission-table__btn Add author
+
+
+
+                table.hidden.rowTemplate
+                    - var dummyRow={'orcid':{'value':['{{0}}']}, 'first-name':{'value':'{{1}}'}, 'last-name':{'value':'{{2}}'}, 'affiliations':{'value':'{{3}}'}, 'email':{'value':'{{4}}'}}
+                    +row("{{5}}", dummyRow, true)
+
+                .hidden.affiliationsInputTemplate
+                    fakedinput(type="hidden" value="{{0}}" name="authors[{{1}}].affiliations")
+
+
+
+
+            .ux-modal-container.submission__modal
+                #authors-modal.modal(role="dialog")
+                    .modal__header.hidden-lg.hidden-md
+                        div Author
+                    .modal__dialog
+                        input.mode.hidden(value="add")
+                        input.row-num.hidden(value="-1")
+
+                        .modal__body
+                            .error.modal-validation-message
+                            .input-group
+                                label(for="author-orcid")
+                                    span.ORCID-icon iD
+                                    | ORCID (Optional)
+
+                                input(id="author-orcid", name="author-orcid", type="text")
+                                a.authorAjaxLink.link(href=data.getAuthorLink) Lookup
+
+                                .error(aria-hidden=true)
+
+
+
+                            .input-group
+                                label(for="author-name") Author Given Name
+                                input(id="author-name", name="author-name", type="text")
+                                .error(aria-hidden=true)
+
+                            .input-group
+                                label(for="author-last-name") Author Surname
+                                input(id="author-last-name", name="author-last-name", type="text")
+                                .error(aria-hidden=true)
+
+                            .input-group
+                                label(for="author-affilation") Affiliation
+                                input.aff-magicsuggest(id="author-affilation", name="author-affilation", type="text")
+                                input(hidden value=data.affiliationSearchLink id="affiliationAjaxLink")
+                                .affiliations-types.hidden
+
+                            .input-group
+                                label(for="author-email") Email
+                                input(id="author-email", name="author-email", type="email")
+                                .error(aria-hidden=true)
+
+
+                        .modal__footer
+                            button.btn.pull-right(type='button', id="saveAuthor")  Save
+                            button.first-name.link.pull-right(type='button', data-dismiss='modal')  Cancel

@@ -1,0 +1,47 @@
+block variables
+    - var crumbs = data.breadcrumbs;
+    - var widget = thisWidget.properties;
+    - var breadcrumbList = [];
+
+//- Create an array of breadcrumbs. Used to allow overriding the "Current Page" label since the current page varies based on the context.
+block breadcrumbsArray
+    if crumbs
+        if (crumbs.SiteHome)
+            - breadcrumbList.push({"class":"","label": crumbs.SiteHome.label, "link": crumbs.SiteHome.link});
+
+        if (crumbs.browsePublication)
+            - breadcrumbList.push({"class":"","label": crumbs.browsePublication.label, "link": crumbs.browsePublication.link});
+
+        if (crumbs.Serial)
+            - breadcrumbList.push({"class":"","label": crumbs.Serial.label, "link": crumbs.Serial.link});
+
+        if (crumbs.Serial && crumbs.Serial.linkToListOfIssue)
+            - breadcrumbList.push({"class":"","label": crumbs.Serial.linkToListOfIssue.label, "link": crumbs.Serial.linkToListOfIssue.link});
+
+        if (crumbs.Group)
+            - breadcrumbList.push({"class":"","label": crumbs.Group.label, "link": crumbs.Group.link});
+
+        if (crumbs.Item)
+            - breadcrumbList.push({"class":"article__title","label": crumbs.Item.label, "link": crumbs.Item.link});
+
+        if (crumbs.CurrentPage)
+            - breadcrumbList.push({"class":"","label": crumbs.CurrentPage.label, "link": crumbs.CurrentPage.link});
+
+        //- Change label of last breadcrumb when overriding system generated label for page
+        if (widget.overrideSystemGenerated == "true")
+            - breadcrumbList[breadcrumbList.length - 1].label = widget.overrideLabel;
+
+        //- Only include the "Current Page" when widget property is enabled. Current page is the last one in the array.
+        if (!widget.includeCurrentPage)
+            - breadcrumbList.pop();
+
+        //- Add custom links to the end of the breadcrumbs.
+        if (widget.data && widget.data.length)
+            each customCrumb in widget.data
+                - breadcrumbList.push({"class":"","label": customCrumb.label, "link": customCrumb.link})
+
+block breadcrumbs
+    if breadcrumbList
+        nav.article__breadcrumbs.separator
+            each crumb in breadcrumbList
+                a.article__tocHeading(class= crumb.class, href=crumb.link) !{crumb.label}

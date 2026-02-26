@@ -1,0 +1,28 @@
+- var dropblockID = "loi__dropBlock";
+- var dropblockTitle = "Archive";
+
+block publication_navbar
+    div(data-db-parent-of=dropblockID + "__content")
+        div.loi__banner.coolBar.stickybar
+            .coolBar__wrapper.stickybar__wrapper
+                a.hidden-md.hidden-lg.loi-slide__ctrl.w-slide__btn(href="#" data-slide-target="#loi-banner")
+                    i.icon-toc
+                    span Journal
+
+                div.loi__banner-list
+                    #loi-banner.hidden-sm.hidden-xs.pull-left
+                        a.w-slide__btn(class='loi__' + dropblockTitle href="#" title=dropblockTitle data-db-target-for=dropblockID data-slide-target= '#' + dropblockID data-slide-clone='self')
+                            | Label
+
+
+                        a(class='loi__additionalLink' href="#" title="Link")
+                            | Link
+
+                        a.loi__archive.w-slide__btn(class=dropblockID id=dropblockID href="#" title="Issues" data-db-target-for=dropblockID + "__content" data-slide-target= '#' + dropblockID + '__content' data-slide-clone='self')
+                            | #{dropblockTitle}
+                        div.dropBlock__holder.dropBlock-loi__holder(data-db-target-of=dropblockID + "__content" id=dropblockID + "__content")
+                            | !{pb.renderDropzone(thisWidget, "loiDropZone")}
+
+                        .loi__banner__right-side.pull-right
+                            block loiBannerSecond
+                                | !{pb.renderDropzone(thisWidget, "coolbarDropZone")}

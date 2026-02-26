@@ -1,0 +1,5 @@
+extends ../../../exam-credit-claimed-confirmation/templates/exam-credit-claimed-confirmation/exam-credit-claimed-confirmation-tmpl.jade
+
+block email-certificate
+    if (data.session.person && data.session.person.email)
+        div.exam-credit-claimed__details.warning Your CME credit selection was submitted, but we were unable to send a confirmation email.

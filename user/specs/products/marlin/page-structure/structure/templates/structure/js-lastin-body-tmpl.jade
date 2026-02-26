@@ -1,0 +1,20 @@
+script.
+    if (define.amd)
+        define.amd = false
+script(src="http://code.jquery.com/jquery-1.9.1.js")
+script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
+script(src="/specs/products/marlin/releasedAssets/js/main.bundle.js")
+//Read about webfontloader on https://github.com/typekit/webfontloader
+script.
+    WebFontConfig = {
+        google: {
+            families: ['Open Sans']
+        },
+        loading: function () {
+
+        },
+        active: function () {
+            $(document).trigger("resize");
+        }
+    };
+script(src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js")

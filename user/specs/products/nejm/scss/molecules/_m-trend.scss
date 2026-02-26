@@ -1,0 +1,77 @@
+/***
+
+```
+<p class="m-trend">
+  <a href="#" class="m-trend__link">
+    <span class="m-trend__position f-h6">3.</span> <br>
+    <strong class="m-trend__title f-h6">Nam rutrum consectetur ligula nec mollis</strong> <br>
+    <em class="m-trend__author f-author">Marcelino E.S. Lucas and others</em>
+    <span class="m-trend__date f-tag">Nov 18, 2016</span>
+  </a>
+</p>
+```
+
+***/
+
+.m-trend {
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid $color__rules;
+}
+
+.m-trend:first-child {
+  padding-top: 0;
+  border-top: 0 none;
+}
+
+.m-trend br {
+  display: none;
+}
+
+.m-trend__link {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  position: relative;
+  padding-left: 40px;
+}
+
+.m-trend__type {
+  color: $color__accent;
+}
+
+.m-trend__position {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  color: $color__text--headlines;
+  text-align: center;
+}
+
+.m-trend__title {
+  display: block;
+  //flex: 1 0 100%;
+  width: 100%;
+  color: $color__text--headlines;
+}
+
+.m-trend__link:hover .m-trend__title {
+  text-decoration: underline;
+}
+
+.m-trend__author {
+  display: block;
+  flex: 1;
+  padding-right: 10px;
+  color: $color__text--quaternary;
+}
+
+.m-trend__date {
+  display: block;
+  flex: 0 0 auto;
+  margin-top: 4px;
+  padding-left: 10px;
+  text-align: right;
+  color: $color__text--quaternary;
+}

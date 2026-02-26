@@ -1,0 +1,19 @@
+.meta {
+     &__body {
+         &.card {
+             @include media('<tablet') {
+                 margin: 0;
+             }
+
+         }
+     }
+
+     .btn {
+         ~ .btn {
+             @include media('<tablet') {
+                 margin-left: 0;
+                 margin-top: 5px;
+             }
+         }
+     }
+ }

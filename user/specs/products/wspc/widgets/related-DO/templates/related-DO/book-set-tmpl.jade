@@ -1,0 +1,17 @@
+if(data.DoRelations || data.DoRelations.length != 0)
+
+    each item in data.DoRelations
+        - var tabsData = {data: {nav: []}, config: {type: "default",id: "m1x",hideEmpty: "false",vPort: "medium"}, thisWidget: {id: "m1x"}}
+        if item.about
+            - tabsData.data.nav.push({"text": "Description","content": item.about})
+        if item.toc
+            - tabsData.data.nav.push({"text": "Book","content": item.toc})
+        if item.reviews
+            - tabsData.data.nav.push({"text": "Reviews","content": item.reviews})
+        if item.authors
+            - tabsData.data.nav.push({"text": "Authors","content": item.authors})
+
+        div.book-tabs
+            - var model = tabsData
+            include extended/ext-tabs-tmpl
+            //| !{pb.render("tabs", "tabs/demo/demo-tabs", tabsData)}

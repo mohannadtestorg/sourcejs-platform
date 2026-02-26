@@ -1,0 +1,62 @@
+/***
+
+```
+<span class="a-type-tag">Tag</span> <br>
+<span class="a-type-tag a-type-tag--archive">Archive</span> <br>
+<span class="a-type-tag a-type-tag--cme">CME</span> <br>
+<span class="a-type-tag a-type-tag--free">Free</span> <br>
+<span class="a-type-tag a-type-tag--moc">MOC</span> <br>
+<span class="a-type-tag a-type-tag--current-issue">Current Issue</span>
+```
+
+***/
+
+.a-type-tag {
+  @extend %f-caps--sm;
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  height: 17px;
+  margin-top: -2px;
+  margin-left: 4px;
+  padding: 4px 8px 0;
+  border-radius: 8px;
+  background-color: $color__background;
+  color: $color__text--tertiary;
+  vertical-align: middle;
+  box-shadow: inset 0 0 0 1px $color__background;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.a-type-tag--archive {
+  background-color: $color__tag--archive;
+  color: $color__white;
+  box-shadow: none;
+}
+
+.a-type-tag--cme {
+  background-color: transparent;
+  color: $color__tag--cme;
+  box-shadow: inset 0 0 0 1px $color__tag--cme;
+}
+
+.a-type-tag--free {
+  background-color: transparent;
+  color: $color__tag--free;
+  box-shadow: inset 0 0 0 1px $color__tag--free;
+}
+
+.a-type-tag--moc {
+  background-color: transparent;
+  color: $color__tag--moc;
+  box-shadow: inset 0 0 0 1px $color__tag--moc;
+}
+
+.a-type-tag--current-issue {
+  background-color: transparent;
+  color: $color__accent;
+  box-shadow: inset 0 0 0 1px $color__accent;
+}

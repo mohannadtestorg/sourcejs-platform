@@ -1,0 +1,28 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-applied-facets-tmpl.jade
+
+mixin body()
+    block appliedFacets
+        if (data) && (data.appliedFacets)
+            ul.rlist--inline.facet__list--applied
+                each item, l in data.appliedFacets
+                    //- Facets applied through a similarity search (authors, keywords) are not removable and will be flagged as pinned. This check applies a class that can be styled separately for pinned filters.
+                    if (item.pinnedFilter)
+                        li(class="pinned-filter")
+                            +item(item)
+                    else
+                        li
+                            +item(item)
+
+mixin title()
+    block appliedFacetTilte
+        h4.facet__title Applied Filters
+          block clearFilters
+             span.clear
+                 a.search__filters__ctrl__reset(href="#" title="Reset all") Reset all
+                            
+block appliedFacetMain
+    if (data) && (data.appliedFacets)
+        div.facet.accordion
+            +title
+            div.facet__content.accordion__content.js--open(id="appliedFacet")
+                +body

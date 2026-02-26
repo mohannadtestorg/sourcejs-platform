@@ -1,0 +1,18 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-accordion-tmpl.jade
+
+block relatedTabBlock
+    if (data.item && data.item.related && data.item.related.items && data.item.related.items.length> 0)
+        li.accordion-tabbed__tab.related-articles
+            a.accordion-tabbed__control(href="#" title="Cited By" aria-expanded="false" aria-controls="relatedTab1")
+                | Related articles
+            ul.rlist.accordion-tabbed__content.creative-work(id= "relatedTab1")
+                each item, i in data.item.related.items
+                    li
+                        a(href=item.url)
+                            | !{item.articleTitle}
+                        div.meta
+                            i.icon-date
+                            span
+                                | !{item.date}
+                            span.journal-title
+                                | !{item.journalTitle}

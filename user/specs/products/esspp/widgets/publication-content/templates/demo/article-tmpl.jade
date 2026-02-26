@@ -1,0 +1,45 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/demo/article-tmpl
+
+block includeTabs
+    include ../article/extended/ext-tabs-tmpl
+
+block includeCitation
+    include ../article/extended/ext-citation-demo-tmpl
+    +epub()
+
+block ePubCitedby
+    if (data.item.vorDoi)
+        div
+            span.epub-section__item.epub-section__citedBy
+                span.epub-section__citedBy__label Version of Record:
+                a.epub-section__doi__text(href= "https://doi.org/" + data.item.vorDoi) https://doi.org/!{data.item.vorDoi}
+
+block includeCoolbar
+    include ../article/extended/ext-coolbar-demo-tmpl
+
+block article
+    main.content
+        if(data.item)
+            article.container(data-figures=data.item.figures data-references=data.item.references)
+                +articleRow()
+
+block ePubOtherSections
+    if (data.item.meeting)
+        .epub-section
+            if (data.item.meeting.label)
+                div
+                    span.epub-section__item
+                        span.epub-section__item__title Meeting Name:
+                        span.epub-section__item__content #{data.item.meeting.label}
+
+            if (data.item.meeting.date || data.item.meeting.location)
+                div
+                    if (data.item.meeting.date)
+                        span.epub-section__item
+                            span.epub-section__item__title Meeting Date:
+                            span.epub-section__item__content #{data.item.meeting.date}
+                    if (data.item.meeting.location)
+                        span.epub-section__item
+                            span.epub-section__item__title Meeting Location:
+                            span.epub-section__item__content #{data.item.meeting.location}
+

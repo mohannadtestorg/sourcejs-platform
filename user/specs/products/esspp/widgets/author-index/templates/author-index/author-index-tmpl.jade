@@ -1,0 +1,47 @@
+mixin f()
+    .visible-xs.visible-sm.author-index__browse-alpha
+        a.w-slide__btn(href='#', data-slide-target='#af1')
+            i.icon-filter_list.inline-icon(aria-hidden='true')
+            span BROWSE ALPHABETICALLY
+        div#af1.hidden
+            | !{pb.render("alphanumeric", "alphanumeric/author-filter", {}, "esspp")}
+    .visible-xs.visible-sm.author-index__alphanumeric
+        span LETTER :
+
+    div#filter
+
+if(data.search)
+    - var pages = data.search.hitsLength / data.search.pageSize
+    - var rest = data.search.hitsLength % data.search.pageSize
+    if rest > 0
+        - pages++
+    - var resultFrom = 1 + (data.search.startPage) * (data.search.pageSize)
+    - var resultTo = resultFrom + data.search.pageSize -1
+
+    .author-index__container.clearfix
+        if data.search.hitsLength > 0
+            - resultTo = resultTo > data.search.hitsLength ? data.search.hitsLength : resultTo
+            .col-md-12.author-index__results
+                span Showing:
+                span.result__current  !{resultFrom} - !{resultTo}
+                span.result__sep of
+                span.result__count !{data.search.hitsLength}
+
+            +f()
+
+            if(data.search.results)
+                .author-index__list.clearfix
+                    each item , i in data.search.results
+                        .col-sm-4
+                            a.link(href="/action/doSearch?target=default&ContribAuthorStored="+item.name title=item.name) !{item.name}
+        else
+            +f()
+
+            .author-index__list.clearfix
+                p There are no authors.
+
+
+
+
+        block pager
+           include ./pager-tmpl.jade

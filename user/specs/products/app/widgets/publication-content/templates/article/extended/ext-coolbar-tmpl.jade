@@ -1,0 +1,38 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-coolbar-tmpl
+
+block coolbarDate
+    - var coolbarData = {"sections": {"icon": "icon-Icon_Section-menu","label": "Sections"},"download": {"icon": "icon-Icon_Download","label": "View Options","items": []},"extra": [{"content": "<a href=\"#\" data-db-target-for=\"tools\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-tools\"></i><span>Tools</span></a><ul data-db-target-of=\"tools\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-export_citation\"></i><span>Export Citation</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-favorites\"></i><span>Add to Favorites</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-Email\"></i><span>Email a Friend</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-track\"></i><span>Track Citations</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-permissions\"></i><span>Permissions</span></a></li></ul>"},{"content": "<a href=\"#\" data-db-target-for=\"share\" data-db-switch=\"icon-close_thin\" class=\"coolBar__ctrl\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Share</span></a><ul data-db-target-of=\"share\" class=\"coolBar__drop fixed rlist\"><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-facebook\"></i><span>Facebook</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-twitter\"></i><span>Twitter</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-linkedin\"></i><span>LinkedIn</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-google-plus\"></i><span>Google+</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>Reddit</span></a></li><li><a href=\"#\"><i aria-hidden=\"true\" class=\"icon-share\"></i><span>CiteULike</span></a></li></ul>"}]}
+
+
+block prefixCoolbarExtraDownloadLinks
+    if(coolbarData.download)
+        -var abstractLabel = "Abstract";
+        if(original.item.type == "chapter")
+            - abstractLabel = "Excerpt";
+        +download_item(data.item.formats.abstract,"icon-download",abstractLabel,coolbarData.download.items)
+block coolbarExtraDownloadLinks
+    if(coolbarData.download)
+        +download_item(data.item.formats.suppl,"icon-download","Supplemental Materials",coolbarData.download.items)
+
+
+block addtionalCoolbarSection
+    if(original.item.type == "chapter")
+        if(original.showDeltaView && original.showDeltaView==true)
+            li.coolBar__section.coolBar--updates.hidden-xs.hidden-sm
+                ul.rlist.w-slide--list
+                    li
+                        a.coolBar__ctrl.book-chapter__updates.w-slide__hide.hide-update
+                            i.icon-layers-icon(aria-hidden='true')
+                            span.text Hide All Updates
+    else
+        li.coolBar__section.coolBar--cme.hidden-xs.hidden-sm
+            ul.rlist.w-slide--list.coolBar__cmeList
+              li
+                | !{pb.renderDropzone(thisWidget, "StartCMELinkdropZone")}
+
+
+block coolbarDropZoneTransplant
+    if(original.item.type == "chapter")
+        div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--updates .w-slide--list,.coolBar--download .coolBar__drop" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+    else
+        div.transplant.showit(data-target="article .tab .tab__nav, .coolBar--download .coolBar__drop, .coolBar--cme .w-slide--list" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")

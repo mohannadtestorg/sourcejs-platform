@@ -1,0 +1,120 @@
+.profile
+{
+  &-pages{
+
+    h1,h2,h3,h4,h5,h6{
+      color: $black;
+    }
+
+    .reproducible{
+      .actions{
+        display: inline-block;
+        margin-top: 5px;
+      }
+    }
+
+
+.profileMain{
+  margin-top: 25px;
+}
+
+    >.tab--aside{
+      >.tab__nav{
+
+        @include themify($themes) {
+          background: themed('color2');
+          height: 100%;
+          position: absolute;
+          min-height: calc( 100vh - 350px);
+
+
+          .active a{
+            border-color: themed('color');
+            border-width: 8px;
+            background: transparent;
+          }
+        }
+        width: 23%;
+        padding-left: 15px;
+
+      }
+      >.tab__content{
+        width: 73%;
+
+        @include media('<tablet'){
+          width: 100%;
+        }
+      }
+    }
+
+
+    .account-tab{
+      &__nav{
+        li{
+          margin-bottom: 0px;
+          @include themify($themes) {
+            border-left:1px solid themed('color');
+          }
+        }
+
+        @include themify($themes) {
+          border:1px solid themed('color');
+        }
+
+        &:not(.js--open) a{
+          border:none;
+          @include media('<tablet') {
+            padding: 15px 6px;
+            font-size: 10px;
+          }
+
+        }
+        .active {
+          @include themify($themes) {
+            background: themed('color');}
+          a {
+            color: white;
+            background: none;
+          }
+        }
+
+        text-transform: uppercase;
+      }
+    }
+
+
+    &__heading{
+      h3{
+        color: $white;
+      }
+
+      @include themify($themes) {
+        background: themed('color');
+      }
+
+
+    }
+
+  }
+}
+
+#accessEntitlementsDownloadInfo{
+  a{
+    color: $link-text-color;
+  }
+}
+
+#js__mobile-countries{
+font-size: .875rem;
+}
+.subscriptions-form {
+  .quick-search__button {
+    color: $white;
+  }
+}
+.delete-account-inline{
+  float: left;
+  .deleteAccount__tooltip{
+    display: inline-block;
+  }
+}

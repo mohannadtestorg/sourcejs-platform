@@ -1,0 +1,163 @@
+button,
+[type=submit],
+[type=button],
+.btn,
+.button {
+    border-radius: 2px;
+    background: $standard-secondary-bg-color;
+    font-size: .875rem;
+    font-weight: normal;
+    padding: 10px 12px;
+    &:hover, &:focus {
+        background: $standard-secondary-bg-color;
+    }
+
+
+    &.link{
+        color: $blue-text-color;
+        background: transparent;
+        border: none;
+        &:hover, &:focus {
+            background: transparent;
+            color: $blue-text-color;
+            border: none;
+            outline: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &[disabled]{
+        cursor: default;
+    }
+
+}
+
+[class*=btn] + [class*=btn] {
+    margin-left: 10px;
+}
+
+
+[class*=btn] + [class*=btn--action] {
+    margin-left: 0;
+}
+
+.btn--submit {
+    border: 1px solid $standard-secondary-bg-color;
+}
+
+
+.btn--inverse,
+.button--inverse {
+    color: $standard-secondary-bg-color;
+    border-color: $standard-secondary-bg-color;
+    background: transparent;
+
+    &:hover, &:focus {
+        background-color: $standard-secondary-bg-color;
+        color: $text-onDark;
+    }
+}
+
+@mixin btnColor($color) {
+    color: $color;
+    background-color: transparent;
+    border: 1px solid $color;
+    &:hover, &:focus {
+        color: $white;
+        background-color: $color;
+    }
+}
+@mixin btnBgColor($bgColor, $color) {
+    color: $color;
+    background-color: $bgColor;
+    border: 1px solid $bgColor;
+    &:hover, &:focus {
+        color: $color;
+        background-color: darken($bgColor,5%);
+    }
+}
+
+.btn {
+    padding: 10px 12px;
+    font-size: .875rem;
+
+    &__transparent {
+        background-color: transparent;
+        border: 2px solid $standard-secondary-bg-color;
+        color: $standard-secondary-bg-color;
+        &:hover, &:focus {
+            background-color: transparent;
+            color: $standard-secondary-bg-color;
+        }
+    }
+
+    &--submit {
+        border: 1px solid $standard-secondary-bg-color;
+    }
+
+    &--gray {
+        background-color: $basic-bg-color;
+        color: $ess-primary-text-color;
+    }
+
+    &--standard{
+        background-color: $standard-bg-color;
+        color: $text-onDark;
+    }
+
+
+    &--actions {
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        &:before {
+            content:"⋮"
+        }
+    }
+
+    &--action{
+        @extend .btn--gray;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        [class*=icon] {
+            font-size: 1.5em;
+            margin-right: 1ex;
+        }
+    }
+
+    &--cancel {
+        font-size: .875rem;
+        color: $standard-secondary-bg-color;
+        &:hover, :focus {
+            text-decoration: underline;
+            color: $standard-secondary-bg-color;
+        }
+    }
+
+    &--reject {
+        @include btnBgColor($rejected-bg-color, $white);
+
+        &--inverse {
+            @include btnColor($rejected-bg-color);
+        }
+    }
+    &--approval {
+        @include btnBgColor($approval-bg-color, $white);
+
+        &--inverse {
+            @include btnColor($approval-bg-color);
+        }
+    }
+}
+
+.link {
+    color: $standard-secondary-bg-color;
+    cursor: pointer;
+}
+
+
+

@@ -1,0 +1,99 @@
+/***
+
+```
+<div class="m-boxed-prompt">
+  <p class="m-boxed-prompt__title f-h4">1812 &mdash; 1989 Archive Article</p>
+  <p class="m-boxed-prompt__subtitle f-h5">Your account will be debited one view.</p>
+  <p class="f-body--sm">Free Subscription Views: <strong>41</strong> <a href="#" class="a-btn a-btn--fake-link">Browse the archive</a></p>
+  <p class="m-boxed-prompt__btns"><a href="#" class="a-btn a-btn--simple">No Thanks</a> <a href="#" class="a-btn">Continue</a></p>
+</div>
+```
+
+***/
+
+.m-boxed-prompt {
+  padding: 15px 19px 19px;
+  border: 1px solid $color__rules;
+
+  @include breakpoint('small+') {
+    padding: 19px 23px 23px;
+  }
+}
+
+.m-boxed-prompt__title {
+  margin-top: 0;
+  margin-right: -19px;
+  margin-bottom: 0;
+  margin-left: -19px;
+  padding-right: 19px;
+  padding-bottom: 12px;
+  padding-left: 19px;
+  border-bottom: 1px solid $color__rules;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    margin-right: -23px;
+    margin-bottom: -1px;
+    margin-left: -23px;
+    padding-right: 23px;
+    padding-bottom: 15px;
+    padding-left: 23px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-bottom: 0;
+  }
+}
+
+.m-boxed-prompt__subtitle {
+  color: $color__text--headlines;
+}
+
+.m-boxed-prompt__subtitle + p {
+  margin-top: 4px;
+
+  @include breakpoint('small+') {
+    margin-top: 0;
+  }
+}
+
+.m-boxed-prompt p strong {
+  color: $color__text--headlines;
+}
+
+.m-boxed-prompt__btns {
+  margin-top: 32px;
+  text-align: right;
+
+  @include breakpoint('small-') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.m-boxed-prompt__btns .a-btn {
+  text-align: center;
+
+  @include breakpoint('small-') {
+    flex: 1;
+    width: calc(50% - 10px);
+    min-width: 0;
+    margin: 0;
+    padding-right: 0;
+    padding-left: 0;
+
+    &:first-child {
+      order: 2;
+      margin-left: 20px;
+    }
+  }
+}
+
+.m-boxed-prompt .a-btn--fake-link {
+  display: block;
+
+  @include breakpoint('medium+') {
+    display: inline-block;
+    margin-left: 14px;
+  }
+}

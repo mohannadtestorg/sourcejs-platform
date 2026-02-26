@@ -1,0 +1,144 @@
+{
+    "title": "Psychotherapy Library",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/pl-header-lib.json"
+                }
+            }
+        },
+        "coverImage":{
+            "$pug": {
+                "template": "./templates/demo/demo-cover-image-tmpl.jade",
+                "data": {
+                    "showHtml":true,
+                    "thisWidget": {
+                        "id":"wdeded",
+                        "properties": {
+                            "displayStyle": "singleCover",
+                            "actions": "linkToIssueOrBook",
+                            "includeMetaData": true
+                        }
+                    },
+                    "data": {
+                        "single": {
+                            "coverImage": {
+                                "src": "http://placehold.it/230x344"
+                            },
+                            "type": "Book",
+                            "doi": "10.1176/appi.books.9781585625284",
+                            "title": "t amet, consectetur adipiscing elit. Praesent at fermentum ex. Etiam sed leo eros. Integer in s",
+                            "bookType": "com.atypon.publish.acs.metadata.BookType@11",
+                            "bookUrl": "/doi/book/10.1176/appi.books.9781585625284",
+                            "edition": "Second Edition",
+                            "coverDate": "Nov 2013",
+                            "contribs": "\u003cul class\u003d\"rlist--inline loa mobile-authors\" title\u003d\"list of authors\"\u003e\u003cli\u003e\u003cspan class\u003d\"hlFld-ContribAuthor\"\u003e\u003ca href\u003d\"/author/Kranzler%2C+Henry+R\" title\u003d\"Kranzler Henry R.\"\u003eKranzler Henry R.\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e, \u003cli\u003e\u003cspan class\u003d\"hlFld-ContribAuthor\"\u003e\u003ca href\u003d\"/author/Ciraulo%2C+Domenic+A\" title\u003d\"Ciraulo Domenic A.\"\u003eCiraulo Domenic A.\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e and \u003cli\u003e\u003cspan class\u003d\"hlFld-ContribAuthor\"\u003e\u003ca href\u003d\"/author/Zindel%2C+Leah+R\" title\u003d\"Zindel Leah R.\"\u003eZindel Leah R.\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e\u003c/ul\u003e",
+                            "serial": {
+                                "type": "Book Series",
+                                "serialTitle": "eBooks"
+                            }
+                        },
+                        "errors": []
+                    }
+                }
+            }
+
+        },
+        "coverImage2":{
+            "$pug": {
+                "template": "./templates/demo/demo-cover-image-tmpl.jade",
+                "data": {
+                    "thisWidget": {
+                        "id":"wdeded",
+                        "properties": {
+                            "displayStyle": "singleCover",
+                            "actions": "linkToIssueOrBook",
+                            "includeMetaData": true
+                        }
+                    },
+                    "data": {
+                        "single": {
+                            "coverImage": {
+                                "src": "http://placehold.it/230x344"
+                            },
+                            "type": "Book",
+                            "doi": "10.1176/appi.books.9781585625284",
+                            "title": " fgfggggfggg hgfhPraesent at fermentum ex. Etiam sed leo eros. Integer in. Etiam sed leo erosed leo erosed leo . ",
+                            "bookType": "com.atypon.publish.acs.metadata.BookType@11",
+                            "bookUrl": "/doi/book/10.1176/appi.books.9781585625284",
+                            "edition": "Second Edition",
+                            "coverDate": "Nov 2013",
+                            "contribs": "\u003cul class\u003d\"rlist--inline loa mobile-authors\" title\u003d\"list of authors\"\u003e\u003cli\u003e\u003cspan class\u003d\"hlFld-ContribAuthor\"\u003e\u003ca href\u003d\"/author/Kranzler%2C+Henry+R\" title\u003d\"Kranzler Henry R.\"\u003eKranzler Henry R.\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e, \u003cli\u003e\u003cspan class\u003d\"hlFld-ContribAuthor\"\u003e\u003ca href\u003d\"/author/Ciraulo%2C+Domenic+A\" title\u003d\"Ciraulo Domenic A.\"\u003eCiraulo Domenic A.\u003c/a\u003e\u003c/span\u003e\u003c/li\u003e \u003c/ul\u003e",
+                            "serial": {
+                                "type": "Book Series",
+                                "serialTitle": "eBooks"
+                            }
+                        },
+                        "errors": []
+                    }
+                }
+            }
+
+        },
+        "MainSlides":{
+            "$pug": {
+                "template": "../../widgets/slideshow/templates/slideshow/demo/slideshow-demo-tmpl.jade",
+                "data": {
+                    "$ref": "./templates/data/main-slider.json"
+                }
+            }
+
+        },
+        "BookofMonth":{
+
+                "$pug": {
+                    "template": "../../widgets/book-info/templates/book-info/book-info-tmpl.jade",
+                    "data": {
+                        "$ref": "./templates/data/book-of-month.json"
+                    }
+                }
+
+
+        },
+
+        "nl": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": [
+                                "card--dark",
+                                "card--gutter"
+                            ]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/newsletter/templates/newsletter/newsletter-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/components/newsletter/templates/data/newsletter.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pl-footer.json"
+                }
+            }
+        }
+    }
+}

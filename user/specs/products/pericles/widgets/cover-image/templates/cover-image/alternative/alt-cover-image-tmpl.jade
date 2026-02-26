@@ -1,0 +1,76 @@
+extends ../cover-image-tmpl
+
+block coverImageToc
+    if cover.type
+        span.cover-image__type !{cover.type}
+
+        case cover.type
+            when 'Issue'
+                if cover.issueLabel
+                    h2.cover-label !{cover.issueLabel}
+
+                else if (cover.volume) || (cover.issue)
+                    .cover-image__parent-item
+                        if (cover.volume)
+                            span.comma Volume #{cover.volume}, !{' '}
+
+                        if (cover.issue)
+                            | Issue #{cover.issue}
+                if (data.single[0].latestIssue)
+                    if (data.single[0].latestIssue.title)
+                        a(href=cover.tocUrl)
+                            h5.cover-image__title !{data.single[0].latestIssue.title}
+                else if (cover.title)
+                    a(href=cover.tocUrl)
+                        h5.cover-image__title !{cover.title}
+                if cover.issueText
+                    p.cover-text !{cover.issueText}
+                else
+                    +coverCommonDetails(cover, cover.coverDate)
+
+            when 'Book'
+                if (cover.title)
+                    h5.cover-image__title !{cover.title}
+                        if (cover.edition)
+                            | !{', ' + cover.edition}
+                +coverCommonDetails(cover, cover.coverDate)
+
+            when 'Journal'
+
+                if cover.issueLabel
+                    h2.cover-label !{cover.issueLabel}
+
+                else if (cover.latestIssue)
+                    .cover-image__parent-item
+                        if (cover.latestIssue.volume)
+                            span.comma Volume #{cover.latestIssue.volume}, !{' '}
+
+                        if (cover.latestIssue.issue)
+                            span Issue #{cover.latestIssue.issue}
+                if (cover.title)
+                    h5.cover-image__title !{cover.title}
+
+                if cover.issueText
+                    p.cover-text !{cover.issueText}
+                else if (cover.latestIssue)
+                    +coverCommonDetails(cover, cover.latestIssue.coverDate)
+
+            when 'BookSeries'
+
+                if cover.issueLabel
+                    h2.cover-label !{cover.issueLabel}
+
+                else if (cover.latestBook)
+                    .cover-image__parent-item
+                        if (cover.latestBook.volume)
+                            span.comma Volume #{cover.latestBook.volume}, !{' '}
+
+                        if (cover.latestBook.issue)
+                            | Issue #{cover.latestBook.issue}
+                if (cover.title)
+                    h5.cover-image__title !{cover.title}
+
+                if cover.issueText
+                    p.cover-text !{cover.issueText}
+                else
+                    +coverCommonDetails(cover, cover.latestBook.coverDate)

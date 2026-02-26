@@ -1,0 +1,10 @@
+if(data.DoRelations || data.DoRelations.length !=0)
+    each item , i in data.DoRelations
+        if( item.customPopulation && item.customPopulation.nyp && item.customPopulation.nyp.offers || item.customPopulation.nyp.offers.length != 0)
+            each offer , i in item.customPopulation.nyp.offers
+                div.bookOffersList
+                    a(href= offer.buyNowLink, class="buy-book")
+                        span.offer-desc
+                            | !{offer.description}
+                        span.sub-total
+                            | !{offer.subTotal}

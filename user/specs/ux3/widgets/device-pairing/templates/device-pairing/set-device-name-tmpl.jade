@@ -1,0 +1,17 @@
+.device-pairing__name
+
+        div.description
+           p The following device will be paired with !{data.institutionUserName}. Please enter a unique name to assist you in managing your paired device(s).
+
+        form(action='/action/pairDevice',method='post')
+            input.hidden(value='sendAuthEmailAction',name='action')
+            input.hidden(value=data.redirectUri,name='redirectUri')
+            input.hidden(value=data.profile,name='profile')
+
+            .input-group.left-side-label
+                label Device name:
+                .side-content
+                    input(type='text', name='deviceName' ,value=data.deviceName,size='35')
+
+            div.formButtons
+                input.btn(value='Send authorization email to pair this device',name='submitbutton',type='submit')

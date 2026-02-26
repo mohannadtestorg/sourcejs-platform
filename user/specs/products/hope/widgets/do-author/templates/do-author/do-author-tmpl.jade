@@ -1,0 +1,19 @@
+div.do-author-wrapper
+    h1.do-author__title !{data.authorName}
+
+
+    div.affiliations.accordion
+        a(href="#" title="affiliations" aria-controls="authorAffiliations" class="affiliations__ctrl accordion__control w-slide__btn"  data-slide-target="#authorAffiliations" )
+          span.affiliations__label Affiliations
+          i(aria-hidden="true" class="icon-section_arrow_d")
+        div.div.affiliations__content.accordion__content(id="authorAffiliations")
+          | !{data.affiliations}
+               
+
+    p.do-author__text !{data.bio}
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+
+block lockss
+
+    div.lockss_form
+        form(action='/action/institutionLockssIpChange' method='post' name="InstitutionAdmin_LockssIpChange" id="institutionLockssIpChange")
+            input(type='hidden' name='anti-forgery-token' value=data.antiForgeryToken)
+
+            .input-group
+                if(data.label)
+                  label(for='ipAddress') !{data.label}
+                input#ipAddress(type='text' size="20" name="ipAddress" value=data.ipAddress)
+                div.note Examples:128.23.12.* or 132.10.30-40.* or 112.12.11.15:112.12.12.36
+
+            .msg
+                if data.errorMessage && data.errorMessage != ""
+                    p.error !{data.errorMessage}
+                if data.ipSavedMessage && data.ipSavedMessage != ""
+                    p.success !{data.ipSavedMessage}
+
+            input.btn--inverse.extra-border(type='submit' name="submit" value="Submit")

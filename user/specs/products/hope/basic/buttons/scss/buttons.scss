@@ -1,0 +1,44 @@
+
+button, [type=submit], [type=button], .btn, .button{
+  background:$standard-color;
+  font-family: $extra-font-family;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  &:hover,&:focus{
+    background:$standard-color;
+  }
+}
+
+
+.btn--inverse, .button--inverse{
+  color: $standard-color;
+  border-color: $standard-color;
+  background: transparent;
+
+  &:hover, &:focus{
+    background-color: $standard-color;
+    color: $text-onDark;
+  }
+}
+
+.btn--cancel{
+  font-size: 1.2rem;
+  &:hover,:focus{
+    text-decoration: underline;
+  }
+
+
+  .btn {
+    &__transparent{
+      background-color: transparent;
+      border: 2px solid $standard-color;
+      color:$standard-color ;
+      &:hover, &:focus{
+        background-color: transparent;
+        color:$standard-color ;
+      }
+    }
+  }
+}
+

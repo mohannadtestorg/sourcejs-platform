@@ -1,0 +1,34 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Table Of Content page
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+
+            main.content.toc
+
+                .container
+                    .row.separator
+                        .col-lg-9.col-md-8
+                            | !{pb.render('table-of-content', 'table-of-content/markup')}
+                            | !{pb.render('pagination', 'pager', 'pagination.json')}
+
+                        .col-lg-3.col-md-4
+                            .newsletter--wrapper
+                                | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter"]}}}})}
+
+                            //mpu ad
+                            .mpu
+                            | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<h3 class=\"section__header border-bottom\">Editor's choice</h3><div class=\"creative-work\"><a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\"><img src=\"/specs/ux3/releasedAssets/images/news.png\" alt=\"Bridge Column Maximum Drift Estimation via Computer Vision\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\" class=\"creative-work__img\"><h5>EDITOR'S CHOICE Efficient Analysis of HALE Aircraft Structure for Static Aeroelastic Behavior</h5></a><p>In this work, the static aeroelastic behavior of flexible aircraft with a high aspect ratio wing undergoing large static deformations has been investigated analytically and numerically. <a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\">Read more...</a></p></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+ 
+                            | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "dark", "height": "800"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+
+    | #{''}

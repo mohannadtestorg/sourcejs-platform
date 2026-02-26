@@ -1,0 +1,6 @@
+if data
+    if data.request && data.request.attributes && data.request.attributes.showCookiePolicy && data.request.attributes.showCookiePolicy == 'true'
+        .cookiePolicy-popup
+            .container
+                span.cookiePolicy-popup__content !{data.widget.popupHTML}
+                a(href="#").cookiePolicy-popup__close.close &times;

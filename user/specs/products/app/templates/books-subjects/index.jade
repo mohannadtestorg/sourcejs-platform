@@ -1,0 +1,28 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    section.source_section
+        h2  Books Subject
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.pol-theme
+                .container.books-subjects
+                    .row
+                        .col-sm-4.col-lg-3
+                            h5.font-weight-light.border-bottom.hidden-sm.hidden-xs BROWSE BOOK CATLOGUE
+                            #filter.hidden-xs.hidden-sm.search__filters
+                                each facet, l in data.facet
+                                    | !{facet}
+                        .col-sm-8.col-lg-9
+                            h5.font-weight-light.border-bottom.hidden-sm.hidden-xs  BOOKS
+                            | !{data.searchresult}
+
+
+
+            | !{data.footer}
+    | #{''}

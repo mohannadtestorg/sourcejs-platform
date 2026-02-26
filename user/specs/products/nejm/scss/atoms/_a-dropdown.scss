@@ -1,0 +1,259 @@
+/***
+
+```
+<span aria-title="sort by" class="a-dropdown" data-behavior="Dropdown">
+  <strong>Most Relevant</strong>
+  <ul>
+    <li><a href="#">Newest</a></li>
+    <li><a href="#">Oldest</a></li>
+    <li><a href="#">Most Cited</a></li>
+  </ul>
+</span>
+
+<span aria-title="sort by" class="a-dropdown" data-behavior="Dropdown" data-dropdown-hoverable>
+  <strong>Most Relevant Hoverable</strong>
+  <ul>
+    <li><a href="#">Newest</a></li>
+    <li><a href="#">Oldest</a></li>
+    <li><a href="#">Most Cited</a></li>
+  </ul>
+</span>
+```
+
+***/
+
+.a-dropdown {
+  @include sans-serif(16, 24);
+  display: block;
+  position: relative;
+  border: 1px solid $color__input-border;
+}
+
+.a-dropdown > ul{
+  max-width: 90vw;
+}
+
+.a-subtitle + .a-dropdown {
+  margin-top: 16px;
+}
+
+.a-dropdown.s-active {
+  z-index: 2;
+}
+
+.a-dropdown:not(.s-active):hover {
+  border-color: $color__input-border--hover;
+}
+
+.a-dropdown.s-active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 20px;
+  background-color: $color__white;
+  opacity: 0;
+}
+
+.a-dropdown > em,
+.a-dropdown > strong,
+.a-dropdown > button,
+.a-dropdown a,
+.a-dropdown .f-caps {
+  display: block;
+  height: 39px;
+  padding: 0 13px;
+  border: 0 none;
+  background: none;
+  line-height: 40px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.a-dropdown > em,
+.a-dropdown > strong,
+.a-dropdown > button {
+  position: relative;
+  height: 38px;
+  padding-right: 32px;
+  color: $color__black;
+  font-style: normal;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.a-dropdown:hover > em,
+.a-dropdown:hover > strong,
+.a-dropdown:hover > button {
+  //border-color: $color__input-border--hover;
+}
+
+.a-dropdown > em::after,
+.a-dropdown > strong::after,
+.a-dropdown > button::after {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -1px;
+  border-width: 4px 4px 0;
+  border-style: solid;
+  border-color: $color__input-border transparent transparent;
+}
+
+.a-dropdown:hover > em::after,
+.a-dropdown:hover > strong::after,
+.a-dropdown:hover > button::after {
+  border-color: $color__input-border--hover transparent transparent;
+}
+
+.a-dropdown.s-active > em::after,
+.a-dropdown.s-active > strong::after,
+.a-dropdown.s-active > button::after {
+  transform: rotate(180deg) translateY(1px);
+}
+
+.a-dropdown--noarrow {
+  > em::after,
+  > strong::after,
+  > button::after {
+    display:none;
+  }
+}
+
+.a-dropdown > em > svg,
+.a-dropdown > strong > svg,
+.a-dropdown > button > svg {
+  margin-right: 4px;
+  color: $color__text--headlines;
+  vertical-align: middle;
+}
+
+.a-dropdown:hover > em > svg,
+.a-dropdown:hover > strong > svg,
+.a-dropdown:hover > button > svg {
+  opacity: .6;
+}
+
+.a-dropdown > ul {
+  @extend %styled-scrollbars;
+  @include sans-serif(16, 24);
+  display: none;
+  position: absolute;
+  left: -1px;
+  top: 100%;
+  min-width: calc(100% + 2px);
+  max-height: 376px;
+  margin-top: 0;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  box-shadow: 0 1px 3px 0 $color__rules;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.a-dropdown.s-active > ul {
+  display: block;
+}
+
+.a-dropdown > ul > li:not(:first-child) {
+  border-top: 1px solid $color__rules;
+}
+
+.a-dropdown > ul a:not([class]) {
+  background-color: $color__white;
+}
+
+.a-dropdown > ul a:not([class]):hover {
+  background-color: $color__background;
+}
+
+.a-dropdown > ul .a-btn {
+  margin: 8px;
+  text-align: center;
+}
+
+.a-dropdown.s-active > ul em {
+  font-style: normal;
+  color: $color__text--tertiary;
+}
+
+/***
+
+Variant `a-dropdown--top-arrow` draws an upwards facing carrot at the top of the first item
+
+```
+<span aria-title="sort by" class="a-dropdown a-dropdown--top-arrow" data-behavior="Dropdown" tabindex="0">
+  <strong>Most Relevant</strong>
+  <ul>
+    <li><a href="#">Newest</a></li>
+    <li><a href="#">Oldest</a></li>
+    <li><a href="#">Most Cited</a></li>
+  </ul>
+</span>
+```
+
+***/
+
+.a-dropdown--top-arrow ul > li:first-child *:first-child::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 8px;
+  height: 8px;
+  margin-bottom: -6px;
+  border-top: 1px solid darken($color__rules, 10%);
+  border-left: 1px solid darken($color__rules, 10%);
+  background-color: $color__white;
+  transform: rotate(45deg) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.a-dropdown--top-arrow ul > li:first-child a:first-child:hover::before {
+  background-color: $color__background;
+}
+
+
+/***
+
+Variant `a-dropdown--inline-options`
+
+```
+<div aria-title="sort by" class="a-dropdown a-dropdown--inline-options" data-behavior="Dropdown" tabindex="0">
+  <strong>Download Video</strong>
+  <ul>
+    <li><a href="#">Windows Media</a></li>
+    <li><a href="#">M4V</a></li>
+  </ul>
+</div>
+```
+
+***/
+
+
+.a-dropdown--inline-options {
+  display: inline-block;
+  margin-top: 20px;
+  border-color: $color__black--20;
+
+  .m-media-holder + & {
+    margin-top: 28px;
+  }
+}
+
+.a-dropdown--inline-options > em,
+.a-dropdown--inline-options > strong,
+.a-dropdown--inline-options > button {
+  @include sans-serif(12, 42);
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

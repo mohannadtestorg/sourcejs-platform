@@ -1,0 +1,23 @@
+.ux-modal-container
+    div.modal(id=data.id)
+        div.modal__dialog.modal__dialog--form
+            form(method=post,action="#")
+                if (data.title)
+                    div.modal__header
+                        h5 !{data.title}
+                div.modal__body
+                    .input-group.left-side-label
+                        label Submitted to:
+                        select.jcf(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                            option(value="") -- Select --
+                            option Option-1
+                            option Option-2
+                            option Option-3
+                    .input-group.left-side-label
+                        label(for="example-input") Version of Record:
+                        input(type="text" placeholder="Example" id="example-input")
+
+
+                .modal__footer
+                    button.link.btn--cancel(data-dismiss="modal") Cancel
+                    button.btn Update

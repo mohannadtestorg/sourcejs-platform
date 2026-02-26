@@ -1,0 +1,55 @@
+.article__body {
+    position: relative;
+}
+.article__tos {
+    position: absolute;
+    top: 32px;
+    left: 34px;
+    //max-height: 550px;
+    overflow-y: auto;
+    @include media('<desktop') {
+        display: none;
+    }
+    &.js--sticky {
+        position: fixed;
+        top: 90px;
+    }
+    li {
+        margin-bottom: 15px;
+        a {
+            padding-left: 10px;
+            font-size: 0.88rem;
+            color: $primary-body-font-color;
+            border-left: 2px solid transparent;
+            &.js--active {
+                color: $primary-links-color;
+                border-color: $primary-links-color;
+            }
+        }
+    }
+    &__bottom {
+        &:before {
+            content: "";
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid $borders;
+            display: block;
+            margin-left: 10px;
+        }
+    }
+}
+
+.related-article {
+    ul.related-article__links {
+        li {
+            margin-bottom: 18px;
+            a {
+                color: $article-tools-active;
+                font-size: 1rem;
+            }
+        }
+    }
+    &__title {
+        margin-bottom: 10px;
+    }
+}

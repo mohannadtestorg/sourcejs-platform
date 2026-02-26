@@ -1,0 +1,71 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Institutional Login page
+
+    p.source_info
+        |The Institutional login page template contains the following components: Header, Footer, Input, Accordion
+
+    section.source_section
+        h2 Institutional login
+        markdown
+        code.src-html
+        .source_example
+
+            | !{data.header}
+            main.content.pageBody
+
+                .container
+                    .row
+                        div
+                            .profile-pages
+                                section.shibboleth
+                                    .open-athens
+                                        h3.header
+                                            a(href='/action/ssostart?idp=https%3A%2F%2Fidp.eduserv.org.uk%2Fopenathens&redirectUri=%2Faction%2Fssostart')
+                                                | OpenAthens
+                                    .institutions
+                                        h3.page__header
+                                            | Select your institution
+                                        h5 Federation
+                                        .tab.tab--res(data-ctrl-res='screen-xlg')
+                                            .dropBlock(data-db-parent-of='dbTab-1')
+                                                a(href='#', data-db-target-for='dbTab-1')
+                                                    span
+                                                        | Academic Access Management Federation in Japan (GakuNin)
+                                                    i.icon-arrow_d_n.pull-right(aria-hidden='true')
+                                                ul.rlist.tab__nav(role='tablist', data-mobile-toggle='dropdown', data-db-target-of='dbTab-1')
+                                                    li.active(role='presentation')
+                                                        a#pane-federation-con-0(href='#pane-federation-0', aria-controls='#pane-federation-0', role='tab', data-toggle='tab', title='Academic Access Management Federation in Japan (GakuNin)', aria-selected='false', aria-expanded='true')
+                                                            span Academic Access Management Federation in Japan (GakuNin)
+                                                    li(role='presentation')
+                                                        a#pane-federation-con-1(href='#pane-federation-1', aria-controls='#pane-federation-1', role='tab', data-toggle='tab', title='Germany - DFN AAI', aria-selected='false')
+                                                            span Germany - DFN AAI
+                                                    li(role='presentation')
+                                                        a#pane-federation-con-2(href='#pane-federation-2', aria-controls='#pane-federation-2', role='tab', data-toggle='tab', title='Italy - IDEM', aria-selected='false')
+                                                            span Italy - IDEM
+                                                    li(role='presentation')
+                                                        a#pane-federation-con-3(href='#pane-federation-3', aria-controls='#pane-federation-3', role='tab', data-toggle='tab', title='OpenAthens Federation', aria-selected='false')
+                                                            span OpenAthens Federation
+                                                    li(role='presentation')
+                                                        a#pane-federation-con-4(href='#pane-federation-4', aria-controls='#pane-federation-4', role='tab', data-toggle='tab', title='Shibboleth Testing', aria-selected='false')
+                                                            span Shibboleth Testing
+                                                    li(role='presentation')
+                                                        a#pane-federation-con-5(href='#pane-federation-5', aria-controls='#pane-federation-5', role='tab', data-toggle='tab', title='U.S. - InCommon', aria-selected='false')
+                                                            span U.S. - InCommon
+                                                    li(role='presentation')
+                                                        a#pane-federation-con-6(href='#pane-federation-6', aria-controls='#pane-federation-6', role='tab', data-toggle='tab', title='UK Higher Education', aria-selected='false')
+                                                            span UK Higher Education
+                                            ul.rlist.tab__content
+                                                li#pane-federation-0.tab__pane.active(aria-labelledby='pane-federation-con-0', role='tabpanel')
+                                                    h5 Select your institute
+                                                    ul
+                                                        li(data-value='Kyoto Prefectural University of Medicine')
+                                                            a(href='http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fidp.kpu-m.ac.jp%2Fidp%2Fshibboleth&redirectUri=%2Faction%2Fssostart&targetSP=https%3A%2F%2Fphysio-prod.literatumonline.com') Kyoto Prefectural University of Medicine
+                                                        li(data-value='German National Research and Education Network, DFN')
+                                                            a(href='http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fidp.dfn.de%2Fidp%2Fshibboleth&redirectUri=%2Faction%2Fssostart&targetSP=https%3A%2F%2Fphysio-prod.literatumonline.com') German National Research and Education Network, DFN
+                                                        li(data-value='Karlsruhe Institute of Technology (KIT)')
+                                                            a(href='http://iam.atypon.com/action/ssostart?idp=https%3A%2F%2Fidp.scc.kit.edu%2Fidp%2Fshibboleth&redirectUri=%2Faction%2Fssostart&targetSP=https%3A%2F%2Fphysio-prod.literatumonline.com') Karlsruhe Institute of Technology (KIT)
+            | !{data.footer}
+    | #{''}

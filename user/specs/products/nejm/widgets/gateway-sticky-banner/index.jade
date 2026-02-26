@@ -1,0 +1,17 @@
+﻿extends /specs/products/nejm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    section.source_section
+        h2 Gateway Sticky Banner
+        .source_example.source_visible
+            | !{data.gatewayStickyBanner}
+    section.source_section
+        h2 Gateway Non-sticky Banner - with spacing wrapper
+        .source_example.source_visible
+            .m-full-enhanced-promo-blank
+                | !{data.gatewayBanner}
+    section.source_section
+        h2 Gateway Non-sticky Banner - placed after article
+        .source_example.source_visible
+            .o-article-promo-blank
+                | !{data.gatewayBanner}

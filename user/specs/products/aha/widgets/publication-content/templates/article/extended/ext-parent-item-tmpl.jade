@@ -1,0 +1,31 @@
+extends ../../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl.jade
+block parentInfo
+    div.parent-item
+        block volume
+            a.volume(href='#')
+                if (data) && (data.volume)
+                    span.volume VOL. #{data.volume}
+                        if (data) && (data.issue)
+                    span.issue issue. #{data.issue}
+        if (data) && (data.title)
+            span.issue.special__issue !{data.title}
+        if (data) && (data.coverDate)
+            span.coverDate !{data.coverDate}
+        if (data) && (data.pageRange)
+            span.pages !{data.pageRange}
+        if (data) && (data.serial)
+                if (data.serial.journalLink) && (data.serial.title)
+                    span.comma
+                        a(href=data.serial.journalLink) !{data.serial.title}
+                else if (data.serial.title)
+                    span.journal-name
+                        | !{data.serial.title}
+
+        if (data) && (data.isAheadOfPrint) && data.isAheadOfPrint == true
+            span.comma Ahead Of Print
+
+        if (data) && (data.isJustAccepted) && data.isJustAccepted == true
+            span.comma Just Accepted
+
+        if (data) && (data.isForthcoming) && data.isForthcoming == true
+            span.comma Forthcoming

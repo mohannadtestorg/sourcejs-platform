@@ -1,0 +1,92 @@
+extends ../../../../../components/citation/templates/citation/citation-tmpl.jade
+
+
+mixin relatedExams(hasExam)
+    if(hasExam >= 1)
+        ul.rlist--inline.related-exams
+            li.accordion.corrections
+                a(href="#" title="Open Exams" aria-controls="examCorrections" class="corrections__ctrl accordion__control w-slide__btn "  data-slide-target="#examCorrections" )
+                    i(aria-hidden="true", class="corrections__icon icon-Icon_Information")
+                    span.corrections__label Related Exams:
+                    i.icon-section_arrow_d(aria-hidden='true')
+                block linksAfter
+                ul.rlist.corrections__content.accordion__content(id="examCorrections")
+                    each item, i in original.item.related.items
+                        if (item.rel_type === "hasExam")
+                            li.corrections__title
+                                a(href=item.url)
+                                    span !{item.articleTitle}
+
+
+mixin corrections(hasCorrectionOrRetraction)
+    if (hasCorrectionOrRetraction >= 1 || (original.item && original.item.alternateArticleVersion))
+         ul.rlist--inline.article__corrections
+             .corrections-articles
+                 if(hasCorrectionOrRetraction >= 1)
+                     li.accordion.corrections
+                         a(href="#" title="Open corrections" aria-controls="articleCorrections" class="corrections__ctrl accordion__control w-slide__btn "  data-slide-target="#articleCorrections" )
+                             i(aria-hidden="true", class="corrections__icon icon-Icon_Information")
+                             span.corrections__label Corrections for this article
+                             i.icon-section_arrow_d(aria-hidden='true')
+                         block linksAfter
+                         ul.rlist.corrections__content.accordion__content(id="articleCorrections")
+                             each item, i in original.item.related.items
+                                 if (item.rel_type === "erratum" || item.rel_type === "retraction")
+                                     li.corrections__title
+                                         a(href=item.url)
+                                             span !{item.articleTitle}
+
+                 if (original.item && original.item.alternateArticleVersion) && (original.item && original.item.alternateArticleVersion.version == "latest")
+                     li.latest-version
+                         div.versions-ctrl
+                             if(original.item.alternateArticleVersion.abstractUrl)
+                                 a(href=original.item.alternateArticleVersion.abstractUrl)
+                                     | This is the final version - click for previous version
+                 if (original.item && original.item.alternateArticleVersion) && (original.item && original.item.alternateArticleVersion.version == "earliest")
+                     li.latest-version
+                         div.versions-ctrl
+                             if(original.item.alternateArticleVersion.abstractUrl)
+                                 a(href=original.item.alternateArticleVersion.abstractUrl)
+                                     | This is an earlier version - click for final version
+
+
+block citationPrefix
+  if(data.item)
+    - var original = data;
+    - var citationData = {"itemUrl": data.item.formats.fullText,"title": data.item.titles && data.item.titles.primary ? data.item.titles.primary : "","subtitle": data.item.titles && data.item.titles.subtitle ? data.item.titles.subtitle : "","authors": data.item.contribsFull, "tocHeading": data.item.headings.primary,"type":data.item.type};
+    - data = citationData;
+
+block citationTocHeading
+    .citation__top
+        block citation__tocHeading
+            span.article__breadcrumbs
+                | !{pb.renderDropzone(thisWidget, "breadcrumbs")}
+            span.citation__top__item.article__tocHeading !{data.tocHeading}
+        block citation__access
+            | !{pb.render('access-icon', 'access-icon/access-icon', {"data":{"access":original.item.access,"license":original.item.license}})}
+
+block citationAuthors
+    | !{data.authors}
+
+block citationSuffix
+    - data = original
+
+block citationTitleSuffix
+    if (original.item)
+        if(original.item.titles && original.item.titles.subtitle)
+          .citation__subtitle
+            | !{original.item.titles.subtitle}
+        if(original.item.related)
+            - var hasCorrectionOrRetraction = 0;
+            - var hasExam = 0;
+            if (original.item.related.items)
+                each item, i in original.item.related.items
+                    if (item.rel_type === "erratum" || item.rel_type === "retraction" )
+                        -hasCorrectionOrRetraction++;
+                    else if(item.rel_type === "hasExam")
+                        -hasExam++;
+
+                block articleCorrections
+                     +corrections(hasCorrectionOrRetraction)
+
+                +relatedExams(hasExam)

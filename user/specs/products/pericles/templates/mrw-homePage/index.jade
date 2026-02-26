@@ -1,0 +1,331 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 MRW home page
+
+    .source_info
+        markdown
+            p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200480' target="_blank">`LIT-200480`</a>
+
+    section.source_section
+        h2 MRW home page
+
+
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+            style.
+                .dropzone {
+                    display: none;
+                }
+
+
+
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            .pages-nav--sticky.pages-nav.hidden-lg
+                                .pages-nav--res
+                                    .container
+                                        ul.rlist--inline.pull-left
+                                            li
+                                                a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                    i.icon-book(aria-hidden='true')
+                                                    span Book
+                                                #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                    .transplant.showit(data-target='#aboutBook, #authorBio, #bookReviews', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                            li
+                                                a(href='#', data-db-target-for='tocSections', data-db-switch='icon-close_thin')
+                                                    i.icon-toc
+                                                    span TOC
+                                                #tocSections.rlist.dropBlock__holder(data-db-target-of='tocSections')
+                                                    .transplant.showit(data-target='#sections', data-remove='false', data-toggle='transplant', data-direction='from')
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(href='#', data-db-target-for='actions-list', data-db-switch='icon-chevron-up')
+                                                    span Actions
+                                                    i.icon-chevron-down(aria-hidden='true')
+                                                #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                    .transplant.showit(data-target='.journal-actions-container, .social-links .social-media', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    h2.side-section-header.hidden-lg.hidden-md Share
+                                                    .transplant.showit(data-target='.addthis_toolbox', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard
+                                            script.
+                                                googletag.cmd.push(function () {
+                                                    googletag.display('advert-leaderboard');
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                a(href='/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Fdoi%2Fbook%2F10.1002%2F14356007&pubId=61621150&placeholderId=1015&productId=101018', target='_blank')
+                                                    img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=728x90&tile=1&c=$random')
+                            style(type='text/css').
+                                li.menu-item[aria-label="Accepted Articles"] {
+                                    display: none;
+                                }
+                            style(type='text/css').
+                                li.menu-item[aria-label="Early View"] {
+                                    display: none;
+                                }
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            .hidden-md.hidden-sm.hidden-xs.col-sm-2
+                                                ul.rlist.loc
+                                                    li.grid-item.cover-image
+                                                        .cover-image__image
+                                                            a(href='/doi/book/10.1002/14356007', title="View Table of Contents for Ullmann's Encyclopedia of Industrial Chemistry")
+                                                                img(src='//wol-prod-cdn.literatumonline.com/cms/attachment/da858268-0894-42b5-80e4-e7640e085e19/14356007.cover.jpg', alt="View Table of Contents for Ullmann's Encyclopedia of Industrial Chemistry")
+                                            .col-sm-10
+                                                a(href='/doi/book/10.1002/14356007', title="Ullmann's Encyclopedia of Industrial Chemistry homepage")
+                                                    h1#banner-text(style='margin: 0; font-size: 0') Ullmann's Encyclopedia of Industrial Chemistry
+                                                    img#banner-image.journal-banner-image(alt="Ullmann's Encyclopedia of Industrial Chemistry", src='//wol-prod-cdn.literatumonline.com/pb-assets/mrw-banners/10.1002/14356007-1520787808050.jpg', style='margin-bottom: 15px; display: none')
+                                                script.
+                                                    var image = new Image();
+                                                    image.onload = function () {
+                                                        // if the image exists
+                                                        document.getElementById("banner-image").style.display = "block";
+                                                    }
+                                                    image.onerror = function () {
+                                                        // if the image does not exist
+                                                        document.getElementById("banner-text").style.marginBottom = "15px";
+                                                        document.getElementById("banner-text").style.fontSize = "22px";
+                                                    }
+                                                    image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/mrw-banners/10.1002/14356007-1520787808050.jpg";
+                                                // Temporary styles to clean up the contribs
+                                                style(type='text/css').
+                                                    .book-header .info_value ul.rlist--inline.loa.comma.loa-authors-trunc {
+                                                        display: inline;
+                                                        font-size: 12px;
+                                                    }
+
+                                                    .book-header ul.rlist--inline.loa.comma {
+                                                        display: inline;
+                                                        font-size: .75rem;
+                                                        padding-right: 3px;
+                                                        padding-left: 3px;
+                                                    }
+                                                .info-block.book-header
+                                                // else if data.book.editors
+                                                // span.info_label Editors(s):&nbsp;
+                                                // span.info_value
+                                                // | !{data.book.editors}
+                                                .info-block
+                                                    span.info_label First published: 
+                                                    span.info_value 15 June 2000
+                                                .info-block
+                                                    span.info_label Print ISBN: 
+                                                    span.info_value 9783527303854
+                                                    span.info_label
+                                                    span.info_label Online ISBN: 
+                                                    span.info_value 9783527306732
+                                                    span.info_label
+                                                    span.info_label DOI: 
+                                                    span.info_value 10.1002/14356007
+                                                .info-block
+                                                    span.info_label
+                                                        | Copyright © 2002 Wiley‐VCH Verlag GmbH & Co. KGaA. All rights reserved.
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+
+                            | !{pb.render('menu', 'mainMenu.json', 'pericles', {"shared": {"model": {"config": { "wrapper": "true","className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}} })}
+
+                        section.journal-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .col-md-12
+                                        .col-md-8
+                                            .aboutBook(data-widget-def='general-rich-text', data-widget-id='ac9befe7-8743-4db9-908a-9ae2b8f60d4b')
+                                                h2.section__mainHeader--mid
+                                                    | About this reference work
+                                                #rich-text-ac9befe7-8743-4db9-908a-9ae2b8f60d4b.pb-rich-text(style='overflow: auto;')
+                                                    p
+                                                        b ULLMANN'S Encyclopedia of Industrial Chemistry
+                                                        |  is the
+                                                        | benchmark reference in chemistry and chemical and life science
+                                                        | engineering, covering inorganic and organic chemicals, advanced
+                                                        | materials, pharmaceuticals, polymers and plastics, metals and
+                                                        | alloys, biotechnology and biotechnological products, food
+                                                        | chemistry, process engineering and unit operations, analytical
+                                                        | methods, environmental protection, and much more.
+                                                    ul
+                                                        li
+                                                            | Complete coverage of the science and technology in all
+                                                            | areas of industrial chemistry
+                                                        li
+                                                            | Fully international in scope and coverage, the contents
+                                                            | have been compiled under the supervision of a renowned global
+                                                            a(target='_blank', href='http://onlinelibrary.wiley.com/book/10.1002/14356007/homepage/EditorsContributors.html')
+                                                                | Editorial Advisory Board
+                                                        li
+                                                            a(target='_blank', href='http://onlinelibrary.wiley.com/book/10.1002/14356007/homepage/WhatsNew.html')
+                                                                | New and updated articles
+                                                            |  are added every two months
+                                                        li
+                                                            | Contains over 1,000 major articles, written by some 3,000
+                                                            | authors who are experts in their fields and affiliated to
+                                                            | leading chemical companies or research institutes
+                                                        li
+                                                            | Breadth of knowledge - more than 16 million words, nearly
+                                                            | 15,000 tables, 25,000 figures, and innumerable literature
+                                                            | sources and cross-references
+                                                        li
+                                                            | All the benefits of an online reference, including:
+                                                            | searches using wildcards and Boolean operators and
+                                                            | cross-reference hyperlinking
+                                                    p
+                                                        b From the reviews:
+                                                    p
+                                                        i
+                                                            | "The Sixth Edition is the culmination of 90 years experience
+                                                            | and tradition, fully international in scope and presentation with
+                                                            | articles of the highest quality. It deserves a place in every
+                                                            | library that aspires to offer comprehensive reference material on
+                                                            | industrial chemistry. I can recommend it without reservation."
+                                                        | —Angewandte Chemie
+                                                    p
+                                                        i
+                                                            | "In summary, the Encyclopedia is an excellent addition to a
+                                                            | technical library. Its broad coverage provides the reader with an
+                                                            | excellent source of up-to-date industrial chemistry information,
+                                                            | and the reference citations provide an avenue to more detailed
+                                                            | information."
+                                                        | —Journal of the American Chemical Society
+                                                    p
+                                                        i
+                                                            | "Ullmann's is an indispensable gold mine for students, patent
+                                                            | attorneys, and researchers [...]. It should be readily available
+                                                            | [...] at major public libraries and corporate collections."
+                                                        | —Today's Chemist at Work
+                                                    p
+                                                        b History
+                                                    p
+                                                        | First published in 1914 by Professor Fritz Ullmann in Berlin,
+                                                        | the Enzyklopädie der Technischen Chemie (as the German title read)
+                                                        | quickly became the standard reference work in industrial chemistry.
+                                                        | Generations of chemists have since relied on ULLMANN'S as their
+                                                        | prime reference source. Further German editions followed in 1928 -
+                                                        | 1932 and 1951 - 1970. The 25 volumes of the 4th Edition, published
+                                                        | in 1972 - 1984, were divided into an alphabetically ordered series
+                                                        | of 18 volumes and a general series of six volumes which gave an
+                                                        | account of the principles and methods of chemical engineering and
+                                                        | process technology. ULLMANN'S Encyclopedia of Industrial Chemistry,
+                                                        | 5th Edition, was published from 1985 to 1996. This is the first
+                                                        | edition that was published in the English language. ULLMANN'S
+                                                        | Encyclopedia of Industrial Chemistry, 6th Edition, was published in
+                                                        | December 2002. The 40 volumes including one index volume contained
+                                                        | 800 major articles, organized in alphabetical order. Now in its 7th
+                                                        | Edition, again in 40 volumes, ULLMANN‘S had over 600 of its
+                                                        | articles newly written or substantially updated, in addition to
+                                                        | several hundred color figures added throughout. ULLMANN'S 7th
+                                                        | Edition is
+                                                        a(target='_blank', href='http://eu.wiley.com/WileyCDA/WileyTitle/productCd-3527329439.html')
+                                                            | available in print
+                                                        | .
+                                            div(data-widget-def='graphQueryWidget', data-widget-id='929e2ac5-6077-4d8e-9297-37f5ebce029c')
+                                                h2.section__mainHeader--mid
+                                                    | Topics
+                                                ul.rlist.list-of-book-series
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11617') Agrochemicals
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11627') Analytical Techniques
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11615') Biochemistry & Biotechnology
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11631') Chemical Reactions
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11628') Dyes and Pigments
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11623') Energy
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11618') Environmental Protection and Industrial Safety
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11624') Fat, Oil, Food and Feed, Cosmetics
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11630') Inorganic Chemicals
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11626') Materials
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11621') Metals and Alloys
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11622') Organic Chemicals
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11625') Pharmaceuticals
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11629') Polymers and Plastics
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11620') Processes & Process Engineering
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11616') Renewable Resources
+                                                    li.topic__heading
+                                                        a(href='/browse/book/10.1002/14356007/topic?ConceptID=11619') Special Topics
+
+                                            | !{pb.render('journal', 'demo/demo-tabs',  data.tabs , 'pericles', {"shared": {"model": {"config": {"wrapper": "true","className": ["tabs--defult-style"], "headingLevel": "h2", "headingClass": ["section__mainHeader--mid"]}, "data": {"title" : "Articles"} }}})}
+
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            .journal-sidebar(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    .journal-side-section.journal-actions-container
+                                                        h2.side-section-header.hidden-lg.hidden-md Tools
+                                                        ul.unordered-list-icons
+                                                            li
+                                                                a(href='/page/mrw/how-to-order')
+                                                                    i.icon-subscribe(aria-hidden='true')
+                                                                    | License this reference work
+                                                            li
+                                                                a(href='/action/recommendation?doi=10.1002/14356007')
+                                                                    i.icon-recommend(aria-hidden='true')
+                                                                    | Recommend to a librarian
+                                                    .pb-ad
+                                                        #advert-rail-1.advert.advert-rail
+                                                            script.
+                                                                googletag.cmd.push(function () {
+                                                                    googletag.display('advert-rail-1');
+                                                                });
+                                                            // No JavaScript support is a call to an image
+                                                            noscript
+                                                                a(href='/action/clickThrough?id=1011&url=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fdoi%2Fbook%2F10.1002%2F14356007&pubId=61621150&placeholderId=1014&productId=101018', target='_blank')
+                                                                    img(src='https://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                                                    .my-4(data-widget-def='UX3HTMLWidget', data-widget-id='d4c99a14-f731-4a95-ab2a-670b958c4c3c')
+                                                        h2.section__mainHeader--small
+                                                            | More from this reference work
+                                                        ul
+                                                            li
+                                                                a(href='//wol-prod-cdn.literatumonline.com/pb-assets/assets/14356007/6206400414_pa_FL_ULLMANNS_CENTENNIAL_single_pages-1508491901000.pdf') 100 Years - Excellence since 1914 - View the brochure
+                                                            li
+                                                                a(href='/page/book/10.1002/14356007/homepage/ullmann_s_academy.htm') Ullmann's Academy
+                                                            li
+                                                                a(href='http://onlinelibrary.wiley.com/book/10.1002/14356007/homepage/symbols_units_abbreviations.pdf') Symbols, Units and Abbreviations
+                                                            li
+                                                                a(href='http://www.chemistryviews.org/details/video/1404881/Barbara_Elvers_on_the_Ullmanns.html') Watch an interview with the Editor-in-Chief Barbara Elvers on ChemistryViews!
+                                                            li
+                                                                a(href='http://eu.wiley.com/WileyCDA/Section/id-WILEYEUROPE2_SEARCH_RESULT.html?query=Ullmann%27s+encyclopedia&sortField=dateReverse') Other formats: Print Edition, DVD, Thematic Volumes
+                                                            li
+                                                                a(href='http://onlinelibrary.wiley.com/book/10.1002/0471238961') The perfect companion! Kirk-Othmer Encyclopedia of Chemical Technology
+                                                            li
+                                                                a(href='//wol-prod-cdn.literatumonline.com/pb-assets/assets/14356007/MRW_White_Paper_Spotlight_on_MRWs_-_an_essential_research_tool-1508491903000.pdf') MRWs - an essential resource tool
+                                                    .pb-ad
+                                                        aside
+                                                            #advert-rail-2.advert.advert-rail
+                                                                script.
+                                                                    googletag.cmd.push(function () {
+                                                                        googletag.display('advert-rail-2');
+                                                                    });
+                                                                // No JavaScript support is a call to an image
+                                                                noscript
+                                                                    a(href='/action/clickThrough?id=1012&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D160x600%7C160x320%7C160x160%7C120x600%26amp%3Btile%3D2%26amp%3Bc%3D%24random&loc=%2Fdoi%2Fbook%2F10.1002%2F14356007&pubId=61621150&placeholderId=1013&productId=101018', target='_blank')
+                                                                        img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=160x600|160x320|160x160|120x600&tile=2&c=$random')
+                // end pagefulltext
+
+
+
+            | !{pb.render('footer', 'pericles')}
+    | #{''}

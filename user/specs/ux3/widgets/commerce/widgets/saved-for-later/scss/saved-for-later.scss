@@ -1,0 +1,99 @@
+.eCommerceCheckoutBuyingItemsWidget, .eCommerceCheckoutSavedForLaterItemsWidget, .eCommerceCheckoutRecentlyViewedItemsWidget, .eCommerceCheckoutRecommendedItemsWidget {
+    .tabPanelFooter {
+        border-bottom: none;
+        @include media('<desktop') {
+            position: relative;
+        }
+    }
+    .add-to-cart {
+        float: right;
+        line-height: 1em;
+        position: relative;
+        cursor: pointer;
+        min-width: 105px;
+        @include media('<desktop') {
+            position: static;
+        }
+    }
+    .add-article-to-cart {
+        padding: 10px;
+        border: 1px solid $primary-commerce-color;
+    }
+    .title {
+        width: 63%;
+        display: inline-block;
+        margin: 0;
+        font-size: $h6-font-size;
+        font-weight: bold;
+    }
+    .add-article-to-cart__price {
+        float: right;
+        width: 37%;
+        border-left: 1px solid $primary-commerce-color;
+        font-size: $h6-font-size;
+        text-align: center;
+    }
+    .text {
+        font-weight: 300;
+        font-size: $h6-font-size;
+        color: $primary-commerce-color;
+    }
+    .icon {
+        margin-left: 10px;
+        font-size: $small-font-size;
+    }
+    .purchaseArea {
+        @include media('>=desktop') {
+            width: 450px;
+        }
+        @include media('<desktop') {
+            width: 100%;
+            top: 100%;
+            right: 0;
+            left: 0;
+            margin-top: -3px;
+            min-width: 0;
+        }
+        cursor: default;
+        position: absolute;
+        right: 0px;
+        top: 100%;
+        margin: 0;
+        border: 1px solid $primary-commerce-color;
+        background: $white;
+        padding: 10px;
+        z-index: 999;
+    }
+    .purchase-options-container {
+        padding: 0;
+    }
+    .add-journal-to-cart {
+        margin: 7px 10px 10px;
+        background-color: $white;
+        margin-bottom: 10px !important;
+    }
+    .purchaseAreaLists {
+        padding: 0;
+    }
+}
+
+.articleDataContainer {
+    margin-top: 10px;
+}
+
+.cart-expand {
+    padding: 5px 10px;
+    border: 1px solid $primary-commerce-color;
+    display: block;
+    margin-left: 0;
+}
+
+.tabPanelFooter > .add-article-to-cart {
+    padding: 0;
+    border: none;
+    display: block;
+    margin-left: 0;
+    float: right;
+    font-weight: 400;
+    font-size: $h6-font-size;
+}

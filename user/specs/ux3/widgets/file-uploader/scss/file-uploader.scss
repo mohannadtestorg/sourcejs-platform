@@ -1,0 +1,115 @@
+.uploader {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__input {
+
+        &-wrapper {
+            flex: 1 1 auto;
+            width: 70%;
+            position: relative;
+            padding: 16px;
+            border: 2px solid rgba(0, 0, 0, 0.12);
+            background-color: white;
+            @include media('>=phone') {
+                width: 85%;
+            }
+            &.error-input{
+                border:1px solid red;
+            }
+        }
+
+        border: 2px dashed rgba(0, 0, 0, 0.12);
+        padding: 5px;
+    }
+
+    &__dragndrop {
+        display: inline;
+    }
+
+    &__progress {
+        display: block;
+        text-align: center;
+        width: 0;
+        height: 4px;
+        background: gray;
+        transition: width .3s;
+
+        &.hide {
+            display: none;
+            opacity: 0;
+            transition: opacity 1.3s;
+        }
+    }
+    &__button {
+        white-space: nowrap;
+        margin-left: 2ex;
+    }
+
+    &__file {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        left: -9999px;
+
+        & + label {
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            text-overflow: ellipsis;
+            font-weight: normal;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+        }
+    }
+
+    &__processing {
+        text-align: center;
+        &:after {
+            content: ' .';
+            animation: dots 1s steps(5, end) infinite;
+        }
+
+        &.hide {
+            display: none;
+        }
+    }
+    .error,
+    .warning {
+        text-align: right;
+    }
+    &__message{
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+    }
+}
+
+@keyframes dots {
+    0%, 20% {
+        color: rgba(0, 0, 0, 0);
+        text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
+        .5em 0 0 rgba(0, 0, 0, 0); }
+    40% {
+        color: $black;
+        text-shadow: .25em 0 0 rgba(0, 0, 0, 0),
+        .5em 0 0 rgba(0, 0, 0, 0); }
+    60% {
+        text-shadow: .25em 0 0 $black,
+        .5em 0 0 rgba(0, 0, 0, 0); }
+    80%, 100% {
+        text-shadow: .25em 0 0 $black,
+        .5em 0 0 $black; }
+}
+
+
+
+

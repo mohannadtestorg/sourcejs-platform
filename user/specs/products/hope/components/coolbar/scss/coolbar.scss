@@ -1,0 +1,74 @@
+
+.coolBar--res {
+  .coolBar {
+    &__wrapper {
+      background: $standard-color;
+    }
+
+  }
+}
+
+.coolBar {
+  font-family: $secondary-font-family;
+  margin-bottom: 0.75rem;
+  &__wrapper {
+    background: $standard-color;
+    border-bottom: none;
+  }
+  &__section {
+    color: $text-onDark;
+    font-family: $secondary-font-family;
+    font-family: $secondary-font-family;
+  }
+
+  i {
+    color: $text-onDark;
+    & + span {
+      color: $text-onDark;
+      margin-left: 0;
+    }
+
+  }
+
+  &__second {
+    @include media('>=desktop') {
+      min-width: 210px;
+    }
+
+    [class*=__ctrl] {
+      span {
+        @include media('<desktop') {
+          display: none;
+        }
+      }
+    }
+    .pb-dropzone {
+      min-width: 100px;
+    }
+  }
+  [class*=__ctrl] {
+    padding: 10px 0;
+    font-size: .875rem;
+    text-transform: uppercase;
+    @include media('<large') {
+      font-size: .78rem;
+    }
+  }
+
+  .share__block {
+    li {
+      margin-bottom: 0px;
+    }
+    [class*=addthis_button] {
+      margin-bottom: 5px;
+    }
+  }
+
+}
+
+.w-slide__content {
+  .coolBar__drop {
+    margin-top: -1px;
+  }
+}
+

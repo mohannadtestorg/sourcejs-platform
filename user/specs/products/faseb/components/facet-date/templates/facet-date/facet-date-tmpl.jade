@@ -1,0 +1,70 @@
+- var i = data.maxDate
+
+mixin options()
+    option(value=i) !{i}
+    -i++
+    if i <= data.minDate
+        +options()
+
+mixin dateFacetFacet()
+    block dateFacetFacet
+        | !{pb.render('facet', {data: data})}
+    block customRange
+        a.custom-date Custom Range ...
+        .custom-date-form.hidden
+            form(action='/action/doSearch', method='get')
+                .input-group
+                    label(for="timeFrame--from") From:
+                    select.jcf#timeFrame--from(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                        option(value='') Year
+                        +options()
+
+
+                .input-group
+                    label(for="timeFrame--to") To:
+                    select.jcf#timeFrame--to(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                        option(value='') Year
+                        +options()
+
+                button.btn(type='submit') Apply
+
+
+
+mixin dateFacetList()
+    block dateFacetList
+        | !{pb.render('facet', {data: data})}
+
+mixin dateFacetTitle()
+    block dateFacetTitle
+        h4.facet__title !{data.title}
+
+mixin dateFacetPpub()
+    block dateFacetPpub
+        if (data && data.values && data.values.length)
+            - var nested = typeof data.values[0].values !== 'undefined'
+            if (nested)
+                +dateFacetList()
+            else
+                +dateFacetFacet()
+
+mixin dateFacetSlider()
+    if (data && data.title)
+        +dateFacetTitle()
+    div.facet__content
+        +dateFacetSliderBody()
+
+mixin dateFacetSliderBody()
+    .range-slider.clearfix
+        input.range-slider__range(value=data.minDate + "," + data.maxDate min=data.minDate max=data.maxDate step="1" type="range" multiple class="jcf" data-frequencies=data.frequencies)
+        span.pull-left
+            input.index-1.range-slider__start(value=data.minDate size=4)
+        span.pull-right
+            input.index-2.range-slider__end(value=data.maxDate size=4)
+
+block dateFacetMain
+    div.facet
+        if (data && data.type && data.type == "Ppub")
+            +dateFacetPpub()
+
+        if (data && data.type && data.type == "Year")
+            +dateFacetSlider()

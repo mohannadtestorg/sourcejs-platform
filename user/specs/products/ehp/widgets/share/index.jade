@@ -1,0 +1,28 @@
+﻿extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        h2 Example
+
+
+        h3 Share - Custom Html
+        markdown
+            p the generated html in the template will be
+        code.src-html.source_visible.source_example
+            | <div class="addthis addthis_toolbox addthis_default_style addthis_32x32_style">
+            |     <a class="addthis_button_twitter">Twitter</a>
+            |     <a class="addthis_button_facebook">Facebook</a>
+            |     <a class="addthis_button_linkedin">LinkedIn</a>
+            |     <a class="addthis_button_more">More</a>
+            | </div>
+        .source_example
+            | !{pb.render('share', 'share-addthis.json')}
+
+
+        h3 Share -  Custom icons
+        .source_example
+            | !{pb.render('share', 'share-custom-icons.json')}
+
+    | #{''}

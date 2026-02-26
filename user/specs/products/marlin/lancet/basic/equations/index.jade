@@ -1,0 +1,21 @@
+extends /specs/products/marlin/lancet/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+
+    section.source_section
+        h2 equations
+
+        h3 Ordered list
+        .source_example
+            .ux3
+                .container
+                    article(data-enable-mathjax="true")
+                        h2 Results
+                        h3 ALGORITHIM
+                        p Our goal was to develop a neuron similarity algorithm depending on both spatial location (within a brain or brain region) and branching pattern that was both extremely sensitive and very fast. We envisaged searching large databases of neurons (10,000–100,000 neurons), clustering neurons into families by calculating all-against-all similarity matrices, and efficient navigation of such large datasets. We eventually selected an approach based on direct pairwise comparison of neurons pre-registered to a template brain and represented as vector clouds (further details in Supplemental Information, available online).
+                        - var equ = "<div class=\"math-formula\"><span class=\"equationTd\"><math id=\"M2\" overflow=\"scroll\" altimg=\"eq-00002.gif\"><mrow><msup><mi>K</mi><mrow><mi>D</mi><mi>O</mi><mi>F</mi></mrow> </msup><mo>=</mo><munderover><mstyle mathsize=\"140%\" displaystyle=\"true\"><mo>∑</mo></mstyle><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow> <mrow><mo>#</mo><mi>M</mi><mi>T</mi><mi>U</mi></mrow> </munderover><msubsup><mi>K</mi><mi>i</mi><mrow><mi>M</mi><mi>T</mi><mi>U</mi></mrow> </msubsup><mo>⋅</mo><msubsup><mi>r</mi><mi>i</mi><mn>2</mn></msubsup><mo>+</mo><mfrac><mrow><mo>∂</mo><msub><mi>r</mi><mi>i</mi></msub></mrow> <mrow><mo>∂</mo><msup><mi>θ</mi><mrow><mi>D</mi><mi>O</mi><mi>F</mi></mrow> </msup></mrow> </mfrac><mo>⋅</mo><msubsup><mi>F</mi><mi>i</mi><mrow><mi>M</mi><mi>T</mi><mi>U</mi></mrow> </msubsup></mrow> </math></span><span class=\"formulaLabel\"> (Eq. 1)</span>.</div>"
+                        !{equ}
+                        - var inlineEqu = "<span class=\"math-formula\"> <span class=\"equationTd\"> <math id=\"M2\" overflow=\"scroll\" altimg=\"eq-00002.gif\"> <mrow> <msup> <mi>K</mi> <mrow> <mi>D</mi> <mi>O</mi> <mi>F</mi> </mrow> </msup> <mo>=</mo> <munderover> <mstyle mathsize=\"140%\" displaystyle=\"true\"> <mo>∑</mo> </mstyle> <mrow> <mi>i</mi> <mo>=</mo> <mn>1</mn> </mrow> </munderover> <msubsup> <mi>K</mi> <mi>i</mi> <mrow> <mi>M</mi> <mi>T</mi> <mi>U</mi> </mrow> </msubsup> </mrow> </math> </span> </span>"
+                        p The next question is, what is an appropriate function !{inlineEqu} Our approach was inspired by the BLAST scoring system (Altschul et al., 1990). For each segment pair, we defined the score as the log probability ratio,
+
+    | #{''}

@@ -1,0 +1,29 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-citation-tmpl
+
+
+block citationPrefix
+    if(data.item)
+        - var original = data;
+        - var citationData = {"editorNotes":data.editorNotes,"primaryTopic":data.primaryTopic,"detailsTabAuthors":data.item.detailsTabAuthors,"itemUrl": data.item.formats.fullText,"title": data.item.titles.primary,"authors": data.item.contribsShort, "tocHeading": data.item.headings.primary};
+        - data = citationData;
+
+
+block citation__tocHeading
+    h3.filled.secondary-font.no-top-margin !{data.tocHeading}
+    span.citation__top__item.article__primary-topic
+        | !{data.primaryTopic}
+
+
+block citationTitleSuffix
+
+block citation__access
+
+
+block citationAuthors
+    div.brief__link
+        | !{data.editorNotes}
+    div.brief__authors
+        | !{data.authors}
+    div.brief__abstract
+        | !{data.abstract}
+

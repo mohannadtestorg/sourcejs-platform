@@ -1,0 +1,337 @@
+.coolBar {
+    width: 100%;
+    margin-bottom: 15px;
+    &.trans {
+        transition: all 250ms;
+
+    }
+    &.slide {
+        .coolBar__drop.fixed {
+            top: 38px;
+            padding-bottom: 38px;
+        }
+        transform: translateX(-50vw);
+    }
+
+    i {
+        font-size: 1rem;
+        //margin-right:6px; you created double margin space please check line 88 and effect other products
+        display: inline-block;
+        text-align: center;
+        color: $primary-text-color ;
+    }
+
+    &__first,
+    &__zone {
+        float: left;
+        color: $primary-bg-color;
+    }
+
+    &__second {
+        float: right;
+    }
+
+    &__section {
+        color: $primary-bg-color;
+        float: left;
+        position: relative;
+        padding: 0 10px 0 0;
+        > a {
+            margin-left: 15px;
+            padding: 18px 0;
+            display: block;
+            font-weight: 700;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    &__drop {
+        max-height: 455px;
+        overflow: auto;
+    }
+    &__drop,
+    [class*="__block"] {
+        padding: 15px;
+        width: 250px;
+        background: $primary-bg-color;
+        a {
+            color: $text-onDark;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        i {
+            color: $text-onDark;
+        }
+
+        i + span {
+            margin-left: 10px;
+        }
+    }
+
+    .share__block {
+        right: 0;
+    }
+    .article-tools__block {
+        right: 0px;
+    }
+    [class*="__ctrl"] {
+        padding: 18px 0;
+        display: block;
+        font-weight: 700;
+        font-size: 0.88rem;
+    }
+
+    i + span {
+        margin-left: 10px;
+    }
+
+    .showit {
+        display: block !important;
+    }
+    
+
+
+    &__wrapper {
+        background: $default-bg-color;
+        border-bottom: 2px solid $primary-bg-color;
+    }
+
+    .dropzone {
+        min-height: 37px;
+        min-width: 100px;
+    }
+    .dropzone {
+        margin-top: 10px;
+    }
+
+    &--res {
+        position: fixed;
+        z-index: 3;
+        left: 0;
+
+        .coolBar--sections {
+            margin-left: 10px;
+        }
+        .coolBar__drop {
+            max-height: none;
+        }
+
+        .tab__nav,
+        .coolBar__drop,
+        .article-tools__block,
+        .share__block {
+            font-size: 1rem;
+            background: transparent;
+            box-shadow: none;
+
+            li {
+                background: $default-bg-color;
+                display: block;
+                margin-bottom: 0px;
+                &:first-child {
+                    margin-top: 10px;
+                }
+            }
+
+            i {
+                display: inline-block;
+                color: $primary-text-color;
+            }
+
+            a {
+                color: $primary-text-color;
+                display: block;
+                padding: 10px 15px;
+                line-height: 1.69rem;
+                border-bottom: 1px solid $tertiary-bg-color;
+                i {
+                    font-weight: normal;
+                }
+            }
+
+            .active {
+                a {
+                    border-bottom: 1px solid $tertiary-bg-color;
+                    font-weight:  normal;
+                }
+                i {
+                    color: $primary-text-color;
+                }
+            }
+
+            &.js--open {
+                background: #eee;
+            }
+            &.fixed {
+                background: #eee;
+                left: 0;
+                overflow-y: scroll;
+                padding: 0 0 102px;
+                position: absolute;
+                top: 35px;
+                bottom: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            span {
+                line-height: 1.69rem;
+            }
+        }
+        .coolBar__section {
+            position: static;
+        }
+        
+        .coolBar__wrapper {
+            padding: 0 15px;
+            background-color: $slide-bg-color;
+            border-bottom: 0;
+            width: 100%;
+        }
+
+        [class*="__ctrl"] {
+            padding: 8px 0px;
+        }
+
+        .coolBar__second {
+            .coolBar__section {
+                padding: 0;
+            }
+            [class*="__ctrl"] {
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .dropzone {
+            margin-top: 0px;
+            background-color: $primary-bg-color;
+        }
+
+    }
+}
+.transplant {
+    [data-db-target-of] {
+        display: block;
+        position: static;
+    }
+    ul {
+        width: 100%;
+        padding: 0;
+    }
+}
+.w-slide__content {
+    //.transplant {
+    //    i + span {
+    //        margin-left: 10px;
+    //    }
+    //}
+    .coolBar__drop {
+        margin-top: 8px;
+    }
+    figure {
+        padding: 0 15px;
+    }
+    .w-slide--list {
+        font-size: 1rem;
+        background: transparent;
+        box-shadow: none;
+
+        li {
+            background: $default-bg-color;
+            display: block;
+            margin-bottom: 0;
+            padding: 0;
+            border-top: 0;
+            &:first-child {
+                border-top: 1px solid $tertiary-bg-color;
+            }
+        }
+
+        i {
+            display: inline-block;
+            color: $primary-text-color;
+
+            & + span {
+                margin-left: 10px;
+            }
+        }
+
+        a {
+            color: $primary-text-color;
+            display: block;
+            padding: 10px 15px;
+            line-height: 1.69rem;
+            border-bottom: 1px solid $tertiary-bg-color;
+            font-weight: 700;
+            font-size: 0.88rem;
+
+            i {
+                font-weight: normal;
+            }
+        }
+
+        .active {
+            a {
+                border-bottom: 1px solid $tertiary-bg-color;
+            }
+            i {
+                color: $primary-text-color;
+            }
+        }
+
+        &.js--open {
+            background: #eee;
+        }
+        &.fixed {
+            background: #eee;
+            left: 0;
+            overflow-y: scroll;
+            padding: 0 0 102px;
+            position: absolute;
+            top: 35px;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        span {
+            line-height: 1.69rem;
+        }
+    }
+    .article-tool {
+        padding: 14px 15px;
+        i {
+            color: $primary-text-color;
+        }
+    }
+    //.indented {
+    //    li {
+    //        padding-left: 30px;
+    //        & + li {
+    //            padding-left: 30px; // override strong selector
+    //        }
+    //    }
+    //}
+}
+
+
+.stickybar{
+
+    &--sticky {
+        min-height: 60px;
+        z-index: 1;
+        position: relative;
+
+        .stickybar__wrapper {
+            position: fixed;
+            width: 100%;
+        }
+    }
+}

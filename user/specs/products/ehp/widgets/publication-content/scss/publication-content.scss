@@ -1,0 +1,64 @@
+.corrections {
+
+    &__content {
+        background: $secondary-lighten-bg-color;
+    }
+    &__ctrl {
+        color: $error-text-color;
+        .corrections__icon.icon-Icon_Information{
+            color: inherit;
+        }
+    }
+
+}
+
+.epub-section {
+    &__item {
+        &:not(:last-child) {
+            border-right-color: $separators-color;
+        }
+    }
+    &__citedBy {
+        &__value {
+            border-right-color: $separators-color;
+        }
+    }
+    &__doi__label,
+    &__citedBy__label,
+    &__state {
+        color: $secondary-text-color;
+    }
+
+    a {
+        @include make-primary-link();
+    }
+}
+
+article .tab__pane {
+    padding: 10px $default-inner-padding-x 0;
+}
+
+article .tab__nav {
+    border-bottom: 1px solid $separators-color;
+    @include make-tabs-variant(
+        $tab-nav-color: $tab-secondary-nav-color,
+        $tab-nav-active-color: $tab-secondary-nav-active-color
+    );
+    li {
+        margin-bottom: 0;
+        a, &.active a {
+            border-bottom-width: 0;
+        }
+    }
+}
+
+.mobile-authors {
+    color: $secondary-lighten-text-color;
+    .article--res & {
+        & > span,
+        & > i {
+            font-weight: bold;
+            color: $primary-link-color;
+        }
+    }
+}

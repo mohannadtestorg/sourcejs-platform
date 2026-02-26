@@ -1,0 +1,26 @@
+.supplemental-files {
+    &__table {
+        @include media('>=desktop') {
+            td,
+            th {
+                &:first-child {
+                    width: 40%;
+                }
+
+                &:last-child{
+                    width: 50px;
+                }
+
+                &:nth-child(3) {
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+.file-type-td {
+    .jcf-select{
+        max-width: 150px;
+        margin: 0;
+    }
+}

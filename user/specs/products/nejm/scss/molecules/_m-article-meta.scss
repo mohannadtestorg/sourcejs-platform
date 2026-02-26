@@ -1,0 +1,214 @@
+/***
+
+```
+<aside class="m-article-meta">
+  <div class="o-colset-1-2-2">
+    <div class="o-col">
+      <p class="f-ui">
+        <a href="#">November 17, 2016</a> <br>
+        N Engl J Med 2016;375:1972-2981 <br>
+        DOI: 10.1056/NEJMra1505
+      </p>
+    </div>
+    <div class="o-col">
+      <h3 class="f-h11">Editors</h3>
+      <p class="f-ui">Richard C. Cabot, Founder, Eric S. Rosenberg, M.D., Editor, Nancy Lee Harris, M.D., Editor, Jo-Anne O. Shepard, M.D., Associate Editor, Alice M. Cort, M.D., Associate Editor, Sally H. Ebeling, Assistant Editor, Emily K. McDonald, Assistant Editor</p>
+    </div>
+  </div>
+  <div class="o-col">
+    <h3 class="f-h11">My Available Weekly CME Exams</h3>
+    <ul class="m-article-meta__infos">
+      <li class="f-body--sm m-article-meta__info-primary">Purchased Exams: <strong>5</strong></li>
+      <li class="f-body--sm m-article-meta__info-primary">Free Subscription Exams: <strong>12</strong></li>
+      <li class="f-body--sm m-article-meta__info-secondary"><em>Expiration: September 17, 2017</em></li>
+      <li class="f-body--sm m-article-meta__info-primary">Total Credits Earned: <strong>10</strong></li>
+      <li class="f-ui"><a href="#">Your CME Activity</a></li>
+      <li class="f-ui"><a href="#">Browse Weekly CME</a></li>
+      <li class="f-ui"><a href="#">Purchase Exams</a></li>
+    </ul>
+    <p class="f-ui"><a href="#" class="a-btn a-btn--primary">Take Exam <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a></p>
+  </div>
+</aside>
+```
+
+***/
+
+.m-article-meta {
+  position: relative;
+}
+
+.m-article-meta .o-col {
+  position: relative;
+  padding-top: 16px;
+  color: $color__text--tertiary;
+}
+
+.m-article-meta .a-btn {
+  margin-top: 16px;
+}
+
+.m-article-meta p .a-btn {
+  margin-top: 0;
+}
+
+.m-article-meta .a-btn--primary {
+  min-width: 160px;
+}
+
+.m-article-meta .o-col:first-child {
+  color: $color__text--quaternary;
+}
+
+.m-article-meta .o-col::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-article-meta .o-col > *:first-child {
+  margin-top: 0;
+}
+
+.m-article-meta a:not(.a-btn):hover {
+  text-decoration: underline;
+}
+
+.m-article-meta .f-h11 {
+  color: $color__text--headlines;
+}
+
+.m-article-meta strong {
+  color: $color__text--headlines;
+}
+
+.m-article-meta__infos > li:not(:first-child) {
+  padding-top: 4px;
+}
+
+.m-article-meta__info-primary {
+  color: $color__text--tertiary;
+
+  & + & {
+    margin-top: 8px;
+  }
+
+  .m-article-meta__info-secondary + & {
+    margin-top: 26px;
+  }
+}
+
+.m-article-meta__info-secondary {
+  color: $color__text--quaternary;
+}
+
+// -------------------------------------
+// inside .o-col--primary
+//
+
+.o-col--primary .m-article-meta {
+  display: block;
+
+  @include breakpoint('large+') {
+    display: none;
+  }
+}
+
+.o-col--primary .o-colset-1-2-2 > .o-col + .o-col {
+  @include breakpoint('xsmall') {
+    margin-top: 20px;
+  }
+}
+
+.o-col--primary .o-colset-1-2-2 > .o-col:only-child,
+.o-col--primary .o-colset-1-2-2 > .o-col:nth-child(odd):last-child {
+  @include breakpoint('xsmall') {
+    width: colspan(6, xsmall);
+    margin-top: 12px;
+  }
+
+  @include breakpoint('small') {
+    width: colspan(6, small);
+    margin-top: 12px;
+  }
+
+  @include breakpoint('medium') {
+    width: colspan(8, medium);
+    margin-top: 12px;
+  }
+}
+
+.o-col--primary .o-colset-1-2-2 > .o-col:nth-child(even)::after {
+  @include breakpoint('medium-') {
+    content: '';
+    position: absolute;
+    right: calc(100% + #{map-get($inner-gutters, medium) / 2});
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $color__rules;
+  }
+
+  @include breakpoint('small-') {
+    right: calc(100% + #{map-get($inner-gutters, small) / 2});
+  }
+
+  @include breakpoint('xsmall') {
+    content: none;
+    display: none;
+  }
+}
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary > .m-article-meta {
+  display: none;
+
+  @include breakpoint('large+') {
+    display: block;
+  }
+}
+
+.o-col--secondary .o-colset-1-2-2 {
+  display: block;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.o-col--secondary .o-colset-1-2-2 > .o-col {
+  @include breakpoint('large+') {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.o-col--secondary .o-colset-1-2-2 > .o-col + .o-col {
+  @include breakpoint('large+') {
+    margin-top: 20px;
+  }
+}
+
+
+// -------------------------------------
+// for the toolkit
+//
+
+div > #a17 #demo .m-article-meta .o-colset-1-2-2 > .o-col {
+  background-color: transparent !important;
+}

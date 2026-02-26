@@ -1,0 +1,36 @@
+#885b4769-57ff-487d-8a50-3fc06492ad21.widget.loginPopup.none.widget-none.widget-compact-all
+    .wrapped
+        .widget-body.body.body-none.body-compact-all
+            .popup.login-popup.hidden
+                a.close(href='#')
+                    i.icon-close_thin
+                .content
+                    h2 Login to your account
+                    .login-form
+                        form(action='https://ascelibrary.org/action/doLogin', method='post')
+                            input(type='hidden', name='id', value='885b4769-57ff-487d-8a50-3fc06492ad21')
+                            input(type='hidden', name='redirectUri', value='/')
+                            input(type='hidden', name='popup', value='true')
+                            .input-group
+                                .label
+                                    label(for='login') Username
+                                input#login.login(type='text', name='login', value='', size='15')
+                                .actions
+                                    a.link.show-request-username(href='https://ascelibrary.org/action/requestUsername') Forgot username?
+                            .input-group
+                                .label
+                                    label(for='password') Password
+                                input#password.password(type='password', name='password', value='', autocomplete='off')
+                                span.password-eye-icon.icon-eye.hidden
+                                .actions
+                                    a.link.show-request-reset-password(href='https://ascelibrary.org/action/requestResetPassword') Forgot password?
+                            .remember
+                                span.label Keep me logged in
+                                .switch.small-switch
+                                    input#885b4769-57ff-487d-8a50-3fc06492ad21-remember.cmn-toggle.cmn-toggle-round-flat(type='checkbox', name='remember', value='true')
+                                    label(for='885b4769-57ff-487d-8a50-3fc06492ad21-remember')
+                            .submit
+                                input.button.submit.primary(type='submit', name='submit', value='Login')
+                    a.show-registration(href='https://ascelibrary.org/action/registration')
+                        .center
+                            | Register

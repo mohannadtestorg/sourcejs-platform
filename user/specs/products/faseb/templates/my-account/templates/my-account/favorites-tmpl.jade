@@ -1,0 +1,92 @@
+extends ../../../../../../ux3/templates/my-account/templates/my-account/favorites-tmpl
+
+block favoritesToolBar
+    .border-bottom-light
+        ul.select-all__action
+            li
+                label.checkbox--primary.select-all__checkbox
+                    input(type="checkbox" id="check-all-article" name="table" value="" class="jcf")
+                    | Select All
+            li
+                div.select-all__sort.dropBlock
+                    a.inline-icon(href="#" data-db-target-for="action-1" data-db-parent-of="action-1" data-db-switch="rotate")
+                        span.sort-by Select Action
+                        i.icon-section_arrow_d(aria-hidden="true")
+                    div.dropBlock__holder(data-db-target-of="action-1")
+                        ul.rlist
+                            li
+                                a(href="#")
+                                    i.icon-share(aria-hidden="true")
+                                    | Email to a friend
+                            li
+                                a(href="#")
+                                    i.icon-download-sitation(aria-hidden="true")
+                                    | Download citation
+                            li
+                                a(href="#")
+                                    i.icon-truck-sitation(aria-hidden="true")
+                                    | Track citations
+                            li
+                                a(href="#")
+                                    i.icon-delete(aria-hidden="true")
+                                    | Delete
+
+        .pull-right
+            div.account__sort.dropBlock
+                a.inline-icon(href="#" data-db-target-for="sort-6" data-db-parent-of="sort-6" data-db-switch="rotate") Sort by:
+                    span.sort-by Publication Date
+                    i.icon-section_arrow_d(aria-hidden="true")
+                div.dropBlock__holder(data-db-target-of="sort-6")
+                    ul.rlist
+                        li
+                            a(href="#") Lorem
+                        li
+                            a(href="#") Ipsum
+                        li
+                            a(href="#") Dolor
+
+block favoritesToolBarSecond
+    .border-bottom-light
+
+        ul.select-all__action
+            li
+                label.checkbox--primary.select-all__checkbox
+                    input(type="checkbox" id="check-all-pup" name="table" value="" class="jcf")
+                    | Select All
+            li
+                div.select-all__sort.dropBlock
+                    a.inline-icon(href="#" data-db-target-for="action-5" data-db-parent-of="action-5" data-db-switch="rotate")
+                        span.sort-by Select Action
+                        i.icon-section_arrow_d(aria-hidden="true")
+                    div.dropBlock__holder(data-db-target-of="action-5")
+                        ul.rlist
+                            li
+                                a(href="#")
+                                    i.icon-share(aria-hidden="true")
+                                    | Email to a friend
+                            li
+                                a(href="#")
+                                    i.icon-download-sitation(aria-hidden="true")
+                                    | Download citation
+                            li
+                                a(href="#")
+                                    i.icon-truck-sitation(aria-hidden="true")
+                                    | Track citations
+                            li
+                                a(href="#")
+                                    i.icon-delete(aria-hidden="true")
+                                    | Delete
+
+        .pull-right
+            div.account__sort.dropBlock
+                a.inline-icon(href="#" data-db-target-for="sort-2" data-db-parent-of="sort-2" data-db-switch="rotate") Sort by:
+                    span.sort-by Publication Date
+                    i.icon-section_arrow_d(aria-hidden="true")
+                div.dropBlock__holder(data-db-target-of="sort-2")
+                    ul.rlist
+                        li
+                            a(href="#") Lorem
+                        li
+                            a(href="#") Ipsum
+                        li
+                            a(href="#") Dolor

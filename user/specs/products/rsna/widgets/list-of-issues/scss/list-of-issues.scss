@@ -1,0 +1,272 @@
+.loi__banner {
+    box-shadow: none;
+    font-weight: normal;
+    background-color: $default-bg-color;
+
+    &.loi--res {
+        position: static;
+    }
+}
+
+// =========================================== //
+
+.loi {
+    background-color: transparent;
+    padding: 0px;
+    color: $primary-text-color;
+
+    @include media('>=large') {
+        .col-lg-4:nth-child(3n+1) {
+            clear: left;
+        }
+    }
+    @include media('<large') {
+        .col-md-6:nth-child(2n+1) {
+            clear: left;
+        }
+        .col-md-6:nth-child(3n+1):after {
+            clear: right;
+        }
+    }
+
+    ul {
+        li {
+            &.col-md-4 {
+                .loi__issue {
+                    margin: 15px 0px 0px 0px;
+                    padding: 20px 0px 0px 0px;
+
+                    border-top: 1px solid $primary-border-color;
+                }
+
+                @include media('>=desktop') {
+                    &:nth-child(-n+3) {
+                        .loi__issue {
+                            margin: 0px;
+                            padding: 0px;
+                            border-top: none;
+                        }
+                    }
+                }
+
+                @include media('<desktop') {
+                    &:first-child {
+                        .loi__issue {
+                            margin: 0px;
+                            padding: 0px;
+                            border-top: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.loi--res {
+        display: block;
+    }
+
+    .row {
+        @include media('<tablet') {
+            margin: 0px -15px;
+        }
+    }
+
+    &-list__wrapper {
+        margin: 0px;
+        max-width: none;
+        background-color: $default-bg-color;
+        border-bottom: 2px solid $secondary-text-color;
+
+        @include media('<tablet') {
+            border-bottom: 1px solid $border-onLight;
+        }
+    }
+
+    ul.loi__list {
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+        direction: ltr;
+
+        a {
+            color: $primary-link-color;
+            padding: 20px 0px 16px;
+            margin: 0px 20px;
+
+            @include themify($themes) {
+                color: themed('color');
+            }
+            &:hover {
+                color: $primary-link-hover-color;
+            }
+        }
+    }
+
+    .scroll {
+        padding: 0px;
+        margin: 0px;
+        direction: ltr;
+    }
+
+    &__list {
+
+        a {
+            color: $secondary-text-color;
+            line-height: 24px;
+        }
+        span {
+            font-size: $h6-font-size;
+        }
+
+        .active {
+            border-bottom: none;
+            a {
+                color: $primary-link-color;
+                border-bottom: 4px solid $primary-bg-color;
+            }
+        }
+
+    }
+
+
+    .tab__content {
+        border-top: none;
+        overflow-x: visible;
+        overflow-y: visible;
+
+        @include media('>=tablet') {
+            max-height: none;
+        }
+
+        .loi {
+            [class*="loi__btn"][class*="prev"], [class*="loi__btn"][class*="next"] {
+                @include themify($themes) {
+                    background-color: themed('background-color');
+                }
+            }
+        }
+
+        .tab__content {
+            border-top: none;
+            overflow-x: visible;
+            overflow-y: visible;
+            background-color: $default-bg-color;
+
+            @include media('<tablet') {
+                padding: 0px;
+            }
+        }
+
+
+
+        .loi-list__wrapper {
+            border-bottom: 1px solid $border-onLight;
+            background-color: $default-bg-color;
+
+            @include themify($themes) {
+                background-color: themed('background-color');
+            }
+
+            @include media('<tablet') {
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+    .archive-label {
+        color: $text-onLight;
+        font-size: $default-font-size;
+        padding: 0px 15px 25px 15px;
+
+        @include media('<tablet') {
+            padding: 0px 0px 25px 0px;
+        }
+    }
+
+    .tab__pane {
+        &:not(.nested-tab) {
+            padding-top: 25px;
+            margin: 0px -15px;
+
+            @include media('<tablet') {
+                margin: 0px;
+            }
+        }
+    }
+
+    .date, .parent-item {
+        color: $primary-link-color;
+        font-size: $default-font-size;
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    .parent-item {
+        text-transform: none;
+
+        .comma {
+            margin: 0px 5px 0px 0px ;
+
+            &:after {
+                content: "";
+                margin: 0px;
+            }
+        }
+    }
+    .coverDate {
+        text-transform: none;
+    }
+    &__access {
+        color: $primary-text-color;
+    }
+
+    &__issue {
+        margin: 0px;
+        padding: 0px;
+
+        h6 {
+            color: $primary-text-color;
+            font-weight: 600;
+        }
+    }
+
+    .iPageRange {
+        font-size: $h6-font-size;
+        color: $primary-text-color;
+        padding: 0px;
+    }
+}
+
+[class*="loi__btn"] {
+    padding: 0px 10px;
+    bottom: 0px;
+    line-height: 60px;
+
+    i {
+        color: $primary-link-color;
+
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+
+    &.inactive {
+        i {
+            color: $secondary-lighten-text-color;
+            opacity: 1;
+        }
+    }
+}
+
+[class*="loi__btn"][class*="prev"], [class*="loi__btn"][class*="next"] {
+    background: $default-bg-color;
+    box-shadow:none;
+    padding: 0 12px;
+
+    @include media('<tablet') {
+        background: $default-bg-color;
+    }
+}

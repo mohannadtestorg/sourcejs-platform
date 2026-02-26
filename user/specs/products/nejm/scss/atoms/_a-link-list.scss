@@ -1,0 +1,88 @@
+/***
+
+```
+<ul class="a-link-list f-body--sm">
+  <li><a href="#">Original Article</a></li>
+  <li><a href="#">Special Article</a></li>
+  <li><a href="#">Special Report</a></li>
+</ul>
+<ul class="a-link-list a-link-list--icon-links f-body--sm">
+  <li><a href="#">Original Article</a></li>
+  <li><a href="#">Special Article</a></li>
+  <li><a href="#">Special Report</a></li>
+</ul>
+<ul class="a-link-list a-link-list--gridlines f-body--sm">
+  <li><a href="#"><svg class="icon--rss" aria-hidden="true"><use xlink:href="#icon--rss" /></svg>Original Article</a></li>
+  <li><a href="#"><svg class="icon--rss" aria-hidden="true"><use xlink:href="#icon--rss" /></svg>Special Article</a></li>
+  <li><a href="#"><svg class="icon--rss" aria-hidden="true"><use xlink:href="#icon--rss" /></svg>Special Report</a></li>
+</ul>
+```
+
+***/
+
+.a-link-list {
+  list-style-type: none;
+
+  & + .f-h5 {
+    margin-top: 40px;
+  }
+}
+
+.a-link-list.f-body--sm {
+  @include breakpoint('xsmall') {
+    @include baseliner(0);
+    font-size: 17px;
+    line-height: 24px;
+  }
+}
+
+.a-link-list > li:not(:first-child) {
+  @include breakpoint('small+') {
+    padding-top: 4px;
+  }
+}
+
+.a-link-list > li > a {
+  text-decoration: none;
+}
+
+.a-link-list > li > a:hover {
+  text-decoration: underline;
+}
+
+.a-link-list > li svg {
+  display: inline-block;
+  margin-right: 6px;
+  color: $color__text--quaternary;
+  vertical-align: middle;
+}
+
+.a-link-list--icon-links > li > a {
+  color: $color__text;
+}
+
+.a-link-list--icon-links > li > a:hover {
+  color: $color__text;
+  text-decoration: underline;
+}
+
+.a-link-list--icon-links > li svg {
+  color: $color__text--headlines;
+}
+
+.a-link-list--gridlines > li {
+  margin-top: 16px;
+  padding-top: 15px;
+  border-top: 1px solid $color__rules;
+
+  @include breakpoint('small+') {
+    &:not(:first-child) {
+      padding-top: 15px;
+    }
+  }
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 15px;
+  }
+}

@@ -1,0 +1,68 @@
+.hidden {
+    display: none;
+
+    &-xs {
+        display: block;
+        @include media('<=phone') {
+            display: none !important;
+        }
+    }
+
+    &-sm {
+        display: block;
+        @include media('>phone' , '<=tablet') {
+            display: none !important;
+        }
+    }
+
+    &-md {
+        display: block;
+        @include media('>tablet' , '<=desktop') {
+            display: none !important;
+        }
+    }
+
+    &-lg {
+        display: block;
+        @include media('>desktop') {
+            display: none !important;
+        }
+    }
+
+    &Label {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        &--xs {
+            @include media('<=phone') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &--sm {
+            @include media('>phone', '<=tablet') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &--md {
+            @include media('>tablet', '<=desktop') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        &--lg {
+            @include media('>desktop') {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+    }
+}

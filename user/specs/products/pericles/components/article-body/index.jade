@@ -1,0 +1,18 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    .source_info
+        markdown
+            p Its XSL content provided by FE
+
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+        markdown
+            p figures Styles changed based on <a href='https://jira.atypon.com/browse/LIT-200481' target="_blank">`LIT-200481`</a>  point 19
+        .source_example
+            | !{pb.render('article-body', 'article-body-html.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+    | #{''}

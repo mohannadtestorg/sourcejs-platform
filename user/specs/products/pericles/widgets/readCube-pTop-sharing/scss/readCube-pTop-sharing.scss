@@ -1,0 +1,114 @@
+.readCube-sharing {
+    
+    &__link.readCube-sharing__link {
+        color: $wiley-green !important;
+        margin-bottom: 11px;
+        padding: 15px 20px 15px 15px;
+        font-size: 0.875rem;
+        display: block;
+        border-bottom: 1px solid #eee;
+
+        &:hover {
+            background: $wiley-green;
+            color: $white !important;
+
+            i {
+                color: $white;
+            }
+        }
+
+        i {
+            font-size: 1.5rem;
+            color: $wiley-green;
+            margin-right: 10px;
+        }
+    }
+
+    &__modal {
+        @include media('>=desktop') {
+            .modal__dialog {
+                width: 537px;
+            }
+        }
+
+        hr {
+            margin-top: 19px;
+        }
+
+
+        legend {
+            margin-bottom: 19px;
+        }
+
+        .label-txt {
+            color: $wiley-typography-color;
+            font-size: 0.875rem;
+            font-weight: normal;
+            padding-left: 30px;
+            line-height: 22px;
+
+            &:before {
+                position: absolute;
+                left: 0;
+                top: 5px;
+            }
+
+        }
+
+        .input-group, .input-group label {
+            margin-bottom: 0;
+        }
+
+        .modal__header p, label {
+            font-size: 1.125rem;
+            text-align: left;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 24px;
+            line-height: 1rem;
+        }
+
+        fieldset p {
+            margin-bottom: 25px;
+        }
+
+    }
+
+}
+
+.shareable-link {
+    display: inline-block;
+    line-height: 0.875rem;
+    border: 1px solid $wiley-gray-color;
+    padding: 16px 16px 14px 24px;
+    vertical-align: middle;
+
+    @include media('>=tablet') {
+        width: 75%;
+        margin-right: 17px;
+    }
+
+    @include media('<phone') {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    &__field {
+        visibility: hidden;
+    }
+
+    &__btn {
+        text-transform: uppercase;
+
+        &.btn.btn {
+            min-width: 0;
+            @include media('>=tablet') {
+                width: calc(25% - 17px);
+            }
+            @include media('<phone') {
+                width: 100%;
+            }
+            padding: 15px;
+        }
+    }
+}

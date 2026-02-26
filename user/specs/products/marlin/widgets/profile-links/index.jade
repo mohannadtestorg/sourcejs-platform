@@ -1,0 +1,18 @@
+extends /specs/products/marlin/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 Example
+        p The following example demonstrates profile links widget.
+
+        if (data.items)
+            each item , i in data.items
+                h3!= item.title
+                .source_example
+                    .ux3
+                        .container
+                            | !{item.body}
+    | #{''}

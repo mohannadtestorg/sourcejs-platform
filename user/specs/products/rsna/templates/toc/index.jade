@@ -1,0 +1,48 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+mixin getPage()
+    | !{data.header}
+    main.content.toc
+        .top-image
+        .container
+            | !{data.breadcrumbs}
+            | !{data.meta}
+            .row.separator
+                .col-md-8.col-sm-7
+                    | !{data.toc}
+                    | !{data.contentNav}
+
+                aside.col-md-4.col-sm-5
+                    h5.section__header.border-bottom.hidden-sm.hidden-xs ADVERTISEMENT
+                    | !{data.Ad}
+                    h5.section__header.border-bottom RADIOLOGY PODCASTS
+                    | !{data.video}
+                    | !{data.video}
+                    | !{data.Ad}
+
+    | !{data.footer}
+
+block content
+
+    h1 Table Of Content page
+
+    section.source_section
+        h2 Table Of Content page (Radiology)
+        markdown
+        code.src-html
+        .source_example
+            style(type="text/css")
+                | .jrnl-radiology .top-image{ background-image: url("../../images/bg-banner-radiology.png"); }
+            .jrnl-radiology
+                +getPage()
+
+    section.source_section
+        h2 Table Of Content page (RadioGraphics)
+        markdown
+        code.src-html
+        .source_example
+            style(type="text/css")
+                | .jrnl-radiographics .top-image{ background-image: url("../../images/bg-banner-radiographics.png"); }
+            .jrnl-radiographics
+                +getPage()
+    | #{''}

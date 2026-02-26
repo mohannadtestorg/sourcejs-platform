@@ -1,0 +1,55 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Submission Tool Page
+
+    p.source_info
+        |The Institutional login page template contains the following components: Header, Footer...
+
+    section.source_section
+        h2 Submission page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+
+            main.content.content__submission
+                .container
+                    h1 Start Your Submission
+                    .draft-form
+                        h4.border-bottom Submission Info
+                        form#draftForm.uploader-form(method="post", enctype="multipart/form-data")
+                            input(type="hidden", name="doi", value=data.doi)
+                            input(type="hidden", name="index", value=data.index)
+                            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+                            input(type="hidden", name="signature", value=data.signature)
+
+                            .row
+                                .col-md-9.gutterless
+                                    .col-md-12
+                                        | !{data.basicMetadata}
+                                        | !{data.category}
+                                        | !{data.categories}
+
+                            | !{data.tableAuthors}
+                            | !{data.tableFunders}
+                            | !{data.pdfUploader}
+                            | !{data.tableFiles}
+                            | !{data.tableLinks}
+
+                            .row
+                                .col-md-12
+                                    hr.separator.clearfix
+                                    .actions.pull-right
+                                        button(data-action="#cancelLink").btn--cancel Cancel
+                                        button(data-action="#saveLink").btn.btn--inverse Save as Draft
+                                        button#draft-form__submit(data-action="#submitLink") Review and Submit
+
+
+
+
+
+            | !{data.footer}
+    | #{''}
+

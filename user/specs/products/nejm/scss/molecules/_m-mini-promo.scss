@@ -1,0 +1,603 @@
+/***
+
+```
+<p class="m-mini-promo m-mini-promo--notable-articles">
+  <a href="#">
+    <strong>Notable Articles 2017</strong> <br>
+    <em>New Exclusive Collection</em>
+  </a>
+</p>
+<p class="m-mini-promo m-mini-promo--sign-up-alerts">
+  <a href="#">
+    <strong>Sign up for alerts and updates</strong> <br>
+    <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</em>
+    <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+  </a>
+</p>
+<p class="m-mini-promo m-mini-promo--search-more-info">
+  <a href="#">
+    <strong>Looking for CME Exams?</strong> <br>
+    <em>See the <span>Continuing Medical Education page</span> for access to weekly CME Exams.</em>
+  </a>
+</p>
+<p class="m-mini-promo m-mini-promo--review-cme-program">
+  <a href="#">
+    <strong>Review CME Program</strong>
+    <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+  </a>
+</p>
+```
+
+***/
+/***
+
+Variant `m-mini-promo--subscribe` has multiple links within it:
+
+```
+<p class="m-mini-promo m-mini-promo--subscribe">
+  <strong><a href="#">Subscribe</a> <span>or</span> <a href="#">Renew</a></strong> <br>
+  <em>includes iPad edition</em>
+  <a href="#" class="m-mini-promo__full-hit-link"><svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a>
+</p>
+```
+
+***/
+
+.m-mini-promo {
+  display: block;
+  position: relative;
+}
+
+.m-mini-promo em{
+  font-style: normal;
+}
+
+.m-mini-promo > .m-mini-promo__full-hit-link {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// -------------------------------------
+// inside .g-header
+//
+
+.g-header .m-mini-promo {
+  display: none;
+
+  @include breakpoint('medium+') {
+    display: block;
+    position: absolute;
+    right: 146px;
+    top: 12px;
+    bottom: 12px;
+    width: 240px;
+    margin: 0;
+  }
+
+  @include breakpoint('large+') {
+    html:not(.s-compact-menu) & {
+      right: map-get($outer-gutters, large);
+      top: 20px;
+      bottom: 20px;
+    }
+  }
+
+  @include breakpoint('xlarge+') {
+    html:not(.s-compact-menu) & {
+      right: map-get($outer-gutters, xlarge);
+    }
+  }
+
+  @include breakpoint('xxlarge') {
+    html:not(.s-compact-menu) & {
+      right: 0;
+    }
+  }
+}
+
+// -------------------------------------
+// inside .o-traveling-home
+//
+
+.o-traveling-home .m-mini-promo {
+  width: 256px;
+  height: 64px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// -------------------------------------
+// inside .o-col
+//
+
+.o-col > .m-mini-promo {
+  margin-top: 32px;
+}
+
+.o-col > .m-mini-promo:first-child {
+  margin-top: 0;
+}
+
+// -------------------------------------
+// inside .o-article-body__content .o-col--primary
+//
+
+.o-article-body__content .o-col--primary .m-mini-promo {
+  display: block;
+  margin: map-get($inner-gutters, xsmall) 0;
+
+  @include breakpoint('small+') {
+    float: right;
+    width: colspan(3, small);
+    margin: 28px map-get($inner-gutters, small);
+    margin-right: 0;
+  }
+
+  @include breakpoint('medium+') {
+    float: right;
+    width: colspan(4, medium);
+    margin: 28px map-get($inner-gutters, medium);
+    margin-right: 0;
+  }
+
+  @include breakpoint('large+') {
+    display: none;
+  }
+}
+
+// -------------------------------------
+// inside .o-col--secondary
+//
+
+.o-col--secondary .m-mini-promo {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 20px;
+  }
+
+  @include breakpoint('medium+') {
+    margin-top: 36px;
+  }
+
+  @include breakpoint('large+') {
+    margin-top: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-mini-promo + .o-cols-2\@medium {
+  margin-top: 24px;
+}
+
+//-------------------------------------
+// Variations
+//-------------------------------------
+
+.m-mini-promo--subscribe {
+  @include serif(15, 20);
+  padding: 11px 15px 9px;
+  background-color: $color__background;
+  color: $color__text--quaternary;
+
+  .o-col & {
+    padding-right: 80px;
+    border: 1px solid $color__rules;
+
+    @include breakpoint('large+') {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .g-header & {
+    padding: 7px 15px 0;
+
+    @include breakpoint('large+') {
+      html:not(.s-compact-menu) & {
+        padding: 11px 15px;
+      }
+    }
+  }
+}
+
+.m-mini-promo--subscribe a {
+  position: relative;
+  z-index: 1;
+}
+
+.m-mini-promo--subscribe > a {
+  display: block;
+  position: static;
+}
+
+.m-mini-promo--subscribe a,
+.m-mini-promo--subscribe a:hover {
+  color: $color__text--quaternary;
+}
+
+.m-mini-promo--subscribe strong {
+  @include f-caps;
+}
+
+.m-mini-promo--subscribe strong,
+.m-mini-promo--subscribe strong a,
+.m-mini-promo--subscribe strong a:hover,
+.m-mini-promo--subscribe strong span {
+  color: $color__accent;
+}
+
+.m-mini-promo--subscribe strong a:hover {
+  text-decoration: underline;
+}
+
+.m-mini-promo--subscribe em {
+  display: inline-block;
+  padding-top: 4px;
+
+  .o-col & {
+    padding-bottom: 8px;
+  }
+}
+
+.m-mini-promo--subscribe .icon--arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: $color__black;
+
+  .g-nav & {
+    display: none;
+  }
+}
+
+//-------------------------------------
+
+.m-mini-promo--notable-articles {
+  @include serif(15, 20);
+  padding: 10px 14px 8px;
+  border: 1px solid $color__rules;
+  color: $color__text--headlines;
+
+  .o-col & {
+    padding-right: 80px;
+    border: 1px solid $color__rules;
+
+    @include breakpoint('large+') {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .g-header & {
+    padding: 7px 15px 0;
+
+    @include breakpoint('large+') {
+      html:not(.s-compact-menu) & {
+        padding: 11px 15px;
+      }
+    }
+  }
+}
+
+.m-mini-promo--notable-articles a {
+  position: relative;
+  z-index: 1;
+  color: $color__text--headlines;
+}
+
+.m-mini-promo--notable-articles > a {
+  display: block;
+  position: static;
+}
+
+.m-mini-promo--notable-articles strong {
+  @include f-caps;
+  color: $color__accent;
+}
+
+.m-mini-promo--notable-articles em {
+  @include sans-serif(15, 20, bold);
+  display: inline-block;
+  padding-top: 4px;
+
+  .o-col & {
+    padding-bottom: 8px;
+  }
+}
+
+.m-mini-promo--notable-articles .icon--arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: $color__black;
+
+  .g-nav & {
+    display: none;
+  }
+}
+
+//-------------------------------------
+
+.m-mini-promo--sign-up-alerts {
+  @include serif(15, 20);
+  padding: 11px 15px 9px;
+  background-color: $color__background--alert;
+  color: $color__text--headlines;
+
+  .o-col & {
+    padding-right: 80px;
+    border: 1px solid $color__rules;
+
+    @include breakpoint('large+') {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .o-col--secondary & {
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
+
+  .g-header & {
+    padding: 7px 15px 0;
+
+    @include breakpoint('large+') {
+      html:not(.s-compact-menu) & {
+        padding: 11px 15px;
+      }
+    }
+  }
+}
+
+.m-mini-promo--sign-up-alerts a {
+  position: relative;
+  z-index: 1;
+  color: $color__text--headlines;
+}
+
+.m-mini-promo--sign-up-alerts > a {
+  display: block;
+  position: static;
+}
+
+.m-mini-promo--sign-up-alerts strong {
+  @include f-caps;
+}
+
+.m-mini-promo--sign-up-alerts em {
+  @include sans-serif(15, 20);
+  display: inline-block;
+  padding-top: 4px;
+  color: $color__text--quaternary;
+
+  .o-col & {
+    padding-bottom: 8px;
+  }
+}
+
+.m-mini-promo--sign-up-alerts .icon--arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: $color__accent;
+
+  .g-nav & {
+    display: none;
+  }
+}
+
+//-------------------------------------
+
+.m-mini-promo--search-more-info {
+  @include serif(15, 20);
+  padding: 15px 15px 20px;
+  border-top: 1px solid $color__rules;
+  background-color: $color__background--alert;
+  color: $color__text;
+
+  @include breakpoint('large+') {
+    padding-top: 15px;
+    padding-bottom: 24px;
+  }
+
+  .g-header & {
+    padding: 7px 15px 0;
+
+    @include breakpoint('large+') {
+      html:not(.s-compact-menu) & {
+        padding: 11px 15px;
+      }
+    }
+  }
+}
+
+.m-mini-promo--search-more-info a {
+  position: relative;
+  z-index: 1;
+}
+
+.m-mini-promo--search-more-info > a {
+  display: block;
+  position: static;
+}
+
+.m-mini-promo--search-more-info strong {
+  @include f-caps;
+  display: block;
+  color: $color__text--headlines;
+}
+
+.m-mini-promo--search-more-info br {
+  display: none;
+}
+
+.m-mini-promo--search-more-info em {
+  @include sans-serif(14, 20);
+  @include baseliner(3);
+  display: block;
+  margin-top: 8px;
+  color: $color__text--headlines;
+}
+
+.m-mini-promo--search-more-info em span {
+  color: $color__link-primary;
+}
+
+.m-mini-promo--search-more-info a:hover em span {
+  text-decoration: underline;
+}
+
+.m-mini-promo--search-more-info .icon--arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: $color__black;
+
+  .g-nav & {
+    display: none;
+  }
+}
+
+//-------------------------------------
+
+.m-mini-promo--review-cme-program {
+  @include serif(15, 20);
+  padding: 11px 15px 9px;
+  background-color: $color__background;
+
+  .g-header & {
+    padding: 7px 15px 0;
+
+    @include breakpoint('large+') {
+      html:not(.s-compact-menu) & {
+        padding: 11px 15px;
+      }
+    }
+  }
+}
+
+.m-mini-promo--review-cme-program a {
+  position: relative;
+  z-index: 1;
+}
+
+.m-mini-promo--review-cme-program > a {
+  display: block;
+  position: static;
+  min-height: 40px;
+
+  .o-col--secondary & {
+    min-height: 80px;
+  }
+}
+
+.m-mini-promo--review-cme-program strong {
+  @include f-caps;
+  color: $color__text--headlines;
+}
+
+.m-mini-promo--review-cme-program em {
+  display: inline-block;
+  padding-top: 4px;
+
+  .o-col & {
+    padding-bottom: 8px;
+  }
+}
+
+.m-mini-promo--review-cme-program > a:hover strong {
+  text-decoration: underline;
+}
+
+.m-mini-promo--review-cme-program .icon--arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: $color__black;
+
+  .g-nav & {
+    display: none;
+  }
+}
+
+//-------------------------------------
+
+.m-mini-promo--privacy {
+  @include serif(15, 20);
+  padding: 11px 15px 9px;
+  background-color: $color__glaciablue;
+
+  .o-col & {
+    padding-right: 80px;
+    border: 1px solid $color__rules;
+
+    @include breakpoint('large+') {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+  }
+
+  .g-header & {
+    padding: 7px 15px 0;
+
+    @include breakpoint('large+') {
+      html:not(.s-compact-menu) & {
+        padding: 11px 15px;
+      }
+    }
+  }
+}
+
+.m-mini-promo--privacy a {
+  position: relative;
+  z-index: 1;
+}
+
+.m-mini-promo--privacy > a {
+  display: block;
+  position: static;
+}
+
+.m-mini-promo--privacy strong {
+  @include f-caps;
+  color: $color__text--secondary;
+}
+
+.m-mini-promo--privacy em {
+  @include sans-serif(14, 20);
+  @include baseliner(3);
+  display: inline-block;
+  padding-top: 4px;
+  color: $color__text--tertiary;
+
+  .o-col & {
+    padding-bottom: 8px;
+  }
+}
+
+.m-mini-promo--privacy .icon--arrow {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  color: $color__black;
+
+  .g-nav & {
+    display: none;
+  }
+}
+
+.m-mini-promo--sign-up-alerts a[href^="mailto"]{
+  color: $color__link-primary;
+  &:hover{
+    text-decoration: underline;
+  }
+}

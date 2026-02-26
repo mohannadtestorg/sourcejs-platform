@@ -1,0 +1,122 @@
+.table-of-content {
+  .toc {
+    &__latest-issue {
+      display: flex;
+      flex-wrap: wrap;
+      .border-bottom {
+        border-color: #f0f0f0;
+      }
+      .section__header {
+        flex: 0 0 100%;
+      }
+      & > a {
+        flex: 0 1 127px;
+        img {
+          width: 100%;
+        }
+      }
+      .meta__body {
+        flex: 1;
+        border-bottom: 1px solid $divider-color;
+      }
+      .meta__title {
+        color: #000;
+        span {
+          color: $primary-text-color;
+        }
+      }
+      @include media('<tablet') {
+        & > a {
+          flex: 0;
+        }
+      }
+    }
+
+    &__section {
+      i[class*='icon-'] {
+        font-size: 0.75rem;
+      }
+    }
+    &__heading {
+      font-weight: bold;
+      margin-bottom: 2px;
+      padding: 2px;
+    }
+  }
+  h5.toc__heading {
+    font-size: 1rem;
+  }
+  h6.toc__heading {
+    font-size: 0.875rem;
+    color: #000;
+  }
+  .issue-item {
+    .badge-type {
+      color: $primary-dark-text-color;
+      background-color: transparent;
+      padding: 0;
+      margin-bottom: 0.5rem;
+      width: auto;
+      &--icon {
+        margin-bottom: 0;
+      }
+    }
+    .loa li a {
+      color: $secondary-text-color;
+      span {
+        margin: 0;
+      }
+    }
+    .toc-item__detail {
+      color: $secondary-text-color;
+      span {
+        color: #000;
+      }
+    }
+    & > p a {
+      color: $secondary-color;
+    }
+    .accordion {
+      &__control {
+        color: $secondary-color;
+
+        i[class*=icon-] {
+          color: $secondary-color;
+          font-weight: bold;
+        }
+        &.corrections-container__label {
+           color: #DB3B3B;
+           i[class*=icon-] {
+             color: #DB3B3B;
+             font-weight: normal;
+             &.icon-section_arrow_d {
+               font-weight: bold;
+             }
+           }
+         }
+      }
+      &__content {
+        background-color: $secondary-bg-color;
+        color: #000;
+      }
+    }
+    .toc-item__footer {
+      li a {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.meta__title {
+  color: $primary-bg-color;
+}
+
+.meta__title + .meta__subtitle {
+  margin: -7.5px 0 1rem;
+  display: block;
+}
+
+.issue-item__title {
+  color: $primary-bg-color;
+}

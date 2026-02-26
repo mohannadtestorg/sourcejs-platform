@@ -1,0 +1,81 @@
+{
+    "title": "Psychiatric News",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/psych-header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/psychiatricNews-header.json"
+                }
+            }
+        },
+        "psychNews":{
+            "$pug": {
+                "template": "../../widgets/psych-news-topic/templates/psych-news-topic/demo-psych-news-topic-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/psych-news-topic/templates/data/demo-data.json"
+                }
+            }
+        },
+        "RecentIssue":{
+
+            "$pug": {
+                "template": "../../widgets/book-info/templates/book-info/book-info-tmpl.jade",
+                "data": {
+                    "$ref": "./templates/data/book-info.json"
+                }
+            }
+
+
+        },
+        "topContent2":{
+            "$pug": {
+                "template": "../../widgets/top-content/templates/top-content/top-content-alt-tmpl.jade",
+
+                "data": {
+                    "data": {
+                        "widget": {
+                            "template": "article"
+                        },
+                        "items": [
+                            {
+                                "type": "Article",
+                                "title": "Bridge Column Maximum Drift Estimation via Computer Vision Journal of Computing in Civil Engineering",
+                                "tocHeading": "Technical Papers",
+                                "best": "/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527",
+                                "contribs": "<ul class=\"rlist--inline loa comma\"><li><a href=\"/author/search/url?q=Nick Gayeski\" title=\"Nick Gayeski\"><span>Nick Gayeski</span></a></li><li><a href=\"/author/search/url?q=George Pess\" title=\"George Pess\"><span>George Pess</span></a></li><li><a href=\"/author/search/url?q=Tim Beechie\" title=\"Tim Beechie\"><span>Tim Beechie</span></a></li></ul>",
+                                "group": {
+                                    "contentType": "Issue",
+                                    "issue": "4",
+                                    "volume": "30",
+                                    "issueType": "NORMAL",
+                                    "isAheadOfPrint": false,
+                                    "isJustAccepted": false,
+                                    "isForthcoming": false,
+                                    "tocLink": "/toc/jccee5/30/4",
+                                    "serial": {
+                                        "title": "Journal of Computing in Civil Engineering",
+                                        "journalLink": "/action/showJournal?doi=10.1061%2Fjccee5",
+                                        "code": "jccee5"
+                                    },
+                                    "citationLine": "Vol. 1, No. 4"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/psych-footer.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,165 @@
+nav.m-simple-tabs
+    ul.m-simple-tabs__links
+        li.s-active
+            a(href='/templates/imc-logged-in.php') Case
+
+        li
+            a(href='/templates/imc-disclosure-and-activity.php') Disclosure &amp; Activity Information
+
+    p.m-simple-tabs__note
+        a(href='#') Metrics
+
+nav.m-quick-links
+    ul.m-quick-links__list.f-ui
+        li.m-quick-links__item
+            a(href='#article_citing_articles')
+                em 4
+                |  Citing articles
+
+
+.m-media-launcher
+    .m-media-launcher__poster(data-behavior='OpenInModal', data-modal-href='/templates/imc-modal.php', data-modal-class='interactive')
+        img.m-media-launcher__poster-img(srcset='http://placehold.dev.area17.com/image/1600x900?bg=f2f2f2&fg=ffffff&text=image 1600w', sizes='(min-width: 1480px) 800px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 7), (min-width: 1024px) calc(((100vw - 390px) / 12) * 7), (min-width: 768px) calc(((100vw - 270px) / 7) * 2), (min-width: 480px) calc(100vw - 40px), calc(100vw - 32px)')
+
+        .m-media-launcher__blurb
+            p.f-body--sm
+                | Cras vehicula viverra quam, sed consectetur eros condimentum viverra.
+                a(href='#') Aliquam velit lorem
+                | , malesuada id mattis quis, maximus tincidunt quam. Donec sed efficitur ipsum, tincidunt efficitur ligula.
+
+            p.f-body--sm
+                a(href='#') Learn more about Interactive Medical Cases
+
+    .m-media-launcher__options
+        .m-media-launcher__option
+            p.m-media-launcher__btns
+                a.a-btn.a-btn--icon-first(href='/templates/imc-modal.php', data-behavior='OpenInModal', data-modal-class='interactive')
+                    svg.icon--play(aria-hidden='true')
+                        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                    |                   Play &amp; Save
+
+            p.f-body--sm
+                | To save your progress and resume later,
+                a(href='#') Sign-in or Create a FREE account
+                | . Your work is saved automatically upon sign-in and you will be able to claim MOC points.
+
+        .m-media-launcher__option
+            p.m-media-launcher__btns
+                a.a-btn.a-btn--icon-first(href='/templates/imc-modal.php', data-behavior='OpenInModal', data-modal-class='interactive')
+                    svg.icon--play(aria-hidden='true')
+                        use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+                    |                   Play
+
+            p.f-body--sm
+                | Play as a guest. Please note that your work will not be saved. You will need to sign in if you want to claim MOC points.
+
+section#article_about_imc.o-article-body__section(data-article-section-title='About Interactive Medical Cases')
+    h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3 About Interactive Medical Cases
+    p.f-body
+        | Nullam aliquet eleifend felis, vel posuere ante porta vel. Donec convallis mi sit amet orci consectetur. Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis tempus felis orci id erat. Praesent finibus sem sed arcu tempor, non tincidunt magna luctus. Maecenas lacinia interdum lacinia. Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis tempus felis orci id erat :
+    ul.a-list
+        li Maecenas lacinia interdum lacinia
+
+        li Donec convallis mi sit amet orci consectetur
+
+        li
+            | Pellentesque sed nibh nec augue vehicula porttitor id at massa by
+            a(href='#') taking our survey
+    p.f-body
+        | Phasellus ultricies nibh vitae venenatis consequat. Sed fermentum, velit in sollicitudin dictum, orci leo sagittis elit, eu dictum felis leo non dui. Quisque euismod accumsan metus, ut imperdiet tellus faucibus euismod.
+    ul.f-ui
+        li
+            a(href='#') Feedback
+
+        li
+            a(href='#') Take Our Survey
+
+        li
+            a(href='#') See Accreditation Info
+
+        li
+            a(href='#') See ABIM Policy and MOC FAQs
+    hr
+    p.f-body--sm
+        a(href='#') Paellentesque ac felis
+        |  vehicula, fermentum mauris sed, ornare ex. Mauris cursus, nulla eget fermentum molestie, metus velit sodales turpis tempus felis orci id erat.
+
+
+section#article_citing_articles.o-article-body__section.o-article-body__section--collapsible(data-behavior='CollapsibleArea', data-article-section-title='Citing Articles')
+    h2.o-article-body__section-title.a-article-h1.a-article-h1--underline.f-h3(data-collapsible-trigger='', tabindex='0', aria-title='Citing Articles toggle', aria-controls='collapsible-32886a', aria-expanded='false')
+        | Citing Articles
+        em.a-article-h1__count (4)
+
+        svg.icon--chevron
+            use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--chevron')
+
+    #collapsible-32886a.o-article-body__collapsible(data-collapsible-block='', aria-hidden='true')
+        .o-article-body__collapsible-content
+            ol.m-article-references.m-article-references--citing-articles
+                li.m-article-references__item
+                    p.f-body--sm
+                        | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+                        br
+
+                        em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+
+                    p.f-body--sm Maecenas lacinia interdum lacinia.
+
+                    ul.m-article-references__links.f-body--sm
+                        li
+                            a(href='#') CrossRef
+
+                li.m-article-references__item
+                    p.f-body--sm
+                        | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+                        br
+
+                        em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+
+                    p.f-body--sm Maecenas lacinia interdum lacinia.
+
+                    ul.m-article-references__links.f-body--sm
+                        li
+                            a(href='#') CrossRef
+
+                li.m-article-references__item
+                    p.f-body--sm
+                        | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+                        br
+
+                        em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+
+                    p.f-body--sm Maecenas lacinia interdum lacinia.
+
+                    ul.m-article-references__links.f-body--sm
+                        li
+                            a(href='#') CrossRef
+
+                li.m-article-references__item
+                    p.f-body--sm
+                        | Praesent finibus sem sed arcu tempor, non tincidunt magna luctus.
+                        br
+
+                        em Pellentesque ac felis vehicula, fermentum mauris sed, ornare ex.
+
+                    p.f-body--sm Maecenas lacinia interdum lacinia.
+
+                    ul.m-article-references__links.f-body--sm
+                        li
+                            a(href='#') CrossRef
+
+.m-tags
+    h3.m-tags__title.f-h11 More about
+
+    ul.m-tags__list
+        li.m-tags__item
+            a.a-tag(href='#') Viral Infections
+
+        li.m-tags__item
+            a.a-tag(href='#') Global Health
+
+        li.m-tags__item
+            a.a-tag(href='#') Liver Disease
+
+        li.m-tags__item
+            a.a-tag(href='#') Primary Care

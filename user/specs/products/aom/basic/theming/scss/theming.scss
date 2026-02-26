@@ -1,0 +1,79 @@
+$themes: (
+        jrnl-amj: (
+                color: $journal-color-amj,
+                color2:$journal-bg-color-amj,
+                background-img: url(/pb-assets/images/backgrounds/bg-banner-amj.png),
+        ),
+        jrnl-amr: (
+                color: $journal-color-amr,
+                color2:$journal-bg-color-amr,
+                background-img:url(/pb-assets/images/backgrounds/bg-banner-amr.png),
+        ),
+        jrnl-amd: (
+                color: $journal-color-amd,
+                color2:$journal-bg-color-amd,
+                background-img:url(/pb-assets/images/backgrounds/bg-banner-amd.png),
+
+        ),
+        jrnl-amp: (
+                color: $journal-color-amp,
+                color2:$journal-bg-color-amp,
+                background-img:url(/pb-assets/images/backgrounds/bg-banner-amp.png),
+        ),
+        jrnl-annals: (
+                color: $journal-color-annals,
+                color2:$journal-bg-color-annals,
+                background-img:url(/pb-assets/images/backgrounds/bg-banner-annals.png),
+        ),
+        jrnl-amle: (
+                color: $journal-color-amle,
+                color2:$journal-bg-color-amle,
+                background-img:url(/pb-assets/images/backgrounds/bg-banner-amle.png),
+        ),
+        jrnl-amproc: (
+                color: $journal-color-amproc,
+                color2:$journal-bg-color-amproc,
+                background-img:url(/pb-assets/images/backgrounds/bg-banner-amproc.png),
+        ),
+        primary-bg-color: (
+                color: $primary-bg-color,
+        )
+) !default;
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+    button {
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+    }
+    a {
+        @include themify($themes) {
+            color: themed('color');
+        }
+    }
+}
+
+.background-container {
+    @include themify($themes) {
+        color: themed('color');
+    }
+}

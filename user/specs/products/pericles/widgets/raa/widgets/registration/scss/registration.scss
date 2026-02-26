@@ -1,0 +1,301 @@
+.accountInfo {
+    .personal-information,
+    .emails-wrappers,
+    .phones-wrappers,
+    .taxonomies {
+        margin-top: 0;
+
+        &:before, &:after {
+            content: " ";
+            display: table;
+        }
+        &:after {
+            clear: both;
+        }
+    }
+
+    @include media('>=tablet') {
+        .personal-information .input-group,
+        .taxonomies .input-group,
+            //.emails-wrappers .input-group input:not(.fullwidth),
+        .phones-wrappers .input-group input {
+            width: calc(50% - 15px);
+            float: left;
+            margin-right: 15px;
+
+            &:nth-of-type(even) {
+                margin-left: 15px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    .form-btn {
+        border-top: 1px solid $tertiary-bg-color;
+        text-align: right;
+        float: none;
+        margin-bottom: -20px;
+
+        .primary {
+            min-width: 110px;
+            font-weight: 600;
+        }
+    }
+
+    .required-marker {
+        margin-left: 3px;
+    }
+
+    .email {
+        .show-change-password {
+            margin-top: 5px;
+        }
+    }
+}
+
+.personal-information {
+    margin-top: 0;
+
+    @include media('<desktop') {
+        &--wrapper {
+            .note {
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+.notified-group {
+    .radio--primary {
+        @extend .clearfix;
+
+        .label-txt {
+            float: left;
+            padding-left: 28px;
+
+            &:before {
+                margin-left: -25px;
+            }
+        }
+    }
+}
+
+@include media('<desktop') {
+    .terms-message {
+        margin-bottom: 15px;
+    }
+
+}
+
+.terms-of-use, .printMailing {
+    .checkbox--primary {
+        @extend .clearfix;
+
+        .label-txt {
+            font-size: 14px;
+
+            @include media('<desktop') {
+                line-height: 22px;
+                float: left;
+                padding-left: 26px;
+
+                &:before {
+                    margin-left: -26px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+
+.passwordNotification {
+    margin-top: 24px;
+}
+
+.formDropZone {
+    .accordion {
+            a {
+                color: $nearlyBlack;
+                font-size: 1.375rem;
+            }
+            .icon-section_arrow_d {
+                font-size: 6px;
+                margin-left: 16px;
+                vertical-align: middle;
+                color: $wiley-blue-color;
+            }
+
+            &__content {
+                border: none;
+            }
+
+
+    }
+}
+
+@include media('>=tablet') {
+    .formDropZone + .actions {
+        padding: 24px 20px 0;
+    }
+
+    .marketable {
+        padding: 0;
+    }
+
+}
+
+.registration-actions.registration-actions.form-btn {
+    @extend .clearfix;
+    margin-top: 25px;
+
+}
+
+@mixin loginStyling {
+    .show-registration {
+        color: $wiley-blue-color;
+        display: inline-block;
+        &:hover, &:focus, &:active {
+            color: $wiley-blue-color;
+        }
+    }
+
+    .show-request-username,
+    .show-request-reset-password {
+        font-size: $small-font-size;
+        color: $wiley-blue-color;
+        display: inline-block;
+        padding: 10px 0;
+        margin-top: 0;
+    }
+
+    .linkBtn {
+        font-size: 11px;
+        padding: 12px 40px;
+
+        @include media('<tablet') {
+            width: 100%;
+            text-align: left;
+        }
+    }
+
+    .form-btn {
+        margin: 5px -20px -20px;
+        padding: 8px 0;
+
+        @include media('<tablet') {
+            text-align: left;
+        }
+    }
+}
+
+@mixin widgetHeader {
+    @include media('>=tablet') {
+        border-bottom: 1px solid $tertiary-bg-color;
+    }
+
+    h2 {
+        text-align: left;
+        font-weight: 600;
+        font-size: $h3-font-size;
+        border: 0;
+        padding: 0;
+        margin-bottom: 24px;
+    }
+
+    .sub {
+        margin: 24px 0;
+    }
+
+    .header_logo {
+        /* margin: -24px -24px 24px;*/
+        /*padding: 0 24px;*/
+        /*border-bottom: 1px solid $tab-border;*/
+        /*line-height: 65px;*/
+    }
+}
+
+@mixin widgetBody {
+    label {
+        margin-bottom: 16px;
+    }
+
+    .button {
+        width: auto;
+        min-width: 130px;
+        margin: 15px 0;
+        font-weight: 600;
+
+        @include media('<tablet') {
+            width: 100%;
+            line-height: 20px;
+        }
+    }
+    .no-margin-bottom {
+        margin-bottom: 0;
+    }
+
+    .input-group {
+        margin-bottom: 0;
+        & + .input-group {
+            margin-top: 30px;
+        }
+    }
+
+    .g-recaptcha {
+        margin-top: 16px;
+    }
+
+    form {
+        margin-top: 24px;
+    }
+
+    .loginInstructions {
+        margin: 24px 0;
+        font-size: 0.75rem;
+        color: $wiley-typography-color;
+    }
+}
+
+.widget__header {
+    @include widgetHeader;
+}
+
+.widget__body {
+    @include widgetBody;
+}
+
+.login-widget {
+    margin-top: 2em;
+    @include loginStyling;
+}
+
+.widget__body {
+    .show-request-reset-password {
+        color: $forgot-password;
+        font-size: $small-font-size;
+        display: inline-block;
+        padding: 10px 0;
+    }
+    .show-registration {
+        padding-left: 0;
+    }
+    .clearfix {
+        &.form-btn {
+            border-top: none;
+        }
+    }
+}
+
+
+.form-btn {
+
+    .card & {
+        margin: 0 -20px 0;
+        padding: 20px 20px 0;
+    }
+
+    .btn {
+        margin-bottom: 0;
+    }
+}

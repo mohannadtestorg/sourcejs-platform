@@ -1,0 +1,31 @@
+.article-image {
+    position: relative;
+    display: inline-block;
+    .icon-play-alt{
+        &:before{
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+        }
+    }
+    img:hover~.video__player__icon {
+        display: none;
+    }
+    &.gallery-demo{
+        max-width: 500px;
+    }
+}
+.article__body {
+    .article-image {
+        display: block;
+        img{
+            width: 100%;
+        }
+    }
+    &.article-demo{
+        max-width: 500px;
+    }
+}

@@ -1,0 +1,82 @@
+.saved-searches {
+    th {
+        color: $profile-tertiary-color;
+        font-size: 0.875rem;
+        font-weight: 600;
+
+
+
+    }
+    td {
+        color: $primary-light-text-color;
+        font-weight: 700;
+        font-size: 0.875rem;
+
+        & ~ td {
+            font-size:  0.75rem;
+        }
+
+        @include media('<tablet') {
+            &:first-child {
+                &:after, &:before {
+                    content: '' !important;
+                    display: inline;
+                }
+            }
+        }
+
+    }
+
+    .action {
+        width: 80px;
+        @include media('<tablet') {
+            &.action {
+                display: inline-block;
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+
+            &.action:after, &.action:before {
+                content: '';
+                display: inline-block;
+            }
+
+            [title="Run"] {
+                padding: 8px 25px;
+                border: 3px solid $profile-primary-color;
+            }
+
+        }
+    }
+
+    .table__action {
+        font-size:  0.75rem;
+        color: $primary-light-text-color;
+        background: transparent;
+
+        @include media('>=tablet') {
+            text-transform: uppercase;
+            color: $profile-tertiary-color;
+            padding: 0;
+        }
+
+        &:hover {
+            background: transparent;
+            text-decoration: underline;
+        }
+
+
+    }
+
+    @include media('<tablet') {
+        .to_hide {
+            display: block !important;
+        }
+
+    }
+
+    .table__control__button {
+        display: none;
+    }
+
+}

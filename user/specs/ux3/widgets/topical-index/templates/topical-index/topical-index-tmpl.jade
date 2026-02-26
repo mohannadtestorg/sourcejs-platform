@@ -1,0 +1,36 @@
+div.topical-index
+    each item, i in data.taxonomies
+        h2 !{item.label}
+    if(data.search.facet)
+        ul
+            each item, i in data.search.facet
+                if(!item.tag.tags)
+                    if(item.children && item.children.length > 0)
+                        li.expandable-list
+                            a.expandable-list__toggle(href="#{item.tag.link}", aria-expanded="false")
+                                i.icon-arrow_r
+                                span !{item.tag.label}
+                                span.expandable-list__count (!{item.count})
+                            ul.expandable-list__body
+                                each child, l in item.children
+                                    li
+                                        a(href="#{child.tag.link}") #{child.tag.label} (#{child.count})
+                    else
+                        li
+                            a(href="#{item.tag.link}")
+                                span !{item.tag.label}
+                                span.expandable-list__count (!{item.count})
+                else
+                    li.expandable-list
+                        a.expandable-list__toggle(href="#{item.tag.link}", aria-expanded="false")
+                            i.icon-arrow_r
+                            span !{item.tag.label}
+                            span.expandable-list__count (!{item.count})
+                        if item.tag.tags
+                            ul.expandable-list__body
+                                each child, k in item.tag.tags
+                                    li
+                                        a(href="#{child.link}")
+                                            span !{child.label}
+                                            if(child.new && child.new == "true")
+                                                span.new new

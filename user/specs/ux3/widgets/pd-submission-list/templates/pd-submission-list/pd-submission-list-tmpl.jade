@@ -1,0 +1,45 @@
+mixin submission-list-item(submission)
+    article.submission-list-item(data-category=submission.category, data-doi=submission.doi)
+        .submission-list-item__badge
+            span.badge-state(class="badge-state--#{submission.state}", title=submission.state)
+
+        .submission-list-item__row
+            .submission-list-item__label
+                | #{submission.type} Title
+            p.submission-list-item__title
+                | #{submission.title}
+
+        .submission-list-item__row
+            span.submission-list-item__label
+                | Category:
+            | #{" "}
+            span.submission-list-item__value
+                | #{submission.category}
+
+        .submission-list-item__row
+            span.submission-list-item__label
+                | Submission Date:
+            | #{" "}
+            span.submission-list-item__value
+                | #{submission.submissionDate}
+        a(href="#", data-slide-target="#dashboardMain", class="w-slide__btn")
+
+
+.submission-list
+    .row
+        .col-xs-12
+            .input-group
+                label Filter By Category
+                select.jcf.submission__select(name="", datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    option(value="") -- Select --
+                    if (data && data.categories)
+                        each item, l in data.categories
+                            option(value=item.name, selected=data.category == item.name ? true : false )
+                                | #{item.label}
+
+    .row
+        .col-xs-12
+            .submission-list__list
+                if (data && data.submissions)
+                    each item, l in data.submissions
+                        +submission-list-item(item)

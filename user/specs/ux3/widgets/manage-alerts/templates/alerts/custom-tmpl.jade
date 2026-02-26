@@ -1,0 +1,32 @@
+form.alert__content(id='customAlertsForm' name="customAlertsForm" method="post" action="/action/doUpdateAlertSettings")
+    input(type="hidden" value="removeCustomAlert" name="action")
+    input(type="hidden" name="backURI" value="/action/showAlertSettings?updatedCustomAlerts=true")
+
+    h5.profile__heading.border-bottom Title A-Z
+    .table-responsive.separator
+        table.alert__list
+            tbody
+                tr
+                    td.table__mark
+                        label.checkbox--primary
+                            input.jcf(type="checkbox" name="markall" )
+                    td
+                        label Select All
+
+                if(data.currentPerson && data.currentPerson.alerts && data.currentPerson.alerts.custom)
+                  each custom, l in data.currentPerson.alerts.custom
+                    tr
+                        td.table__mark
+                            label.checkbox--primary
+                                if(custom.content && custom.content.code)
+                                  input(type="checkbox" id="check-" + custom.content.code name="journalCode" value=custom.content.code)
+                                span
+                        td
+                            if(custom.content && custom.content.code)
+                              label(for="check-" + custom.content.code)
+                                  if(custom.content.bookSeriesUrl)
+                                    a(href=custom.content.bookSeriesUrl) !{custom.content.title}
+
+    .form-btn
+        button.btn.btn__transparent.btn-alert__transparent(type='submit')  Delete
+

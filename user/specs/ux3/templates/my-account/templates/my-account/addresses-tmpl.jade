@@ -1,0 +1,72 @@
+.user-addresses
+    .address-block.clearfix
+        h3.profile__heading.pull-left Addresses
+        a(href="#").pull-right.add-new-address
+            i.icon-add(aria-hidden="true")
+            | New Address
+
+    .address-block.clearfix
+        .col-xs-11.gutterless
+            h6 Home
+            p John Doe
+            p The address goes here
+            p 12345 Nameofthecity, Country
+
+        .col-xs-1.gutterless
+            .pull-right
+                i.icon-pencil(aria-hidden="true")
+                i.icon-delete(aria-hidden="true")
+    .address-block.clearfix
+        .col-xs-11.gutterless
+            h6 Home
+            p John Doe
+            p The address goes here
+            p 12345 Nameofthecity, Country
+
+        .col-xs-1.gutterless
+            .pull-right
+                i.icon-pencil(aria-hidden="true")
+                i.icon-delete(aria-hidden="true")
+
+.hidden.new-address
+    h3.profile__heading.border-bottom New address
+
+    block newAddressContent
+        .row
+            .col-md-10
+                form
+                    label(for='addressName') Address name
+                    input(id="addressName" type="text" placeholder="Select an address or add a new one")
+
+                    .grid-md-2.row
+                        .grid-item
+                            label(for='name') Name
+                            input(id="name" type="text" placeholder="Type your name")
+
+                        .grid-item
+                            label(for='surname') Surname
+                            input(id="surname" type="text" placeholder="Type your surname")
+
+                    label(for='address') Address
+                    input(id="address" type="text" placeholder="Type your address")
+
+                    .grid-lg-2.row
+                        .grid-item
+                            label(for='postCode') Post code
+                            input(id="postCode" type="text" placeholder="Type your post code")
+
+                        .grid-item
+                            label(for='city') City
+                            input(id="city" type="text" placeholder="Type your city")
+
+                    label(for='country') Country
+                    input(id="country" type="text" placeholder="Type your country")
+
+                    label State
+                    select.jcf
+                        option Select your state
+                        option Ipsum
+                        option Dolor
+
+                    button.btn Save Address
+                    a(href="#").my-account__cancle.cancle-new-address Cancle

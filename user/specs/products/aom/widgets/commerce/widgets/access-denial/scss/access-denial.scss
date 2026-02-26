@@ -1,0 +1,119 @@
+.eCommercePurchaseAccessWidgetContainer {
+  .add-journal-to-cart {
+    header {
+      line-height: inherit;
+      padding: 0;
+      border: none;
+      position: relative;
+      .purchaseMessage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #808080;
+        opacity: 0.95;
+        text-align: center;
+        color: #fff;
+        padding: 0;
+        p.itemAddedMsgBox {
+          border: none;
+          line-height: 60px;
+          margin: 0;
+          padding: 3px 0 8px 0;
+          h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+          }
+          &:before {
+            font-size: 19px;
+            vertical-align: middle;
+            position: static;
+            display: inline;
+            margin: 0 10px 0 0;
+          }
+        }
+      }
+      .add-to-cart-msg{
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #808080;
+        opacity: 0.95;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #fff;
+        line-height: 55px;
+        margin-left: 0;
+        margin-bottom: 0;
+        [class^="icon-"]{
+          font-size: 19px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+        &.added{
+          background: #000000;
+        }
+      }
+      &:hover{
+        position: relative;
+        .add-to-cart-msg:not(.added){
+          display: block;
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+}
+.addedMessage {
+  overflow: hidden;
+  margin-left: 5px;
+  .article-title{
+    float: left;
+    border: 1px solid #000000;
+    color: #000000;
+    font-size: 17px;
+    padding: 6.5px 20px;
+    font-weight: 700;
+    line-height: 60px;
+    background: #ffffff;
+    width: 70%;
+    [class^="icon-"]{
+      color: #90c65c;
+      font-size: 25px;
+      margin: 0 10px 0 0;
+    }
+    .article-title-content{
+      vertical-align: middle;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+    }
+  }
+  > a.show-cart-link{
+    float: right;
+    text-align: center;
+    width: 27.3%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 62px;
+    padding: 6px 0;
+    margin: 0;
+    background: #808080;
+    &:hover{
+      background-color: #000000;
+    }
+    .text{
+      display: inline-block;
+      line-height: 1.3em;
+      vertical-align: middle;
+    }
+  }
+}

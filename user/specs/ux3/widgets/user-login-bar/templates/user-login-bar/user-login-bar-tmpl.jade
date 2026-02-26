@@ -1,0 +1,31 @@
+- var wData = {"isUserLoggedIn":"", "displayName":"", "logoutUrl":"", "loginUrl":"", "userNameLinkUrl":""};
+
+if(data)
+    - wData.isUserLoggedIn = data.isUserLoggedIn ? data.isUserLoggedIn : wData.isUserLoggedIn;
+    - wData.displayName = data.displayName ? data.displayName : wData.displayName;
+    - wData.logoutUrl = data.logoutUrl ? data.logoutUrl : wData.logoutUrl;
+    - wData.loginUrl = data.loginUrl ? data.loginUrl : wData.loginUrl;
+    - wData.userNameLinkUrl = data.userNameLinkUrl ? data.userNameLinkUrl : wData.userNameLinkUrl;
+
+
+div.user-login-bar
+    block userLoginBar
+        if(wData.isUserLoggedIn)
+            div.dropBlock
+                a(href="#", data-db-target-for="loginBarDB" data-db-switch="none")
+                    i.icon-userprofile
+                    span !{wData.displayName}
+                div.dropBlock__holder(data-db-target-of='loginBarDB')
+                    ul
+                        li
+                            a(href=wData.userNameLinkUrl) My Account
+                        li
+                            a(href=wData.logoutUrl) Logout
+        else
+            div.user-login-bar__signin
+                a(href=wData.loginUrl)
+                    i.icon-profile_empty
+                    span Sign in
+
+
+

@@ -1,0 +1,19 @@
+if (data.journal)
+	.browse-journal__item.clearfix
+		.item__image
+			a(href=data.journal.link)
+				img(src=data.journal.coverImage.src, alt=data.journal.title, class=journal__cover)
+		.item__body
+			h1.meta__title
+				a(href=data.journal.link) !{data.journal.title}
+			.meta__info
+				.meta__details
+					if(data.journal.latestIssue)
+						a.item__issue(href=data.journal.latestIssue.link) !{data.journal.latestIssue.citationLine}
+						if(data.journal.latestIssue.coverDate && data.journal.latestIssue.coverDate!="")
+							span.item__date  !{data.journal.latestIssue.coverDate}
+
+				block  browseJouranlDropzone
+						| !{pb.renderDropzone(thisWidget,"BrowseJouranlDropzone_" +thisWidget.id)}
+
+

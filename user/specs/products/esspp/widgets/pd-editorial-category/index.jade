@@ -1,0 +1,56 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+        h2 Usage
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use catogory widget.
+
+        +printJson({
+            "data": {
+                "inputs": {
+                    "uri": {
+                        "value": "Cat2",
+                        "message": {
+                            "type": "warning",
+                            "text": "message warning"
+                        }
+                    }
+                },
+                "categories": [
+                    {
+                        "name": "Cat1",
+                        "label": "Category 1"
+                    },
+                    {
+                        "name": "Cat2",
+                        "label": "Category 2"
+                    },
+                    {
+                        "name": "Cat3",
+                        "label": "Category 3"
+                    }
+                ]
+            }
+        })
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3!= data.items[0].title
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        .source_example
+            | !{data.items[1].body}
+
+
+    | #{''}

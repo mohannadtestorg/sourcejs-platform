@@ -1,0 +1,49 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Table Of Content page
+
+
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.toc.pageBody.ajpregu
+                include ../../components/publication-header/templates/publication-header-tmpl.jade
+                div.publication_container.clearfix
+                    include ../../components/publication-menu/templates/demo/publication-menu-demo-tmpl.jade
+                        div.transplant.showit.loi-menu-res(data-target=".editor-in-chief" data-remove="false" data-targetClass="hidden-xs" data-toggle="transplant" data-direction="from" data-transplant="self")
+                    .container
+                        .row
+                            .xs-space
+                                .hidden-lg.card.mobile__editor__area.clearfix
+                                    .row
+                                        .col-xs-12.hidden-md
+                                            | !{pb.render("cover-image" , "cover-image/cover-image" , {data : data.coverImage.data, thisWidget : data.coverImage.thisWidget} , "physio" )}
+                                        .col-xs-12
+                                            nav.toc__section.toc-res
+                                                a.w-slide__btn(href='#', data-db-target-for='sections', data-db-switch='icon-close_thin', title='Go To Sections', data-slide-target='#sections')
+                                                    i.icon-toc
+                                                    span Sections
+                                                #sections
+                                                    ul.sections__drop.rlist.separator(data-db-target-of='sections')
+                                .col-sm-8.toc-left-side.aop-toc
+                                    |!{data.toc}
+                                .col-sm-4.gray-bg.toc-right-side
+                                    .visible-lg.visible-md
+                                        | !{pb.render("cover-image" , "cover-image/cover-image" , {data : data.coverImage.data, thisWidget : data.coverImage.thisWidget} , "physio" )}
+                                    .hidden-sm.hidden-xs
+                                        include ../../components/journal-items/templates/editor-in-chief-tmpl.jade
+                                    .card.featured-articles-card.clearfix
+                                        |!{data.featured}
+                                    .card.sidebar-tabs
+                                        |!{data.trending}
+                                    include ../../components/journal-items/templates/stay-connected-tmpl.jade
+            | !{data.footer}
+    | #{''}

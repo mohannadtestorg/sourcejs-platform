@@ -1,0 +1,13 @@
+extends ../../../../../../ux3/components/facet/templates/facet/facet-tmpl
+
+
+block facetItem
+    i.icon-add_box.facet__toggle(aria-hidden="true")
+    if (item.link)
+        a(href=item.link title=linkTitle class='dropdown__toggle')
+            +item(item, false)
+
+
+    +facetUl(item, true)
+
+

@@ -1,0 +1,236 @@
+﻿extends /specs/page-structure/layout.jade
+block cssLastInHead
+    link(rel='stylesheet', href='./css/jcf.css')
+block content
+    h1 form elements customization
+    .source_info
+        p <a href="https://www.psd2html.com/js-custom-forms/">JCF </a> This JavaScript tool allows smooth cross-browser customization of form elements with CSS.
+    section.source_section
+        h2 Default set-up
+        markdown
+            p With many JavaScript options available, you can customize every form element state with CSS, you need to add class `"jcf"` to the element you want to be customized by jcf plugin
+    section.source_section
+        h2 Elements
+        h3 Select
+        .source_example
+            select(data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false}' class="jcf")
+                option Custom drop in  &lt;body&gt;
+                option Option 1
+                option Option 2
+                option Option 3
+                option Option 4
+                optgroup(label="test")
+                    option Option 5
+                    option Option 6
+
+                option Option 7
+                option Option 8
+                option(disabled) Option 9 (disabled)
+                option(disabled) Option 10 (disabled)
+                option Option 11
+                option Option 12
+                option Option 13
+                option Option 14
+                option Option 15
+                option Option 16
+                option Option 17
+                option Option 18
+                option Option 19
+                option Option 20
+                option Option 21
+                option Option 22
+                option Option 23
+                option Option 24
+                optgroup(label="last 26")
+                    option Option 25
+                    option Option 26
+
+
+
+            select(data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false, "fakeDropInBody": false, "useCustomScroll": false}' class="jcf")
+                option Custom drop in area
+                option Option 1
+                option Option 2
+                option Option 3
+                option Option 4
+                optgroup(label="test")
+                    option Option 5
+                    option Option 6
+
+                option Option 7
+                option Option 8
+                option(disabled) Option 9 (disabled)
+                option(disabled) Option 10 (disabled)
+                option Option 11
+                option Option 12
+                option Option 13
+                option Option 14
+                option Option 15
+                option Option 16
+                option Option 17
+                option Option 18
+                option Option 19
+                option Option 20
+                option Option 21
+                option Option 22
+                option Option 23
+                option Option 24
+                optgroup(label="last 26")
+                    option Option 25
+                    option Option 26
+
+            select( class="jcf")
+                option Native dropdown
+                option Option 1
+                option Option 2
+                option Option 3
+                option Option 4
+
+            select( class="jcf" disabled="disabled")
+                option Disabled select
+                option Disabled select1
+
+
+            select(size="6" class="jcf")
+                option Custom drop in area
+                option Option 1
+                option Option 2
+                option Option 3
+                option Option 4
+                optgroup(label="test")
+                    option Option 5
+                    option Option 6
+
+                option Option 7
+                option Option 8
+                option(disabled) Option 9 (disabled)
+                option(disabled) Option 10 (disabled)
+                option Option 11
+                option Option 12
+                option Option 13
+                option Option 14
+                option Option 15
+                option Option 16
+                option Option 17
+                option Option 18
+                option Option 19
+                option Option 20
+                option Option 21
+                option Option 22
+                option Option 23
+                option Option 24
+                optgroup(label="last 26")
+                    option Option 25
+                    option Option 26
+
+
+            select(multiple placeholder="Compact multiple select" data-jcf='{"wrapNative": false, "wrapNativeOnMobile": false, "useCustomScroll": false, "multipleCompactStyle": true}' class="jcf")
+                option Option 1
+                option Option 2
+                option Option 3
+                option Option 4
+
+        h3 Number inputs
+        .source_example
+            input(type="number" min="-3" max="20" step="2" class="jcf")
+            input(type="number" value="2" class="jcf")
+            input(type="number" step="7" value="5" min="-20" max="45" class="jcf")
+            input(type="number" disabled value="7" class="jcf")
+
+        h3 Range inputs
+        .source_example
+            input(type="range" class="jcf")
+            input(type="range" disabled class="jcf")
+            input(type="range" min="-3" max="45" step="7" class="jcf")
+            input(type="range" value="0" min="0" max="100" list="testdata1" class="jcf")
+
+
+        h3 Vertical slider
+        .source_example
+            input(type="range" value="30" min="0" max="100" class="jcf" list="testdata1" data-jcf='{"orientation": "vertical", "range": "min"}')
+            datalist(id="testdata1")
+                option 0
+                option 10
+                option 11
+                option 15
+                option 30
+                option 50
+                option 90
+                option 100
+
+            input(type="range" multiple value="15,90" min="0" max="100" class="jcf" list="testdata1" data-jcf='{"orientation": "vertical"}')
+
+
+        h3 Checkboxes
+        .source_example
+            input(type="checkbox" id="chk1" class="jcf")
+            label(title="Unchecked state" for="chk1" ) Unchecked
+
+            input(type="checkbox" id="chk2" checked="checked" class="jcf")
+            label(title="Checked state" for="chk2" ) Checked
+
+            input(type="checkbox" id="chk3" disabled="disabled" class="jcf")
+            label(title="Checked state" for="chk3" ) Disabled
+
+            input(type="checkbox" id="chk4" disabled="disabled" checked="checked" class="jcf")
+            label(title="Checked state" for="chk4" ) Disabled checked
+
+
+        h3 Radios
+        .source_example
+            input(type="radio" name="rtest" id="rad1" class="jcf")
+            label(for="rad1" title="Unchecked state" ) Unchecked
+
+            input(type="radio" name="rtest" checked="checked" id="rad2" data-jcf='{"wrapNative": true}' class="jcf")
+            label(for="rad2" title="Checked state" ) Checked
+
+            input(type="radio" name="rtest" disabled="disabled" checked="checked" id="rad3" class="jcf")
+            label(for="rad3" title="Disabled state" ) Disabled
+
+        h3 File input
+        .source_example
+            input(type="file" class="jcf")
+            input(type="file" data-jcf='{"buttonText": "Custom button", "placeholderText": "Custom placeholder"}' class="jcf")
+            input(type="file" disabled class="jcf")
+
+        h3 Scrollbars
+        .source_example
+            textarea(cols="40" rows="10" class="jcf")
+
+    | #{''}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

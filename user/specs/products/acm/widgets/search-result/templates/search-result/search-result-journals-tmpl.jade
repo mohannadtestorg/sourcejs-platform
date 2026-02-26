@@ -1,0 +1,83 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl
+
+
+
+
+
+block defineUserLayout
+    if(data.widgetData.groupTabs)
+        -var bookTab= data.widgetData.groupTabs.journalTitle;
+        if(bookTab)
+            if(bookTab.active == "true")
+                -searchlistClass="search-result__journals "
+            if(bookTab.active == "true" && bookTab.userDefinedLayout == "true")
+                -showLayoutIcons=true;
+                if(bookTab.layout == "tile")
+                    -searchlistClass=searchlistClass + "search-result--tile";
+                    -isTileLayoutActive=true;
+
+
+
+block searchResultMain
+    block resultsListClassesXSLT
+        - var ulClasses = "search-result__body items-results container " +searchlistClass
+    ul(class=ulClasses)
+        if(data.search && data.search.results)
+            each item, i in data.search.results
+                li.clearfix.search__item.journal
+                   if(item.content)
+                        if(item.content.coverImage)
+                           img.journal-image(src=item.content.coverImage.src alt=item.content.title)
+                        .journal-item-body.csuracm-journal
+                            .search__item-title
+                                h4
+                                    a.journal-link(href=item.content.journalUrl title=item.content.title)
+                                        span.journal-code Csuracm
+                                        span.journal-title !{item.content.title}
+                            .meta
+                                .meta__abstract
+                                    p These comprehensive, readable tutorials and survey papers give guided tours through the literature and explain topics to those who seek to learn the basics of areas outside their specialties. The carefully planned and presented introductions in Computing Surveys (CSUR) are also an excellent way for professionals to develop perspectives on, and identify trends in complex technologies. Recent issues have covered image understanding, software reusability, and object and relational database topics.
+
+                                .meta__editor
+                                    span.editor-label Editor:
+                                    ul.rlist--inline.loa.comma
+                                        li
+                                            a(href='/author/search/url?q=Nick Gayeski', title='Nick Gayeski')
+                                                img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author1.jpg" alt="Nick Gayeski")
+                                                span.author-name Nick Gayeski
+                                        li
+                                            a(href='/author/search/url?q=Sally', title='Sally')
+                                                img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author2.jpg" alt="Nick Gayeski")
+                                                span.author-name Sally
+                                        li
+                                            a(href='/author/search/url?q=Nick Gayeski', title='Julian')
+                                                img.author-picture(src="/specs/products/acm/templates/browse-journals/images/author1.jpg" alt="Julian")
+                                                span.author-name Julian
+
+
+                            .more-link
+                                a(href='/more', title='More journals') More ⟶
+
+
+                            .colored-block__dash
+
+
+
+
+block saveSearchDialog
+
+
+block searchResultTop
+block searchResultTopShowPublications
+    if(showLayoutIcons == true)
+        .container
+            div.search__layout
+                span.search__layout-tile(class=(isTileLayoutActive ? "active" : ""))
+                    i.icon-grid2
+                    span Grid View
+                span.search__layout-list(class=(isTileLayoutActive ? "" : "active"))
+                    i.icon-Icon_Mobile-menu
+                    span List View
+
+
+block searchResultPager

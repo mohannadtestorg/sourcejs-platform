@@ -1,0 +1,64 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Book
+    .source_info
+
+
+
+    section.source_section
+        h2 Book
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content.book
+                .meta-wrapper
+
+                .container
+                    | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<div class=\"card card--gutter card--shadow book-head meta__body\"><div class=\"meta__left-side\"><a href=\"#\" title=\"cover\"><img alt=\"cover\" src=\"http://www.worldscientific.com/na101/home/literatum/publisher/wspc/books/content/books/1992/1560/1560/20170619-01/1560.cover.jpg\"></a><div class='book-details'><h1 class=\"meta__title\">Nonlinear Evolution Equations and Dynamical Systems</h1><div class=\"meta__info\"><span class='book-edition'>2nd Edition</span><p><span class='meta__info-item'>ISBN(online):</span> 978-981-4555-41-8 | <span class='meta__info-item'>Published:</span> 3 July 2017</p><p><span class='meta__info-item'>Pages::</span> 344</p></div><p class=\"meta__contrib\"><span class='meta__info-item'>Author(s):</span> W-H Steeb (Rand Afrikaans Univ.), N Euler (Rand Afrikaans Univ.)</p><div class='book-actions'><a href='#' class='book__ctrl'><i class='icon-Icon_Download'></i> Full Book(PDF)</a><a href='#' class='book__ctrl'><i class='icon-Icon_Tools'></i> Tools</a><a href='#' class='book__ctrl'><i class='icon-Icon_Share'></i> Share</a></div></div></div><div class=\"meta__right-side\"><div class='purchase-actions'><a href=\"#\" class=\"btn book-purchase\">Purchase access to the entire book</a><span class='book-price'>GBP92.00</span></div></div></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    .row.separator
+                        .col-lg-9.col-md-8.col-sm-12.gutterless
+                            div.books-tabs
+                                | !{pb.render("tabs-widget", "book-tabs.json")}
+
+                            div.tab__content
+                                div.book__description
+                                    p The authors have no relevant affiliations or financial involvement with any organization or entity with a financial interest in or financial conflict with the subject matter or materials discussed in the manuscript. This includes employment, consultancies, honoraria, stock ownership or options, expert testimony, grants or patents received or pending, or royalties. No writing assistance was utilized in the production of this manuscript.
+
+                                div.book__contents
+                                    h3 Contents:
+                                    ul
+                                        li Introduction
+                                        li Painlevé Test and Ordinary Differential Equations
+                                        li Applications
+                                        li Ziglin's Theorems and Nonintegrability
+                                        li Group Theoretical Reduction of Partial Differential Equations and Painlevé Test
+                                        li Painlevé Property and Painlevé Test for Partial Differential Equation
+                                        li Painlevé Property and Integrability
+                                        li Hirota Technique and Painlevé Test
+                                        li Deformation of Painlevé Series under Symmetry Reduction
+                                        li Integrable Field Equations
+                                        li Nonintegrable Field Equations
+                                        li Painlevé Transcendents in Statistical Mechanics
+
+                                div.book__readership
+                                    b Readership:
+                                    | Mathematicians and physicists.
+
+                            h3.section__header.border-bottom Related Books
+                            div.books__slider.responsiveSlider5-3-2-1
+                                | !{pb.render('slideshow', 'slideshow/demo/slideshow-demo', 'books.json')}
+
+                            div.book-page-ad
+                                img(src="/specs/products/wspc/releasedAssets/images/books-offer.jpeg")
+
+
+                        .col-lg-3.col-md-4.col-sm-12
+                            | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "light", "height": "700"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

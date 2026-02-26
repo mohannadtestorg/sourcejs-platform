@@ -1,0 +1,49 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Home page
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+
+            | !{pb.render("header", "header/demo/header")}
+            main.content.with-bg
+                .top-image
+                .container
+                    | !{pb.render('slideshow', 'slideshow/demo/slideshow-demo', 'cards.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card card--extra-gutter", "card--shadow", "left-side-image", "slideshow-wrapper"]}}}})}
+
+                    .row.separator
+                        .col-md-8.col-sm-7.gutterless
+                            | !{pb.render('top-content', 'most-x-grid.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "LATEST ARTICLES"}}}})}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter"]}}}})}
+
+                            //mpu ad
+                            .mpu
+                    .row.separator--extra
+                        .col-md-8.col-sm-7.gutterless.news
+                            | !{pb.render('top-content', 'most-x-featured.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-2 grid-lg-2 featured"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "News"}}}})}
+
+                        .col-md-4.col-sm-5
+                            | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "dark", "height": "800"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+                .container
+                    .row.separator
+                        .col-md-12.gutterless
+                            | !{pb.render('cover-image', 'cover.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["grid-sm-5 grid-xs-margin--extra"], "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "JOURNAL LATEST ISSUES"}}}})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+
+    | #{''}
+    

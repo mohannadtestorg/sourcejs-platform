@@ -1,0 +1,16 @@
+
+div.search-result__nav
+    if (data) && (data.widgetData) && (data.widgetData.groupTabs)
+            if  (data.widgetData.groupTabs.articlesChapters) && (data.widgetData.groupTabs.articlesChapters.enabled == "true")
+
+                - var classes = "search-result__nav__item"
+                if data.widgetData.groupTabs.articlesChapters.active == "true"
+                    - classes = "search-result__nav__item active"
+                a(class= classes href= data.widgetData.groupTabs.articlesChapters.link )!{data.widgetData.groupTabs.articlesChapters.label} (!{data.widgetData.groupTabs.articlesChapters.count})
+
+
+            if (data.widgetData.groupTabs.journalTitle) && (data.widgetData.groupTabs.journalTitle.enabled == "true")
+                - var classes = "search-result__nav__item"
+                if data.widgetData.groupTabs.journalTitle.active == "true"
+                    - classes = "search-result__nav__item active"
+                a(class= classes href= data.widgetData.groupTabs.journalTitle.link) !{data.widgetData.groupTabs.journalTitle.label} (!{data.widgetData.groupTabs.journalTitle.count})

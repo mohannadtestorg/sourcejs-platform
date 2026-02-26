@@ -1,0 +1,27 @@
+/*
+
+On large screens, the search bar reveals itself from behind the nav
+These styles "show" the search bar when the JS adds .g-search-active to the document element.
+
+*/
+
+.s-search-active {
+  @include breakpoint('large+') {
+    .g-search {
+      display: block;
+      top: 100% !important;
+    }
+
+    .g-nav__primary-item--search .icon--search,
+    .g-header__site-tools .icon--search,
+    .m-simple-tabs__links .icon--search {
+      display: none;
+    }
+
+    .g-nav__primary-item--search .icon--close,
+    .g-header__site-tools .icon--close,
+    .m-simple-tabs__links .icon--search + .icon--close {
+      display: inline;
+    }
+  }
+}

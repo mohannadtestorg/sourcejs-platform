@@ -1,0 +1,13 @@
+extends ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+
+block teaserAltmetric
+    if (item.doi)
+        div.altmetric-container.pull-left
+            div.altmetric-embed(data-badge-type="donut" data-hide-no-mentions="true" data-badge-popover="right" data-doi=item.doi)
+
+block meta
+    div.meta
+        if (item.group)
+            | !{pb.render('parent-item', {data: item.group})}
+        if (item && item.epubDate)
+            | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}

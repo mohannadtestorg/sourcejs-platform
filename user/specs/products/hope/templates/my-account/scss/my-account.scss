@@ -1,0 +1,228 @@
+.profile
+{
+
+    &-dark__btn{
+        background-color: $standard-color;
+        &:hover,&:focus{
+            background-color: $standard-color;
+        }
+    }
+
+    &-pages{
+
+            .saved-searches {
+                th {
+                    padding: .5em;
+                }
+            }
+
+
+        margin-top: 50px;
+
+        @include media('<tablet'){
+            margin-top: 1px;
+        }
+
+        .row{
+            @include media('<tablet'){
+                display: -webkit-box;
+                display: -moz-box;
+                display: box;
+                -webkit-box-orient: vertical;
+                -moz-box-orient: vertical;
+                box-orient: vertical;
+                margin: -10px -15px 0;
+
+                .profileMain-wrapper{
+                    -webkit-box-ordinal-group: 2;
+                    -moz-box-ordinal-group: 2;
+                    box-ordinal-group: 2;
+                }
+
+            }
+        }
+
+
+        h1{
+            font-family: $secondary-font-family;
+            color: $standard-color;
+        }
+
+        h4,h3,h2{
+            color: $standard-color;
+            text-transform: uppercase;
+           &:not(:first-child){
+               margin-top: 30px;
+           }
+        }
+
+
+        .tab--res{
+
+            [data-thead="Actions"] button {
+                width: 40%;
+                margin-top: -10px;
+                margin-left: 20px;
+            }
+
+            .checkbox--primary{
+                word-wrap: normal;
+            }
+
+            .profileMain{
+                           width: 100%;
+                            padding: 30px 5px;
+                        }
+
+        }
+
+        .profileMain{
+
+                        padding: 0px 15px;
+                        margin-bottom: 50px;
+
+                        .tab__pane{
+                            padding-top: 0;
+                        }
+                      @include media('<tablet')
+                      {
+                       margin-top: 20px;
+                      }
+        }
+
+
+
+        .select-all {
+            &__action {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+                > li{
+                    display: inline-block;
+                }
+            }
+
+            &__checkbox {
+                border-right: 1px solid #e0e0e0;
+                padding-right: 16px;
+
+
+                @include media('>=tablet', '<large'){
+                    margin-top: 15px;
+                    border-right: none;
+                }
+            }
+            &__sort{
+                &.dropBlock{
+                    position: relative;
+                    min-width: 200px;
+                }
+            }
+
+        }
+        .form-btn{
+            margin-top: 30px;
+        }
+
+        .reproducible{
+            .actions{
+                display: inline-block;
+            }
+        }
+
+        .address{
+            margin-bottom: 35px;
+            .inline-actions{
+                float: right;
+                color: $standard-color;
+
+                 .icon-trash-can{
+                     font-size: 1.2rem;
+                     font-weight: 700;
+                 }
+            }
+        }
+
+    }
+
+}
+
+
+.my-account {
+    &__cancle{
+        margin-left: 15px;
+     &:hover , &:focus{
+         text-decoration: underline;
+     }
+    }
+
+
+}
+
+.account {
+
+    &-tab{
+        .dropBlock {
+            text-transform: uppercase;
+            background-color: $standard-color;
+            color: $text-onDark;
+            i{
+                color: $text-onDark;
+            }
+        }
+        &__nav{
+
+            background-color:$default-bg-color;
+           &.js--open{
+               li{
+                   border: 1px solid $standard-color;
+               }
+           }
+
+            li{
+                border: 2px solid $standard-color;
+                padding: 10px 0;
+                margin-right: -2px;
+                font-size: .875rem;
+
+                &.active{
+
+                    background-color: $standard-color;
+                    a{
+                        border-left:none;
+                        color:$text-onDark;
+                    }
+                }
+            }
+            a{
+                color:$standard-color;
+            }
+
+        }
+    }
+
+
+    &__sort {
+        &.dropBlock{
+            position: relative;
+        }
+    }
+}
+    .address-block {
+
+        h6{
+            text-transform: uppercase;
+        }
+
+        border-bottom: 2px solid #eee;
+        margin-bottom: 40px;
+
+        i{
+            color: $standard-color;
+            font-size: 1.2rem;
+             padding: 5px;
+        }
+    }
+
+

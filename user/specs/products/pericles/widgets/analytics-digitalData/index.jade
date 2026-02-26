@@ -1,0 +1,37 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include ../../../../page-structure/helpers/print-json-mixin.jade
+    include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+
+    .source_info
+        markdown
+            p This widget used to add analytics digital data to the page header
+    section.source_section
+
+
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/products/pericles/widgets/analytics-digitalData/templates/analytics-digitalData/analytics-digitalData-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use the widget.
+
+        +printJson({
+            "data": {
+                "digitalData": "{'site':{'ip':'178.20.184.42','environment':'LIVE','website':'onlinelibrary.wiley.com'},'page':{'page':'Home Page','title':'title','errorCode':200},'identities':[{'type':'PersonUser','uuid':'3e9d222f-0dbe-400a-acd1-36fac8c8c5e6'},{'type':'InstitutionUser','uuid':'5941834b-3e88-44ea-97f6-745a2bdf22cd'},{'type':'BasicGroup','uuid':'a4c8fc34-c0bc-496f-9400-7f7e121beebf'},{'type':'BasicGroup','uuid':'e623deab-c83b-41e3-84a2-d9f1d46c5f17'},{'type':'RegionUser','uuid':'ca570560-d28e-4307-a24f-f63aa7ac04e7'},{'type':'BasicGroup','uuid':'ed527803-d9aa-4fad-934e-021719bed6ef'},{'type':'BasicGroup','uuid':'a09cfca0-66e7-40dd-b6a7-8212429cab7d'},{'type':'BasicGroup','uuid':'a1f531bc-4591-467d-bc3e-f4ef3a4db09c'},{'type':'InstitutionUser','uuid':'1914f48a-825a-419f-b541-8178d1d96c16'},{'type':'BasicGroup','uuid':'49b921e6-d723-4bb4-8993-ae242331decb'},{'type':'BasicGroup','uuid':'d0c1d005-65ba-4e6a-a437-7a63330626cd','customerRecords':[{'customerDomain':'ALM-CU','customerNumber':'CORE00000054721'}]},{'type':'BasicGroup','uuid':'197fe835-5b5f-4f4e-b8e9-a74d68491a84'},{'type':'InstitutionUser','uuid':'2b2b8abc-b0b6-40b8-bcd7-9822b179c627'},{'type':'BasicGroup','uuid':'4f06155f-5fa5-48bc-ad19-b42bdc9740ab'}]}"
+            }
+        })
+
+
+    section.source_section
+        h2 Example
+        .source_example
+            .container
+                | !{pb.render('analytics-digitalData', 'data.json', 'pericles')}
+
+
+    | #{''}
+

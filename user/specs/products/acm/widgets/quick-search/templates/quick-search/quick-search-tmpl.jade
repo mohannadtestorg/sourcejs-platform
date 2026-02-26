@@ -1,0 +1,37 @@
+- var currentSearchTerm = '';
+
+if data.searchTerm
+    - currentSearchTerm = data.searchTerm;
+
+mixin btnSearch()
+    block btnSearch
+        if(thisWidget.properties)
+            button.btn.quick-search__button.icon-Icon_Search(type="submit" title="Search")
+                span !{thisWidget.properties.quickMenuLabel}
+
+mixin search()
+    block quickSearch
+        .clearfix.quick-search__clearfix
+            form.quick-search--form(action="/action/doSearch" name="defaultQuickSearch" method="get" title="Quick Search")
+                .quick-search--input
+                    .input-group(class="option-0")
+                        input.autocomplete.quick-search__input(type="search" name="AllField" placeholder=thisWidget.properties.placeHolderText data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+                        block advanceSearchArrow
+                            a(href="#" class="quick-menu__item" title="search" data-db-target-for="sb1")
+                                span Search
+                                i.icon-arrow_d_n.quick-search__icon( aria-hidden="true")
+
+                .quick-search--button
+                    +btnSearch()
+
+block quicSearchBlock
+    div.quick-search
+        +search()
+        div.dropBlock__holder.quick-search__dropBlock(data-db-target-of="sb1")
+                block quickSearchDropBlock
+                    | !{pb.renderDropzone(thisWidget, "quickSearchDropZone")}
+
+
+
+
+

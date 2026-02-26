@@ -1,0 +1,111 @@
+.holdingContainer {
+
+    .section__header {
+        margin-bottom: 1rem;
+    }
+
+    @include media('<desktop') {
+        .holdings {
+            text-align: right;
+        }
+    }
+
+    form {
+        margin-top: 24px;
+    }
+
+    .radio--primary {
+        &.withInput input[type=email] {
+            display: inline-block;
+            width: calc(100% - 35px);
+        }
+        .label-txt {
+            margin-left: 6px;
+        }
+    }
+
+    .sub {
+        color: $wiley-typography-color;
+        font-size: 0.9rem;
+    }
+
+    .col-md-6 ~ .col-md-6 {
+        .radio--primary {
+            padding-top: 9px;
+        }
+    }
+
+}
+
+.holdingsAccordion {
+    position: relative;
+    margin-top: 24px;
+
+    .accordion__control {
+        font-size: 0.875rem;
+        color: $info-text-color;
+        display: inline-block;
+        margin-bottom: 0;
+        font-weight: 400;
+        width: auto;
+
+        @include media('<desktop') {
+            display: block;
+        }
+
+        &.js--open {
+            padding-bottom: 19px;
+            border-bottom: 4px solid $wiley-blue-color;
+
+            .icon-chevron-down {
+                &:before {
+                    content: '\e903';
+                }
+            }
+        }
+
+        i {
+            font-size: 0.875rem;
+            display: initial;
+            color: $wiley-blue-color;
+
+            &.icon-notice {
+                font-size: 1rem;
+                margin-left: 0;
+                margin-right: 12px;
+            }
+        }
+
+    }
+
+    .accordion__content {
+        padding: 25px;
+        background: $white;
+        position: relative;
+        margin-bottom: 20px;
+        font-size: 0.75rem;
+        border: 1px solid $wiley-gray-color;
+        color: $wiley-typography-color;
+
+        ul, ol {
+            padding-left: 15px;
+            list-style-type: none;
+        }
+
+        li {
+            position: relative;
+            &:before {
+                height: 5px;
+                width: 5px;
+                content: '';
+                display: block;
+                background: $wiley-blue-color;
+                border-radius: 50%;
+                position: absolute;
+                left: -15px;
+                top: 8px;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,90 @@
+extends ../../../../../../ux3/widgets/quick-search/templates/quick-search/quick-search-tmpl
+
+-var nameLabel;
+-var nameHidden;
+
+
+block anywhereSearch
+
+    case item.dataSearchIn
+        when 'thisJournal'
+        when 'thisIssue'
+        when 'thisSeries'
+            - nameLabel = 'AllField';
+            - nameHidden = 'SeriesKey';
+        when 'journal'
+        when 'book'
+            - nameLabel = 'AllField';
+            - nameHidden = 'pubType';
+        when 'ConceptID'
+            - nameLabel = 'AllField';
+            - nameHidden = 'ConceptID';
+        when 'thisBook'
+        when 'thisMRW'
+            - nameLabel = 'AllField';
+            - nameHidden = 'ContentGroupKey';
+        default
+            - nameLabel = 'AllField';
+
+    form(action="/action/doSearch" name=item.dataSearchIn == undefined ? "QuickSearch" : item.dataSearchIn + "QuickSearch" method="get" title="Quick Search")
+        .input-group(class="option-" + index)
+            label.hiddenLabel(for="searchField" + index)
+                    |Search term
+
+            input.autocomplete.actualQSInput(type="search" name=nameLabel id="searchField" + index placeholder=thisWidget.properties.placeHolderText onfocus="this.value = this.value;" data-auto-complete-max-words=data.props.maxWords data-auto-complete-max-chars=data.props.maxChars data-contributors-conf=thisWidget.properties.numOfContributors data-topics-conf=thisWidget.properties.numOfTopics data-publication-titles-conf=thisWidget.properties.numOfPublicationTitles data-history-items-conf=thisWidget.properties.numOfHistoryItems value=currentSearchTerm)
+            if (item.id)
+                input(type="hidden" name=nameHidden value=item.value)
+
+            div.search-options-wrapper
+                a.advanced(href=data.advancedSearchUrl title='')
+                    |   Advanced Search
+                a.citation(href="/search/advanced#citation" title='')
+                    |   Citation Search
+        +btnSearch()
+
+block quickSearch
+
+    - var itemNo = data.dropdown.length
+
+    div.main-search-field-wrapper
+        if itemNo > 1
+            .tab.clearfix
+                input.fakeQSInput(type="search" placeholder=thisWidget.properties.placeHolderText value=currentSearchTerm )
+                ul.rlist.tab__nav.dropblock--tab(role="tablist")
+                    if(data.dropdown)
+                        each item, i in data.dropdown
+                            if(thisWidget.properties && item.label)
+                                li
+                                    a(href="#pane-" + thisWidget.properties.id + i role="tab" data-toggle="tab" id="pane-" + thisWidget.properties.id + i + "-con" aria-expanded="false" data-search-in=item.dataSearchIn) !{item.label}
+
+                ul.rlist.tab__content(role="tablist")
+                    each item, i in data.dropdown
+                        if item.dataSearchIn != 'citation'
+                            li(id="pane-" + thisWidget.properties.id + i aria-labelledby="pane-" + thisWidget.properties.id + i + "-con" role="tab" class="tab__pane quick-search-pane__anywhere")
+                                +anywhereSearch(item, i)
+                        else
+                            +citationSearch(item, i)
+
+
+        else
+            input.fakeQSInput(type="search" placeholder=thisWidget.properties.placeHolderText value=currentSearchTerm )
+            each item, i in data.dropdown
+                if item.dataSearchIn != 'citation'
+                    +anywhereSearch('noDropDown', 1)
+                else
+                    +citationSearch(item, i)
+
+
+block quickSearchWrapper
+    if thisWidget.properties.displayQuickMenuButton == "true"
+
+        div.quick-search-wrapper
+            a.quick-search__item(href="#" title="search")
+                i(class=thisWidget.properties.quickMenuIcon aria-hidden="true")
+                span.quick-search__item__arrow
+            div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+                +search()
+
+    else
+        div.quick-search.quickSearchFormContainer(data-linkto-page=thisWidget.properties.linkTitlesToPublicationPages ? "true" : "false")
+            +search()

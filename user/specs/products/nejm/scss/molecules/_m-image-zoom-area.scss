@@ -1,0 +1,111 @@
+/***
+
+```
+<div class="m-image-zoom-area">
+  <img src="http://placehold.dev.area17.com/image/1200x800">
+
+  <nav class="m-image-zoom-area__zoom">
+    <ul>
+      <li><button data-image-zoom-area-zoom-in><svg class="icon--plus"><use xlink:href="#icon--plus" /></svg></button></li>
+      <li><button data-image-zoom-area-zoom-out disabled><svg class="icon--minus"><use xlink:href="#icon--minus" /></svg></button></li>
+    </ul>
+  </nav>
+</div>
+```
+
+***/
+
+.m-image-zoom-area {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  background-color: $color__background;
+
+  @include breakpoint('large+') {
+    min-height: 100%;
+  }
+}
+
+.m-image-zoom-area img {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: auto;
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: 50% 50%;
+}
+
+.m-image-zoom-area img.s-draggable {
+  /* autoprefixer: off */
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.m-image-zoom-area img.s-draggable.s-dragging {
+  /* autoprefixer: off */
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: grabbing;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+
+
+.m-image-zoom-area__tools {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+}
+
+.m-image-zoom-area__tools ul {
+  margin-top: 0;
+}
+
+.m-image-zoom-area__tools li {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.m-image-zoom-area__tools button {
+  display: block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 1px solid $color__rules;
+  background-color: $color__white;
+  color: $color__black;
+  transform-origin: 50%;
+  cursor: pointer;
+}
+
+.m-image-zoom-area__tools button:disabled {
+  color: $color__black--10;
+  cursor: default;
+}
+
+.no-touch .m-image-zoom-area__tools button:not(:disabled):hover {
+  color: $color__black--25;
+}
+
+.m-image-zoom-area__tools li:first-child button {
+  border-bottom: 1px solid $color__white;
+}
+
+.m-image-zoom-area__tools svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+}

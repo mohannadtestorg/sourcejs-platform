@@ -1,0 +1,138 @@
+/* ============================================
+Saved For Later Items Widget
+============================================ */
+.eCommerceCheckoutSavedForLaterItemsWidget {
+    margin-bottom: $spacing-x-large;
+
+    .header {
+        width: auto;
+        padding: $spacing-small $spacing-large;
+        border-bottom: none;
+        background-color: $standard-color;
+        color: $text-onDark;
+    }
+
+    .savedItem-info{
+        padding: $spacing-large $spacing-large 0px $spacing-large;
+        border: $width-border-thin solid $color-border-gray-light;
+        border-bottom: none;
+        border-top: none;
+        background-color: $secondary-lighten-bg-color;
+
+        p {
+            margin: 0px;
+        }
+    }
+
+    .articleDataContainer {
+        margin: 0px;
+        position: relative;
+
+        .articleTitlePrice {
+            border: $width-border-thin solid $color-border-gray-light;
+            border-top: none;
+            border-bottom: none;
+            background-color: $secondary-lighten-bg-color;
+            padding: $spacing-large $spacing-large 0px $spacing-large;
+            margin: 0px;
+            position: relative;
+
+
+
+            p {
+                max-width: none;
+                float: none;
+                margin-bottom: 0px;
+                font-size: 0.875em;
+                color: $primary-darken-text-color;
+                padding: $spacing-large;
+                border: $width-border-thin solid $standard-color;
+                background-color: $default-bg-color;
+
+                span.offerDescription {
+                    display: block;
+                    border-top: $width-border-thin dashed $color-border-gray-lighter;
+                    padding-top: $spacing-small;
+                    margin-top: $spacing-small;
+                }
+                a {
+                    color: $standard-color;
+                }
+            }
+
+        }
+
+        .articleAuthorDate {
+            font-size: 0.75rem;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: 3px $spacing-small;
+            background-color: $standard-color;
+            color: $text-onDark;
+            -webkit-border-radius: 0px 0px 0px 5px;
+            -moz-border-radius: 0px 0px 0px 5px;
+            border-radius: 0px 0px 0px 5px;
+            font-weight: bold;
+
+            span:empty {
+                display: none;
+            }
+        }
+    }
+
+    .tabPanelFooter {
+        display: block;
+        padding: $spacing-x-small $spacing-large;
+        margin: -1px 0px 0px 0px;
+        border: $width-border-thin solid $color-border-gray-light;
+        border-bottom-width: 0px;
+        border-top: none;
+        background-color: $secondary-lighten-bg-color;
+
+        a {
+            margin-left: $spacing-small;
+            padding-left: $spacing-small;
+            border-left: $width-border-thin solid $color-border-gray-lighter;
+            font-size: 0.75rem;
+            color: $primary-darken-text-color;
+
+            &:first-child {
+                margin-left: 0px;
+                padding-left: 0px;
+                border-left: none;
+            }
+        }
+        .add-to-cart {
+            float: none;
+            display: inline-block;
+
+            span {
+                .text {
+                    margin-left: $spacing-small;
+                    padding-left: $spacing-small;
+                    border-left: $width-border-thin solid $color-border-gray-lighter;
+                    font-size: 0.75rem;
+                    color: $primary-darken-text-color;
+                    line-height: normal;
+                }
+
+                &:empty {
+                    display: none;
+                }
+            }
+        }
+
+        .cart-expand {
+            padding: 0px;
+            border: none;
+            display: inline-block;
+        }
+    }
+
+    .tabContent .tabPanelFooter:last-child {
+        border-bottom-width: $width-border-thin;
+        padding-bottom: $spacing-large;
+    }
+
+}

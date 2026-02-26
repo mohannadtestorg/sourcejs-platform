@@ -1,0 +1,59 @@
+.alert {
+    position: relative;
+    padding: 8px 48px;
+    border-radius: 2px;
+    margin: 0 0 32px;
+
+    &-close {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        height: auto;
+        line-height: 1em;
+        padding: 0;
+        background: transparent;
+        color: inherit;
+        opacity: .2;
+
+        &:hover, &:focus {
+            background: transparent;
+            color: inherit;
+            opacity: 1;
+        }
+
+    }
+
+    &:before {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        font-size: 0.83rem;
+    }
+
+    &--success {
+        color: $alert-success-color;
+        background-color: $alert-success-background;
+
+        &:before {
+            @include icomoon($icon-circled-check);
+        }
+    }
+
+    &--error {
+        color: $alert-error-color;
+        background-color: $alert-error-background;
+
+        &:before {
+            @include icomoon($icon-circled-x);
+        }
+    }
+
+    &--info {
+        color: $alert-info-color;
+        background-color: $alert-info-background;
+
+        &:before {
+            @include icomoon($icon-atypon-favicon);
+        }
+    }
+}

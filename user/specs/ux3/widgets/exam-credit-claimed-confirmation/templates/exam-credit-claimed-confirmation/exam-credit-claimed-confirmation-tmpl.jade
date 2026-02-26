@@ -1,0 +1,23 @@
+if (data)
+    div.exam-credit-claimed
+
+        block certificate-header
+            h2.exam-credit-claimed__header Certificate
+
+        if (data.exam && data.session)
+            
+            block exam-title
+                if ( data.exam.title )
+                    div.exam-credit-claimed__text Thank you for taking the exam,
+                        span.exam-credit-claimed__title !{data.exam.title}.
+            
+            block email-certificate
+                if (data.session.person && data.session.person.email)
+                    div.exam-credit-claimed__details Your certificate has been emailed to
+                        span.exam-credit-claimed__email !{data.session.person.email}.
+
+            block certificate-link
+                if (data.exam.certificateLink)
+                    a.exam-credit-claimed__link(href= data.exam.certificateLink title="View certificate")
+                        span View certificate
+                        i.icon-arrow_r

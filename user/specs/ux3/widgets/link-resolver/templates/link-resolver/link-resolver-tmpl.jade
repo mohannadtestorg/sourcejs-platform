@@ -1,0 +1,43 @@
+div.linkResolverWidget
+    block link_resolver
+        div.link_resolver_form
+            - var form = data.updateForm
+            if(form)
+              - var url = form.baseUrl
+
+            form(action='/action/institutionAdminSfxUpdate' method='post' name="InstitutionAdmin_Sfx" enctype="multipart/form-data")
+                input(name='updateUrl' type='hidden' value='true')
+                input(type='hidden' name='anti-forgery-token' value=data.token)
+                if (url)
+                    fieldset.baseUrl
+                        if (url.label)
+                            label(for='txt_baseUrl')= url.label
+                        input#txt_baseUrl(name='baseUrl' size='15' value= (url.value) ? url.value  : '')
+                        if (url.errorMsg)
+                            p.error_msg= url.errorMsg
+
+                if(form)
+                  - var image = form.currentButtonImage
+                if image && image.imageUrl && image.imageUrl != '' && url && url.value && url.value != '' && image.title
+                    fieldset.currentButtonImage
+                        .label
+                            label=image.title
+                        .inputs
+                            img(src= image.imageUrl alt='' align='middle')
+
+                fieldset.uploadImageButton
+                    if(form && form.uploadImageButtonLabel)
+                        label(for='imagebutton')= form.uploadImageButtonLabel
+                    input#imagebutton(type='file' name='sfxImage' size="30" class="jcf")
+                    if (form.imageFile && form.imageFile.errorMsg)
+                            p.error_msg= form.imageFile.errorMsg
+                    | !{pb.renderDropzone(thisWidget,"relatedDropZone")}
+
+                input(type='hidden' name='update' value='true')
+                if(form )
+                    input(type='submit' value=form.submitButtonLabel)
+
+            if (url && url.value && url.value != '' && data.disableButtonLabel)
+                form(action='/action/institutionAdminSfxUpdate' method='post' name="InstitutionAdmin_Sfx")
+                    input(type='hidden' name='anti-forgery-token' value=data.token)
+                    input#disableButton(type='submit' name='disable' value=data.disableButtonLabel)

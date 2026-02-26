@@ -1,0 +1,173 @@
+/***
+
+```
+<div class="m-goal">
+  <div class="m-goal__col">
+    <div class="m-goal__stat">
+      <div class="m-goal__number f-h1">5</div>
+      <div class="m-goal__label f-ui">Remaining of 15</div>
+      <div class="m-goal__graph">
+        <div class="a-goal-bar"><span style="width: calc(5 / 15 * 100%);"></span></div>
+      </div>
+    </div>
+    <p class="m-goal__foot f-ui">Expiration: September 17, 2017</p>
+  </div>
+
+  <div class="m-goal__col">
+    <div class="m-goal__stat">
+      <div class="m-goal__number f-h1">10</div>
+      <div class="m-goal__label f-ui">Purchased exams remaining</div>
+    </div>
+    <ul class="m-goal__foot f-ui">
+      <li><a href="#">My CME Activity</a></li>
+      <li><a href="#">Browse Weekly CME</a></li>
+      <li><a href="#">Purchase Exams</a></li>
+      <li><a href="#">CME Progress</a></li>
+    </ul>
+  </div>
+</div>
+```
+
+***/
+
+.m-goal {
+  width: 100%;
+  overflow: hidden;
+
+  & + & {
+    margin-top: 44px;
+  }
+}
+
+.m-goal__stat {
+  position: relative;
+  height: 52px;
+  margin-top: 40px;
+  padding-top: 4px;
+
+  @include breakpoint('medium+') {
+    height: 56px;
+  }
+
+  @include breakpoint('large+') {
+    padding-top: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -16px;
+    height: 1px;
+    background-color: $color__rules;
+  }
+}
+
+.m-goal__stat:first-child {
+  margin-top: 12px;
+
+  &::before {
+    content: none;
+    display: none;
+  }
+}
+
+.m-goal__number {
+  color: $color__text--headlines;
+}
+
+.m-goal__graph {
+  position: absolute;
+  left: 60px;
+  right: 0;
+  bottom: 16px;
+
+  @include breakpoint('medium+') {
+    left: 70px;
+  }
+
+  @include breakpoint('large+') {
+    left: 74px;
+  }
+}
+
+.m-goal__graph .a-goal-bar {
+  top: 50%;
+  min-width: 1px;
+  margin-top: -4px;
+}
+
+.m-goal__label {
+  position: absolute;
+  left: 60px;
+  right: 0;
+  top: 4px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @include breakpoint('medium+') {
+    left: 70px;
+  }
+
+  @include breakpoint('large+') {
+    left: 74px;
+  }
+}
+
+
+.m-goal__col {
+
+  @include breakpoint('small+') {
+    float: left;
+    width: 50%;
+  }
+
+  @each $name, $point in $breakpoints {
+    @if $name != 'xsmall' {
+      @include breakpoint('#{$name}') {
+        padding-right: map-get($inner-gutters, $name) / 2;
+      }
+    }
+  }
+
+  & + & {
+    @each $name, $point in $breakpoints {
+      @if $name != 'xsmall' {
+        @include breakpoint('#{$name}') {
+          padding-right: 0;
+          padding-left: map-get($inner-gutters, $name) / 2;
+        }
+      }
+    }
+  }
+}
+
+p.m-goal__foot {
+  margin-top: 0;
+}
+
+ul.m-goal__foot {
+  margin-top: 8px;
+  padding-bottom: 12px;
+
+  &:only-child {
+    margin-top: 12px;
+    padding-bottom: 0;
+  }
+}
+
+.o-colset-1-2-3 {
+  .m-goal__col {
+    float: none;
+    width: 100%;
+    margin-bottom: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .m-goal {
+    margin-bottom: 0;
+  }
+}

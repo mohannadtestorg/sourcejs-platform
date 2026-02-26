@@ -1,0 +1,17 @@
+header.header.fixed.base(data-db-parent-of="sb1")
+    .container.header--first-row
+        .pull-left
+            | !{pb.render('images', {"thisWidget": {"properties": {"link": "/", "src": "../releasedAssets/images/logo.png", "alt": "logo"}}}, {"shared": {"model": {"config": {"wrapper": "true", "className": ["header__logo"]}}}})}
+        .pull-right
+            .institution-wrapper
+                | !{pb.render('institution-banner', {"model": {"data": {"itemUrl": "#", "institution": "Atypon Institution", "introText": "brought to you by"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+            .header__quick-menu
+                ul.rlist--inline
+                    li
+                        | !{pb.render('quick-search', 'quick-search-menu.json')}
+                    li
+                        | !{pb.render('html', {"thisWidget": {"id":"shoppingCart1", "properties": {"render": "html","html": "<a href=\"/user/cart\" class=\"quick-menu__item\" title=\"My Cart\"><i class=\"icon-shopping_cart block-icon\" aria-hidden=\"true\"></i><span>My Cart</span></a>"}}})}
+                    li
+                        | !{pb.render('user-login-bar', 'logged-out-panel/logged-out-panel', 'user-panel-logged-out.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+    .primary-bg-color.text-onDark.drawer__nav
+        | !{pb.render('menu', 'demo/demo-menu', {"thisWidget": {"properties": {"vPort": "medium"}}, "data": {"id": "main0", "list": [{"text": "Journals", "link": "#", "current": "true"}, {"text": "Books", "link": "#"}, {"text": "Proceedings", "link": "#"}, {"text": "Blog", "link": "#"}]}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}

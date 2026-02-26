@@ -1,0 +1,30 @@
+/* =============================
+ lists style
+============================= */
+.list{
+    &_check {
+        list-style: none;
+
+        li {
+            position: relative;
+            &:before {
+                position: absolute;
+                right: 100%;
+                content: "\f00c";
+                padding-right: 10px;
+            }
+        }
+    }
+}
+
+/* =============================
+ Examples Font color and style
+============================= */
+.list {
+    &_default_example {
+        color: $secondary-text-color;
+    }
+    &_check_example {
+        color: $tertiary-second-text-color;
+    }
+}

@@ -1,0 +1,42 @@
+﻿extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include ../../../page-structure/helpers/print-json-mixin.jade
+    include ../../../page-structure/helpers/print-js-code-mixin.jade
+    include ../../../page-structure/helpers/print-html-code-mixin.jade
+
+    section.source_section
+        h2 pdf-uploader widget
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/pdf-uploader/templates/pdf-uploader/pdf-uploader-tmpl.jade')
+        h3 Data
+        p The following the JSON structure to use pdf uploader widget:
+        +printJson({
+            "data": {
+                "uploadLink": "",
+                "doi": "",
+                "csrfToken": "",
+                "signature": "",
+                "inputs": {
+                    "file": {
+                        "value": ""
+                    }
+                }
+            }
+        }
+        )
+    section.source_section
+        h2 Example
+
+        each item, l in data.items
+            h3!= item.title
+            markdown
+                p Add `uploader-form` class to form use the pdf uploader widget
+
+            .source_example
+                div.container
+                  form.uploader-form
+                    | !{item.body}
+
+
+    | #{''}

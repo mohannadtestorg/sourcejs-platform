@@ -1,0 +1,95 @@
+article {
+
+    .hlFld-Abstract  {
+
+        .section__title:first-of-type {
+            display: none;
+        }
+
+        .abstractInFull {
+            border-bottom: 1px solid $borders;
+            margin-bottom: 1em;
+
+            .section__title:first-of-type {
+                display: block;
+            }
+        }
+
+    }
+
+    .citation__title {
+        font-size: 1.375em;
+    }
+
+    .citation__subtitle {
+        font-weight: 700;
+        font-size: 1.125em;
+    }
+
+    .details-tab-social {
+        text-align: center;
+
+        img {
+            margin: 0 5px;
+        }
+    }
+    .cover-meta-wrap {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 150px;
+            margin: 10px;
+        }
+
+        .meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            strong {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .article {
+
+        &__metrics {
+            margin-bottom: 10px;
+        }
+
+        &__history {
+            margin-bottom: 10px;
+        }
+
+        &__body {
+
+            .article__inlineFigure {
+                margin: 0;
+                padding: 1em 40px;
+                text-align: center;
+                @include themify($themes) {
+                    background-color: themed('color2');
+                }
+            }
+
+            .figure__image {
+                padding: 8px;
+                background-color: $white;
+            }
+
+            figcaption {
+                font-size: 0.857rem;
+                line-height: 1.4;
+                text-align: left;
+            }
+
+            .captionLabel {
+                font-weight: bold;
+            }
+        }
+    }
+}

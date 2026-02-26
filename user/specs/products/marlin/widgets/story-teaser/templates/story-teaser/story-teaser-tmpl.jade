@@ -1,0 +1,59 @@
+if (data && thisWidget)
+    section
+        h2.top(id="rel" + thisWidget.id)
+            if (thisWidget.properties.templateId == "SERIES")
+                | Related Series
+            if (thisWidget.properties.templateId == "COMMISSION")
+                | Related Commission
+            if (thisWidget.properties.templateId == "PIC_QUIZ")
+                | Related Picture Quiz
+        if (data.Item)
+            each item, i in data.Item
+                div.section-paragraph.related-sections
+                    .related-sections__image
+                        if (item.templateId == "PIC_QUIZ" && itm.assetPath && item.teaserimgfile)
+                            img(src=item.assetPath + item.teaserimgfile, alt=item.teaserimgalt)
+                        else
+                            img(src=item.img1file, alt=item.img1alt)
+                    if (item.templateId == "PIC_QUIZ" && item.storyLink)
+                        a.related-sections__link(href=item.storyLink, title=item.title) !{item.title}
+                    else
+                        a.related-sections__link(href=item.URI title=item.title) !{item.title}
+                    if (item.templateId == "SERIES")
+                        .related-sections__source.italic.regular !{item.journalTitle}
+                        .related-sections__date.regular Published:  !{item.publicationDate}
+                    if (item.templateId == "COMMISSION")
+                        .related-sections__source !{item.journalTitle}
+                        .related-sections__date Published: !{item.publicationDate}
+                    .related-sections__body !{item.description}
+                    if (item.templateId == "PIC_QUIZ")
+                        if( item.relatedItems.relatedCategories)
+                            .related-sections__category.related-sections__details
+                                span.related-sections__label Categories:
+                                each itemCa,L in item.relatedItems.relatedCategories
+                                    if L > 0
+                                        | ,
+                                    a(href=itemCa.relatedCategoryLink title=itemCa.relatedCategoryName ) !{itemCa.relatedCategoryName}
+                        if (item.relatedItems.relatedCollections)
+                            .related-sections__collection.related-sections__details
+                                span.related-sections__label Collection(s):
+                                each itemCo,K in item.relatedItems.relatedCollections
+                                    if K > 0
+                                        | ,
+                                    a(href= itemCo.relatedCollectionLink title= itemCo.relatedCollectionName ) !{itemCo.relatedCollectionName}
+                        if (item.relatedItems.relatedIssues)
+                            each link, li in item.relatedItems.relatedIssues
+                                .related-sections__details
+                                    a.related-sections__more(href=link.relatedIssueLink, title="Visit associated issue") Visit associated issue
+                        if (item.relatedItems.relatedUrls)
+                            each link, li in item.relatedItems.relatedUrls
+                                .related-sections__details
+                                    a.related-sections__more(href=link.relatedUrl, title="Visit associated page") Visit associated page
+                    .related-sections__details
+                        if (item.templateId == "SERIES" || item.templateId == "COMMISSION")
+                            a.related-sections__more(href=item.URI, title="Read more") Read more
+                        else
+                            a.related-sections__more(href=item.URI, title="View all") View all
+else
+    if (thisWidget && thisWidget.id)
+        div.ux3DeferredWidget(data-pb-widget-type="ux3-storyTeaser", data-widget-id= thisWidget.id)

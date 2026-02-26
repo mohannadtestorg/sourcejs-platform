@@ -1,0 +1,45 @@
+
+block readCubeClass
+    - var readCubeClass = 'readCube-sharing hidden'
+
+div(class=readCubeClass data-readcube=data.ajaxLink)
+    p Give access
+    a.readCube-sharing__link(href="#" data-toggle="modal" data-target="#readCube")
+        i.icon-users
+        | Share full text access
+
+.ux-modal-container.readCube-sharing__modal
+    #readCube.modal
+        .modal__dialog
+            .modal__header
+                button.close(type='button', data-dismiss='modal')
+                    i.icon-close_thin(aria-hidden='true')
+                if (data.windowTitle)
+                    p !{data.windowTitle}
+                else
+                    p Share full-text access
+            .modal__body
+
+                form(method='post')
+                    fieldset
+                        if (data.topPartText)
+                            legend
+                                | !{data.topPartText}
+
+                        .input-group
+                            label.checkbox--primary(for='terms-and-conditions')
+                                input#terms-and-conditions(type='checkbox', value='yes', required='', name='terms-and-conditions')
+                                if (data.acceptText)
+                                    span.label-txt !{data.acceptText}
+                                else
+                                    span.label-txt I have read and accept the Wiley Online Library Terms and Conditions of Use
+                    hr.separator
+                    fieldset
+                        label Shareable Link
+                        if (data.linkText)
+                            | !{data.linkText}
+                        .shareable-link
+                            .shareable-link__field
+                                block urlText
+                                    span#shareable-link__text
+                        button.btn.shareable-link__btn(type='submit', disabled='') Copy URL

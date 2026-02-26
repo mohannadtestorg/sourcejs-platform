@@ -1,0 +1,124 @@
+.userLoginBar {
+    text-align: center;
+    display: inline-block;
+
+    &__header {
+        padding: 15px;
+        .close {
+            margin-top: -2px;
+            &:focus {
+                background: transparent;
+            }
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            font-weight: 400;
+        }
+    }
+
+    &__holder {
+        padding: 10px;
+        background: $default-bg-color;
+        min-width: 200px;
+    }
+    &.right-side &__holder {
+        left: auto !important;
+        right: 0;
+    }
+
+    /*&__controller {
+        padding: 15px;
+        display: block;
+        span {
+            font-size: 0.6875rem; // 11px
+            font-weight: 400;
+            color: $secondary-text-color;
+            @include media('<desktop') {
+                display: none;
+            }
+        }
+
+        i {
+            margin-bottom: 8px;
+            font-size: 1.25rem; // 20px
+            @include media('<tablet') {
+               font-size: 1.063rem; //17px
+                padding-right: 22px;
+            }
+        }
+    }*/
+
+    .modal__title {
+        font-size: 1.875rem; // 30px;
+        font-weight: normal;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .modal--reg__link {
+        margin-top: 10px;
+        color: $secondary-text-color;
+        display: inline-block;
+    }
+}
+
+
+
+
+
+.user-login-bar {
+    display: inline-block;
+
+    &__signin, .dropBlock > a {
+        i {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: $icon-font-size;
+            vertical-align: middle;
+        }
+
+        span {
+            font-size: $small-font-size;
+        }
+    }
+
+    .dropBlock {
+        position: relative;
+
+        &__holder {
+            min-width: 200px;
+            right: 0px;
+
+            ul {
+                padding: 0px;
+                margin: 0px;
+                list-style: none;
+            }
+
+            li {
+                padding: 0px;
+                margin: 0px;
+                border-bottom: 1px solid $separators-color;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            a {
+                font-size: $small-font-size;
+                padding: 10px 15px;
+                display: block;
+
+                &:hover {
+                    background-color: $secondary-lighten-bg-color;
+                }
+            }
+        }
+    }
+}

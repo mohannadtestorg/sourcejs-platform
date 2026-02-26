@@ -1,0 +1,79 @@
+/***
+
+.a-tooltip
+==========
+
+Tip content is set via `data-tooltip` - by default they appear above the hovered element, unless that would mean displaying above the top of the viewport, in which case it displays below.
+
+Optionally you can set the tooltip to display to the right of the element via adding a data-attribute of `data-tooltip-direction="right"`.
+
+`A17.Functions.tooltips()` watches for mouseover/mouseout on tooltip elements, then builds the tooltip itself, appends to the page, positions and displays. JavaScript is used as not to trigger touch events in touch devices.
+
+It will, by default, show tool tips on the medium and larger breakpoints (medium, large, xlarge and xxlarge). You can optionally set more breakpoints by setting another data attribute, `data-tooltip-breakpoints="large xlarge xxlarge"`; this would only show the tooltip on the requested breakpoints.
+
+
+```
+<button class="btn" data-behavior="ToolTip" data-tooltip="Tooltip">Button</button>
+<button class="btn" data-behavior="ToolTip" data-tooltip="Tooltip" data-tooltip-direction="right">Button</button>
+```
+
+***/
+
+.a-tooltip {
+  @include sans-serif(14, 20);
+  position: fixed;
+  z-index: 30;
+  max-width: 160px;
+  padding: 8px 12px;
+  background-color: $color__background--tooltip;
+  color: $color__white;
+  text-align: center;
+  text-transform: none;
+  pointer-events: none;
+}
+
+.a-tooltip::before {
+  content: '';
+  position: absolute;
+  left: calc(50% - 8px);
+  top: calc(100% - 2px);
+  width: 8px;
+  height: 8px;
+  background-color: $color__background--tooltip;
+  pointer-events: none;
+  transform: rotate(45deg) translateY(-50%);
+  transform-origin: 50% 50%;
+}
+
+.a-tooltip--bottom::before {
+  top: auto;
+  bottom: calc(100% - 8px);
+}
+
+.a-tooltip--right::before {
+  left: auto;
+  right: calc(100% - 2px);
+  top: calc(50% - 2px);
+}
+
+.a-tooltip--left::before {
+  left: calc(100% - 8px);
+  right: auto;
+  top: calc(50% - 2px);
+}
+
+.a-tooltip--large {
+  background:$color__white;
+  color:$color__text;
+  @include serif(16, 20);
+  max-width: 400px;
+  font-weight:700;
+  color:$color__text--headlines;
+  padding:16px 20px;
+  box-shadow: 0 0 3px 0 $color__text--quaternary;
+  text-align:left;
+
+  &::before {
+    display:none;
+  }
+}

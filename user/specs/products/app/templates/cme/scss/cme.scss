@@ -1,0 +1,115 @@
+.tabs-container{
+    .tab{
+      .dropBlock{
+        &__link{
+          @include themify($themes) {
+            background: themed('color');
+          }
+          color:$white;
+          padding: 16px 10px;
+        }
+        li{
+          border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+          a{
+            text-align: left;
+          }
+        }
+        i{
+          color: inherit;
+          padding-right: 6px;
+        }
+      }
+      &__content{
+        padding: 10px;
+        @include themify($themes) {
+          background: themed('color2');
+        }
+      }
+      &__nav{
+        font-size: .875rem;
+        border-bottom: 2px solid #fff;
+        li{
+          margin-bottom: 0;
+          border-right: 2px solid $white;
+          &:last-child{
+            border: 0;
+          }
+        }
+        .active{
+          a{
+            @include themify($themes) {
+              background: themed('color');
+              color:$white;
+            }
+          }
+        }
+        a{
+          border:none;
+          padding: 3px 8px;
+          @include themify($themes) {
+            background: themed('color2');
+          }
+        }
+      }
+
+
+      .tabs-container{
+        &__sub-tabs{
+          background: $white;
+          padding: 10px;
+          margin-top: 20px;
+          .dropBlock__link{
+            background: inherit;
+            color:$secondary-text-color;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+            @include themify($themes) {
+              border-left: 2px solid themed('color');
+            }
+          }
+          .tab__content{
+            border: none;
+            background: inherit;
+          }
+
+        }
+      }
+      &--res{
+        .tab{
+          &__content{
+            margin-top: 10px;
+            @include themify($themes) {
+              border-left: 2px solid themed('color');
+            }
+          }
+          &__nav{
+            border-right:0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+            li{
+              border-right: 0;
+            }
+          }
+
+        }
+        .tabs-container{
+          &__sub-tabs{
+            padding: 0;
+            .tab{
+              &__nav{
+                li{
+                  a{
+                    background: $white;
+                    color:$secondary-text-color;
+                  }
+                }
+              }
+              &__content{
+                border: 0;
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+}

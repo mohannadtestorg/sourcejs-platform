@@ -1,0 +1,17 @@
+.pdActionBar(data-widget-id=thisWidget.id)
+    .pd-action-bar
+        form(action="#", method="post")
+            input(type="hidden", name="doi", value=data.doi)
+            input(type="hidden", name="anti-forgery-token", value=data.csrfToken)
+            button.btn.btn--submit.btn--inverse(type="button", data-toggle="modal", data-target="#modalDraftCancel") Cancel
+            button.btn.btn--submit.btn--inverse(data-action=data.editLink) Edit
+
+            .ux-modal-container
+                #modalDraftCancel.modal(role="dialog")
+                    .modal__dialog
+                        .modal__body
+                            | Are you sure you want to cancel this submission?
+
+                        .modal__footer
+                            button.btn.btn--inverse(data-action=data.cancelLink) Yes
+                            button.btn.btn--inverse(data-dismiss="modal") No

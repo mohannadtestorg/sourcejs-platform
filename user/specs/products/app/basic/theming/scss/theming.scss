@@ -1,0 +1,102 @@
+$themes: (
+        default-theme: (
+                color: $default-theme-color,
+                color2: $default-theme-light-color,
+        ),
+        ajp-theme: (
+                color: $ajp-theme-color,
+                color2:$ajp-theme-light-color,
+        ),
+        ajprj-theme: (
+                color: $ajprj-theme-color,
+                color2:$ajprj-theme-light-color,
+        ),
+        apt-theme: (
+                color: $apt-theme-color,
+                color2:$apt-theme-light-color,
+        ),
+        ps-theme: (
+                color: $ps-theme-color,
+                color2:$ps-theme-light-color,
+        ),
+        neuro-theme: (
+                color: $neuro-theme-color,
+                color2:$neuro-theme-light-color,
+        ),
+        pol-theme: (
+                color: $pol-theme-color,
+                color2:$pol-theme-light-color,
+        ),
+        prcp-theme: (
+                color: $prcp-theme-color,
+                color2:$prcp-theme-light-color,
+        ),
+        focus-theme: (
+                color: $focus-theme-color,
+                color2:$focus-theme-light-color,
+        ),
+        psychnews-theme: (
+                color: $psychnews-theme-color,
+                color2:$psychnews-theme-light-color,
+        ),
+
+        dsm-theme: (
+                color: $dsm-theme-color,
+                color2: $dsm-theme-light-color,
+        ),
+        pl-theme: (
+                color: $pl-theme-color,
+                color2: $pl-theme-light-color,
+        ),
+        ebooks-theme: (
+                color: $ebooks-theme-color,
+                color2: $ebooks-theme-light-color,
+        )
+) !default;
+
+
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+
+        .#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+.theme-color {
+        @include themify($themes) {
+            color: themed('color');
+        }
+
+  &.light{
+    @include themify($themes) {
+    color: themed('color2');
+      }
+  }
+}
+
+.theme-background {
+    @include themify($themes) {
+    background-color: themed('color');
+    }
+  &.light{
+    @include themify($themes) {
+      background-color: themed('color2');
+    }
+  }
+}
+
+

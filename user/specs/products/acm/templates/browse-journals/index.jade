@@ -1,0 +1,26 @@
+extends /specs/products/acm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 List of Issues
+        .source_example.container
+            | !{pb.render("header", "header/demo/header2", 'acm')}
+            main.content.browse-journals.no-margin
+                .browse-journals__search
+                    .container.no-padding
+                        .col-lg-6.col-md-5
+                            h1.browse-journals__title Browse Journals
+
+                        .col-lg-6.col-md-7
+                            | !{pb.render('quick-search', 'demo/demo-quick-search-alt', 'quick-search.json', 'acm')}
+
+
+                .container
+                    h5.left-bordered-title.long View
+                | !{pb.render('search-result', 'search-result/demo/demo-search-result-journals', 'search-journals.json')}
+
+
+
+            | !{data.footer}
+    | #{''}

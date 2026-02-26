@@ -1,0 +1,39 @@
+table {
+    tr {
+        font-weight: 400;
+    }
+}
+
+.separator {
+    @include media('<tablet') {
+        .entitlements-table {
+            td {
+                padding-top: 3px;
+                padding-bottom: 3px;
+                p {
+                    margin-top: 1px;
+                    margin-bottom: 1px;
+                }
+            }
+        }
+    }
+    td {
+        border-bottom: none;
+        @include media('>=tablet') {
+            border-top: 1px solid $separators-color;
+            padding: 1.8em 1em 1.8em 0;
+        }
+    }
+}
+
+.expandable {
+    @include media('<tablet') {
+        font-size: 0.75rem;
+        line-height: 20px;
+    }
+    &.entitlements-table {
+        p.note {
+            color: $wiley-gray-dark;
+        }
+    }
+}

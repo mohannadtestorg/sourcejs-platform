@@ -1,0 +1,73 @@
+{
+    "title": "Collections",
+    "template": "doc",
+    "tag": ["ready"],
+    "templates": {
+        "default": "collections",
+        "alternative": {
+            "collections-home": {
+                "name": "Collections on Homepage",
+                "path": "collections-home",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Collections tabs",
+                "body": {
+                    "$pug": {
+                        "template": "../../widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["ajpregu"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/collections/collections-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/collections-decade.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Collections list",
+                "body": {
+                    "$pug": {
+                        "template": "../../widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": ["ajpregu"]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/collections/collections-home-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/collections-decade.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

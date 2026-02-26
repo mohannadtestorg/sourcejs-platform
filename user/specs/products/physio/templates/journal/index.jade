@@ -1,0 +1,64 @@
+extends /specs/products/physio/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{data.header}
+            main.content.journal-home.ajpheart.pageBody
+                include ../../components/home-header/templates/journal-header-tmpl
+                div.publication_container.clearfix
+                    include ../../components/publication-menu/templates/demo/publication-menu-demo-tmpl
+                    div.transplant.showit.slider-mobile.clearfix.publication_header.hidden-md.hidden-lg(data-target=".left-side-image.slideshow-wrapper" data-remove="false" data-targetClass="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+                    .container
+                        .row
+                            .col-md-12
+                                include ../../components/journal-items/templates/editor-in-chief-mobile-tmpl.jade
+                            | !{data.toc}
+                            .col-md-4.gray-bg
+                                .source_example
+                                    include ../../components/journal-items/templates/editor-in-chief-tmpl
+                                    | !{data.podcastSlidshow}
+                                    include ../../components/journal-items/templates/subscribe-tmpl
+                                    include ../../components/journal-items/templates/stay-connected-tmpl
+                            .col-md-12.gutterless.xs-space
+                                .card
+                                    .grid-md-4.grid-sm-2.grid-xs-1
+                                        h2 Cover gallery
+                                    .grid-md-4.grid-sm-2.grid-xs-1
+                                        | !{data.loiWithCover}
+                            .col-md-12.gutterless.xs-space
+                                .card
+                                    .grid-md-4.grid-sm-2.grid-xs-1
+                                        h2 Cover gallery
+                                    .grid-md-4.grid-sm-2.grid-xs-1
+                                        | !{data.loiWithCoverYears}
+                include ../../components/journal-items/templates/calls-for-papers-tmpl
+                .container
+                    .row
+                        .xs-space
+                            div.card.clearfix.featured-articles-card.featured-thumbnail.slashed__tabs__nav
+                                h2 Newly published
+                                | !{data.tabs}
+                .container
+                    .row
+                        .col-md-8.right-side-margin
+                            div.card.featured-articles-list.slashed__tabs__nav.clearfix
+                                | !{data.trending}
+                            .row
+                                .col-sm-6
+                                    include ../../components/journal-items/templates/image-of-the-week
+                                .col-sm-6
+                        .col-md-4.left-side-margin
+                            div.card.card--twitter
+                                | !{data.tweets}
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,83 @@
+extends /specs/products/fsg/fus/page-structure/layout.jade
+
+block content
+
+    .source_info
+        markdown
+            small note: the functionality for the toggle has been changed based on <a href='https://jira.atypon.com/browse/LIT-199699' target="_blank">`LIT-199699`</a>, the trigger now is the plus icon while the label is normal a tag "filter"
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include ./templates/facet/facet-tmpl.jade')
+        h3 Data
+
+
+        +printJson({
+            "type": "Taxonomy",
+            "title": "Taxonomy",
+            "values": [
+                {
+                    "label": "Technical Topics",
+                    "link": "#",
+                    "count": 36,
+                    "values": [
+                        {
+                            "link": "#",
+                            "label": "Nick Gayeski",
+                            "count": "4987"
+                        },
+                        {
+                            "link": "#",
+                            "label": "George Pess",
+                            "count": "3463"
+                        },
+                        {
+                            "link": "#",
+                            "label": "Tim Beechie",
+                            "count": "2346"
+                        }
+                    ]
+                },
+                {
+                    "label": "Technical Topics",
+                    "link": "#",
+                    "count": 36,
+                    "values": [
+                        {
+                            "link": "#",
+                            "label": "Nick Gayeski",
+                            "count": "4987"
+                        },
+                        {
+                            "link": "#",
+                            "label": "George Pess",
+                            "count": "3463"
+                        }
+                    ]
+                }
+            ]
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+
+        h3 Facet view - toggle more/less items
+
+        .source_example
+            | !{pb.render('facet', 'facet.json')}
+
+        h3 Facet view - toggle nested
+
+        .source_example
+            | !{pb.render('facet', 'nested-facet.json', 'pericles')}
+
+    | #{''}
+

@@ -1,0 +1,48 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Institution profile pages
+    .source_info
+
+
+
+    section.source_section
+        h2 My Account page
+
+        h3 Institution details
+        .source_example
+            | !{pb.render('Institution-profile', 'institution-details', {data : data}, 'pericles')}
+
+
+        h3 Access entitlements
+        .source_example
+            | !{pb.render('Institution-profile', 'access-entitlements', {data : data}, 'pericles')}
+
+        h3 Usage reports
+        .source_example
+            | !{pb.render('Institution-profile', 'usage-reports', {data : data}, 'pericles')}
+
+        h3 IP ranges
+        .source_example
+            | !{pb.render('Institution-profile', 'ip-ranges', {data : data}, 'pericles')}
+
+
+        h3 Institution branding
+        .source_example
+            | !{pb.render('Institution-profile', 'institution-branding', {data : data}, 'pericles')}
+
+        h3 Article select
+        .source_example
+            | !{pb.render('Institution-profile', 'article-select', {data : data}, 'pericles')}
+
+        h3 Manage administrators
+        .source_example
+            | !{pb.render('Institution-profile', 'manage-administrators', {data : data}, 'pericles')}
+
+        h3 WOL bookstore
+        .source_example
+            | !{pb.render('Institution-profile', 'WOL-bookstore', {data : data}, 'pericles')}
+    | #{''}

@@ -1,0 +1,10 @@
+if (data && data.items)
+    each item, l in data.items
+        div.top-list__container
+            div.meta-container
+                div.top-list__date
+                    i.icon-date
+                    | !{item.epubDate}
+                div.top-list__title
+                    a(href=item.best)
+                        | !{item.title}

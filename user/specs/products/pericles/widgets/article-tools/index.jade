@@ -1,0 +1,54 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /widgets/article-tools/templates/article-tools/article-tools-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Article tools template.
+
+        +printJson({
+            "thisWidget": {
+                "id": "article-tools"
+            },
+            "data": {
+                "widget": {
+                    "addFavoriteLabel": "Add to Favorites",
+                    "downloadCitationLabel": "Download Citation",
+                    "trackCitationsLabel": "Track Citation",
+                    "labelsOrder": [
+                        "addFavorite",
+                        "downloadCitation",
+                        "trackCitations"
+                    ]
+                },
+                "item": {
+                    "downloadCitationUrl": "#",
+                    "addFavoriteUrl": "#",
+                    "trackCitationsUrl": "#"
+                }
+            }
+        })
+
+
+    | #{''}
+
+    section.source_section
+        h2 Example
+
+        h3 Article Ttools
+        .source_example
+            | !{pb.render("article-tools", "article-tools.json", "pericles")}
+
+        h3 Article Ttools - unordered
+        .source_example
+            | !{pb.render("article-tools", "article-tools-unorder.json", "pericles")}
+
+    | #{''}

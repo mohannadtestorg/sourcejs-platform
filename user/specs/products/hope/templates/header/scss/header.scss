@@ -1,0 +1,441 @@
+.header {
+
+    &--first-row {
+        position: relative;
+        z-index: 10;
+    }
+
+    width: 100%;
+    &__logo {
+        max-width: 470px;
+        margin-bottom: -69px;
+
+        @include media('<large') {
+            max-width: 280px;
+        }
+        @include media('<tablet') {
+            max-width: 148px;
+            z-index: 10;
+            position: relative;
+        }
+    }
+    &__donate {
+        background: $donate-bg-color;
+        color: $white;
+        display: inline-block;
+        font-size: 1.35rem;
+        font-weight: bold;
+        margin-bottom: 16px;
+        padding: 14px 24px 6px;
+        text-transform: uppercase;
+
+        @include media('<tablet') {
+            margin-top: 7px;
+            margin-right: 20px;
+            padding: 8px 21px 8px;
+            font-size: 0.8rem;
+            margin-bottom: 7px;
+        }
+        @include media('<phone'){
+            margin-top: 14px;
+            padding: 3px 12px;
+            margin-bottom: 10px;
+        }
+
+    }
+    &__quick-menu {
+        text-align: right;
+        .sign-in-label,
+        .cartText {
+            display: none;
+        }
+        li {
+            vertical-align: middle;
+        }
+        .cartLabel {
+            @include media('>=tablet') {
+                padding-right: 5px;
+            }
+            .icon-shoppingcart {
+                @include media('<tablet') {
+                    color: $white;
+                }
+            }
+        }
+
+        //For IE11
+        @media screen and (min-width:$screen-tablet) and (-ms-high-contrast: none),screen and (min-width:$screen-tablet) and  (-ms-high-contrast: active) {
+            max-width: 300px;
+        }
+
+
+        @include media('<tablet') {
+            ul {
+                background-color: $primary-bg-color;
+                margin: 0 -15px;
+                padding: 8px 15px;
+                a {
+                    color: $text-onDark;
+                }
+            }
+            .res--left {
+                float: left;
+            }
+            .quick-menu__item {
+                padding-left: 0;
+                padding-right: 15px;
+            }
+        }
+    }
+    &.fixed {
+        background: $white;
+        z-index: 50;
+        position: fixed !important;
+        @media print {
+            position: relative !important;
+        }
+    }
+    .pull-right {
+        @include media('<tablet') {
+            float: none;
+            width: 100%;
+        }
+    }
+}
+
+.quick-menu {
+    &__item {
+        color: $secondary-text-color;
+        display: inline-block;
+        font-size: 0.86rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 4px 0 4px 27px;
+        .userLoginBar & {
+            color: $journal-color;
+        }
+    }
+}
+
+.main-nav {
+    &--extra{
+        display: inline-block;
+        float: right;
+    }
+    nav {
+        padding-left: 515px;
+
+        @include media('<large') {
+            padding-left: 15px;
+        }
+    }
+    a {
+        font-size: 1.3rem;
+        padding: 25px 20px;
+        &[data-db-target-for="extraMenu"] {
+            display: inline-block;
+            color: $white;
+            padding: 0 0 10px 15px;
+            font-size: 2.5rem;
+            vertical-align: middle;
+            .icon-close_thin {
+                display: none;
+            }
+        }
+        @include media('<large') {
+            font-size: 1rem;
+            padding: 25px 20px 10px;
+        }
+        @include media('<desktop') {
+            font-size: 1rem;
+            padding: 20px 20px 10px;
+        }
+    }
+    .dropdown__menu {
+        a {
+            font-size: 0.85rem;
+        }
+    }
+    [title="Journal"] {
+        &:before {
+            content: "";
+            display: block;
+            border-top: 8px solid $journal-color;
+            margin-top: -34px;
+            margin-bottom: 27px;
+            @include media('<large') {
+                display: none;
+            }
+        }
+    }
+    [title="Blog"] {
+        &:before {
+            content: "";
+            display: block;
+            border-top: 8px solid $blog-color;
+            margin: -34px -10px 27px;
+            @include media('<large') {
+                display: none;
+            }
+        }
+    }
+    .dropzone {
+        min-height: 63px;
+        line-height: 20px;
+        text-align: center;
+        display: inline-block;
+        width: 312px;
+        float: right;
+    }
+    .quick-search {
+        display: inline-block;
+        padding-bottom: 12px;
+        @include media('<desktop') {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+        input {
+            background: $white;
+            border-radius: 5px;
+            height: 29px;
+            padding: 6px 5px;
+        }
+        &__button {
+            position: relative;
+            right: 0;
+            background-color: transparent;
+            color: $white;
+            @include media('<desktop') {
+                vertical-align: middle;
+                margin-top: 18px;
+            }
+        }
+        .input-group {
+            float: right;
+            margin-top: 4px;
+            margin-left: 6px;
+            width: 160px;
+            @include media('<desktop') {
+                float: none;
+                display: inline-block;
+                margin-top: 0;
+                margin-left: 0;
+            }
+        }
+    }
+    &--desktop {
+        display: inline-block;
+        font-family: $extra-font-family;
+        @include media('>=tablet') {
+            float: left;
+        }
+    }
+    &__extra-links {
+        background: $secondary-bg-color;
+        padding: 15px;
+        @include media('<tablet') {
+            display: block;
+            background: transparent;
+        }
+        a {
+            padding: 5px 0;
+            color: $black;
+            text-transform: none;
+            font-weight: 400;
+            line-height: 1.2rem;
+            font-size: 1rem;
+        }
+    }
+    &.menu--res {
+        max-height: 100vh;
+        ul {
+            margin: 0;
+            padding-bottom: 0;
+        }
+    }
+    &.menu--res a[data-toggle=nav] {
+        height: 49px;
+    }
+}
+
+.menu--res {
+
+    .main-nav__extra-links {
+        padding: 0;
+        box-shadow: 0;
+        font-size: 1.2rem;
+    }
+    .main-nav--extra {
+        float: none;
+        display: block;
+    }
+    &.main-nav {
+        .dropdown__menu {
+            position: relative;
+            left: auto;
+            float: none;
+            min-width: 0;
+            transform: none;
+            margin-bottom: 10px;
+            margin-left: 10px;
+        }
+        .menu-header {
+            margin: 20px -15px 15px;
+        }
+    }
+    .quick-search {
+        padding: 5px 15px;
+        margin: 0 -15px;
+        border-top: 1px solid $borders;
+        border-bottom: 1px solid $borders;
+        display: block;
+    }
+    .footer-top__list {
+        ul {
+            margin-left: 10px;
+        }
+    }
+}
+
+.main-nav--desktop{
+    @include media('>=tablet') {
+        [aria-label='Journal'] [role="menuitem"] {
+            background: $journal-color;
+        }
+        [aria-label='Blog']  [role="menuitem"] {
+            background: $blog-color;
+        }
+    }
+}
+
+.dropdown {
+
+    @include media('>=tablet') {
+        &:hover,
+        &:focus {
+            &[aria-label="Journal"] {
+                & > .dropdown__menu {
+                    background: $journal-color;
+                    left: -100%;
+                }
+                & > .dropdown__toggle {
+                    background: $journal-color;
+                }
+            }
+            &[aria-label="Blog"] {
+                & > .dropdown__menu {
+                    background: $blog-color;
+                    left: -50%;
+                }
+                & > .dropdown__toggle {
+                    background: $blog-color;
+                }
+            }
+
+            &[aria-label^="Article"]{
+                & > .dropdown__toggle {
+                background: $journal-color;
+                box-shadow:inset 0 -4px 0 0 white;
+                }
+            }
+
+            & > .dropdown__toggle {
+                &:before {
+                    margin-left: -20px;
+                    margin-right: -20px;
+                    border-top-width: 9px;
+                    margin-bottom: 26px;
+                }
+            }
+            & > .dropdown__menu {
+                display: flex;
+                  & > li:hover > ul.dropdown__menu {
+                      display: block;
+                  }
+
+            }
+        }
+        [class*=level] {
+            top: auto;
+        }
+
+
+        .dropdown__menu{
+            font-family: $extra-font-family;
+            > li > ul.dropdown__menu {
+                left:-100%;
+                background-color: $tertiary-bg-color;
+                color:$primary-text-color ;
+                padding: 15px 25px;
+                min-width: 440px;
+                box-shadow:2px 2px 10px rgba(0, 0, 0, .175);
+
+                a{
+                    text-transform:capitalize;
+                    font-weight: 500;
+                    padding: 8px;
+                    font-size: 1rem;
+                    &:hover,&:focus{
+                        color:$text-onDark ;
+                    }
+                }
+
+                li{
+                    background-color: $tertiary-bg-color;
+                    display: block;
+                    padding: 0 110px;
+                    &:first-child {
+                        border-top: 1px solid white;
+                        padding-top: 10px;
+                    }
+                    &:last-child {
+                        border-bottom: 1px solid white;
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+        }
+
+    }
+    @include media('<tablet') {
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+    }
+}
+
+
+
+.dropdown__menu {
+    box-shadow: none;
+    a {
+        white-space: nowrap;
+        padding: 12px 20px 8px;
+    }
+    & > .menu-item {
+        display: inline-block;
+    }
+}
+
+.drawer__nav  {
+    & > ul {
+        display: inline-block;
+    }
+}
+
+
+.menu--res {
+    font-family: $extra-font-family;
+
+    .main-nav__extra-links a , .main-nav--desktop  a{
+            font-weight: 500;
+            font-size: 1rem;
+    }
+    .footer-top{
+        &__title{
+            font-family: $extra-font-family;
+            font-size: .875rem;
+        }
+    }
+}

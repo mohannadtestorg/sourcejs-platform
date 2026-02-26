@@ -1,0 +1,37 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Table Of Content page
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+
+            main.content.toc
+                .meta-wrapper
+
+                .container
+                    | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<div class=\"card card--shadow card--gutter meta__body journal-banner\"><div class=\"meta__left-side left-side-image\"><a href=\"/action/showJournal?doi=10.1142%2Fjmrr&amp;publicationCode=jmrr\"><img src=\"https://wspc-x2258.ciplit.com//home/office-santaclara-cip/publisher/wspc-x2258/journals/covergifs/jmrr/cover.jpg\" alt=\"0 cover\"></a><h1 class=\"meta__title\"> <a href=\"/action/showJournal?doi=10.1142%2Fjmrr&amp;publicationCode=jmrr\">Journal of Medical Robotics Research</a></h1><div class=\"meta__info\"><span class=\"issn\">ISSN (print): 2424-905X</span><span>&nbsp;|&nbsp;</span><span class=\"eissn\">ISSN (online): 2424-9068</span> <div class=\"frequency\"></div> <div class=\"banner-note\"> </div> </div></div><div class=\"meta__right-side\"> <a href=\"https://mc04.manuscriptcentral.com/fm-jmrr\" class=\"btn btn--inverse\" target=\"blank\">Submit an article</a> <a href=\"/page/journal-order-form#/jmrr\" class=\"btn btn--inverse\">Subscribe</a> </div></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+
+                    | !{pb.render('list-of-issues', 'list-of-issues/demo/list-of-issues-demo', 'loi-decade.json', {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    .row.separator
+                        .col-lg-9.col-md-12.col-sm-12.gutterless
+                            | !{pb.render('table-of-content', 'table-of-content/markup')}
+
+                        .col-lg-3.col-md-12.col-sm-12
+                            h3.section__header.border-bottom newsletter
+                            | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter", "newsletter--card"]}}}})}
+
+                            //mpu ad
+                            .mpu
+                            | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<h3 class=\"section__header border-bottom\">News</h3><div class=\"creative-work\"><a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\"><h5>EDITOR'S CHOICE Efficient Analysis of HALE Aircraft Structure for Static Aeroelastic Behavior</h5></a><p>In this work, the static aeroelastic behavior of flexible aircraft with a high aspect ratio wing undergoing large static deformations has been investigated analytically and numerically. Read more...</p><a href=\"/doi/full/10.1061/%28ASCE%29CP.1943-5487.0000527\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\"><img src=\"/specs/ux3/build/images/components/teaser/news.png\" alt=\"Bridge Column Maximum Drift Estimation via Computer Vision\" title=\"Bridge Column Maximum Drift Estimation via Computer Vision\" class=\"creative-work__img\"></a></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+ 
+                            | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "theme": "dark", "height": "800"}]}, {"shared": {"model": {"config": {"wrapper": "false", "headingLevel": "h3", "headingClass": ["section__header border-bottom"]}, "data": {"title": "Twitter"}}}})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+
+    | #{''}

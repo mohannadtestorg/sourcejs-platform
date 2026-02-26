@@ -1,0 +1,97 @@
+.actions.float-right {
+    float: none;
+    text-align: right;
+}
+
+.raaAccountInfo {
+    .marketable {
+        .input-group {margin-bottom: 8px;}
+        label {
+            margin-bottom: 0;
+            line-height: 20px;
+            font-size: $h6-font-size;
+        }
+    }
+
+    @include media('>=desktop') {
+        .profile-menu {
+            padding-top: 0;
+
+            .rlist:not(:empty) {
+                margin-top: 0;
+                padding-top: 0;
+                border-top: 0;
+            }
+        }
+
+        .main-content {
+            padding-right: 0;
+        }
+    }
+
+    .main-content {
+        .card {
+            &:last-child {
+                //.input-group {
+                //    span {
+                //        margin-left: 5px;
+                //    }
+                //}
+                h4 {
+                    margin-bottom: 20px;
+                }
+                .small-txt {
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+    }
+
+}
+
+.free-access-tab {
+    #accessTokenForm {
+        .message {
+            display: none;
+        }
+        .input-group {
+            margin-top: 29px;
+        }
+        @include media('<tablet') {
+            .input-group {
+                max-width: 100%;
+                .label {
+                    width: 100%;
+                }
+            }
+
+            .submit {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    }
+}
+.emails-wrappers .email,
+.phones-wrappers .phone {
+    .add, .remove {
+        line-height: 44px;
+        i[class*=icon-] {margin-top: 0;}
+    }
+
+    &:last-child .add {
+        display: inline-block;
+    }
+}
+
+
+.password-eye-icon {
+    top: 45px;
+}
+
+.login-form {
+    .form-btn {
+        margin-top: 25px;
+    }
+}

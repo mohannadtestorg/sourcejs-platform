@@ -1,0 +1,10 @@
+extends pd-editorial-category-update-tmpl
+
+block hiddenInputs
+
+block tooltip
+
+block catogoryDropbox
+    each item, l in data.categories
+        if(data.inputs["uri"].value == item.name)
+          span.readonly.margin  !{item.label}

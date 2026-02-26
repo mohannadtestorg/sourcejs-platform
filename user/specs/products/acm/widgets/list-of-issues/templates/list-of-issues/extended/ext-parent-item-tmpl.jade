@@ -1,0 +1,23 @@
+
+
+if(data.coverImage)
+  img.issue__image(src=data.coverImage alt=data.issue + " image")
+
+
+.left-bordered-label
+    block parentDate
+        if (data) && (data.coverDate)
+            if data.url
+                a(href=data.url)
+                    span.coverDate !{data.coverDate}
+            else
+                span.coverDate !{data.coverDate}
+
+    block volume
+        if data.url
+            a(href=data.url).issue
+                if (data) && (data.issue)
+                    | Issue #{data.issue}
+        else
+            if (data) && (data.issue)
+               span.issue | Issue. #{data.issue}

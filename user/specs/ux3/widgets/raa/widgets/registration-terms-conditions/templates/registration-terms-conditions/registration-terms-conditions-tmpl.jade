@@ -1,0 +1,12 @@
+section.terms-section
+    input(type='hidden', name='terms.id', value='412e3bf1-5c4b-4280-88a5-f0c76fc4bb3d')
+    input(type='hidden', name='section', value='terms')
+    .terms-of-use
+        .terms-message
+            p Terms of Use.
+            p(style='font-size:10px') Please review our Terms & Conditions of Use prior to completing registration.
+        // Label Text will be inserted through a widget (text,html,html-asset....etc) which should also include a link to the terms of use
+        .textZone.normal-txt
+            | !{pb.renderDropzone(thisWidget, "textZone")}
+        .switch.small-switch
+            input.cmn-toggle.small-switch.cmn-toggle-round-flat(id='terms.value', type='checkbox', name='terms.value', value='true')

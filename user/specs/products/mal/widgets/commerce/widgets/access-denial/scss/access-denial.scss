@@ -1,0 +1,153 @@
+.eCommercePurchaseAccessWidgetContainer {
+    .add-journal-to-cart {
+        margin: 5px 0px;
+        header {
+            line-height: inherit;
+            padding: 0;
+            border: none;
+            position: relative;
+        }
+        .purchaseMessage {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(144, 198, 92, .9);
+            text-align: center;
+            color: $badge-type-bg-color;
+            padding: 0;
+        }
+        .itemAddedMsgBox {
+            border: none;
+            line-height: 30px;
+            margin: 0;
+            padding: 19px 0 8px;
+            @include media ('<tablet'){
+                padding: 7px 0 8px;
+            }
+            h3 {
+                font-size: 14px;
+                font-weight: 600;
+                color: $badge-type-bg-color;
+            }
+            &:before {
+                font-size: 19px;
+                vertical-align: middle;
+                position: static;
+                display: inline;
+                margin: 0 10px 0 0;
+            }
+        }
+        .add-to-cart-msg {
+            [class^="icon-"] {
+                font-size: 19px;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+        }
+        &:hover {
+            position: relative;
+            .add-to-cart-msg:not(.added) {
+                display: block;
+                padding: 20px 0;
+                @include media ('<tablet'){
+                    padding: 8px 0;
+                }
+            }
+        }
+    }
+}
+
+.addedMessage {
+    overflow: hidden;
+    margin-left: 5px;
+    .article-title {
+        float: left;
+        border: 1px solid $primary-border-color;
+        font-size: 17px;
+        font-weight: 700;
+        padding: 23px 9px;
+        width: 70%;
+        [class^=icon-] {
+            color: $secondary-bg-color;
+            font-size: 25px;
+            margin: 0 10px 0 0;
+        }
+    }
+    > a.show-cart-link {
+        float: right;
+        text-align: center;
+        width: 27.3%;
+        color: $badge-type-bg-color;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 26px 0;
+        margin: 0;
+        background: $secondary-bg-color;
+        @include media ('<desktop' , '>=tablet'){
+            padding: 18px 0;
+        }
+        @include media ('<tablet' , '>=phone'){
+            padding: 23px 0
+        }
+        @include media ('<phone'){
+            padding: 18px 0;
+        }
+        .text {
+            display: inline-block;
+            line-height: 1.3em;
+            vertical-align: middle;
+             @include media ('<tablet'){
+                font-size: 12px;
+                font-weight: 500;
+             }
+        }
+    }
+}
+
+.purchaseArea {
+    border-color: $badge-primary-bg-color;
+    a {
+        color: $secondary-bg-color;
+    }
+    h2{
+        font-weight: bold;
+        color:$primary-link-color;
+    }
+}
+.publicationContentTitle{
+    h1{
+        font-weight: bold;
+    }
+}
+.publicationContentTitle{
+    h1{
+        font-weight: bold;
+    }
+}
+.purchaseArea--list {
+    a {
+        font-size: 16px;
+    }
+}
+.eCommercePurchaseAccessWidgetContainer , .purchaseAreaLists{
+    .add-journal-to-cart {
+        .add-to-cart-msg{
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+            color: $badge-type-bg-color;
+            line-height: 30px;
+            background-color: transparentize($secondary-bg-color, 0.1);
+        }
+        header {
+            position: relative;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+
+- var inputValue = data && data.inputValue ? data.inputValue : '';
+- var inputName = data && data.fieldName ? data.fieldName : 'Datepicker-' + Math.ceil(Math.random() * 1000);
+- var inputId = data && data.id ? data.id : inputName;
+- var altFieldSuffix = '-placeholder';
+
+if(data.dateFormat)
+    input.datepicker(
+        type="text",
+        id=inputId,
+        value=inputValue,
+        name=inputName + altFieldSuffix,
+        data-date-format=data.dateFormat,
+        data-alt-field-name=inputName
+    )
+    input(type="hidden", name=inputName)
+else
+    input.datepicker(type="text", id=inputId, value=inputValue, name=inputName)

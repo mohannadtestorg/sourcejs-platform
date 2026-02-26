@@ -1,0 +1,38 @@
+.issue-attachments{
+  &__label{
+    display: inline-block;
+
+    img{
+      width: 20px;
+      vertical-align: bottom;
+    }
+    span{
+      margin:0 5px;
+    }
+  }
+  &__list{
+    display: inline-block;
+    a{
+      padding: 0 10px;
+    }
+
+    @include media('<tablet'){
+      display: block;
+      margin-top: 10px;
+      li:first-child{
+        padding-left: 10px;
+      }
+    }
+  }
+  
+  &__pdf-image{
+    background-image: url(../images/pdf.png);
+    width: 25px;
+    display: inline-block;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+  }
+
+}

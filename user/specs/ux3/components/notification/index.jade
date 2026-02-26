@@ -1,0 +1,39 @@
+extends /specs/ux3/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    include ../../../page-structure/helpers/print-json-mixin
+    include ../../../page-structure/helpers/print-js-code-mixin
+    include ../../../page-structure/helpers/print-html-code-mixin
+
+    section.source_section
+        h2 Notifications
+        h3 Error Notification
+        markdown
+            p `.notification.notification--error`
+
+        +printJson({
+            "data": {
+                "message": "Lorem Ipsum dolor set",
+                "messageType": "error"
+            }
+        })
+
+        .source_example
+            | !{pb.render("notification", "data-error.json")}
+
+        h3 Success Notification
+        markdown
+            p `.notification.notification--success`
+
+        +printJson({
+            "data": {
+                "message": "Lorem Ipsum dolor set",
+                "messageType": "success"
+            }
+        })
+
+        .source_example
+            | !{pb.render("notification", "data-success.json")}
+
+
+    | #{''}

@@ -1,0 +1,237 @@
+/***
+
+```
+<div class="audio-player" data-behavior="AudioPlayer">
+  <audio preload controls="controls">
+    <source src="audio.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <button class="audio-player__play" data-audio-player-play>
+    <i aria-hidden="true" class="icon-play"></i>
+    <i aria-hidden="true" class="icon-pause"></i>
+  </button>
+  <span class="audio-player__current" data-audio-player-current>00:00</span>
+  <div class="audio-player__progress" data-audio-player-progress>
+    <input class="audio-player__range" type="range" min="0" max="100" value="0" />
+    <span class="audio-player__tocomplete"></span>
+    <span class="audio-player__done" data-audio-player-done></span>
+  </div>
+  <span class="audio-player__duration" data-audio-player-duration>00:00</span>
+  <button class="audio-player__volume" data-audio-player-volume>
+    <i aria-hidden="true" class="icon-volume-up"></i>
+    <i aria-hidden="true" class="icon-volume-off"></i>
+  </button>
+  <div class="audio-player__volume-slider" data-audio-player-volume-slider>
+    <input class="audio-player__range" type="range" min="0" max="100" value="100" />
+    <span class="audio-player__tocomplete"></span>
+  </div>
+</div>
+```
+
+***/
+
+.audio-player {
+    margin-bottom: 20px;
+
+    &__control {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 10px;
+    }
+
+    &__control-track, &__control-volume, &__track-time {
+        display: inline-block;
+        flex: 1 1 auto;
+    }
+    &__track-time {
+        text-align: right;
+    }
+}
+
+// buttons style
+.audio-player__play,
+.audio-player__play-next,
+.audio-player__play-prev,
+.audio-player__volume {
+    @include make-btn-size();
+    padding: 6px;
+    // make fix width because of icons changing with different dimensions
+    width: 26px;
+}
+
+.audio-player audio {
+    display: none;
+}
+
+.audio-player input {
+    min-height: 1.2rem;
+    height: $input-range-slider-thumb-size + $input-range-slider-track-height;
+    vertical-align: top;
+    display: inline-block;
+}
+
+// switch visibility of play/pause icons
+.audio-player__play {
+
+    .icon-pause {
+        display: none;
+    }
+
+    .icon-play {
+        display: inline;
+    }
+
+    &.s-play--active {
+        .icon-play {
+            display: none;
+        }
+
+        .icon-pause {
+            display: inline;
+        }
+    }
+}
+// switch visibility of volume/mute icons
+.audio-player__volume {
+
+    .icon-volume-off {
+        display: none;
+    }
+
+    &.s-volume--mute {
+
+        .icon-volume-up {
+            display: none;
+        }
+
+        .icon-volume-off {
+            display: inline;
+        }
+    }
+}
+
+.audio-player__current,
+.audio-player__duration {
+    display: inline-block;
+    padding: 6px 2px;
+}
+
+.audio-player__progress {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+
+    margin-bottom: 20px;
+}
+
+.audio-player__done {
+    width: 0;
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    @include input-range-slider-progress;
+    top: 50%;
+    margin-top: ($input-range-slider-track-height / -2);
+    z-index: 0;
+}
+
+.audio-player__tocomplete {
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    @include input-range-slider-track;
+    background: $input-range-slider-track-color;
+    top: 50%;
+    margin-top: ($input-range-slider-track-height / -2);
+    z-index: 0;
+    left: 0;
+    right: 0;
+}
+
+.audio-player__range {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+
+    &::-webkit-slider-thumb {
+        @include input-range-slider-thumb;
+    }
+
+    &::-moz-range-thumb {
+        @include input-range-slider-thumb;
+    }
+
+    &::-ms-thumb {
+        @include input-range-slider-thumb;
+        margin-top: 0;
+    }
+
+    &::-webkit-slider-runnable-track {
+        @include input-range-slider-track;
+    }
+
+    /*
+    &::-webkit-slider-runnable-track {
+      @include input-range-slider-progress;
+    }
+    */
+
+    &::-moz-range-track {
+        @include input-range-slider-track;
+    }
+
+    &::-ms-track {
+        @include input-range-slider-track;
+    }
+
+    &::-ms-fill-lower {
+        background: $input-range-slider-progress-color;
+        border-radius: 0;
+    }
+
+    &::-ms-fill-upper {
+        background: $input-range-slider-track-color;
+        border-radius: 0;
+    }
+
+    /*
+    &::-moz-range-progress {
+      @include input-range-slider-progress;
+    }
+    */
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-ms-track {
+        width: 100%;
+        cursor: pointer;
+
+        /* Hides the slider so custom styles can be added */
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+}
+
+.audio-player__volume-slider {
+    display: none;
+    position: relative;
+    width: 100px;
+
+    @include media('>phone') {
+        display: inline-block;
+    }
+}
+
+.audio-player__volume-slider .audio-player__range::-ms-fill-lower {
+    background: $input-range-slider-track-color;
+}

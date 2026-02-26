@@ -1,0 +1,141 @@
+.quick-search {
+    padding: 0;
+
+    ::-webkit-input-placeholder {
+        font-size: .875rem;
+        font-weight: 100;
+    }
+    ::-moz-placeholder {
+        font-size: .875rem;
+        font-weight: 100;
+    }
+    :-ms-input-placeholder {
+        font-size: .875rem;
+        font-weight: 100;
+    }
+
+    input {
+        border-color: $input-border;
+    }
+}
+
+.quickSearchRegion{
+    @include media('<tablet'){
+        display: none;
+    }
+
+    background:$light-gray-color;
+    .quick-search {
+        padding:15px;
+
+        .dropBlock> a,.dropBlock__link,&__button {
+            color: $primary-link-color;
+            background:$light-gray-color;
+            border-color: $input-border;
+        }
+
+        &-advanced-link{
+            color: $primary-link-color;
+            font-weight: 600;
+        }
+
+    }
+}
+
+
+.header__quick-menu {
+    .quick-search {
+        background: $white;
+        @include media ('<desktop') {
+            position: fixed;
+            left: 0;
+            right: 0px;
+            padding: 20px 10px;
+            border-bottom: 1px solid $primary-border-color;
+        }
+
+
+
+        &--form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            @include media('<desktop') {
+                display: block;
+            }
+        }
+
+        &--input {
+            flex: 1 1 auto;
+            input[type=search] {
+                background: $default-bg-color;
+                height: 40px;
+                min-width: 250px;
+                border: 1px solid $primary-border-color;
+                padding: 0 28px 0 5px;
+                @include media('<desktop') {
+                    background: transparent;
+                    width: 100%;
+                }
+            }
+
+            .icon-Icon_Search{
+                position: absolute;
+                right: 7px;
+                top: 9px;
+                font-size: 1.4rem;
+                color: $primary-link-color;
+                @include media('<desktop') {
+                    top: 20px;
+                }
+            }
+        }
+        &--button {
+            height: 40px;
+            background: $green-bg-color;
+            .quick-search__button {
+                position: static;
+                color:  $text-onDark;
+                background: $green-bg-color;
+                padding: 12px 20px 28px;
+                font-weight: 500;
+                font-size: 1rem;
+                width: 100%;
+            }
+        }
+
+    }
+    .quick-menu__item{
+       padding: 0 45px 0 0;
+        @include media('<desktop') {
+            display: block;
+        }
+        .icon-search{
+            color: $primary-link-color;
+        }
+   }
+
+    @include media('>=desktop') {
+        .quick-menu__item {
+            display: none;
+        }
+        .quick-search__dropBlock {
+            background: $white;
+            margin: 0;
+            box-shadow: none;
+
+            .container {
+                width: auto;
+                padding: 0;
+            }
+        }
+
+        [data-db-target-of] {
+            position: static;
+            display: block;
+        }
+    }
+}
+

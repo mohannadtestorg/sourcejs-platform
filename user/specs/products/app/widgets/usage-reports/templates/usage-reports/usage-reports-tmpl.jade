@@ -1,0 +1,13 @@
+extends ../../../../../../ux3/widgets/usage-reports/templates/usage-reports/usage-reports-tmpl
+
+
+block emailAddress
+    span.label-txt
+    if(data.recipients)
+            input(type="text" name="emailAddresses" value= data.recipients.usageReportEmailAddress)
+
+
+block dropdownClasses
+    -var dropdownClasses="jcf"
+    -var monthDreodoenClasses="month"
+

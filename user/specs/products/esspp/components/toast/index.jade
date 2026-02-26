@@ -1,0 +1,16 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+    section.source_section
+        h2 Examples
+        markdown
+            p See the source code...
+        .source_example
+            .toast.toast--success
+                i.icon-check(aria-hidden="true")
+                .toast__text
+                    | You have successfully submitted the article

@@ -1,0 +1,128 @@
+mixin td(row,r,jsonFieldName, theadName, classes,isfunderTd,isdummyRow)
+
+    -var fieldText=row[jsonFieldName].value
+
+
+    td(data-thead=theadName class=classes)
+        if(row[jsonFieldName])
+            if(isfunderTd)
+                a(href="#").icon-arrow_d_n.pull-right.hidden-md.hidden-lg.table__control__button
+                -var funderValues="";
+                -var funderText="";
+
+                if(row[jsonFieldName].value == "{{0}}")
+                    -funderText=row[jsonFieldName].value
+                    -funderValues="{{0_val}}";
+                    .funder__hidden-inputs.hidden
+                          | {{0_inputs}}
+                    .td-text !{funderText}
+                    .td-funders-val.hidden !{funderValues}
+
+                else
+                    .funder__hidden-inputs.hidden
+                        each val, i in row[jsonFieldName].value
+                            if(val != "")
+                                input(type="hidden" value=val name="grants[" + r + "]." + jsonFieldName)
+
+                    each val, i in row[jsonFieldName].value
+                        if(val != "")
+                            -funderValues=funderValues+   val;
+                            -funderText=funderText+ data.funders[val];
+                        if(i + 1 != row[jsonFieldName].value.length)
+                            -funderText=funderText+ ", ";
+                            -funderValues=funderValues+",";
+                        else
+                            .td-text !{funderText}
+                            .td-funders-val.hidden !{funderValues}
+
+            else
+                 .td-text !{fieldText}
+                 block inputInTd
+                     if(isdummyRow)
+                       fakedinput(type="hidden" value=fieldText name="grants[" + r + "]." + jsonFieldName)
+                     else
+                       input(type="hidden" value=fieldText name="grants[" + r + "]." + jsonFieldName)
+
+            block errorMessage
+               if(row[jsonFieldName].message  && row[jsonFieldName].message.text)
+                 div(class=row[jsonFieldName].message.type == "error" ? "error" : row[jsonFieldName].message.type == "warning" ? "warning" : "success") !{row[jsonFieldName].message.text}
+
+
+
+
+mixin row(r ,row,isdummyRow)
+    tr.expanded(data-row-num=r)
+        +td(row,r,"funders","Funders","funder-td" ,true,isdummyRow)
+        +td(row,r,"grant-number","Grant number","to_hide grant-number-td",false,isdummyRow)
+        +td(row,r,"recipient","Recipient","to_hide recipient-funder-td",false,isdummyRow)
+
+
+        block actionTd
+            td(class="table__td--dropdown to_hide")
+                | !{pb.render('drop-block', 'drop-block/drop-block-actions', {  data: {  "id": "funder__" + r, "actions": [{"label": "Edit", "icon": "icon-pencil", "class": "edit"}, { "label": "Delete",   "icon": "icon-delete",  "class": "delete" }] }  })}
+
+
+.row
+    .col-md-12
+        block funders
+            .funders
+                input(type="hidden" name="grants.id",value=thisWidget.id)
+                h4.border-bottom Funders
+                    span.__optional #{" "}(Optional)
+                    | !{pb.render('tooltip', {   data: { "isSliderinMobile": "true",  "type": "icon",  "title": "Funders", "text": "If your work has been supported by one or more grants, please enter that information, including recipient and grant number. Funder names will be validated against the FundRef registry." }  })}
+
+                .table-responsive.funders__table.table-actions
+                    table(class='expandable separator')
+                        thead
+                            tr
+                                th Funders
+                                th Grant number
+                                th Recipient
+                                th
+
+
+                        tbody
+                            if (data.forms)
+                                each row, r in data.forms
+                                    +row(r,row)
+                button#addGrant.btn.btn--inverse.submission-table__btn Add grant
+
+
+
+                table.hidden.rowTemplate
+                    -var dummyRow={'funders':{'value':['{{0}}']},'grant-number':{'value':'{{1}}'},'recipient':{'value':'{{2}}'}}
+                    +row("{{3}}",dummyRow,true)
+
+                .hidden.funderInputTemplate
+                    fakedinput(type="hidden" value="{{0}}" name="grants[{{1}}].funders")
+
+
+
+            .ux-modal-container.submission__modal
+                #funders-modal.modal(role="dialog")
+                    .modal__header.hidden-lg.hidden-md
+                        div Funder
+                    .modal__dialog
+                        input.mode.hidden(value="add")
+                        input.row-num.hidden(value="-1")
+
+                        .modal__body
+                            .error.modal-validation-message
+                            .input-group
+                                label(for="funder-name") Funder
+                                input.magicsuggest(id="funder-name", name="funder-name", type="text")
+                                input(hidden value=data.funderSearchLink id="funderAjaxLink")
+
+                            .input-group
+                                label(for="funder-grant-number") Grant Number
+                                input(id="funder-grant-number", name="funder-grant-number", type="text")
+
+                            .input-group
+                                label(for="funder-recipient") Recipient
+                                select(id="funder-recipient", name="funder-recipient")
+                                    option Other
+
+
+                        .modal__footer
+                            button.btn.pull-right(type='button',  id="saveFunder")  Save
+                            button.grant-number.link.pull-right(type='button', data-dismiss='modal')  Cancel

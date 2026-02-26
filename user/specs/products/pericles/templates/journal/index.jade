@@ -1,0 +1,242 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    section.source_section
+        h2 Journal home page
+        .source_info
+            markdown
+                p styles changed based on <a href='https://jira.atypon.com/browse/LIT-200309' target="_blank">`LIT-200309`</a>
+
+        .source_example
+            | !{pb.render('header', {data : data.header, page: 'article'},'pericles')}
+
+            .pageBody(data-widget-def='pageBody', data-widget-id='72100436-7a82-49fc-933b-c6c9d8c42914')
+                // begin pagefulltext
+                .page-body.pagefulltext
+                    div(data-pb-dropzone='main')
+                        div
+                            h1.hidden  Journal list menu
+                            .pages-nav--sticky.pages-nav.hidden-lg
+                                .pages-nav--res
+                                    .container
+                                        ul.rlist--inline.pull-left
+                                            li
+                                                a(href='#', data-db-target-for='journal-list', data-db-switch='icon-close_thin')
+                                                    i.icon-toc(aria-hidden='true')
+                                                    span Journal
+                                                #journal-list.rlist.dropBlock__holder(data-db-target-of='journal-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-1, #menu-item-main-menu-1-2, #menu-item--1, #menu-item--2, .journal-featured', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    a.dropdown__toggle(href='#', title='More from this journal')
+                                                        span More from this journal
+                                                    .transplant.showit(data-target='.journal-resources', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                            li
+                                                a(href='#', data-db-target-for='articles-list', data-db-switch='icon-close_thin')
+                                                    i.article-img-icon
+                                                        img(src='//wol-prod-cdn.literatumonline.com/pb-assets/hub-assets/pericles/articles_1-1499257321163.png')
+                                                    span Articles
+                                                #articles-list.rlist.dropBlock__holder(data-db-target-of='articles-list')
+                                                    .transplant.showit(data-target='#menu-item-main-menu-1-3, #menu-item-main-menu-1-4, #menu-item--3', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                        ul.rlist--inline.pull-right
+                                            li
+                                                a(href='#', data-db-target-for='actions-list', data-db-switch='icon-close_thin')
+                                                    span Actions
+                                                    i.icon-chevron-down(aria-hidden='true')
+                                                #actions-list.rlist.dropBlock__holder(data-db-target-of='actions-list')
+                                                    h2.side-section-header.hiddenLabel--lg Tools
+                                                    .transplant.showit(data-target='.journal-actions-container li:nth-child(1), .journal-actions-container li:nth-child(2), .journal-actions-container li:nth-child(3), .journal-actions-container li:nth-child(4), .journal-actions-container li:nth-child(5), #subscribeLink', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                                                    h2.side-section-header.hiddenLabel--lg Follow journal
+                                                    .transplant.showit(data-target='#alert-link, #facebook-link, #twitter-link, #most-recent-link, #most-read-link, #most-cited-link', data-remove='false', data-toggle='transplant', data-direction='from', data-transplant='self')
+                            .secondary-bg-color.banner-wrapper(data-widget-def='literatumAd', data-widget-id='0220a30b-90c0-4b51-8637-141edf12f86a')
+                                .pb-ad
+                                    aside(role='complementary')
+                                        #advert-leaderboard.advert.advert-leaderboard
+                                            script.
+                                                googletag.cmd.push(function () {
+                                                    googletag.display('advert-leaderboard');
+                                                });
+                                            // No JavaScript support is a call to an image
+                                            noscript
+                                                a(href='/action/clickThrough?id=1013&url=http%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Fjump%3Fiu%3D%24googlePublisherCategory%26amp%3Bsz%3D728x90%26amp%3Btile%3D1%26amp%3Bc%3D%24random&loc=%2Fjournal%2F2367198x&placeholderId=1015&productId=101018', target='_blank')
+                                                    img(src='http://pubads.g.doubleclick.net/gampad/ad?iu=$googlePublisherCategory&sz=728x90&tile=1&c=$random')
+                            style(type='text/css').
+                                li.menu-item[aria-label="Accepted Articles"] {
+                                    display: none;
+                                }
+                            section.journal-page-header.card(data-widget-def='ux3-layout-widget', data-widget-id='9e8ee65a-2e18-4c00-9474-5ac10e16ecfe')
+                                .container
+                                    .row
+                                        .journal-info-container.col-md-8
+                                            div
+                                                a(href='/journal/2367198x', title='Solar RRL homepage')
+                                                    h1#journal-banner-text(style='margin: 0; font-size: 0') Solar RRL
+                                                    img#journal-banner-image.journal-banner-image(alt='Solar RRL banner', src='//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/2367198x-1501384814827.jpg', style='margin-bottom: 15px; display: none')
+                                                script.
+                                                    var image = new Image();
+                                                    image.onload = function () {
+                                                        // if the image exists
+                                                        document.getElementById("journal-banner-image").style.display = "block";
+                                                    }
+                                                    image.onerror = function () {
+                                                        // if the image does not exist
+                                                        document.getElementById("journal-banner-text").style.marginBottom = "15px";
+                                                        document.getElementById("journal-banner-text").style.fontSize = "22px";
+                                                    }
+                                                    image.src = "//wol-prod-cdn.literatumonline.com/pb-assets/journal-banners/2367198x-1501384814827.jpg";
+                                            .info-block(data-widget-def='general-html', data-widget-id='d08b12af-2d1c-44ea-ae5f-87e80f701049')
+                                                p Editor: Stefan Hildebrandt (Editor-in-Chief)
+                                            .info-block(data-widget-def='graphQueryWidget', data-widget-id='6af4eaa8-4a17-4825-a32d-261438a24354')
+                                                .info-block
+                                                .info-block
+                                                    span.info_label Online ISSN:
+                                                    span.info_value 2367-198X
+                                            .info-block(data-widget-def='UX3HTMLWidget', data-widget-id='4a28f66d-aafb-4c5b-bb1e-6b8a1899631f')
+                                                | © WILEY-VCH Verlag GmbH & Co. KGaA, Weinheim
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4
+                                            | !{pb.render('cover-image', data.latestIssue , 'pericles')}
+
+
+                            | !{pb.render('menu', 'mainMenu.json', 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "className": "stickybar pages-nav hidden-xs hidden-sm hidden-md"}}}})}
+                            style.
+                                .dropzone {
+                                    display: none;
+                                }
+                        div
+                        section.journal-body.journal-page-body(data-widget-def='ux3-layout-widget', data-widget-id='0f7bccba-8328-4dbd-a1fa-e84c526dd9ab')
+                            .container
+                                .row
+                                    .col-md-12
+                                        div
+                                        .gutterless--xs.col-lg-8.col-md-8
+
+                                            | !{pb.render('slideshow', 'slideshow/demo/slideshow-demo',  data.slideShow , 'pericles', {"shared": {"model": {"config": {"wrapper": "true","className": ["journal-news"], "headingLevel": "h2", "headingClass": ["section__mainHeader--mid"]}, "data": {"title" : "On the Cover"} }}})}
+
+                                            | !{pb.render('journal', 'demo/demo-tabs',  data.tabs , 'pericles', {"shared": {"model": {"config": {"wrapper": "true","className": ["tabs--defult-style"], "headingLevel": "h2", "headingClass": ["section__mainHeader--mid"]}, "data": {"title" : "Articles"} }}})}
+
+
+                                            | !{pb.render('cover-image', data.mostRecent, 'pericles', {"shared": {"model": {"config": {"wrapper": "true","className": ["grid-lg-2 grid-md-2 grid-sm-2 grid-xs-1 cover-image--parentInfo"], "headingLevel": "h2", "headingClass": ["section__mainHeader--mid"]}, "data": {"title" : "Recent issues"} }}})}
+
+
+                                        .hidden-xs.hidden-sm.hidden-md.col-md-4.col-lg-4.col-md-4
+                                            .journal-sidebar(data-widget-def='ux3-layout-widget', data-widget-id='ee7a3430-1136-4dfb-922e-2ee614f121aa')
+                                                div
+                                                    .journal-side-section.journal-actions-container
+                                                        h2.side-section-header.hidden-lg.hidden-md Tools
+                                                        ul.unordered-list-icons
+                                                            li#SubmitanArticle
+                                                                a(href='http://www.editorialmanager.com/solar-rrl')
+                                                                    i.icon-submit_article(aria-hidden='true')
+                                                                    | Submit an Article
+                                                            li#Browsefreesampleissue
+                                                                a(href='/toc/10.1002/(ISSN)2367-198X/free-sample')
+                                                                    i.icon-sample_issue(aria-hidden='true')
+                                                                    | Browse free sample issue
+                                                            li#Getcontentalerts
+                                                                a(href='/action/doUpdateAlertSettings?action=addJournal&journalCode=2367198x')
+                                                                    i.icon-alert(aria-hidden='true')
+                                                                    | Get content alerts
+                                                            li#Recommendtoalibrarian
+                                                                a(href='/action/recommendation?doi=10.1002/(ISSN)2367-198X')
+                                                                    i.icon-recommend(aria-hidden='true')
+                                                                    | Recommend to a librarian
+                                                    .journal-side-section
+                                                        ul.unordered-list-icons
+                                                            li
+                                                                a#subscribeLink(href='http://ordering.onlinelibrary.wiley.com/subs.asp?ref=2367-198X&doi=10.1002/(ISSN)2367-198X')
+                                                                    i.icon-subscribe(aria-hidden='true')
+                                                                    | Subscribe to this journal
+
+                                                    .card--bordered.my-4.sidebar-society-logo(data-widget-def='UX3HTMLWidget', data-widget-id='5e6f26aa-d597-4688-9154-94c250dbfcf6')
+                                                        // Society Logos
+                                                        style.
+                                                            .sidebar-society-logo {
+                                                                display: none;
+                                                            }
+                                                    h2.section__mainHeader--small
+                                                        | More from this journal
+                                                    .journal-side-section.journal-resources
+                                                        ul.unordered-bordered-list
+                                                            li#AdvancedScienceNews
+                                                                a(href='http://www.advancedsciencenews.com') Advanced Science News
+                                                            li#MaterialsViewsChina
+                                                                a(href='http://www.materialsviewschina.com') MaterialsViewsChina
+
+                                                    | !{pb.render('cover-image', data.mostRecent, 'pericles', {"shared": {"model": {"config": {"wrapper": "true", "headingLevel": "h2", "headingClass": ["section__mainHeader--small"]}, "data": {"title" : "Related Titles"} }}})}
+
+
+                                                    h2.section__mainHeader--small
+                                                        | Related Titles
+                                                    #rich-text-533c459a-c472-40e3-8296-8bcbd301cc4f.pb-rich-text(style='overflow: auto;')
+                                                        .journal-side-section.journal-resources
+                                                            ul.unordered-bordered-list
+                                                                li
+                                                                    a(href='/journal/18626319') physica status solidi (a)
+                                                                li
+                                                                    a(href='/journal/18626270') physica status solidi (RRL) - Rapid Research Letters
+                                                                li
+                                                                    a(href='/journal/16146840') Advanced Energy Materials
+                                                                li
+                                                                    a(href='/journal/16163028') Advanced Functional Materials
+                                                                li
+                                                                    a(href='/journal/15214095') Advanced Materials
+                        #m45902.flowplayer(style='width:100%;height:180px;')
+                            video
+                                source(type='video/mp4', src='')
+                            script(type='text/javascript').
+                                $(document).ready(function () {
+                                    $.getScript("/templates/jsp/js/lib/flowplayer/flowplayer.min.js", function () {
+                                        $("#m45902").flowplayer({
+                                            playlist: [
+                                                [
+                                                    {mp4: ".mp4"},
+                                                    {ogg: ".ogv"},
+                                                    {webm: ".webm"}
+                                                ]
+                                            ],
+                                            swf: "/templates/jsp/js/lib/flowplayer/flowplayer.swf",
+                                            swfHls: '/templates/jsp/js/lib/flowplayer/flowplayerhls.swf',
+                                            script: "/templates/jsp/js/lib/flowplayer/embed.min.js",
+                                            key: '$471173155739872',
+                                            ratio: '0.4167',
+                                            wmode: '',
+                                            preload: 'none'
+                                            /* brand: {
+                                             text: "My Brand",
+                                             showOnOrigin: true
+                                             },
+                                             logo: "//flowplayer.org/media/img/mylogo.png"*/
+                                        });
+                                    });
+                                });
+                        #m58078.flowplayer(style='width:100%;height:180px;')
+                            video
+                                source(type='video/mp4', src='')
+                            script(type='text/javascript').
+                                $(document).ready(function () {
+                                    $.getScript("/templates/jsp/js/lib/flowplayer/flowplayer.min.js", function () {
+                                        $("#m58078").flowplayer({
+                                            playlist: [
+                                                [
+                                                    {mp4: ".mp4"},
+                                                    {ogg: ".ogv"},
+                                                    {webm: ".webm"}
+                                                ]
+                                            ],
+                                            swf: "/templates/jsp/js/lib/flowplayer/flowplayer.swf",
+                                            swfHls: '/templates/jsp/js/lib/flowplayer/flowplayerhls.swf',
+                                            script: "/templates/jsp/js/lib/flowplayer/embed.min.js",
+                                            key: '$471173155739872',
+                                            ratio: '0.4167',
+                                            wmode: '',
+                                            preload: 'none'
+                                            /* brand: {
+                                             text: "My Brand",
+                                             showOnOrigin: true
+                                             },
+                                             logo: "//flowplayer.org/media/img/mylogo.png"*/
+                                        });
+                                    });
+                                });
+                // end pagefulltext
+
+
+            | !{pb.render('footer', 'pericles')}

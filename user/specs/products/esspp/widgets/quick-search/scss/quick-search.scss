@@ -1,0 +1,355 @@
+.quick-search {
+    padding: 0;
+
+    @include media ('<phone') {
+        //display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        background: $basic-bg-color;
+        padding: 20px 10px;
+        top: 54px;
+        border: 1px solid $primary-border-color;
+    }
+
+    ::-webkit-input-placeholder {
+        font-size: .875rem;
+        font-weight: 100;
+    }
+    ::-moz-placeholder {
+        font-size: .875rem;
+        font-weight: 100;
+    }
+    :-ms-input-placeholder {
+        font-size: .875rem;
+        font-weight: 100;
+    }
+
+    .input-group {
+        padding: 0;
+    }
+
+    &--input {
+        input[type=search] {
+            border: none;
+            border-bottom: 1px solid $secondary-border-color;
+        }
+    }
+
+    .quick-search-advanced-link {
+        color: $blue-text-color;
+        font-size: $smaller-font-size;
+        font-weight: 700;
+
+        &:hover, &:focus {
+            color: $blue-text-color;
+            text-decoration: underline;
+        }
+
+        @include media('<phone') {
+            display: block;
+            text-align: right;
+            text-decoration: none;
+        }
+
+    }
+
+    .quick-search__button {
+        background: transparent;
+        color: $standard-bg-color;
+        float: left;
+        font-weight: 900;
+        font-size: 1.2rem;
+        padding: 10px 0;
+        position: absolute;
+        top: 0;
+        &-container {
+            @include media('<phone') {
+                padding: 0 0 0 8px;
+            }
+        }
+    }
+
+    .dropBlock {
+        margin-right: 10px;
+        a {
+            border: none;
+            border-bottom: 1px solid $secondary-border-color;
+            padding: 10px 0 15px 12px;
+            color: $ess-primary-text-color;
+            font-weight: 100;
+            font-size: .75rem;
+            @include media('<desktop') {
+                padding: 10px 0 16px 12px;
+            }
+            min-height: 37px;
+        }
+
+        i {
+            font-size: .3rem;
+            padding: 5px;
+        }
+    }
+    &__item {
+        .icon-search {
+            padding: 20px;
+            @include media('>=tablet') {
+                display: none;
+            }
+        }
+    }
+
+    .gutterless {
+        @include media('>=tablet') {
+            padding: 0;
+        }
+    }
+
+}
+
+.header__quick-menu {
+    .quick-search {
+        @include media('>=phone') {
+            margin-right: 8px;
+        }
+        &--form {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            @include media('<phone') {
+                display: block;
+            }
+        }
+
+        &--input {
+            flex: 1 1 auto;
+            input[type=search] {
+                padding: 0;
+                background: $default-bg-color;
+                height: 24px;
+                border: none;
+                border-bottom: 1px solid $secondary-border-color;
+
+                @include media('<phone') {
+                    background: transparent;
+                    border: 1px solid $shadow-light-color;
+                    padding: 0 16px;
+                    width: 100%;
+                    height: 40px;
+                }
+            }
+            .option-citation {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 300px;
+                border: none;
+                input {
+                    flex: 1 1 auto;
+                    margin: 0;
+                }
+            }
+        }
+        &--button {
+            .quick-search__button {
+                position: static;
+                background: $default-bg-color;
+                color:  $blue-text-color;
+                font-weight: bold;
+                margin-left: 5px;
+                padding: 0;
+                width: 24px;
+                height: 24px;
+                max-height: 24px;
+                border-radius: 2px;
+                @include media('<phone') {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: block;
+                    color: rgba(0, 0, 0, 0.54);
+                    background-color: transparent;
+                }
+            }
+        }
+        .quick-search-advanced-link {
+            font-weight: normal;
+            font-size: $small-font-size;
+            line-height: $small-font-size;
+        }
+    }
+
+    @include media('>=phone') {
+        .quick-menu__item {
+            display: none;
+        }
+        .quick-search__dropBlock {
+            background: transparent;
+            margin: 0;
+            box-shadow: none;
+
+            .container {
+                width: auto;
+                padding: 0;
+            }
+        }
+
+        [data-db-target-of] {
+            position: static;
+            display: block;
+        }
+    }
+}
+
+.header--homePage__search {
+    .quick-search {
+        max-width: 580px;
+        margin: 0 auto;
+        padding: 0;
+
+        @include media ('<tablet') {
+            display: block;
+            position: static;
+            background: transparent;
+            padding: 0;
+            border: none;
+        }
+        &--form{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &--input{
+            flex: 1 1 auto;
+
+            input[type=search] {
+                background: $default-bg-color;
+                border: none;
+                border-right: 1px solid $primary-border-color;
+                height: 48px;
+                max-height: 48px;
+            }
+            .option-citation {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                input {
+                    flex: 1 1 auto;
+                    margin: 0;
+                }
+            }
+        }
+        &--select {
+            .dropBlock {
+                border-radius: 0 2px 2px 0;
+                margin: 0;
+                width: 120px;
+                a {
+                    padding: 0 20px;
+                    height: 48px;
+                    border: none;
+                    background-color: $default-bg-color;
+                    color: $ess-primary-text-color;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    span {
+                        display: block;
+                    }
+
+                    i {
+                        color: $ess-primary-text-color;
+                    }
+                }
+            }
+        }
+        &--button {
+            .quick-search__button {
+                position: static;
+                background: $default-bg-color;
+                color:  $blue-text-color;
+                font-weight: bold;
+                margin-left: 5px;
+                width: 48px;
+                height: 48px;
+                max-height: 48px;
+                border-radius: 2px;
+                text-shadow: 0 0px 0px;
+            }
+        }
+        &--dropzone {
+            text-align: center;
+
+            a {
+
+            }
+        }
+    }
+}
+
+.quickSearchRegion {
+    padding: 16px 0;
+    background-color: $basic-bg-color;;
+
+    .quick-search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        @include media('<phone') {
+            display: block;
+            position: static;
+            border: none;
+            background: transparent;
+        }
+
+        &--form {
+            position: relative;
+            flex: 1 1 auto;
+            margin-right: 20px;
+            @include media('<phone') {
+                display: block;
+                margin-right: 0;
+            }
+        }
+        &--input {
+            flex: 1 1 auto;
+            input[type=search] {
+                background: transparent;
+                border: 1px solid $shadow-light-color;
+                padding: 0 16px;
+                width: 100%;
+                height: 40px;
+            }
+        }
+        &--button {
+            .quick-search__button {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                display: block;
+                color: rgba(0, 0, 0, 0.54);
+                background-color: transparent;
+            }
+        }
+        .quick-search-advanced-link {
+            font-size: $smaller-font-size;
+            font-weight :700;
+        }
+    }
+
+    .quick-search__button {
+        color: $blue-text-color;
+        padding: 0 10px;
+    }
+
+    .dropBlock a, input {
+        border: 1px solid $primary-border-color;
+    }
+}

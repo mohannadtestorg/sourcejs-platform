@@ -1,0 +1,14 @@
+
+
+div.form__user
+
+    if (data.text)
+        .form__intro-text !{data.text}
+
+    form
+        label(for="email") Email
+        input(type="email" placeholder="Email" id="email")
+
+
+        if (data.button)
+            button.btn.btn--full-width(title=data.button.text) !{data.button.text}

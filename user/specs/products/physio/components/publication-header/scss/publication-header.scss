@@ -1,0 +1,116 @@
+.article__breadcrumbs {
+    position: relative;
+    z-index: 5;
+    li {
+        display: inline-block;
+        padding: 10px 0;
+        font-size: 12px;
+        color: $primary-white;
+    }
+    .article__tocHeading + & a {
+        &:before {
+            content: "\e625";
+            font-family: icomoon;
+            font-size: 9px;
+            padding: 5px;
+        }
+    }
+}
+
+.publication_header {
+    .article__tocHeading {
+        color: $primary-white;
+    }
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    @include media('>=tablet') {
+        min-height: 265px;
+        padding-top: 35px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+}
+
+.publication_header {
+    position: relative;
+    background-size: cover;
+    @include media('>=tablet') {
+        min-height: 265px;
+        //margin-top: -35px;
+    }
+}
+
+.mask-layer {
+    background-color: rgba(0, 0, 0, 0.32);
+}
+
+.logo-container {
+    height: 64px;
+    max-width: 70%;
+    margin-top: 30px;
+    @include media('<tablet') {
+        margin: 20px 15px;
+        padding: 10px 0px 0px;
+        height: auto;
+    }
+    img{
+        max-height: 100%;
+        height: 100%;
+    }
+}
+
+.publication_header {
+    .article__breadcrumbs {
+        color: $primary-white;
+    }
+}
+
+@include media('<tablet') {
+    .mask-layer {
+        display: none;
+    }
+    .publication_header {
+        background-image: none;
+        //margin-top: 32px;
+        @include themify($themes) {
+            background: themed('color');
+        }
+    }
+    .overlay {
+        background: none;
+    }
+    .logo-container {
+        img {
+            margin-top: 0px;
+        }
+    }
+    .loi__banner-list {
+        display: none;
+    }
+    .transplant.showit {
+        display: none;
+    }
+    .w-slide__content {
+        padding: 48px 0 !important;
+        .transplant.showit {
+            display: block;
+        }
+        .rlist--inline.menu-nav {
+            padding: 0 20px !important;
+        }
+    }
+}
+
+.pb-edit-view .overlay {
+    position: initial;
+}
+@include media('<desktop', '>=tablet') {
+    .logo-container {
+        padding: 0px 15px;
+    }
+}

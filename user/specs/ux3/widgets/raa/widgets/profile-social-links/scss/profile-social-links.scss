@@ -1,0 +1,51 @@
+
+.social-link {
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $input-border;
+    h3 {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    .switch {
+        position: static;
+        display: inline-block;
+        float: right;
+    }
+}
+
+.link-toggle{
+    display: inline-block;
+    border: 1px solid $primary-text-color;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 15px;
+    width: 48px;
+    position: relative;
+    .toggle-switch {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: $primary-text-color;
+        margin: 3px;
+    }
+
+    &.active {
+        border-color: $input-border;
+        background: $primary-text-color;
+        text-align: right;
+        .toggle-switch {
+            background: $text-onDark;
+        }
+    }
+    &.small {
+        width: 42px;
+        height: 22px;
+        .toggle-switch {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}

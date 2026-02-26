@@ -1,0 +1,35 @@
+- if (model !== undefined) config = model.config;
+- var mediaClass = (config) && (config.mediaObjectClass) ? config.mediaObjectClass: 'media-object';
+
+mixin mediaObject(item)
+    block mediaObject
+        div(class=mediaClass)
+            if (item.image)
+                div(class=mediaClass + '__image')
+                    img(src=item.image alt=item.title title=item.title)
+            block mediaObjectBody
+                div(class=mediaClass + '__body')
+                    if (item.title)
+                        h5(class=mediaClass + '__title') !{item.title}
+
+                    block mediaObjectContent
+                        if (item.content)
+                            | !{item.content}
+
+
+mixin render(items)
+    block mediaObjectListWrapper
+        - var itemNo = items.length
+        if itemNo > 1
+            ul.rlist(class=mediaClass + '--list')
+                each item, l in items
+                    li.grid-item
+                        +mediaObject(item)
+        else
+            each item, l in items
+                div(class=mediaClass + '--itemWrapper')
+                    .grid-item
+                        +mediaObject(item)
+
+if ((data) && (data.items))
+    +render(data.items)

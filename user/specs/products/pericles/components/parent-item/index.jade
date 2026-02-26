@@ -1,0 +1,39 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+markdown
+            table
+                thead
+                    tr
+                        th Property name
+                        th Description
+                tbody
+                    tr
+                        td `display`
+                        td Style of parent item
+                    tr
+                        td `title`
+                        td  Issue type
+                    tr
+                        td `volume`
+                        td  Isssue volume
+                    tr
+                        td `issue`
+                        td  Isssue number
+
+block content
+
+
+    section.source_section
+        h2 Examples
+
+        h3 All data provided
+        p In this example we pass full data object (title, volume number, issue number).
+        .source_example
+            | !{pb.render('parent-item', {"data": {"title": "FACETS", "volume": 2, "issue": 5}})}
+
+
+        h3 No issue number
+        p In this example we omitted the issue number.
+        .source_example
+            | !{pb.render('parent-item', {"data": {"title": "FACETS", "volume": 2}})}
+
+    | #{''}

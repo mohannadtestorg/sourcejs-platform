@@ -1,0 +1,939 @@
+/***
+
+```
+<form class="m-poll s-submitted s-results" action="/endpoints/PollResults.php" data-behavior="Poll">
+  <input type="hidden" name="pollID" value="4">
+  <fieldset>
+    <legend class="m-poll__legend f-body--sm">What is the most likely diagnosis?</legend>
+    <ol class="m-poll__items">
+      <li>
+        <span class="a-form-radio">
+          <input type="radio" value="answer_1" id="poll_4_answer_1" name="poll" disabled="disabled">
+          <label class="m-poll__label" for="poll_4_answer_1">
+            Ischemic hepatitis. <em class="m-poll__label-percentage" data-poll-percentage="">30%</em>
+            <span class="a-progress-bar"><span data-poll-bar="" style="width: 30%;"></span></span>
+          </label>
+        </span>
+      </li>
+      <li>
+        <span class="a-form-radio">
+          <input type="radio" value="answer_2" id="poll_4_answer_2" name="poll" disabled="disabled">
+          <label class="m-poll__label" for="poll_4_answer_2">
+            Wilson's disease. <em class="m-poll__label-percentage" data-poll-percentage="">5%</em>
+            <span class="a-progress-bar"><span data-poll-bar="" style="width: 5%;"></span></span>
+          </label>
+        </span>
+      </li>
+    </ol>
+    <p class="m-poll__btns m-poll__btns--init" data-poll-init>
+      <button class="a-btn" data-poll-submit>
+        Submit
+        <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+      </button>
+      <button class="a-btn a-btn--fake-link" data-poll-view>See how others chose</button>
+    </p>
+    <p class="m-poll__btns m-poll__btns--how-others-chose" data-how-others-chose>
+      <button class="a-btn a-btn--fake-link" data-poll-back>Back to Poll</button>
+      <span class="m-poll__message m-poll__message--secondary f-ui" data-poll-responses></span>
+    </p>
+    <p class="m-poll__btns m-poll__btns--submitted" data-submitted>
+      <span class="m-poll__message m-poll__message--secondary f-ui" data-poll-responses></span>
+    </p>
+    <p class="m-poll__note f-author">This open poll should not be interpreted as a scientifically valid physician survey.</p>
+  </fieldset>
+</form>
+```
+
+***/
+/***
+
+Inside an article body, there is one HTML change to make the legend a larger font, `f-body` and not `f-body--sm`. And the poll looks slightly different because of some tweaked styles.
+
+```
+<form class="m-poll s-submitted s-results" action="/endpoints/PollResults.php" data-behavior="Poll">
+  <input type="hidden" name="pollID" value="4">
+  <fieldset>
+    <legend class="m-poll__legend f-body">What is the most likely diagnosis?</legend>
+  </fieldset>
+</form>
+```
+
+***/
+/***
+
+Image challenges can have an image in the legend with a blurb:
+
+```
+<form class="m-poll s-submitted s-results" action="/endpoints/PollResults.php" data-behavior="Poll">
+  <input type="hidden" name="pollID" value="4">
+  <fieldset>
+    <legend class="m-poll__legend">
+      <span class="m-cta__image-challenge-image">
+        <span class="m-cta__image-challenge-image-container">
+          <img src="http://placehold.dev.area17.com/image/300x200" sizes="(min-width: 1480px) 120px, (min-width: 1280px) 8.3vw, (min-width: 1024px) 8.3vw, (min-width: 768px) 12.5vw, (min-width: 480px) 16.67vw, calc(((100vw - 112px) / 6) * 2)" width="300" height="200">
+        </span>
+      </span>
+      <span class="m-cta__image-challenge-prompt f-blurb">A man presented with difficulty walking and urinary incontinence. On examination, his pupils where nonreactive to bright light. What is the diagnosis?</span>
+    </legend>
+  </fieldset>
+</form>
+```
+
+***/
+/***
+
+Polls can have a multiple try version with longer blurb, correct and incorrect state. Display of the blurb, correct and incorrect states depends on the state of the form. This also has extra buttons. See Polls Variations from main templates list.
+
+```
+<form class="m-poll s-submitted s-results" action="/endpoints/PollResults.php" data-behavior="Poll" data-poll-multi-try="true">
+  <input type="hidden" name="pollID" value="4">
+  <fieldset>
+    <legend class="m-poll__legend f-body" data-poll-question>Quisque ut metus elit. Integer pellentesque a magna at convallis. Mauris vulputate non lectus vitae porttitor. Vestibulum sed neque tincidunt, sodales nisi at, aliquam ligula. <br>What is the diagnosis?</legend>
+    <div class="m-poll__correct" data-poll-correct>
+      <p class="f-h5">Correct!</p>
+      <p class="f-body">The answer is quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. <a href="#">Read more</a>.</p>
+    </div>
+    <div class="m-poll__incorrect" data-poll-incorrect>
+      <p class="f-h5">Try Again!</p>
+      <p class="f-body">That is not the correct answer.</p>
+    </div>
+    <ol class="m-poll__items">
+      <li>
+        <span class="a-form-radio">
+          <input type="radio" value="answer_1" id="poll_4_answer_1" name="poll" disabled="disabled">
+          <label class="m-poll__label" for="poll_4_answer_1">
+            Ischemic hepatitis. <em class="m-poll__label-percentage" data-poll-percentage="">30%</em>
+            <span class="a-progress-bar"><span data-poll-bar="" style="width: 30%;"></span></span>
+          </label>
+        </span>
+      </li>
+      <li>
+        <span class="a-form-radio">
+          <input type="radio" value="answer_2" id="poll_4_answer_2" name="poll" disabled="disabled">
+          <label class="m-poll__label" for="poll_4_answer_2">
+            Wilson's disease. <em class="m-poll__label-percentage" data-poll-percentage="">5%</em>
+            <span class="a-progress-bar"><span data-poll-bar="" style="width: 5%;"></span></span>
+          </label>
+        </span>
+      </li>
+    </ol>
+    <p class="m-poll__btns m-poll__btns--init" data-poll-init>
+      <button class="a-btn" data-poll-submit>
+        Submit
+        <svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg>
+      </button>
+      <button class="a-btn a-btn--fake-link" data-poll-view>See how others chose</button>
+    </p>
+    <p class="m-poll__btns m-poll__btns--how-others-chose" data-how-others-chose>
+      <button class="a-btn a-btn--fake-link" data-poll-back>Back to Poll</button>
+      <span class="m-poll__message m-poll__message--secondary f-ui" data-poll-responses></span>
+    </p>
+    <p class="m-poll__btns m-poll__btns--correct" data-poll-correct>
+      <a href="/templates/image-challenge.php" class="a-btn a-btn--simple" data-poll-next-challenge>Next Challenge</a>
+      <span class="m-poll__message m-poll__message--secondary f-ui" data-poll-responses></span>
+    </p>
+    <p class="m-poll__btns m-poll__btns--incorrect" data-poll-incorrect>
+      <button class="a-btn" data-try-again>Try Again</button>
+      <a href="/templates/image-challenge.php" class="a-btn a-btn--simple" data-poll-next-challenge>Next Challenge</a>
+    </p>
+  </fieldset>
+</form>
+```
+***/
+/***
+
+Appears differently when already voted.
+
+```
+<div class="m-poll s-results s-submitted">
+  <p class="m-poll__legend f-body--sm">What is the most likely diagnosis?</p>
+  <ol class="m-poll__items">
+    <li>
+      <span class="m-poll__label">
+        Ischemic hepatitis. <em class="m-poll__label-percentage">30%</em>
+        <span class="a-progress-bar"><span style="width: 30%;"></span></span>
+      </span>
+    </li>
+    <li>
+      <span class="m-poll__label">
+        Wilson's disease. <em class="m-poll__label-percentage">5%</em>
+        <span class="a-progress-bar"><span style="width: 5%;"></span></span>
+      </span>
+    </li>
+  </ol>
+  <p class="m-poll__messages">
+    <span class="m-poll__message m-poll__message--primary f-ui">You've already voted</span>
+    <span class="m-poll__message m-poll__message--secondary f-ui">1312 Total Responses</span>
+  </p>
+  <p class="m-poll__note f-author">This open poll should not be interpreted as a scientifically valid physician survey.</p>
+</div>
+```
+
+***/
+/***
+
+Or with the image challenge image:
+
+```
+<div class="m-poll s-results s-submitted">
+  <p class="m-poll__legend">
+    <span class="m-cta__image-challenge-image">
+      <span class="m-cta__image-challenge-image-container">
+        <img
+          srcset="<?php echo $srcset_3_2; ?>"
+          sizes="(min-width: 1480px) 120px, (min-width: 1280px) 8.3vw, (min-width: 1024px) 8.3vw, (min-width: 768px) 12.5vw, (min-width: 480px) 16.67vw, calc(((100vw - 112px) / 6) * 2)"
+          width="300" height="200">
+      </span>
+    </span>
+    <span class="m-cta__image-challenge-prompt f-blurb">A man presented with difficulty walking and urinary incontinence. On examination, his pupils where nonreactive to bright light. What is the diagnosis?</span>
+  </p>
+  <ol class="m-poll__items">
+    <li>
+      <span class="m-poll__label">
+        Ischemic hepatitis. <em class="m-poll__label-percentage">30%</em>
+        <span class="a-progress-bar"><span style="width: 30%;"></span></span>
+      </span>
+    </li>
+    <li>
+      <span class="m-poll__label">
+        Wilson's disease. <em class="m-poll__label-percentage">5%</em>
+        <span class="a-progress-bar"><span style="width: 5%;"></span></span>
+      </span>
+    </li>
+  </ol>
+  <p class="m-poll__messages">
+    <span class="m-poll__message m-poll__message--primary f-ui">You've already voted</span>
+    <span class="m-poll__message m-poll__message--secondary f-ui">1312 Total Responses</span>
+  </p>
+  <p class="m-poll__note f-author">This open poll should not be interpreted as a scientifically valid physician survey.</p>
+</div>
+```
+
+***/
+/***
+
+And then slightly different if landing in a correctly answered state:
+
+```
+<div class="m-poll s-results s-submitted s-correct">
+  <div class="m-poll__correct">
+    <p class="f-h5">Correct!</p>
+    <p class="f-body">The answer is quis nibh non justo dictum varius. Quisque vel lectus pharetra, consectetur enim at, tincidunt eros. Phasellus varius semper rhoncus. Aliquam erat volutpat. Donec dapibus ornare augue, sit amet placerat orci rhoncus nec. <a href="#">Read more</a>.</p>
+  </div>
+  <ol class="m-poll__items">
+    <li>
+      <span class="m-poll__label">
+        Ischemic hepatitis. <em class="m-poll__label-percentage">30%</em>
+        <span class="a-progress-bar"><span style="width: 30%;"></span></span>
+      </span>
+    </li>
+    <li>
+      <span class="m-poll__label m-poll__label--correct">
+        Wilson's disease. <em class="m-poll__label-percentage">5%</em>
+        <span class="a-progress-bar"><span style="width: 5%;"></span></span>
+      </span>
+    </li>
+  </ol>
+  <p class="m-poll__messages">
+    <a href="/templates/image-challenge.php" class="a-btn a-btn--simple" data-poll-next-challenge>Next Challenge</a>
+    <span class="m-poll__message m-poll__message--secondary f-ui">1312 Total Responses</span>
+  </p>
+</div>
+```
+
+***/
+/***
+
+CME pages have questions, correct and incorrect states:
+
+```
+<form class="m-poll">
+  <fieldset class="m_poll__fieldset">
+    <legend class="m-poll__legend">
+      <legend class="m-poll__legend">
+        <strong class="m-poll__legend-question-num f-h3">Question 1</strong>
+        <em class="m-poll__legend-question f-body">Quisque vel pulvinar eros, et lobortis dolor sed elementum enim vel leo congue, sed laoreet lectus faucibus?</em>
+      </legend>
+    </legend>
+    <ol class="m-poll__items">
+      <li>
+        <span class="a-form-radio">
+          <input type="radio" value="answer_1" id="poll_4_answer_1" name="poll" disabled="disabled">
+          <label class="m-poll__label m-poll__label--multichoice" for="poll_4_answer_1">
+            <strong>A.</strong> Etiam consectetur enim eget viverra varius consequat finibus nibh nascetur vitae felis
+          </label>
+        </span>
+      </li>
+      <li class="s-correct">
+        <span class="a-form-radio">
+          <input type="radio" value="answer_2" id="poll_4_answer_2" name="poll" disabled="disabled">
+          <label class="m-poll__label m-poll__label--multichoice" for="poll_4_answer_3">
+            <strong>B.</strong> Etiam consectetur enim eget viverra varius consequat finibus nibh nascetur vitae felis <a href="#" class="m-poll__label-related">Related text<svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a>
+          </label>
+        </span>
+      </li>
+      <li class="s-incorrect">
+        <span class="a-form-radio">
+          <input type="radio" value="answer_4" id="poll_4_answer_3" name="poll" disabled="disabled">
+          <label class="m-poll__label m-poll__label--multichoice" for="poll_4_answer_3">
+            <strong>C.</strong> Etiam consectetur enim eget viverra varius consequat finibus nibh nascetur vitae felis <a href="#" class="m-poll__label-related">Related text<svg class="icon--arrow" aria-hidden="true"><use xlink:href="#icon--arrow" /></svg></a>
+          </label>
+        </span>
+      </li>
+    </ol>
+  </fieldset>
+</form>
+```
+
+***/
+
+.m-poll {
+  position: relative;
+}
+
+.m_poll__fieldset,
+.m-poll fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+
+.m-poll__correct,
+.m-poll__incorrect {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-poll__legend {
+  float: left;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.a-subtitle + .m-poll .m-poll__legend {
+  padding-top: 16px;
+}
+
+.m-poll__legend-question-num,
+.m-poll__legend-question {
+  display: block;
+  position: relative;
+  color: $color__text--headlines;
+}
+
+.m-poll__legend-question {
+  padding-bottom: 8px;
+}
+
+.m-poll__legend-question-num + .m-poll__legend-question {
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+.m-poll__legend-question-num + .m-poll__legend-question::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-poll__correct *:first-child,
+.m-poll__incorrect *:first-child {
+  margin-top: 0;
+}
+
+.m-poll__items {
+  position: relative;
+  clear: both;
+  margin-top: 0;
+  padding-top: 16px;
+
+  @include breakpoint('medium') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.m-poll__items li {
+  display: block;
+  position: relative;
+  list-style-type: none;
+
+  @include breakpoint('medium') {
+    flex: 0 0 auto;
+    width: calc(50% - #{map-get($inner-gutters, medium) / 2});
+
+    &:nth-child(odd) {
+      margin-right: map-get($inner-gutters, medium);
+    }
+
+    &:nth-child(odd)::before {
+      right: (map-get($inner-gutters, medium) / -2);
+    }
+
+    &:nth-child(even)::before {
+      left: (map-get($inner-gutters, medium) / -2) - 1px;
+    }
+  }
+}
+
+.m-poll__items li.s-correct {
+  background-color: $color__correct-bg;
+}
+
+.m-poll__items li.s-incorrect {
+  background-color: $color__incorrect-bg;
+}
+
+.m-poll__items::before,
+.m-poll__items li::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-poll__items::before {
+  top: auto;
+  bottom: 0;
+}
+
+.m-poll__items li:first-child {
+  margin-top: 0;
+}
+
+.m-poll__label,
+.m-poll .a-form-radio .m-poll__label {
+  @include f-ui;
+  display: block;
+  position: relative;
+  padding: 12px 22px 8px 0;
+  transition: all .25s $bezier--ease-out-circ;
+}
+
+.m-poll .a-form-radio .m-poll__label:hover {
+  font-weight: 700;
+}
+
+.m-poll .a-form-radio .m-poll__label::before,
+.m-poll .a-form-radio .m-poll__label::after {
+  left: auto;
+  right: 0;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  border: 0 none;
+  background-color: $color__input-border;
+  transition: opacity .25s;
+}
+
+.m-poll__label strong {
+  font-weight: 700;
+  color: $color__text--headlines;
+}
+
+.m-poll__label-related {
+  @include f-ui;
+  color: $color__link-primary;
+}
+
+.m-poll__label-related:hover {
+  text-decoration: underline;
+}
+
+.m-poll__label-related .icon--arrow {
+  position: relative;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+  color: $color__input-border;
+  vertical-align: text-bottom;
+  transform: rotate(315deg);
+}
+
+.m-poll .a-form-radio input[type=radio]:checked + .m-poll__label::after {
+  background-color: $color__accent;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.m-poll .a-form-radio input[type=radio]:disabled + .m-poll__label {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.m-poll__label--correct {
+  color: $color__text--headlines;
+  font-weight: 700;
+}
+
+.m-poll__label--multichoice,
+.m-poll .a-form-radio .m-poll__label--multichoice,
+.o-col--primary .m-poll .a-form-radio .m-poll__label.m-poll__label--multichoice,
+.o-col--primary .m-poll__label.m-poll__label--multichoice {
+  font-size: 18px;
+  line-height: 24px;
+
+  @include breakpoint('small+') {
+    font-size: 19px;
+    line-height: 28px;
+  }
+}
+
+.m-poll__note {
+  color: $color__text--quaternary;
+}
+
+.m-poll__label-percentage {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  opacity: 0;
+  transition: all .25s $bezier--ease-out-circ;
+}
+
+.m-poll .a-progress-bar {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 100%;
+  top: auto;
+  bottom: 0;
+  height: 3px;
+  pointer-events: none;
+  transition: right .25s $bezier--ease-out-circ;
+}
+
+.m-poll .a-progress-bar span {
+  width: 0%;
+}
+
+.m-poll__btns,
+.m-poll__messages {
+  display: flex;
+  flex-flow: row wrap;
+
+  @include breakpoint('small') {
+    justify-content: space-between;
+  }
+}
+
+.m-poll__messages,
+.m-poll__btns--how-others-chose,
+.m-poll__btns--correct,
+.m-poll__btns--incorrect {
+  justify-content: space-between;
+}
+
+.m-poll__btns .a-btn {
+  flex: 0 0 auto;
+  margin-left: 20px;
+
+  @include breakpoint('xsmall') {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+.m-poll__btns .a-btn + .a-btn {
+  margin-left: 20px;
+
+  @include breakpoint('xsmall') {
+    margin-top: 16px;
+    margin-left: 0;
+  }
+}
+
+.m-poll__btns .a-btn + .a-btn--fake-link {
+  @include breakpoint('xsmall') {
+    margin-top: 8px;
+  }
+}
+
+.m-poll__btns .a-btn:first-child {
+  margin-left: 0;
+}
+
+.m-boxed-text--correct + .m-poll__btns,
+.m-boxed-text--incorrect + .m-poll__btns {
+  position: relative;
+  padding-top: 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: $color__rules;
+  }
+}
+
+.m-poll__message {
+  display: block;
+  flex: 0 0 auto;
+
+  .m-poll__btns--submitted & {
+    margin-left: auto;
+  }
+}
+
+.m-poll__message--secondary {
+  color: $color__text--quaternary;
+
+  .a-btn ~ & {
+    line-height: 40px;
+  }
+}
+
+// -------------------------------------
+// image challenge variant
+//
+
+.m-cta--image-challenge .m-poll__legend {
+  margin-bottom: -2px;
+  padding-bottom: 20px;
+}
+
+.m-cta--image-challenge .m-poll__items {
+  padding-top: 0;
+}
+
+.m-poll__legend .m-cta__image-challenge-prompt,
+.m-poll__legend .m-cta__image-challenge-image {
+  display: block;
+  margin-top: 0;
+}
+
+// -------------------------------------
+// inside col primary
+//
+
+.o-col--primary {
+
+  .m-poll {
+    margin-top: 20px;
+  }
+
+  .m_poll__fieldset ~ .m_poll__fieldset,
+  .m-poll > fieldset ~ fieldset {
+    margin-top: 60px;
+  }
+
+  .m-boxed-text + .m-poll {
+    margin-top: 40px;
+  }
+
+  .m-poll__items::before {
+    content: none;
+    display: none;
+  }
+
+  .m-poll__items li {
+    padding-right: 1px;
+    padding-left: 1px;
+  }
+
+  .m-poll__items li:hover:not(.s-correct,.s-incorrect) {
+    background-color: $color__background;
+  }
+
+  .m-poll__items li::before {
+    z-index: 0;
+    bottom: -1px;
+    height: auto;
+    border: 1px solid $color__rules;
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  .m-poll__items li:nth-last-child(2)::before {
+    @include breakpoint('medium') {
+      bottom: 0;
+    }
+  }
+
+  .m-poll__items li:last-child::before {
+    bottom: 0;
+  }
+
+  .m-poll .a-form-radio .m-poll__label,
+  .m-poll__label {
+    @include serif(16, 20);
+    padding: 24px 16px 18px 56px;
+
+    @include breakpoint('small+') {
+      padding-top: 22px;
+    }
+  }
+
+  .m-poll .a-form-radio .m-poll__label:hover {
+    font-weight: normal;
+  }
+
+  .m-poll .a-form-radio label::before,
+  .m-poll .a-form-radio label::after {
+    left: 16px;
+    right: auto;
+    top: 24px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $color__input-border;
+    background-color: transparent;
+  }
+
+  .m-poll .a-form-radio label::after {
+    left: 20px;
+    top: 28px;
+    width: 8px;
+    height: 8px;
+    border: 0 none;
+  }
+
+  .m-poll__label--correct {
+    font-weight: 700;
+    color: $color__text--headlines;
+  }
+
+  .m-poll__label--correct::after {
+    right: 20px;
+  }
+
+  .m-poll .a-form-radio input[type=radio]:checked + label::after {
+    background-color: $color__link-primary;
+  }
+
+  .m-poll__note {
+    margin-top: 16px;
+  }
+
+  .m-poll__label-percentage {
+    right: 4px;
+    top: 24px;
+  }
+
+  .m_poll__fieldset ~ .m_poll__fieldset ~ .m-poll__btns,
+  .m-poll > fieldset ~ fieldset ~ .m-poll__btns {
+    margin-top: 40px;
+  }
+}
+
+// -------------------------------------
+// State: init
+//
+
+.m-poll {
+
+  .m-poll__correct,
+  .m-poll__incorrect,
+  .m-poll__btns--how-others-chose,
+  .m-poll__btns--correct,
+  .m-poll__btns--incorrect,
+  .m-poll__btns--submitted {
+    display: none;
+  }
+}
+
+
+// -------------------------------------
+// State: submitted and see how others chose
+//
+
+.m-poll.s-results,
+.m-poll.s-submitted {
+
+  .a-form-radio .m-poll__label,
+  .m-poll__label {
+    padding-right: 56px;
+    padding-left: 0;
+    cursor: default;
+
+    .o-col--primary & {
+      padding-left: 24px;
+    }
+  }
+
+  .m-poll__items li:hover {
+    background-color: $color__white;
+  }
+
+  .m-poll__label-percentage {
+    opacity: 1;
+
+    .o-col--primary & {
+      right: 16px;
+    }
+  }
+
+  .a-progress-bar {
+    right: 0;
+  }
+
+  .a-form-radio label::before,
+  .a-form-radio label::after {
+    left: 8px;
+    opacity: 0;
+  }
+
+  .a-form-radio label::after {
+    left: 12px;
+  }
+
+  .a-form-radio input[type=radio] {
+    display: none;
+  }
+
+  .a-form-radio input[type=radio]:checked + label::after {
+    opacity: 0;
+  }
+}
+
+// -------------------------------------
+// State: see how others chose
+//
+
+.m-poll.s-results {
+
+  .m-poll__btns--init {
+    display: none;
+  }
+
+  .m-poll__btns--how-others-chose {
+    display: flex;
+  }
+}
+
+// -------------------------------------
+// State: submitted
+//
+
+.m-poll.s-submitted {
+
+  .m-poll__btns--init,
+  .m-poll__btns--how-others-chose {
+    display: none;
+  }
+
+  .m-poll__btns--submitted {
+    display: flex;
+  }
+
+  .a-form-radio input:checked + .m-poll__label {
+    font-weight: 700;
+    color: $color__text--headlines;
+  }
+}
+
+// -------------------------------------
+// State: submitted, incorrect
+//
+
+.m-poll.s-submitted.s-incorrect {
+
+  .m-poll__legend,
+  .m-poll__btns--init,
+  .m-poll__btns--how-others-chose {
+    display: none;
+  }
+
+  .m-poll__incorrect {
+    display: block;
+  }
+
+  .m-poll__btns--incorrect {
+    display: flex;
+  }
+
+  .m-poll__label-percentage,
+  .a-progress-bar {
+    display: none;
+  }
+
+  .a-form-radio input:checked + .m-poll__label::before,
+  .a-form-radio input:checked + .m-poll__label::after {
+    content: '';
+    position: absolute;
+    left: auto;
+    right: 12px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    border: 2px transparent;
+    border-right: 2px solid $color__black;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+
+    .o-col--primary & {
+      right: 20px;
+    }
+  }
+
+  .a-form-radio input:checked + .m-poll__label::after {
+    transform: rotate(-45deg) scale(1);
+    margin-top: 1px;
+  }
+}
+
+// -------------------------------------
+// State: submitted, correct
+//
+
+.m-poll.s-submitted.s-correct {
+
+  .m-poll__legend,
+  .m-poll__btns--init,
+  .m-poll__btns--how-others-chose {
+    display: none;
+  }
+
+  .m-poll__correct {
+    display: block;
+  }
+
+  .m-poll__btns--correct {
+    display: flex;
+  }
+
+  .m-poll__label-percentage {
+    opacity: 0;
+  }
+
+  .m-poll__label--correct::after,
+  .a-form-radio input:checked + .m-poll__label::after {
+    content: '';
+    position: absolute;
+    left: auto;
+    right: 12px;
+    top: 50%;
+    width: 5px;
+    height: 12px;
+    margin-top: -6px;
+    border: 2px solid $color__black;
+    border-top: 0 none;
+    border-left: 0 none;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+    transform: rotate(45deg) scale(1);
+
+    .o-col--primary & {
+      right: 20px;
+    }
+  }
+}

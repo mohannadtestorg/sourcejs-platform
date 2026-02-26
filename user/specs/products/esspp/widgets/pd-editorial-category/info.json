@@ -1,0 +1,62 @@
+{
+    "title": "Category",
+    "template": "doc",
+    "tag": ["pdc"],
+    "templateData": {
+        "items": [
+            {
+                "title": "Category",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/pd-editorial-category/templates/pd-editorial-category/pd-editorial-category-update-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/pd-editorial-category/templates/data/category.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            },
+            {
+                "title": "Category - Readonly",
+                "body": {
+                    "$pug": {
+                        "template": "../shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "false"
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "../../../../ux3/widgets/pd-editorial-category/templates/pd-editorial-category/pd-editorial-category-read-only-tmpl.jade",
+                                            "data": {
+                                                "$ref": "../../../../ux3/widgets/pd-editorial-category/templates/data/category.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+

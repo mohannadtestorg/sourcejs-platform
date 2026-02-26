@@ -1,0 +1,8 @@
+extends ../../../../../../ux3/widgets/profile-menu/templates/profile-menu/profile-menu-tmpl
+
+block institutionAdminMenu
+    if data.institutionAdminMenu
+      if(data.institutionAdminMenu.institutionAccessEntitlements)
+        div.institution-menu
+           h2.menu-title Institution Management
+           +account_list(data.institutionAdminMenu)

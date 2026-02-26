@@ -1,0 +1,12 @@
+extends ../../../../../../../ux3/widgets/publication-content/templates/demo/article-tmpl
+
+block includeTabs
+    include ./ext-tabs-tmpl
+
+block includeCoolbar
+    include  ../../article/demo/ext-coolbar-demo-tmpl
+
+block article
+        if(data.item)
+            article.container(data-figures=data.item.figures data-references=data.item.references)
+                +articleRow()

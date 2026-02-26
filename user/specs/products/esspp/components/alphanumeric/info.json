@@ -1,0 +1,30 @@
+{
+    "title": "Alphanumeric",
+    "template": "doc",
+    "tag": ["components"],
+    "templates": {
+        "default": "alphanumeric",
+        "alternative": {
+            "author-filter": {
+                "name": "Author Filter",
+                "path": "author-filter",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items":[
+            {
+                "title":"Titles",
+                "body": {
+                    "$pug": {
+                        "template": "../../../../ux3/components/alphanumeric/templates/alphanumeric/alphanumeric-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/components/alphanumeric/templates/data/data.json"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

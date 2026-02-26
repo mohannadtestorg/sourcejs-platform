@@ -1,0 +1,81 @@
+- var i = data.maxDate
+
+mixin options()
+    block DateOptions
+        option(value=i) !{i}
+        -i++
+        if i <= data.minDate
+            +options()
+
+mixin dateFacetFacet()
+    block dateFacetFacet
+        | !{pb.render('facet', {data: data})}
+    block customRange
+        a.custom-date Custom Range ...
+        .custom-date-form.hidden
+            form(action='/action/doSearch', method='get')
+                .input-group
+                    label(for="timeFrame--from") From:
+                    select.jcf#timeFrame--from(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                        option(value='') Year
+                        +options()
+
+
+                .input-group
+                    label(for="timeFrame--to") To:
+                    select.jcf#timeFrame--to(datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                        option(value='') Year
+                        +options()
+
+                button.btn(type='submit') Apply
+
+
+
+mixin dateFacetList()
+    block dateFacetList
+        | !{pb.render('facet', {data: data})}
+
+mixin dateFacetTitle()
+    block dateFacetTitle
+        h4.facet__title !{data.title}
+
+mixin dateFacetPpub()
+    block dateFacetPpub
+        - var itemNoPpub = data.values.length
+
+        if (data) && (data.values) && itemNoPpub > 0
+            if (data.values[0].values)
+                - var nestedPpub = true
+            else
+                - var nestedPpub = false
+
+            if (nestedPpub)
+                +dateFacetList()
+            else
+                +dateFacetFacet()
+
+
+mixin dateFacetSlider()
+    block dateFacetSlider
+        if (data && data.title)
+            +dateFacetTitle()
+        div.facet__content
+            +dateFacetSliderBody()
+
+mixin dateFacetSliderBody()
+    .range-slider.clearfix
+        input.range-slider__range(value=data.values.minDate + "," + data.values.maxDate min=data.values.minDate max=data.values.maxDate data-min=data.values.minDate data-max=data.values.maxDate data-queryID=data.values.queryID step="1" type="range" data-slider-type=(data.values.linearSlider ? 'linear' : 'non-linear') multiple data-frequencies=data.values.yearWeights)
+
+        block facetSliderDates
+            span.pull-left
+                input.index-1.range-slider__start(value=data.values.minDate size=4)
+            span.pull-right
+                input.index-2.range-slider__end(value=data.values.maxDate size=4)
+
+block dateFacetMain
+    div.facet
+        if (data && data.type && data.type == "Ppub")
+            +dateFacetPpub()
+
+        if (data && data.type && data.type == "Year")
+            +dateFacetSlider()

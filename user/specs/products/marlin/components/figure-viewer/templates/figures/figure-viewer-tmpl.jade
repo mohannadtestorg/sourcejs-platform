@@ -1,0 +1,42 @@
+#figure-viewer.showCaption.showThumbstrip.figure-viewer
+    nav.nav-bar.figure-viewer__top
+        a.figure-viewer__close(href="#" title="Close Figure Viewer")
+            i.icon-tools_close(aria-hidden="true")
+        div.figure-viewer__title
+    .frames
+        ul.frames__list
+        a.frameButton.previousFrameButton.frames__prev(href="#" title="Previous Frame")
+            //span Previous Frame
+            i.icon-arrow_l
+        a.frameButton.nextFrameButton.frames__next(href="#" title="Next Frame")
+            //span Next Frame
+            i.icon-arrow_r
+    .caption
+        div.figure-viewer__caption-body
+    .toolbar.figure-viewer__toolbar
+        span.figure-viewer__counter
+        a.button.toggle-caption-button.figure-viewer__caption__ctrl(href="#")
+            i.icon-info(aria-hidden="true")
+            span.label Hide Caption
+        a.button.download-options-button(href="#")
+            span.icon(aria-hidden="true")
+            span.label Download
+        a.button.see-figures.figure-viewer__see-figure__ctrl(href="#linkThis")
+            span.icon(aria-hidden="true")
+            span.label See figure in Article
+    .thumbstrip
+        a.toggleButton.thumbstrip__ctrl
+            span Toggle Thumbstrip
+        a.thumbstripButton.previousThumbstripButton.thumbstrip__prev(href="#" title="Previous Thumbnails")
+            i.icon-arrow_l(aria-hidden="true")
+        a.thumbstripButton.nextThumbstripButton.thumbstrip__next(href="#" title="Next Thumbnails")
+            i.icon-arrow_r(aria-hidden="true")
+        div.thumbstrip__wrapper
+            ul.rlist.figure-viewer__thumbslist
+    .download.figure-viewer__download
+        .pointer
+        ul.rlist.downlad__wrapper
+            li
+                a.downloadThisButton(target="_blank", href="/specs/products/marlin/components/figure-viewer/images/facets-2015-0010-f10-standard.jpg", title="View high resolution image in a new tab") Download Hi-res image
+            li.hidden-xs.hidden-sm
+                a.downloadAllButton(href='/action/downloadFigures?articleNumber=e00489', target='_blank', title= "Doanload .PPT") Download .PPT

@@ -1,0 +1,27 @@
+- var titles = {"title": ["Dr.","Mr.","Ms.","Mrs.","Miss","Professor"]}
+
+section.personal-information
+    input(type="hidden" name="personal.id" value=thisWidget.properties.id)
+    input(type="hidden" name="section" value="personal")
+
+    block title
+        .input-group
+            label(for="personal.title") Title
+            select.jcf(name="personal.title" id="personal.title" datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                if(data.title)
+                    option(value=data.title.value) !{data.title.value}
+                if(titles.title)
+                    each title, l in titles.title
+                        if (data.title.value != title)
+                            option(value=title) !{title}
+    .input-group
+        label(for="personal.givenNames" class=data.givenNames.message ? 'error' : '') First Name<span class="required-marker">*</span>
+            if (data.givenNames.message)
+                | !{' - '+ data.givenNames.message}
+        input(type="text" name="personal.givenNames" id="personal.givenNames" value=data.givenNames.value required=data.givenNames.required)
+
+    .input-group
+        label(for="personal.surname" class=data.surname.message ? 'error' : '') Last Name<span class="required-marker">*</span>
+            if (data.surname.message)
+                | !{' - ' + data.surname.message}
+        input(type="text" name="personal.surname" id="personal.surname" value=data.surname.value required=data.surname.required)

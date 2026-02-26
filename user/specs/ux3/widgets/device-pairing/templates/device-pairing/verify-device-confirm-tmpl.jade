@@ -1,0 +1,33 @@
+.device-pairing__verify-confirm
+
+    h5.title Device !{data.deviceName} paired successfully
+
+    div.successBody
+        ul.rlist--inline
+            li Your device !{data.deviceName} was successfully paired with !{data.instName}.
+            li    You now have access from !{data.deviceName} to all content subscribed to by !{data.instName} until !{data.expDate}.
+            li You can pair !{data.deviceName} again after !{data.expDate}.
+
+            if (data.redirectButtonActivate == true)
+                p To read the content you were trying to access, please go to the browser page on the device where you initiated pairing and click the "Received Email and Clicked Link" button.
+
+    div.cookieSection
+        h5.browse-cookies-title Browser Cookies (Please read)
+        div.cookieBody
+           p Remote device pairing on
+               a.link(href=data.serverHost) !{data.serverHost}
+               | makes use of browser cookies in order to function.  If you clear your browser cookies on this device, !{data.deviceName}, you will lose remote access to the content subscribed to by !{data.instName}.  If this occurs, you will need to pair your device again.
+        div.signInTitle
+            block verifyMessage
+                p In the future, please sign in to your personal account via device !{data.deviceName} to access content through !{data.instName}.
+
+    form(action='/action/pairDevice',method='post')
+        input.hidden(value=data.institutionEmail,name='instEmailSelected')
+        input.hidden(value=data.institutionId,name='institutionId')
+        input.hidden(value=data.deviceName,name='deviceName')
+        input.hidden(value='sendAuthEmailAction',name='action')
+        input.hidden(value=data.redirectUri,name='redirectUri')
+        input.hidden(value=data.profile,name='profile')
+
+        div.formButtons
+            input.btn(value='Access Content',name='submitbutton',type='submit')

@@ -1,0 +1,158 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    include /specs/page-structure/helpers/print-json-mixin.jade
+    include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+    section.source_section
+        h2 No Action
+        h3!= data.items[11].title
+        .source_example
+            | !{data.items[11].body}
+
+    section.source_section
+        h2 Action Bar - Author
+
+        h3!= data.items[0].title
+        +printJson({
+            "data": {
+                "cancelLink": "",
+                "editLink": "",
+                "doi": "",
+                "csrfToken": ""
+            }
+        })
+
+        .source_example
+            | !{data.items[0].body}
+
+        h3!= data.items[1].title
+        +printJson({
+            "data": {
+                "reinstateLink": "",
+                "doi": "",
+                "csrfToken": ""
+            }
+        })
+
+        .source_example
+            | !{data.items[1].body}
+
+        h3!= data.items[2].title
+        +printJson({
+            "data": {
+                "comment": ""
+            }
+        })
+
+        .source_example
+            | !{data.items[2].body}
+
+        h3!= data.items[3].title
+
+        .source_example
+            | !{data.items[3].body}
+
+        h3!= data.items[4].title
+        +printJson({
+            "data": {
+                "cancelLink": "",
+                "updateLink": "",
+                "doi": "",
+                "csrfToken": ""
+            }
+        })
+
+        .source_example
+            | !{data.items[4].body}
+
+        h3!= data.items[5].title
+        +printJson({
+            "data": {
+                "reviseLink": "",
+                "updateLink": "",
+                "doi": "",
+                "csrfToken": "",
+                "vor": "",
+                "journal": "",
+                "journals": [
+                    {
+                        "name": "...",
+                        "label": "..."
+                    }
+                ]
+            }
+        })
+        .source_example
+            | !{data.items[5].body}
+
+        h3!= data.items[10].title
+        +printJson({
+            "data": {
+                "reviseLink": "",
+                "updateLink": "",
+                "doi": "",
+                "csrfToken": "",
+                "vor": "",
+                "journal": "",
+                "journals": [
+                    {
+                        "name": "...",
+                        "label": "..."
+                    }
+                ]
+            }
+        })
+        .source_example
+            | !{data.items[10].body}
+
+    section.source_section
+        h2 Action Bar - Advisor
+
+        h3!= data.items[6].title
+        +printJson({
+            "data": {
+                "reviewLink": "",
+                "doi": "",
+                "csrfToken": ""
+            }
+        })
+        .source_example
+            | !{data.items[6].body}
+
+        h3!= data.items[7].title
+        +printJson({
+            "data": {
+                "changeCategoryLink": "",
+                "approveLink": "",
+                "rejectLink": "",
+                "doi": "",
+                "csrfToken": "",
+                "title": "",
+                "category": "",
+                "categories": [
+                    {
+                        "name": "",
+                        "label": ""
+                    }
+                ]
+            }
+        })
+        .source_example
+            | !{data.items[7].body}
+
+        h3!= data.items[8].title
+        +printJson({
+            "data": {
+                "comment": ""
+            }
+        })
+        .source_example
+            | !{data.items[8].body}
+
+        h3!= data.items[9].title
+        .source_example
+            | !{data.items[9].body}
+
+    | #{''}

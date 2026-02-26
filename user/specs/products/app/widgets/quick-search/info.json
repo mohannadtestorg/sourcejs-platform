@@ -1,0 +1,64 @@
+{
+    "title": "Quick search",
+    "template": "doc",
+    "tag": ["ready"],
+    "templates": {
+        "default": "quick-search",
+        "alternative": {
+            "quick-search-alt": {
+                "name": "Default UX3 Quick Search",
+                "path": "quick-search-alt",
+                "deprecated": false
+            }
+        }
+    },
+    "templateData": {
+        "items": [
+            {
+                "title": "Quick search alt ",
+                "desc":"You can use it by alternative template ('quick-search-alt-tmpl.jade')",
+                "body": {
+
+                    "$pug": {
+                        "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                        "data": {
+                            "model": {
+                                "config": {
+                                    "wrapper": "true",
+                                    "className": [
+                                        "quickSearchRegion"
+                                    ]
+                                },
+                                "data": {
+                                    "content": {
+                                        "$pug": {
+                                            "template": "./templates/quick-search/quick-search-alt-tmpl.jade",
+                                            "data": {
+                                                "$ref": "./templates/data/quick-search.json"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+
+
+                }
+            },
+            {
+                "title": "Quick search Menu",
+                "body": {
+                    "$pug": {
+                        "template": "./templates/quick-search/quick-search-tmpl.jade",
+                        "data": {
+                            "$ref": "../../../../ux3/widgets/quick-search/templates/data/quick-search-menu.json"
+                        }
+                    }
+
+                }
+            }
+        ]
+    }
+}

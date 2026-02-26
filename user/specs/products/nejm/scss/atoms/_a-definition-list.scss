@@ -1,0 +1,64 @@
+/***
+
+```
+<dl class="a-definition-list">
+  <dt class="f-h7">Lorem ipsum dolor sit amet</dt>
+    <dd class="f-body--sm">Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</dd>
+  <dt class="f-h7">Lorem ipsum dolor sit amet</dt>
+    <dd class="f-body--sm">Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</dd>
+  <dt class="f-h7">Lorem ipsum dolor sit amet</dt>
+    <dd class="f-body--sm">Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</dd>
+</dl>
+```
+
+***/
+
+.a-definition-list {
+  margin-top: 0;
+}
+
+.a-definition-list dt {
+  position: relative;
+  margin-top: 16px;
+  padding-top: 18px;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    padding-top: 19px;
+  }
+
+  @include breakpoint('medium+') {
+    padding-top: 18px;
+  }
+}
+
+.a-definition-list dt:first-child {
+  margin-top: 20px;
+  padding-top: 0;
+
+  @include breakpoint('small+') {
+    padding-top: 0;
+  }
+
+  @include breakpoint('medium+') {
+    padding-top: 0;
+  }
+}
+
+.a-definition-list dt:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.a-definition-list dt::after {
+  content: ':';
+}
+
+.a-definition-list dl {
+}

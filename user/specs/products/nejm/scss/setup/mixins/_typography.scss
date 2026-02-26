@@ -1,0 +1,117 @@
+/*
+
+Use the serif/sans-serif mixins directly in the SCSS do any responsive overwrites within the breakpoint mixin e.g.
+
+.block {
+  @include serif(18, 25, 500, italic);
+
+  @include breakpoint(large) {
+    font-size: 25px;
+    line-height: 35px;
+  }
+}
+*/
+
+@mixin font-style($font-size:18, $line-height:24, $weight:400, $style:normal) {
+  font-size: $font-size * 1px;
+  line-height: $line-height * 1px;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin sans-serif($font-size:15, $line-height:24, $weight:normal, $style:normal) {
+  font-family: $sans-serif;
+  @if ($weight == bold) {
+    $weight: 700;
+  } @else {
+    $weight: 400;
+  }
+  @include font-style($font-size, $line-height, $weight, $style);
+
+  .wf-active & {
+    font-family: $sans-serif--loaded;
+  }
+}
+
+@mixin serif($font-size:18, $line-height:24, $weight:normal, $style:normal) {
+  font-family: $serif;
+  @if ($weight == bold) {
+    $weight: 600;
+  } @else {
+    $weight: 400;
+  }
+  @include font-style($font-size, $line-height, $weight, $style);
+
+  .wf-active & {
+    font-family: $serif--loaded;
+  }
+}
+
+
+/*
+  @mixin font_smoothing
+
+  Set font smoothing ON or OFF
+*/
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+
+/*
+  @mixin text-underline
+
+  Does "medium" style underlines with "iOS" style descender shadows
+
+  Parameters:
+  $underline - color
+  $background - color
+  $pos - vertical position
+*/
+@mixin text-underline($pos: .85em, $underline: $color__text--headlines, $background: $color__white) {
+  background: {
+    image: linear-gradient(to bottom, rgba($underline, 0) 50%, rgba($underline, 1) 50%);
+    repeat: repeat-x;
+    size: 2px 2px;
+    position: 0 $pos;
+  }
+  text-decoration: none;
+  text-shadow: 0 .08em 0 $background, 0 -.08em 0 $background, .08em 0 0 $background, -.08em 0 0 $background;
+}
+
+
+/*
+  @mixin hide_text
+
+  Hides text in an element
+*/
+
+@mixin hide-text() {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  overflow: hidden;
+  text-indent: -100%;
+}
+
+/*
+  @mixin baseliner
+
+  Used to affix type to the baseline grid
+*/
+
+@mixin baseliner($num: 0) {
+  @if ($num == 0) {
+    margin-bottom: 0;
+    padding-top: 0;
+  } @else {
+    margin-bottom: $num * -1px;
+    padding-top: $num * 1px;
+  }
+}

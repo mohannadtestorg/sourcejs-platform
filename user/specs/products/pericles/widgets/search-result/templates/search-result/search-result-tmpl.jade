@@ -1,0 +1,269 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl.jade
+
+block searchPages
+    - var pages = data.search.numberOfPages
+
+
+block alertsFreq
+    - var alertTimes = {alerts: ['Daily', 'Weekly', 'Monthly', 'Never']};
+    - var alertDefaultValue = 'Daily';
+
+block alertsFreqMessage
+    h4 Alert me to new results via email:
+
+
+block SearchItemMetaType
+
+    if (item.content && item.content.serial && item.content.serial.code) || (item.type)
+        span.meta__type
+            if (item.content && item.content.serial && item.content.serial.code == "mrwseries")
+                | Reference work
+            else
+                if (item.type == "102")
+                    | Journal
+                if (item.type == "103")
+                    | Article
+                if (item.type == "105")
+                    | Book
+                if (item.type == "106")
+                    | Book  Series
+                if (item.type == "109")
+                    | Chapter
+
+block searchItemTitle
+    h3.meta__title.meta__title__margin
+        if(item.content)
+            if (item.type == "102")
+                a(href= item.content.journalUrl) !{item.content.title}
+            if (item.type == "103")
+                a(href= item.content.bestUrl) !{item.content.title}
+            if (item.type == "105")
+                a(href= item.content.bookUrl) !{item.content.title}
+                    if (item.content.subTitle)
+                        | !{': ' + item.content.subTitle}
+                    if (item.content.edition)
+                        | !{', ' + item.content.edition}
+            if (item.type == "106")
+                a(href= item.content.bookSeriesUrl) !{item.content.title}
+            if (item.type == "109")
+                a(href= item.content.bestUrl) !{item.content.title}
+
+block searchResultTop
+    div.search-result__top-section
+        div.search-result__follow.clearfix
+            if (data.serviceName == "doSearch")
+                div.search__result.search__result--space
+                    if data.search.hitsLength > 0
+                        span.result__count !{data.search.formattedHitsLength}
+                        span.result__sep results for
+                        - var searchInLength = data.widgetData.refineSearch.searchIn.length
+                        if !searchInLength
+                            - var searchInLength = data.widgetData.refineSearch.searchIn.size()
+                        if searchInLength > 0
+                            block searchResultTop__refine
+                                span.result__suffix "!{data.widgetData.refineSearch.searchIn.get(0).searchTerm}"
+                        else if (data.widgetData.refineSearch.searchInTopic)
+                            span.result__suffix "!{data.widgetData.refineSearch.searchInTopic}"
+                    else
+                        span.result__current 0
+                        span.result__sep results for
+                        - var searchInLength = data.widgetData.refineSearch.searchIn.length
+                        if !searchInLength
+                            - var searchInLength = data.widgetData.refineSearch.searchIn.size()
+                        if searchInLength > 0
+                            block searchResultTop__refine
+                                span.result__suffix "!{data.widgetData.refineSearch.searchIn.get(0).searchTerm}"
+                        else if (data.widgetData.refineSearch.searchInTopic)
+                            span.result__suffix "!{data.widgetData.refineSearch.searchInTopic}"
+
+                div.search__follow.hidden-xs.hidden-sm.hidden-md
+                    .search__follow__item
+                        a#saveSearchTriggerButton.search__follow__icon(href='#saveSearchDialog', role='button', data-toggle='modal', data-target='#saveSearchDialog', aria-label='Click here to save your search', title='Save Search')
+                            i.icon-Icon_Star-26(aria-hidden="true")
+                            span SAVE SEARCH
+                        span.hidden.error.saveSearchMsg
+                            | Failed to save your search, try again later
+                        span.hidden.success.saveSearchMsg
+                            | Search has been saved
+                            a(href='/search/saved')  (Edit)
+
+                    .search__follow__item
+                        a.search__follow__icon(href=data.search.searchFeed.linkHref title=data.search.searchFeed.linkTitle name="RSSFeed" class="RSS controlLinks" role="button")
+                            i.icon-Rss(aria-hidden="true")
+                            span RSS
+
+                +saveSearchDialog()
+
+            else if (data.serviceName == "showPublications")
+                .publication-result-meta
+                    h2.separator Publications
+                    .publication-result-meta__info.hidden-xs.hidden-sm.hidden-md
+                        if data.search.hitsLength > 0
+                            span.result__current
+                                b !{resultFrom}-!{resultTo}
+                            span.result__sep of
+                            span.result__count
+                                b !{data.search.formattedHitsLength}
+                                | publications
+                        else
+                            span.result__current No results
+                            span.result__sep !{' '} of !{' '}
+                            span.result__count publications
+
+        if ((data.widgetData.groupTabs) && (data.serviceName == "doSearch"))
+            | !{pb.render("search-result", "search-result/search-tabs", {data: data}, 'pericles')}
+
+
+mixin filterSearch()
+    block searchFilterDropBlock
+        .search--filter.dropBlock
+            a(href = "#" class="visible-xs visible-sm visible-md pull-right result__ctrl__filters" data-db-target-for="filter" data-db-parent-of="filter" data-db-switch="icon-close_thin")
+                i(class="icon-filter_list inline-icon" aria-hidden="true")
+                span Filters
+
+            div.dropBlock__holder(data-db-target-of="filter")
+                div.transplant.showit(data-target="#filter" data-remove="false" data-targetClass="hidden-xs hidden-sm hidden-md" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+block searchResultTopShowPublications
+    if (data.serviceName == "doSearch")
+        div.search-result__meta
+            div.search-result__meta__top.clearfix
+                div.pull-right.search__bottom.clearfix
+                    +filterSearch()
+
+                    div.search__follow.hidden-lg
+                        .search__follow__item
+                            a#saveSearchTriggerButton.search__follow__icon(href='#saveSearchDialog', role='button', data-toggle='modal', data-target='#saveSearchDialog', aria-label='Click here to save your search', title='Save Search')
+                                i.icon-Icon_Star-26(aria-hidden="true")
+
+                        .search__follow__item
+                            a.search__follow__icon(href=data.search.searchFeed.linkHref title=data.search.searchFeed.linkTitle name="RSSFeed" class="RSS controlLinks" role="button")
+                                i.icon-Rss(aria-hidden="true")
+
+                block searchResultTopShowPublicationsLeftSide
+                    div.pull-left.search__result
+                        a.search-result__refine.advanced-search__ctrl(href="#")
+                            i(class="icon-filter_list" aria-hidden="true")
+                            span refine search
+                            i(class="icon-section_arrow_d" aria-hidden="true")
+                    if (data.widgetData.sortLinks)
+                        | !{pb.render("search-result", "search-result/sort-options", { data: data, thisWidget: thisWidget}, 'pericles')}
+
+                    div.advanced-search__tabs.hidden.tabs--defult-style#advancedSearch
+                        block advancedSearchTabs
+                            | !{pb.render("search-result", "search-result/extended/ext-tabs", {data: data, thisWidget: thisWidget}, 'pericles')}
+
+
+
+    if (data.serviceName == "showPublications")
+        div.search-result__meta
+            div.search-result__meta__top.clearfix
+                div.pull-right.search__bottom.clearfix
+                    +filterSearch()
+                .publication-result-meta.hidden-lg
+                    .publication-result-meta__info
+                        if data.search.hitsLength > 0
+                            span.result__current
+                                b !{resultFrom}-!{resultTo}
+                            span.result__sep of
+                            span.result__count
+                                b !{data.search.formattedHitsLength}
+                                | publications
+                        else
+                            span.result__current Results: 0-0
+                            span.result__sep of
+                            span.result__count 0 publications
+
+block resultsListClasses
+    - var ulClasses = "rlist search-result__body titles-results"
+    if (data.serviceName == "showPublications" || data.serviceName == "browseMRW")
+        - ulClasses = "rlist separator search-result__body titles-results"
+
+block resultsListClassesXSLT
+    - var ulClasses = "rlist search-result__body items-results"
+    if (data.serviceName == "showPublications" || data.serviceName == "browseMRW")
+        - ulClasses = "rlist separator search-result__body items-results"
+
+block searchItemCoverImage
+    if (item.type == "105") || (item.type == "102")
+        if(item.content)
+            a.item__image(href=url title="go to " + item.content.title)
+                if (item.content.coverImage)
+                    img(src=item.content.coverImage.src title="cover Image of " + item.content.title )
+                else if (item.content.latestIssue && item.content.latestIssue.coverImage)
+                    img(src=item.content.latestIssue.coverImage.src title="cover Image of " + item.content.title )
+                else
+                    block searchItemDefaultCoverImage
+                        div.item__default__image
+                            i.item__default__icon.icon-sort(aria-hidden="true")
+
+    if (item.type == "106")
+        if(item.content)
+            a.item__image(href=url title="go to " + item.content.title)
+                if (item.content.coverImage)
+                    img(src=item.content.coverImage.src title="cover Image of " + item.content.title )
+                else if (item.content.latestBook && item.content.latestBook.coverImage)
+                    img(src=item.content.latestBook.coverImage.src title="cover Image of " + item.content.title )
+                else
+                    div.item__default__image
+                        i.item__default__icon.icon-sort(aria-hidden="true")
+
+
+block searchMeta
+    div.meta__details
+        if (item.content.firstPublished)
+            span.meta__epubDate
+                span First published:
+                | !{item.content.firstPublished}
+        if (item.content.earliestIssue)
+            if (item.content.earliestIssue.volume)
+                a.meta__vol(href=item.content.earliestIssue.tocUrl) Volume !{item.content.earliestIssue.volume},!{' '}
+            if (item.content.earliestIssue.coverDate && item.content.earliestIssue.tocUrl)
+                a.meta__date(href= item.content.earliestIssue.tocUrl) !{item.content.earliestIssue.coverDate}
+            if (item.content.latestIssue)
+                | !{' - '}
+        if (item.content.latestIssue)
+            if (item.content.latestIssue.volume)
+                a.meta__vol(href=item.content.latestIssue.tocUrl) Volume !{item.content.latestIssue.volume},!{' '}
+            if (item.content.latestIssue.coverDate && item.content.latestIssue.tocUrl)
+                a.meta__date(href= item.content.latestIssue.tocUrl) !{item.content.latestIssue.coverDate}
+
+block aboutBookWrapper
+    if (item.content.aboutThisBook && item.content.aboutThisBook != "")
+        div.accordion.search-result__about-book
+            block aboutBookLabel
+                a(href="#" class="accordion__control" title="show About this book")
+                    if (item.content.serial.code == "mrwseries")
+                        span About this Reference work
+                        i.icon-section_arrow_d(aria-hidden="true")
+                    else
+                        span About this Book
+                        i.icon-section_arrow_d(aria-hidden="true")
+            div.accordion__content(data-aboutBook=item.content.aboutThisBook)
+
+block access
+    span.meta__access
+        span.doi-access-wrapper
+            if item.content.access == "full" && data.widgetData.displayAccessIcon.displayFullAccess == true
+                .full-access.access-type
+                    i.icon-icon-lock_open(aria-hidden='true' alt="")
+                    .doi-access
+                        span Full Access
+            if item.content.access == "free" && data.widgetData.displayAccessIcon.displayFreeAccess == true
+                .free-access.access-type
+                    i.icon-icon-lock_open(aria-hidden='true' alt="")
+                    .doi-access
+                        span Free Access
+            if (item.content.access == "open" || item.content.access == "oa") && data.widgetData.displayAccessIcon.displayOpenAccess == true
+                .open-access.access-type
+                    i.icon-icon-lock_open(aria-hidden='true' alt="")
+                    .doi-access
+                        span Open Access
+            if item.content.access == "no" && data.widgetData.displayAccessIcon.displayNoAccess == true
+                .no-access.access-type
+                    i.icon-icon-lock_outline(aria-hidden='true' alt="")
+                    .doi-access
+                        span No Access
+
+block searchResultPager
+    include ./pager-tmpl

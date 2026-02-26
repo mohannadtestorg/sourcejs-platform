@@ -1,0 +1,31 @@
+{
+    "title": "Advanced Search page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "advancedSearch": {
+            "$pug": {
+                "template": "../../../../ux3/widgets/advanced-search/templates/advanced-search/advanced-search-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/advanced-search/templates/data/data.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../../../../ux3/templates/footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

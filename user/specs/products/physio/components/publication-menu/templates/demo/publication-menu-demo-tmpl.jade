@@ -1,0 +1,72 @@
+mixin menu(addLOI)
+    ul#menubar.rlist--inline.menu-nav(role="menubar")
+        li(role="menuitem" , tabindex="-1" , aria-label="Journal Home" , id="secondary-menu-item-0" ,class="menu-item")
+            if (addLOI)
+                a(href="#" ,title="title")
+                    span journal home
+            else
+                a(href="#" ,title="title")
+                    span Home
+        li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="Issues" , id="secondary-menu-item-1" ,class="menu-item")
+            if (addLOI)
+                - var dropblockID = "loi__dropBlock";
+                - var dropblockTitle = "Issues";
+
+                div.loi__banner
+                    #loi-banner.hidden-sm.hidden-xs.pull-left(data-db-parent-of= dropblockID + "__content")
+                        a.loi__archive.w-slide__btn(class=dropblockID id=dropblockID href="#" title="Issues" data-db-target-for=dropblockID + "__content" data-slide-target= '#' + dropblockID + '__content' data-slide-clone='self')
+                            | #{dropblockTitle}
+                        div.dropBlock__holder.dropBlock-loi__holder(data-db-target-of=dropblockID + "__content" id=dropblockID + "__content")
+                            | !{pb.render("publication-menu", "demo/list-of-issues-demo", data.loi , "physio")}
+
+            else
+                a.w-slide__btn.loi__archive--res(href='#', title='Issues', data-db-target-for='p3', data-slide-target='#p3', data-slide-clone='self') Issues
+                    i.icon-arrow_r
+        li(role="menuitem" , tabindex="-1" , aria-label="Collections" , id="secondary-menu-item-2" ,class="dropdown menu-parent")
+            a(href="#" ,title="title")
+                span Collections
+        li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="information" , id="secondary-menu-item-4" ,class="dropdown menu-parent")
+            - var classes= "rlist";
+            - var id  = ""
+            if (addLOI)
+                a(href="#" ,title="title" , id="secondary-menu-1" ,data-toggle="dropdown" , class="dropdown__toggle")
+                    span information
+                ul(labelledby="secondary-menu-1" ,aria-hidden="true" , role="menu" , class="rlist dropdown__menu" , id="p4" )
+                    li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="information 1" ,class="menu-item")
+                        a(href="#" ,title="information")
+                            span information 1
+                    li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="information 2" ,class="menu-item")
+                        a(href="#" ,title="title")
+                            span information 2
+            else
+                a(href="#" ,title="information" , class="w-slide__btn", data-db-target-for='p4', data-slide-target='#p4', data-slide-clone='self')
+                    span information
+                    i.icon-arrow_r
+
+        li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="About" , id="secondary-menu-item-5" ,class="dropdown menu-parent")
+            if (addLOI)
+                a(href="#" ,title="title" , id="secondary-menu-2" ,data-toggle="dropdown" , class="dropdown__toggle")
+                    span About
+                ul(labelledby="secondary-menu-2" ,aria-hidden="true" , role="menu" , class="rlist dropdown__menu" id="p5")
+                    li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="About 1" ,class="menu-item")
+                        a(href="#" ,title="title")
+                            span ABOUT 1
+                    li(role="menuitem" , aria-haspopup="true" , tabindex="-1" , aria-label="About 2" ,class="menu-item")
+                        a(href="#" ,title="title")
+                            span ABOUT 2
+            else
+                a(href="#" ,title="About" class="w-slide__btn", data-db-target-for='p5', data-slide-target='#p5', data-slide-clone='self')
+                    span About
+                    i.icon-arrow_r
+div.publication-menu.hidden-xs.hidden-sm.container
+   .row
+       +menu(true)
+           div.loi-buttons
+               button(role="menuitem" , tabindex="-1" , aria-label="Subscribe" ,class="btn")
+                   a(href="#" ,title="title") Subscribe
+
+               button(role="menuitem" , tabindex="-1" , aria-label="Submit" ,class="btn")
+                   a(href="#" ,title="title") Submit
+           div.publication-quick-search
+               | !{pb.render("quick-search", "quick-search/quick-search", "quick-search.json")}
+

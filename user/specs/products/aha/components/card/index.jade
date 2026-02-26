@@ -1,0 +1,49 @@
+extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    .source_info
+        p <strong>Card</strong> component can be used on different other components and widgets (eg. slider, newsletter).
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/card/templates/cards/cards-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use Card template.
+        +printJson({
+            "config": {
+                "className": [
+                    "card"
+                ]
+            },
+            "data": {
+                "content": "text"
+            }
+        })
+        markdown
+            p You can add custom classes to the container element by passing an array of class names in `"addClassNames": ["...", "..."]`.
+    | #{''}
+
+    section.source_section
+        h2 Examples
+
+        h3 card
+        .source_example
+            .card card
+
+        h3 card--dark
+        .source_example
+            .card--dark card--dark
+
+        h3 card--danger
+        .source_example
+            .card--danger card--danger
+
+
+    | #{''}

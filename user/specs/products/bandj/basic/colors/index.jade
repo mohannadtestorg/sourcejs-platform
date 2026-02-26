@@ -1,0 +1,170 @@
+extends /specs/products/bandj/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block cssLastInHead
+    include /specs/products/bandj/page-structure/structure/templates/structure/css-lastin-head-tmpl.jade
+    link(rel='stylesheet', href='./scss/helpers/palette.css')
+
+block content
+    .source_section
+        h2 fum color pallete
+        p we are including #[a(href="/specs/ux3/basic/colors/") UX3 color pallete ]
+
+    .source_section
+        h2 Background colors
+        .source_example.colors-palette
+            ul.rlist--inline.bg-colors
+                li
+                    div.default-bg-color.block
+                    p $default-bg-color
+                li
+                    div.primary-bg-color.block
+                    p $primary-bg-color
+                li
+                    div.primary-lighten-bg-color.block
+                    p $primary-lighten-bg-color
+                li
+                    div.secondary-bg-color.block
+                    p $secondary-bg-color
+
+                li
+                    div.secondary-lighten-bg-color.block
+                    p $secondary-lighten-bg-color
+                li
+                    div.tertiary-bg-color.block
+                    p $tertiary-bg-color
+
+    | #{''}
+
+    .source_section
+        h2 Themed Background colors
+        .source_example.colors-palette
+            ul.rlist--inline
+                li
+                    div.bjj-journal
+                        div.theme-background.block
+                    p $journal-bg-color-bjj
+                li
+                    div.bjj-journal
+                        div.theme-background.light.block
+                    p $journal-bg-color-bjj-secondary
+                li
+                    div.bjr-journal
+                        div.theme-background.block
+                    p $journal-bg-color-bjr
+                li
+                    div.bjr-journal
+                        div.theme-background.light.block
+                    p $journal-bg-color-bjr-secondary
+                li
+                    div.bj360-journal
+                        div.theme-background.block
+                    p $journal-bg-color-bj360
+                li
+                    div.bj360-journal
+                        div.theme-background.light.block
+                    p $journal-bg-color-bj360-secondary
+                li
+                    div.jco-journal
+                        div.theme-background.block
+                    p $journal-bg-color-jco
+                li
+                    div.jco-journal
+                        div.theme-background.light.block
+                    p $journal-bg-color-jco-secondary
+                li
+                    div.eor-journal
+                        div.theme-background.block
+                    p $journal-bg-color-efort
+                li
+                    div.eor-journal
+                        div.theme-background.light.block
+                    p $journal-bg-color-efort-secondary
+                li
+                    div.procs-journal
+                        div.theme-background.block
+                    p $journal-bg-color-procs
+                li
+                    div.procs-journal
+                        div.theme-background.light.block
+                    p $journal-bg-color-procs-secondary
+    | #{''}
+
+    .source_section
+        h2 Text colors
+        .source_example.colors-palette
+            ul.rlist--inline.text-colors
+                li
+                    div.primary-text-color.block Aa
+                    p $primary-text-color
+                li
+                    div.primary-darken-text-color.block Aa
+                    p $primary-darken-text-color
+                li
+                    div.secondary-text-color.block Aa
+                    p $secondary-text-color
+                li
+                    div.tertiary-text-color.block Aa
+                    p $tertiary-text-color
+                li
+                    div.tertiary-darken-color.block Aa
+                    p $tertiary-darken-color
+                li
+                    div.text-onLight.block Aa
+                    p $text-onLight
+                li
+                    div.text-onDark.primary-bg-color.block Aa
+                    p $text-onDark
+                li
+                    div.primary-link-color.block Aa
+                    p $primary-link-color
+    | #{''}
+
+    .source_section
+        h2 Themed Text colors
+        .source_example.colors-palette
+            ul.rlist--inline
+                li
+                    div.bjj-journal
+                        div.theme-color.block Aa
+                    p $journal-bg-color-bjj
+
+                li
+                    div.bjr-journal
+                        div.theme-color.block Aa
+                    p $journal-bg-color-bjr
+
+                li
+                    div.bj360-journal
+                        div.theme-color.block Aa
+                    p $journal-bg-color-bj360
+
+                li
+                    div.jco-journal
+                        div.theme-color.block Aa
+                    p $journal-bg-color-jco
+
+                li
+                    div.eor-journal
+                        div.theme-color.block Aa
+                    p $journal-bg-color-efort
+
+                li
+                    div.procs-journal
+                        div.theme-color.block Aa
+                    p $journal-bg-color-procs
+    | #{''}
+
+
+    .source_section
+        h2 border colors
+        .source_example.colors-palette
+            ul.rlist--inline.border-colors
+                li
+                    div.primary-border-color
+                    p $primary-border-color
+                li
+                    div.secondary-border-color Aa
+                    p $secondary-border-color
+
+    | #{''}
+

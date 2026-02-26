@@ -1,0 +1,120 @@
+.pagination__list {
+
+    li {
+        position: relative;
+    }
+
+    a {
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+.dotsValue {
+    width: 40px;
+
+    &:after {
+        content: "...";
+        position: absolute;
+        top: -7px;
+        line-height: 0;
+        left: calc(50% - 5px);
+    }
+}
+
+.manage-article-select {
+    .section__header {
+        margin-bottom: 8px;
+        margin-top: 19px;
+    }
+    .checkbox--primary {
+        &:first-child{
+            span:before{
+                margin-right: 1rem;
+            }
+        }
+    }
+}
+.manage-article-select, .slot-license-usage {
+
+    .btn {
+        width: auto;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 18px 33px 17px;
+        line-height: 9px;
+        margin-bottom: 4px;
+    }
+
+    .pagination {
+        margin-top: 25px;
+    }
+
+    form {
+        margin-top: 32px;
+    }
+
+    label {
+        color: $wiley_text_color;
+    }
+
+    .selectMenuLabel {
+        border-bottom: 2px solid $section-border;
+        margin-bottom: 20px;
+
+        label {
+            font-weight: 600;
+            color: $wiley_text_color;
+            text-transform: uppercase;
+        }
+    }
+
+    th {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $wiley_text_color;
+    }
+
+    .table__mark {
+        label {
+            margin-bottom: 0;
+            margin-top: 2px;
+        }
+
+        @include media('<tablet') {
+            float: right;
+        }
+    }
+
+
+    .checkbox--primary span:before {
+        box-shadow: 0 0 0 2px $section-border;
+    }
+
+    .tab__nav {margin: 0 0 -20px;}
+
+    .reproducible [class*=ctrl-field] {
+        width: 40px;
+        margin: 0;
+        background: transparent;
+    }
+}
+
+.ux-modal-container {
+    .manage-article-select & {
+        .btn {
+            height: 44px;
+
+            ~ .btn {
+                margin-right: 10px;
+            }
+        }
+
+        .usersName {
+            font-weight: 600;
+        }
+    }
+}

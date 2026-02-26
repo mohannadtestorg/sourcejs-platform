@@ -1,0 +1,46 @@
+- var styleClass = ""
+if (data.exists)
+    - styleClass += " exists"
+if (data.edit)
+    - styleClass += " edit"
+if (data.customClass)
+    - styleClass += " "
+    - styleClass += data.customClass
+
+if (data.debug)
+    div.adplaceholder(class="debug")
+        div.adplaceholder__text
+            ='Placeholder name:'
+            if (data.ad)
+                ='"'+ data.ad +'"'
+            else
+                ='""'
+        if (data.ad)
+            div
+                a.adplaceholder__link.js__toggleAdForm(href="#", data-toggle="frmAdRename")
+                    ='Rename Ad'
+                div.hidden(id="frmAdRename")
+                    form(action="/action/adminPlaceholderManager", method="POST")
+                        input(type="text", name="label")
+                        input(type="submit", value="Change Label")
+            div
+                a.adplaceholder__link.js__toggleAdForm(href="#", data-toggle="frmAdDebug")
+                    ='Debug Ad'
+                div.hidden(id="frmAdDebug")
+                    form(action="/action/adminPlaceholderManager", method="POST")
+                        input(type="text", name="label")
+                        input(type="submit", value="Change Label")
+        else
+            a.adplaceholder__link(href="#")
+                ='(enable ad)'
+
+else
+    if (data.edit || ( data.ad && data.exists ) )
+        div.adplaceholder(class=styleClass)
+            span.adplaceholder__text
+                ='Advertisement:'
+                br
+                if (data.ad)
+                    | !{data.ad}
+                else
+                    ='No placeholder'

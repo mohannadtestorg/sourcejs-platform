@@ -1,0 +1,31 @@
+.remote-access-email-domains.clearfix
+    form(method='get' action=data.serviceUrl)
+
+        .input-group
+            .side-label
+               label !{data.labels.emailDomainsInputLabel}
+            .side-content
+                input(name='emailDomains', type='text', value=data.emailDomains, size='20', maxlength='512')
+                span.hidden.showConfirmation !{data.showDomainConfirmation }
+                if(data.labels.error)
+                    span.error
+                        | !{data.labels.error}
+
+
+        button.pull-right.update-button(type='submit') !{data.labels.updateButtonLabel}
+
+        .ux-modal-container
+                #emailDomainsConfirmationDialog.modal(role="dialog")
+                    .modal__dialog
+                        .modal__header
+                            h1.center Confirmation
+                        .modal__body
+                           .confirmation-message
+                             | !{data.labels.confirmation}
+
+
+                        .modal__footer
+
+                            button.btn.pull-right#confirmEmailDomains(type='button', data-dismiss='modal')  !{data.labels.confirmationButtonLabel}
+
+

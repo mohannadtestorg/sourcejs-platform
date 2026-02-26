@@ -1,0 +1,15 @@
+if(data.pairedDevices)
+    each item in data.pairedDevices
+        tr.expanded.device-pairing__row
+            td.table__mark
+                label.checkbox--primary
+                    input(type='checkbox',id=item.deviceId+'_'+item.institutionId+'_'+item.email, name='deviceId', value=item.deviceName)
+                    span.label-txt
+
+            td
+                | !{item.deviceName}
+                a.table__control__button(href="#" title="Expand row")
+                    i.icon-arrow_d_n
+            td.to_hide(data-thead="Paired On") !{item.datePaired}
+            td.to_hide(data-thead="Email") !{item.email}
+            td.to_hide(data-thead="Institution") !{item.institutionName}

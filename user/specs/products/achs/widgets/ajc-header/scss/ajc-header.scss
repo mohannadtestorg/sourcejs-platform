@@ -1,0 +1,100 @@
+.ajcHeader {
+    background-color: $light-seventh-bg-color;
+    padding: 40px 0px 25px 0px;
+    color: $secondary-sixth-text-color;
+    font-size: $medium-font-size;
+
+    @include media('<tablet') {
+        padding: 20px 0px 20px 0px;
+    }
+
+    &_left {
+        padding-right: 25px;
+        width: calc(100% - 235px);
+
+        @include media('<tablet') {
+            width: 100%;
+            padding-right: 0px;
+            float: none;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0px 0px 20px 0px;
+            margin: 0px;
+        }
+
+        li {
+            padding: 0px;
+            margin: 0px;
+
+            a {
+                color: $tertiary-third-text-color;
+
+                &:hover {
+                    color: $primary-text-color;
+                }
+            }
+        }
+    }
+
+    &_right {
+        width: 235px;
+        text-align: center;
+
+        @include media('<tablet') {
+            width: 100%;
+            float: none;
+            margin-top: 20px;
+        }
+
+        .button_primary_2 {
+            margin: 20px 0px 15px 0px;
+            width: 100%;
+            display: block;
+            box-shadow: 0 6px 6px rgba(0,0,0,.16);
+        }
+
+        & > span {
+            display: block;
+        }
+
+        img {
+            max-width: 140px;
+
+            @include media('<tablet') {
+                max-width: 100px;
+            }
+        }
+    }
+
+    h1 {
+        font-size: $xxxxlarge-font-size;
+        color: $primary-text-color;
+        font-weight: 500;
+        margin-bottom: 10px;
+
+        @include media('<desktop') {
+            font-size: $h1-font-size;
+        }
+    }
+
+    h6 {
+        font-size: $medium-font-size;
+        color: $primary-text-color;
+        margin-bottom: 10px;
+    }
+
+    &_text {
+        max-width: 660px;
+        padding-bottom: 20px;
+    }
+
+    &_divider {
+        border-top: 10px solid $primary-border-color;
+        border-bottom: 5px solid $tertiary-third-border-color ;
+    }
+
+
+}
+

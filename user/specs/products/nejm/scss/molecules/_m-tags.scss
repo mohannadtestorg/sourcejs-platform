@@ -1,0 +1,55 @@
+/***
+
+```
+<div class="m-tags">
+  <h3 class="m-tags__title f-h11">More about</h3>
+  <ul class="m-tags__list">
+    <li class="m-tags__item m-tags__item--all"><a href="#" class="a-tag">All</a></li>
+    <li class="m-tags__item"><a href="#" class="a-tag">Viral Infections</a></li>
+    <li class="m-tags__item"><a href="#" class="a-tag">Global Health</a></li>
+    <li class="m-tags__item"><a href="#" class="a-tag">Liver Disease</a></li>
+    <li class="m-tags__item"><a href="#" class="a-tag">Primary Care</a></li>
+  </ul>
+</div>
+```
+
+***/
+
+.m-tags {
+  margin-top: 32px;
+}
+
+.m-tags__title {
+  display: inline-block;
+  //height: 32px;
+  margin-top: 0;
+  margin-right: 16px;
+  line-height: 32px;
+}
+
+.m-tags__title.f-h11 {
+  margin-bottom: -1px;
+  padding-top: 0;
+  color: $color__text--headlines;
+
+  @include breakpoint('small+') {
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.m-tags__list {
+  display: inline;
+  margin: 0;
+}
+
+.m-tags__item {
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 8px;
+}
+
+.m-tags__item--all {
+  display: block;
+  margin-right: 0;
+}

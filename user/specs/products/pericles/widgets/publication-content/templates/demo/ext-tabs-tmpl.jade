@@ -1,0 +1,1711 @@
+extends ../../../../../../ux3/widgets/publication-content/templates/article/extended/ext-tabs-tmpl.jade
+
+
+block tabsPrefix
+    - var original = data;
+    - var fakeId = "pcw";
+    - var config = {"type":"flex","effect": "slide","vPort":"xsmall"};
+
+    - var tabsData = {"nav":[]};
+
+    if original.item.isAccessDenial
+        - tabsData.nav.push({"text": "Access","icon": "icon-icon-lock_open","content": "","class": "access"})
+    else if original.item.type == "chapter" && data.item.series.code != "mrwseries"
+        if original.item.hasAccessToReferences
+            - tabsData.nav.push({"text": "References","icon": "icon-chain","content": "","class": "references"})
+    else
+        if original.item.hasAccessToFigures
+            - tabsData.nav.push({"text": "Figures","icon": "icon-multi-figure","content": "","class": "figures"})
+
+        if original.item.hasAccessToReferences
+            - tabsData.nav.push({"text": "References","icon": "icon-chain","content": "","class": "references"})
+
+    - tabsData.nav.push({"text": "Related","icon": "icon-related-circles-extend-button","class": "related","content": ""})
+    - tabsData.nav.push({"text": "Information","icon": "icon-Icon_Information","class": "details","content": ""})
+
+    - data = tabsData;
+
+
+block tabsLinks
+    a.article-row-right__tabLinks.w-slide__btn(data-slide-clone="self" class= item.class+"-tab" href="#pane-" + fakeId + "-" + item.class aria-controls="#pane-"+ fakeId + "-" + item.class role="tab" data-toggle="tab" id="pane-" + fakeId + "-" + item.class + "con" data-slide-target="#pane-" + fakeId + "-" + item.class)
+        +item(item)
+
+block tabsPanes
+    ul.rlist.tab__content.sticko__child(role="tablist")
+        - var i = 0
+        each item, I in data.nav
+                li.tab__pane.article-row-right__panes(id="pane-"+ fakeId + "-" + item.class  aria-labelledby="pane-"+ fakeId + "-" + item.class + "con" role="tab")
+                    if  item.class == 'related'
+
+                        // static content for demonstration
+                        .accordion
+                            ul.accordion-tabbed.rlist
+                                li.accordion-tabbed__tab.js--open
+                                    a.accordion-tabbed__control(href='#', title='Recommended', aria-expanded='true', aria-controls='5bec6850-d523-4a77-b2f6-7409be0e9bc40') Recommended
+                                    #5bec6850-d523-4a77-b2f6-7409be0e9bc40.accordion-tabbed__content
+                                        ul.rlist.lot
+                                            li.grid-item
+                                                .creative-work
+                                                    .lazy-load
+                                                        .lazy-load__text
+                                                            .lazy-load__line
+                                                            .lazy-load__line--80
+                                                            .lazy-load__line
+                                                            .lazy-load__line--70
+                                                            .lazy-load__line--50
+                                                    .delayLoad
+                                                        a(href='/doi/full/10.1002/jssc.200600414')
+                                                            p.creative-work__title.min-height HPLC retention behavior on hydride‐based stationary phases
+                                                        ul.rlist--inline.loa.comma.loa-height
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Pesek%2C+Joseph+J', data-slide-target='sb-1')
+                                                                        span
+                                                                            | Joseph J. Pesek
+                                                                            i.icon-mail_outline(aria-hidden='true')
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Matyska%2C+Maria+T', data-slide-target='sb-1')
+                                                                        span Maria T. Matyska
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Larrabee%2C+Susan', data-slide-target='sb-1')
+                                                                        span Susan Larrabee
+                                                        .parent-item
+                                                            span
+                                                                a(href='/journal/16159314') Journal of Separation Science
+                                            li.grid-item
+                                                .creative-work
+                                                    .lazy-load
+                                                        .lazy-load__text
+                                                            .lazy-load__line
+                                                            .lazy-load__line--80
+                                                            .lazy-load__line
+                                                            .lazy-load__line--70
+                                                            .lazy-load__line--50
+                                                    .delayLoad
+                                                        a(href='/doi/full/10.1016/0014-5793%2885%2980442-7')
+                                                            p.creative-work__title.min-height A new isocratic HPLC separation for Pth‐amino acids, based on 2‐propanol
+                                                        ul.rlist--inline.loa.comma.loa-height
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Ashman%2C+Keith', data-slide-target='sb-1')
+                                                                        span Keith Ashman
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Wittmann-Liebold%2C+Brigitte', data-slide-target='sb-1')
+                                                                        span Brigitte Wittmann-Liebold
+                                                        .parent-item
+                                                            span
+                                                                a(href='/journal/18733468') FEBS Letters
+                                            li.grid-item
+                                                .creative-work
+                                                    .lazy-load
+                                                        .lazy-load__text
+                                                            .lazy-load__line
+                                                            .lazy-load__line--80
+                                                            .lazy-load__line
+                                                            .lazy-load__line--70
+                                                            .lazy-load__line--50
+                                                    .delayLoad
+                                                        a(href='/doi/full/10.1002/bmc.854')
+                                                            p.creative-work__title.min-height
+                                                                | Indirect resolution of enantiomers of penicillamine by TLC and HPLC using Marfey's reagent and its variants
+                                                        ul.rlist--inline.loa.comma.loa-height
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Bhushan%2C+R', data-slide-target='sb-1')
+                                                                        span
+                                                                            | R. Bhushan
+                                                                            i.icon-mail_outline(aria-hidden='true')
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Br%C3%BCckner%2C+H', data-slide-target='sb-1')
+                                                                        span H. Brückner
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Kumar%2C+Virender', data-slide-target='sb-1')
+                                                                        span Virender Kumar
+                                                        .parent-item
+                                                            span
+                                                                a(href='/journal/10990801') Biomedical Chromatography
+                                            li.grid-item
+                                                .creative-work
+                                                    .lazy-load
+                                                        .lazy-load__text
+                                                            .lazy-load__line
+                                                            .lazy-load__line--80
+                                                            .lazy-load__line
+                                                            .lazy-load__line--70
+                                                            .lazy-load__line--50
+                                                    .delayLoad
+                                                        a(href='/doi/full/10.1002/jhrc.1240061109')
+                                                            p.creative-work__title.min-height Separation of some nitronaphthalenes by HPLC
+                                                        ul.rlist--inline.loa.comma.loa-height
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Hill%2C+P', data-slide-target='sb-1')
+                                                                        span P. Hill
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Newbery%2C+J+E', data-slide-target='sb-1')
+                                                                        span
+                                                                            | J. E. Newbery
+                                                                            i.icon-mail_outline(aria-hidden='true')
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Parry-Jones%2C+R', data-slide-target='sb-1')
+                                                                        span R. Parry‐Jones
+                                                        .parent-item
+                                                            span
+                                                                a(href='/journal/15214168') Journal of High Resolution Chromatography
+                                            li.grid-item
+                                                .creative-work
+                                                    .lazy-load
+                                                        .lazy-load__text
+                                                            .lazy-load__line
+                                                            .lazy-load__line--80
+                                                            .lazy-load__line
+                                                            .lazy-load__line--70
+                                                            .lazy-load__line--50
+                                                    .delayLoad
+                                                        a(href='/doi/full/10.1002/jhrc.1240100406')
+                                                            p.creative-work__title.min-height Long‐acting androgens: Analytical and preparative HPLC of testosterone esters
+                                                        ul.rlist--inline.loa.comma.loa-height
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Matlin%2C+S+A', data-slide-target='sb-1')
+                                                                        span
+                                                                            | S. A. Matlin
+                                                                            i.icon-mail_outline(aria-hidden='true')
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Chan%2C+L', data-slide-target='sb-1')
+                                                                        span L. Chan
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Prazeres%2C+M+A', data-slide-target='sb-1')
+                                                                        span M. A. Prazeres
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Mehani%2C+S', data-slide-target='sb-1')
+                                                                        span S. Mehani
+                                                            li
+                                                                span
+                                                                    a(href='/action/doSearch?ContribAuthorStored=Cass%2C+Q+B', data-slide-target='sb-1')
+                                                                        span Q. B. Cass
+                                                        .parent-item
+                                                            span
+                                                                a(href='/journal/15214168') Journal of High Resolution Chromatography
+                                li.accordion-tabbed__tab.eh-highlighted-accordion.hidden
+                                    a.accordion-tabbed__control(href='#', title='Highlighted', aria-expanded='false', aria-controls='5bec6850-d523-4a77-b2f6-7409be0e9bc41') Highlighted
+                                    #5bec6850-d523-4a77-b2f6-7409be0e9bc41.accordion-tabbed__content(style='display: none;')
+
+
+
+
+                    else if  item.class == 'access'
+                        block accessDenialTab
+                            | !{pb.renderDropzone(thisWidget, "accessTabDropZone")}
+
+                    else if  item.class == 'details'
+                        if (original.item.infoTabContent)
+                            | !{original.item.infoTabContent}
+                        else
+                            | !{item.content}
+                    else if  item.class == 'figures'
+                        // static content for demonstration
+                        // XSLT: PubContentFigures.xsl, Revision: 18340788, Interface: urn:atypon.com:wiley:interface:atypon-wiley-prime, was cached: Tue Mar 20 05:43:36 PDT 2018
+                        figure#assep001-fig-0001.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/13e13ab7-297e-4c13-9006-d3b0b10edb52/nfg001.gif')
+                                img.figure__image(src='/cms/attachment/13e13ab7-297e-4c13-9006-d3b0b10edb52/nfg001.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 1
+                                div
+                                span.figure__caption
+                                    | Applications of piezoresistive polymer nanocomposites based on carbon nanostructures.
+                                    | a) Highly twistable tactile sensing array made from polydimethylsiloxane (PDMS) and
+                                    | carbon black nanoparticles.
+                                    span.figureLink.bibLink.tab-link
+                                        a.figureLink.bibLink.tab-link(href='#adem201701159-bib-0023', data-tab='pane-pcw-references') 23
+                                    |  (Reprinted from ref.
+                                    span.figureLink.bibLink.tab-link
+                                        a.figureLink.bibLink.tab-link(href='#adem201701159-bib-0023', data-tab='pane-pcw-references') 23
+                                    | , with permission from Elsevier), b) stretchable singlewall CNT/PDMS strain sensor
+                                    |          for human motion detection.
+                                    span.figureLink.bibLink.tab-link
+                                        a.figureLink.bibLink.tab-link(href='#adem201701159-bib-0020', data-tab='pane-pcw-references') 20
+                                    |  (Reprinted from ref.
+                                    span.figureLink.bibLink.tab-link
+                                        a.figureLink.bibLink.tab-link(href='#adem201701159-bib-0020', data-tab='pane-pcw-references') 20
+                                    | , with permission from Nature Publishing Group), c) Organic light‐emitting diode on
+                                    |          a graphene/polymethyl methacrylate (PMMA) transparent conducting electrode.
+                                    span.figureLink.bibLink.tab-link
+                                        a.figureLink.bibLink.tab-link(href='#adem201701159-bib-0024', data-tab='pane-pcw-references') 24
+                                    |  (Reprinted from ref.
+                                    span.figureLink.bibLink.tab-link
+                                        a.figureLink.bibLink.tab-link(href='#adem201701159-bib-0024', data-tab='pane-pcw-references') 24
+                                    | , with permission from Nature Publishing Group), d) schematic showing the use of carbon
+                                    |          nanotubes in a polymer matrix to self‐sense crack propagation and damage in advanced
+                                    |          multiscale composites.
+
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0001&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0002.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/38bf7838-1f0c-4f9a-9ac8-32e2b070d5ba/nfg002.gif')
+                                img.figure__image(src='/cms/attachment/38bf7838-1f0c-4f9a-9ac8-32e2b070d5ba/nfg002.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 2
+                                div
+                                span.figure__caption
+                                    | Self‐renewal of stem cells and development of CSCs. HSCs maintain their homeostasis via asymmetry (A) and symmetry division (B). In homeostatic environment, HSCs divide asymmetrily to supply progenitors required for replenishment of blood. Once the injured HSCs lose the capacity of self‐renewal (C), the healthy HSCs divide symmetrily. Once
+                                    | Self‐renewal of stem cells and development of CSCs. HSCs maintain their homeostasis via asymmetry (A) and symmetry division (B). In homeostatic environment, HSCs divide asymmetrily to supply progenitors required for replenishment of blood. Once the injured HSCs lose the capacity of self‐renewal (C), the healthy HSCs divide symmetrily. Once
+                                    | Self‐renewal of stem cells and development of CSCs. HSCs maintain their homeostasis via asymmetry (A) and symmetry division (B). In homeostatic environment, HSCs divide asymmetrily to supply progenitors required for replenishment of blood. Once the injured HSCs lose the capacity of self‐renewal (C), the healthy HSCs divide symmetrily. Once
+                                    | Self‐renewal of stem cells and development of CSCs. HSCs maintain their homeostasis via asymmetry (A) and symmetry division (B). In homeostatic environment, HSCs divide asymmetrily to supply progenitors required for replenishment of blood. Once the injured HSCs lose the capacity of self‐renewal (C), the healthy HSCs divide symmetrily. Once
+                                    | Self‐renewal of stem cells and development of CSCs. HSCs maintain their homeostasis via asymmetry (A) and symmetry division (B). In homeostatic environment, HSCs divide asymmetrily to supply progenitors required for replenishment of blood. Once the injured HSCs lose the capacity of self‐renewal (C), the healthy HSCs divide symmetrily. Once
+
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0002&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0003.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/71398add-43de-4f03-bc76-e308a70eea79/nfg003.gif')
+                                img.figure__image(src='/cms/attachment/71398add-43de-4f03-bc76-e308a70eea79/nfg003.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 3
+                                div
+                                span.figure__caption
+                                    | In (a) a schematic representation of a convex upwards (“Langmurian”) adsorption isotherm
+                                    | with the initial linear part indicated by the dotted tangent,
+                                    i C
+                                    sub M
+                                    |  and
+                                    i C
+                                    sub S
+                                    |  are the concentration in
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0003&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0004.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/eca214e0-461a-4136-8b0c-4eeb6f94496a/nfg004.gif')
+                                img.figure__image(src='/cms/attachment/eca214e0-461a-4136-8b0c-4eeb6f94496a/nfg004.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 4
+                                div
+                                span.figure__caption
+                                    | In (a) a schematic representation of a concave upward (“anti‐Langmurian”) adsorption
+                                    | isotherm,
+                                    i C
+                                    sub M
+                                    |  and
+                                    i C
+                                    sub S
+                                    |  are the concentration in the mobile and stationary phase, respectively. I
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0004&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0005.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/cb41153c-96e7-4fa1-b7fd-b1008c177731/nfg005.gif')
+                                img.figure__image(src='/cms/attachment/cb41153c-96e7-4fa1-b7fd-b1008c177731/nfg005.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 5
+                                div
+                                span.figure__caption
+                                    | Illustration of how the tailing factor at 5%,
+                                    i T
+                                    sub f5%
+                                    | , is calculated from a chromatogram where
+                                    i V
+                                    sub R
+                                    |  is the eluted volume and
+                                    i C
+                                    |  is the concentration in the eluted mobile phase at the column outlet. A line par
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0005&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0006.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/38ccb4cc-f93f-49ff-9181-1eb5f8d47b91/nfg006.gif')
+                                img.figure__image(src='/cms/attachment/38ccb4cc-f93f-49ff-9181-1eb5f8d47b91/nfg006.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 6
+                                div
+                                span.figure__caption
+                                    | Illustration of the three major contributions to band broadening in chromatography:
+                                    | (a) eddy diffusion, (b) molecular diffusion, and (c) slow equilibration.
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0006&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0007.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/a34b51b3-a27b-45a6-8f47-69279afdfb2e/nfg007.gif')
+                                img.figure__image(src='/cms/attachment/a34b51b3-a27b-45a6-8f47-69279afdfb2e/nfg007.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 7
+                                div
+                                span.figure__caption
+                                    | Illustration of the three different sources for band broadening with increasing flow
+                                    | rate (dotted lines). The solid line shows the sum of the three individual contributions
+                                    | in accordance with Equation
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0007&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0008.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/15acecef-2009-46de-af8d-147d83c3788a/nfg008.gif')
+                                img.figure__image(src='/cms/attachment/15acecef-2009-46de-af8d-147d83c3788a/nfg008.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 8
+                                div
+                                span.figure__caption
+                                    | Illustration of different ways to improve the separation of two components where we
+                                    | have both low efficiency and selectivity (a), in (b) the selectivity is increased,
+                                    | and in (c) the efficien
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0008&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0009.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/8073c092-5032-4010-a831-05f6474f1834/nfg009.gif')
+                                img.figure__image(src='/cms/attachment/8073c092-5032-4010-a831-05f6474f1834/nfg009.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 9
+                                div
+                                span.figure__caption
+                                    | The influence on resolution when increasing (a) the efficiency, (b) the retention
+                                    | factor for second component, and (c) the separation factor (see Equation
+                                    a.equationLink.scrollableLink(href='#assep001-disp-0019', title='Link to equation') 19
+                                    | ).
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0009&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0010.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/d4dc8a6c-69c6-4a85-9633-ec63e2eded1d/nfg010.gif')
+                                img.figure__image(src='/cms/attachment/d4dc8a6c-69c6-4a85-9633-ec63e2eded1d/nfg010.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 10
+                                div
+                                span.figure__caption
+                                    | The plate height versus the flow rate for different particle sizes: 10, 5, and 3 μm.
+                                    | (Adapted from Ref.
+                                    span.figureLink.bibLink.tab-link
+                                        sup.tableSouce
+                                            a.figureLink.bibLink.tab-link(href='#assep001-bib-0038', data-tab='pane-pcw-references') 38
+                                    | .)
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0010&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0011.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/ea771c58-112d-417f-9626-51e0630c5010/nfg011.gif')
+                                img.figure__image(src='/cms/attachment/ea771c58-112d-417f-9626-51e0630c5010/nfg011.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 11
+                                div
+                                span.figure__caption
+                                    | An illustration of how fused core particles (c) as related to modern standard HPLC
+                                    | (a) and UHPLC (b) particles. Note that the fused core particles have shorter diffusion
+                                    | paths (0.5 μm) compar
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer<div class="col-sm-12 col-md-8 col-lg-8 article__content article-row-left">…</div>
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0011&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0012.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/1d841f0c-4424-453d-bd5d-46cb58c44e9a/nfg012.gif')
+                                img.figure__image(src='/cms/attachment/1d841f0c-4424-453d-bd5d-46cb58c44e9a/nfg012.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 12
+                                div
+                                span.figure__caption
+                                    | The pressure drop across a column when different particle sizes and particle types.
+                                    | (Adapted from an illustration provided by HALO Ltd.)
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0012&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0013.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/e6cf2b06-333e-4e3a-8e1f-932028900549/nfg013.gif')
+                                img.figure__image(src='/cms/attachment/e6cf2b06-333e-4e3a-8e1f-932028900549/nfg013.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 13
+                                div
+                                span.figure__caption
+                                    | Analytical chromatograms for (a) metoprolol, (b) 3‐phenyl‐1‐propanol, and (c) 2‐phenylbyturic
+                                    | acid for pH 3–11 using an XBridge column. The asymmetry values at 10% of the peak
+                                    | heigh
+                                    a.read-more(href='#', style='white-space: nowrap;')
+                                        | ... show
+                                        i.icon-section_arrow_d
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0013&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        figure#assep001-fig-0014.figure.article__tabFigure
+                            a(target='_blank', href='/cms/attachment/4a64ba9c-df8d-4f74-99cb-a9c1e142e902/nfg014.gif')
+                                img.figure__image(src='/cms/attachment/4a64ba9c-df8d-4f74-99cb-a9c1e142e902/nfg014.gif')
+                            figcaption.figure__caption
+                                strong.figure__title Figure 14
+                                div
+                                span.figure__caption
+                                    | Schematic illustration of the tentative retention mechanism in HILIC. (Adapted from an illustration provided by Phenomenex.)
+                            .figure-extra
+                                a.open-figure-link(href='#') Open in figure viewer
+                                a.ppt-figure-link(href='/action/downloadFigures?id=assep001-fig-0014&doi=10.1002%2F9783527678129.assep001') PowerPoint
+                        // END OF XSLT
+
+
+                    else if  item.class == 'references'
+                        // static content for demonstration
+                        ul.rlist.separator
+                            // ${if: hasReferences 10.1002%2F9783527678129.assep001}
+                            .accordion
+                                ul.accordion-tabbed.rlist
+                                    li.accordion-tabbed__tab.js--open
+                                        a.accordion-tabbed__control(href='#', aria-controls='idassep001-bibl-0001', aria-expanded='true')
+                                            | References
+                                            span.icon-keyboard_arrow_down
+                                        #assep001-bibl-0001.accordion-tabbed__content
+                                            ul.rlist.separator
+                                                li#assep001-bib-0001
+                                                    span.bullet 1
+                                                    span#assep001-cit-0001
+                                                        span.author Gluckauf, E.
+                                                        |                         (
+                                                        span.pubYear 1946
+                                                        | )
+                                                        span.articleTitle Contributions to the theory of chromatography
+                                                        | .
+                                                        span.journalTitle Proc. Roy. Soc. London A.
+                                                        | ,
+                                                        span.vol 186
+                                                        |  (
+                                                        span.citedIssue 1004
+                                                        | ),
+                                                        span.pageFirst 35
+                                                        | –
+                                                        span.pageLast 57
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1098%2Frspa.1946.0034', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=64&doi=10.1002%2F9783527678129.assep001&key=1946RSPSA.186...35G', onclick='newWindow(this.href);return false', target='_blank') ADS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1946UQ13900003', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=186&publication_year=1946&pages=35-57&journal=Proc.+Roy.+Soc.+London+A.&issue=1004&author=E.+Gluckauf&title=Contributions+to+the+theory+of+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0002
+                                                    span.bullet 2
+                                                    span#assep001-cit-0002
+                                                        span.author Martin, A.J.
+                                                        |  and
+                                                        span.author Synge, R.L.
+                                                        |                         (
+                                                        span.pubYear 1941
+                                                        | )
+                                                        span.articleTitle
+                                                            | A new form of chromatogram employing two liquid phases: a theory of chromatography.
+                                                            | 2. Application to the micro‐determination of the higher monoamino‐acids in proteins
+                                                        | .
+                                                        span.journalTitle Biochem. J.
+                                                        | ,
+                                                        span.vol 35
+                                                        |  (
+                                                        span.citedIssue 12
+                                                        | ),
+                                                        span.pageFirst 1358
+                                                        | –
+                                                        span.pageLast 1368
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1042%2Fbj0351358', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ASTN%3A280%3ADC%252BD28zjslGgug%253D%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=16747422', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=35&publication_year=1941&pages=1358-1368&journal=Biochem.+J.&issue=12&author=A.J.+Martinauthor=R.L.+Synge&title=A+new+form+of+chromatogram+employing+two+liquid+phases%3A+a+theory+of+chromatography.+2.+Application+to+the+micro%E2%80%90determination+of+the+higher+monoamino%E2%80%90acids+in+proteins&', target='_blank') Google Scholar
+                                                li#assep001-bib-0003
+                                                    span.bullet 3
+                                                    span#assep001-cit-0003
+                                                        span.author Giddings, J.C.
+                                                        |                         (
+                                                        span.pubYear 1965
+                                                        | )
+                                                        span.bookTitle Dynamics of Chromatography: Principles and Theory
+                                                        | ,
+                                                        |                         Marcel Dekker,
+                                                        span.publisherLocation New York
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=35&publication_year=1965&journal=Biochem.+J.&issue=12&author=J.C.+Giddings&title=Dynamics+of+Chromatography%3A+Principles+and+Theory&', target='_blank') Google Scholar
+                                                li#assep001-bib-0004
+                                                    span.bullet 4
+                                                    span#assep001-cit-0004
+                                                        span.author Arnell, R.
+                                                        | ,
+                                                        span.author Forssén, P.
+                                                        | , and
+                                                        span.author Fornstedt, T.
+                                                        |                         (
+                                                        span.pubYear 2007
+                                                        | )
+                                                        span.articleTitle Tuneable peak deformations in chiral liquid chromatography
+                                                        | .
+                                                        span.journalTitle Anal. Chem.
+                                                        | ,
+                                                        span.vol 79
+                                                        |  (
+                                                        span.citedIssue 15
+                                                        | ),
+                                                        span.pageFirst 5838
+                                                        | –
+                                                        span.pageLast 5847
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1021%2Fac062330t', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2sXmvVOktrg%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=17585834', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000248437700058', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=79&publication_year=2007&pages=5838-5847&journal=Anal.+Chem.&issue=15&author=R.+Arnellauthor=P.+Forss%C3%A9nauthor=T.+Fornstedt&title=Tuneable+peak+deformations+in+chiral+liquid+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0005
+                                                    span.bullet 5
+                                                    span#assep001-cit-0005
+                                                        span.author Forssén, P.
+                                                        | ,
+                                                        span.author Arnell, R.
+                                                        | , and
+                                                        span.author Fornstedt, T.
+                                                        |                         (
+                                                        span.pubYear 2009
+                                                        | )
+                                                        span.articleTitle A quest for the optimal additive in chiral preparative chromatography
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1216
+                                                        |  (
+                                                        span.citedIssue 23
+                                                        | ),
+                                                        span.pageFirst 4719
+                                                        | –
+                                                        span.pageLast 4727
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2009.04.010', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD1MXlslWgs7Y%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=19406411', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000266449800004', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1216&publication_year=2009&pages=4719-4727&journal=J.+Chromatogr.+A.&issue=23&author=P.+Forss%C3%A9nauthor=R.+Arnellauthor=T.+Fornstedt&title=A+quest+for+the+optimal+additive+in+chiral+preparative+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0006
+                                                    span.bullet 6
+                                                    span#assep001-cit-0006
+                                                        span.author Guiochon, G.
+                                                        | ,
+                                                        span.author Shirazi, D.G.
+                                                        | ,
+                                                        span.author Felinger, A.
+                                                        | , and
+                                                        span.author Katti, A.M.
+                                                        |                         (
+                                                        span.pubYear 2006
+                                                        | )
+                                                        span.bookTitle Fundamentals of Preparative and Nonlinear Chromatography
+                                                        | ,
+                                                        |                         Academic Press,
+                                                        span.publisherLocation Boston, MA
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1216&publication_year=2006&journal=J.+Chromatogr.+A.&issue=23&author=G.+Guiochonauthor=D.G.+Shiraziauthor=A.+Felingerauthor=A.M.+Katti&title=Fundamentals+of+Preparative+and+Nonlinear+Chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0007
+                                                    span.bullet 7
+                                                    span#assep001-cit-0007
+                                                        span.author Felinger, A.
+                                                        | ,
+                                                        span.author Cavazzini, A.
+                                                        | , and
+                                                        span.author Dondi, F.
+                                                        |                         (
+                                                        span.pubYear 2004
+                                                        | )
+                                                        span.articleTitle
+                                                            | Equivalence of the microscopic and macroscopic models of chromatography: stochastic–dispersive
+                                                            | versus lumped kinetic model
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1043
+                                                        |  (
+                                                        span.citedIssue 2
+                                                        | ),
+                                                        span.pageFirst 149
+                                                        | –
+                                                        span.pageLast 157
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2004.05.081', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2cXls1Wrsrs%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=15330088', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000222807500004', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1043&publication_year=2004&pages=149-157&journal=J.+Chromatogr.+A.&issue=2&author=A.+Felingerauthor=A.+Cavazziniauthor=F.+Dondi&title=Equivalence+of+the+microscopic+and+macroscopic+models+of+chromatography%3A+stochastic%E2%80%93dispersive+versus+lumped+kinetic+model&', target='_blank') Google Scholar
+                                                li#assep001-bib-0008
+                                                    span.bullet 8
+                                                    span#assep001-cit-0008
+                                                        span.author Fornstedt, T.
+                                                        |                         (
+                                                        span.pubYear 2010
+                                                        | )
+                                                        span.articleTitle
+                                                            | Characterization of adsorption processes in analytical liquid–solid chromatography
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1217
+                                                        |  (
+                                                        span.citedIssue 6
+                                                        | ),
+                                                        span.pageFirst 792
+                                                        | –
+                                                        span.pageLast 812
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2009.12.044', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BC3cXotlSrsA%253D%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=20053406', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000274109100002', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1217&publication_year=2010&pages=792-812&journal=J.+Chromatogr.+A.&issue=6&author=T.+Fornstedt&title=Characterization+of+adsorption+processes+in+analytical+liquid%E2%80%93solid+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0009
+                                                    span.bullet 9
+                                                    span#assep001-cit-0009
+                                                        span.author Samuelsson, J.
+                                                        | ,
+                                                        span.author Arnell, R.
+                                                        | , and
+                                                        span.author Fornstedt, T.
+                                                        |                         (
+                                                        span.pubYear 2009
+                                                        | )
+                                                        span.articleTitle
+                                                            | Potential of adsorption isotherm measurements for closer elucidating of binding in
+                                                            | chiral liquid chromatographic phase systems
+                                                        | .
+                                                        span.journalTitle J. Separ. Sci.
+                                                        | ,
+                                                        span.vol 32
+                                                        |  (
+                                                        span.citedIssue 10
+                                                        | ),
+                                                        span.pageFirst 1491
+                                                        | –
+                                                        span.pageLast 1506
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/doi/10.1002/jssc.200900165', onclick='newWindow(this.href);return false', target='_blank') Wiley Online Library
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD1MXmvFCmtrk%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=19472282', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000266508700002', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=32&publication_year=2009&pages=1491-1506&journal=J.+Separ.+Sci.&issue=10&author=J.+Samuelssonauthor=R.+Arnellauthor=T.+Fornstedt&title=Potential+of+adsorption+isotherm+measurements+for+closer+elucidating+of+binding+in+chiral+liquid+chromatographic+phase+systems&', target='_blank') Google Scholar
+                                                li#assep001-bib-0010
+                                                    span.bullet 10
+                                                    span#assep001-cit-0010
+                                                        span.author Samuelsson, J.
+                                                        | ,
+                                                        span.author Franz, A.
+                                                        | ,
+                                                        span.author Stanley, B.J.
+                                                        | , and
+                                                        span.author Fornstedt, T.
+                                                        |                         (
+                                                        span.pubYear 2007
+                                                        | )
+                                                        span.articleTitle
+                                                            | Thermodynamic characterization of separations on alkaline‐stable silica‐based C
+                                                            sub 18
+                                                            |  columns: why basic solutes may have better capacity and peak performance at higher
+                                                            |                            pH
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1163
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 177
+                                                        | –
+                                                        span.pageLast 189
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2007.06.026', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2sXpt1Cgurs%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=17612549', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000249310800018', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1163&publication_year=2007&pages=177-189&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=J.+Samuelssonauthor=A.+Franzauthor=B.J.+Stanleyauthor=T.+Fornstedt&title=Thermodynamic+characterization+of+separations+on+alkaline%E2%80%90stable+silica%E2%80%90based+C18+columns%3A+why+basic+solutes+may+have+better+capacity+and+peak+performance+at+higher+pH&', target='_blank') Google Scholar
+                                                li#assep001-bib-0011
+                                                    span.bullet 11
+                                                    span#assep001-cit-0011
+                                                        span.author Undin, T.
+                                                        | ,
+                                                        span.author Samuelsson, J.
+                                                        | ,
+                                                        span.author Törncrona, A.
+                                                        | , and
+                                                        span.author Fornstedt, T.
+                                                        |                         (
+                                                        span.pubYear 2013
+                                                        | )
+                                                        span.articleTitle
+                                                            | Evaluation of a combined linear–nonlinear approach for column characterization using
+                                                            | modern alkaline‐stable columns as model
+                                                        | .
+                                                        span.journalTitle J. Separ. Sci.
+                                                        | ,
+                                                        span.vol 36
+                                                        |  (
+                                                        span.citedIssue 11
+                                                        | ),
+                                                        span.pageFirst 1753
+                                                        | –
+                                                        span.pageLast 1761
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/doi/10.1002/jssc.201201132', onclick='newWindow(this.href);return false', target='_blank') Wiley Online Library
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BC3sXovVSqt7c%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=23554373', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000319919900009', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=36&publication_year=2013&pages=1753-1761&journal=J.+Separ.+Sci.&issue=11&author=T.+Undinauthor=J.+Samuelssonauthor=A.+T%C3%B6rncronaauthor=T.+Fornstedt&title=Evaluation+of+a+combined+linear%E2%80%93nonlinear+approach+for+column+characterization+using+modern+alkaline%E2%80%90stable+columns+as+model&', target='_blank') Google Scholar
+                                                li#assep001-bib-0012
+                                                    span.bullet 12
+                                                    span#assep001-cit-0012
+                                                        span.author McCalley, D.V.
+                                                        |                         (
+                                                        span.pubYear 2000
+                                                        | )
+                                                        span.articleTitle
+                                                            | Effect of temperature and flow‐rate on analysis of basic compounds in high‐performance
+                                                            | liquid chromatography using a reversed‐phase column
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 902
+                                                        |  (
+                                                        span.citedIssue 2
+                                                        | ),
+                                                        span.pageFirst 311
+                                                        | –
+                                                        span.pageLast 321
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2800%2900924-9', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD3cXotVOjs7c%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=11192164', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000165931800001', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=902&publication_year=2000&pages=311-321&journal=J.+Chromatogr.+A.&issue=2&author=D.V.+McCalley&title=Effect+of+temperature+and+flow%E2%80%90rate+on+analysis+of+basic+compounds+in+high%E2%80%90performance+liquid+chromatography+using+a+reversed%E2%80%90phase+column&', target='_blank') Google Scholar
+                                                li#assep001-bib-0013
+                                                    span.bullet 13
+                                                    span#assep001-cit-0013
+                                                        span.author Ståhlberg, J.
+                                                        |                         (
+                                                        span.pubYear 1999
+                                                        | )
+                                                        span.articleTitle Retention models for ions in chromatography
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 855
+                                                        |  (
+                                                        span.citedIssue 1
+                                                        | ),
+                                                        span.pageFirst 3
+                                                        | –
+                                                        span.pageLast 55
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2899%2900176-4', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaK1MXmsFWrsrk%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=10514972', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000082604000001', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=855&publication_year=1999&pages=3-55&journal=J.+Chromatogr.+A.&issue=1&author=J.+St%C3%A5hlberg&title=Retention+models+for+ions+in+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0014
+                                                    span.bullet 14
+                                                    span#assep001-cit-0014
+                                                        span.author Sokolowski, A.
+                                                        |  and
+                                                        span.author Wahlund, K.‐G.
+                                                        |                         (
+                                                        span.pubYear 1980
+                                                        | )
+                                                        span.articleTitle
+                                                            | Peak tailing and retention behaviour of tricyclic antidepressant amines and related
+                                                            | hydrophobic ammonium compounds in reversed‐phase ion‐pair liquid chromatography on
+                                                            | alkyl‐bonded phases
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 189
+                                                        |  (
+                                                        span.citedIssue 3
+                                                        | ),
+                                                        span.pageFirst 299
+                                                        | –
+                                                        span.pageLast 316
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2800%2980312-X', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaL3cXhvFSqt7s%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1980JL73500002', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=189&publication_year=1980&pages=299-316&journal=J.+Chromatogr.+A.&issue=3&author=A.+Sokolowskiauthor=K.%E2%80%90G.+Wahlund&title=Peak+tailing+and+retention+behaviour+of+tricyclic+antidepressant+amines+and+related+hydrophobic+ammonium+compounds+in+reversed%E2%80%90phase+ion%E2%80%90pair+liquid+chromatography+on+alkyl%E2%80%90bonded+phases&', target='_blank') Google Scholar
+                                                li#assep001-bib-0015
+                                                    span.bullet 15
+                                                    span#assep001-cit-0015
+                                                        span.author Tilly Melin, A.
+                                                        | ,
+                                                        span.author Liungcrantz, M.
+                                                        | , and
+                                                        span.author Schill, G.
+                                                        |                         (
+                                                        span.pubYear 1979
+                                                        | )
+                                                        span.articleTitle
+                                                            | Reversed‐phase ion‐pair chromatography with an adsorbing stationary phase and a hydrophobic
+                                                            | quaternary ammonium ion in the mobile phase
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 185
+                                                        | ,
+                                                        span.pageFirst 225
+                                                        | –
+                                                        span.pageLast 239
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2800%2985606-X', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1979JC61100014', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=185&publication_year=1979&pages=225-239&journal=J.+Chromatogr.+A.&author=A.+Tilly+Melinauthor=M.+Liungcrantzauthor=G.+Schill&title=Reversed%E2%80%90phase+ion%E2%80%90pair+chromatography+with+an+adsorbing+stationary+phase+and+a+hydrophobic+quaternary+ammonium+ion+in+the+mobile+phase&', target='_blank') Google Scholar
+                                                li#assep001-bib-0016
+                                                    span.bullet 16
+                                                    span#assep001-cit-0016
+                                                        span.author Neue, U.D.
+                                                        | ,
+                                                        span.author Wheat, T.E.
+                                                        | ,
+                                                        span.author Mazzeo, J.R.
+                                                        | ,
+                                                        span.author Mazza, C.B.
+                                                        | ,
+                                                        span.author Cavanaugh, J.Y.
+                                                        | ,
+                                                        span.author Xia, F.
+                                                        | , and
+                                                        span.author Diehl, D.M.
+                                                        |                         (
+                                                        span.pubYear 2004
+                                                        | )
+                                                        span.articleTitle
+                                                            | Differences in preparative loadability between the charged and uncharged forms of
+                                                            | ionizable compounds
+                                                        | .
+                                                        span.journalTitle J. Chromatogr.
+                                                        | ,
+                                                        span.vol 1030
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 123
+                                                        | –
+                                                        span.pageLast 134
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2003.11.048', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2cXht1ygtr0%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=15043262', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000189217300017', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1030&publication_year=2004&pages=123-134&journal=J.+Chromatogr.&issue=1%E2%80%932&author=U.D.+Neueauthor=T.E.+Wheatauthor=J.R.+Mazzeoauthor=C.B.+Mazzaauthor=J.Y.+Cavanaughauthor=F.+Xiaauthor=D.M.+Diehl&title=Differences+in+preparative+loadability+between+the+charged+and+uncharged+forms+of+ionizable+compounds&', target='_blank') Google Scholar
+                                                li#assep001-bib-0017
+                                                    span.bullet 17
+                                                    span#assep001-cit-0017
+                                                        span.author Davies, N.H.
+                                                        | ,
+                                                        span.author Euerby, M.R.
+                                                        | , and
+                                                        span.author McCalley, D.V.
+                                                        |                         (
+                                                        span.pubYear 2006
+                                                        | )
+                                                        span.articleTitle
+                                                            | Study of overload for basic compounds in reversed‐phase high performance liquid chromatography
+                                                            | as a function of mobile phase pH
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1119
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 11
+                                                        | –
+                                                        span.pageLast 19
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2005.11.096', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD28Xls1aru74%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=16386747', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000238707100003', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1119&publication_year=2006&pages=11-19&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=N.H.+Daviesauthor=M.R.+Euerbyauthor=D.V.+McCalley&title=Study+of+overload+for+basic+compounds+in+reversed%E2%80%90phase+high+performance+liquid+chromatography+as+a+function+of+mobile+phase+pH&', target='_blank') Google Scholar
+                                                li#assep001-bib-0018
+                                                    span.bullet 18
+                                                    span#assep001-cit-0018
+                                                        span.editor Nič, M.
+                                                        | ,
+                                                        span.editor Jirát, J.
+                                                        | ,
+                                                        span.editor Košata, B.
+                                                        | ,
+                                                        span.editor Jenkins, A.
+                                                        | , and
+                                                        span.editor McNaught, A.
+                                                        |  (eds)
+                                                        |                         (
+                                                        span.pubYear 2009
+                                                        | )
+                                                        span.bookTitle IUPAC Compendium of Chemical Terminology: Gold Book
+                                                        | ,
+                                                        |                         IUPAC,
+                                                        span.publisherLocation Research Triagle Park, NC
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1119&publication_year=2009&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=M.+Ni%C4%8Dauthor=J.+Jir%C3%A1tauthor=B.+Ko%C5%A1ataauthor=A.+Jenkinsauthor=A.+McNaught&title=IUPAC+Compendium+of+Chemical+Terminology%3A+Gold+Book&', target='_blank') Google Scholar
+                                                li#assep001-bib-0019
+                                                    span.bullet 19
+                                                    span#assep001-cit-0019
+                                                        span.author Van Deemter, J.J.
+                                                        | ,
+                                                        span.author Zuiderweg, F.J.
+                                                        | , and
+                                                        span.author Klinkenberg, A.
+                                                        |                         (
+                                                        span.pubYear 1956
+                                                        | )
+                                                        span.articleTitle
+                                                            | Longitudinal diffusion and resistance to mass transfer as causes of nonideality in
+                                                            | chromatography
+                                                        | .
+                                                        span.journalTitle Chem. Eng. Sci.
+                                                        | ,
+                                                        span.vol 5
+                                                        |  (
+                                                        span.citedIssue 6
+                                                        | ),
+                                                        span.pageFirst 271
+                                                        | –
+                                                        span.pageLast 289
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2F0009-2509%2856%2980003-1', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaG2sXktVWi', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1956XG73200003', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=5&publication_year=1956&pages=271-289&journal=Chem.+Eng.+Sci.&issue=6&author=J.J.+Van+Deemterauthor=F.J.+Zuiderwegauthor=A.+Klinkenberg&title=Longitudinal+diffusion+and+resistance+to+mass+transfer+as+causes+of+nonideality+in+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0020
+                                                    span.bullet 20
+                                                    span#assep001-cit-0020
+                                                        span.author Swartz, M.E.
+                                                        |                         (
+                                                        span.pubYear 2005
+                                                        | )
+                                                        span.articleTitle UPLC™: an introduction and review
+                                                        | .
+                                                        span.journalTitle J. Liq. Chromatogr. R. T.
+                                                        | ,
+                                                        span.vol 28
+                                                        |  (
+                                                        span.citedIssue 7–8
+                                                        | ),
+                                                        span.pageFirst 1253
+                                                        | –
+                                                        span.pageLast 1263
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1081%2FJLC-200053046', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2MXjsF2lsr8%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000228451600010', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=28&publication_year=2005&pages=1253-1263&journal=J.+Liq.+Chromatogr.+R.+T.&issue=7%E2%80%938&author=M.E.+Swartz&title=UPLC%E2%84%A2%3A+an+introduction+and+review&', target='_blank') Google Scholar
+                                                li#assep001-bib-0021
+                                                    span.bullet 21
+                                                    span#assep001-cit-0021
+                                                        span.author Petersson, P.
+                                                        |  and
+                                                        span.author Euerby, M.R.
+                                                        |                         (
+                                                        span.pubYear 2007
+                                                        | )
+                                                        span.articleTitle Characterisation of RPLC columns packed with porous sub‐2μm particles
+                                                        | .
+                                                        span.journalTitle J. Separ. Sci.
+                                                        | ,
+                                                        span.vol 30
+                                                        |  (
+                                                        span.citedIssue 13
+                                                        | ),
+                                                        span.pageFirst 2012
+                                                        | –
+                                                        span.pageLast 2024
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/doi/10.1002/jssc.200700086', onclick='newWindow(this.href);return false', target='_blank') Wiley Online Library
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2sXhtVWntLvM', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=17639515', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000249171200003', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=30&publication_year=2007&pages=2012-2024&journal=J.+Separ.+Sci.&issue=13&author=P.+Peterssonauthor=M.R.+Euerby&title=Characterisation+of+RPLC+columns+packed+with+porous+sub%E2%80%902%CE%BCm+particles&', target='_blank') Google Scholar
+                                                li#assep001-bib-0022
+                                                    span.bullet 22
+                                                    span#assep001-cit-0022
+                                                        span.editor Fanali, S.
+                                                        | ,
+                                                        span.editor Haddad, P.R.
+                                                        | ,
+                                                        span.editor Poole, C.
+                                                        | ,
+                                                        span.editor Schoenmakers, P.
+                                                        | , and
+                                                        span.editor Lloyd, D.K.
+                                                        |  (eds)
+                                                        |                         (
+                                                        span.pubYear 2013
+                                                        | )
+                                                        span.bookTitle Liquid Chromatography: Fundamentals and Instrumentation
+                                                        | ,
+                                                        |                         Elsevier,
+                                                        span.publisherLocation Waltham
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=30&publication_year=2013&journal=J.+Separ.+Sci.&issue=13&author=S.+Fanaliauthor=P.R.+Haddadauthor=C.+Pooleauthor=P.+Schoenmakersauthor=D.K.+Lloyd&title=Liquid+Chromatography%3A+Fundamentals+and+Instrumentation&', target='_blank') Google Scholar
+                                                li#assep001-bib-0023
+                                                    span.bullet 23
+                                                    span#assep001-cit-0023
+                                                        span.author Kaczmarski, K.
+                                                        | ,
+                                                        span.author Kostka, J.
+                                                        | ,
+                                                        span.author Zapała, W.
+                                                        | , and
+                                                        span.author Guiochon, G.
+                                                        |                         (
+                                                        span.pubYear 2009
+                                                        | )
+                                                        span.articleTitle
+                                                            | Modeling of thermal processes in high pressure liquid chromatography. I. Low pressure
+                                                            | onset of thermal heterogeneity
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1216
+                                                        |  (
+                                                        span.citedIssue 38
+                                                        | ),
+                                                        span.pageFirst 6560
+                                                        | –
+                                                        span.pageLast 6574
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2009.07.020', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD1MXhtVKku7jM', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=19640545', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000269962600003', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1216&publication_year=2009&pages=6560-6574&journal=J.+Chromatogr.+A.&issue=38&author=K.+Kaczmarskiauthor=J.+Kostkaauthor=W.+Zapa%C5%82aauthor=G.+Guiochon&title=Modeling+of+thermal+processes+in+high+pressure+liquid+chromatography.+I.+Low+pressure+onset+of+thermal+heterogeneity&', target='_blank') Google Scholar
+                                                li#assep001-bib-0024
+                                                    span.bullet 24
+                                                    span#assep001-cit-0024
+                                                        span.author Kaczmarski, K.
+                                                        | ,
+                                                        span.author Gritti, F.
+                                                        | ,
+                                                        span.author Kostka, J.
+                                                        | , and
+                                                        span.author Guiochon, G.
+                                                        |                         (
+                                                        span.pubYear 2009
+                                                        | )
+                                                        span.articleTitle
+                                                            | Modeling of thermal processes in high pressure liquid chromatography. II. Thermal
+                                                            | heterogeneity at very high pressures
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1216
+                                                        |  (
+                                                        span.citedIssue 38
+                                                        | ),
+                                                        span.pageFirst 6575
+                                                        | –
+                                                        span.pageLast 6586
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2009.07.049', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD1MXhtVKku7jO', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=19665717', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000269962600004', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1216&publication_year=2009&pages=6575-6586&journal=J.+Chromatogr.+A.&issue=38&author=K.+Kaczmarskiauthor=F.+Grittiauthor=J.+Kostkaauthor=G.+Guiochon&title=Modeling+of+thermal+processes+in+high+pressure+liquid+chromatography.+II.+Thermal+heterogeneity+at+very+high+pressures&', target='_blank') Google Scholar
+                                                li#assep001-bib-0025
+                                                    span.bullet 25
+                                                    span#assep001-cit-0025
+                                                        span.author Horvath, C.G.
+                                                        | ,
+                                                        span.author Preiss, B.A.
+                                                        | , and
+                                                        span.author Lipsky, S.R.
+                                                        |                         (
+                                                        span.pubYear 1967
+                                                        | )
+                                                        span.articleTitle
+                                                            | Fast liquid chromatography: investigation of operating parameters and the separation
+                                                            | of nucleotides on pellicular ion exchangers
+                                                        | .
+                                                        span.journalTitle Anal. Chem.
+                                                        | ,
+                                                        span.vol 39
+                                                        |  (
+                                                        span.citedIssue 12
+                                                        | ),
+                                                        span.pageFirst 1422
+                                                        | –
+                                                        span.pageLast 1428
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1021%2Fac60256a003', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaF2sXkvFOmsL8%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=6073805', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A19679956800028', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=39&publication_year=1967&pages=1422-1428&journal=Anal.+Chem.&issue=12&author=C.G.+Horvathauthor=B.A.+Preissauthor=S.R.+Lipsky&title=Fast+liquid+chromatography%3A+investigation+of+operating+parameters+and+the+separation+of+nucleotides+on+pellicular+ion+exchangers&', target='_blank') Google Scholar
+                                                li#assep001-bib-0026
+                                                    span.bullet 26
+                                                    span#assep001-cit-0026
+                                                        span.author Guiochon, G.
+                                                        |                         (
+                                                        span.pubYear 2007
+                                                        | )
+                                                        span.articleTitle Monolithic columns in high‐performance liquid chromatography
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1168
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 101
+                                                        | –
+                                                        span.pageLast 168
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2007.05.090', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2sXhtFeqtr3J', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=17640660', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000250619400009', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1168&publication_year=2007&pages=101-168&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=G.+Guiochon&title=Monolithic+columns+in+high%E2%80%90performance+liquid+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0027
+                                                    span.bullet 27
+                                                    span#assep001-cit-0027
+                                                        span.author Vervoort, N.
+                                                        | ,
+                                                        span.author Gzil, P.
+                                                        | ,
+                                                        span.author Baron, G.V.
+                                                        | , and
+                                                        span.author Desmet, G.
+                                                        |                         (
+                                                        span.pubYear 2004
+                                                        | )
+                                                        span.articleTitle
+                                                            | Model column structure for the analysis of the flow and band‐broadening characteristics
+                                                            | of silica monoliths
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1030
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 177
+                                                        | –
+                                                        span.pageLast 186
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.chroma.2003.12.040', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD2cXht1ygtrY%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=15043267', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000189217300022', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1030&publication_year=2004&pages=177-186&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=N.+Vervoortauthor=P.+Gzilauthor=G.V.+Baronauthor=G.+Desmet&title=Model+column+structure+for+the+analysis+of+the+flow+and+band%E2%80%90broadening+characteristics+of+silica+monoliths&', target='_blank') Google Scholar
+                                                li#assep001-bib-0028
+                                                    span.bullet 28
+                                                    span#assep001-cit-0028
+                                                        span.author Unger, K.K.
+                                                        | ,
+                                                        span.author Becker, N.
+                                                        | , and
+                                                        span.author Roumeliotis, P.
+                                                        |                         (
+                                                        span.pubYear 1976
+                                                        | )
+                                                        span.articleTitle
+                                                            | Recent developments in the evaluation of chemically bonded silica packings for liquid
+                                                            | chromatography
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 125
+                                                        |  (
+                                                        span.citedIssue 1
+                                                        | ),
+                                                        span.pageFirst 115
+                                                        | –
+                                                        span.pageLast 127
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2800%2993815-9', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaE2sXhvValsbk%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1976CJ67000009', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=125&publication_year=1976&pages=115-127&journal=J.+Chromatogr.+A.&issue=1&author=K.K.+Ungerauthor=N.+Beckerauthor=P.+Roumeliotis&title=Recent+developments+in+the+evaluation+of+chemically+bonded+silica+packings+for+liquid+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0029
+                                                    span.bullet 29
+                                                    span#assep001-cit-0029
+                                                        span.author Wyndham, K.D.
+                                                        | ,
+                                                        span.author O'Gara, J.E.
+                                                        | ,
+                                                        span.author Walter, T.H.
+                                                        | ,
+                                                        span.author Glose, K.H.
+                                                        | ,
+                                                        span.author Lawrence, N.L.
+                                                        | ,
+                                                        span.author Alden, B.A.
+                                                        | ,
+                                                        span.author Izzo, G.S.
+                                                        | ,
+                                                        span.author Hudalla, C.J.
+                                                        | , and
+                                                        span.author Iraneta, P.C.
+                                                        |                         (
+                                                        span.pubYear 2003
+                                                        | )
+                                                        span.articleTitle
+                                                            | Characterization and evaluation of C
+                                                            sub 18
+                                                            |  HPLC stationary phases based on ethyl‐bridged hybrid organic/inorganic particles
+                                                        | .
+                                                        span.journalTitle Anal. Chem.
+                                                        | ,
+                                                        span.vol 75
+                                                        |  (
+                                                        span.citedIssue 24
+                                                        | ),
+                                                        span.pageFirst 6781
+                                                        | –
+                                                        span.pageLast 6788
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1021%2Fac034767w', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD3sXovFeju7s%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=14670036', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000187283000004', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=75&publication_year=2003&pages=6781-6788&journal=Anal.+Chem.&issue=24&author=K.D.+Wyndhamauthor=J.E.+O%27Garaauthor=T.H.+Walterauthor=K.H.+Gloseauthor=N.L.+Lawrenceauthor=B.A.+Aldenauthor=G.S.+Izzoauthor=C.J.+Hudallaauthor=P.C.+Iraneta&title=Characterization+and+evaluation+of+C18+HPLC+stationary+phases+based+on+ethyl%E2%80%90bridged+hybrid+organic%2Finorganic+particles&', target='_blank') Google Scholar
+                                                li#assep001-bib-0030
+                                                    span.bullet 30
+                                                    span#assep001-cit-0030
+                                                        span.author Scholten, A.B.
+                                                        | ,
+                                                        span.author de Haan, J.W.
+                                                        | ,
+                                                        span.author Claessens, H.A.
+                                                        | ,
+                                                        span.author van de Ven, L.J.M.
+                                                        | , and
+                                                        span.author Cramers, C.A.
+                                                        |                         (
+                                                        span.pubYear 1994
+                                                        | )
+                                                        span.articleTitle
+                                                            | 29‐Silicon NMR evidence for the improved chromatographic siloxane bond stability of
+                                                            | bulky alkylsilane ligands on a silica surface
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 688
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 25
+                                                        | –
+                                                        span.pageLast 29
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2F0021-9673%2894%2900928-7', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1994QC79500002', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=688&publication_year=1994&pages=25-29&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=A.B.+Scholtenauthor=J.W.+Haanauthor=H.A.+Claessensauthor=L.J.M.+Venauthor=C.A.+Cramers&title=29%E2%80%90Silicon+NMR+evidence+for+the+improved+chromatographic+siloxane+bond+stability+of+bulky+alkylsilane+ligands+on+a+silica+surface&', target='_blank') Google Scholar
+                                                li#assep001-bib-0031
+                                                    span.bullet 31
+                                                    span#assep001-cit-0031
+                                                        span.author Kirkland, J.J.
+                                                        | ,
+                                                        span.author Adams, J.B.
+                                                        | ,
+                                                        span.author van Straten, M.A.
+                                                        | , and
+                                                        span.author Claessens, H.A.
+                                                        |                         (
+                                                        span.pubYear 1998
+                                                        | )
+                                                        span.articleTitle
+                                                            | Bidentate silane stationary phases for reversed‐phase high‐performance liquid chromatography
+                                                        | .
+                                                        span.journalTitle Anal. Chem.
+                                                        | ,
+                                                        span.vol 70
+                                                        |  (
+                                                        span.citedIssue 20
+                                                        | ),
+                                                        span.pageFirst 4344
+                                                        | –
+                                                        span.pageLast 4352
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1021%2Fac971380i', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaK1cXmtVelsbY%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000076487800019', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=70&publication_year=1998&pages=4344-4352&journal=Anal.+Chem.&issue=20&author=J.J.+Kirklandauthor=J.B.+Adamsauthor=M.A.+Stratenauthor=H.A.+Claessens&title=Bidentate+silane+stationary+phases+for+reversed%E2%80%90phase+high%E2%80%90performance+liquid+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0032
+                                                    span.bullet 32
+                                                    span#assep001-cit-0032
+                                                        span.author Kirkland, J.J.
+                                                        |                         (
+                                                        span.pubYear 2004
+                                                        | )
+                                                        span.articleTitle Development of some stationary phases for reversed‐phase HPLC
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 1060
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 9
+                                                        | –
+                                                        span.pageLast 21
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2804%2901892-8', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=15628149', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000225674100002', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=1060&publication_year=2004&pages=9-21&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=J.J.+Kirkland&title=Development+of+some+stationary+phases+for+reversed%E2%80%90phase+HPLC&', target='_blank') Google Scholar
+                                                li#assep001-bib-0033
+                                                    span.bullet 33
+                                                    span#assep001-cit-0033
+                                                        span.author Bowermaster, J.
+                                                        |  and
+                                                        span.author McNair, H.M.
+                                                        |                         (
+                                                        span.pubYear 1984
+                                                        | )
+                                                        span.articleTitle Temperature programmed microbore HPLC. Part I
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. Sci.
+                                                        | ,
+                                                        span.vol 22
+                                                        |  (
+                                                        span.citedIssue 4
+                                                        | ),
+                                                        span.pageFirst 165
+                                                        | –
+                                                        span.pageLast 170
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1093%2Fchromsci%2F22.4.165', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaL2cXktFKms7k%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1984SN68100007', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=22&publication_year=1984&pages=165-170&journal=J.+Chromatogr.+Sci.&issue=4&author=J.+Bowermasterauthor=H.M.+McNair&title=Temperature+programmed+microbore+HPLC.+Part+I&', target='_blank') Google Scholar
+                                                li#assep001-bib-0034
+                                                    span.bullet 34
+                                                    span#assep001-cit-0034
+                                                        span.author Chen, M.H.
+                                                        |  and
+                                                        span.author Horváth, C.
+                                                        |                         (
+                                                        span.pubYear 1997
+                                                        | )
+                                                        span.articleTitle
+                                                            | Temperature programming and gradient elution in reversed‐phase chromatography with
+                                                            | packed capillary columns
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 788
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 51
+                                                        | –
+                                                        span.pageLast 61
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2897%2900715-2', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=9419873', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1997YH62100002', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=788&publication_year=1997&pages=51-61&journal=J.+Chromatogr.+A.&issue=1%E2%80%932&author=M.H.+Chenauthor=C.+Horv%C3%A1th&title=Temperature+programming+and+gradient+elution+in+reversed%E2%80%90phase+chromatography+with+packed+capillary+columns&', target='_blank') Google Scholar
+                                                li#assep001-bib-0035
+                                                    span.bullet 35
+                                                    span#assep001-cit-0035
+                                                        span.author Yang, Y.
+                                                        |                         (
+                                                        span.pubYear 2006
+                                                        | )
+                                                        span.articleTitle
+                                                            | A model for temperature effect on column efficiency in high‐temperature liquid chromatography
+                                                        | .
+                                                        span.journalTitle Anal. Chim. Acta
+                                                        | ,
+                                                        span.vol 558
+                                                        |  (
+                                                        span.citedIssue 1–2
+                                                        | ),
+                                                        span.pageFirst 7
+                                                        | –
+                                                        span.pageLast 10
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2Fj.aca.2005.11.011', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD28XotFymuw%253D%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000235116600003', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=558&publication_year=2006&pages=7-10&journal=Anal.+Chim.+Acta&issue=1%E2%80%932&author=Y.+Yang&title=A+model+for+temperature+effect+on+column+efficiency+in+high%E2%80%90temperature+liquid+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0036
+                                                    span.bullet 36
+                                                    span#assep001-cit-0036
+                                                        span.author Hemström, P.
+                                                        |  and
+                                                        span.author Irgum, K.
+                                                        |                         (
+                                                        span.pubYear 2006
+                                                        | )
+                                                        span.articleTitle Hydrophilic interaction chromatography
+                                                        | .
+                                                        span.journalTitle J. Separ. Sci.
+                                                        | ,
+                                                        span.vol 29
+                                                        |  (
+                                                        span.citedIssue 12
+                                                        | ),
+                                                        span.pageFirst 1784
+                                                        | –
+                                                        span.pageLast 1821
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/doi/10.1002/jssc.200600199', onclick='newWindow(this.href);return false', target='_blank') Wiley Online Library
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADC%252BD28XpsVOgu7w%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=16970185', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=000240278700009', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=29&publication_year=2006&pages=1784-1821&journal=J.+Separ.+Sci.&issue=12&author=P.+Hemstr%C3%B6mauthor=K.+Irgum&title=Hydrophilic+interaction+chromatography&', target='_blank') Google Scholar
+                                                li#assep001-bib-0037
+                                                    span.bullet 37
+                                                    span#assep001-cit-0037
+                                                        span.author Alpert, A.J.
+                                                        |                         (
+                                                        span.pubYear 1990
+                                                        | )
+                                                        span.articleTitle
+                                                            | Hydrophilic‐interaction chromatography for the separation of peptides, nucleic acids
+                                                            | and other polar compounds
+                                                        | .
+                                                        span.journalTitle J. Chromatogr. A.
+                                                        | ,
+                                                        span.vol 499
+                                                        | ,
+                                                        span.pageFirst 177
+                                                        | –
+                                                        span.pageLast 196
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=16&doi=10.1002%2F9783527678129.assep001&key=10.1016%2FS0021-9673%2800%2996972-3', onclick='newWindow(this.href);return false', target='_blank') Crossref
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=32&doi=10.1002%2F9783527678129.assep001&key=1%3ACAS%3A528%3ADyaK3cXkt1Shur8%253D', onclick='newWindow(this.href);return false', target='_blank') CAS
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=8&doi=10.1002%2F9783527678129.assep001&key=2324207', onclick='newWindow(this.href);return false', target='_blank') PubMed
+                                                            span
+                                                                a(href='/servlet/linkout?suffix=null&dbid=128&doi=10.1002%2F9783527678129.assep001&key=A1990CQ08700015', onclick='newWindow(this.href);return false', target='_blank') Web of Science®
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=499&publication_year=1990&pages=177-196&journal=J.+Chromatogr.+A.&author=A.J.+Alpert&title=Hydrophilic%E2%80%90interaction+chromatography+for+the+separation+of+peptides%2C+nucleic+acids+and+other+polar+compounds&', target='_blank') Google Scholar
+                                                li#assep001-bib-0038
+                                                    span.bullet 38
+                                                    span#assep001-cit-0039
+                                                        span.author Harris, D.C.
+                                                        |                         (
+                                                        span.pubYear 2007
+                                                        | )
+                                                        span.bookTitle Quantitative Chemical Analysis
+                                                        | ,
+                                                        |                         W.H. Freeman & Co.,
+                                                        span.publisherLocation New York, NY
+                                                        | .
+                                                        .extra-links
+                                                            span
+                                                                a.google-scholar(href='http://scholar.google.com/scholar_lookup?hl=en&volume=499&publication_year=2007&journal=J.+Chromatogr.+A.&author=D.C.+Harris&title=Quantitative+Chemical+Analysis&', target='_blank') Google Scholar
+                            // ${/if:}
+
+        - i++
+        li.tab__spinner
+            img(src="/ux3/widgets/publication-content/images/spinner.gif" id="spinner" style="width: 100%" alt="")
+
+block tabsMain
+    div.tab.tab--slide.tab--flex.sticko__md.tabs--xs.dynamic-sticko(class=classNames)
+        ul.rlist.tab__nav.w-slide--list(data-mobile-toggle = "slide")
+            +nav()
+        +pane()

@@ -1,0 +1,41 @@
+{
+    "title": "Books Subjects page",
+    "tag": ["templates"],
+    "clearview":true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/pol-header-book.json"
+                }
+            }
+        },
+
+        "facet":{
+            "$pug": {
+                "template": "../../widgets/search-facets/templates/search-facets/search-facets-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/search-facets/templates/data/facet2.json"
+                }
+            }
+        },
+
+        "searchresult": {
+            "$pug": {
+                "template": "../../widgets/search-result/templates/search-result/demo/demo-search-result-books2-tmpl.jade",
+                "data": {
+                    "$ref": "../../widgets/search-result/templates/data/search_book.json"
+                }
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/pol-footer.json"
+                }
+            }
+        }
+    }
+}

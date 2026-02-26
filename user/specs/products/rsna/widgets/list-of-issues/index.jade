@@ -1,0 +1,17 @@
+extends /specs/products/rsna/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/ux3/widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade')
+
+
+        .source_example
+            .container
+                | !{data.items[0].body}
+    | #{''}

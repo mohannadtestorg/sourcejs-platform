@@ -1,0 +1,86 @@
+extends ../../../../../../../ux3/components/coolbar/templates/coolbar/coolbar-tmpl
+
+-var pdfClass = '';
+
+mixin about()
+    div.coolBar__section
+        a.coolBar__ctrl.hidden-lg(href="#" data-db-target-for="article" data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls="article_Pop" role="button" id="article_Ctrl")
+            i.icon-abstract
+            span About
+        div.coolBar__drop.fixed.rlist.dropBlock__holder(data-db-target-of="article" aria-labelledby="article_Ctrl" role="menu"  id="article_Pop")
+            div.transplant.showit(data-target=".article-row-right .tab__nav, .coolBar--download" data-remove="false" data-targetClass="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+
+block coolbarDropZone
+    if data.item.isAccessDenial
+        +about()
+        div.coolBar__section.coolBar--accessDenail
+            a.coolBar__ctrl.hidden-lg(href="#" data-db-target-for="access" data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls="access_Pop" role="button" id="access_Ctrl")
+                i.icon-icon-lock_open
+                span Access
+            div.coolBar__drop.dropBlock__holder.rlist.fixed(data-db-target-of="access" aria-labelledby="access_Ctrl" role="menu"  id="access_Pop")
+                div.transplant.showit(data-target="#pane-pcw-access .accessDenial--tab" data-remove="false" data-targetClass="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from")
+
+    else
+        if data.item.isAbstractView == false
+            +about()
+            div.coolBar__section.coolBar--sections
+                a.coolBar__ctrl(href="#" data-db-target-for="sections" data-db-switch="icon-close_thin" aria-haspopup="true" aria-controls="sections_Pop" role="button" id="sections_Ctrl")
+                    i.icon-list-unordered
+                    span Sections
+                div.coolBar__drop.dropBlock__holder.rlist.fixed(data-db-target-of="sections" aria-labelledby="sections_Ctrl" role="menu"  id="sections_Pop")
+        else
+            if (data.item.formats.fullText)
+                div.coolBar__section
+                    a.go-to-full(href=data.item.formats.fullText)
+                        span.extra-text Read the
+                        | !{" "} full text
+                        i(aria-hidden="true" class="icon-arrow_r")
+            +about()
+
+
+block coolBarSecondUl
+    div.coolBar__second.rlist
+        block coolBarSecond
+
+            if data.item.formats.bookPdf && (data.item.formats.pdf || data.item.formats.epdf)
+                .hideOnJSLoad
+                    if data.item.formats.bookPdf
+                        div.coolBar__section.hideOnJSLoad.coolBar--download.coolBar--download__item
+                            a.coolBar__ctrl.pdf-download(href=data.item.formats.bookPdf) PDF
+
+                .relative.showOnJSLoad
+                    a.hidden-xs.hidden-sm.hidden-md.coolBar--download.coolBar__ctrl.pdf-download(data-db-target-for="pdfLinks"  href="#" aria-haspopup="true" aria-controls="download_Pop" role="button" id="download_Ctrl")
+                        img(src="/products/pericles/releasedAssets/images/pdf-icon.png" alt="PDF")
+                        | PDF
+                    div.coolBar__drop.dropBlock__holder.rlist.fixed(data-db-target-of="pdfLinks" aria-haspopup="true" aria-labelledby="download_Ctrl" role="button" id="download_Pop")
+                        if data.item.formats.epdf
+                            - pdfClass = 'pdfLink--is-hidden'
+                            div.coolBar__section.coolBar--download.readcubeEPdfLink.coolBar--download__item
+                                a.coolBar__ctrl.pdf-download(href=data.item.formats.epdf title = "Article ePDF") CHAPTER PDF
+                        if data.item.formats.pdf
+                            div.coolBar__section.coolBar--download.PdfLink.coolBar--download__item(class=pdfClass )
+                                a.coolBar__ctrl.pdf-download(href=data.item.formats.pdf title="Article PDF") CHAPTER PDF
+                        if data.item.formats.bookPdf
+                            div.coolBar__section.coolBar--download.coolBar--download__item
+                                a.coolBar__ctrl.pdf-download(href=data.item.formats.bookPdf title="Book PDF") FULL BOOK PDF
+
+
+            else
+                if data.item.formats.epdf
+                    - pdfClass = 'pdfLink--is-hidden'
+                    div.coolBar__section.coolBar--download.readcubeEPdfLink
+                        a.coolBar__ctrl.pdf-download(href=data.item.formats.epdf title = "Article ePDF")
+                            img(src="/products/pericles/releasedAssets/images/pdf-icon.png" alt="ePDF")
+                            | PDF
+                if data.item.formats.pdf
+                    div.coolBar__section.coolBar--download.PdfLink(class=pdfClass )
+                        a.coolBar__ctrl.pdf-download(href=data.item.formats.pdf title="Article PDF")
+                            img(src="/products/pericles/releasedAssets/images/pdf-icon.png" alt="PDF")
+                            | PDF
+                if data.item.formats.bookPdf
+                    div.coolBar__section.coolBar--download.PdfLink
+                        a.coolBar__ctrl.pdf-download(href=data.item.formats.bookPdf title="Book PDF")
+                            img(src="/products/pericles/releasedAssets/images/pdf-icon.png" alt="BookPDF")
+                            | PDF
+            | !{pb.renderDropzone(thisWidget, "coolbarDropZone")}

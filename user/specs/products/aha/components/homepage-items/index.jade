@@ -1,0 +1,24 @@
+﻿extends /specs/products/aha/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+
+        h2 Usage
+    | #{''}
+
+    section.source_section
+        h2 Homepage html
+
+        h3 Calls for papers box
+        .source_example
+            include ./templates/calls-for-papers-tmpl
+            
+        h3 Connect via social networks
+        .source_example
+            include ./templates/connect-via-social-tmpl
+
+        h3 Multimedia
+        .source_example
+            | !{data.multimedia_items}
+    | #{''}

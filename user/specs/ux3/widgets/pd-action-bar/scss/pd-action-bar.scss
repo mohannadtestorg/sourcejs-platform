@@ -1,0 +1,46 @@
+.pd-action-bar {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $primary-border-color;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @include media('>=phone') {
+        justify-content: flex-end;
+        margin-top: 90px;
+    }
+
+    &__info {
+        color: rgba(51,51,51,.54);
+        font-size: $small-font-size;
+    }
+
+    .btn {
+        min-width: 128px;
+    }
+
+    textarea {
+        margin-bottom: 0;
+    }
+
+    .note {
+        width: 100%;
+        flex: 0 0 auto;
+    }
+    .dropzone {
+        display:  inline-block;
+        line-height: normal;
+        min-height: 0;
+        height: 38px;
+        margin-right: 10px;
+    }
+}
+.pdActionBar {
+    .toast {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+    }
+}

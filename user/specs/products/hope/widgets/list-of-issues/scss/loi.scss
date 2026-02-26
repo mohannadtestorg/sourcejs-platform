@@ -1,0 +1,38 @@
+#loi-banner {
+    > a {
+        color: $text-onDark;
+        ~ a {
+            border-color:  $text-onDark;;
+        }
+
+    }
+}
+
+
+
+.loi {
+    &-list {
+        &__wrapper {
+            .tab__nav {
+                background: transparent;
+            }
+        }
+    }
+
+    &__banner{
+        background: transparent;
+        box-shadow: none;
+        min-height: 55px;
+    }
+    
+    &__volumeContainer{
+        display: block;
+    }
+}
+
+.journal.content{
+    @include media('<tablet')
+    {
+        padding-top: 140px;
+    }
+}

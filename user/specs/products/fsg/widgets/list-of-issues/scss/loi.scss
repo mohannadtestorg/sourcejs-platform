@@ -1,0 +1,76 @@
+.loi {
+    &__banner {
+        background: $white;
+        box-shadow: none;
+        padding: 0;
+
+        a {
+            padding: 0 10px;
+            @include media('<desktop', '>=tablet') {
+                padding: 0 5px;
+            }
+            display: inline-block;
+            line-height: 0.875rem;
+            color: $primary-btn-color;
+
+            ~ a {
+                border-left: 2px solid $primary-text-color;
+                @include media('<desktop') {
+                    border-left-color: $text-onDark;
+                }
+            }
+        }
+
+        .tab__nav {
+            a {
+                padding: 20px 20px 16px;
+            }
+        }
+
+        .coolBar__wrapper {
+            padding: 16px 5px;
+        }
+        .loi--res & {margin-top: 5px;}
+
+        i[class*=icon-] {
+            color: $primary-btn-color;
+
+            @include media('<desktop') {
+                color: $text-onDark;
+            }
+        }
+
+        [class*=__ctrl] {
+            padding: 0 10px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: .88rem;
+        }
+
+        .secondary-text-color {
+            @include media('<desktop') {
+                color: $text-onDark;
+            }
+        }
+
+    }
+    &--res {
+        .coolBar__wrapper {
+            padding: 13px 5px;
+        }
+    }
+}
+
+#loi-banner {
+    > a {
+        color: $primary-btn-color;
+        @include media('<desktop') {
+            color: $text-onDark;
+        }
+
+        ~ a {
+            border-left: 2px solid $text-onDark;
+        }
+    }
+
+}

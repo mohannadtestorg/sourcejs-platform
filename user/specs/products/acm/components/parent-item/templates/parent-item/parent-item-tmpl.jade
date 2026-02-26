@@ -1,0 +1,24 @@
+extends ../../../../../../ux3/components/parent-item/templates/parent-item/parent-item-tmpl
+
+block parentDate
+
+block volume
+    .basic-info
+        .vol-issue
+            if (data) && (data.volume)
+                span Volume #{data.volume}
+            if (data) && (data.issue)
+                span , Issue #{data.issue}
+
+
+        if (data) && (data.coverDate)
+            div.coverDate !{data.coverDate}
+
+
+    .more-info
+        block coverDetailsDropZone
+            | !{pb.renderDropzone(thisWidget, "coverDetailsDropZone")}
+
+
+
+

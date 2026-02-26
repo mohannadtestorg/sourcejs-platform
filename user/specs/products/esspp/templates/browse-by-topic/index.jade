@@ -1,0 +1,28 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Browse by Topic
+    section.source_section
+        h2 Browse by Topic
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content
+                .container.static-page.browse-by-topic
+                    h4.header--gray.border-bottom BROWSE BY TOPIC
+
+                    | !{pb.render('topical-index', 'topical-index/topical-index-alt', 'data-alt.json', 'esspp')}
+
+
+
+
+
+
+
+
+            | !{data.footer}
+    | #{''}

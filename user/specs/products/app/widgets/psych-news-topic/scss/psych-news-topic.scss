@@ -1,0 +1,85 @@
+.psych-news-topic{
+  font-family: $news-font-family;
+  @include media('<large') {
+    border-bottom: 3px solid;
+    padding-bottom: 12px;
+  }
+  .item-title{
+    color: $black;
+  }
+
+  .topic-title{
+    padding-left: 8px;
+    display:inline-block;
+    margin-bottom: 0;
+    vertical-align: bottom;
+    line-height: 19px;
+    text-transform: uppercase;
+  }
+  &__section{
+    margin-bottom: 12px;
+  }
+  &__info{
+    @include media('>large') {
+      margin: 10px 0;
+    }
+    p{
+      color:$primary-darken-text-color;
+      margin: 0 0 10px;
+      font-family: $lora-font-family;
+    }
+  }
+  &__bottom-info{
+    padding-top: 15px;
+  }
+  &__image{
+    img{
+      width: 100%;
+    }
+  }
+  .link{
+    font-size: .875rem;
+    font-weight: 600;
+  }
+  .grid-item{
+    &:last-child{
+      .creative-work{
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+
+.colored-block{
+  width: 48px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: bottom;
+  @include media('<tablet') {
+    width: 24px;
+  }
+
+  .news-green &{
+    background: $pys-news-green-color;
+  }
+  .news-red &{
+    background: $pys-news-red-color;
+  }
+  .news-blue &{
+    background: $pys-news-blue-color;
+  }
+  .news-orange &{
+    background: $pys-news-orange-color;
+  }
+  .news-dark-orange &{
+    background: $pys-news-dark-orange-color;
+  }
+  .news-purple &{
+    background: $pys-news-purple-color;
+  }
+  .news-dark-purple &{
+    background: $pys-news-dark-purple-color;
+  }
+
+}

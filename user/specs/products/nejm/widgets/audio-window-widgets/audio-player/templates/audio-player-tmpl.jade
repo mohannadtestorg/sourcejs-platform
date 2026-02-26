@@ -1,0 +1,35 @@
+.o-popups-modal__player.f-ui
+    .m-audio-player(data-behavior='AudioPlayer')
+        audio(preload='', controls='controls')
+            source(src='http://www.specialneedsinmusic.com/audio/piano/beethoven/sys2_Beethoven_Pathetique_mvt_1_12_1207_48k24bit.mp3', type='audio/mpeg')
+            |           Your browser does not support the audio element.
+
+        button.m-audio-player__play(data-audio-player-play='')
+            svg.icon--play(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--play')
+
+            svg.icon--pause(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--pause')
+
+        span.m-audio-player__current.f-ui(data-audio-player-current='') 02:38
+
+        .m-audio-player__progress(data-audio-player-progress='')
+            input.m-audio-player__range(type='range', min='0', max='100', value='0')
+
+            span.m-audio-player__tocomplete
+
+            span.m-audio-player__done(data-audio-player-done='', style='width: 25%;')
+
+        span.m-audio-player__duration.f-ui(data-audio-player-duration='') 10:24
+
+        button.m-audio-player__volume(data-audio-player-volume='')
+            svg.icon--audio(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--audio')
+
+            svg.icon--audio-muted(aria-hidden='true')
+                use(xmlns:xlink='http://www.w3.org/1999/xlink', xlink:href='#icon--audio-muted')
+
+        .m-audio-player__volume-slider(data-audio-player-volume-slider='')
+            input.m-audio-player__range(type='range', min='0', max='100', value='100')
+
+            span.m-audio-player__tocomplete

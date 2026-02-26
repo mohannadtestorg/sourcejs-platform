@@ -1,0 +1,220 @@
+/***
+
+```
+<div class="m-media-launcher">
+  <div class="m-media-launcher__poster">
+    <img srcset="http://placehold.dev.area17.com/image/1600x1200?bg=cccccc&fg=ffffff&text=image 1600w" sizes="(min-width: 1480px) 800px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 7), (min-width: 1024px) calc(((100vw - 390px) / 12) * 7), (min-width: 768px) calc(((100vw - 270px) / 7) * 2), (min-width: 480px) calc(100vw - 40px), calc(100vw - 32px)">
+    <div class="m-media-launcher__blurb">
+      <p class="f-body--sm">Cras vehicula viverra quam, sed consectetur eros condimentum viverra. Aliquam velit lorem, malesuada id mattis quis, maximus tincidunt quam. Donec sed efficitur ipsum, tincidunt efficitur ligula.</p>
+    </div>
+  </div>
+  <p class="m-media-launcher__btns">
+    <a href="#" class="a-btn a-btn--icon-first">
+      <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+      Play
+    </a>
+  </p>
+</div>
+<div class="m-media-launcher">
+  <div class="m-media-launcher__poster">
+    <img class="m-media-launcher__poster-img" srcset="http://placehold.dev.area17.com/image/1600x900?bg=f2f2f2&fg=ffffff&text=image 1600w" sizes="(min-width: 1480px) 800px, (min-width: 1280px) calc(((100vw - 520px) / 12) * 7), (min-width: 1024px) calc(((100vw - 390px) / 12) * 7), (min-width: 768px) calc(((100vw - 270px) / 7) * 2), (min-width: 480px) calc(100vw - 40px), calc(100vw - 32px)">
+    <div class="m-media-launcher__blurb">
+      <p class="f-body--sm">Cras vehicula viverra quam, sed consectetur eros condimentum viverra. <a href="#">Aliquam velit lorem</a>, malesuada id mattis quis, maximus tincidunt quam. Donec sed efficitur ipsum, tincidunt efficitur ligula.</p>
+      <p class="f-body--sm"><a href="#">Learn more about Interactive Medical Cases</a></p>
+    </div>
+  </div>
+  <div class="m-media-launcher__options">
+    <div class="m-media-launcher__option">
+      <p class="m-media-launcher__btns">
+        <a href="#" class="a-btn a-btn--icon-first">
+          <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+          Play &amp; Save
+        </a>
+      </p>
+      <p class="f-body--sm">Viverra quam, sed consectetur liquam velit lorem, malesuada id mattis quis, maximus tincidunt quam. Donec sed efficitur ipsum, tincidunt efficitur ligula.</p>
+    </div>
+    <div class="m-media-launcher__option">
+      <p class="m-media-launcher__btns">
+        <a href="#" class="a-btn a-btn--icon-first">
+          <svg class="icon--play" aria-hidden="true"><use xlink:href="#icon--play" /></svg>
+          Play
+        </a>
+      </p>
+      <p class="f-body--sm">Aliquam velit lorem, malesuada id mattis quis.</p>
+    </div>
+  </div>
+</div>
+```
+
+***/
+
+.m-media-launcher {
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.m-media-launcher__poster {
+  outline: 1px solid $color__rules;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  max-width: 688px;
+  height: 388px;
+  position: relative;
+
+  &:before {
+    display: none;
+  }
+
+  @include breakpoint('small-') {
+    flex-direction: column;
+    height: auto;
+    .m-media-launcher__poster-img {
+      align-self: flex-end;
+    }
+  }
+
+  @include breakpoint('medium+') {
+    &:before {
+      content: '';
+      width: 172px;
+      height: 388px;
+      display: block;
+      background: #fff;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.5));
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+  }
+  @include breakpoint('large') {
+    &:before {
+      background: #fff;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.12));
+    }
+  }
+}
+.m-media-launcher__poster-img {
+  width: 100%;
+  max-width: 516px;
+}
+
+.m-media-launcher__blurb {
+  padding: 18px 20px;
+
+  @include breakpoint('medium+') {
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.m-media-launcher__blurb > *:first-child {
+  margin-top: 0;
+}
+
+.m-media-launcher__btns {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 52px;
+  }
+
+  .m-media-launcher__options & {
+    margin-top: 0;
+
+    @include breakpoint('medium+') {
+      margin-top: 0;
+    }
+  }
+}
+
+.m-media-launcher__btns .a-btn--icon-first {
+  width: auto;
+  min-width: auto;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.m-media-launcher__options {
+
+  @include breakpoint('medium+') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.m-media-launcher__option {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    position: relative;
+    flex: 0 0 auto;
+    width: calc(50% - #{map-get($inner-gutters, medium) / 2});
+    margin-top: 52px;
+  }
+
+  @include breakpoint('large+') {
+    width: calc(50% - #{map-get($inner-gutters, large) / 2});
+  }
+
+  @include breakpoint('xlarge+') {
+    width: calc(50% - #{map-get($inner-gutters, xlarge) / 2});
+  }
+
+  @include breakpoint('xxlarge') {
+    width: calc(50% - #{map-get($inner-gutters, xxlarge) / 2});
+  }
+}
+
+.m-media-launcher__option:nth-child(2n) {
+  @include breakpoint('medium+') {
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    margin-left: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-left: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-left: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.m-media-launcher__option:nth-child(2n)::before {
+  @include breakpoint('medium+') {
+    content: '';
+    position: absolute;
+    left: map-get($inner-gutters, medium) / -2;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: $color__rules;
+  }
+
+  @include breakpoint('large+') {
+    left: map-get($inner-gutters, large) / -2;
+  }
+
+  @include breakpoint('xlarge+') {
+    left: map-get($inner-gutters, xlarge) / -2;
+  }
+
+  @include breakpoint('xxlarge') {
+    left: map-get($inner-gutters, xxlarge) / -2;
+  }
+}
+
+.m-deflist__delete{
+  float: right;
+}

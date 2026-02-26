@@ -1,0 +1,39 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Institution profile pages
+    .source_info
+
+
+
+    section.source_section
+        h2 My Account page
+
+        h3 Error - 400
+        .source_example
+            | !{pb.render('error-pages', 'error-400', {data : data}, 'pericles')}
+
+
+        h3 Error - 401
+        .source_example
+            | !{pb.render('error-pages', 'error-401', {data : data}, 'pericles')}
+
+
+        h3 Error - 403
+        .source_example
+            | !{pb.render('error-pages', 'error-403', {data : data}, 'pericles')}
+
+
+        h3 Error - 404
+        .source_example
+            | !{pb.render('error-pages', 'error-404', {data : data}, 'pericles')}
+
+        h3 Error - 500
+        .source_example
+            | !{pb.render('error-pages', 'error-500', {data : data}, 'pericles')}
+
+
+    | #{''}

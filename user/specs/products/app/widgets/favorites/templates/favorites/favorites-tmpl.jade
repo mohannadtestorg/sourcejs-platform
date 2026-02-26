@@ -1,0 +1,5 @@
+extends ../../../../../../ux3/widgets/favorites/templates/favorites/favorites-tmpl
+block articleList
+    - var article_list = [{'title':'Publication date','value':'EPUB_DATE'},{'title':'Publication','value':'SERIAL_TITLE'}, {'title':'Article Title','value':'ITEM_TITLE'}]
+block actionList
+    - var action_list = {'articles': [{'title':'Select Action','icon':'','value':''},{'title':'Email to A Friend','icon':'icon-export_citation','value':'showMailPage'},{'title':'Download citation','icon':'icon-export_citation','value':'showCitFormats'},{'title':'Track citations','icon':'icon-track','value':'addCitationAlert'},{'title':'Delete','icon':'icon-trash-can','value':'delete'}], 'publications': [{'title':'Select Action','icon':'','value':''},{'title':'Delete','icon':'icon-trash-can','value':'delete'}]};

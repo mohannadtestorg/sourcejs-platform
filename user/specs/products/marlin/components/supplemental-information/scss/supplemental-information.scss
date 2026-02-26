@@ -1,0 +1,53 @@
+.supplemental-information {
+    font-size: 1rem;
+
+    &__item {
+        margin-bottom: 18px;
+        border-bottom: 2px solid $borders;
+        padding-bottom: 20px;
+    }
+
+    &__icon {
+        font-size: 2.48rem;
+        color: $black;
+        margin-bottom: 22px;
+    }
+
+    &__links {
+        a {
+            &:hover {
+                box-shadow: inset 0 -2px 0 0 $generic-bottom-border;
+            }
+        }
+    }
+
+    &__download {
+
+    }
+
+    &__help {
+        @include media('>=tablet') {
+            float: right;
+        }
+    }
+
+    &__title {
+        color: $black;
+
+        @include media('>=tablet') {
+            max-width: 400px;
+        }
+    }
+
+    &__description {
+
+    }
+
+    .mediaPlayer {
+        margin-top: 10px;
+
+        @include media('>=phone') {
+            margin-top: 0;
+        }
+    }
+}

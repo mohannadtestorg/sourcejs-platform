@@ -1,0 +1,161 @@
+{
+    "title": "TOC page",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header":{
+            "$pug": {
+                "template": "../header/templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "../header/templates/data/header.json"
+                }
+            }
+        },
+        "breadcrumbs":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["hidden-sm","hidden-xs"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/breadcrumbs/templates/breadcrumbs/breadcrumbs-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../widgets/breadcrumbs/templates/data/data.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "meta":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "id": "htmlAssetwrapper",
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"card card--shadow card--gutter meta__body journal-banner\"><div class=\"meta__left-side left-side-image\"><a href=\"/journal/radiographics\"><img src=\"/specs/products/rsna/images/issue_cover.jpg\" alt=\"RadioGraphics cover\"></a><h1 class=\"meta__title\"> <a href=\"/journal/radiographics\">RadioGraphics</a></h1><div class=\"meta__info\"><span class=\"issn\">ISSN (print): 0271-5333</span><span>&nbsp;|&nbsp;</span><span class=\"eissn\">ISSN (online): 1527-1323</span><div class=\"frequency\">Frequency: Ongoing</div><div class=\"quote-text\">\"Concussions have become a critical public health issue, resulting in a substantial increase in research. As a clinician searching for the most up-to-date information, Concussion can serve as the go-to journal.\"</div><div class=\"quote-attribution\">- Editorial board member Steven P Broglio, University of Michigan, MI, USA</div></div></div><div class=\"meta__right-side\"><a href=\"/onlinesubmissions\" class=\"btn btn--inverse btn--journal-meta\">Submit an article</a><a href=\"/subscribe\" class=\"btn btn--inverse btn--journal-meta\">Subscribe</a></div></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "Ad":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"pb-ad\"><a href=\"#\"><img src=\"/specs/products/rsna/images/ad.svg\"></a></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "video":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/html/templates/html/html-tmpl.jade",
+                                    "data": {
+                                        "thisWidget": {
+                                            "properties": {
+                                                "render": "html",
+                                                "html": "<div class=\"podcasts-video\"><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/0h5QfV0dJ8o\" frameborder=\"0\" gesture=\"media\" allow=\"encrypted-media\" allowfullscreen></iframe><span>Listen to our new Podcast on Radiology</span></div>"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "contentNav":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "false"
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/widgets/content-navigation/templates/content-navigation/content-navigation-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/widgets/content-navigation/templates/data/content.json"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "toc":{
+            "$pug": {
+                "template": "../../widgets/table-of-content/templates/table-of-content/markup.jade",
+                "data": {}
+            }
+        },
+        "footer":{
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

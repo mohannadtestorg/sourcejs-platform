@@ -1,0 +1,115 @@
+.home-menu {
+    .main-nav {
+        background-color: $primary-red;
+        a {
+            padding: 13px 9px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .menu-parent{
+            > a {
+                @include media('>desktop') {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    .dropdown {
+        &__menu {
+            background: $red-4;
+            a {
+                text-transform: capitalize;
+                &:hover {
+                    background: $secondary-red;
+                }
+            }
+            .menu-parent {
+                .level-2{
+                    background: $secondary-red;
+                    a:hover {
+                        background: #52232A;
+                    }
+                }
+                i[class*=_arrow] {
+                    -webkit-transform: rotate(269deg);
+                    transform: rotate(269deg);
+                }
+            }
+        }
+        &.level-2 {
+            a:hover {
+                background: #52232A;
+            }
+        }
+        &.hover, &:hover {
+            background: $red-4;
+        }
+    }
+}
+
+.dropdown__menu[aria-labelledby*=main1-1] {
+    i[class*=_arrow] {
+        -webkit-transform: rotate(269deg);
+        transform: rotate(269deg);
+    }
+}
+
+.main-nav {
+    border-bottom: 0;
+    a {
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 20px;
+    }
+    button {
+        a {
+            padding: 0;
+        }
+    }
+    .dropdown__menu {
+        a {
+            padding: 6px 9px;
+        }
+    }
+    .dropdown {
+        i[class*=_arrow] {
+            padding: 6px 0 6px 3px;
+        }
+        &__menu {
+            i[class*=_arrow] {
+                padding: 0px;
+            }
+        }
+    }
+    .menu-parent{
+        > a {
+            @include media('>desktop') {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+@include media('<desktop') {
+    .main-nav.menu--res a {
+        color: $primary-white;
+    }
+    .home-menu {
+        .main-nav.menu--res a[data-toggle=nav] {
+            top: 35px;
+            margin-right: 15px;
+        }
+    }
+}
+
+@include media('<tablet') {
+    .home-menu {
+        .main-nav.menu--res a[data-toggle=nav] {
+            top: 40px;
+            margin-right: 0px;
+            padding: 13px 0px;
+            width: 40px;
+            text-align: center;
+        }
+    }
+}

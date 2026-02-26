@@ -1,0 +1,120 @@
+.advanced-search {
+
+  input, .jcf-select {
+    border-color: $aha_grey;
+    background-color: $aha_white;
+    color: $aha_lighten_black;
+    padding: 10px 8px;
+    font-family:inherit;
+  }
+
+  [class*='-ctrl-field'] {
+    font-size: inherit;
+    vertical-align: middle;
+    i {
+      font-weight: normal;
+    }
+  }
+
+  &--filters {
+    label {
+      font-weight: normal;
+      color: $aha_black;
+      font-size: inherit;
+    }
+  }
+
+  .accordion__control {
+    color: $aha_red;
+    font-size: inherit;
+    font-weight: normal;
+    border-bottom: 1px solid $aha_grey;
+  }
+
+  .label-txt {
+    color: $aha_lighten_black;
+    font-size: inherit;
+    font-weight: normal;
+  }
+
+  &--searchIn {
+    @include media('<phone') {
+      border-bottom: 2px solid $aha_lighten_grey;
+    }
+  }
+}
+
+.filter-date {
+  @include media('<phone') {
+    border-bottom: 2px solid $aha_lighten_grey;
+    border-top: 2px solid $aha_lighten_grey;
+  }
+}
+
+
+.separator-label.separator-label {
+  font-weight: normal;
+  font-size: inherit;
+
+}
+
+.searchIn {
+  &--field {
+
+    .jcf-select-text {
+      color: $aha_lighten_black;
+      font-size: inherit;
+      font-weight: 400;
+    }
+
+    input {
+      &[value] {
+        color: $aha_lighten_black;
+      }
+    }
+  }
+
+}
+.ms-ctn {
+  .ms-sel-ctn{
+    border: 1px solid $aha_grey;
+    background: $aha_white;
+    font-size: inherit;
+    line-height: normal;
+    input {
+      margin:0;
+      padding: 0;
+    }
+  }
+
+}
+
+.ms-ctn input:focus {
+  background: $aha_white;
+}
+
+.ms-res-ctn.dropdown-menu {
+  border: 1px solid $aha_grey;
+  background-color: $aha_white;
+}
+
+.time-frame {
+  .jcf-select {
+    padding: 10px 8px;
+  }
+  .radio--primary {
+    span {
+      &:before {
+        margin-right: 10px;
+        margin-top: 0;
+        border:2px solid $aha_green;
+        background: $aha_white;
+      }
+    }
+  }
+  input:checked~span {
+    &:before {
+      background-color: $aha_green;
+    }
+  }
+}

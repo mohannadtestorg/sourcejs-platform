@@ -1,0 +1,264 @@
+article {
+    section {
+        a:not([class*="__control"]):not([class*="__ctrl"]) {
+            border-bottom: 2px solid $generic-bottom-border;
+        }
+    }
+}
+.mediaPlayer {
+    &__player {
+        .jwplayer {
+            width: 100% !important;
+            max-width: 100%;
+        }
+        .jw-skin-roundster {
+            .jw-progress {
+                background: $jwplayer-ctrl;
+            }
+            .jw-knob {
+                background: $jwplayer-ctrl;
+            }
+            .jw-button-color {
+                color: $jwplayer-ctrl;
+                &:hover,
+                &:focus {
+                    color: darken($jwplayer-ctrl, 10);
+                }
+            }
+            .jw-buffer {
+                background: lighten($media-player-buffer, 5%) !important;
+            }
+        }
+    }
+    &.audio {
+        .mediaPlayer {
+            &__player {
+                max-width: 290px;
+            }
+            &__size {
+                font-size: 0.88rem;
+            }
+            &__description,
+            &__size {
+                margin-bottom: 10px;
+            }
+            &__player {
+                margin-bottom: 10px;
+            }
+            &__laoding {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+.jw-icon {
+    font-family: 'jw-icons';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none;
+    background-color: transparent;
+    font-variant: normal;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.jw-skin-roundster {
+    .jw-background-color {
+        background: #8490a0;
+    }
+    .jw-controlbar {
+        background: #dfe2e9;
+    }
+    .jw-text, .jw-tooltip-title, .jw-knob {
+        color: #8490a0;
+    }
+    .jw-button-color {
+        color: #8490a0;
+        &:hover {
+            color: #f15173;
+        }
+    }
+    .jw-toggle {
+        color: #f15173;
+        &.jw-off {
+            color: #8490a0;
+        }
+    }
+    .jw-option {
+        color: #8490a0;
+        &.jw-active-option {
+            color: #f15173;
+        }
+    }
+    .jw-icon-display {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .jw-display-icon-container {
+        border-radius: .5em;
+        &:hover {
+            background: #f15173;
+            .jw-icon-display {
+                color: #fff;
+            }
+        }
+    }
+    .jw-rail {
+        background: #878fa2;
+    }
+    .jw-buffer {
+        background: #9c9a9d;
+    }
+    .jw-progress {
+        background: #f15173;
+    }
+    .jw-slider-horizontal {
+        background: #dfe2e9;
+        .jw-knob {
+            margin-left: -0.45em;
+        }
+    }
+    .jw-slider-vertical .jw-knob {
+        margin-bottom: -0.45em;
+    }
+    .jw-time-tip, .jw-volume-tip, .jw-menu {
+        background: #5c6373;
+        border: 0;
+        padding: .5em;
+    }
+    .jw-skip {
+        background: #dfe2e9;
+        padding: .5em;
+        .jw-skip-icon {
+            color: #8490a0;
+        }
+        &.jw-skippable:hover {
+            .jw-skip-icon, .jw-text {
+                color: #f15173;
+            }
+        }
+    }
+    .jw-time-tip .jw-text, .jw-dock-button .jw-text {
+        color: #bbb;
+    }
+    .jw-time-tip {
+        bottom: 1em;
+    }
+    .jw-dock-button {
+        background: #8490a0;
+        border-radius: .5em;
+        &:hover {
+            background: #f15173;
+        }
+    }
+    .jw-playlist-container {
+        padding: 0;
+    }
+    .jw-icon-inline, .jw-icon-tooltip, .jw-text-elapsed, .jw-text-duration {
+        padding: 0 .25em;
+    }
+    .jw-controlbar {
+        display: inline-block;
+        width: 96%;
+        max-width: 50em;
+        margin: 0 auto;
+        bottom: .7em;
+        left: 2%;
+        right: 2%;
+    }
+    &.jw-flag-audio-player .jw-controlbar {
+        bottom: 0;
+    }
+    .jw-controlbar {
+        border-radius: 1em;
+        padding: 0 1em;
+    }
+    .jw-playlist-container {
+        left: -48%;
+        background-color: #878fa2;
+        border-radius: .3em;
+        overflow: hidden;
+        .jw-option, .jw-text, .jw-icon {
+            color: #cbd0da;
+        }
+        .jw-option {
+            border-bottom: 1px solid #747d92;
+            background-color: #878fa2;
+            &:hover, &.jw-active-option {
+                background-color: #747d92;
+                color: #fff;
+            }
+        }
+        .jw-label .jw-icon-play {
+            color: #f15173;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #747d92;
+        }
+        ::-webkit-scrollbar {
+            border: 10px solid #878fa2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: white;
+        }
+    }
+    .jw-tooltip-title {
+        border-bottom: 1px solid #747d92;
+        background-color: #878fa2;
+    }
+    .jw-rail, .jw-progress, .jw-buffer {
+        border-radius: 1em;
+    }
+    .jw-knob {
+        background-color: #fff;
+        width: .9em;
+        height: .9em;
+        border-radius: 50%;
+        box-shadow: 0 1px 5px 1px #868ea3;
+    }
+    .jw-slider-horizontal {
+        .jw-cue {
+            top: .07500000000000001em;
+            width: .25em;
+            height: .25em;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .jw-knob {
+            top: -0.25em;
+        }
+    }
+    .jw-slider-vertical {
+        .jw-rail {
+            background-color: #434853;
+            width: .4em;
+        }
+        .jw-progress {
+            width: .4em;
+        }
+    }
+    .jw-time-tip, .jw-volume-tip, .jw-menu {
+        border-radius: .25em;
+    }
+    .jw-volume-tip, .jw-menu {
+        bottom: .3em;
+    }
+    .jw-dock {
+        .jw-dock-button {
+            border-radius: 50%;
+        }
+        .jw-overlay {
+            border-radius: 2.5em;
+        }
+    }
+    .jw-skip {
+        border-radius: 1em;
+        padding: .25em 1em;
+    }
+}

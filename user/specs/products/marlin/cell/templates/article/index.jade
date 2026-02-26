@@ -1,0 +1,17 @@
+extends /specs/products/marlin/cell/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    h1 Article page (paid Ads)
+
+    section.source_section
+        h2 Article page
+        markdown
+        code.src-html
+        .source_example
+            .ux3
+                | !{pb.render("header","marlin:cell")}
+                main.content
+                    include ../../widgets/publication-content/templates/demo/demo-article-tmpl
+                include ../footer/template/footer/footer-tmpl
+    | #{''}

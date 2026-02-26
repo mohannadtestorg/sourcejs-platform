@@ -1,0 +1,68 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+  # backgrounds
+      primary-bg-color:
+          value: "{!AOM_PRIMARY_BLUE}"
+      secondary-bg-color:
+          value: "{!AOM_SECONDARY_BLUE}"
+      secondary-border-color:
+          value: "{!AOM_SECONDARY_BLUE}"
+      journal-bg-color-amj:
+          value: "{!AMJ}"
+      journal-color-amj:
+          value: "{!AMJ_COLOR}"
+      journal-bg-color-amr:
+             value: "{!AMR}"
+      journal-color-amr:
+            value: "{!AMR_COLOR}"
+      journal-bg-color-amd:
+               value: "{!AMD}"
+      journal-color-amd:
+               value: "{!AMD_COLOR}"
+      journal-bg-color-amp:
+               value: "{!AMP}"
+      journal-color-amp:
+               value: "{!AMP_COLOR}"
+      journal-bg-color-annals:
+               value: "{!ANNALS}"
+      journal-color-annals:
+              value: "{!ANNALS_COLOR}"
+      journal-color-amle:
+              value: "{!AMLE_COLOR}"
+      journal-bg-color-amle:
+              value: "{!AMLE}"
+      journal-bg-color-amproc:
+              value: "{!AMPROC}"
+      journal-color-amproc:
+              value: "{!AMPROC_COLOR}"
+      footer-lighttext-color:
+          value: "{!WHITE}"
+      footer-bg-color:
+          value: "{!WHITE}"
+      footer-color:
+            value: "{!AOM_PRIMARY_BLUE}"
+      footer-othertext-color:
+            value: "{!DARKGREY}"
+
+
+

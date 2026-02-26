@@ -1,0 +1,52 @@
+﻿extends /specs/page-structure/layout.jade
+
+block content
+    h1 MagicSuggest
+    .source_info
+        p
+            a(href='http://nicolasbize.com/magicsuggest/index.html') MagicSuggest
+            | Multiple selection combobox built for bootstrap themes.
+    section.source_section
+        h2 Default set-up
+
+
+        .source_example
+            .container
+                div#ms1.form-control
+        .source_example
+            .container
+                select.reem
+                    option reem
+                    option ali
+                    option alaa
+                    option saleh
+                    option mohammad
+                    option aya
+                    option nour
+                    option majid
+
+        .source_example
+            .container
+                input.alo(type="text")
+
+
+
+    script.
+         $(document).ready(function(){
+
+             $(function () {
+                 var ms1 = $('#ms1').magicSuggest({
+                     data: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia', 'Phoenix', 'San Antonio', 'San Diego', 'Dallas', 'San Jose', 'Jacksonville']
+                 });
+
+                 $('.alo').magicSuggest({
+                     data: ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia', 'Phoenix', 'San Antonio', 'San Diego', 'Dallas', 'San Jose', 'Jacksonville']
+                 });
+
+                 $('.reem').magicSuggest({
+                 });
+
+             });
+
+         });
+    p

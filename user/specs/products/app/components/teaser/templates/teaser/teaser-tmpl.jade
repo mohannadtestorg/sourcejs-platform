@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+block teaserWrapper
+    - var itemNo = items.length
+    if itemNo > 1
+        ul.rlist.lot.flex-grid
+            each item, l in items
+                li.flex-item
+                    +teaser(item)
+    else
+        each item, l in items
+            +teaser(item)
+

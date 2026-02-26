@@ -1,0 +1,148 @@
+.facet {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $grey;
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    &:empty {
+        display: none;
+    }
+
+    &__title {
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        margin-bottom: 7px;
+        font-weight: 600;
+
+        @include media('<tablet') {
+            margin-bottom: 16px;
+        }
+    }
+
+    &s__title {
+        font-size: 0.875rem;
+        color: $primary-dark-text-color;
+        margin-top: 26px;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        font-weight: 700;
+    }
+
+    &__label {
+        vertical-align: text-top;
+    }
+
+    &__ctrl {
+        position: relative;
+
+        i {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-top: 4px;
+            @include media('<tablet') {
+                right: 15px;
+            }
+        }
+    }
+
+    &__list {
+        font-size: 0.75rem; // 12px;
+        font-weight: 600;
+        color: $facets-text;
+
+        li {
+            line-height:  14px;
+            padding-bottom: 20px;
+        }
+
+        a {
+            word-wrap: break-word;
+
+            @include media('<tablet') {
+                font-size: 0.75rem;
+                font-weight: 300;
+            }
+        }
+
+        [data-toggle] {
+            cursor: pointer;
+        }
+    }
+
+    &__counter {
+        float: right;
+        font-weight: 400;
+
+        @include media('<tablet') {
+            font-size: 1rem;
+        }
+    }
+
+    .show-more {
+        display: block;
+        font-size: 0.75rem; // 12px
+        font-weight: 600;
+        line-height: 1.8;
+        text-transform: uppercase;
+
+    }
+
+    @include media('<tablet') {
+        margin-bottom: 14px;
+    }
+
+    i[class*=icon-] {
+        font-size: 0.4rem; // 8px
+        margin-left: 10px;
+
+        &.facet__toggle {
+            font-size: 0.875rem;
+            margin-left: 0;
+            margin-right: 15px;
+        }
+
+
+    }
+
+    &-dropdown__menu {
+        display: none;
+        margin: 0 0 0 30px;
+
+        li {
+            padding: 20px 0 0;
+        }
+    }
+
+    .js--toggle {
+        display: none;
+    }
+
+    &__select--hidden {
+        display: none;
+        margin: 10px 0;
+
+        .ms-ctn.form-control {
+            padding: 7px 8px;
+
+            input {
+                width: 100% !important;
+            }
+        }
+
+    }
+}
+
+
+@include media('<tablet') {
+    .facet {
+        &__title,
+        &__content {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+}
+

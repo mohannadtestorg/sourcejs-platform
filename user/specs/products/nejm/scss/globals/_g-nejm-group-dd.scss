@@ -1,0 +1,150 @@
+.g-nejm-group-dd {
+  display: none;
+  position: absolute;
+  z-index: 14;
+  left: 0;
+  right: 0;
+  top: 40px;
+  padding-top: 24px;
+  padding-bottom: 16px;
+  background-color: $color__white;
+
+  @include breakpoint('large+') {
+    padding-right: map-get($outer-gutters, large);
+    padding-left: map-get($outer-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-right: map-get($outer-gutters, xlarge);
+    padding-left: map-get($outer-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.g-nejm-group-dd::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  margin-left: -50vw;
+  border-top: 4px solid $color__accent;
+  border-bottom: 1px solid $color__rules;
+  background-color: inherit;
+}
+
+.g-nejm-group-dd::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 100%;
+  width: 100vw;
+  height: 3px;
+  margin-left: -50vw;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+
+.g-nejm-group-dd__header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.g-nejm-group-dd__header-icon {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.g-nejm-group-dd__header-title {
+  flex: 1 1 auto;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+
+.g-nejm-group-dd__carousel {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-top: 20px;
+  margin-left: -50vw;
+  padding-bottom: 20px;
+  padding-right: map-get($outer-gutters, large);
+  padding-left: map-get($outer-gutters, large);
+
+  @include breakpoint('xlarge+') {
+    padding-right: map-get($outer-gutters, xlarge);
+    padding-left: map-get($outer-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-right: map-get($outer-gutters, xxlarge);
+    padding-left: map-get($outer-gutters, xxlarge);
+  }
+}
+
+.g-nejm-group-dd__pager {
+  margin-top: 0;
+
+  .s-no-paginator & {
+    display: none;
+  }
+}
+
+.g-nejm-group-dd__pager-next,
+.g-nejm-group-dd__pager-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: map-get($outer-gutters, large);
+
+  @include breakpoint('xlarge+') {
+    width: map-get($outer-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: map-get($outer-gutters, xxlarge);
+  }
+}
+
+.g-nejm-group-dd__pager-next {
+  right: 0;
+  transform: rotate(360deg);
+}
+
+.g-nejm-group-dd__pager-prev {
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.g-nejm-group-dd__pager a {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: $color__black--25;
+  transform-origin: 50%;
+}
+
+.g-nejm-group-dd__pager a:hover {
+  color: $color__black;
+}
+
+.g-nejm-group-dd__pager svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -12px;
+  margin-left: -12px;
+}

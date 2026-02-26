@@ -1,0 +1,236 @@
+.m-cta-poll {
+  position: relative;
+}
+
+.m-cta-poll fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+
+.m-cta-poll__legend {
+  float: left;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.a-subtitle + .m-cta-poll .m-cta-poll__legend {
+  padding-top: 16px;
+}
+
+.m-cta-poll__items {
+  position: relative;
+  clear: both;
+  margin-top: 0;
+  padding-top: 16px;
+}
+
+.m-cta-poll__items li {
+  display: block;
+  position: relative;
+  list-style-type: none;
+}
+
+.m-cta-poll__items::before,
+.m-cta-poll__items li::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-cta-poll__items::before {
+  top: auto;
+  bottom: 0;
+}
+
+.m-cta-poll__items li:first-child {
+  margin-top: 0;
+}
+
+.m-cta-poll__label,
+.m-cta-poll .a-form-radio .m-cta-poll__label {
+  @include f-ui;
+  display: block;
+  position: relative;
+  padding: 12px 22px 8px 0;
+  transition: all .25s $bezier--ease-out-circ;
+}
+
+.m-cta-poll .a-form-radio .m-cta-poll__label:hover {
+  font-weight: 700;
+}
+
+.m-cta-poll .a-form-radio .m-cta-poll__label::before,
+.m-cta-poll .a-form-radio .m-cta-poll__label::after {
+  left: auto;
+  right: 0;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  border: 0 none;
+  background-color: $color__input-border;
+}
+
+.m-cta-poll .a-form-radio input[type=radio]:checked + .m-cta-poll__label::after {
+  background-color: $color__accent;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.m-cta-poll .a-form-radio input[type=radio]:disabled + .m-cta-poll__label {
+  opacity: 1;
+  pointer-events: default;
+}
+
+.m-cta-poll__note {
+  color: $color__text--quaternary;
+}
+
+.m-cta-poll__label-percentage {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  opacity: 0;
+  transition: all .25s $bezier--ease-out-circ;
+}
+
+.m-cta-poll .a-progress-bar {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 100%;
+  top: auto;
+  bottom: 0;
+  height: 3px;
+  pointer-events: none;
+  transition: right .25s $bezier--ease-out-circ;
+}
+
+.m-cta-poll .a-progress-bar span {
+  width: 0%;
+}
+
+.m-cta-poll__btns,
+.m-cta-poll__messages {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.m-cta-poll__btns .a-btn {
+  flex: 0 0 auto;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.m-cta-poll .a-btn[data-poll-back],
+.m-cta-poll__message--secondary[data-poll-responses] {
+  display: none;
+}
+
+.m-cta-poll__message {
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.m-cta-poll__message--secondary {
+  display: none;
+  margin-left: auto;
+  color: $color__text--quaternary;
+
+  @include breakpoint('medium+') {
+    display: inline-block;
+  }
+
+  .a-btn ~ & {
+    line-height: 40px;
+  }
+}
+
+
+
+.m-cta--image-challenge .m-cta-poll__legend {
+  margin-bottom: -2px;
+  padding-bottom: 20px;
+}
+
+.m-cta--image-challenge .m-cta-poll__items {
+  padding-top: 0;
+}
+
+
+// -------------------------------------
+// inside submitted/How others chose
+//
+
+
+.m-cta-poll.s-results,
+.m-cta-poll.s-submitted {
+
+  .a-form-radio .m-cta-poll__label,
+  .m-cta-poll__label {
+    padding-right: 56px;
+    padding-left: 0;
+    cursor: default;
+  }
+
+  .m-cta-poll__items li:hover {
+    background-color: $color__white;
+  }
+
+  .m-cta-poll__label-percentage {
+    opacity: 1;
+  }
+
+  .a-progress-bar {
+    right: 0;
+  }
+
+  .a-form-radio label::before,
+  .a-form-radio label::after {
+    left: 8px;
+    opacity: 0;
+    transition: all .25s $bezier--ease-out-circ;
+  }
+
+  .a-form-radio label::after {
+    left: 12px;
+  }
+
+  .a-form-radio input[type=radio] {
+    display: none;
+  }
+
+  .a-form-radio input[type=radio]:checked + label::after {
+    opacity: 0;
+  }
+
+  .a-btn[data-poll-back] {
+    display: block;
+  }
+
+  .m-cta-poll__message--secondary[data-poll-responses] {
+    @include breakpoint('medium+') {
+      display: inline-block;
+    }
+  }
+
+  .a-btn[data-poll-submit],
+  .a-btn[data-poll-view] {
+    display: none;
+  }
+}
+
+.m-cta-poll.s-submitted,
+.m-cta-poll.s-submitted.s-results {
+
+  .a-btn[data-poll-back] {
+    display: none;
+  }
+}

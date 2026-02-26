@@ -1,0 +1,64 @@
+extends /specs/products/esspp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Home page
+
+    section.source_section
+        include ../../../../page-structure/helpers/print-json-mixin.jade
+        include ../../../../page-structure/helpers/print-template-include-mixin.jade
+        include ../../../../page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        p Use json file to render Home page info
+
+        +printJson({})
+
+
+    section.source_section
+        h2 Home page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.home-content.home-page
+                .container
+                    .tab-default
+                        | !{data.tabs}
+
+                .browse-subject-areas
+                    .container
+                        .browse-subject-areas__title Browse Subject Areas
+                        ul.rlist--inline.separator
+                            li
+                                a(title="Atmospheric Science" href="#") Atmospheric Science
+                            li
+                                a(title="Biogeosciences" href="#") Biogeosciences
+                            li
+                                a(title="Education" href="#") Education
+                            li
+                                a(title="Engineering Applied Geophysics" href="#") Engineering Applied Geophysics
+                            li
+                                a(title="Geology and Geophsics" href="#") Geology and Geophsics
+                            li
+                                a(title="Global Change" href="#") Global Change
+                            li
+                                a(title="Natural Hazards" href="#") Natural Hazards
+                            li
+                                a(title="Ocean Science" href="#") Ocean Science
+                            li
+                                a(title="Plantetary Science" href="#") Plantetary Science
+                            li
+                                a(title="Policy and Funding" href="#") Policy and Funding
+                            li
+                                a(title="All Preprints" href="#") All Preprints
+                            li
+                                a(title="All Posters" href="#") All Posters
+
+
+            | !{pb.render("support-images", {data: {"isSmall": "false"}}, "esspp")}
+
+            | !{data.footer}
+    | #{''}

@@ -1,0 +1,66 @@
+extends ../../../../publication-content/templates/article/extended/ext-tabs-tmpl.jade
+
+
+block accessDenialTab
+    // static content for demo purpose
+    .accessDenial--tab
+        .accordion
+            ul.accordion-tabbed.rlist
+                li.accordion-tabbed__tab
+                    a.accordion-tabbed__control(href='#', title='Log in to get access', aria-expanded='false', aria-controls='d32071ce-0dca-49b1-b53d-ea305176ec830') Log in to get access
+                    #d32071ce-0dca-49b1-b53d-ea305176ec830.accordion-tabbed__content
+                        .slotLicenseConsumption
+                            h4.normal__header Article Select access
+                            form(action='/action/confirmSlot', method='post', name='slotLicenseConsumption')
+                                input(type='hidden', name='doi', value='10.1002/jgra.50121')
+                                input(type='hidden', name='code', value='testCode')
+                                input(type='hidden', name='licenseId', value='2799')
+                                input(type='hidden', name='beforeDenialPageUrl')
+                                p
+                                    | You have credit for -300 remaining articles. Select confirm to access the Article for 24 hours.
+                                .clearfix
+                                    input.float-right.btn--orange(type='submit', value='CONFIRM')
+
+                        a.instituationLogin(href="#") Institutional login
+                            i.icon-arrow_r
+                        h6 Personal login
+                        .login-form
+                            form.bordered(action='/action/doLogin', method='post')
+                                input(type='hidden', name='id', value='107ecf76-7736-4030-8d65-181d8afaa975')
+                                input(type='hidden', name='redirectUri', value='')
+                                input(type='hidden', name='loginUri', value='/?pbContext=%3Bpage%3Astring%3AArticle%2FChapter+View%3Bwebsite%3Awebsite%3Apericles%3Barticle%3Aarticle%3Adoi%5C%3A10.1002%2Fjgra.50121%3BsubPage%3Astring%3AAccess+Denial%3Bissue%3Aissue%3Adoi%5C%3A10.1002%2Fjgra.v118.2%3Bwgroup%3Astring%3APublication+Websites%3BpageGroup%3Astring%3APublication+Pages%3Bjournal%3Ajournal%3A21699402')
+                                .input-group
+                                    .label
+                                        label(for='login') Email
+                                    input#login.login(type='text', name='login', value='', size='15')
+                                    .actions
+                                .input-group
+                                    .label
+                                        label(for='password') Password
+                                    input#password.password(type='password', name='password', value='', autocomplete='off')
+                                    span.password-eye-icon.icon-eye.hidden
+                                    .actions
+                                        a.link.show-request-reset-password(href='/action/requestResetPassword') Forgot password?
+                                .align-end
+                                    .remember
+                                        .keepMeLogin
+                                            span.label Keep me logged in
+                                        .switch.small-switch
+                                            input#107ecf76-7736-4030-8d65-181d8afaa975-remember.cmn-toggle.cmn-toggle-round-flat(type='checkbox', name='remember', value='true')
+                                            label.tgl-btn(for='107ecf76-7736-4030-8d65-181d8afaa975-remember')
+                                    .submit(disabled='disabled')
+                                        input.button.submit.primary(type='submit', name='submit', value='LOG IN', disabled='disabled')
+                        p.note Members of the International Association of Publishing Platforms may gain access to this journal via the IAPP website.
+
+                li.accordion-tabbed__tab
+                    a.accordion-tabbed__control(href='#', title='Purchase instant access', aria-expanded='false', aria-controls='d32071ce-0dca-49b1-b53d-ea305176ec831') Purchase instant access
+                    #d32071ce-0dca-49b1-b53d-ea305176ec831.accordion-tabbed__content
+                li.accordion-tabbed__tab
+                    a.accordion-tabbed__control(href='#', title='Patient access', aria-expanded='false', aria-controls='d32071ce-0dca-49b1-b53d-ea305176ec832') Patient access
+                    #d32071ce-0dca-49b1-b53d-ea305176ec832.accordion-tabbed__content
+                li.accordion-tabbed__tab
+                    a.accordion-tabbed__control.external(href='#', title='Recommend to a librarian', aria-expanded='false', aria-controls='d32071ce-0dca-49b1-b53d-ea305176ec833') Recommend to a librarian
+
+
+
+

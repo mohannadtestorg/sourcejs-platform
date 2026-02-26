@@ -1,0 +1,34 @@
+div(data-ctrl-res="" class="tab  tab--aside")
+	ul(data-mobile-toggle="dropdown" role="tablist" class="rlist tab__nav")
+		li(role="presentation")
+			a(href="#pane-m1x01" aria-controls="#pane-m1x01" role="tab" data-toggle="tab" title="Saved Search" id="pane-m1x01con" aria-selected="true" class="active" aria-expanded="false")
+				span Saved Search
+		li(role="presentation")
+			a(href="#pane-m1x11" aria-controls="#pane-m1x11" role="tab" data-toggle="tab" title="Professional Information" id="pane-m1x11con" aria-selected="false" aria-expanded="false")
+				span Professional Information
+		li(role="presentation" class="active")
+			a(href="#pane-m1x21" aria-controls="#pane-m1x21" role="tab" data-toggle="tab" title="Addresses" id="pane-m1x21con" aria-selected="false" aria-expanded="true")
+				span Addresses
+		li(role="presentation")
+			a(href="#pane-m1x31" aria-controls="#pane-m1x31" role="tab" data-toggle="tab" title="Access Entitlements / Redeem Voucher" id="pane-m1x31con" aria-selected="false")
+				span Access Entitlements / Redeem Voucher
+		li(role="presentation")
+			a(href="#pane-m1x41" aria-controls="#pane-m1x41" role="tab" data-toggle="tab" title="Alert" id="pane-m1x41con" aria-selected="false" aria-expanded="false")
+				span Alert
+		li(role="presentation")
+			a(href="#pane-m1x51" aria-controls="#pane-m1x51" role="tab" data-toggle="tab" title="Favorites" id="pane-m1x51con" aria-selected="false" aria-expanded="false")
+				span Favorites
+
+	ul(class="rlist tab__content")
+		li(id="pane-m1x01" aria-labelledby="pane-m1x01con" role="tabpanel" class="tab__pane")
+			| !{pb.render("my-account", "my-account/save-search")}
+		li(id="pane-m1x11" aria-labelledby="pane-m1x11con" role="tabpanel" class="tab__pane")
+			| !{pb.render("my-account", "my-account/professional-information")}
+		li(id="pane-m1x21" aria-labelledby="pane-m1x21con" role="tabpanel" class="tab__pane active")
+			| !{pb.render("my-account", "my-account/addresses")}
+		li(id="pane-m1x31" aria-labelledby="pane-m1x31con" role="tabpanel" class="tab__pane")
+			| !{pb.render("my-account", "my-account/access-entitlements")}
+		li(id="pane-m1x41" aria-labelledby="pane-m1x41con" role="tabpanel" class="tab__pane")
+			| !{pb.render("my-account", "my-account/alert")}
+		li(id="pane-m1x51" aria-labelledby="pane-m1x51con" role="tabpanel" class="tab__pane")
+			| !{pb.render("my-account", "my-account/favorites")}

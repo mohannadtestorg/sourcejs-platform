@@ -1,0 +1,74 @@
+extends ../../../../../../ux3/widgets/search-result/templates/search-result/search-result-tmpl
+
+block searchItemAbstractLabel
+    a(href="#" class="accordion__control" title="show Abstract")
+        i.icon-arrow_d_n(aria-hidden="true")
+        span Abstract
+
+block searchItemDescLabel
+    a(href="#" class="accordion__control" title="show Aim & scope")
+        i.icon-arrow_d_n(aria-hidden="true")
+        span Aim & scope
+
+block refineSearch
+    a.search-result__refine.advanced-search__ctrl.w-slide__btn.hidden-xs.hidden-sm(href="#" data-slide-target="#advancedSearch" )
+        span refine search
+        i(class="icon-section_arrow_d" aria-hidden="true")
+
+block searchItemTitle
+    h4.meta__title.meta__title__margin
+        if(item.content)
+            if (item.type == "102")
+                a(href= item.content.journalUrl) !{item.content.title}
+            if (item.type == "103")
+                a(href= item.content.bestUrl) !{item.content.title}
+            if (item.type == "105")
+                a(href= item.content.bookUrl) !{item.content.title}
+            if (item.type == "106")
+                a(href= item.content.bookSeriesUrl) !{item.content.title}
+            if (item.type == "109")
+                a(href= item.content.bestUrl) !{item.content.title}
+    if(item.content && item.content.subTitle)
+        span.meta__subtitle !{item.content.subTitle}
+
+block searchMeta
+    div.meta__details
+        if (item.content.type == "Journal")
+            block currentIssueTitle
+                | Current Issue:&nbsp;
+        if (item.content.latestIssue)
+            if (item.content.latestIssue.volume && item.content.latestIssue.issue && item.content.latestIssue.volume)
+                a.meta__vol(href=item.content.latestIssue.tocUrl) Volume !{item.content.latestIssue.volume}, Issue !{item.content.latestIssue.issue}
+        if (item.content.coverDate)
+            span.meta__date !{item.content.coverDate}
+        if (item.content.edition)
+            span.meta__edition !{item.content.edition}
+        if (item.content.epubDate)
+            span.meta__epubDate !{item.content.epubDate}
+        if (item.content.group)
+            if (item.content.group.volume && item.content.group.issue)
+                a.meta__volume(href= item.content.group.tocUrl) Volume !{item.content.group.volume}, Issue !{item.content.group.issue}
+            if (item.content.group.serial)
+                a.meta__serial(href= item.content.group.serial.journalUrl) !{item.content.group.serial.title}
+            block searchMetaTitle
+                if (item.content.group.title)
+                    a.meta__title(href= item.content.group.bookLink) !{item.content.group.title}
+            if (item.content.group.coverDate)
+                a.meta__coverDate(href= item.content.group.bookLink) !{item.content.group.coverDate}
+
+block itemNumbers
+    if (item.type != "105")
+        if (item.content.issn)
+            div.meta__issns ISSN: !{item.content.issn}
+        if (item.content.eissn)
+            div.meta__eissn EISSN: !{item.content.eissn}
+        if (item.content.eisbn)
+            div.meta__eisbn EISBN:  !{item.content.eisbn}
+
+block searchFiltersOpen
+    a(href = "#" class="visible-xs visible-sm w-slide__btn result__ctrl__filters" data-slide-target="#filter")
+        i(class="icon-filter_list inline-icon" aria-hidden="true")
+        span Filters
+
+block searchResultPager
+    include ./pager-tmpl

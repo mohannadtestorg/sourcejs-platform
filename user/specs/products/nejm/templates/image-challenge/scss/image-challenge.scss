@@ -1,0 +1,50 @@
+@include breakpoint(small) {
+  .o-cols-2\@small {
+    margin-left: (map-get($inner-gutters, small) / -1);
+    .mostRecentImageChallengeWidget{
+      float:left;
+    }
+    .imageOfTheWeekWidget{
+      float:right;
+      margin-left: 20px;
+    }
+    &:after{
+      content:"";
+      clear:both;
+      display:block;
+    }
+  }
+  .o-cols-2\@small .m-cta--image-challenge  {
+    width: colspan(3, small);
+  }
+  .o-cols-2\@small .col-md-1-1 .contents {
+      display: flex;
+  }
+}
+
+
+@include breakpoint(medium) {
+  .o-cols-2\@medium {
+    .mostRecentImageChallengeWidget{
+      float:left;
+    }
+    .imageOfTheWeekWidget{
+      float:right;
+      margin-left: 20px;
+    }
+    margin-left: (map-get($inner-gutters, medium) / -1);
+
+    &:after{
+      content:"";
+      clear:both;
+      display:block;
+    }
+  }
+
+  .o-cols-2\@medium .m-cta--image-challenge {
+    width: colspan(4, medium);
+  }
+  .o-cols-2\@medium .col-md-1-1  .contents {
+    display: flex;
+  }
+}

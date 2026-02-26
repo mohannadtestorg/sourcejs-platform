@@ -1,0 +1,8 @@
+extends ../../../../../../ux3/widgets/profile-menu/templates/profile-menu/profile-menu-tmpl.jade
+block profileTabsLinks
+    if(item.label == "Personal Details")
+        a(class=item.active ? 'active' : '' href=item.link , target="_blank")
+            span !{item.label}
+    else
+        a(class=item.active ? 'active' : '' href=item.link)
+            span !{item.label}

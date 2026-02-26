@@ -1,0 +1,219 @@
+﻿.source_info
+    p Documentation of modules and tasks used in UX3 gulpfile
+
+section.source_section
+
+    h2 Gulp modules
+    p List of modules used
+    
+    ul
+        li Insert - String manipulation plugin    
+        li Newer - Passing through those source files that are newer than corresponding destination files
+        li Imagemin - Image minification Gulp plugin
+        li SASS - Compiles all *.scss files into CSS files 
+        li Path - Creates file's paths in a simple and organized way
+        li Merge - Merge multiple streams into one stream in order
+        li Pleeease - Pleeease is a Node.js application that easily process your CSS. It combines CSS preprocessors with PostCSS plugins, like Autoprefixer, Pixrem and so on, with full sourcemaps support. It helps create clean stylesheets, support older browsers and offers better maintainability.
+        li Strip-debug - Strip console and debugger statements from JavaScript code
+        li Uglify - Minify files with UglifyJS
+        li Concat - Concatenates files
+        li Deporder - This plugin will reorder JavaScript or CSS files in the stream based on comments at the top of files
+        li Jade (Pug) - Compiles Jade (now Pug) templates
+        li JSPM - Build assets loaded with jspm
+        li Sourcemaps - Source maps create a map from these compressed asset files back to the source files. Allows debugging by seeing the original file in compiled file.
+        li JSHint - JSHint is a tool that helps to detect errors and potential problems in JavaScript code.
+        li HTML-Generator - Generates HTML files from Pug (Jade) templates to be used by code style and accessibility checks.
+        li HTML-Lint - Runs checks on compiled HTML fragments aganst rules established in Best Practices.
+        li Rename - Renaming files
+        li Accessibility - Runs checks on compiled HTML fagments against Accessibility Guidelines using HTML CodeSniffer and PhantomJS.
+        li Mocha - Runs Mocha unit tests (see UX3 Styleguide spec authoring document for details)
+        li Rimraf - "rm -rf" module for Gulp. We are using it for clearing temporary files (like compiled HTML)
+        li Run-Sequence - Runs tasks in specified order
+    
+section.source_section
+    
+    h2 Gulp tasks
+    h3 SASS
+    p Compiles .scss files into css files
+    p Runs all files through Pleeease for easy prefixes
+    
+    h4 Usage in Gulp
+    code.src-js.source_visible
+        |gulp.task('sass', function() {
+        |   var tasks = folders.map(function(element){
+        |       return gulp.src(source + element + '/scss/imports.scss')
+        |           .pipe(sourcemaps.init())
+        |           .pipe(sass(css.sassOpts))
+        |           .pipe(pleeease(css.pleeeaseOpts))
+        |           .pipe(sourcemaps.write())
+        |           .pipe(gulp.dest(dest + element + '/releasedAssets/css/'));
+        |   });
+        |   return merge(tasks);
+        |});
+        | 
+    
+    h3 JS
+    p Minifies JavaScript files
+    
+    h4 Usage in Gulp
+    code.src-js.source_visible
+        |gulp.task('js', function() {
+        |   var tasks = folders.map(function(element){
+        |       return gulp.src(source + element + '/js/main.js')
+        |           .pipe(sourcemaps.init())
+        |           .pipe(gulp_jspm({minify: true}))
+        |           .pipe(sourcemaps.write('.'))
+        |           .pipe(gulp.dest(dest + element + '/releasedAssets/js/'));
+        |   });
+        |   return merge(tasks);
+        |});
+        | 
+
+    h3 Images
+    p Runs all unprocessed images (identified through <em>Newer</em> plugin) through image minification plugin
+    
+    h4 Usage in Gulp
+    code.src-js.source_visible
+        |gulp.task('images', function() {
+        |   var tasks = folders.map(function(element){
+        |       return gulp.src(source + element + '/images/*.*')
+        |           .pipe(newer(images.out))
+        |           .pipe(imagemin())
+        |           .pipe(gulp.dest(dest + element + '/releasedAssets/images/'))
+        |       });
+        |   return merge(tasks);
+        |});
+        | 
+
+    h3 HTML-Lint
+    p Runs checks on compiled HTML fragments aganst rules established in Best Practices. Requires our custom HTML-lint module (found in ./tools folder)
+    
+    h4 Usage in Gulp
+    code.src-js.source_visible
+        |gulp.task('codeStyle', function(){
+        |   var tasks = folders.map(function(element){
+        |       return gulp.src(source + element + '/releasedAssets/html/*.html')
+        |           .pipe(htmllint({
+        |               options
+        |           }))
+        |       });
+        |   return merge(tasks);
+        |});
+        | 
+    p For available options and their default configurations see sections below
+    
+    h4 Configurations
+    
+    h5 Class count
+    p Checks that no element has more that set number of classes.
+    p Configuration options: Maximum number of classes, ignore specified classes from maximum number 
+    code.src-js.source_visible
+        |classCount: {
+        |   enabled: true,
+        |   max: 4,
+        |   ignore: [ ]
+        |}
+        | 
+    h5 No inline styles
+    p Checks that no elements uses inline CSS rules (style attribute)
+    p Configuration options: ignore specified CSS rules 
+    code.src-js.source_visible
+        |inlineStyle: {
+        |   enabled: true,
+        |   ignore: [ ]
+        |}
+        | 
+    h5 No inline event handlers
+    p Checks that no elements use inline handlers
+    p Configuration options: Ignore specified handlers 
+    code.src-js.source_visible
+        |inlineEventHandler: {
+        |   enabled: true,
+        |   ignore: [ ]
+        |}
+        | 
+    h5 No absolute URLs
+    p Checks that no link is using absolute URL (all URLs should be relative, and not use http://)
+    p Configuration options: Ignore specified addresses 
+    code.src-js.source_visible
+        |relativeURL: {
+        |   enabled: true,
+        |   ignore: [ ]
+        |}
+        | 
+    h5 No use of breaklines
+    p Checks that there are no &lt;br&gt; elements used. Per best practices, use paragraph elements &lt;p&gt;
+    code.src-js.source_visible
+        |breakLines: {
+        |   enabled: true,
+        |}
+       | 
+    h5 Tables having correct structure
+    p Checks that tables are using correct structure (have &lt;thead&gt;, &lt;tbody&gt; and optionally &lt;citation&gt;)
+    p Configuration options: Ignore specified elements (&lt;citation&gt; by default, as per Best Practices). Use element name without brackets 
+    code.src-js.source_visible
+        |tableContent: {
+        |   enabled: true,
+        |   ignore: ['citation']
+        |}
+        | 
+    h5 No formatting attributes
+    p Checks that no elements are using deprecated formatting attributes (align, border, color, bgcolor)
+    p Configuration options: Ignore specified attributes. Use attribute name
+    code.src-js.source_visible
+        |formattingHTML: {
+        |   enabled: true,
+        |   ignore: [ ]
+        |}
+        | 
+    h5 Lists can only conatin list elements
+    p Checks that no list (&lt;ul&gt;, &lt;ol&gt;) contains other elements than &lt;li&gt;
+    code.src-js.source_visible
+        |listChildren: {
+        |   enabled: true,
+        |}
+        |         
+    h5 No deprecated emphasis elements
+    p Checks that there are no deprecated emphasis elements &lt;b&gt;, &lt;i&gt;, &lt;u&gt;) being used
+    p Configuration options: Ignore specified element. Use element name without brackets
+    p
+        em Under HTML5, &lt;u&gt; was redefined to represent text that should be stylistically different from normal text, such as misspelled words or proper nouns in Chinese
+    code.src-js.source_visible
+        |emphasis: {
+        |   enabled: true,
+        |   ignore: [ ]
+        |}
+        | 
+
+    h3 Accessibility
+    p Runs checks on compiled HTML fagments against Accessibility Guidelines using HTML CodeSniffer and PhantomJS. Requires gulp-accessibility module
+    h4 Usage in Gulp
+    code.src-js.source_visible
+        |gulp.task('accessibilityTest', function() {
+        |   var tasks = folders.map(function(element){
+        |       return gulp.src(source + element + '/releasedAssets/html/*.html')
+        |           .pipe(access({
+        |               force: true,
+        |               ignore: [
+        |                   'WCAG2AAA.Principle2.Guideline2_4.2_4_2.H25.1.NoTitleEl',
+        |                   'WCAG2AAA.Principle3.Guideline3_1.3_1_1.H57.2',
+        |               ],
+        |               reportLevels: {
+        |                   notice: false,
+        |                   warning: false,
+        |                   error: true
+        |               },
+        |               accessibilityLevel: 'WCAG2AAA'
+        |           }))
+        |           .on('error', console.log)
+        |           .pipe(access.report({reportType: 'txt'}))
+        |           .pipe(rename({
+        |               extname: '.txt'
+        |           }))
+        |           .pipe(gulp.dest(dest + element + '/releasedAssets/txt/'));
+        |       });
+        |   return merge(tasks);
+        |});
+        | 
+    p Allows adding specific guidelines to ignore (copy the etire Guidleine name from report and add it to the others)
+    p Allows setting what levels should be reported (errors, warning, notices). Errors need to fixed, others per review	

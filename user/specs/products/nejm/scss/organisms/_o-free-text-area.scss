@@ -1,0 +1,53 @@
+
+
+.o-free-text-area {
+}
+
+.o-free-text-area *[class*=f-h]:not(.f-hint) {
+  color: $color__text--headlines;
+}
+
+.o-free-text-area p {
+  padding-right: 20px;
+}
+
+.o-free-text-area > .a-banner-square {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.o-free-text-area > .a-banner-square--inline {
+
+  @include breakpoint('medium+') {
+    float: right;
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    margin-left: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-left: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-left: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-free-text-area *[class*=colset]:not(:first-child) {
+  margin-top: 16px;
+
+  @include breakpoint('medium+') {
+    margin-top: 32px;
+  }
+}
+
+.o-free-text-area .m-generic-listing + *[class*=colset]:not(:first-child) {
+  margin-top: 32px;
+
+  @include breakpoint('medium+') {
+    margin-top: 52px;
+  }
+}

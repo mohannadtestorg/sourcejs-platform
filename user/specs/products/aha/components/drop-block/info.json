@@ -1,0 +1,56 @@
+{
+    "title": "Drop Block",
+    "tag": ["components"],
+    "templateData": {
+        "example1":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["dropBlock"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "./templates/drop-block/drop-block-actions-tmpl.jade",
+                                    "data": {
+                                        "$ref": "./templates/data/drop-block-actions.json"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        },
+        "example2":{
+            "$pug": {
+                "template": "../../../../ux3/widgets/shared-widget/templates/shared-widget/shared-widget-tmpl.jade",
+                "data": {
+                    "model": {
+                        "config": {
+                            "wrapper": "true",
+                            "className": ["dropBlock"]
+                        },
+                        "data": {
+                            "content": {
+                                "$pug": {
+                                    "template": "../../../../ux3/components/drop-block/templates/drop-block/drop-block-tmpl.jade",
+                                    "data": {
+                                        "$ref": "../../../../ux3/components/drop-block/templates/data/drop-block.json"
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

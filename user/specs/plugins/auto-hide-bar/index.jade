@@ -1,0 +1,49 @@
+extends /specs/page-structure/layout.jade
+
+block content
+    h1 Auto hide bar
+    p This used to hide top bar & make secondry bar sticky
+
+    section.source_section
+        h2 Default set-up
+        p Use HTMl attributes to control bars
+
+        h3 Structure
+        p this is jade template for auto hide bar
+        code.src-html.source_visible.source_example
+            | .auto-hide-primary-bar
+            |    p Primary Bar
+            | .auto-hide-secondary-bar
+            |    p Secondary Bar
+
+
+        markdown
+            p use `auto-hide-primary-bar` for first bar and  `auto-hide-secondary-bar"` to the second
+
+
+
+    section.source_section
+        h2 Working example
+        .source_example
+            | !{pb.render("header", "header/demo/header-auto-hide")}
+            main.content
+                .container
+
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor eget est et auctor. Mauris facilisis viverra nunc varius cursus. Curabitur tincidunt egestas nibh, at consectetur eros bibendum id. Sed fringilla, lorem ac cursus feugiat, dui nisl tempor sapien, in egestas magna mauris a mauris. Nam rutrum feugiat turpis. Donec commodo nibh semper tortor ornare, nec finibus turpis convallis. Aenean rhoncus ligula sed felis cursus ullamcorper. Aliquam laoreet et justo luctus vestibulum. Donec varius sed nulla sed feugiat. Phasellus id leo eget magna egestas suscipit.
+                    p Maecenas sit amet egestas turpis, vitae vestibulum metus. Pellentesque luctus vehicula dolor, nec aliquam metus pretium eget. Praesent eget risus dui. Mauris ullamcorper volutpat tortor, in hendrerit est porttitor sit amet. Integer fringilla faucibus eros. Nunc a pellentesque nunc. Cras nec purus et risus ultricies commodo ac ut lorem.
+                    p Nam at nunc facilisis massa laoreet pharetra. Morbi sit amet mi blandit, faucibus orci eget, dignissim metus. Quisque fringilla dui sit amet augue blandit, eget tincidunt lectus interdum. Suspendisse aliquam magna ullamcorper purus condimentum venenatis. Aenean euismod magna ac vehicula vestibulum. Aliquam commodo consectetur nibh, vel eleifend purus sodales porttitor. Sed luctus auctor nibh, sit amet imperdiet est blandit in. Donec elementum consectetur eros, egestas feugiat metus finibus at. Etiam dui eros, dapibus ac ipsum a, venenatis lobortis tellus. Aenean at arcu justo. Duis vel enim gravida, tempor tellus non, congue velit. Proin vel orci nibh.
+                    p Sed suscipit molestie nunc, eget volutpat est efficitur vitae. Curabitur ac turpis accumsan risus dictum ultrices. Nulla et pellentesque velit. In sed lorem pulvinar, porttitor nunc vel, sollicitudin dui. Phasellus in nisl enim. Fusce ultrices metus non risus convallis ultricies. Phasellus nec nisl vel tellus egestas venenatis. Curabitur id vulputate urna, eu ornare quam. Suspendisse vitae maximus dui. Curabitur ac ipsum mauris. Vestibulum varius nibh vitae tellus euismod, a sodales mauris pulvinar. Donec sit amet tempus odio. Nam urna augue, fermentum at porttitor posuere, consequat a lorem. Donec lobortis mattis sapien. Proin convallis ac erat in placerat.
+                    p Nullam consectetur sem bibendum velit luctus, at ullamcorper felis aliquam. Donec congue dui diam, eu vestibulum ante tincidunt facilisis. Proin in neque arcu. Nullam accumsan enim eget ante maximus consequat. Morbi aliquam varius ipsum a rhoncus. Nullam sed dui nunc. Nulla a quam ac ante fermentum fermentum. Proin dignissim interdum volutpat. Suspendisse lacus erat, scelerisque ut neque ut, varius pretium urna. Cras tincidunt suscipit magna in facilisis. Donec non pellentesque diam. Phasellus arcu sapien, suscipit in lectus eget, viverra
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor eget est et auctor. Mauris facilisis viverra nunc varius cursus. Curabitur tincidunt egestas nibh, at consectetur eros bibendum id. Sed fringilla, lorem ac cursus feugiat, dui nisl tempor sapien, in egestas magna mauris a mauris. Nam rutrum feugiat turpis. Donec commodo nibh semper tortor ornare, nec finibus turpis convallis. Aenean rhoncus ligula sed felis cursus ullamcorper. Aliquam laoreet et justo luctus vestibulum. Donec varius sed nulla sed feugiat. Phasellus id leo eget magna egestas suscipit.
+                    p Maecenas sit amet egestas turpis, vitae vestibulum metus. Pellentesque luctus vehicula dolor, nec aliquam metus pretium eget. Praesent eget risus dui. Mauris ullamcorper volutpat tortor, in hendrerit est porttitor sit amet. Integer fringilla faucibus eros. Nunc a pellentesque nunc. Cras nec purus et risus ultricies commodo ac ut lorem.
+                    p Nam at nunc facilisis massa laoreet pharetra. Morbi sit amet mi blandit, faucibus orci eget, dignissim metus. Quisque fringilla dui sit amet augue blandit, eget tincidunt lectus interdum. Suspendisse aliquam magna ullamcorper purus condimentum venenatis. Aenean euismod magna ac vehicula vestibulum. Aliquam commodo consectetur nibh, vel eleifend purus sodales porttitor. Sed luctus auctor nibh, sit amet imperdiet est blandit in. Donec elementum consectetur eros, egestas feugiat metus finibus at. Etiam dui eros, dapibus ac ipsum a, venenatis lobortis tellus. Aenean at arcu justo. Duis vel enim gravida, tempor tellus non, congue velit. Proin vel orci nibh.
+                    p Sed suscipit molestie nunc, eget volutpat est efficitur vitae. Curabitur ac turpis accumsan risus dictum ultrices. Nulla et pellentesque velit. In sed lorem pulvinar, porttitor nunc vel, sollicitudin dui. Phasellus in nisl enim. Fusce ultrices metus non risus convallis ultricies. Phasellus nec nisl vel tellus egestas venenatis. Curabitur id vulputate urna, eu ornare quam. Suspendisse vitae maximus dui. Curabitur ac ipsum mauris. Vestibulum varius nibh vitae tellus euismod, a sodales mauris pulvinar. Donec sit amet tempus odio. Nam urna augue, fermentum at porttitor posuere, consequat a lorem. Donec lobortis mattis sapien. Proin convallis ac erat in placerat.
+                    p Nullam consectetur sem bibendum velit luctus, at ullamcorper felis aliquam. Donec congue dui diam, eu vestibulum ante tincidunt facilisis. Proin in neque arcu. Nullam accumsan enim eget ante maximus consequat. Morbi aliquam varius ipsum a rhoncus. Nullam sed dui nunc. Nulla a quam ac ante fermentum fermentum. Proin dignissim interdum volutpat. Suspendisse lacus erat, scelerisque ut neque ut, varius pretium urna. Cras tincidunt suscipit magna in facilisis. Donec non pellentesque diam. Phasellus arcu sapien, suscipit in lectus eget, viverra
+                    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor eget est et auctor. Mauris facilisis viverra nunc varius cursus. Curabitur tincidunt egestas nibh, at consectetur eros bibendum id. Sed fringilla, lorem ac cursus feugiat, dui nisl tempor sapien, in egestas magna mauris a mauris. Nam rutrum feugiat turpis. Donec commodo nibh semper tortor ornare, nec finibus turpis convallis. Aenean rhoncus ligula sed felis cursus ullamcorper. Aliquam laoreet et justo luctus vestibulum. Donec varius sed nulla sed feugiat. Phasellus id leo eget magna egestas suscipit.
+                    p Maecenas sit amet egestas turpis, vitae vestibulum metus. Pellentesque luctus vehicula dolor, nec aliquam metus pretium eget. Praesent eget risus dui. Mauris ullamcorper volutpat tortor, in hendrerit est porttitor sit amet. Integer fringilla faucibus eros. Nunc a pellentesque nunc. Cras nec purus et risus ultricies commodo ac ut lorem.
+                    p Nam at nunc facilisis massa laoreet pharetra. Morbi sit amet mi blandit, faucibus orci eget, dignissim metus. Quisque fringilla dui sit amet augue blandit, eget tincidunt lectus interdum. Suspendisse aliquam magna ullamcorper purus condimentum venenatis. Aenean euismod magna ac vehicula vestibulum. Aliquam commodo consectetur nibh, vel eleifend purus sodales porttitor. Sed luctus auctor nibh, sit amet imperdiet est blandit in. Donec elementum consectetur eros, egestas feugiat metus finibus at. Etiam dui eros, dapibus ac ipsum a, venenatis lobortis tellus. Aenean at arcu justo. Duis vel enim gravida, tempor tellus non, congue velit. Proin vel orci nibh.
+                    p Sed suscipit molestie nunc, eget volutpat est efficitur vitae. Curabitur ac turpis accumsan risus dictum ultrices. Nulla et pellentesque velit. In sed lorem pulvinar, porttitor nunc vel, sollicitudin dui. Phasellus in nisl enim. Fusce ultrices metus non risus convallis ultricies. Phasellus nec nisl vel tellus egestas venenatis. Curabitur id vulputate urna, eu ornare quam. Suspendisse vitae maximus dui. Curabitur ac ipsum mauris. Vestibulum varius nibh vitae tellus euismod, a sodales mauris pulvinar. Donec sit amet tempus odio. Nam urna augue, fermentum at porttitor posuere, consequat a lorem. Donec lobortis mattis sapien. Proin convallis ac erat in placerat.
+                    p Nullam consectetur sem bibendum velit luctus, at ullamcorper felis aliquam. Donec congue dui diam, eu vestibulum ante tincidunt facilisis. Proin in neque arcu. Nullam accumsan enim eget ante maximus consequat. Morbi aliquam varius ipsum a rhoncus. Nullam sed dui nunc. Nulla a quam ac ante fermentum fermentum. Proin dignissim interdum volutpat. Suspendisse lacus erat, scelerisque ut neque ut, varius pretium urna. Cras tincidunt suscipit magna in facilisis. Donec non pellentesque diam. Phasellus arcu sapien, suscipit in lectus eget, viverra
+
+
+

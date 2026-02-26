@@ -1,0 +1,130 @@
+.accordion {
+    &__content {
+        width: 100%;
+        clear: both;
+        background: $aha_transparent;
+
+        &.bordered {
+            border-top: 1px solid $aha_grey;
+            padding-left: 0.5rem;
+        }
+    }
+
+    &__control {
+        display: block;
+        width: 100%;
+        cursor: pointer;
+        margin-bottom: 16px;
+        font-size: 0.875rem; // 18px
+        font-weight: normal;
+        color: $aha_green;
+
+        i[class*=icon-] {
+            font-size: 0.625rem;
+            margin-top: 8px;
+            margin-left: 10px;
+        }
+
+        &:hover, &:focus, &:active {
+          color: $aha_green;
+        }
+
+        &__text {
+            float: left;
+        }
+
+        &.js--open {
+            i.icon-section_arrow_d:before {
+                content: "\e60c"
+            }
+        }
+
+        &.bordered {
+            border-bottom: 2px solid $aha_grey;
+            padding-bottom: 0.5em;
+        }
+
+        &.sub {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+    }
+
+    &-tabbed {
+        font-size: 0.875rem;
+
+        &__tab {
+
+            &:not(:first-child) {
+                border-top: 1px solid;
+            }
+
+            &:first-child {
+                .accordion-tabbed__tab__control {
+                    padding-top: 0;
+                }
+            }
+        }
+
+        &__control {
+            display: block;
+            width: 100%;
+            font-weight: bold;
+            padding: 10px 0;
+            cursor: pointer;
+
+            &:hover, &:focus, &:active {
+                text-decoration: none;
+            }
+
+            .opened & {
+                cursor: default;
+            }
+        }
+
+        &__content {
+            border-style: solid;
+            border-width: 1px 0 0;
+            padding: 10px 0;
+        }
+    }
+    &--centered {
+        text-align: center;
+        a {
+            margin: 0 auto 14px;
+            width: auto;
+        }
+        i {
+            float: none;
+            display: inline-block;
+        }
+        .accordion__content {
+          padding-bottom: 15px;
+        }
+    }
+
+    &__control[aria-expanded='true'] + &__content {
+        display: block;
+    }
+
+    &-with-arrow {
+        .accordion-tabbed__control {
+            &:after {
+                content: "\e60b";
+                float: right;
+                font-family: icomoon !important;
+                font-size: .5rem;
+                padding-right: 10px;
+
+            }
+        }
+
+        .js--open {
+            .accordion-tabbed__control {
+                &:after {
+                    content: "\e60c";
+                }
+            }
+        }
+    }
+}

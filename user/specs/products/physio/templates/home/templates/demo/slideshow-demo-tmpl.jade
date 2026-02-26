@@ -1,0 +1,16 @@
+if (data.widget && data.widget.slides)
+    .home-covers.gutterless.clearfix.border-bottom
+        div.viewport-slider(data-slider-vport="screen-sm")
+            .slideShow
+                div.owl-carousel(data-items=1 data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=false data-arrow=true data-controls=controls)
+                    each item, k in data.widget.slides
+                        block slideShowDropZone
+                            | !{item}
+    h5 Other research journals
+    .home-covers.gutterless.clearfix.border-bottom
+        div.viewport-slider(data-slider-vport="screen-sm")
+            .slideShow
+                div.owl-carousel(data-items=1 data-responsive=responsive data-speed=speed data-autoplay=autoplay data-animation=animation data-indicators=false data-arrow=true data-controls=controls)
+                    each item, k in data.widget.slides
+                        block slideShowDropZone
+                            | !{item}

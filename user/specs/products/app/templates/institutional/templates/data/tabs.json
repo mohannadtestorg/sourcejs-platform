@@ -1,0 +1,380 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "m1x"
+        },
+        "config": {
+            "type": "vertical",
+            "effect": "dropdown"
+        },
+        "data": {
+            "nav": [
+
+                {
+                    "text": "Usage Reports",
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/usage-reports/templates/usage-reports/usage-reports-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "token": "409741ac-ae58-48e3-a61b-0e00a956d72f",
+                                    "reportiuid": 0,
+                                    "sushiRequestUrl": "http://hhusban:6194/api/soap/analytics/SushiService",
+                                    "sushiRequestId": "hhusban@atypon.com",
+
+                                    "sushiCustomerRefId": "Atypon Institution",
+                                    "emailCounterEnabled": 1,
+                                    "emailCounterEnabledLabel": "E-mail when COUNTER usage data for the current month has been processed and is ready for reporting.",
+                                    "usageReportSaveButtonValue": "Update settings",
+                                    "rangeHeading": "Select Range",
+                                    "yearsRange": [2017, 2016, 2015, 2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007],
+                                    "yearOnly": {
+                                        "yearOnlyRadioOption": false,
+                                        "year": 0
+                                    },
+                                    "monthRange": {
+                                        "monthRangeRadioOption": true,
+                                        "startMonth": 0,
+                                        "startYear": 0,
+                                        "endMonth": 0,
+                                        "endYear": 0
+                                    },
+                                    "reports": {
+                                        "counterIds": [{
+                                            "name": "journal1",
+                                            "value": false,
+                                            "label": "Journal Report 1 (Number of Successful Full-Text Article Requests by Month and Journal)"
+                                        }, {
+                                            "name": "journal1GOA",
+                                            "value": false,
+                                            "label": "Journal Report 1 GOA (Number of Successful Gold Open Access Full-Text Article Requests by Month and Journal)"
+                                        }, {
+                                            "name": "journal1a",
+                                            "value": false,
+                                            "label": "Journal Report 1a (Number of Successful Full-Text Article Requests from an Archive by Month and Journal)"
+                                        }, {
+                                            "name": "journal2",
+                                            "value": false,
+                                            "label": "Journal Report 2 (Access Denied to Full-Text Articles by Month, Journal and Category)"
+                                        }, {
+                                            "name": "journal3",
+                                            "value": false,
+                                            "label": "Journal Report 3 (Number of Successful Item Requests by Month, Journal and Page Type)"
+                                        }, {
+                                            "name": "journal5",
+                                            "value": false,
+                                            "label": "Journal Report 5 (Number of Successful Full-Text Article Requests by Year-of-Publication (YOP) and Journal)"
+                                        }, {
+                                            "name": "platform1",
+                                            "value": false,
+                                            "label": "Platform Report 1 (Total Searches, Result Clicks and Record Views by Month and Platform)"
+                                        }, {
+                                            "name": "book2",
+                                            "value": false,
+                                            "label": "Book Report 2 (Number of Successful Section Requests by Month and Title)"
+                                        }, {
+                                            "name": "book3",
+                                            "value": false,
+                                            "label": "Book Report 3 (Access Denied to Content Items by Month, Title and Category)"
+                                        }, {
+                                            "name": "title1",
+                                            "value": false,
+                                            "label": "Title Report 1 (Number of Successful Requests for Journal Full-Text Articles and Book Sections by Month and Title)"
+                                        }, {
+                                            "name": "title2",
+                                            "value": false,
+                                            "label": "Title Report 2 (Access Denied to Full-Text Items by Month, Title and Category)"
+                                        }, {
+                                            "name": "title3",
+                                            "value": false,
+                                            "label": "Title Report 3 (Number of Successful Item Requests by Month, Title and Page Type)"
+                                        }]
+                                    },
+                                    "formats": [{
+                                        "name": "XML",
+                                        "value": false
+                                    }, {
+                                        "name": "HTML",
+                                        "value": false
+                                    }, {
+                                        "name": "Tab-delimited text",
+                                        "value": false
+                                    }],
+                                    "recipients": {
+                                        "usageReportEmailAddress": "hhusban@atypon.com",
+                                        "emailAllAdminsTrue": false
+                                    },
+                                    "sendMailLabel": "Submit reports request"
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+            ,
+                {
+                    "text": "IP Ranges",
+                    "content": {
+                        "$pug": {
+                            "template":"../../../../ux3/widgets/ip-ranges/templates/ip-ranges/ip-ranges-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "multiIPRangeEnabled": true,
+                                    "mail": {
+                                        "userEmail": "hhusban@atypon.com"
+                                    },
+                                    "multiIpInfoLink": "/action/showIdentities",
+                                    "ipInfo": "127.0.0.1",
+                                    "antiForgeryToken": "3977110d-94d6-425e-b2f5-b0d301c032d5",
+                                    "records": [
+                                        {
+                                            "ipRangeUserDisplayName": "005.009.236.140:005.009.236.140",
+                                            "ipRangeUserDescription": "Atypon Ip 005.009.236.140-005.009.236.140"
+                                        },
+                                        {
+                                            "ipRangeUserDisplayName": "010.000.000.000:010.255.255.255",
+                                            "ipRangeUserDescription": "Internal Ip 010.000.000.000-010.255.255.255"
+                                        },
+                                        {
+                                            "ipRangeUserDisplayName": "172.016.000.000:172.031.255.255",
+                                            "ipRangeUserDescription": "Internal Ip 172.016.000.000-172.031.255.255"
+                                        },
+                                        {
+                                            "ipRangeUserDisplayName": "192.168.000.000:192.168.255.255",
+                                            "ipRangeUserDescription": "Internal Ip 192.168.000.000-192.168.255.255",
+                                            "messageKey": "The IP range you have entered conflicts with an another IP range of this or another institution. They cannot overlap."
+                                        }
+                                    ],
+                                    "addSectionTitle": "Add new IP range(s)",
+                                    "updateSectionTitle": "Update existing IP range(s)",
+                                    "ipRangesTitle": "IP Ranges",
+                                    "ipRangesInfo": "(For your information, the IP address of your current internet connection is: {0})",
+                                    "descLabel": "Description",
+                                    "ipRangeLabel": "IP range",
+                                    "agreementNote": "Please remember: Only the sites covered by the agreement are authorized to access this online subscription.",
+                                    "identityLink": "Show the IP Ranges",
+                                    "identityNote": "{0} and identities currently assigned to me through this connection.",
+                                    "mailLink": "Email me",
+                                    "mailNote": "{0} my IP addresses for my records.",
+                                    "afterRegNote": "\u003cb\u003eAfter finishing your Institution IP setup, click \u0027Done\u0027 below.\u003c/b\u003e",
+                                    "afterRegBtnSrc": "",
+                                    "afterRegBtnAlt": "Done",
+                                    "ipChangeExLabel": "Examples:",
+                                    "ipChangeEx1": "101.23.*.*",
+                                    "ipChangeEx2": "128.23.12.*",
+                                    "ipChangeEx3": "132.10.30-40.*",
+                                    "ipChangeEx4": "112.12.11.15:112.12.12.36",
+                                    "ipChangeForceLabel": "Ignore conflicts",
+                                    "ipChangeInfo": "",
+                                    "ipChangeUpdateLabel": "Update checked",
+                                    "ipChangeDeleteLabel": "Delete checked",
+                                    "ipChangeUpdateChecked": "Update checked",
+                                    "ipChangeDeleteChecked": "Delete checked",
+                                    "ErrorMsg": "IP ranges larger than 65534 IPs are not allowed. Please correct the IP range and try again."
+                                }
+
+                            }
+                        }
+                    }
+                }
+            ,
+                {
+                    "text": "Link Resolver",
+                    "content": {
+                        "$pug": {
+                            "template":"../../../../ux3/widgets/link-resolver/templates/link-resolver/link-resolver-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "extraPageTitle":"title",
+                                    "updateForm": {
+                                        "updateUrl": true,
+                                        "baseUrl": {
+                                            "value": "http://url.com/foo",
+                                            "label": "Base URL:",
+                                            "errorMsg":"error"
+                                        },
+                                        "currentButtonImage": {
+                                            "title": "Current OpenURL Button:",
+                                            "imageUrl": "/pathToImage/image.jpg"
+                                        },
+                                        "uploadImageButtonLabel": "Upload New Image:",
+                                        "submitButtonLabel": "Update",
+                                        "imageFile": {
+                                            "errorMsg": "The uploaded image has incorrect height. Please fix the image and try again."
+                                        }
+                                    },
+                                    "disableButtonLabel": "Disable OpenURL linking"
+                                }
+
+                            }
+                        }
+                    }
+                }
+            ,
+                {
+                    "text": "Trusted Proxy Server Setup",
+                    "content": {
+                        "$pug": {
+                            "template":"../../widgets/trusted-proxy/templates/trusted-proxy/trusted-proxy-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "extraPageTitle": "Trusted Proxy",
+                                    "servers": {
+                                        "serverDropdownLabel": "You are managing:",
+                                        "selected": 1,
+                                        "options": [
+                                            {
+                                                "label": "New Server",
+                                                "value": -1
+                                            },
+                                            {
+                                                "label": "ACID Test (Atypon) TPS access",
+                                                "value": 3596
+                                            },
+                                            {
+                                                "label": "ACID Test (Atypon) TPS access",
+                                                "value": 3597
+                                            }
+                                        ]
+                                    },
+                                    "serverDetailsForm": {
+                                        
+                                        "minIP": {
+                                            "label": "IP address (or IP range) of your institution\u0027s server.",
+                                            "label2": "IP address from where the user will access the publisher site through TPS."
+                                        },
+                                        "maxIP": {
+                                            "label": "through to",
+                                            "label2": "Leave blank if there is only one IP address."
+                                        },
+                                        "domain": {
+                                            "label": "Optional domain",
+                                            "label2": "If IP address is shared with multiple web-sites, then an extra parameter \u0027domain\u0027 is needed to distinguish this site."
+                                        },
+                                        "banner": {
+                                            "label": "Banner text",
+                                            "label2": "Normally this is a welcome message with the name of your institution",
+                                            "errorRequired": "",
+                                            "errorInvalid": ""
+                                        },
+                                        "journalUrl": {
+                                            "label": "URL of the journal to grant access:",
+                                            "label2": "URL of the List of Issues page of the journal",
+                                            "errorRequired": "Error Required"
+                                        },
+                                        "errorUrl": {
+                                            "label": "URL of an error page if users fail to authenticate.",
+                                            "label2": "URL is normally hosted on your web-site.",
+                                            "errorInvalid": "Error Invalid"
+                                        },
+                                        "languageDropdown": {
+                                            "label": "Language of TPS code.",
+                                            "options": [
+                                                {
+                                                    "label": "Java/JSP",
+                                                    "value": "jsp"
+                                                },
+                                                {
+                                                    "label": "Perl",
+                                                    "value": "perl"
+                                                },
+                                                {
+                                                    "label": "ColdFusion",
+                                                    "value": "coldfusion"
+                                                },
+                                                {
+                                                    "label": "PHP",
+                                                    "value": "php"
+                                                },
+                                                {
+                                                    "label": "ASP/.NET",
+                                                    "value": "asp"
+                                                }
+                                            ]
+                                        },
+                                        "": "",
+                                        "submitButton": "Submit"
+                                    },
+                                    "token": "d2acc34b-14f9-4c0d-8fad-f6ca17e11cec"
+                                }
+                            }
+                        }
+                    }
+                }
+            ,
+                {
+                    "text": "Pairing Management",
+                    "content": {
+                        "$pug": {
+                            "template":"../../../../ux3/widgets/pairing-management/templates/pairing-management/demo/demo-pairing-management-tmpl.jade",
+                            "data":{
+                                "thisWidget":{
+                                    "id":"ddd"
+                                },
+                                "data": {
+                                    "hiddenData": {
+                                        "serviceName": "showInstitutionDevicePairingManagement",
+                                        "antiForgeryToken": "4d9f7a27-f0a6-4a4c-b217-8d30bf6daf53",
+                                        "institutionUserId": "2922"
+                                    },
+                                    "pairingDuration": 180
+                                }
+                            }
+
+                        }
+                    }
+                },
+                {
+                    "text": "Co-Branding",
+                    "content": {
+                        "$pug": {
+                            "template":"../../../../ux3/widgets/co-branding/templates/co-branding/co-branding-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "antiForgeryToken": "",
+                                    "managedInstitutionBannerText":"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ",
+                                    "inputSize":"",
+                                    "inputMaxLength":"",
+                                    "isInstLogoUpload":true,
+                                    "maxWidth":"5",
+                                    "uploadImage":true,
+                                    "removeImage":false,
+                                    "trick": "trick11",
+                                    "bannerImage": {
+                                        "description": "logo image",
+                                        "internetPath": "/userimages/logo"
+                                    },
+                                    "instLogoImgMaxWidth":"5",
+                                    "instLogoImgMaxHeight":"5",
+                                    "institutionUrlUpdated":true,
+                                    "institutionUserUrl":"http://reem.com",
+                                    "urlLabel" : "URL for Link:"
+                                }
+                            }
+
+                        }
+                    }
+                },
+                {
+                    "text": "Holding File",
+                    "content": {
+                        "$pug": {
+                            "template":"../../../../ux3/widgets/holdings/templates/holdings/holdings-tmpl.jade",
+                            "data": {
+                                "data": {
+                                    "institutionId":"",
+                                    "errorMsg":"",
+                                    "successMsg":""
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+            ]
+        }
+    }
+}

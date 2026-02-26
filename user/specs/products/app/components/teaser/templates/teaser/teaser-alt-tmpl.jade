@@ -1,0 +1,12 @@
+extends ../../../../../../ux3/components/teaser/templates/teaser/teaser-tmpl
+
+
+
+block authors
+
+block meta
+    .published-date
+        if (item && item.epubDate)
+            span Published online:
+            span.epubDate
+                | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}

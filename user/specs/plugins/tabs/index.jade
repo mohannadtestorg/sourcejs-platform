@@ -1,0 +1,54 @@
+﻿head
+  link(rel='stylesheet', href='css/tabs.css')
+
+h1 Tabs
+.source_info
+    p
+        a(href='http://getbootstrap.com/javascript/#tabs') Bootstrap Tabs
+section.source_section
+    h2 Default set-up
+    markdown
+        | Add quick, dynamic tab functionality to transition through panes of local content, even via dropdown menus.
+    code.src-html.source_visible
+        .tab
+            ul.rlist.tab__nav
+                li(aria-controls="tab1")
+                    a(href="#tab1" role="tab" data-toggle="tab") ...
+            .tab__content
+                #tab1.tab__pane
+                    p ...
+
+    .source_example
+        .tab
+            ul.rlist.tab__nav
+                li.active(aria-controls="tab1")
+                    a(href="#tab1" role="tab" data-toggle="tab") Tab 1
+
+                li(aria-controls="tab2")
+                    a(href="#tab2" role="tab" data-toggle="tab") Tab 2
+
+                li(aria-controls="tab3")
+                    a(href="#tab3" role="tab" data-toggle="tab") Tab 3
+
+            .tab__content
+                #tab1.tab__pane.active
+                    p Raw denim you probably haven't heard of them jean shorts Austin.
+                        | Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.
+                        | Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid.
+                        | Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+
+                #tab2.tab__pane
+                    p Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
+                        | blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress,
+                        | commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore
+                        | aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown.
+                        | Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel.
+                        | Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+
+                #tab3.tab__pane
+                    p tab333 You can activate a tab or pill navigation without writing any JavaScript by simply specifying on an element.
+                        | Adding the nav and nav-tabs classes to the tab ul will apply the Bootstrap
+
+script(src='js/tabs.js')
+
+

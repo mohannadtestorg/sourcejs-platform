@@ -1,0 +1,30 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-facet-date-tmpl.jade
+
+block DateOptions
+    option(value=i) !{i}
+    -i--
+    if i >= data.minDate
+        +options()
+
+
+block customRange
+    .custom-date-form
+        form(action='/action/doSearch', method='get')
+            if (data) && (data.searchSummary)
+                each input , i in data.searchSummary
+                    input(type='hidden', name=input.name, value= input.value)
+
+            .input-group
+                label(for="timeFrame--from") From:
+                select.jcf#timeFrame--from(name='AfterYear' datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    option(value='') YYYY
+                    +options()
+
+
+            .input-group
+                label(for="timeFrame--to") To:
+                select.jcf#timeFrame--to(name='BeforeYear' datajcf='{"wrapNative": false,"wrapNativeOnMobile": false}')
+                    option(value='') YYYY
+                    +options()
+
+            button.btn(type='submit') Go

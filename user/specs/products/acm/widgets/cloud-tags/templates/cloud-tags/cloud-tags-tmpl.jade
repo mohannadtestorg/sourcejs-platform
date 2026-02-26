@@ -1,0 +1,10 @@
+.tags-widget
+    div.tags-widget__label.left-bordered-label Tags:
+    div.tags-widget__content
+        if(data.tags)
+            each item, i in data.tags
+                a.badge-type(href=item.link title=item.title) !{item.title}
+
+
+
+

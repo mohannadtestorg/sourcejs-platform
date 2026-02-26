@@ -1,0 +1,84 @@
+mixin td(row,r,jsonFieldName, theadName, classes, firstRow, isContentType, isEditable, isdummy)
+    td(data-thead=theadName, class=classes)
+        if(firstRow)
+            a(href="#").icon-arrow_d_n.pull-right.hidden-md.hidden-lg.table__control__button
+
+        if(row[jsonFieldName])
+            -var inputClass=""
+            -var isThereError=false
+            if(row[jsonFieldName].message && row[jsonFieldName].message.text)
+                -isThereError=true
+                -inputClass=row[jsonFieldName].message.type + "-input"
+
+            if(isContentType)
+                block FilesTd1
+                    if(isdummy)
+                        | !{pb.render("supplemental-content-type", {data: { "listId": "supplemental-files[" + r + "]." + jsonFieldName, "value": row[jsonFieldName].value, "type": "nojcf-list"},inputClass:inputClass})}
+                    else
+                        | !{pb.render("supplemental-content-type", {data: {"listId": "supplemental-files[" + r + "]." + jsonFieldName, "value": row[jsonFieldName].value, "type": "list"},inputClass:inputClass})}
+
+            else if(isEditable)
+                block FilesTd2
+                    .td-text.js-editable
+                        .js-editable__text
+                            | !{row[jsonFieldName].value}
+
+                        if(isdummy)
+                            fakedinput.js-editable__input(value=row[jsonFieldName].value, name="supplemental-files[" + r + "]." + jsonFieldName)
+                        else
+                            input.js-editable__input(class=inputClass value=row[jsonFieldName].value, name="supplemental-files[" + r + "]." + jsonFieldName)
+
+            else
+                .td-text !{row[jsonFieldName].value}
+                block FilesTd3
+                    if(isdummy)
+                        fakedinput(type="hidden" value=row[jsonFieldName].value name="supplemental-files[" + r + "]." + jsonFieldName)
+                    else
+                        input(type="hidden" value=row[jsonFieldName].value name="supplemental-files[" + r + "]." + jsonFieldName)
+
+            block ErrorMessage
+                if(isThereError)
+                    div(class=inputClass == "" ? "success" :row[jsonFieldName].message.type) !{row[jsonFieldName].message.text}
+
+
+
+mixin row(r, row, isdummy)
+    tr.expanded(data-row-num=r)
+        +td(row, r, "label", "Description", "description-td", true, false, true, isdummy)
+        +td(row, r, "fileName", "File Name", "to_hide path-td", true, false, false, isdummy)
+        +td(row, r, "type", "File Type", "to_hide file-type-td", false, true, false, isdummy)
+
+        block actions
+            td(class="table__td--dropdown to_hide")
+                | !{pb.render('drop-block', 'drop-block/drop-block-actions', {data: {"id": "suppFile__" + r, "actions": [{"label": "Delete", "icon": "icon-delete", "class": "delete"}]}})}
+
+.row
+    .col-md-12
+        block  supplementalFiles
+            -var uploderData={"name":"supplementalFiles","labelLink":"select them","labelText":"Drag and drop supplemental files (eg. PDF files, image files, spreadsheets) or ","uploaderButton":"true","isMultiple":"true"}
+            -var AjaxWidgetData={"uploadLink":data.uploadLink,"csrfToken":data.csrfToken,"signature":data.signature,"doi":data.doi}
+
+            .supplemental-files
+                input(type="hidden" name="supplemental-files.id" value=thisWidget.id)
+                h4.border-bottom Add Supplemental Files
+                    span.__optional #{" "} (Optional)
+                    | !{pb.render('tooltip', {data: {"type": "icon", "title": "Supplemental Files", "text": "Include supplemental material such as additional images (e.g. .jpg, .png, etc.), tables (e.g. .xlsx, .csv, etc.), or documents (e.g. .pdf, etc) that cannot be appended to the main file and are a necessary part of the preprint or poster. There is a 2 MB limit for supplemental files: Large datasets, videos, etc. should be deposited in an appropriate community repository and referenced via a Supplemental Link below."}})}
+
+                | !{pb.render("file-uploader", {data: uploderData, AjaxWidgetData: AjaxWidgetData})}
+                .table-responsive.supplemental-files__table.table-actions
+                    table(class='expandable separator ')
+                        thead
+                            tr
+                                th Description
+                                th File Name
+                                th File Type
+                                th
+
+                        tbody
+                            if (data.forms)
+                                each row, r in data.forms
+                                    +row(r,row)
+
+                table.hidden.rowTemplate
+                    -var dummyRow={'label':{'value':'{{0}}'},'fileName':{'value':'{{1}}'},'type':{'value':'{{2}}'}}
+                    +row("{{3}}", dummyRow, true)

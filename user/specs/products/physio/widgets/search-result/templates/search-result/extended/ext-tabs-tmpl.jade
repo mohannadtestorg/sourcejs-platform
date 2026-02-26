@@ -1,0 +1,8 @@
+extends ../../../../../../../ux3/widgets/search-result/templates/search-result/extended/ext-tabs-tmpl.jade
+block tabsPrefix
+    - var original = data;
+    - var fakeId = {"id": "srw"}
+    - var config = {"type": "default","vPort":"xsmall","effect": "slide"};
+    - var tabsData = {"nav":[{"text": "refine search","content": "","class": "advanced"},{"text": "Search History","content": "","class": "searchHistory"},{"text": "Saved Searches","class": "savedSearches","content": ""}]};
+    - data = tabsData;
+

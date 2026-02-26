@@ -1,0 +1,27 @@
+﻿header.header.fixed.base(data-db-parent-of="sb1")
+    .container
+        .row.header--first-row
+            .col-xs-12
+                .pull-left
+                    | !{logo}
+                    div.header__splitter
+                    | !{pb.render("support-images", {},"esspp")}
+                    div.header__splitter
+                .pull-right
+                    .header__quick-menu
+                            .header__search
+                                | !{search}
+                            .header__login
+                               .loginBar.login-open
+                                    span.individualUser
+                                        span.welcome-label
+                                        a.indivLogin(href="/action/showPreferences?menuTab=AccountInfo", id="indivLogin")
+                                            span.icon-userprofile.hidden-lg
+                                            span.myaccount-link.hidden-md.hidden-sm.hidden-xs(title="My Account")
+                                                span.myaccount-link__user-name Charles Louis Napoleon Bonaparte
+                                                span.ORCID-icon iD
+    .text-onDark.drawer__nav
+        | !{mainmenu}
+
+    | !{secondaryNavigation}
+

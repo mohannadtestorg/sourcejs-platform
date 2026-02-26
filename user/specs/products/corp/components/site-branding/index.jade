@@ -1,0 +1,15 @@
+extends /specs/products/corp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Site Navigation
+
+        if (data.items)
+            each item  in data.items
+                h3 !{item.title}
+                markdown
+                    p !{item.description}
+                .source_example
+                    | !{item.body}
+

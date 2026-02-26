@@ -1,0 +1,258 @@
+.jcf-select-drop .jcf-select-drop-content {
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
+    border:none;
+}
+
+.jcf-list .jcf-option.jcf-hover {
+    background-color: $aha_transparent;
+    color: $aha_red;
+}
+
+.jcf-list li ~ li {
+    border-top: 1px solid $aha_grey;
+}
+
+.jcf-drop-active {
+    .jcf-select-text {
+        &:after {
+            transform: rotateX(150deg);
+        }
+    }
+}
+
+.jcf-select-text {
+    &:after {
+        font-size: 6px;
+    }
+}
+
+
+.checkbox--primary .jcf-checkbox {
+    border: 2px solid $aha_grey;
+}
+
+.checkbox--primary .jcf-checkbox {
+    &.jcf-checked {
+        box-shadow: 0 0 0 2px $aha_grey;
+    }
+    box-shadow: 0 0 0 2px $aha_grey;
+    width: 13px;
+    height: 13px;
+    border-radius: 1px;
+    border: 0;
+}
+
+/****************/
+.checkbox--primary .jcf-checkbox span {
+    width: 13px;
+    height: 13px;
+    background: #eee;
+    border: none;
+    margin: 0;
+    &:before {
+        background: $aha_grey;
+        border: none;
+        border-radius: 1px;
+        padding-right: 0;
+        width: 13px;
+        height: 13px;
+    }
+}
+
+.jcf-checkbox {
+    float: none;
+}
+
+/***********************/
+.profile-pages {
+    div.border-bottom {
+        padding-bottom: 0;
+    }
+    .select-all__action {
+        .select-all__checkbox {
+            border-right: 1px solid $aha_grey;
+            padding-right: 16px;
+        }
+    }
+}
+
+
+/* range input */
+.jcf-range {
+  width: 100%;
+  margin: 0;
+}
+.jcf-range .jcf-range-track {
+    margin: 0 16px 0 0;
+    height: 8px;
+}
+.jcf-range .jcf-range-wrapper {
+    background: $aha_green;
+    border-radius: 0px;
+}
+.jcf-range .jcf-range-display.jcf-range-min {
+    margin: 0 0 0 -10px;
+    padding: 0 0 0 10px;
+}
+.jcf-range .jcf-range-display.jcf-range-max {
+    margin: 0 -10px 0 0;
+    padding: 0 10px 0 0;
+}
+.jcf-range.jcf-vertical .jcf-range-display-wrapper {
+    left: auto;
+    right: auto;
+    top: 10px;
+    bottom: 10px;
+}
+.jcf-range.jcf-vertical .jcf-range-display.jcf-range-min {
+    margin: 0 0 -10px;
+    padding: 0 0 10px;
+}
+.jcf-range.jcf-vertical .jcf-range-display.jcf-range-max {
+    margin: -10px 0 0;
+    padding: 10px 0 0;
+}
+
+.jcf-range .jcf-range-handle {
+    position: absolute;
+    background: $aha_black;
+    box-shadow: 0px 2px 6px transparentize($aha_black, 0.85);
+    border-radius: 1px;
+    width: 16px;
+    height: 24px;
+    margin: -8px 0 0;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+.jcf-range .jcf-range-mark {
+    position: absolute;
+    overflow: hidden;
+    background: #000;
+    width: 1px;
+    height: 3px;
+    top: -7px;
+    margin: 0 0 0 9px;
+}
+.jcf-range.jcf-vertical .jcf-range-mark {
+    margin: 0 0 9px;
+    left: 14px;
+    top: auto;
+    width: 3px;
+    height: 1px;
+}
+.jcf-range .jcf-active-handle {
+    z-index: 2;
+}
+.jcf-range.jcf-focus .jcf-active-handle {
+    //border: 1px solid #f00;
+    margin: -8px 0 0;
+}
+.jcf-range.jcf-disabled {
+    background: none !important;
+    opacity: 0.3;
+}
+
+.jcf-list {
+    .jcf-option {
+        min-height: 40px;
+        padding: 13px 8px 11px;
+        //color: $light-gray-links;
+
+        &.jcf-hover {
+            background-color: $aha_transparent;
+        }
+    }
+
+    li ~ li {
+        border-top: none;
+    }
+}
+
+.jcf-range-frequencies {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 10px;
+
+}
+
+.jcf-range-frequencies__slice {
+    display: block;
+    height: 10px;
+    float: left;
+    background: #333;
+}
+
+.jcf-range-frequencies__slice:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.jcf-range-frequencies__slice:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.jcf-file {
+    max-height: none;
+}
+
+
+
+
+.radio--primary, .checkbox--primary {
+    font-size:inherit;
+    span {
+        &:before, &:after {
+            content: none;
+            display: none;
+        }
+    }
+}
+
+.jcf-list {
+    padding: 6px;
+    background-color: $aha_white;
+    min-width: initial;
+    ul {
+        background: $aha_white;
+    }
+    li~li {
+        border-top:none;
+    }
+    li {
+        background-color: $aha_white;
+        padding: 12px;
+        line-height: normal;
+        font-size: 14px;
+        color: $aha_black;
+        border-top: none;
+        border-bottom: 1px solid $aha_darken_white;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        min-width: 100%;
+        margin: 0;
+        font-weight: 400;
+        &:hover {
+            background: none;
+            a {
+                background: none;
+                color: $aha_red;
+            }
+        }
+        &:last-child {
+            border:none;
+        }
+    }
+    .jcf-option {
+        padding:0;
+        min-height: initial;
+        .jcf-hover {
+            background: $aha_transparent;
+            color: $aha_red;
+        }
+    }
+}

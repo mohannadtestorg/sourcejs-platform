@@ -1,0 +1,48 @@
+.profile{
+    &-menu {
+        height: calc(100vh - 400px);
+
+        @include media('<tablet'){
+            height: 100%;
+        }
+
+        &--dropBlock{
+            >a{
+                font-size: 24px;
+                padding: 12px 16px;
+                background-color: $submenu-bg-color;
+                color: $black-color;
+                font-family:'Source Sans Pro';
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                text-transform: uppercase;
+
+                &:hover,&:focus,&:link{
+                    background-color: $submenu-bg-color;
+                    color: $black-color;
+                }
+
+                i{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    margin-top:12px;
+
+                    &:after {
+                        content: 'TABS';
+                        font-family: 'Source Sans Pro';;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 10px;
+                        font-size: 16px;
+                        margin-right: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-page{
+        margin-top: 25px;
+    }
+}

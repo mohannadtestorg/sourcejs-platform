@@ -1,0 +1,55 @@
+.device-pairing__error
+
+    if (data.errorCode != data.errorCodes.exceededMaxDevicesErrorCode)
+        h5.title  Error - The device was not paired
+    else
+        h5.title  You have paired too many devices
+
+    div.errorBody
+        if (data.errorCode == data.errorCodes.invalidCodeErrorCode)
+            p This authorization link is not valid. Please contact customer service if you think you got this message in error.
+        else if (data.errorCode == data.errorCodes.expiredErrorCode)
+            p This authorization link has already expired. Please try pairing your device again to generate a new authorization email.
+        else if (data.errorCode == data.errorCodes.alreadyVerifiedErrorCode)
+            p This authorization link has already been used to pair a device.
+        else if (data.errorCode == data.errorCodes.exceededMaxDevicesErrorCode)
+            p Your email address !{data.emailUsedForPairing} has already been used to pair !{data.pairedDevicesLength} devices with !{data.institutionName}.
+            p If you want to pair !{data.deviceName} with this institution, please delete at least one existing paired device from the list below:
+
+            form(action='/action/activateDevicePairing',method='post')
+                input.hidden(value="unpairSelectedAndPairAction",name='action')
+                input.hidden(value=data.key,name='key')
+                each item in data.pairedDevices
+                    div.pairedDevicesSelectionItem
+                        label.checkbox--primary
+                            input(name='pairing', value=item.institutionId+'_'+item.deviceId,type='checkbox')
+                            span.label-txt "!{item.deviceName}" paired on !{item.datePaired}
+                div.formButtons
+                    input.btn(value='Unpair selected institutions and pair with ' + data.deviceName,name='submit',type='submit')
+
+        else if (data.errorCode == data.errorCodes.exceededMaxInstitutions)
+            p A device can only be paired with a maximum of !{data.maxInstitutionsPerDevice} institutions.
+            if (data.pairedDevicesLength > 0)
+                p If you want to pair with !{data.institutionName}, please unpair with at least one institution from the list below:
+                form(action='/action/activateDevicePairing',method='post')
+                    each item in data.pairedDevices
+                        input.hidden(value="unpairSelectedAndPairAction",name='action')
+                        input.hidden(value=data.key,name='key')
+                        div.pairedDevicesSelectionItem
+                            label.checkbox--primary
+                                input(name='pairing', value=item.institutionId + '_' + item.deviceId,type='checkbox')
+                                span.label-txt "!{item.deviceName}" paired on !{item.datePaired}
+
+                    div.formButtons
+                        input.btn(value='Unpair selected institutions and pair with ' + data.deviceName,name='submit',type='submit')
+
+                p Alternatively:
+                p   * If you don't see the pairing above you wish to unpair, you can log into your account used to pair the device to unpair it, or
+                p   * You can clear browser cookies on the device to remove its association with all institutions for all users
+            else
+                p Please unpair with an institution before trying again.
+                p * You can log into your account used to pair the device to unpair it, or
+                p * You can clear browser cookies on the device to remove its association with all institutions for all users
+
+        else if (data.errorCode == data.errorCodes.pairingPrivilegeRevokedExpired)
+            p Sorry, your pairing privilege has been revoked or expired for institution: !{data.institutionName}.

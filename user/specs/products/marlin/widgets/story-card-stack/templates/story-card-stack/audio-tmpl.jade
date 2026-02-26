@@ -1,0 +1,34 @@
+mixin audioItem(itemo)
+    .related-audio.mediaPlayer.audio(data-mediaPlayer-file = itemo.mediaUrl)
+        .mediaPlayer__player
+            .mediaPlayer__player-holder
+                .mediaPlayer__laoding Loading ...
+        if (itemo.fileDetails)
+            a.mediaPlayer__download.mediaPlayer__control(href=itemo.mediaUrl, title="Download audio") Download audio (!{itemo.fileDetails})
+        .mediaPlayer__subtitle !{itemo.title}
+        .mediaPlayer__description !{itemo.description}
+        if (itemo.browseAllLinkLabel && itemo.browseAllLink )
+            a.mediaPlayer__showAll.mediaPlayer__control(href=itemo.browseAllLink, title=itemo.browseAllLinkLabel ) !{itemo.browseAllLinkLabel}
+
+
+section
+    h2.top#relAudio Related Audio
+    if (data && data.Items)
+        if (data.Items.length > 1 )
+            .tab.related-audio--tabs
+                ul(role="tablist" class="rlist tab__nav")
+                    each item , i in data.Items
+                        li(role="presentation")
+                            - var classes = ""
+                            if (i == 0)
+                                - classes= "active"
+                            a(href="#audio-pane-"+i, aria-controls="audio-pane-"+i, role="tab" data-toggle="tab" title=i id="audio-pane-"+i+"-con" aria-selected="true" class="related-audio__control"+ classes) !{i + 1}
+                ul.rlist.tab__content
+                    each item , i in data.Items
+                        - var classes = ""
+                        if (i == 0)
+                            - classes= "active"
+                        li(id="audio-pane-"+i aria-labelledby="#audio-pane-"+i+"-con" role="tabpanel" class="tab__pane " + classes)
+                            +audioItem(item)
+        else
+            +audioItem(data.Items[0])

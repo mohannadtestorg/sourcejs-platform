@@ -1,0 +1,55 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+     # backgrounds
+      primary-bg-color:
+        value: "{!ASCB-PRIMARY}"
+      footer-bg-color:
+        value: "{!WHITE}"
+      white:
+        value: "{!WHITE}"
+     # MBOC Background
+      journal-bg-color-mboc:
+        value: "{!MBOC-PRIMARY}"
+     # LSE Background
+      journal-sec-bg-color:
+        value: "{!WHITE}"
+      journal-bg-color-lse:
+        value: "{!LSE-PRIMARY}"
+     # text Colors
+      text-muted:
+        value: "{!TEXT-MUTED}"
+     # footer text color
+      footer-dark-text:
+        value: "{!BLACK}"
+      # PRIMARY COLORS GENERALLY:
+      primary-grey-color:
+        value: '{!GRAY}'
+      # BORDER COLORS
+      primary-border-color:
+        value: '{!BORDER-GREY-COLOR}'
+      dark-grey-border-color:
+        value: '{!BORDER-DARK-GREY-COLOR}'
+      light-grey-border-color:
+        value: '{!BORDER-LIGHT-GREY-COLOR}'
+      drawer-bg-color:
+        value: '{!DRAWER-BG-COLOR}'

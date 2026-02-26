@@ -1,0 +1,53 @@
+{
+    "model": {
+        "thisWidget": {
+            "id": "m1x"
+        },
+        "config": {
+            "type": "vertical",
+            "effect": "dropdown"
+        },
+        "data": {
+            "nav": [
+                {
+                    "text": "Personal Details",
+                    "content": {
+                        "$pug": {
+                            "template": "./templates/my-account/professional-information-tmpl.jade",
+                            "data": {}
+                        }
+                    }
+                },
+                {
+                    "text": "Alert",
+                    "content": {
+                        "$pug": {
+                            "template": "./templates/my-account/alert-tmpl.jade",
+                            "data": {}
+                        }
+                    }
+                },
+                {
+                    "text": "Favorites",
+                    "content": {
+                        "$pug": {
+                            "template": "./templates/my-account/favorites-tmpl.jade",
+                            "data": {}
+                        }
+                    }
+                },
+                {
+                    "text": "Saved Search",
+                    "content": {
+                        "$pug": {
+                            "template": "../../widgets/saved-searches/templates/saved-searches/saved-searches-tmpl.jade",
+                            "data": {
+                                "$ref" : "../../../../widgets/saved-searches/templates/data/example.json"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

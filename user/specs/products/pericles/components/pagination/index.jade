@@ -1,0 +1,57 @@
+﻿extends /specs/products/pericles/page-structure/structure/templates/structure/layout-tmpl.jade
+block content
+
+    .source_info
+        markdown
+            p we have three types for pagination,
+                ul
+                    li Template pagination: the pagination created and updated in Jade, depends on data returned in Json, used in search page and book series
+                    li JS pagination: the pagination created and updated in JS, called ajax requests to render the content, used in MRW toc page <a href="specs/products/pericles/widgets/mrw-toc/">example</a>
+                    li client pagination: the pagination created in jade template and hide/ show sections in js. used mainly for tables "JS table pagination"
+            small note: the pagination style and behavior changed based on <a href='https://jira.atypon.com/browse/LIT-203823' target="_blank">`LIT-203823`</a> for search page
+
+    section.source_section
+
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+
+
+        h2 Template pagination
+
+        .source_example
+            | !{pb.render('pagination', 'pagination/demo/pagination', 'demo-search-pagination.json', 'pericles')}
+
+    section.source_section
+        h2 JS table pagination
+        .source_example
+            .container
+                .table-responsive.separator.js-pages
+                    table.expandable
+                        thead
+                            tr
+                                th  Email Address
+                                th  Name
+                        tbody
+                            - var i = 0;
+                            - var pageSize = 3;
+                            - var page = 0
+                            - var pages = 16
+                            - var rest = 50 % 3
+                            if rest > 0
+                                - pages++
+
+                            while i < 50
+                                if i % pageSize == 0
+                                    - page++
+                                - i++
+                                tr(data-page=page)
+                                    td abc@atypon.com!{i}
+                                    td ABC !{i}
+
+
+
+                    include ./templates/pagination/client-pagination-tmpl
+
+
+    | #{''}

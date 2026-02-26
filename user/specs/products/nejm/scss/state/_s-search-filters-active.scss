@@ -1,0 +1,70 @@
+@include breakpoint('small-') {
+  .s-search-filters-active {
+    position: fixed;
+    overflow: hidden;
+
+    body {
+      position: fixed;
+      width: 100vw;
+      overflow: hidden;
+    }
+
+    .m-search-filters .m-search-filters__types {
+      display: block;
+    }
+  }
+}
+
+@include breakpoint('medium+') {
+  .s-search-filters-active {
+    .m-search-filters__types--hide-empty {
+      display: none;
+    }
+    .m-search-filters .m-search-filters__option-filters .a-btn {
+      background-color: $color__background;
+      border-color: $color__rules;
+    }
+
+    .m-search-filters .m-search-filters__option-filters .a-btn::after {
+      height: 22px;
+      opacity: 1;
+    }
+
+    .m-search-filters .a-btn .icon--minus--sm {
+      display: inline;
+    }
+
+    .m-search-filters .a-btn .icon--plus--sm {
+      display: none;
+    }
+
+    .m-search-filters .m-search-filters__types {
+      height: 124px;
+      margin-top: 20px;
+      padding-top: 19px;
+      border-width: 1px;
+      opacity: 1;
+      overflow: visible;
+    }
+
+    .m-search-filters--no-cme-filter .m-search-filters__types {
+      height: 80px;
+    }
+  }
+}
+
+@include breakpoint('medium+') {
+  .s-search-filters-active {
+    .m-search-filters--flyout {
+      overflow:visible;
+    }
+
+    .m-search-filters--flyout .m-search-filters__option-filters .a-btn {
+      background-color: $color__white;
+    }
+
+    .m-search-filters--flyout .m-search-filters__types {
+      overflow:scroll;
+    }
+  }
+}

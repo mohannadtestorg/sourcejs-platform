@@ -1,0 +1,68 @@
+/***
+
+```
+<header class="m-year-header">
+  <h1 class="m-year-header__title f-h1">2016</h1>
+  <ul class="m-year-header__options">
+    <li class="m-year-header__option"><a href="#">Browse Full Index</a></li>
+    <li class="m-year-header__option"><a href="#">Current Issue</a></li>
+  </ul>
+</header>
+```
+
+***/
+
+.m-year-header {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.m-year-head:first-child {
+  margin-top: 0;
+}
+
+.m-year-header::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+.m-year-header__title {
+  margin-top: 0;
+  color: $color__text--headlines;
+}
+
+.m-year-header__options {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 8px;
+
+  @include breakpoint('large+') {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.m-year-header__option {
+  flex: 0 0 auto;
+  margin-right: 20px;
+
+  @include breakpoint('large+') {
+    margin-right: 0;
+    margin-left: 20px;
+  }
+}
+
+.m-year-header__option a {
+}
+
+.m-year-header__option a:hover {
+}

@@ -1,0 +1,23 @@
+﻿extends /specs/products/nejm/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        h2 Two Factor Authentication
+        .source_example.source_visible
+            | !{data.tfa}
+
+    section.source_section
+        h2 Two Factor Authentication - Code Received
+        .source_example.source_visible
+            | !{data.code}
+
+    section.source_section
+        h2 Two Factor Authentication - Alert
+        .source_example.source_visible
+            | !{data.alert}
+
+    section.source_section
+        h2 Two Factor Authentication - Error
+        .source_example.source_visible
+            | !{data.error}

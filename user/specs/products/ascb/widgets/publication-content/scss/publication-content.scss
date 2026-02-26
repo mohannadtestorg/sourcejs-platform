@@ -1,0 +1,117 @@
+.citation{
+  &__seriesTitle{
+    font-size: .81rem;
+    font-weight: 700;
+    padding: 8px 0;
+  }
+}
+
+
+.epub-section{
+  &__doi__text{
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+}
+
+.article{
+  &__crossmark {
+    i{
+      @include themify($themes) {
+        color: themed('color');
+      }
+    }
+  }
+
+  &__keyword{
+    a{
+      @include themify($themes) {
+        background-color: themed('color');
+        color:$white;
+      }
+    }
+  }
+  &__content{
+    margin-top: 10px;
+    .coolBar--res{
+      border-top: 1px solid $white;
+    }
+  }
+
+}
+
+.flowPlayer{
+  z-index: 0;
+}
+
+
+
+.corrections
+{
+  &__label,&__icon,i{
+    color:$googlePlus;
+  }
+  &-container{
+   .corrections-container__label{
+     color:$googlePlus;
+     i[class*=icon-]{
+       color:$googlePlus;
+     }
+    }
+  }
+
+}
+
+
+.mobile-authors{
+  >span,>i
+  {
+    @include themify($themes) {
+      color: themed('color');
+    }
+  }
+}
+
+.details-tab{
+  .cover-meta-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.related{
+  padding-bottom: 15px;
+  border-bottom: 1px solid $slider-nav-bg-color;
+
+  &__title{
+    @include themify($themes) {
+      color: themed('color');
+    }
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+}
+
+#pane-pcw-related{
+  .meta{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    text-transform: capitalize;
+  }
+}
+
+#pb-page-content {
+  .NLM_inline-graphic {
+    display: inline-block !important;
+    padding: 0!important;
+
+    img{
+      height: 14px;
+      margin: initial;
+    }
+  }
+}
+

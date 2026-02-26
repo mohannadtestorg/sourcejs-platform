@@ -1,0 +1,31 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Book Chapter page
+
+    section.source_section
+        h2 Book Chapter page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.pol-theme.content
+               | !{pb.render("publication-content", "demo/article", data.content)}
+
+            | !{data.footer}
+    | #{''}
+
+    section.source_section
+        h2 DSM page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.dsmHeader}
+            main.dsm-theme.content--extra
+                | !{pb.render("publication-content", "demo/article", data.content2)}
+
+            | !{data.footer}
+    | #{''}

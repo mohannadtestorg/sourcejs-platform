@@ -1,0 +1,51 @@
+extends /specs/products/wspc/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 E-Book
+    .source_info
+
+
+
+    section.source_section
+        h2 Book
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content.book
+                .meta-wrapper
+
+                .container
+                    | !{pb.render('html', {"thisWidget": {"id": "htmlAssetwrapper", "properties": {"render": "html", "html": "<div class=\"card card--gutter card--shadow book-head meta__body\"><div class=\"meta__left-side\"><a href=\"#\" title=\"cover\"><img alt=\"cover\" src=\"http://www.worldscientific.com/na101/home/literatum/publisher/wspc/books/content/books/1992/1560/1560/20170619-01/1560.cover.jpg\"></a><div class='book-details'><h1 class=\"meta__title\">Nonlinear Evolution Equations and Dynamical Systems</h1><div class=\"meta__info\"><span class='book-edition'>2nd Edition</span><p><span class='meta__info-item'>ISBN(online):</span> 978-981-4555-41-8 | <span class='meta__info-item'>Published:</span> 3 July 2017</p><p><span class='meta__info-item'>Pages::</span> 344</p></div><p class=\"meta__contrib\"><span class='meta__info-item'>Author(s):</span> W-H Steeb (Rand Afrikaans Univ.), N Euler (Rand Afrikaans Univ.)</p><div class='book-actions'><a href='#' class='book__ctrl'><i class='icon-Icon_Download'></i> Full Book(PDF)</a><a href='#' class='book__ctrl'><i class='icon-Icon_Tools'></i> Tools</a><a href='#' class='book__ctrl'><i class='icon-Icon_Share'></i> Share</a></div></div></div><div class=\"meta__right-side\"><div class='purchase-actions'><a href=\"#\" class=\"btn book-purchase\">Purchase access to the entire book</a><span class='book-price'>GBP92.00</span></div></div></div>"}}}, {"shared": {"model": {"config": {"wrapper": "false"}}}})}
+                    .row.separator
+                        .col-lg-9.col-md-8.col-sm-12.gutterless
+                            div.tabs__nav
+                                a.tabs__nav__item(href='#') Description
+                                a.tabs__nav__item.active(href='#') E-book
+                                a.tabs__nav__item(href='#') Reviews
+                                a.tabs__nav__item(href='#') Supplementary
+
+                            div.tab__content
+                                div.book__toc
+                                    | !{pb.render("table-of-content","table-of-content/book-markup")}
+
+                                div.book-page-ad
+                                    img(src="/specs/products/wspc/releasedAssets/images/ebook-ad.png")
+
+                            h3.section__header.border-bottom Related Books
+                            div.books__slider.responsiveSlider5-3-2-1
+                                | !{pb.render('slideshow', 'slideshow/demo/slideshow-demo', 'books.json')}
+
+                            div.book-page-ad
+                                img(src="/specs/products/wspc/releasedAssets/images/books-offer.jpeg")
+
+
+                        .col-lg-3.col-md-4.col-sm-12
+                            div.book-page-ad
+                                img(src="/specs/products/wspc/releasedAssets/images/books-sidebar-img.png")
+
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

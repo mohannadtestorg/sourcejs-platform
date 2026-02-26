@@ -1,0 +1,132 @@
+﻿h1 Include Media mixin
+.source_info
+    p Using 
+        a(href='http://include-media.com/') @include-media
+    p
+        a(href='http://include-media.com/documentation') Official documentation
+        
+section.source_section
+    h2 Media mixin
+    h3 Default usage
+    code.src-js.source_visible
+        |@include media($breakpoint) {
+        |   ...
+        |}
+    
+    h3 With a single set breakpoint
+    code.src-js.source_visible
+        |@include media('&gt;phone') {
+        |   ...
+        |}
+    h3 With two set breakpoints
+    code.src-js.source_visible
+        |@include media('&gt;phone', '&lt;=tablet') {
+        |   ...
+        |} 
+    h3 With custom values
+    code.src-js.source_visible
+        |@include media('&gt;=358px', '&lt;850px') {
+        |   ...
+        |} 
+    h3 With set breakpoints with custom values
+    code.src-js.source_visible
+        |@include media('&gt;desktop', '&lt;=1350px') {
+        |   ...
+        |} 
+
+    h3 With a static expression
+    code.src-js.source_visible
+        |@include media('retina2x') {
+        |   ...
+        |} 
+
+    h3 Mixing everything
+    code.src-js.source_visible
+        |@include media('&gt;=350px', '&lt;tablet', 'retina3x') {
+        |   ...
+        |}
+        
+section.source_section
+    h2 Media-context mixin
+    p Mixin allows redefining viariables just for the scope of the call.
+    p It is helpful when having a component needing an extended configuration such as custom breakpoints (referred to as tweakpoints).
+    
+    h3 Default usage
+    code.src-js.source_visible
+        |@include media-context($variables) {
+        |   .foo {
+        |      @include media($breakpoints) {
+        |           ...
+        |       }
+        |   }
+        |}
+
+    h3 Extend the global breakpoints with a tweakpoint
+    code.src-js.source_visible
+        |@include media-context(('custom': 678px)) {
+        |   .foo {
+        |       @include media('&gt;phone', '&lt;=custom') {
+        |           ...
+        |       }
+        |   }
+        |}
+
+    h3 Extend the global media expressions with a custom one
+    code.src-js.source_visible
+        |@include media-context($tweak-media-expressions: ('all': 'all')) {
+        |   .foo {
+        |       @include media('all', '&gt;phone') {
+        |           ...
+        |       }
+        |   }
+        |}
+
+    h3 Extend both configuration maps
+    code.src-js.source_visible
+        |@include media-context(('custom': 678px), ('all': 'all')) {
+        |   .foo {
+        |       @include media('all', '&gt;phone', '&lt;=custom') {
+        |           ...
+        |       }
+        |   }
+        |}
+        
+section.source_section
+    h2 Variables
+    h3 Breakpoints
+    p Breakpoints are stored in basic key:value map. They can be changed by user (see below)
+    h4 Default values
+    code.src-js.source_visible
+        |$breakpoints: (
+        |   'phone': 320px,
+        |   'tablet': 768px,
+        |   'desktop': 1024px
+        |) !default;
+    h4 Changing breakpoints
+    em Creates a single breakpoint with the label phone (overrides the default value)
+    code.src-js.source_visible
+        |$breakpoints: ('phone': 456px);
+        
+    h3 Media Expressions
+    p Media expressions and types are stored in basic key:value map. They can be changed by user (see below), although there is not much reason to do so
+    h4 Default values
+    code.src-js.source_visible
+        |$media-expressions: (
+        |   'screen': 'screen',
+        |   'print': 'print',
+        |   'handheld': 'handheld',
+        |   'landscape': '(orientation: landscape)',
+        |   'portrait': '(orientation: portrait)',
+        |   'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+        |   'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)'
+        |) !default;
+
+    h4 Changing single media expression
+    code.src-js.source_visible
+        |$media-expressions: ('screen': 'screen');
+
+    h4 Changing expression with logical OR operator
+    code.src-js.source_visible
+        |$media-expressions: (
+        |   'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'
+        |);

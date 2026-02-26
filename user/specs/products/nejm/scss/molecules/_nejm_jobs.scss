@@ -1,0 +1,218 @@
+/*
+
+  CareerCenter
+
+  Products Right Rail Widgets
+  Using the HTML code of the existing module. HTML can't be changed ¯\_(ツ)_/¯
+  therefore !important is used a lot below, sorry
+*/
+
+#nejm_jobs {
+  width:100% !important;
+  margin-top: 32px !important;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  & > div:first-child {
+    display:none !important;
+  }
+
+  #nejm-widget {
+    display: block !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 15px 16px 17px 16px !important;
+    background-color: $color__aside-bg--career-center !important;
+    border:0 none !important;
+    width:100% !important;
+
+    .o-col--secondary .o-cols-2\@medium & {
+      @include breakpoint('medium') {
+        margin-top: 0 !important;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 1px;
+      background-color: $color__accent;
+    }
+
+    /* separators */
+    > div:first-child,
+    > div:nth-child(3) {
+      display: none !important;
+    }
+
+    /* header */
+    > div:nth-child(2) {
+      margin:0 !important;
+
+      a {
+        display:block !important;
+        background-image:url('../images/nejm-career-center.svg') !important;
+        background-repeat:no-repeat !important;
+        background-position:left 4px !important;
+        width: 180px !important;
+        height: 48px !important;
+        background-size: 180px 48px !important;
+
+        img {
+          display:none !important;
+        }
+      }
+    }
+
+    /* content */
+    > div:nth-child(4) {
+      position: relative !important;
+      margin-top: 21px !important;
+      border-top:0 none !important;
+      border-bottom:0 none !important;
+
+      /* type of works */
+       > div:nth-child(2) {
+          display:block !important;
+          margin: 0 -16px !important;
+          padding: 12px 16px !important;
+          background-color: #ff3300 !important;
+          font-family: $sans-serif !important;
+          font-size: 16px !important;
+          line-height: 24px !important;
+          font-weight: 700 !important;
+          color: $color__white !important;
+
+          .wf-active & {
+            font-family: $sans-serif--loaded !important;
+          }
+       }
+
+       /* position the date */
+       > div:nth-child(3) {
+        position: absolute !important;
+        right: 0 !important;
+        top: 19px !important;
+        font-family: $sans-serif !important;
+        font-size: 12px !important;
+        line-height: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: .12em !important;
+        text-transform: uppercase !important;
+        color: $color__white !important;
+
+        .wf-active & {
+          font-family: $sans-serif--loaded !important;
+        }
+      }
+
+      > div:nth-child(4) {
+        display: none !important;
+      }
+
+      > div:last-child {
+        margin-bottom: -1px !important;
+      }
+
+      div {
+        position: relative !important;
+        margin: 0 !important;
+        width: initial !important;
+        height: initial !important;
+        line-height: 0px !important;
+      }
+
+      div div {
+        position: static !important;
+      }
+
+      div div:first-child {
+        margin-top: 12px !important;
+        padding-top: 14px !important;
+        padding-bottom: 1px !important;
+        border-top: 1px solid $color__rules !important;
+      }
+
+      > div:nth-child(5) div:first-child {
+        padding-top: 7px !important;
+        border-top: 0 none !important;
+      }
+
+      div div:first-child span,
+      div div:last-child span {
+        display: block !important;
+        font-family: $sans-serif !important;
+        font-size:14px !important;
+        line-height:20px !important;
+        color: $color__text--headlines !important;
+
+        .wf-active & {
+          font-family: $sans-serif--loaded !important;
+        }
+      }
+
+      div div:first-child span {
+        font-weight: bold !important;
+      }
+
+      div div:last-child span {
+        position: absolute !important;
+        right: 0 !important;
+        top: 15px !important;
+        text-align: right !important;
+        text-transform: capitalize !important;
+
+        &:first-letter {
+          text-transform: uppercase !important;
+        }
+      }
+
+      > div:nth-child(5) div:first-child {
+        top: 9px !important;
+      }
+
+      div a {
+        display:block !important;
+        margin-top: -1px !important;
+        padding-bottom: 1px !important;
+        font-size: 15px !important;
+        line-height: 20px !important;
+        font-weight: 400 !important;
+        font-style: normal !important;
+        color: #0b4f82 !important;
+
+        .wf-active & {
+          font-family: $sans-serif--loaded !important;
+        }
+
+        &:hover {
+          text-decoration: underline !important;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          z-index: 1;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+    }
+
+    /* footer */
+    > div:nth-child(5),
+    > div:nth-child(5) ~ div {
+      display:none !important;
+    }
+  }
+}
+
+

@@ -1,0 +1,60 @@
+extends /specs/products/hope/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+block content
+    .source_info
+        p <strong>DO Brief Tile</strong> component can be used on different other components and widgets (eg. slider, newsletter).
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+
+        h3 Include template
+        +printJsCode('include /specs/ux3/components/card/templates/do-brief-tile/do-brief-tile-tmpl.jade')
+        h3 Data
+        markdown
+            p The following data structure must exist to be able to use do-brief-tile template.
+        +printJson({
+            "config": {
+                "className": [
+                    "card"
+                ]
+            },
+            "data": {
+                "content": "text"
+            }
+        })
+        markdown
+            p You can add custom classes to the container element by passing an array of class names in `"addClassNames": ["...", "..."]`.
+    | #{''}
+
+    section.source_section
+        h2 DO Brief Tile Example
+
+        markdown
+
+        h3!= data.items[0].title
+        +printJson({
+            "card": {
+                "config": {
+                    "classes": "featuredCard--dark"
+                },
+                "header": "Drug & Medical Innovation",
+                "body": "<a href=\"#\"> <img class=\"featuredCard__cover\" src=\"/specs/products/hope/components/card/images/hope-fetaured-card-cover.png\" alt=\"\"> <h3 class=\"featuredCard__title\">House Seeks Pause In Cost-Sharing Reduction Litigation (Updated)</h3> </a> <div class=\"featuredCard__details\"> <span class=\"featuredCard__date\">November 22, 2016</span><span class=\"featuredCard__authors\">Timothy Jost</span> </div>"
+
+            }
+        })
+        .source_example
+                .container
+                    .row
+                        .col-xs-3
+                            | !{data.items[0].body}
+
+
+
+
+
+
+    | #{''}

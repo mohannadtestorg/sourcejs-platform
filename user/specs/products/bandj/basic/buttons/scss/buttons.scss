@@ -1,0 +1,35 @@
+.btn {
+    &--inverse {
+
+        color: $white;
+        background-color: $primary-bg-color;
+        border: none;
+        font-size: 16px;
+
+        @include themify($themes) {
+            background-color: themed('color');
+        }
+
+        &.extra-border {
+            border-width: 0;
+            padding: 12px;
+        }
+    }
+}
+.button, button, [type=submit] {
+    background-color: $primary-bg-color;
+    @include themify($themes) {
+        background-color: themed('color');
+    }
+}
+
+.switch {
+    .cmn-toggle {
+        &:checked + label {
+            background-color: $primary-bg-color;
+            @include themify($themes) {
+                background-color: themed('color');
+            }
+        }
+    }
+}

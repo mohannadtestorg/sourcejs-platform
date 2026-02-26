@@ -1,0 +1,14 @@
+extends ../../../../../widgets/menu/templates/menu/menu-tmpl
+
+block mainNavBlock
+    div.main-nav.menu-drawer
+        a.menu-drawer__ctrl(href="#" + data.id data-target=data.id data-toggle="nav" title="Explore Lancet.com")
+            block navIcons
+                span.menu-drawer--open
+                    i.icon-gizmo-hamburger(aria-hidden="true")
+                span.menu-drawer--close
+                    i.icon-close_thin(aria-hidden="true")
+                        span Close
+        nav.menu-drawer__nav.drawer__nav.gutterless(role="navigation" id=data.id data-ctrl-res=viewPort)
+            span.menu-drawer--holder(class=viewPortInvertClass)
+            +menu(data.list, false)

@@ -1,0 +1,56 @@
+extends ../../../../widgets/list-of-issues/templates/list-of-issues/list-of-issues-tmpl.jade
+
+block loiPrefix
+    if (loi)
+        - data = loi.data
+        - loi.data.loi.thisWidget = thisWidget;
+        - thisWidget = loi.thisWidget
+
+    - var order = "ascending";
+    - if (data.order == "descending") order = "descending"
+
+
+block loi
+    div(data-db-parent-of=thisWidget.id data-order= order)
+        div.loi__banner.demo
+            a.hidden-md.hidden-lg.loi-slide__ctrl.w-slide__btn(href="#" data-slide-target=".loi-menu-res-cont")
+                i.icon-toc
+                span Journal
+            div.loi-menu-res-cont
+                div.transplant.showit.loi-menu-res(data-target=".publication-quick-search , #loi-banner , .loi-buttons" data-remove="false" data-targetClass="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+            div.loi__banner-list
+                if (data.nav)
+                    #loi-banner
+                        each item, k in data.nav
+                            if k == 'archive'
+                                a.w-slide__btn(class='loi__' + k href=item.href title=item.label data-db-target-for=thisWidget.id data-slide-target= '#'+ thisWidget.id data-slide-clone='self')
+                                    if (item.label)
+                                        | !{item.label}
+
+                            else if k == 'additionalLinksData'
+                                each link, l in item
+                                    if link.enabled == 'on' && link.url
+                                        a(class='loi__additionalLink' href=link.url title=link.label)
+                                            if (link.label)
+                                                | !{link.label}
+
+                            else if item.href
+                                a(class='loi__' + k href=item.href title=item.label)
+                                    if (item.label)
+                                        | !{item.label}
+
+                .loi__banner__right-side
+                    block loiBannerSecond
+                        div.loi-buttons
+                            button SUBMIT
+                            button SUBSCRIBE
+                        if (search)
+                            div.publication-quick-search
+                                | !{pb.render("quick-search" , "quick-search" , {data: search.data, thisWidget: search.thisWidget} )}
+
+
+            if (data.loi)
+                div.dropBlock__holder.dropBlock-loi__holder(id=thisWidget.id data-db-target-of=thisWidget.id data-grouptype=data.loi.groupType)
+                    block loitabs
+                        | !{pb.render("list-of-issues", "list-of-issues/demo/ext-tabs", {originaldata: data}, 'physio')}

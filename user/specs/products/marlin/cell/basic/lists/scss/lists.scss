@@ -1,0 +1,23 @@
+ol {
+    &:not([class^="rlist"]):not([class~="rlist"]) {
+        li {
+            &::before {
+                @include themify($themes) {
+                    color: themed('headings');
+                }
+            }
+        }
+    }
+}
+
+ul {
+    &:not([class^="rlist"]):not([class~="rlist"]):not(.frames__list) {
+        li {
+            &::before {
+                @include themify($themes) {
+                    color: themed('headings');
+                }
+            }
+        }
+    }
+}

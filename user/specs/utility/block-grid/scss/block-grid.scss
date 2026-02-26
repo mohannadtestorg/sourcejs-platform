@@ -1,0 +1,335 @@
+@import "../../grid/scss/grid-variables";
+
+[class*=grid-]:not([class*=item]):not([class^=icon-]) {
+
+    &:after, &:before {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+    .grid-item {
+        position: relative;
+        min-height: 1px;
+        padding-left:  floor(($grid-gutter-width / 2));
+        padding-right: ceil(($grid-gutter-width / 2));
+        float: left;
+    }
+
+    &.gutterless {
+        margin: 0px -15px;
+    }
+}
+
+.grid-item {
+    width: 100%;
+}
+
+.grid-xs-1 {
+    .grid-item {
+        width: 100%;
+    }
+}
+
+.grid-xs-margin {
+    .grid-item {
+        margin-bottom: 20px;
+    }
+
+    &--extra {
+        .grid-item {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+.grid-xs-2 {
+    .grid-item {
+        width: 50%;
+        @include media('<phone') {
+            &:nth-child(2n + 1) {
+                clear: left;
+            }
+        }
+    }
+}
+
+.grid-xs-3 {
+    .grid-item {
+        width: 33.33333333%;
+        @include media('<phone') {
+            &:nth-child(3n + 1) {
+                clear: left;
+            }
+        }
+    }
+}
+
+.grid-xs-4 {
+    .grid-item {
+        width: 25%;
+        @include media('<phone') {
+            &:nth-child(4n + 1) {
+                clear: left;
+            }
+        }
+    }
+}
+.grid-xs-5 {
+    .grid-item {
+        width: 20%;
+        @include media('<phone') {
+            &:nth-child(5n + 1) {
+                clear: left;
+            }
+        }
+    }
+}
+
+@include media('>=phone') {
+
+    .grid-sm-margin {
+        .grid-item {
+            margin-bottom: 20px;
+        }
+
+        &--extra {
+            .grid-item {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    .grid-sm-1 {
+        .grid-item {
+            width: 100%;
+        }
+    }
+
+    .grid-sm-2 {
+        .grid-item {
+            width: 50%;
+            @include media('<tablet') {
+                &:nth-child(2n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .grid-sm-3 {
+        .grid-item {
+            width: 33.33333333%;
+            @include media('<tablet') {
+                &:nth-child(3n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .grid-sm-4 {
+        .grid-item {
+            width: 25%;
+            @include media('<tablet') {
+                &:nth-child(4n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+    .grid-sm-5 {
+        .grid-item {
+            width: 20%;
+            @include media('<tablet') {
+                &:nth-child(5n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+}
+
+@include media('>=tablet') {
+
+    .grid-md-margin {
+        .grid-item {
+            margin-bottom: 20px;
+        }
+
+        &--extra {
+            .grid-item {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    .grid-md-1 {
+        .grid-item {
+            width: 100%;
+        }
+    }
+
+    .grid-md-2 {
+        .grid-item {
+            width: 50%;
+            @include media('<desktop') {
+                &:nth-child(2n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .grid-md-3 {
+        .grid-item {
+            width: 33.33333333%;
+            @include media('<desktop') {
+                &:nth-child(3n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .grid-md-4 {
+        .grid-item {
+            width: 25%;
+            @include media('<desktop') {
+                &:nth-child(4n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+    .grid-md-5 {
+        .grid-item {
+            width: 20%;
+            @include media('<desktop') {
+                &:nth-child(5n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+}
+
+@include media('>=desktop') {
+
+    .grid-lg-margin {
+        .grid-item {
+            margin-bottom: 20px;
+        }
+
+        &--extra {
+            .grid-item {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    .grid-lg-1 {
+        .grid-item {
+            width: 100%;
+        }
+    }
+
+    .grid-lg-2 {
+        .grid-item {
+            width: 50%;
+            @include media('<large') {
+                &:nth-child(2n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .grid-lg-3 {
+        .grid-item {
+            width: 33.33333333%;
+            @include media('<large') {
+                &:nth-child(3n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    .grid-lg-4 {
+        .grid-item {
+            width: 25%;
+            @include media('<large') {
+                &:nth-child(4n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+    .grid-lg-5 {
+        .grid-item {
+            width: 20%;
+            @include media('<large') {
+                &:nth-child(5n + 1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+}
+
+
+@include media('>=large') {
+
+    .grid-xlg-margin {
+        .grid-item {
+            margin-bottom: 20px;
+        }
+
+        &--extra {
+            .grid-item {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    .grid-xlg-1 {
+        .grid-item {
+            width: 100%;
+        }
+    }
+
+    .grid-xlg-2 {
+        .grid-item {
+            width: 50%;
+            &:nth-child(2n + 1) {
+                clear: left;
+            }
+        }
+    }
+
+    .grid-xlg-3 {
+        .grid-item {
+            width: 33.33333333%;
+            &:nth-child(3n + 1) {
+                clear: left;
+            }
+        }
+    }
+
+    .grid-xlg-4 {
+        .grid-item {
+            width: 25%;
+            &:nth-child(4n + 1) {
+                clear: left;
+            }
+        }
+    }
+    .grid-xlg-5 {
+        .grid-item {
+            width: 20%;
+            &:nth-child(5n + 1) {
+                clear: left;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+# global: shared properties between all variables unless it has been overriden
+# type: type of variables
+# cssProperties css properties that might  use those variables
+# jsGroupe: Js object groupe name
+# value: the value of the variable
+# extension: extra text to be added at the end of the variable value ( will be added only in SCSS transformed values )
+# comment: commemnt line to be added above the variable
+# jsExport: detremin if the variable must be exposed /transformed to js object
+# suffix: comment to be added at the end of the line in SCSS transformed file
+---
+# colors-variables.yaml
+  global:
+    type: "color/hex"
+    category: "colors"
+    cssProperties:
+    - '*color'
+    - 'background*'
+    - 'border*'
+  imports:
+    - ../aliases/colors.yaml
+  jsGroupe: "colors"
+  props:
+    # backgrounds
+    primary-bg-color:
+      value: "{!BJCORP}"
+    footer-bg-color:
+      value: "{!WHITE}"
+    journal-bg-color-bjj:
+      value: "{!BJJ}"
+    journal-bg-color-bj360:
+      value: "{!BJ360}"
+    journal-bg-color-bjr:
+      value: "{!BJR}"
+    journal-bg-color-jco:
+      value: "{!JCO}"
+    journal-bg-color-procs:
+      value: "{!PROCS}"
+    journal-bg-color-efort:
+      value: "{!EFORT}"
+    primary-bg-color-secondary:
+      value: "{!BJCORPSECONDARY}"
+    journal-bg-color-bjj-secondary:
+      value: "{!BJJSECONDARY}"
+    journal-bg-color-bj360-secondary:
+      value: "{!BJ360SECONDARY}"
+    journal-bg-color-bjr-secondary:
+      value: "{!BJRSECONDARY}"
+    journal-bg-color-jco-secondary:
+      value: "{!JCOSECONDARY}"
+    journal-bg-color-procs-secondary:
+      value: "{!PROCSSECONDARY}"
+    journal-bg-color-efort-secondary:
+      value: "{!EFORTSECONDARY}"
+    # text colors
+    creative-title-color:
+      value: "{!BJCORP}"
+    footer-othertext-color:
+      value: "{!DARKGREY}"
+    footer-color:
+      value: "{!BJCORP}"
+    footer-lighttext-color:
+      value: "{!WHITE}"
+    #eCommerce
+    primary-commerce-color:
+      value: "{!FSG_GREEN}"
+    header-commerce-color:
+      value: "{!FSG_ORANGE}"
+    item-added:
+      value: "{!LIGHT_GREEN}"
+    item-hover:
+      value: "{!LIGHT_BLUE}"
+    item-border:
+      value: "{!BORDER_GREY}"
+    checkout-hover:
+      value: "{!DARK_BLUE_01}"
+    black:
+      value: "{!BLACK}"
+    white:
+      value: "{!WHITE}"
+    red:
+      value: "{!RED}"
+    dark-grey:
+      value: "{!DARKGREY}"
+    base-text-color:
+      value: "{!GRAY}"

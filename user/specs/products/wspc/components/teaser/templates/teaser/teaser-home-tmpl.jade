@@ -1,0 +1,51 @@
+include ../../../../../../ux3/components/lazy-load/templates/lazy-load/lazy-load-tmpl.jade
+
+- var image = 'false';
+
+
+
+mixin teaser(item, l)
+    - image = 'false';
+    div.creative-work
+        .delayLoad
+
+            if (item.title)
+                if (item.best)
+                    a(href=item.best title=item.title)
+                        h5.creative-work__title !{item.title}
+                else
+                    h5.creative-work__title !{item.title}
+
+            if (item.contribs)
+                | !{item.contribs}
+
+            div.meta
+                if (item) && (item.group.volume) && (item.group.issue)
+                    span.comma Vol. !{item.group.volume}, No. !{item.group.issue}
+                else if (item) && (item.group.volume)
+                    span.comma Vol. !{item.group.volume}
+                else if (item) && (item.group.issue)
+                    span.comma No. !{item.group.issue}
+
+                if (item) && (item.epubDate)
+                    | !{pb.render('date', {date: item.epubDate, format: 'dateMonthYearShort'})}
+
+
+        +loading(image)
+
+
+mixin render(items)
+    - var itemNo = items.length
+    if itemNo > 1
+        ul.rlist.lot
+            each item, l in items
+                li.grid-item
+                    +teaser(item, l)
+    else
+        each item, l in items
+            +teaser(item, l)
+
+
+if (data) && (data.items)
+    +render(data.items)
+

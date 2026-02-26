@@ -1,0 +1,13 @@
+extends ../../../../../../../ux3/widgets/search-facets/templates/search-facets/extended/ext-alphanumeric-tmpl
+
+block alphaFacetMain
+    if data.title || data.values
+        div.facet.accordion
+            if (data.title)
+                a(href="#" title="Alphanumeric Filter" aria-controls="alphaFace" class="facet__ctrl accordion__control js--open")
+                    +title()
+                    i(aria-hidden="true" class="icon-arrow_d_n")
+
+            if (data.values)
+                div.facet__content.accordion__content.js--open(id="alphaFace")
+                    +body()

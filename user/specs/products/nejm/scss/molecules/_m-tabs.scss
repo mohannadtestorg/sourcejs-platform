@@ -1,0 +1,137 @@
+/***
+
+Tab links have an optional `em` to show secondary tab info such as a number of results.
+The tabs note is also optional and doesn't display on small/medium screens.
+
+```
+<nav class="m-tabs">
+  <ul class="m-tabs__links">
+    <li><a href="#">Articles</a></li>
+    <li class="s-active"><a href="#">Multimedia <em>48</em></a></li>
+  </ul>
+  <p class="m-tabs__note">Showing 1-20 of 48 Multimedia</p>
+</nav>
+```
+
+***/
+/***
+
+Can be sticky with `s-m-tabs-sticky` via `data-behavior="StickyTabs"`
+
+```
+<article class="o-article-body" data-behavior="StickyTabs">
+  <nav class="m-tabs">...
+```
+
+***/
+
+.m-tabs {
+  @include background-fill;
+  position: relative;
+  z-index: 1;
+  height: 56px;
+  background-color: $color__background;
+}
+
+.m-tabs__links {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 0;
+
+  @include breakpoint('medium+') {
+    justify-content: center;
+  }
+}
+
+.m-tabs__links > li {
+  flex: 0 0 auto;
+}
+
+
+.m-tabs__links a {
+  @include sans-serif(16, 56, bold);
+  display: block;
+  position: relative;
+  height: 56px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: $color__text--headlines;
+  text-align: center;
+}
+
+.m-tabs__links a:hover {
+  color: $color__accent;
+}
+
+.m-tabs__links .s-active a,
+.m-tabs__links .s-active a:hover {
+  height: 56px;
+  border-bottom: 2px solid $color__accent;
+  color: $color__text--headlines;
+}
+
+.m-tabs__links em {
+  color: $color__text--quaternary;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.m-tabs__note {
+  @include sans-serif(16, 56);
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 0;
+  color: $color__text--quaternary;
+}
+
+.m-tabs__note:only-child {
+  display: block;
+  position: static;
+}
+
+// -------------------------------------
+// sticky variant inside article detail page
+//
+
+.m-tabs--sticky {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  top: -100%;
+  background-color: $color__white;
+  transition: top .25s $bezier--ease-in-circ;
+
+  @include breakpoint('large+') {
+    display: block;
+  }
+}
+
+
+.m-tabs--sticky .m-tabs__links {
+  @extend %container;
+}
+
+// -------------------------------------
+// `m-tabs` after a `m-article-meta`
+//
+
+.m-article-meta + .m-tabs {
+  margin-top: 20px;
+
+  @include breakpoint('large+') {
+    margin-top: 0;
+  }
+}
+
+// -------------------------------------
+// `m-tabs` after a `a-subtitle`
+//
+
+.a-subtitle + .m-tabs {
+  padding-top: 1px;
+  border-top: 0 none;
+}
+

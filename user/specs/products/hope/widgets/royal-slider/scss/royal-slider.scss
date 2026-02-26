@@ -1,0 +1,77 @@
+.royalSlider{
+  font-family: $extra-font-family;
+  width:100%;
+
+  @include media('<tablet'){
+    height: 500px !important;
+  }
+
+  .rsNavItem{
+    background: $standard-color;
+    width: 100%;
+    padding:10px;
+    border-bottom: 1px solid $tertiary-bg-color;
+
+    &.rsNavSelected{
+      background:$tertiary-bg-color;
+    }
+
+    .title-prefix{
+      text-transform: uppercase;
+    }
+
+    .date,.title-prefix{
+      color: $text-onDark;
+      font-weight: 700;
+      font-size: .8rem;
+      @include media('<desktop'){
+        font-size: .75rem;
+      }
+    }
+    .title{
+      font-size: 1rem;
+    }
+  }
+
+  .rsThumbsVer{
+    width: 32%;
+    border-left: 1px solid $tertiary-bg-color;
+    background: $standard-color;
+
+    @include media('<tablet'){
+      width: 100%;
+    }
+  }
+
+  .rsImg {
+    max-width: none;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+.rsDefault {
+  .rsThumb{
+    height: auto;
+    min-height: 100px;
+    @include media('<tablet'){
+      min-height: 92px;
+    }
+  }
+  .rsOverflow{
+    background: $standard-color;
+  }
+  &.rsWithThumbsVer .rsThumbsArrow{
+    @include media('<tablet'){
+      height: 30px;
+    }
+  }
+
+}
+
+.rsLink__content{
+  padding:5px 10px;
+}
+
+

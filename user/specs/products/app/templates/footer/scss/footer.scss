@@ -1,0 +1,142 @@
+.footer{
+
+  &-bottom {
+    background: $default-theme-color;
+    @include themify($themes) {
+      background: themed('color');
+    }
+    font-weight: 600;
+
+    .rlist--inline.separator{
+      li{
+        padding-right: 10px;
+        border-color: $white;
+      }
+    }
+  }
+
+&-top {
+  color: $primary-text-color;
+  background: $default-theme-light-color;
+  @include themify($themes) {
+    background: themed('color2');
+  }
+
+  font-weight: 600;
+
+  h5{
+    font-size: 0.8125rem;
+    color: $primary-text-color;
+    line-height: 15px;
+  }
+  .logo{
+    max-width: 40%;
+    margin: 0;
+    @include media('<tablet','>=phone')  {
+      max-width: 20%;
+    }
+  }
+
+  i, a {
+    color: $primary-text-color;
+  }
+
+  .contact__address {
+    color: $primary-text-color;
+    margin-top: 8px;
+  }
+
+  .border-top {
+    border-color: $secondary-border-color;
+    border-top-width: 1px;
+  }
+
+
+  .icon-facebook{
+    color: $facebook-color;
+  }
+
+  .icon-twitter{
+    color: $twitter-color;
+  }
+
+  .icon-linkedin{
+    color: $linkedin-color;
+  }
+
+  .icon-Rss{
+    color: $rss-color;
+  }
+
+  .separator{
+    >li{
+      padding: 0 8px 0 0;
+      ~li{
+        @include media('<desktop'){
+          padding: 0 8px;
+        }
+
+      }
+
+    }
+}
+
+}
+  &--contact__list {
+    border-top:1px solid $secondary-border-color;
+    border-bottom:1px solid $secondary-border-color;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    @include media('<tablet')  {
+      padding: 10px 0;
+    }
+  }
+
+&__advertisement{
+  margin-top: 100px;
+  @include media('<tablet'){
+    display: none;
+  }
+}
+
+}
+.psych-top-nav {
+  background: rgba(214, 222, 239, 0.54);
+  padding-top: 20px;
+  padding-bottom: 8px;
+  &__items {
+    @include media('>=tablet') {
+      text-align: right;
+    }
+    a {
+      color: $primary-text-color;
+      font-weight: bold;
+      font-family: 'PT Sans', sans-serif;
+      &:after{
+        content: "|";
+        padding-right: 8px;
+        padding-left: 8px;
+      }
+      &:last-child{
+        &:after{
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+.copyright{
+  @include media('>=tablet'){
+    margin-top: 0;
+    float: right;
+  }
+
+}
+footer{
+  .pb-ad{
+    @include media('<desktop'){
+      display: none;
+    }
+  }
+}

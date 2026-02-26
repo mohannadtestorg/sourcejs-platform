@@ -1,0 +1,75 @@
+extends ../../../../../../../ux3/widgets/list-of-issues/templates/list-of-issues/extended/ext-tabs-tmpl.jade
+
+block tabsPrefix
+    - var dataOld = tabsData.loi;
+    - var data = tabsData.loi;
+    - var tabNumber = 0;
+
+block tabsMain
+    div.loi.tab
+        if(data.content)
+            .tab__pane
+                - item = data.content[0]
+                block tabsArchiveLabel
+                if (item.volumes)
+                    +loi(item.volumes, true,I )
+                else
+                    +loi(item.issues, false,I)
+
+
+block pageRange
+    if (item.pageRange)
+        div.iPageRange Pages !{item.pageRange}
+
+block tabsparent
+    | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item}, "physio")}
+
+
+block currentProgressIssue
+
+block issueTitle
+
+block IssueState
+
+block firstLoiIssue
+
+block issuesMixin
+    if (itemo)
+        each item, l in itemo
+            - var className = null;
+            if l > 5
+                - var className = "hidden";
+            li.col-sm-2(class=className)
+                div.loi__issue
+                    block coverimage
+                        if(item.coverImage)
+                            if(item.url)
+                                a(href=item.url)
+                                    img(src=item.coverImage , alt="journal cover")
+                            else
+                                img(src=item.coverImage , alt="journal cover")
+                        else
+                            if(item.url)
+                                a(href=item.url)
+                                    img(src="/products/physio/releasedAssets/images/article_default_cover.svg" alt="journal cover")
+                            else
+                                img(src="/products/physio/releasedAssets/images/article_default_cover.svg" alt="journal cover")
+                    block IssueState
+                        .clearfix
+                            if (item.isLegacy)
+                                i.icon-ic_history_black_24px
+                            if (item.access)
+                                .loi__access
+                                    if item.access == 'FREE_ACCESS'
+                                        | FREE
+                                    else if item.access == 'OPEN_ACCESS'
+                                        | OPEN ACCESS
+                    block volumeIssue
+                        if (volume && volume.VolNo && !item.volume)
+                            - item.volume = volume.VolNo;
+                        if ((item.volume) || (item.issue))
+                        block tabsparent
+                            | !{pb.render("list-of-issues", "list-of-issues/extended/ext-parent-item", {data: item})}
+        each item, l in itemo
+            if l == 5
+                a.see-all-loi(href="#") See full list of issues

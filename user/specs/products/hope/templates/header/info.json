@@ -1,0 +1,25 @@
+{
+    "title": "Header",
+    "template": "doc",
+    "tag": ["templates"],
+    "clearview": true,
+    "templateData": {
+        "header": {
+            "$pug": {
+                "template": "./templates/header/header-tmpl.jade",
+                "data": {
+                    "$ref": "./templates/data/header.json"
+                }
+            }
+
+        },
+        "footer": {
+            "$pug": {
+                "template": "../footer/templates/footer/footer-tmpl.jade",
+                "data": {
+                    "$ref": "../footer/templates/data/footer.json"
+                }
+            }
+        }
+    }
+}

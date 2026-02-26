@@ -1,0 +1,40 @@
+extends  ../../../../../../ux3/widgets/multi-search/templates/multi-search/multi-search-tmpl
+
+
+block teaser
+    div.creative-work
+        .creative-work__image
+            block teaserImage
+                | !{pb.renderDropzone(thisWidget,"teaserImage_"+thisWidget.id)}
+        .delayLoad
+            if (item.category)
+                div.creative-work__header
+                    if (item.category[0] && item.category[0].uri)
+                        a(href=item.category[0].uri title=item.category[0].label) !{item.category[0].label}
+                    else
+                       | !{item.category[0].label}
+
+            if (item.title)
+                .creative-work__title !{item.title}
+
+            if (item.authors)
+                div.teaser__label Authors
+                | !{item.authors}
+            +meta(item)
+
+        +loading(image)
+
+block meta
+    if (item.journal)
+        | #{' '}
+        div.teaser__label Published in
+        each journal, k in item.journal
+            div.teaser__serial-title
+                if (journal.uri)
+                    a(href=journal.uri, title=journal.label) #{journal.label}
+                else
+                    | #{journal.label}
+
+    .teaser__tail
+        block teaserTail
+            | !{pb.renderDropzone(thisWidget,"teaserTail_"+thisWidget.id)}

@@ -1,0 +1,23 @@
+
+.accordion {
+
+    &__control {
+        color: $wiley-text-color;
+    }
+    &-tabbed {
+        font-size: .75rem;
+    }
+
+    &-with-arrow {
+        .accordion-tabbed__control:after {
+            content: "\e951";
+            font-size: 1.2rem;
+        }
+
+        .js--open {
+            .accordion-tabbed__control:after {
+                content: "\e94f";
+            }
+        }
+    }
+}

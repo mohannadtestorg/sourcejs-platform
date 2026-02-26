@@ -1,0 +1,267 @@
+.personal-info {
+    .additional-email.no-value, .additional-phone.no-value {
+        display: none;
+    }
+
+    .remove-email:before {
+        font-family: icomoon;
+        content: "\e626";
+        cursor: pointer;
+        position: absolute;
+        right: 5px;
+        bottom: 10px;
+    }
+}
+
+.profile-input-group {
+    &:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    .error {
+        clear: both
+    }
+
+    .save-your-changes {
+        clear: both;
+        color: #ff0000;
+        display: none;
+        margin: 10px 0px 30px 0px;
+
+        &.active {
+            display: block;
+        }
+
+    }
+
+    .profile-link {
+        font-size: $small-font;
+        color: #204c8b;
+        text-decoration: none;
+        margin: -30px 0px 25px 0px;
+        display: none;
+        float: left;
+    }
+
+    .add-email.active + .make-primary, .remove-email, .add-email.active + .resend, .add-phone.active + .remove-phone {
+        border-left: 1px solid;
+        margin-left: 5px;
+        padding-left: 5px;
+    }
+
+    .add-email.active, .add-phone.active, .make-primary.active, .remove-phone, .resend {
+        display: block;
+    }
+}
+
+.editUserForm .input-group-info-label {
+    color: #999;
+    padding-bottom: 1em;
+    font-weight: bold;
+}
+
+.editUserForm .cancel-button, .registrationForm .cancel-button {
+    margin-right: 1em;
+    text-decoration: none;
+    color: #204c8b;
+}
+
+.editUserForm .error {
+    padding-bottom: 1em;
+}
+
+.addresses {
+    ul {
+        padding: 0px;
+        margin: 0px;
+    }
+    .address {
+        .addresses-bttn {
+            display: none;
+        }
+
+        .addresses-bttn.active {
+            display: inline-block;
+            &:focus {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.editUserForm, .registrationForm {
+    .action-items {
+        clear: both;
+        float: right;
+        margin-top: 10px;
+        input[type='submit'] {
+            @include raa-submit-button();
+            &:hover {
+                @include raa-cancel-button();
+            }
+        }
+        input.cancel[type='submit'] {
+            @include raa-cancel-button();
+            &:hover {
+                @include raa-submit-button();
+            }
+        }
+    }
+    section.captcha {
+        margin-top: 20px;
+    }
+}
+
+.personal-message {
+    color: red;
+    text-align: right;
+    float: right;
+    width: 33%;
+
+}
+
+.editUserProfileGeneralInfo {
+    .select-address-group {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 25px;
+        select {
+            font-weight: bold;
+            &.black {
+                color: #999;
+            }
+        }
+    }
+    .address-ul {
+        list-style: none;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+        li {
+            padding: 5px 5px 0 12px;
+            display: block;
+        }
+        span {
+            color: #999;
+        }
+        .icon-pencil {
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .icon-trash {
+            cursor: pointer;
+        }
+    }
+}
+
+.removal-msg {
+    display: block;
+    .remove-address-confirmation {
+        background: #fff;
+        z-index: 10;
+        position: fixed;
+        top: 30%;
+    }
+    img {
+        margin: 25px auto 0px;
+        display: block;
+
+    }
+    p {
+        padding: 25px;
+    }
+    a {
+        display: block;
+        width: 50%;
+        text-align: center;
+        border-top: 1px solid #ccc;
+        font-weight: bold;
+        border-right: 1px solid #ccc;
+        float: left;
+        padding: 10px;
+    }
+}
+
+.tfa-form-container {
+    .OK-btn {
+        @include raa-submit-button();
+        &:disabled {
+            color: #ffffff;
+            background-color: #DDDDDD;
+            border: 2px solid #DDDDDD;
+        }
+    }
+}
+
+.addressWidget {
+    .address {
+        position: relative;
+        color: #9b9b9d;
+        border-bottom: 1px solid #dddddd;
+        padding: 15px 0 15px 15px;
+        margin-bottom: 10px;
+        .inline-actions {
+            max-width: none;
+            margin-top: 0;
+            a, .edit-address {
+                color: #9b9b9d;
+                text-align: center;
+            }
+            .edit-address {
+                cursor: pointer;
+                padding-right: 0;
+                display: inline-block;
+                margin-left: 5px;
+                text-align: right;
+            }
+        }
+    }
+
+}
+
+form {
+    .state:disabled {
+        display: none;
+    }
+}
+
+.phones-wrappers {
+    .phone {
+        .add {
+            display: none;
+        }
+        &:last-child .add {
+            display: inline-block;
+        }
+        .input-group {
+            overflow:hidden;
+        }
+    }
+
+    &.saturated {
+        .phone .add-ctrl-field.add {
+            display: none;
+        }
+    }
+}
+
+.emails-wrappers {
+    .email {
+        .add {
+            display: none;
+        }
+        &:last-child .add {
+            display: inline-block;
+        }
+    }
+    &.saturated {
+        .email .add {
+            display: none;
+        }
+    }
+}

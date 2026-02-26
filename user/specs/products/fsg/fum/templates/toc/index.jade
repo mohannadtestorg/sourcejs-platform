@@ -1,0 +1,37 @@
+extends /specs/products/fsg/fum/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Table Of Content page
+
+
+
+    section.source_section
+        h2 Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.header}
+            main.content.toc
+                .meta-wrapper
+
+                .container
+                    | !{data.meta}
+                    | !{data.loi}
+                    .row.separator
+                        .col-md-8.col-sm-7
+                            | !{data.toc}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            | !{data.nl}
+
+                            //mpu ad
+                            .mpu
+                            | !{data.news}
+                            | !{data.tweets}
+
+            | !{data.footer}
+    | #{''}

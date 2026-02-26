@@ -1,0 +1,54 @@
+extends ../../../../../../ux3/widgets/search-facets/templates/search-facets/search-facets-tmpl.jade
+
+block searchFacetsWrapper
+    each facet, l in data.facets
+        if facet.type == 'alphabetRange'
+            if facet.values
+                - var itemNo = facet.values.length
+                if !itemNo
+                    - itemNo = facet.values.size()
+                if itemNo > 0
+                    | !{pb.render('search-facets', 'search-facets/extended/ext-alphanumeric', {data: facet}, 'pericles')}
+        else if facet.type == 'Year'
+            block dateFacet
+                | !{pb.render('search-facets', 'search-facets/extended/ext-facet-date', {data: facet}, 'pericles')}
+        else if facet.type == 'Ppub'
+            block dateFacet
+                | !{pb.render('search-facets', 'search-facets/extended/ext-facet-date', {data: facet}, 'pericles')}
+        else
+            if facet.values
+                - var itemNo = facet.values.length
+                if !itemNo
+                    - itemNo = facet.values.size()
+                if itemNo > 0
+                    | !{pb.render('search-facets', 'search-facets/extended/ext-facet', {data: facet}, 'pericles')}
+            else if facet.section
+                - var itemNo = facet.section.length
+                if !itemNo
+                    - itemNo = facet.section.size()
+                if itemNo > 0
+                    | !{pb.render('search-facets', 'search-facets/extended/ext-facet', {data: facet, thisWidget: thisWidget}, 'pericles')}
+
+block appliedFacets
+    | !{pb.render('search-facets','search-facets/extended/ext-applied-facets', {data: data}, 'pericles')}
+
+block searchFacetsMain
+    #filter.search__filters.dropBlock__holder
+        if thisWidget.properties.appliedFiltersEnabled
+            +appliedFacets()
+
+        if (data) && (data.appliedFacets) && (thisWidget.properties.hideSiblingTaxonomyNodes)
+            .facet.applied__filter--browse
+                span.clear
+                    a.search__filters__ctrl__reset(href="#" title="Clear all")
+                        i.icon-circle-left
+                        | Back to all topics
+
+        block searchFacetsTitle
+            h3.facet__title.facet__title--main
+                if thisWidget.properties.searchFacetsTitle != ''
+                    | !{thisWidget.properties.searchFacetsTitle}
+                else
+                    | Filters
+
+        +searchFacetsWrapper()

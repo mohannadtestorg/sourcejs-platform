@@ -1,0 +1,65 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+block content
+
+    section.source_section
+        include /specs/page-structure/helpers/print-json-mixin.jade
+        include /specs/page-structure/helpers/print-js-code-mixin.jade
+
+        h2 Usage
+        h3 Include template
+        +printJsCode('include /specs/products/app/widgets/psych-news-topic/templates/psych-news-topic/psych-news-topic-tmpl.jade')
+
+    | #{''}
+
+    section.source_section
+        h2 Examples PsychNews Topic
+
+        h3!= data.items[0].title
+        .source_example
+            .container
+                .news-green
+                    | !{data.items[0].body}
+
+    section.source_section
+        h2 Examples PsychNews Topic Demo
+
+        h3!= data.items[1].title
+        .source_example
+            .container
+                .news-green
+                    | !{data.items[1].body}
+
+    section.source_section
+        h2 Examples PsychNews Topic
+        h3 Colors
+        .source_example
+            .psych-news-topic.news-red
+                    span.colored-block
+                    h4.topic-title  PROFESSIONAL
+                .psych-news-topic.news-blue
+                        span.colored-block
+                        h4.topic-title  PROFESSIONAL
+                .psych-news-topic.news-orange
+                        span.colored-block
+                        h4.topic-title  PROFESSIONAL
+
+                .psych-news-topic.news-dark-orange
+                        span.colored-block
+                        h4.topic-title  PROFESSIONAL
+                .psych-news-topic.news-purple
+                        span.colored-block
+                        h4.topic-title  PROFESSIONAL
+                .psych-news-topic.news-dark-purple
+                        span.colored-block
+                        h4.topic-title  PROFESSIONAL
+
+
+
+
+
+
+
+
+
+    | #{''}

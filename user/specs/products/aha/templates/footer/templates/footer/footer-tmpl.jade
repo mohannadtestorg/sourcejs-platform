@@ -1,0 +1,98 @@
+﻿footer
+    .footer-top
+        .container
+            .row.first-row-content
+                .col-sm-12.col-md-4.col-lg-3.footer-brand-name
+                    h3.brand-name AHA / ASA Journals
+                .col-sm-12.col-md-8.col-lg-9.footer-quick-links-list.hidden-xs.hidden-sm
+                    h5.section_title AHA Journals
+                    ul.rlist
+                        .row
+                            each journal in journals
+                                li.col-sm-12.col-md-6.col-lg-4
+                                    a(href="#{journal.link}" title="#{journal.title}") !{journal.title}
+
+                .col-xs-12.col-sm-12.accordion.hidden-lg
+                    a.accordion__control(href='#', aria-expanded='false', aria-controls='journals')
+                        h5.section_title AHA Journals
+                            i(aria-hidden="true" class="icon-section_arrow_d pull-right")
+                    div.accordion__content(id='journals')
+                        ul.rlist
+                            each journal in journals
+                                li
+                                    a(href="#{journal.link}" title="#{journal.title}") !{journal.title}
+
+            .row.second-row-content
+                each val, index in quick_links_top
+                    .col-md-4.col-lg-2.footer-quick-links-list.hidden-xs.hidden-sm
+                        h5.section_title !{index}
+                        ul.rlist
+                            each link in val
+                                li
+                                    a(href="#{link.link}" title="#{link.title}") !{link.title}
+
+                    .col-xs-12.col-sm-12.accordion.hidden-lg
+                        a.accordion__control(href='#', aria-expanded='false', aria-controls='#{index.replace(" ", "-")}')
+                            h5.section_title !{index}
+                                i(aria-hidden="true" class="icon-section_arrow_d pull-right")
+                        div.accordion__content(id='#{index.replace(" ", "-")}')
+                            ul.rlist
+                                each link in val
+                                    li
+                                        a(href="#{link.link}" title="#{link.title}") !{link.title}
+
+    .footer-bottom
+        .container
+            .row.first-row-content
+                .col-xs-12.col-sm-12.col-md-2.address-details
+                    p
+                        | !{logo}
+                    p
+                        strong National Center<br/>
+                        | 7373 Greenville Ave.<br/>
+                        | Dallas, TX 75231<br/>
+                        strong Customer Service<br/>
+                        | 1-800-AHA-USA-1<br/>
+                        | 1-800-242-8721<br/>
+                        a(href='#' title='Local Info') Local Info<br/>
+                        a(href='#' title='Contact Us') Contact Us
+
+                .col-xs-12.col-sm-12.col-md-2
+                    h5 ABOUT US
+                    p
+                        | Our mission is to build healthier lives, free of cardiovascular diseases and stoke. That single purpose drives all we do. The need for our work is beyond question.
+                        a(href='#' title='Find Out More') Find Out More
+
+                    ul.rlist
+                        each item in quick_links_bottom['ABOUT US']
+                            li
+                                a(href="#{item.link}" title="#{item.title}")
+                                    | !{item.title}
+                                    i(aria-hidden="true" class="icon-arrow_r pull-right")
+
+
+                each section,key in quick_links_bottom
+                    if key!="ABOUT US"
+                        .col-xs-12.col-sm-12.col-md-2
+                            h5 !{key}
+                            ul.rlist
+                                each item in section
+                                    li
+                                        a(href="#{item.link}" title="#{item.title}")
+                                            | !{item.title}
+                                            i(aria-hidden="true" class="icon-arrow_r pull-right")
+
+
+
+            .row.second-row-content.follow-us-section
+                .col-xs-12
+                    | !{follow_us}
+
+            .row.third-row-content.copywrites-section
+                .col-xs-12.col-sm-7.col-md-8.col-lg-9.pull-left
+                    | !{nav}
+                    | !{copyright}
+
+                .col-xs-12.col-sm-5.col-md-4.col-lg-3.pull-right.certifications
+                    each certification in certifications
+                        | !{certification}

@@ -1,0 +1,46 @@
+- var newurl = ""
+mixin removeParam(key, sourceURL)
+    - var rtn = sourceURL.split("?")[0]
+    - var param
+    - var params_arr = []
+    - var queryString = (sourceURL.indexOf("?") !== -1) ? sourceURL.split("?")[1] : ""
+    if queryString !== ""
+        -    params_arr = queryString.split("&");
+        -    for (var i = params_arr.length - 1; i >= 0; i -= 1) {
+        -        param = params_arr[i].split("=")[0];
+        -        if (param === key) {
+        -            params_arr.splice(i, 1);
+        -        }
+        -    }
+        -    rtn = rtn + "?" + params_arr.join("&");
+        -    newurl = rtn
+- var  temp = data.searchParams ? data.searchParams : ""
+
+div.per-page.separator-end
+    span.per-page__label per page:
+    ul.rlist--inline
+        li
+            - var classes = ""
+            if data.search && data.search.pageSize == 20
+                - classes = "js--selected"
+            +removeParam("startPage",temp)
+            +removeParam("pageSize",temp)
+            a(href=newurl +"&pageSize=20", class= classes) 20
+        //- check if we have 50 or more
+        //if data.search.hitsLength >= 50
+        li
+            - var classes = ""
+            if data.search && data.search.pageSize == 50
+                - classes = "js--selected"
+            +removeParam("startPage",temp)
+            +removeParam("pageSize",temp)
+            a(href=newurl +"&pageSize=50", class= classes) 50
+        //- check if we have 100 or more
+        //if data.search.hitsLength >= 100
+        li
+            - var classes = ""
+            if data.search && data.search.pageSize == 100
+                - classes = "js--selected"
+            +removeParam("startPage",temp)
+            +removeParam("pageSize",temp)
+            a(href=newurl +"&pageSize=100", class= classes) 100

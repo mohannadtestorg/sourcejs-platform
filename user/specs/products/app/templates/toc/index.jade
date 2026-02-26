@@ -1,0 +1,100 @@
+extends /specs/products/app/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Table Of Content page
+
+
+    section.source_section
+        h2 AJP Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.ajpHeader}
+            main.ajp-theme.content.toc
+                .meta-wrapper
+
+                .container.container--toc-card
+                    | !{data.ajpMeta}
+                .container
+                    .row
+
+                        .col-md-8.col-sm-7
+                            | !{data.toc}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            .subscribe-box
+                                img(src="https://placeimg.com/500/350/sepia" alt="Join our NEWSLETTER")
+                                .subscribe-box__info
+                                    h2.subscribe-box__title  Join our NEWSLETTER
+                                    p.subscribe-box__summary  and be the first to access new content
+                                    a.subscribe-box__btn(href="#")  SUBSCRIBE
+
+                            //mpu ad
+                            .mpu
+                            | !{data.news}
+
+                            img(src="http://placehold.it/500x350")
+
+                            h3.section__header.border-bottom PODCASTS
+                            a.podcasts-item(href="#")
+                                img(src="/specs/products/app/templates/toc/images/podcasts.png" alt="Listen to our new Podcast")
+                                h3.podcasts-item__title Listen to our new Podcast
+
+                            a.podcasts-item(href="#")
+                                img(src="/specs/products/app/templates/toc/images/podcasts.png" alt="Listen to our new Podcast")
+                                h3.podcasts-item__title Listen to our new Podcast
+
+            | !{data.ajpFooter}
+
+    | #{''}
+
+
+    section.source_section
+        h2 PSYCH Table Of Content page
+        markdown
+        code.src-html
+        .source_example
+            | !{data.PSYCHheader}
+            main.content.toc.psychnews-theme
+                .meta-wrapper
+
+                .container.container--toc-card
+                    | !{data.psychMeta}
+                .container
+                    .row
+
+                        .col-md-8.col-sm-7
+                            | !{data.psychToc}
+
+                        .col-md-4.col-sm-5
+                            h3.section__header.border-bottom newsletter
+                            .subscribe-box
+                                img(src="https://placeimg.com/500/350/sepia" alt="Join our NEWSLETTER")
+                                .subscribe-box__info
+                                    h2.subscribe-box__title  Join our NEWSLETTER
+                                    p.subscribe-box__summary  and be the first to access new content
+                                    a.subscribe-box__btn(href="#")  SUBSCRIBE
+
+                            //mpu ad
+                            .mpu
+                            | !{data.news}
+
+                            img(src="http://placehold.it/500x350")
+
+                            h3.section__header.border-bottom PODCASTS
+                            a.podcasts-item(href="#")
+                                img(src="/specs/products/app/templates/toc/images/podcasts.png" alt="Listen to our new Podcast")
+                                h3.podcasts-item__title Listen to our new Podcast
+
+                            a.podcasts-item(href="#")
+                                img(src="/specs/products/app/templates/toc/images/podcasts.png" alt="Listen to our new Podcast")
+                                h3.podcasts-item__title Listen to our new Podcast
+
+            | !{data.footer}
+
+    | #{''}
+

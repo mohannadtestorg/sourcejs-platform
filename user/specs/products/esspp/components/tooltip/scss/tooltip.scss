@@ -1,0 +1,43 @@
+.tooltip {
+
+    &__title {
+        padding: 10px 16px;
+        background: $standard-bg-color;
+        color: $white;
+
+        @include media('>=phone') {
+            padding: 10px;
+            background: $white;
+            color: $black;
+
+            h5:before {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                margin-right: 1ex;
+                color: #fff;
+                background-color: $black;
+                border-radius: 100%;
+                text-align: center;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 1;
+                content: '?';
+            }
+        }
+    }
+    &__text {
+        padding: 10px 16px;
+        @include media('>=phone') {
+            padding: 10px;
+        }
+
+        p {
+            margin: 0;
+            + p {
+                margin-top: 1em;
+            }
+        }
+    }
+
+}

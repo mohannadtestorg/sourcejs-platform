@@ -1,0 +1,94 @@
+
+- var page = 0
+- var pageSize = data.pageSize
+- var numberOfUsers = data.users.length
+- var pages = data.pages
+- var rest = numberOfUsers % pageSize
+if rest > 0
+    - pages++
+
+.manage-article-select
+    .card.clearfix
+        | !{pb.renderDropzone(thisWidget, "manage-article--formDropZone")}
+
+        h2.section__header Add a new user
+        p Super Users must be registered users of Wiley Online Library. Enter the email address the user has to log in to Wiley Online Library.
+
+
+        form(action=data.actionUrl+ "#PERMISSIONS" name="addUser" method="post")
+            .input-group
+                label(for='addUser') User
+                input(type='email' placeholder='Type email' name='userEmail' id="addUser")
+
+            hr.separator
+            input.pull-right.btn(type="submit" value="add" name="action")
+        if data.errorAddMsg
+            .infoBox
+                i.icon-notice(aria-hidden="true")
+                span.error !{data.errorAddMsg}
+        if data.successAddMsg
+            .infoBox
+                i.icon-notice(aria-hidden="true")
+                span.success !{data.successAddMsg}
+
+    .card.clearfix
+        h2.medium__header Remove users
+        form.markAll(action=data.actionUrl+ "#PERMISSIONS" name="addUser" method="post")
+
+            .selectMenuLabel
+                label.checkbox--primary
+                    input(type='checkbox', name='markallInPage')
+                    span.label-txt Select All
+
+            .table-responsive.separator.js-pages
+                table.expandable
+                    thead
+                        tr
+                            th.table__mark
+                            th(width='33.3%') First name
+                            th(width='33.3%') Last name
+                            th(width='33.3%') Email
+                    tbody
+                        each user, l in data.users
+                            if l % pageSize == 0
+                                - page++
+                            tr(data-page=page)
+                                td.table__mark
+                                    label.checkbox--primary
+                                        input(type='checkbox', name='userEmail' value=user.email)
+                                        span
+                                td(data-thead='First name') !{user.givenName}
+                                td(data-thead='Last name') !{user.surname}
+                                td(data-thead='Email') !{user.email}
+
+                include ../../../../components/pagination/templates/pagination/client-pagination-tmpl
+
+            hr.separator
+            input.pull-right.btn.js__removeUsers(type="button" data-toggle="modal" data-target="#confirmRemoveUser" value="Remove selected")
+            .ux-modal-container
+                #confirmRemoveUser.modal
+                    .modal__dialog
+                        .modal__header
+                            button.close(type='button', data-dismiss='modal')
+                                i.icon-close_thin(aria-hidden='true')
+                            h2 Remove user
+                        .modal__body
+                            p Do you want to remove
+                                | !{' '}
+                                span.usersName
+                                | !{' '}
+                                | from Article Select Super User Group?
+                            input(type="hidden" value="Remove selected" name="action")
+                            button.pull-right.btn(type="button" data-dismiss='modal') No
+                            input.pull-right.btn(type="submit" value="Yes")
+
+
+            if data.errorRemoveMsg
+                .infoBox
+                    i.icon-notice(aria-hidden="true")
+                    span.error !{data.errorRemoveMsg}
+            if data.successRemoveMsg
+                .infoBox
+                    i.icon-notice(aria-hidden="true")
+                    span.success !{data.successRemoveMsg}
+

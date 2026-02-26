@@ -1,0 +1,181 @@
+.coolBar {
+
+
+    &.trans {
+        transition: all 0s;
+    }
+
+    &.coolBar--res {
+
+        .coolBar__wrapper {
+            padding: 10px 15px ;
+            background-color: $primary-bg-color;
+        }
+
+        .coolBar__zone {
+            & > a {
+                padding: 0px;
+                color: $text-onDark;
+
+                i {
+                    color: $text-onDark;
+                    font-size: $h3-font-size;
+                    width: auto;
+                    vertical-align: text-top;
+                }
+                span {
+                    margin-left: 10px;
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .coolBar--sections {
+            margin-left: 0px;
+        }
+    }
+
+    &__wrapper {
+        border-bottom: 1px solid $primary-border-color;
+        padding: 20px 0px;
+
+        ul.rlist.coolBar__first {
+            li.coolBar__section {
+                padding: 0px 25px 0px 0px;
+
+                @include media('<tablet') {
+                    padding: 0px;
+                }
+            }
+        }
+
+        ul.rlist.coolBar__second {
+            li.coolBar__section {
+                padding: 0px 0px 0px 25px;
+
+
+                @include media('<tablet') {
+                    padding: 0px 0px 0px 15px;
+                }
+            }
+        }
+
+        ul.rlist.coolBar__first, ul.rlist.coolBar__second {
+            & > li.coolBar__section {
+                & > a {
+                    margin: 0px;
+                    padding: 0px;
+
+                    span {
+                        color: $primary-link-color;
+                        font-size: $h6-font-size;
+
+                        @include media('<tablet') {
+                            color: $text-onDark;
+                        }
+
+                    }
+
+                    &.share__ctrl span, &.article-tools__ctrl span {
+                        @include media('<desktop') {
+                            display: none;
+                        }
+                    }
+
+                    i {
+                        font-size: $h3-font-size;
+                        color: $primary-link-color;
+                        vertical-align: text-top;
+
+                        @include media('<tablet') {
+                            color: $text-onDark;
+                        }
+                    }
+                }
+
+                .coolBar__drop, .article-tools__block, .share__block {
+                    position: absolute;
+                    top: 41px;
+                    padding: 15px;
+                    background-color: $default-bg-color;
+
+                    a {
+                        color: $primary-link-color;
+                        font-size: $h6-font-size;
+                        display: inline-block;
+
+                        i {
+                            color: $primary-link-color;
+                            font-size: $h3-font-size;
+                            vertical-align: text-top;
+                            width: 35px;
+                            text-align: left;
+                            margin-right: 0px;
+                        }
+
+                        span {
+                            margin-left: 0px;
+                        }
+                    }
+
+
+                    li, ul li {
+                        margin-bottom: 0px;
+                        padding-top: 15px;
+
+                        &:first-child {
+                            padding-top: 0px;
+                        }
+                    }
+
+                }
+
+                .coolBar__drop.w-slide--list {
+                    display: none;
+
+                    &.js--open {
+                        display: block;
+                    }
+                }
+
+
+                .article-tools__block {
+                    right: -100px;
+
+                    @include media('<desktop') {
+                        right: -50px;
+                    }
+                }
+                .share__block {
+                    right: 0px;
+                }
+            }
+        }
+    }
+
+    &__ctrl__download, &__ctrl__pdf {
+        @include media('<tablet') {
+            padding: 10px 15px;
+            display: block;
+            font-size: $h6-font-size;
+            color: $primary-link-color;
+            border-bottom: 1px solid $primary-border-color;
+        }
+
+        i {
+            @include media('<tablet') {
+                width: 20px;
+                margin-right: 15px;
+                vertical-align: text-top;
+                text-align: center;
+                font-size: $h3-font-size;
+            }
+        }
+
+        span {
+            @include media('>=tablet', '<desktop') {
+                display: none;
+            }
+        }
+    }
+}

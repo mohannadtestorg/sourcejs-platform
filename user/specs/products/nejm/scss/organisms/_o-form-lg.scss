@@ -1,0 +1,588 @@
+.o-form-lg__fieldset {
+  position: relative;
+  margin-top: 24px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .o-form-lg__submit + & {
+    margin-top: 52px;
+  }
+}
+
+.o-form-lg__fieldset::before,
+.o-form-lg__submit::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background-color: $color__rules;
+}
+
+
+.o-form-lg__fieldset legend {
+  display: none;
+}
+
+.o-form-lg p {
+  margin-top: 16px;
+}
+
+.o-form-lg a:hover {
+  text-decoration: underline;
+}
+
+.o-form-lg p.a-error-msg {
+  margin-top: 0;
+}
+
+.o-form-lg .o-form-lg__submit {
+  position: relative;
+  margin-top: 24px;
+  padding-top: 20px;
+  padding-left: 0;
+
+  @include breakpoint('small+') {
+    padding-left: colspan(2, small, map-get($inner-gutters, small));
+  }
+
+  @include breakpoint('medium+') {
+    padding-left: colspan(3, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    padding-left: colspan(3, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-left: colspan(3, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: colspan(3, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+
+  &:last-child {
+    margin-top: 36px;
+  }
+}
+
+.o-form-lg__submit .a-btn {
+
+  @include breakpoint('xsmall') {
+    min-width: 100%;
+  }
+
+  @include breakpoint('small') {
+    min-width: colspan(2, small);
+  }
+}
+
+.o-form-lg ol {
+  margin-top: 24px;
+}
+
+.o-form-lg p + ol {
+  margin-top: 52px;
+}
+
+.o-form-lg ol > li {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 0;
+  padding-top: 16px;
+}
+
+.o-form-lg ol > li:first-child {
+  padding-top: 0;
+}
+
+.o-form-lg .o-form-lg-hr {
+  flex-wrap: wrap;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid $color__rules;
+}
+
+
+
+
+.o-form-lg ol > li > .a-label {
+  flex: 0 0 auto;
+  width: 100%;
+
+  @include breakpoint('small+') {
+    width: colspan(3, small, map-get($inner-gutters, small));
+    margin-top: 8px;
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(3, medium, map-get($inner-gutters, medium));
+    padding-left: colspan(1, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(3, large, map-get($inner-gutters, large));
+    padding-left: colspan(1, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(3, xlarge, map-get($inner-gutters, xlarge));
+    padding-left: colspan(1, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(3, xxlarge, map-get($inner-gutters, xxlarge));
+    padding-left: colspan(1, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.o-form-lg input,
+.o-form-lg textarea,
+.o-form-lg .a-form-select {
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    margin-top: 0;
+  }
+}
+
+.o-form-lg input,
+.o-form-lg textarea,
+.o-form-lg .a-form-select,
+.o-form-lg .a-form-hint,
+.o-form-lg ul {
+  flex: 0 0 auto;
+  width: 100%;
+
+  @include breakpoint('small+') {
+    width: colspan(3, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(4, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(4, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(4, xxlarge);
+  }
+}
+
+
+.o-form-lg ol .a-form-hint,
+.o-form-lg ol ul,
+.o-form-lg ol p,
+.o-form-lg .o-form-lg__date-range-radio-label {
+  width: 100%;
+
+  @include breakpoint('small+') {
+    padding-left: colspan(3, small, map-get($inner-gutters, small));
+  }
+
+  @include breakpoint('medium+') {
+    padding-left: colspan(3, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    padding-left: colspan(3, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    padding-left: colspan(3, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    padding-left: colspan(3, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.o-form-lg ol p {
+  margin-top: 16px;
+}
+
+.o-form-lg ol ul {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 20px;
+  padding-bottom: 4px;
+}
+
+.o-form-lg ol ul > li {
+  flex: 0 0 auto;
+  margin-top: 0;
+  margin-right: 15px;
+}
+
+
+
+
+.o-form-lg__date-range {
+  position: relative;
+}
+
+.o-form-lg__date-range input[type=radio] {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.o-form-lg__date-range input[data-dateRange-dateList]:checked {
+
+  & ~ span[data-dateRange-dateList],
+  & ~ label[data-dateRange-custom] {
+    display: block;
+  }
+
+  & ~ label[data-dateRange-dateList],
+  & ~ ul[data-dateRange-custom] {
+    display: none;
+  }
+}
+
+.o-form-lg__date-range input[data-dateRange-dateList] {
+
+  & ~ span[data-dateRange-dateList],
+  & ~ label[data-dateRange-custom] {
+    display: none;
+  }
+
+  & ~ label[data-dateRange-dateList] {
+    display: block;
+  }
+
+  & ~ ul[data-dateRange-custom] {
+    display: flex;
+  }
+}
+
+.o-form-lg ol .o-form-lg__date-range > ul {
+  flex: 0 0 auto;
+  margin-top: 0;
+  padding-left: 0 !important;
+
+  @include breakpoint('small+') {
+    width: colspan(3, small);
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(4, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(4, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(4, xxlarge);
+  }
+}
+
+.o-form-lg__date-range > ul > li {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.o-form-lg__date-range > ul > li > .a-label {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.o-form-lg__date-range > ul > li:not(:first-child) {
+  margin-top: 16px;
+}
+
+.o-form-lg__date-range .o-form-lg__date-range-radio-label {
+  @include f-blurb;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  margin-top: 16px;
+  color: $color__link-primary;
+  cursor: pointer;
+}
+
+.o-form-lg__date-range .o-form-lg__date-range-radio-label:hover {
+  text-decoration: underline;
+}
+
+.o-form-lg__date-range ul li .a-form-select {
+  width: calc(50% - #{map-get($inner-gutters, xsmall) / 2});
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    width: calc(50% - #{map-get($inner-gutters, small) / 2});
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(2, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(2, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(2, xxlarge);
+  }
+}
+
+.o-form-lg__date-range ul li .a-form-select:not(:first-of-type) {
+  margin-left: map-get($inner-gutters, xsmall);
+
+  @include breakpoint('small+') {
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    margin-left: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-left: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-left: map-get($inner-gutters, xxlarge);
+  }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// fieldset variant:
+// .o-form-lg__fieldset--legend-as-label
+
+.o-form-lg__fieldset--legend-as-label legend {
+  @include f-blurb;
+  display: block;
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+
+  @include breakpoint('small+') {
+    width: colspan(2, small, map-get($inner-gutters, small));
+    margin-top: 32px;
+    margin-bottom: -22px;
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(3, medium, map-get($inner-gutters, medium));
+    padding-left: colspan(1, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(3, large, map-get($inner-gutters, large));
+    padding-left: colspan(1, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(3, xlarge, map-get($inner-gutters, xlarge));
+    padding-left: colspan(1, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(3, xxlarge, map-get($inner-gutters, xxlarge));
+    padding-left: colspan(1, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.o-form-lg__fieldset--legend-as-label ol {
+  display: flex;
+  flex-flow: row wrap;
+  clear: both;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 16px;
+  padding-left: 0;
+
+  @include breakpoint('small+') {
+    width: colspan(6, small);
+    padding-top: 0;
+    padding-left: colspan(3, small, map-get($inner-gutters, small));
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(8, medium);
+    padding-left: colspan(3, medium, map-get($inner-gutters, medium));
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(8, large);
+    padding-left: colspan(3, large, map-get($inner-gutters, large));
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(8, xlarge);
+    padding-left: colspan(3, xlarge, map-get($inner-gutters, xlarge));
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(8, xxlarge);
+    padding-left: colspan(3, xxlarge, map-get($inner-gutters, xxlarge));
+  }
+}
+
+.o-form-lg .o-form-lg__fieldset--legend-as-label ol > li {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: calc(50% - #{map-get($inner-gutters, xsmall) / 2});
+  padding-top: 0;
+
+  @include breakpoint('small+') {
+    width: calc(50% - #{map-get($inner-gutters, small) / 2});
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(1, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(2, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(1, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(1, xxlarge);
+  }
+}
+
+.o-form-lg .o-form-lg__fieldset--legend-as-label ol > li:not(:first-child) {
+  margin-left: map-get($inner-gutters, xsmall);
+
+  @include breakpoint('small+') {
+    margin-left: map-get($inner-gutters, small);
+  }
+
+  @include breakpoint('medium+') {
+    margin-left: map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    margin-left: map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-left: map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-left: map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-form-lg .o-form-lg__fieldset--legend-as-label ol > li > .a-label {
+  flex: none;
+  width: auto;
+
+  @include breakpoint('small+') {
+    width: auto;
+    margin-top: 0;
+  }
+
+  @include breakpoint('medium+') {
+    width: auto;
+    padding-left: 0;
+  }
+
+  @include breakpoint('large+') {
+    width: auto;
+    padding-left: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: auto;
+    padding-left: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: auto;
+    padding-left: 0;
+  }
+}
+
+
+.o-form-lg .o-form-lg__fieldset--legend-as-label input,
+.o-form-lg .o-form-lg__fieldset--legend-as-label .a-form-select,
+.o-form-lg .o-form-lg__fieldset--legend-as-label .a-form-hint,
+.o-form-lg .o-form-lg__fieldset--legend-as-label ul {
+  flex: none;
+  width: 100%;
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    width: 100%;
+  }
+
+  @include breakpoint('medium+') {
+    width: 100%;
+  }
+
+  @include breakpoint('large+') {
+    width: 100%;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: 100%;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: 100%;
+  }
+}
+
+.o-form-lg textarea{
+  flex: 0 0 auto;
+  width: 100%;
+  margin-top: 16px;
+
+  @include breakpoint('small+') {
+    width: 50%;
+    margin-top: 0;
+  }
+
+  @include breakpoint('medium+') {
+    width: colspan(4, medium);
+  }
+
+  @include breakpoint('large+') {
+    width: colspan(4, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(4, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(4, xxlarge);
+  }
+}

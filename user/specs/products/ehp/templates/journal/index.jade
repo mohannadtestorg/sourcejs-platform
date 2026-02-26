@@ -1,0 +1,74 @@
+extends /specs/products/ehp/page-structure/structure/templates/structure/layout-tmpl.jade
+
+
+
+block content
+
+    h1 Journal Home page
+    .source_info
+
+
+
+    section.source_section
+        h2 Journal Home page
+        markdown
+        .source_example
+            | !{pb.render("header", "header/demo/header")}
+            main.content.journal-home
+                | !{data.slider}
+                .container
+                    .row
+                        .col-md-8.col-lg-9
+                            | !{data.articles}
+                        .col-md-4.col-lg-3
+                            .row
+                                .col-sm-6.col-md-12
+                                    h3.section__header.border-bottom podcasts
+                                    .podcasts
+                                        | !{data.podcasts}
+                                        p
+                                            a(href="#", class="btn") See all
+                                .col-sm-6.col-md-12
+                                    // @fixme rename this class
+                                    .newsletter--wrapper
+                                        | !{pb.render('newsletter', 'newsletter.json', {"shared": {"model": {"config": {"wrapper": "true", "className": ["card--dark", "card--gutter"]}}}})}
+                    .row
+                        .col-md-8.col-lg-9
+                            | !{data.news}
+                            .tab.journal-home__tab.hidden-sm.hidden-xs
+                                ul.rlist.tab__nav(role="tablist")
+                                    li.active(role="presentation")
+                                        a.active#pane-m1101con(href="#pane-m1101" aria-controls="#pane-m1101" role="tab" data-toggle="tab" title="Recomended" aria-selected="true")
+                                            span Recomended
+                                    li(role="presentation")
+                                        a.active#pane-m1111con(href="#pane-m1111" aria-controls="#pane-m1111" role="tab" data-toggle="tab" title="Most cited" aria-selected="false")
+                                            span Most cited
+                                    li(role="presentation")
+                                        a.active#pane-m1121con(href="#pane-m1121" aria-controls="#pane-m1121" role="tab" data-toggle="tab" title="Most read" aria-selected="false")
+                                            span Most read
+                                ul.rlist.tab__content
+                                    li.tab__pane.active#pane-m1101(aria-labelledby="pane-m1101con" role="tabpanel")
+                                        h3.section__header.border-bottom Recomended
+                                        | !{data.Recommended}
+                                    li.tab__pane#pane-m1111(aria-labelledby="pane-m1111con" role="tabpanel")
+                                        h3.section__header.border-bottom Most cited
+                                        | !{data.cited}
+                                    li.tab__pane#pane-m1121(aria-labelledby="pane-m1121con" role="tabpanel")
+                                        h3.section__header.border-bottom Most read
+                                        | !{data.read}
+                            .visible-sm.visible-xs
+                                .section__header.section__header__top-margin.border-bottom RECOMENDED
+                                | !{data.Recommended}
+                                .section__header.section__header__top-margin.border-bottom MOST CITED
+                                | !{data.cited}
+                                .section__header.section__header__top-margin.border-bottom MOST READ
+                                | !{data.read}
+                        .col-md-4.col-lg-3
+                            .row
+                                .col-sm-6.col-md-12
+                                    .mpu
+                                .col-sm-6.col-md-12
+                                    | !{pb.render('tweets', {"body": [{"screenName": "TwitterDev", "height": "510"}]})}
+
+            | !{pb.render("footer", "footer/demo/footer")}
+    | #{''}

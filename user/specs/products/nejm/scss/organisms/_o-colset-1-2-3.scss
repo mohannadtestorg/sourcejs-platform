@@ -1,0 +1,463 @@
+/***
+
+.o-colset-1-2-3
+===============
+
+Creates a responsive column set:
+
+* xsmall, small: 1 columns
+* medium: 2 columns
+* large, xlarge, xxlarge: 3 columns
+
+```
+<div class="o-colset-1-2-3">
+  <div class="o-col">Col 1</div>
+  <div class="o-col">Col 2</div>
+  <div class="o-col">Col 3</div>
+  <div class="o-col">Col 4</div>
+  <div class="o-col">Col 5</div>
+  <div class="o-col">Col 6</div>
+</div>
+```
+
+***/
+
+$column__listing-1-2-3-col: (
+        xsmall: 6,
+        small: 6,
+        medium: 4,
+        large: 4,
+        xlarge: 4,
+        xxlarge: 4
+);
+
+.o-colset-1-2-3 {
+  @include columns-container-flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+  margin-right: -4px; // for rounding errors
+
+  & + & {
+    margin-top: 20px;
+
+    @include breakpoint('medium+') {
+      margin-top: 40px;
+    }
+  }
+}
+
+.o-colset-1-2-3 > .o-col {
+  @include column-flex($column__listing-1-2-3-col);
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+  }
+}
+
+.o-colset-1-2-3--gridlines-cols > .o-col > .a-subtitle:first-child,
+.o-colset-1-2-3 > .o-col > .a-subtitle:first-child {
+  margin-top:0;
+}
+
+.o-colset-1-2-3.o-colset-1-2-3--no-wrap {
+  flex-wrap: nowrap;
+}
+
+.o-colset-1-2-3.o-colset-1-2-3--no-wrap > .o-col:nth-child(1) ~ .o-col {
+  @include breakpoint('small-') {
+    display: none;
+  }
+}
+
+.o-colset-1-2-3.o-colset-1-2-3--no-wrap > .o-col:nth-child(2) ~ .o-col {
+  @include breakpoint('medium') {
+    display: none;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  inside .o-col--primary
+//
+
+.o-col--primary .o-colset-1-2-3 + .o-colset-1-2-3 {
+  @include breakpoint('small-') {
+    margin-top: 36px;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3 > .o-col {
+  @include breakpoint('small-') {
+    margin-top: 36px;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3 > .o-col:first-child {
+  @include breakpoint('small-') {
+    margin-top: 0;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: top
+//
+
+.o-colset-1-2-3--gridlines > .o-col {
+  margin-top: 32px;
+
+  @include breakpoint('medium+') {
+    margin-top: 60px;
+  }
+}
+
+.o-colset-1-2-3--gridlines > .o-col:nth-child(1) {
+  margin-top: 0;
+}
+
+.o-colset-1-2-3--gridlines > .o-col:nth-child(1),
+.o-colset-1-2-3--gridlines > .o-col:nth-child(2) {
+
+  @include breakpoint('medium+') {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.o-colset-1-2-3--gridlines > .o-col:nth-child(3) {
+  @include breakpoint('large+') {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.o-colset-1-2 .o-col--primary .o-colset-1-2-3--gridlines > .o-col:nth-child(3) {
+  margin-top: 32px;
+
+  @include breakpoint('medium+') {
+    margin-top: 60px;
+  }
+}
+
+.o-colset-1-2-3--gridlines > .o-col::before {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-right: 0;
+  margin-bottom: 15px;
+  background-color: $color__rules;
+
+  @include breakpoint('medium+') {
+    margin-bottom: 19px;
+  }
+}
+
+.a-subtitle + .o-colset-1-2-3--gridlines-cols {
+  margin-top: 20px;
+}
+
+.o-colset-1-2-3--gridlines:not(:first-child),
+.o-colset-1-2-3--gridlines + .o-colset-1-2-3 {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 40px;
+  }
+}
+
+.m-year-header + .o-colset-1-2-3--gridlines {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: top, joined
+//
+
+.o-colset-1-2-3--gridlines-rows > .o-col::before {
+  position: static;
+
+  @include breakpoint('medium+') {
+    margin-right: - map-get($inner-gutters, medium);
+  }
+
+  @include breakpoint('large+') {
+    margin-right: - map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: - map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: - map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-colset-1-2-3--gridlines-rows > .o-col:nth-child(2n)::before {
+  @include breakpoint('medium') {
+    margin-right: 0;
+  }
+}
+
+.o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3n)::before {
+
+  @include breakpoint('large+') {
+    margin-right: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: 0;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3n)::before {
+  @include breakpoint('large+') {
+    margin-right: - map-get($inner-gutters, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: - map-get($inner-gutters, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: - map-get($inner-gutters, xxlarge);
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(2n)::before {
+
+  @include breakpoint('large+') {
+    margin-right: 0;
+  }
+
+  @include breakpoint('xlarge+') {
+    margin-right: 0;
+  }
+
+  @include breakpoint('xxlarge') {
+    margin-right: 0;
+  }
+}
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// `o-colset-1-2-3--gridlines-cols`
+//  grid lines: right
+//
+
+.o-colset-1-2-3--gridlines-cols > .o-col {
+  @include breakpoint('medium+') {
+    position: relative;
+  }
+}
+
+.o-colset-1-2-3--gridlines-cols > .o-col::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: $color__rules;
+
+  @include breakpoint('medium+') {
+    content: '';
+    right: map-get($inner-gutters, medium) / -2;
+  }
+
+  @include breakpoint('large+') {
+    right: map-get($inner-gutters, large) / -2;
+  }
+
+  @include breakpoint('xlarge+') {
+    right: map-get($inner-gutters, xlarge) / -2;
+  }
+
+  @include breakpoint('xxlarge') {
+    right: map-get($inner-gutters, xxlarge) / -2;
+  }
+}
+
+.o-colset-1-2-3--gridlines-cols > .o-col:nth-child(2n)::after {
+  @include breakpoint('medium') {
+    content: none;
+    display: none;
+  }
+}
+
+.o-colset-1-2-3--gridlines-cols > .o-col:nth-child(3n)::after {
+  @include breakpoint('large+') {
+    content: none;
+    display: none;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-cols > .o-col:nth-child(3n)::after {
+  @include breakpoint('large+') {
+    content: '';
+    display: block;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-cols > .o-col:nth-child(2n)::after {
+  @include breakpoint('large+') {
+    content: none;
+    display: none;
+  }
+}
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// `o-colset-1-2-3--gridlines-rows`
+//  grid lines: top
+//
+
+.o-colset-1-2-3--gridlines-rows > .o-col:nth-child(2n+1)::before {
+  @include breakpoint('medium') {
+    width: colspan(8, medium);
+  }
+}
+
+.o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3n+1)::before {
+  @include breakpoint('large+') {
+    width: colspan(12, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(12, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(12, xxlarge);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: top side, inside .o-col--primary
+//
+
+.o-colset-1-2 .o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3) {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3n+1)::before {
+  @include breakpoint('large+') {
+    width: auto;
+  }
+
+  @include breakpoint('xlarge+') {
+    width: auto;
+  }
+
+  @include breakpoint('xxlarge') {
+    width: auto;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(2n+1)::before {
+  @include breakpoint('large+') {
+    width: colspan(8, large);
+  }
+
+  @include breakpoint('xlarge+') {
+    width: colspan(8, xlarge);
+  }
+
+  @include breakpoint('xxlarge') {
+    width: colspan(8, xxlarge);
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// `o-colset-1-2-3--gridlines-rows`
+//  grid lines: right
+//
+
+.o-colset-1-2-3--gridlines-rows > .o-col {
+  position: relative;
+  margin-top: 20px;
+}
+
+.o-colset-1-2-3--gridlines-rows > .o-col::after {
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  width: 1px;
+  background-color: $color__rules;
+
+  @include breakpoint('medium+') {
+    content: '';
+    right: map-get($inner-gutters, medium) / -2;
+  }
+
+  @include breakpoint('large+') {
+    right: map-get($inner-gutters, large) / -2;
+  }
+
+  @include breakpoint('xlarge+') {
+    right: map-get($inner-gutters, xlarge) / -2;
+  }
+
+  @include breakpoint('xxlarge') {
+    right: map-get($inner-gutters, xxlarge) / -2;
+  }
+}
+
+.o-colset-1-2-3--gridlines-rows > .o-col:nth-child(2n)::after {
+  @include breakpoint('medium') {
+    content: none;
+    display: none;
+  }
+}
+
+.o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3n)::after {
+  @include breakpoint('large+') {
+    content: none;
+    display: none;
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//  grid lines: right side, inside .o-col--primary
+//
+
+.o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(3n)::after {
+  @include breakpoint('large+') {
+    content: '';
+    display: block;
+  }
+}
+
+.o-col--primary .o-colset-1-2-3--gridlines-rows > .o-col:nth-child(2n)::after {
+  @include breakpoint('large+') {
+    content: none;
+    display: none;
+  }
+}
+
+// for the toolkit:
+div > #a17 .o-colset-1-2-3 > .o-col {
+  background-color: #eee;
+  margin-top: 5px;
+}
+
+//
+
+.o-colset-1-2-3--gridlines-cols + .o-colset-1-2-3--gridlines.o-colset-1-2-3--gridlines-rows {
+  margin-top: 20px;
+
+  @include breakpoint('medium+') {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,48 @@
+.dropBlock {
+    position: relative;
+    display: inline-block;
+
+    & + & {
+        margin-left: 0;
+        margin-top: 1rem;
+        @include media('>phone') {
+            margin-left: 24px;
+            margin-top: 0;
+        }
+    }
+}
+
+[data-db-parent-of]:not(.sticko):not(.sticko__md):not(.js--not-parent){
+    position: relative;
+}
+
+[data-db-target-for] {
+    .icon-caret {
+        &.js--rotated {
+            transform: rotate(180deg) scale(.6);
+        }
+    }
+}
+
+[data-db-target-of] {
+    display: none;
+    position: absolute;
+    left: 0;
+    margin: 1rem 0 0;
+    padding: 8px 0;
+    list-style: none;
+    min-width: 100%;
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+
+    a {
+        margin: 0;
+        padding: 4px 24px;
+        font-weight: normal;
+    }
+
+    &.js--open {
+        display: block;
+    }
+}

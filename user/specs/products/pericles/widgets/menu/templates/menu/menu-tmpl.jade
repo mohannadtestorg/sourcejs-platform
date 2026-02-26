@@ -1,0 +1,23 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl
+
+
+block mainNavBlock
+    .stickybar__wrapper
+        div.main-nav
+            a(href="#" + data.id data-target=data.id data-toggle="nav" title="menu drawer")
+                i.icon-menu2(aria-hidden="true")
+                i.icon-close_thin(aria-hidden="true")
+            nav.drawer__nav.container.gutterless(role="navigation" id=data.id class=viewPortClass data-ctrl-res=viewPort)
+                h2.is-accessible Navigation Bar
+                section
+                    h3.is-accessible Menu
+                    a.menu-header(href='/' class=viewPortInvertClass) Home
+                    if data.list
+                        +menu(data.list, false)
+                block menuDropZone
+                    | !{pb.renderDropzone(thisWidget, "mainMenuDropZone")}
+
+
+
+block externalIcon
+    i.icon-export-icon(aria-hidden="true")

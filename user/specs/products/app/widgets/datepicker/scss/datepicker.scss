@@ -1,0 +1,51 @@
+.ui-datepicker{
+
+  &.ui-widget{
+    background-color: $secondary-lighten-bg-color;
+  }
+
+  &-calendar{
+    th{
+      color: $black;
+    }
+    .ui-state-default{
+      border: none;
+      background-color: transparent;
+    }
+    .ui-state-active{
+      background-color: $link-text-color;
+      font-weight: 700;
+    }
+  }
+
+  &-header{
+    background:transparent;
+    border: none;
+  }
+
+  .ui-icon{
+    text-indent: 0;
+    width: 10px;
+    background: none;
+    font-family: icomoon!important;
+    color: $link-text-color;
+    font-size: .8rem;
+  }
+  .ui-icon-circle-triangle-e{
+    &:before{
+      content: "\e625";
+    }
+  }
+  .ui-icon-circle-triangle-w{
+    &:before{
+      content: "\e624";
+    }
+  }
+
+  &-next,&-prev{
+    &.ui-state-hover{
+      background: transparent;
+      border: none;
+    }
+  }
+}

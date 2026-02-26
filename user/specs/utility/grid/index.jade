@@ -1,0 +1,157 @@
+﻿extends /specs/page-structure/layout.jade
+
+block cssLastInHead
+    include ../page-structure/css-lastin-head.jade
+
+block jsLastInBody
+    include ../page-structure/js-lastin-body.jade
+
+block content
+    h1 Grid system
+    .source_info
+      p UX3 is using
+        a(href='http://getbootstrap.com/css/#grid')  Bootstrap
+        |  fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases.
+
+
+    section.source_section
+        h2 Grid Structure
+        h3 Grid variables
+        p We use the following Variables in our scss files to create the key values in our grid system.
+        code.src-css.source_visible
+            // Extra small screen / phone
+            //** Deprecated `$screen-xs` as of v3.0.1
+            | $screen-xs:                  480px !default;
+            //** Deprecated `$screen-xs-min` as of v3.2.0
+            | $screen-xs-min:              $screen-xs !default;
+            //** Deprecated `$screen-phone` as of v3.0.1
+            | $screen-phone:               $screen-xs-min !default;
+
+            // Small screen / tablet
+            //** Deprecated `$screen-sm` as of v3.0.1
+            | $screen-sm:                  768px !default;
+            | $screen-sm-min:              $screen-sm !default;
+            //** Deprecated `$screen-tablet` as of v3.0.1
+            | $screen-tablet:              $screen-sm-min !default;
+
+            // Medium screen / desktop
+            //** Deprecated `$screen-md` as of v3.0.1
+            | $screen-md:                  992px !default;
+            | $screen-md-min:              $screen-md !default;
+            //** Deprecated `$screen-desktop` as of v3.0.1
+            | $screen-desktop:             $screen-md-min !default;
+
+            // Large screen / wide desktop
+            //** Deprecated `$screen-lg` as of v3.0.1
+            | $screen-lg:                  1200px !default;
+            | $screen-lg-min:              $screen-lg !default;
+            //** Deprecated `$screen-lg-desktop` as of v3.0.1
+            | $screen-lg-desktop:          $screen-lg-min !default;
+
+            // So media queries don't overlap when required, provide a maximum
+            | $screen-xs-max:              ($screen-sm-min - 1) !default;
+            | $screen-sm-max:              ($screen-md-min - 1) !default;
+            | $screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+            //== Grid system
+            //
+            //## Define your custom responsive grid.
+
+            //** Number of columns in the grid.
+            | $grid-columns:              12 !default;
+            //** Padding between columns. Gets divided in half for the left and right.
+            | $grid-gutter-width:         30px !default;
+            // Navbar collapse
+            //** Point at which the navbar becomes uncollapsed.
+            | $grid-float-breakpoint:     $screen-sm-min !default;
+            //** Point at which the navbar begins collapsing.
+            | $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+
+            //== Container sizes
+            //
+            //## Define the maximum width of `.container` for different screen sizes.
+
+            // Small screen / phone
+            | $container-mobile:             (500px + $grid-gutter-width) !default;
+            //** For `$screen-sm-min` and up.
+            | $container-xs:                 $container-mobile !default;
+
+            // Small screen / tablet
+            | $container-tablet:             (720px + $grid-gutter-width) !default;
+            //** For `$screen-sm-min` and up.
+            | $container-sm:                 $container-tablet !default;
+
+            // Medium screen / desktop
+            | $container-desktop:            (940px + $grid-gutter-width) !default;
+            //** For `$screen-md-min` and up.
+            | $container-md:                 $container-desktop !default;
+
+            // Large screen / wide desktop
+            | $container-large-desktop:      (1140px + $grid-gutter-width) !default;
+            //** For `$screen-lg-min` and up.
+            | $container-lg:                 $container-large-desktop !default;
+
+
+        markdown
+            p you can find these variables in `grid-variable.scss` file which is under the following path `/spec/utility/grid/scss`.
+            p you can override these values by adding this file in the following path `/spec/-project-name-/basic/base/scss` under your project
+
+        h3 Media queries
+        markdown
+            p We define our breakpoints to match the device names, to make it easier for you to use
+        code.src-css.source_visible
+             | $breakpoints: (
+             |    'phone': $container-mobile, // 530px;
+             |    'tablet': $container-tablet, // 750px
+             |    'desktop': $container-desktop, // 970px
+             |    'large': $container-large-desktop // 1170px
+             | ) !default;
+        markdown
+            p you dont need to override these values, you just override the variables inside `grid-variable.scss` file and that will effect you breakpoints
+
+        h3 Include media queries mixin
+        markdown
+            p Using media queries in code by including media mixin
+        code.src-js.source_visible
+             | @include media('&lt;phone') { // on mobile -- less than 530px
+             | @include media('&gt;=phone', '&lt;tablet') { // on tablet -- less than 750px and larger than 530px
+             | @include media('&gt;=tablet', '&lt;desktop') { // on desktop -- less than 970px and larger than 750px
+             | @include media('&gt;=desktop', '&lt;large') { // on large screen -- less than 1170px and larger than 970px
+             | @include media('&gt;=large') { // on larger screens -- larger than 1170px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

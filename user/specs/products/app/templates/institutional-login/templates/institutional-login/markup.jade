@@ -1,0 +1,65 @@
+section.shibboleth
+    .institutions
+        h3.page__header
+            | Select your institution
+        h5 FEDERATION
+        .tab.tab--res(data-ctrl-res='screen-xlg')
+            .dropBlock(data-db-parent-of='dbTab-1')
+                a(href='#', data-db-target-for='dbTab-1')
+                    span
+                        | OpenAthens Federation
+                    i.icon-arrow_d_n.pull-right(aria-hidden='true')
+                ul.rlist.tab__nav(role='tablist', data-mobile-toggle='dropdown', data-db-target-of='dbTab-1', style='top: 43px; left: 0px; width: 1080px;')
+                    li(role='presentation')
+                        a#pane-federation-con-0(href='#pane-federation-0', aria-controls='#pane-federation-0', role='tab', data-toggle='tab', title='Academic Access Management Federation in Japan (GakuNin)', aria-selected='false', aria-expanded='false')
+                            span Academic Access Management Federation in Japan (GakuNin)
+                    li(role='presentation')
+                        a#pane-federation-con-1(href='#pane-federation-1', aria-controls='#pane-federation-1', role='tab', data-toggle='tab', title='Japan - GakuNin', aria-selected='false')
+                            span Japan - GakuNin
+                    li.active(role='presentation')
+                        a#pane-federation-con-2(href='#pane-federation-2', aria-controls='#pane-federation-2', role='tab', data-toggle='tab', title='OpenAthens Federation', aria-selected='false', aria-expanded='true')
+                            span OpenAthens Federation
+                    li(role='presentation')
+                        a#pane-federation-con-3(href='#pane-federation-3', aria-controls='#pane-federation-3', role='tab', data-toggle='tab', title='UK Higher Education', aria-selected='false')
+                            span UK Higher Education
+            ul.rlist.tab__content
+                li#pane-federation-0.tab__pane(aria-labelledby='pane-federation-con-0', role='tabpanel')
+                    h5 SELECT YOUR INSTITUTE
+                    ul
+                        li(data-value='GakuNin IdP')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.gakunin.nii.ac.jp%2Fidp%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') GakuNin IdP
+                li#pane-federation-1.tab__pane(aria-labelledby='pane-federation-con-1', role='tabpanel')
+                    h5 SELECT YOUR INSTITUTE
+                    ul
+                        li(data-value='GakuNin IdP')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.gakunin.nii.ac.jp%2Fidp%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') GakuNin IdP
+                li#pane-federation-2.tab__pane.active(aria-labelledby='pane-federation-con-2', role='tabpanel')
+                    h5 SELECT YOUR INSTITUTE
+                    ul
+                        li(data-value='Agilent Technologies Inc')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.agilent.com%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Agilent Technologies Inc
+                        li(data-value='Eduserv Athens')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.eduserv.org.uk%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Eduserv Athens
+                        li(data-value='Guy’s and St Thomas’ NHS Foundation Trust')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Guy’s and St Thomas’ NHS Foundation Trust
+                        li(data-value='Imperial College Healthcare NHS Trust')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Imperial College Healthcare NHS Trust
+                        li(data-value='King’s College Hospital NHS Foundation Trust')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.eng.nhs.uk%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') King’s College Hospital NHS Foundation Trust
+                        li(data-value='Mathematica Policy Research')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.mathematica-mpr.com%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Mathematica Policy Research
+                        li(data-value='Roche Products Pty. Limited')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fidp.roche.com%2Fopenathens&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Roche Products Pty. Limited
+                li#pane-federation-3.tab__pane(aria-labelledby='pane-federation-con-3', role='tabpanel')
+                    h5 SELECT YOUR INSTITUTE
+                    ul
+                        li(data-value='Imperial College London')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fshibboleth.imperial.ac.uk%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') Imperial College London
+                        li(data-value="King's College London")
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fkclidp.kcl.ac.uk%2Fidp%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') King's College London
+                        li(data-value='UCL (University College London)')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fshib-idp.ucl.ac.uk%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') UCL (University College London)
+                        li(data-value='University of Aberdeen')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fshibserv.abdn.ac.uk%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') University of Aberdeen
+                        li(data-value='University of Manchester')
+                            a(href='https://www.future-science.com/action/ssostart?idp=https%3A%2F%2Fshib.manchester.ac.uk%2Fshibboleth&redirectUri=%2Faction%2FshowLogin%3Furi%3D%252F') University of Manchester

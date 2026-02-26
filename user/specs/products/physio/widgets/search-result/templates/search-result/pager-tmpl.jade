@@ -1,0 +1,68 @@
+- var newurl = ""
+
+- var  temp = data.searchParams
+
+mixin pageItem(i, pages)
+    -var pageId = i - 1;
+    -var n = 6 - data.search.startPage;
+    -var m = data.search.startPage - (pages - 5);
+    if i < pages
+        if data.search.startPage < 4
+            if  i >= (data.search.startPage - 1) && i <= (data.search.startPage + n)
+                li
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    a(href= newurl, title=i, class=i == data.search.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+
+        else if data.search.startPage > (pages - 4)
+            if  i >= (data.search.startPage - m) && i <= pages
+                li
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    a(href= newurl, title=i, class=i == data.search.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+                - m++;
+        else
+            if  i >= data.search.startPage   && i <= (data.search.startPage + 2)
+                li
+                    - newurl = pb.updateParam(temp,"startPage",pageId)
+                    a(href= newurl, title=i, class=i == data.search.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+
+    if i < (data.search.startPage + 5)
+        +pageItem(i+1, pages)
+
+.pagination
+    - var nextPageId = data.search.startPage +1;
+    - var prevPageId = data.search.startPage -1;
+
+    if prevPageId >= 0
+        span
+            - var prevPageId = data.search.startPage -1;
+            - newurl = pb.updateParam(temp,"startPage",prevPageId)
+            a.pagination__btn--prev(href= newurl, title='Previous Page' aria-label="Previous page link")
+    else
+        span
+            a.pagination__btn--prev.disabled
+    ul.rlist--inline.pagination__list
+        - var i = 1
+        - var pageId = i - 1;
+        if pages > 1
+            li
+                - newurl = pb.updateParam(temp,"startPage",pageId)
+                a(href= newurl, title=i, class=i == data.search.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{i}
+            if data.search.startPage >= 4 && data.search.startPage <= (pages - 4)
+                li
+                    a ...
+            - var i = data.search.startPage - 4
+            if i < 2
+                -i = 2
+            +pageItem(i, pages)
+            if data.search.startPage >= 4 && data.search.startPage <= (pages - 4)
+                li
+                    a ...
+            li
+                - newurl = pb.updateParam(temp,"startPage",pages-1)
+                a(href= newurl, title=pages , class=pages  == data.search.startPage + 1 ? 'active' : '' aria-label="Page " + i) !{parseInt(pages) }
+
+    if nextPageId < pages
+        span
+            - var nextPageId = data.search.startPage +1;
+            - newurl = pb.updateParam(temp,"startPage",nextPageId)
+            a.pagination__btn--next(href= newurl, title='Next page' aria-label="Next page link")

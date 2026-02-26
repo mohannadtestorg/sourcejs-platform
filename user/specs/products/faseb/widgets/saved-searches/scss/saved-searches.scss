@@ -1,0 +1,32 @@
+.saved-searches {
+    th {
+        color: $primary-text-color;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    td {
+        color: $secondary-text-color;
+    }
+
+    .btn.table__action {
+        color: $secondary-text-color;
+        font-size: $h6-font-size;
+        border: none;
+        padding: 0px;
+
+        &:hover {
+            color: $primary-link-color;
+            text-decoration: none;
+            background-color: transparent;
+        }
+    }
+
+    .expandable {
+        @include media('<tablet') {
+            tbody tr:first-child {
+                padding-top: 0px;
+            }
+        }
+    }
+
+}

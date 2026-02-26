@@ -1,0 +1,87 @@
+.w-slide{
+    &_head{
+        background-color: $default-bg-color;
+        text-transform: capitalize;
+    }
+
+    &__content{
+
+        padding: 55px 15px 0;
+
+        &[original-target="#filter"]{
+            background-color: $dropzone-bg-hover-color;
+        }
+        &[original-target="#loi-banner"]{
+            padding-top: 40px;
+            >a,.loi{
+                margin: 0 -15px;
+            }
+            .loi{
+                margin-top: -15px;
+            }
+        }
+
+
+        .w-slide--list{
+            a{
+                border-bottom-color: $primary-border-color;
+                @include themify($themes) {
+                    color: themed('color');
+                }
+                i{
+                    @include themify($themes) {
+                        color: themed('color');
+                    }
+                }
+            }
+
+            li{
+                &:first-child{
+                    border-color: $primary-border-color;
+                }
+            }
+
+
+        }
+        .coolBar__cmeList{
+            margin-top: 8px;
+        }
+
+        .transplanted-clone,.loa-accordion{
+            @include media('<tablet'){
+                margin-right: -15px;
+                margin-left: -15px;
+                .w-slide--list{
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .author-name{
+            @include themify($themes) {
+                color: themed('color');
+            }
+        }
+
+
+        .loa-toggle{
+            display: none;
+        }
+
+
+    }
+    &--list {
+        @include media('<tablet'){
+            margin: 0 -15px;
+        }
+
+        a{
+            border-bottom-color: $primary-border-color;
+        }
+    }
+    &__title{
+        text-align: center;
+        margin-top: 2px;
+    }
+}

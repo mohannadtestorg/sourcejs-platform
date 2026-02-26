@@ -1,0 +1,47 @@
+extends ../../../../../../ux3/widgets/menu/templates/menu/menu-tmpl
+
+block mainNavBlock
+    div.main-nav
+        a(href="#" + data.id data-target=data.id data-toggle="nav" title="menu drawer")
+            block navIcons
+                i.icon-menu2(aria-hidden="true")
+                i.icon-close_thin(aria-hidden="true")
+        nav.drawer__nav.container(role="navigation" id=data.id class=viewPortClass data-ctrl-res=viewPort data-db-parent-of="extraMenu")
+            a.menu-header(href='/' class=viewPortInvertClass) Home
+            div.main-nav--desktop.main-nav--main
+                +menu(data.list, false)
+            div.main-nav--extra
+                block demoRegion1
+                    | !{pb.renderDropzone(thisWidget, "mainNavDropZone")}
+                if (data.extra)
+                    a(href="#" data-db-target-for="extraMenu" title="Desktop menu drawer" data-db-switch="icon-tools_close" class="hidden-xs hidden-sm")
+                        block navIcons
+                            i.icon-menu2(aria-hidden="true")
+                    div.rlist.main-nav__extra-links.dropBlock__holder(data-db-target-of="extraMenu")
+                        div.transplant.showit(data-target=".footer-top .footer-top__body" data-remove="false" data-target-class="hidden-xs hidden-sm" data-toggle="transplant" data-direction="from" data-transplant="self")
+
+
+
+block menuDropdown
+    if (item.link) && (item.list)
+        a.dropdown__toggle(href=item.link title=item.text id=data.id + "-" + dropDownId )
+            if (item.text)
+                span !{item.text}
+        +menu(item.list, true)
+    else if (item.link)
+        a(href=item.link title=item.text)
+            if (item.text)
+                span !{item.text}
+    else if (item.list)
+        a.dropdown__toggle(href="#" title=item.text id=data.id + "-" + dropDownId )
+            if (item.text)
+                span !{item.text}
+            i.icon-arrow_d_n.pull-right(aria-hidden="true" class=viewPortInvertClass)
+        +menu(item.list, true)
+    else
+        if (item.text)
+            span !{item.text}
+
+
+
+block MenuDropZone

@@ -1,0 +1,80 @@
+.tab {
+    &-default {
+        margin-top: 30px;
+        .tab__nav {
+            li {
+                font-size: 1rem;
+            }
+            a {
+                color: $ess-secondary-text-color;
+                border: none;
+                text-transform: uppercase;
+                padding: 0 3px;
+                margin-right: 20px;
+                font-weight: bold;
+                line-height: normal;
+                font-size: 1rem;
+                text-transform: uppercase;
+                @include media('<phone') {
+                    margin-right: 8px;
+                }
+            }
+
+            .active {
+                a {
+                    color: $blue-text-color;
+                    box-shadow:inset 0 -4px 0 0 $blue-text-color;
+                }
+            }
+        }
+
+    }
+
+    &__nav {
+        background: $white-color;
+        padding-bottom: 11px;
+        li {
+            border-color: $primary-border-color;
+        }
+        li.active {
+            border-bottom:2px solid $black-color;
+            a {
+                padding-bottom:7px;
+                border-bottom: none;
+                i {
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+
+    .dropBlock {
+        > a {
+            background-color: $standard-secondary-bg-color;
+            color: $text-onDark;
+            i {
+                color: $text-onDark;
+            }
+        }
+    }
+
+    &--res {
+        &.tab--slide {
+            .tab__content {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+    }
+
+    .tab__content {
+        li {
+            hr.section__separator:last-child {
+                display: none;
+            }
+        }
+    }
+}
+
+

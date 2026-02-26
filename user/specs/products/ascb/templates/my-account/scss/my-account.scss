@@ -1,0 +1,24 @@
+.profile-pages{
+  .account-tab{
+    &__nav:not(.js--open){
+      a{
+        @include themify($themes) {
+          border-color: themed('color');
+        }
+      }
+      .active a{
+        color: $white;
+        @include themify($themes) {
+          background-color: themed('color');
+          border-color: themed('color');
+        }
+
+      }
+    }
+  }
+
+}
+
+.profileMain{
+  margin-top: 15px;
+}

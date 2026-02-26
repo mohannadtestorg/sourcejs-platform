@@ -1,0 +1,13 @@
+nav.article__breadcrumbs
+    - var crumbs = data.breadcrumbs
+    if crumbs
+        if(crumbs.SiteHome && crumbs.SiteHome.label)
+            a.article__tocHeading(href=crumbs.SiteHome.link) !{crumbs.SiteHome.label}
+        if(crumbs.Serial && crumbs.Serial.link && crumbs.Serial.label)
+            a.article__tocHeading(href=crumbs.Serial.link) !{crumbs.Serial.label}
+        if(crumbs.Group && crumbs.Group.link && crumbs.Group.label)
+            a.article__tocHeading(href=crumbs.Group.link)= crumbs.Group.label
+        if(crumbs.Item && crumbs.Item.link && crumbs.Item.label)
+            a.article__tocHeading.article__title(href=crumbs.Item.link) !{crumbs.Item.label}
+        if(crumbs.CurrentPage && crumbs.CurrentPage.label)
+            a.article__tocHeading !{crumbs.CurrentPage.label}

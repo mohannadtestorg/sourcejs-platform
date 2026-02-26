@@ -1,0 +1,7 @@
+import '../publication-content/js/publication-content.js'
+import '../table-of-content/js/toc.js'
+import '../quick-search/js/quick-search.js'
+import '../advanced-search/js/advanced-search.js'
+import '../pagination-slideshow/js/pagination-slideshow.js'
+import '../list-of-issues/js/loi.js'
+import '../publication-list/js/publication-list.js'
