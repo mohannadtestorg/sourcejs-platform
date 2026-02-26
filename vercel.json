@@ -1,13 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/index.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "installCommand": "npm install && node scripts/patch-contextify.js",
   "routes": [
     { "src": "/(.*)", "dest": "api/index.js" }
-  ],
-  "installCommand": "npm install --ignore-scripts && node scripts/patch-contextify.js"
+  ]
 }

@@ -1,24 +1,15 @@
 'use strict';
 // Replaces the native contextify addon with a pure-JS vm shim.
-// Run after `npm install --ignore-scripts` to ensure Node can load jsdom
-// on any architecture (e.g. arm64, serverless environments).
+// Handles both hoisted (node_modules/contextify) and nested
+// (node_modules/jsdom/node_modules/contextify) locations.
 
 var fs = require('fs');
 var path = require('path');
 
-var targetPath = path.join(__dirname, '../node_modules/jsdom/node_modules/contextify/lib/contextify.js');
-
-if (!fs.existsSync(targetPath)) {
-    console.log('patch-contextify: target not found at', targetPath, '— skipping.');
-    process.exit(0);
-}
-
 var shim = [
     "'use strict';",
-    "// Pure-JS shim replacing the native contextify addon.",
-    "// Uses Node's built-in vm module which provides equivalent functionality.",
+    "// Pure-JS vm shim replacing the native contextify addon.",
     "var vm = require('vm');",
-    "",
     "function Contextify(sandbox) {",
     "    if (typeof sandbox != 'object') { sandbox = {}; }",
     "    vm.createContext(sandbox);",
@@ -45,5 +36,20 @@ var shim = [
     "module.exports = Contextify;"
 ].join('\n');
 
-fs.writeFileSync(targetPath, shim, 'utf8');
-console.log('patch-contextify: vm shim written to', targetPath);
+var candidates = [
+    path.join(__dirname, '../node_modules/contextify/lib/contextify.js'),
+    path.join(__dirname, '../node_modules/jsdom/node_modules/contextify/lib/contextify.js')
+];
+
+var patched = 0;
+candidates.forEach(function(target) {
+    if (fs.existsSync(target)) {
+        fs.writeFileSync(target, shim, 'utf8');
+        console.log('patch-contextify: patched', target);
+        patched++;
+    }
+});
+
+if (patched === 0) {
+    console.log('patch-contextify: no contextify installations found, skipping.');
+}
